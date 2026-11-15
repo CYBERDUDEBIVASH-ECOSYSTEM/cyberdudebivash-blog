@@ -306,7 +306,11 @@ def test_soc_dashboard_uses_first_party_runtime_data_plane():
     assert "fetchDashboardFeed(section" in load
     assert "aggregateFeeds(section" not in load
     assert "First-party dashboard feed unavailable; no synthetic fallback substituted" in load
-    assert "updateRuntimeState(enriched, payload.generated_at)" in load
+    # The dashboard must use the genuine last-report receipt as well as
+    # the feed generation clock. A heartbeat alone is not LIVE evidence.
+    assert "function updateRuntimeState(items, generatedAt, reportGeneratedAt)" in engine
+    assert "metadata:{lastReportGeneratedAt:reportGeneratedAt}" in engine
+    assert "updateRuntimeState(enriched, payload.generated_at, payload.report_generated_at)" in load
     assert "action === 'dashboard'" in api
     assert "contract: 'cdb.dashboard-feed.v1'" in api
     assert "assessPublicIntel(canonicalPublicFeed)" in api
