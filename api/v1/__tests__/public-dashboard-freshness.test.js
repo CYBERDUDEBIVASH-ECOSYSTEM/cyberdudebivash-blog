@@ -118,13 +118,48 @@ test('Verified stats preserve historical volume truth with explicitly separate s
   expect(res.body.stats.metrics_scope).toBe('CURRENT_EVIDENCED_WINDOW');
   const current=assessPublicIntel(feed,Date.now()).items;
   expect(res.body.stats.live_intel_count).toBe(current.length);
-  expect(res.body.stats.live_intel_count).toBeLessThan(150);
+  // Source-backed active feeds may contain 150 (or more) legitimate items.
+  // Use the actual verified source cardinality instead of an arbitrary ceiling.
+  expect(current.length).toBeGreaterThan(0);
+  expect(current.length).toBeLessThanOrEqual(feed.items.length);
   expect(res.body.stats.critical_threats).toBe(current.filter(i=>
     Number(i.cvss)>=9).length);
   expect(res.body.stats.cisa_kev_count).toBe(current.filter(i=>
     i.cisaKev===true||i.cisa_kev===true).length);
   expect(res.body.meta.source_timestamp).toBe(new Date(SOURCE).toISOString());
   expect(res.body.meta.timestamp).not.toBe(res.body.meta.source_timestamp);
+});
+
+
+test('P0 stats source cardinality resists stale re-ingestion, future dates and duplicate IDs',()=>{
+  const now=Date.now();
+  const baseline=assessPublicIntel(feed,now);
+  expect(baseline.ok).toBe(true);
+  expect(baseline.items.length).toBeGreaterThan(0);
+
+  const oneHourAgo=new Date(now-60*60000).toISOString();
+  const tenMinutesAgo=new Date(now-10*60000).toISOString();
+  const twentyFiveHoursAgo=new Date(now-25*3600000).toISOString();
+  const eightDaysAgo=new Date(now-8*24*3600000).toISOString();
+  const twoHoursAhead=new Date(now+2*3600000).toISOString();
+  const injected=[
+    // An old ingestion event cannot be reissued as a fresh report.
+    {id:'P0-STATS-OLD-INGEST',_addedAt:twentyFiveHoursAgo,pubDate:oneHourAgo},
+    // A freshly re-ingested old publication is still historical.
+    {id:'P0-STATS-OLD-PUBLICATION',_addedAt:tenMinutesAgo,pubDate:eightDaysAgo},
+    // A future-dated publication cannot create a false LIVE count.
+    {id:'P0-STATS-FUTURE-PUBLICATION',_addedAt:tenMinutesAgo,pubDate:twoHoursAhead},
+    // A duplicate ingestion of an existing verified report counts only once.
+    {...baseline.items[0]}
+  ];
+
+  const assessed=assessPublicIntel({...feed,items:[...feed.items,...injected]},now);
+  expect(assessed.ok).toBe(true);
+  expect(assessed.items.length).toBe(baseline.items.length);
+  expect(assessed.items.map(i=>i.id)).toEqual(baseline.items.map(i=>i.id));
+  expect(assessed.excluded.NOT_RECENTLY_INGESTED).toBeGreaterThanOrEqual(1);
+  expect(assessed.excluded.PUBLISHED_BEFORE_WINDOW).toBeGreaterThanOrEqual(1);
+  expect(assessed.excluded.FUTURE_TIMESTAMP).toBeGreaterThanOrEqual(1);
 });
 
 test.each(['stats','dashboard'])('P0 public %s route refuses POST without processing data',async(action)=>{
