@@ -200,11 +200,11 @@ describe('publication and acquisition workflow regressions', () => {
     // The monitor is deliberately staggered ten minutes behind the generator
     // (sentinel-apex.yml: :03/:33) to avoid a same-boundary read/write race.
     // Runtime timestamps remain the authority, so this cadence change is
-    // optimization rather than truth. Minutes shifted from :10/:40 to
-    // :13/:43 (preserving the same 10-minute offset) after a repo-wide
+    // optimization rather than truth. Cadence reduced to hourly at :43 UTC
+    // to conserve runner capacity while preserving fail-closed verification, after a repo-wide
     // GitHub Actions scheduled-trigger stall on 2026-09-03, traced to 6+
     // cron schedules clustered on :00/:15/:30/:40 — see sentinel-apex.yml.
-    expect(workflow).toContain("- cron: '13,43 * * * *'");
+    expect(workflow).toContain("- cron: '43 * * * *'");
 
     // The CLI returns the classifier result from main() and binds that exact
     // return value to process.exitCode. Dedicated classifier tests exercise

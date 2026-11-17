@@ -3,7 +3,7 @@ name: "🧠 SENTINEL APEX — AI Security Intelligence Pipeline"
 # Dedicated AI Security Intelligence lane, run ALONGSIDE (never merged with) the
 # general intel pipeline (sentinel-apex.yml). See Sentinel-APEX/pipeline/AI-SECURITY-PIPELINE.md.
 #
-# Existing cadence retained: even UTC hours at minute 7.
+# Budget-controlled AI intelligence cadence: every six UTC hours at minute 7.
 # Hosting retirement does not increase ingestion or publication workload.
 #
 # Offset from :00 (rather than exactly on the hour) so this schedule doesn't
@@ -15,7 +15,7 @@ name: "🧠 SENTINEL APEX — AI Security Intelligence Pipeline"
 
 on:
   schedule:
-    - cron: "7 */2 * * *"   # even UTC hours, :07
+    - cron: "7 */6 * * *"   # every 6 UTC hours, :07
   workflow_dispatch:
     inputs:
       run_analyst:

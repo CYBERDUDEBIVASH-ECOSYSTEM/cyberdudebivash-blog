@@ -30,6 +30,9 @@ concurrency:
 jobs:
   reconcile:
     name: "Read-only drift assessment — operator-approved releases only"
+    # Skipped publisher jobs do not create production data drift; preserve
+    # immediate inventory for producer success, failure and cancellation.
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion != 'skipped' }}
     # A producer may commit verified source data and then FAIL a post-push
     # source-yield or publication-quality gate. Still perform drift inventory
     # for completed success/failure/cancelled producer runs. Monitoring is

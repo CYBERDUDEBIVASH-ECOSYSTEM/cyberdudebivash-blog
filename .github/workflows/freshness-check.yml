@@ -7,7 +7,7 @@ on:
       - scripts/check_blogger_public_delivery.py
       - .github/workflows/freshness-check.yml
   schedule:
-    - cron: '13,43 * * * *'
+    - cron: '43 * * * *'
   workflow_dispatch:
 
 concurrency:
@@ -215,6 +215,7 @@ jobs:
         # after a successful post-recovery freshness check. The dispatch step's
         # 45-minute cooldown and max_posts=4 remain unchanged.
         if: >-
+          vars.BLOGGER_OAUTH_READY == 'true' &&
           steps.blogger_freshness.outputs.recovery_required == 'true' &&
           (
             steps.freshness.outputs.recovery_required != 'true' ||

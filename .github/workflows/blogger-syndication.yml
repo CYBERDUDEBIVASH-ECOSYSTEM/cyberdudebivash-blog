@@ -52,9 +52,12 @@ permissions:
 jobs:
   syndicate:
     name: "📡 Syndicate Premium Reports to Blogger"
+    # Budget circuit-breaker: automated publisher is paused until an operator
+    # reauthorizes Blogger OAuth and sets BLOGGER_OAUTH_READY=true.
+    # Explicit main-branch workflow_dispatch remains available for one credential smoke.
     # Prevent feature-ref workflow_dispatch from executing unreviewed code
     # with production Blogger, AI-provider or Puter secrets, even in dry-run.
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || vars.BLOGGER_OAUTH_READY == 'true') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
