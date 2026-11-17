@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T08:45:41.266Z",
+  "generated": "2026-11-17T11:44:31.269Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,8 +8,55 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 118,
+  "count": 104,
   "items": [
+    {
+      "id": "CVE-2026-90436",
+      "title": "Rapid7 Detected Exploitation of CVE-2026-90436 against Atlassian Confluence Data Center, N-able N-central also Exploited",
+      "description": "Overview On November 6, 2026, the Apache Software Foundation disclosed CVE-2026-90436 , a critical unsafe reflection vulnerability ( CWE-470 ) in Axis 1.x that allows for unauthenticated remote code execution (RCE). Apache Axis is a Simple Object Access Protocol (SOAP) implementation used for the cr",
+      "cvss": null,
+      "final_ps": 61,
+      "quality_score": 0.543,
+      "threat_level": "MEDIUM",
+      "type": "ZERO_DAY",
+      "source": "rapid7",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "rapid7"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": true,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "rapid7",
+      "product": "Threat Intelligence",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-90436"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.rapid7.com/blog/post/etr-rapid7-detected-exploitation-of-cve-2026-90436-against-atlassian-confluence-data-center-n-able-n-central-also-exploited"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (rapid7)",
+          "data_confidence=0.65",
+          "recency=0d (score=1.00)",
+          "QS=0.542"
+        ],
+        "priority": [
+          "+8 exploited_in_wild",
+          "+7 zero_day"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
     {
       "id": "CVE-2026-50522",
       "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public PoC",
@@ -27,7 +74,7 @@
       "first_seen": "2026-07-21",
       "last_seen": "2026-07-21",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Unknown Vendor",
       "product": "Unknown Product",
@@ -59,6 +106,51 @@
       "iocs": []
     },
     {
+      "id": "BLEEPINGCOMPUTER-225268ea7e12f252",
+      "title": "Ransomware affiliate suspect extradited to US, faces 27 years in prison",
+      "description": "A Kazakh national has been extradited from Italy to face charges alleging he targeted US schools, hospitals, and healthcare entities in ransomware attacks. [...]",
+      "cvss": null,
+      "final_ps": 51,
+      "quality_score": 0.42,
+      "threat_level": "MEDIUM",
+      "type": "RANSOMWARE",
+      "source": "bleepingcomputer",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "bleepingcomputer"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": true,
+      "vendor": "BleepingComputer",
+      "product": "Threat Intelligence",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.bleepingcomputer.com/news/security/alleged-inc-lynx-ransomware-affiliate-extradited-to-us-faces-27-years-in-prison/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.72 (bleepingcomputer)",
+          "data_confidence=0.65",
+          "recency=0d (score=1.00)",
+          "QS=0.420"
+        ],
+        "priority": [
+          "+10 ransomware_confirmed",
+          "+4 critical_infra"
+        ],
+        "suppression": "Single-source item with no CVE IDs or IOCs",
+        "merge": null
+      },
+      "suppressed": true,
+      "suppression_reason": "Single-source item with no CVE IDs or IOCs",
+      "iocs": []
+    },
+    {
       "id": "CVE-2023-27351",
       "title": "CVE-2023-27351: PaperCut NG/MF Improper Authentication Vulnerability — CISA KEV Active Exploitation",
       "description": "",
@@ -73,7 +165,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": true,
       "vendor": "PaperCut",
       "product": "NG/MF",
@@ -117,7 +209,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": true,
       "vendor": "JetBrains",
       "product": "TeamCity",
@@ -163,7 +255,7 @@
       "first_seen": "2026-07-21",
       "last_seen": "2026-07-21",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": true,
       "vendor": "Unknown Vendor",
       "product": "Unknown Product",
@@ -255,7 +347,7 @@
       "first_seen": "2026-04-30",
       "last_seen": "2026-04-30",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "BleepingComputer",
       "product": "Threat Intelligence",
@@ -303,7 +395,7 @@
       "first_seen": "2026-07-17",
       "last_seen": "2026-07-17",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Unknown Vendor",
       "product": "Unknown Product",
@@ -333,144 +425,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-15309",
-      "title": "Low Security Vulnerability (CVE-2026-15309)",
-      "description": "CVE-2026-15309",
-      "cvss": 8.8,
-      "final_ps": 45,
-      "quality_score": 0.428,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-15309"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-15309?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=1d (score=0.85)",
-          "QS=0.427"
-        ],
-        "priority": [
-          "base_ps=45 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-13764",
-      "title": "Low Security Vulnerability (CVE-2026-13764)",
-      "description": "CVE-2026-13764",
-      "cvss": 8.8,
-      "final_ps": 45,
-      "quality_score": 0.428,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-13764"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-13764?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=1d (score=0.85)",
-          "QS=0.427"
-        ],
-        "priority": [
-          "base_ps=45 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-19421",
-      "title": "Low Security Vulnerability (CVE-2026-19421)",
-      "description": "CVE-2026-19421",
-      "cvss": 8.8,
-      "final_ps": 45,
-      "quality_score": 0.428,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-19421"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-19421?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=1d (score=0.85)",
-          "QS=0.427"
-        ],
-        "priority": [
-          "base_ps=45 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-76519",
       "title": "Cisco Secure Email Gateway 0-Day Vulnerability Actively Exploited in Attacks",
       "description": "",
@@ -487,7 +441,7 @@
       "first_seen": "2026-10-15",
       "last_seen": "2026-10-15",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -535,7 +489,7 @@
       "first_seen": "2026-10-02",
       "last_seen": "2026-10-02",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -586,7 +540,7 @@
       "first_seen": "2026-09-07",
       "last_seen": "2026-09-07",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -657,328 +611,6 @@
           "+12 PoC_available",
           "+8 exploited_in_wild",
           "+7 zero_day"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-122003",
-      "title": "Low Security Vulnerability (CVE-2026-122003)",
-      "description": "CVE-2026-122003",
-      "cvss": 8.8,
-      "final_ps": 43,
-      "quality_score": 0.408,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-122003"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-122003?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=2d (score=0.65)",
-          "QS=0.407"
-        ],
-        "priority": [
-          "base_ps=43 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-18792",
-      "title": "CVE-2026-18792 - Synology DiskStation Manager Sharing API Path Traversal",
-      "description": "CVE-2026-18792 - Synology DiskStation Manager Sharing API Path Traversal",
-      "cvss": 8.8,
-      "final_ps": 43,
-      "quality_score": 0.408,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-18792"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-18792"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=2d (score=0.65)",
-          "QS=0.407"
-        ],
-        "priority": [
-          "base_ps=43 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-75864",
-      "title": "CVE-2026-75864 - Broken Access Control",
-      "description": "CVE-2026-75864 - Broken Access Control",
-      "cvss": 8.1,
-      "final_ps": 43,
-      "quality_score": 0.428,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-75864"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-75864"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=1d (score=0.85)",
-          "QS=0.427"
-        ],
-        "priority": [
-          "base_ps=43 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-75867",
-      "title": "CVE-2026-75867 - Broken Access Control",
-      "description": "CVE-2026-75867 - Broken Access Control",
-      "cvss": 8.1,
-      "final_ps": 43,
-      "quality_score": 0.428,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-75867"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-75867"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=1d (score=0.85)",
-          "QS=0.427"
-        ],
-        "priority": [
-          "base_ps=43 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-75868",
-      "title": "CVE-2026-75868 - Broken Access Control",
-      "description": "CVE-2026-75868 - Broken Access Control",
-      "cvss": 8.1,
-      "final_ps": 43,
-      "quality_score": 0.428,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-75868"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-75868"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=1d (score=0.85)",
-          "QS=0.427"
-        ],
-        "priority": [
-          "base_ps=43 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-19048",
-      "title": "CVE-2026-19048 - Synology DiskStation Manager Improper Link Resolution Vulnerability",
-      "description": "CVE-2026-19048 - Synology DiskStation Manager Improper Link Resolution Vulnerability",
-      "cvss": 8.1,
-      "final_ps": 43,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-19048"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-19048"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=2d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=43 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-124647",
-      "title": "Low Security Vulnerability (CVE-2026-124647)",
-      "description": "CVE-2026-124647",
-      "cvss": 8.6,
-      "final_ps": 42,
-      "quality_score": 0.408,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-124647"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-124647?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=2d (score=0.65)",
-          "QS=0.407"
-        ],
-        "priority": [
-          "base_ps=42 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -1092,7 +724,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Microsoft",
       "product": "Windows",
@@ -1170,6 +802,50 @@
       "iocs": []
     },
     {
+      "id": "DARKREADING-5e04194c0dec7f72",
+      "title": "Ransomware Attacks Increase Behind AI, But Payments Decline",
+      "description": "Large language models and other AI systems allow a growing number of ransomware groups to create convincing phishing emails and identify sensitive data quickly.",
+      "cvss": null,
+      "final_ps": 41,
+      "quality_score": 0.378,
+      "threat_level": "LOW",
+      "type": "RANSOMWARE",
+      "source": "darkreading",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "darkreading"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": true,
+      "vendor": "darkreading",
+      "product": "Threat Intelligence",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.darkreading.com/threat-intelligence/ransomware-attacks-increase-ai-payments-decline"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.55 (darkreading)",
+          "data_confidence=0.65",
+          "recency=0d (score=1.00)",
+          "QS=0.378"
+        ],
+        "priority": [
+          "+10 ransomware_confirmed"
+        ],
+        "suppression": "Single-source item with no CVE IDs or IOCs",
+        "merge": null
+      },
+      "suppressed": true,
+      "suppression_reason": "Single-source item with no CVE IDs or IOCs",
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-45321",
       "title": "CVE-2026-45321: TanStack Unspecified Vulnerability — CISA KEV Active Exploitation",
       "description": "",
@@ -1186,7 +862,7 @@
       "first_seen": "2026-05-27",
       "last_seen": "2026-05-27",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "TanStack",
       "product": "TanStack",
@@ -1231,7 +907,7 @@
       "first_seen": "2026-05-27",
       "last_seen": "2026-05-27",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Nx",
       "product": "Nx Console",
@@ -1276,7 +952,7 @@
       "first_seen": "2026-05-27",
       "last_seen": "2026-05-27",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Daemon",
       "product": "Daemon Tools Lite",
@@ -1321,7 +997,7 @@
       "first_seen": "2026-05-26",
       "last_seen": "2026-05-26",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "LiteSpeed",
       "product": "cPanel Plugin",
@@ -1407,7 +1083,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "ConnectWise",
       "product": "ScreenConnect",
@@ -1450,7 +1126,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "D-Link",
       "product": "DIR-823X",
@@ -1493,7 +1169,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Samsung",
       "product": "MagicINFO 9 Server",
@@ -1536,7 +1212,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "SimpleHelp ",
       "product": "SimpleHelp",
@@ -1579,7 +1255,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "SimpleHelp ",
       "product": "SimpleHelp",
@@ -1622,7 +1298,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Marimo",
       "product": "Marimo",
@@ -1665,7 +1341,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Microsoft",
       "product": "Defender",
@@ -1708,7 +1384,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Cisco",
       "product": "Catalyst SD-WAN Manger",
@@ -1751,7 +1427,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Cisco",
       "product": "Catalyst SD-WAN Manager",
@@ -1794,7 +1470,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Kentico",
       "product": "Kentico Xperience",
@@ -1837,7 +1513,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Synacor",
       "product": "Zimbra Collaboration Suite (ZCS)",
@@ -1880,7 +1556,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Cisco",
       "product": "Catalyst SD-WAN Manager",
@@ -1923,7 +1599,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Quest",
       "product": "KACE Systems Management Appliance (SMA)",
@@ -1966,7 +1642,7 @@
         "cisa_kev"
       ],
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Apache",
       "product": "ActiveMQ",
@@ -1986,52 +1662,6 @@
         "priority": [
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-123092",
-      "title": "Low Security Vulnerability (CVE-2026-123092)",
-      "description": "CVE-2026-123092",
-      "cvss": 7.5,
-      "final_ps": 40,
-      "quality_score": 0.408,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-123092"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-123092?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=2d (score=0.65)",
-          "QS=0.407"
-        ],
-        "priority": [
-          "base_ps=40 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -2104,7 +1734,7 @@
       "first_seen": "2026-10-15",
       "last_seen": "2026-10-15",
       "exploited": false,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -2339,7 +1969,7 @@
       "first_seen": "2026-09-06",
       "last_seen": "2026-09-06",
       "exploited": false,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -2480,7 +2110,7 @@
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "exploited": false,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -2621,7 +2251,7 @@
       "first_seen": "2026-09-04",
       "last_seen": "2026-09-04",
       "exploited": false,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -2715,7 +2345,7 @@
       "first_seen": "2026-08-26",
       "last_seen": "2026-08-26",
       "exploited": false,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -2793,325 +2423,47 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-94407",
-      "title": "Low Security Vulnerability (CVE-2026-94407)",
-      "description": "CVE-2026-94407",
-      "cvss": 6.5,
-      "final_ps": 39,
-      "quality_score": 0.403,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-94407"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-94407?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=0d (score=1.00)",
-          "QS=0.403"
-        ],
-        "priority": [
-          "base_ps=39 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-127213",
-      "title": "Low Security Vulnerability (CVE-2026-127213)",
-      "description": "CVE-2026-127213",
-      "cvss": 6.5,
-      "final_ps": 39,
-      "quality_score": 0.403,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-127213"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-127213?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=0d (score=1.00)",
-          "QS=0.403"
-        ],
-        "priority": [
-          "base_ps=39 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-9870",
-      "title": "Low Security Vulnerability (CVE-2026-9870)",
-      "description": "CVE-2026-9870",
-      "cvss": 6.1,
+      "id": "WIRED_SECURITY-daae8022327d2af9",
+      "title": "Beware the New AI-Fueled Ransomware Boom",
+      "description": "Fully automated ransomware hasn’t arrived—yet. But seemingly unsophisticated attackers are using AI tools to wreak havoc.",
+      "cvss": null,
       "final_ps": 38,
-      "quality_score": 0.403,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-9870"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-9870?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=0d (score=1.00)",
-          "QS=0.403"
-        ],
-        "priority": [
-          "base_ps=38 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-128122",
-      "title": "Low Security Vulnerability (CVE-2026-128122)",
-      "description": "CVE-2026-128122",
-      "cvss": 5.9,
-      "final_ps": 38,
-      "quality_score": 0.403,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128122"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-128122?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=0d (score=1.00)",
-          "QS=0.403"
-        ],
-        "priority": [
-          "base_ps=38 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-86343",
-      "title": "CVE-2026-86343 - Synology DiskStation Manager SNMP API Improper Neutralization of CRLF Sequences Vulnerability",
-      "description": "CVE-2026-86343 - Synology DiskStation Manager SNMP API Improper Neutralization of CRLF Sequences Vulnerability",
-      "cvss": 6.8,
-      "final_ps": 38,
-      "quality_score": 0.418,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-86343"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-86343"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.50",
-          "recency=2d (score=0.65)",
-          "QS=0.417"
-        ],
-        "priority": [
-          "base_ps=38 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-118421",
-      "title": "Low Security Vulnerability (CVE-2026-118421)",
-      "description": "CVE-2026-118421",
-      "cvss": 6.8,
-      "final_ps": 36,
       "quality_score": 0.368,
       "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
+      "type": "RANSOMWARE",
+      "source": "wired_security",
       "sources_confirmed": 1,
       "merged_sources": [
-        "sentinel_apex"
+        "wired_security"
       ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
       "exploited": false,
       "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
+      "ransomware": true,
+      "vendor": "wired_security",
+      "product": "Threat Intelligence",
       "due_date": null,
-      "cves": [
-        "CVE-2026-118421"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-118421?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
+          "source_weight=0.65 (wired_security)",
+          "data_confidence=0.65",
           "recency=2d (score=0.65)",
-          "QS=0.368"
+          "QS=0.367"
         ],
         "priority": [
-          "base_ps=36 (no boosts)"
+          "+10 ransomware_confirmed"
         ],
-        "suppression": null,
+        "suppression": "Single-source item with no CVE IDs or IOCs",
         "merge": null
       },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-81936",
-      "title": "Low Security Vulnerability (CVE-2026-81936)",
-      "description": "CVE-2026-81936",
-      "cvss": 6.8,
-      "final_ps": 36,
-      "quality_score": 0.368,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-11",
-      "last_seen": "2026-11-11",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-81936"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-81936?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=2d (score=0.65)",
-          "QS=0.368"
-        ],
-        "priority": [
-          "base_ps=36 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
+      "suppressed": true,
+      "suppression_reason": "Single-source item with no CVE IDs or IOCs",
       "iocs": []
     },
     {
@@ -3131,7 +2483,7 @@
       "first_seen": "2026-11-10",
       "last_seen": "2026-11-10",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -3178,7 +2530,7 @@
       "first_seen": "2026-11-12",
       "last_seen": "2026-11-12",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "",
       "product": "",
@@ -4193,7 +3545,7 @@
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "UnrealIRCd",
       "product": "UnrealIRCd",
@@ -4240,7 +3592,7 @@
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "Check Point",
       "product": "Multiple Products",
@@ -4685,6 +4037,456 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-129236",
+      "title": "Kubeshark: MCP `start_kubeshark` argument injection via `pod_regex` → image redirect → cluster takeover",
+      "description": "",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "go",
+      "product": "github.com/kubeshark/kubeshark",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-129236",
+        "CVE-2026-129236"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-8vf2-hxg5-crqh",
+        "https://github.com/kubeshark/kubeshark/security/advisories/GHSA-8vf2-hxg5-crqh",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129236",
+        "https://github.com/kubeshark/kubeshark/pull/1957"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128134",
+      "title": "NLTK dot2img runs Graphviz 'dot' without the trusted-exec chokepoint, enabling local code execution via a writable PATH ",
+      "description": "",
+      "cvss": 7.8,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "pip",
+      "product": "nltk",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128134",
+        "CVE-2026-128134"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-7mxv-7h3q-9324",
+        "https://github.com/nltk/nltk/security/advisories/GHSA-7mxv-7h3q-9324",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-128134",
+        "https://github.com/nltk/nltk/pull/3887"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-91115",
+      "title": "Silverstripe Framework: RCE via i18nTextCollectorTask writer parameter",
+      "description": "",
+      "cvss": 8.8,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "composer",
+      "product": "silverstripe/framework",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-91115",
+        "CVE-2026-91115"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-c94f-87xg-65wf",
+        "https://github.com/silverstripe/silverstripe-framework/security/advisories/GHSA-c94f-87xg-65wf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-91115",
+        "https://github.com/silverstripe/silverstripe-framework/pull/12035"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-63182",
+      "title": "lightsaml allows Signature wrapping bypass",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "composer",
+      "product": "litesaml/lightsaml",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63182",
+        "CVE-2026-63182"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-w553-pwx6-3mg9",
+        "https://github.com/litesaml/lightsaml/security/advisories/GHSA-w553-pwx6-3mg9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63182",
+        "https://github.com/litesaml/lightsaml/pull/113"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-129297",
+      "title": "mail-parser: Sender IP address spoofing in get_server_ipaddress()",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "pip",
+      "product": "mail-parser",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-129297",
+        "CVE-2026-129297"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-72px-j8gh-p79x",
+        "https://github.com/SpamScope/mail-parser/security/advisories/GHSA-72px-j8gh-p79x",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129297",
+        "https://github.com/SpamScope/mail-parser/pull/167"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-129295",
+      "title": "mail-parser is vulnerable to polynomial ReDoS in email header parsing",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "pip",
+      "product": "mail-parser",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-129295",
+        "CVE-2026-129295"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-r7w7-vpq8-c5vv",
+        "https://github.com/SpamScope/mail-parser/security/advisories/GHSA-r7w7-vpq8-c5vv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129295",
+        "https://github.com/SpamScope/mail-parser/pull/166"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128118",
+      "title": "SvelteKit: Build-time server-only module import guard could fail, resulting in server secrets being statically replaced ",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "npm",
+      "product": "@sveltejs/kit",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128118",
+        "CVE-2026-128118"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-m9j8-jcmv-hp69",
+        "https://github.com/sveltejs/kit/security/advisories/GHSA-m9j8-jcmv-hp69",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-128118",
+        "https://github.com/sveltejs/kit/commit/ae07803806f75b8b5662ae4ab92934ca1356fd84"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128120",
+      "title": "SvelteKit: DoS while parsing form data from a remote functions `form`",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "npm",
+      "product": "@sveltejs/kit",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128120",
+        "CVE-2026-128120"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-3r8g-jcqq-3p5j",
+        "https://github.com/sveltejs/kit/security/advisories/GHSA-3r8g-jcqq-3p5j",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-128120",
+        "https://github.com/sveltejs/kit/commit/24d8ee409d83c438330ff2850b4f159c1222aa27"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-86046",
+      "title": "termux-sync: Arbitrary file write during restore via attacker-controlled manifest source path",
+      "description": "",
+      "cvss": 7.1,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "pip",
+      "product": "termux-sync",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-86046",
+        "CVE-2026-86046"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-259w-wmqg-fp76",
+        "https://github.com/djunekz/termux-sync/security/advisories/GHSA-259w-wmqg-fp76",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-86046",
+        "https://github.com/djunekz/termux-sync/commit/9c8637b280ee3e126885def5ff5b326c289ee7cf"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-126299",
       "title": "NLTK: Quadratic-time CPU denial of service in CCG lexicon parser (fromstring) on wide bracket bodies and operator chains",
       "description": "",
@@ -4927,194 +4729,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-123711",
-      "title": "Low Security Vulnerability (CVE-2026-123711)",
+      "id": "CVE-2026-15309",
+      "title": "Low Security Vulnerability (CVE-2026-15309)",
       "description": "",
-      "cvss": 8.1,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-123711"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-123711?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-118065",
-      "title": "Low Security Vulnerability (CVE-2026-118065)",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-118065"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-118065?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-123124",
-      "title": "Low Security Vulnerability (CVE-2026-123124)",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-123124"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-123124?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-123097",
-      "title": "Low Security Vulnerability (CVE-2026-123097)",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-123097"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-123097?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-124705",
-      "title": "Low Security Vulnerability (CVE-2026-124705)",
-      "description": "",
-      "cvss": 7.8,
+      "cvss": 8.8,
       "final_ps": 18,
       "quality_score": 0.438,
       "threat_level": "LOW",
@@ -5133,11 +4751,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-124705"
+        "CVE-2026-15309"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-124705?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://vulners.com/nvd/NVD:CVE-2026-15309?utm_source=rss&utm_medium=rss&utm_campaign=rss"
       ],
       "explanation": {
         "quality": [
@@ -5157,10 +4775,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-127204",
-      "title": "Low Security Vulnerability (CVE-2026-127204)",
+      "id": "CVE-2026-13764",
+      "title": "Low Security Vulnerability (CVE-2026-13764)",
       "description": "",
-      "cvss": 7.5,
+      "cvss": 8.8,
       "final_ps": 18,
       "quality_score": 0.438,
       "threat_level": "LOW",
@@ -5179,241 +4797,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-127204"
+        "CVE-2026-13764"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-127204?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-125912",
-      "title": "Low Security Vulnerability (CVE-2026-125912)",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-125912"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-125912?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-76792",
-      "title": "Low Security Vulnerability (CVE-2026-76792)",
-      "description": "",
-      "cvss": 8.1,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76792"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-76792?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-75785",
-      "title": "CVE-2026-75785 - Synology DiskStation Manager VPN API OS Command Injection Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-75785"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-75785"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-126815",
-      "title": "Low Security Vulnerability (CVE-2026-126815)",
-      "description": "",
-      "cvss": 8.1,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-11",
-      "last_seen": "2026-11-11",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-126815"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-126815?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-119040",
-      "title": "Low Security Vulnerability (CVE-2026-119040)",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-119040"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-119040?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://vulners.com/nvd/NVD:CVE-2026-13764?utm_source=rss&utm_medium=rss&utm_campaign=rss"
       ],
       "explanation": {
         "quality": [

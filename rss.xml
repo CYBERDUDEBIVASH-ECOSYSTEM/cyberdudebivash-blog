@@ -14,7 +14,7 @@
     <copyright>Copyright 2026 CyberDudeBivash. All rights reserved.</copyright>
     <managingEditor>bivash@cyberdudebivash.com (CyberDudeBivash)</managingEditor>
     <webMaster>bivash@cyberdudebivash.com (CyberDudeBivash)</webMaster>
-    <lastBuildDate>Sat, 14 Nov 2026 08:45:41 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 11:44:32 GMT</lastBuildDate>
     <pubDate>Sat, 14 Nov 2026 12:00:00 +0000</pubDate>
     <ttl>60</ttl>
     <category>Cybersecurity</category>
@@ -31,7 +31,134 @@
       <height>144</height>
     </image>
 
-      <item>
+        <item>
+    <title><![CDATA[NLTK dot2img runs Graphviz 'dot' without the trusted-exec chokepoint, enabling local code execution via a writable PATH element]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-128134-pip-nltk.html</link>
+    <description><![CDATA[Score 68/100 HIGH — CVSS 7.8 — ## Summary `nltk.parse.dependencygraph.dot2img` invokes the Graphviz `dot` executable without the trusted-execution guarantees that NLTK applies to its other native-tool wrappers. The function resolves `dot` by bare name and then runs the resolved absolute path with a raw `subprocess.run`, omitting . Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-128134-pip-nltk.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Silverstripe Framework: RCE via i18nTextCollectorTask writer parameter]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-91115-composer-silverstripe-framework.html</link>
+    <description><![CDATA[Score 66/100 HIGH — CVSS 8.8 — ### Impact
+The writer option of the i18nTextCollectorTask dev task was passed to the injector without validation. A crafted dev task URL could create arbitrary objects with attacker-controlled constructor arguments and run code on the server. Because the dev task did not ask for confirmation, an adm. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-91115-composer-silverstripe-framework.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[lightsaml allows Signature wrapping bypass]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-63182-composer-litesaml-lightsaml.html</link>
+    <description><![CDATA[Score 63/100 MEDIUM — CVSS 8.1 — ### Summary LightSaml 5.0.0 (latest release; also confirmed on 4.6.1) validates an inbound `samlp:Response` by collecting its direct-child `saml:Assertion` elements and validating each one's `ds:Signature` via robrichards/xmlseclibs. The two layers disagree on which element a signature actually cove. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-63182-composer-litesaml-lightsaml.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[mail-parser: Sender IP address spoofing in get_server_ipaddress()]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-129297-pip-mail-parser.html</link>
+    <description><![CDATA[Score 61/100 MEDIUM — CVSS 7.5 — ### Patches Fixed in **4.6.2**. Upgrade with `pip install --upgrade mail-parser`. Candidate addresses are now selected by position, not by appearance — a bracketed address
+the sender wrote is byte-identical to one the MTA wrote, so no amount of pattern matching
+can tell them apart: - the first token. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-129297-pip-mail-parser.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[mail-parser is vulnerable to polynomial ReDoS in email header parsing]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-129295-pip-mail-parser.html</link>
+    <description><![CDATA[Score 61/100 MEDIUM — CVSS 7.5 — ### Summary Two regular expressions used while parsing email headers backtrack
+polynomially on attacker-controlled input. Parsing a single small, well-formed
+email can consume minutes to hours of CPU, denying service to any process that
+parses untrusted mail. Both are reachable from an ordinary `par. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-129295-pip-mail-parser.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[SvelteKit: Build-time server-only module import guard could fail, resulting in server secrets being statically replaced in client bundle]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-128118-npm-sveltejs-kit.html</link>
+    <description><![CDATA[Score 61/100 MEDIUM — CVSS 7.5 — Under certain circumstances, server-only imports, which typically cannot be included in the client bundle, could make their way into it, potentially exposing secrets. This could only occur when those server-only imports were made through `src/params.js`.. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-128118-npm-sveltejs-kit.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[SvelteKit: DoS while parsing form data from a remote functions `form`]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-128120-npm-sveltejs-kit.html</link>
+    <description><![CDATA[Score 61/100 MEDIUM — CVSS 7.5 — This only affects applications using the experimental remote functions flag and utilizing the `form`, `query`, or `command` remote functions. A specially-crafted request could block the event loop for extended periods of time during parsing.. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-128120-npm-sveltejs-kit.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Kubeshark: MCP `start_kubeshark` argument injection via `pod_regex` → image redirect → cluster takeover]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-129236-go-github-com-kubeshark-kubeshark.html</link>
+    <description><![CDATA[Score 59/100 MEDIUM — CVSS 7.2 — **Ecosystem / package:** Go — `github.com/kubeshark/kubeshark` (the `kubeshark`
+CLI, `kubeshark mcp` subcommand)
+**Affected component:** `cmd/mcpRunner.go`, MCP tool `start_kubeshark`
+**Affected versions:** `>= v53.1.0`, ` , "-n", …, "--set", …, "--set", "headless=true"]` with
+`pod_regex` inserted a. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-129236-go-github-com-kubeshark-kubeshark.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[termux-sync: Arbitrary file write during restore via attacker-controlled manifest source path]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-86046-pip-termux-sync.html</link>
+    <description><![CDATA[Score 59/100 MEDIUM — CVSS 7.1 — termux-sync restore trusts fields inside an untrusted backup manifest and uses them as the extraction destination without validation. During restore, each archive entry is handled as: src_dir = Path(info.get("source", ...)).parent extract_archive(archive, src_dir, ...) extract_archive opens the arch. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-86046-pip-termux-sync.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Rapid7 Detected Exploitation of CVE-2026-90436 against Atlassian Confluence Data Center, N-able N-central also Exploited]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-90436-rapid7-threat-intelligence.html</link>
+    <description><![CDATA[Score 41/100 LOW — CVSS null — Overview On November 6, 2026, the Apache Software Foundation disclosed CVE-2026-90436 , a critical unsafe reflection vulnerability ( CWE-470 ) in Axis 1.x that allows for unauthenticated remote code execution (RCE). Apache Axis is a Simple Object Access Protocol (SOAP) implementation used for the cr. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-90436-rapid7-threat-intelligence.html</guid>
+    <category>Threat Intelligence</category>
+    <category>ZERO_DAY</category>
+  </item>
+  <item>
+    <title><![CDATA[Ransomware affiliate suspect extradited to US, faces 27 years in prison]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/ransomware-affiliate-suspect-extradited-to-us-faces-27-year.html</link>
+    <description><![CDATA[Score 33/100 LOW — CVSS null — A Kazakh national has been extradited from Italy to face charges alleging he targeted US schools, hospitals, and healthcare entities in ransomware attacks. [...]. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/ransomware-affiliate-suspect-extradited-to-us-faces-27-year.html</guid>
+    <category>Threat Intelligence</category>
+    <category>RANSOMWARE</category>
+  </item>
+  <item>
+    <title><![CDATA[Ransomware Attacks Increase Behind AI, But Payments Decline]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/ransomware-attacks-increase-behind-ai-but-payments-decline.html</link>
+    <description><![CDATA[Score 26/100 LOW — CVSS null — Large language models and other AI systems allow a growing number of ransomware groups to create convincing phishing emails and identify sensitive data quickly.. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/ransomware-attacks-increase-behind-ai-but-payments-decline.html</guid>
+    <category>Threat Intelligence</category>
+    <category>RANSOMWARE</category>
+  </item>
+  <item>
+    <title><![CDATA[Beware the New AI-Fueled Ransomware Boom]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/beware-the-new-ai-fueled-ransomware-boom.html</link>
+    <description><![CDATA[Score 22/100 LOW — CVSS null — Fully automated ransomware hasn’t arrived—yet. But seemingly unsophisticated attackers are using AI tools to wreak havoc.. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 11:44:32 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/beware-the-new-ai-fueled-ransomware-boom.html</guid>
+    <category>Threat Intelligence</category>
+    <category>RANSOMWARE</category>
+  </item>
+  <item>
     <title><![CDATA[CVE-2026-118183 Copy & Delete Posts < 1.5.8 - Authenticated Post Publishing Restriction Bypass]]></title>
     <link>https://blog.cyberdudebivash.in/posts/cve-2026-118183.html</link>
     <description><![CDATA[Score 43/100 LOW — CVSS 7.5 — CVE-2026-118183 Copy & Delete Posts < 1.5.8 - Authenticated Post Publishing Restriction Bypass. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
