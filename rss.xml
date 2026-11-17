@@ -14,7 +14,7 @@
     <copyright>Copyright 2026 CyberDudeBivash. All rights reserved.</copyright>
     <managingEditor>bivash@cyberdudebivash.com (CyberDudeBivash)</managingEditor>
     <webMaster>bivash@cyberdudebivash.com (CyberDudeBivash)</webMaster>
-    <lastBuildDate>Tue, 17 Nov 2026 21:25:26 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 22:27:48 GMT</lastBuildDate>
     <pubDate>Tue, 17 Nov 2026 12:00:00 +0000</pubDate>
     <ttl>60</ttl>
     <category>Cybersecurity</category>
@@ -31,7 +31,26 @@
       <height>144</height>
     </image>
 
-      <item>
+        <item>
+    <title><![CDATA[libp2p: ASN.1 DER decoder drives an unbounded synchronous loop on attacker-controlled length fields, stalling the Node event loop pre-auth]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-110789-npm-libp2p-crypto.html</link>
+    <description><![CDATA[Score 61/100 MEDIUM — CVSS 7.5 — ### Summary
+A remote peer can stall a js-libp2p node's entire event loop for ~4–5 seconds per connection (and transiently allocate ~2 GB) by sending a ~15-byte crafted `publicKey` inside an Identify message. The malformed key reaches the DER decoder before any peer-id/signature check, so the attack . Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 22:27:48 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-110789-npm-libp2p-crypto.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-130801 CVE-2026-130801]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-130801.html</link>
+    <description><![CDATA[Score 51/100 MEDIUM — CVSS 9.8 — CVE-2026-130801 CVE-2026-130801. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Tue, 17 Nov 2026 22:27:48 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-130801.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
     <title><![CDATA[CVE-2026-130840 — Unknown Vendor BISHENG before 3.0.0 CVSS 9.8 Critical Vulnerability]]></title>
     <link>https://blog.cyberdudebivash.in/posts/cve-2026-130840-unknown-vendor-bisheng-before-3-0-0.html</link>
     <description><![CDATA[Score 71/100 HIGH — CVSS 9.8 — BISHENG before 3.0.0 contains an authentication bypass vulnerability that allows unauthenticated remote attackers to impersonate administrators by abusing a hard-coded default jwt_secret used by AuthJwt. Attackers can forge an HS256 token offline naming user_id 1 with the admin role, send it as acce. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
