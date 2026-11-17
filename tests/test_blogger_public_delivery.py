@@ -107,3 +107,87 @@ def test_stale_freshness_defect_is_not_reclassified_as_public_linkage_failure():
     assert result["status"] == "BLOGGER_STALE"
     assert result["exit_code"] == 2
     assert "publication_count_below_slo:0<1" in result["defects"]
+
+
+def test_http_429_is_terminal_even_with_retry_budget(monkeypatch):
+    """Provider throttling must be reported after one GET, not hammered."""
+    from urllib.error import HTTPError
+    from io import BytesIO
+
+    calls = []
+    sleeps = []
+
+    def throttled(request, timeout):
+        calls.append(request.full_url)
+        raise HTTPError(request.full_url, 429, "Too Many Requests",
+                        {"Retry-After": "30"}, BytesIO(b""))
+
+    monkeypatch.setattr(probe, "urlopen", throttled)
+    monkeypatch.setattr(probe.time, "sleep", lambda delay: sleeps.append(delay))
+
+    import pytest
+    with pytest.raises(probe.ProbeTransportError) as error:
+        probe.fetch(probe.BASE + "/?m=1", "mobile", attempts=4)
+
+    assert error.value.http_status == 429
+    assert error.value.endpoint == "mobile"
+    assert error.value.reason == "rate_limited"
+    assert error.value.attempts == 1
+    assert len(calls) == 1
+    assert sleeps == []
+
+
+def test_http_503_retains_bounded_retry_with_retry_after(monkeypatch):
+    """Transient upstream failures retain bounded recovery semantics."""
+    from urllib.error import HTTPError
+    from io import BytesIO
+
+    calls = []
+    sleeps = []
+
+    class Response:
+        url = probe.BASE + "/"
+        def __enter__(self): return self
+        def __exit__(self, *_): return False
+        def read(self, _): return b"ok"
+
+    def flaky(request, timeout):
+        calls.append(request.full_url)
+        if len(calls) == 1:
+            raise HTTPError(request.full_url, 503, "Unavailable",
+                            {"Retry-After": "7"}, BytesIO(b""))
+        return Response()
+
+    monkeypatch.setattr(probe, "urlopen", flaky)
+    monkeypatch.setattr(probe.time, "sleep", lambda delay: sleeps.append(delay))
+
+    assert probe.fetch(probe.BASE + "/", "desktop", attempts=3) == "ok"
+    assert len(calls) == 2
+    assert sleeps == [7]
+
+
+def test_http_503_respects_retry_after_budget(monkeypatch):
+    """A provider delay beyond our budget must not be shortened."""
+    from urllib.error import HTTPError
+    from io import BytesIO
+
+    calls = []
+    sleeps = []
+
+    def unavailable(request, timeout):
+        calls.append(request.full_url)
+        raise HTTPError(request.full_url, 503, "Unavailable",
+                        {"Retry-After": "120"}, BytesIO(b""))
+
+    monkeypatch.setattr(probe, "urlopen", unavailable)
+    monkeypatch.setattr(probe.time, "sleep", lambda delay: sleeps.append(delay))
+
+    import pytest
+    with pytest.raises(probe.ProbeTransportError) as error:
+        probe.fetch(probe.BASE + "/", "desktop", attempts=3, max_retry_after=60)
+
+    assert error.value.http_status == 503
+    assert error.value.reason == "retry_after_exceeds_budget"
+    assert error.value.attempts == 1
+    assert len(calls) == 1
+    assert sleeps == []

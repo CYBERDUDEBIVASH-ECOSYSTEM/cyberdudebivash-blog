@@ -72,10 +72,18 @@ def fetch(url, endpoint="public", attempts=3, max_retry_after=60):
                 return body.decode("utf-8-sig")
         except HTTPError as exc:
             status = exc.code
+            # HTTP 429 is provider backpressure, not an invitation to repeat the
+            # same public request. A retry storm cannot make stale CTI fresh.
+            # Fail closed after a SINGLE request and surface rate limitation
+            # separately from proven publication or page-linkage failure.
+            if status == 429:
+                exc.close()
+                raise ProbeTransportError(endpoint, "rate_limited", attempt, status) from None
+            if status not in (502, 503, 504):
+                exc.close()
+                raise ProbeTransportError(endpoint, "http_error", attempt, status) from None
             delay = retry_delay(exc.headers.get("Retry-After") if exc.headers else None, attempt)
             exc.close()
-            if status not in (429, 502, 503, 504):
-                raise ProbeTransportError(endpoint, "http_error", attempt, status) from None
             if attempt == attempts or delay > max_retry_after:
                 reason = "retry_after_exceeds_budget" if delay > max_retry_after else "retries_exhausted"
                 raise ProbeTransportError(endpoint, reason, attempt, status) from None
