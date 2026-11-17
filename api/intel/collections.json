@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T12:15:38.306Z",
+  "generated": "2026-11-17T12:26:49.650Z",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
   "count": 6,
   "collections": [
@@ -17076,8 +17076,18 @@
       "slug": "cloud-devsecops",
       "name": "Cloud & DevSecOps Security Collection",
       "description": "Cloud misconfigurations, container security, and DevSecOps pipeline risk.",
-      "count": 74,
+      "count": 75,
       "items": [
+        {
+          "slug": "cve-2026-130072-unknown-vendor-cloud-commander-cloudcmd",
+          "title": "CVE-2026-130072 — Unknown Vendor Cloud Commander (cloudcmd) CVSS 9.1 Critical Vulnerability",
+          "url": "/posts/cve-2026-130072-unknown-vendor-cloud-commander-cloudcmd.html",
+          "generated": "2026-11-17T12:25:08.379Z",
+          "severity": "CRITICAL",
+          "cves": [
+            "CVE-2026-130072"
+          ]
+        },
         {
           "slug": "cve-2026-128027-unknown-vendor-frankenphp-docker-images",
           "title": "CVE-2026-128027 — Unknown Vendor FrankenPHP Docker images CVSS 9.8 Critical Vulnerability",
@@ -17831,6 +17841,45 @@
             "1 intel item(s) clustered with composite confidence 0.900",
             "Single CVE basis: CVE-2026-106486"
           ]
+        },
+        {
+          "campaign_id": "campaign:cve-2026-130072",
+          "name": "Unknown Cloud Exploitation Campaign",
+          "severity": "HIGH",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2026-11-16",
+          "last_seen": "2026-11-16",
+          "related_intel_ids": [
+            "CVE-2026-130072"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2026-130072",
+              "title": "CVE-2026-130072 — Unknown Vendor Cloud Commander (cloudcmd) CVSS 9.1 Critical Vulnerability",
+              "type": "CVE_REPORT",
+              "priority_score": 67,
+              "published": "2026-11-16",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2026-130072"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 67,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2026-130072"
+          ],
+          "clustering_model": "weighted_v2"
         },
         {
           "campaign_id": "campaign:cve-2026-18140",
