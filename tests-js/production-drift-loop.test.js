@@ -62,9 +62,19 @@ test('P0 drift reconciliation runs after failed or cancelled publisher completio
   assert.doesNotMatch(drift,/npx wrangler deploy|\/dispatches|actions: write/);
 });
 
-test('P1 drift schedule retains 30-minute cadence but avoids GitHub top-of-hour load',()=>{
-  assert.match(drift,/cron: ['"]11,41 \* \* \* \*['"]/);
-  assert.doesNotMatch(drift,/cron:\s*['"]?\*\/30 /);
+test('P0 drift checks every producer completion and has one daily low-cost backstop',()=>{
+  assert.match(drift,/workflow_run:\s*\n\s*workflows:/);
+  assert.match(drift,/types:\s*\[completed\]/);
+  assert.match(drift,/cron: ['"]41 4 \* \* \*['"]/);
+  assert.doesNotMatch(drift,/cron: ['"]11,41 \* \* \* \*['"]/);
   assert.match(drift,/cancel-in-progress: true/,
     'monitor concurrency remains bounded and read-only');
+});
+
+test('P0 source certification is four times daily while the separate customer freshness sentinel stays every 30 minutes',()=>{
+  const health=fs.readFileSync(path.join(root,'.github/workflows/pipeline-health-certification.yml'),'utf8');
+  const freshness=fs.readFileSync(path.join(root,'.github/workflows/freshness-check.yml'),'utf8');
+  assert.match(health,/cron: ['"]49 2,8,14,20 \* \* \*['"]/);
+  assert.match(freshness,/cron: ['"]13,43 \* \* \* \*['"]/);
+  assert.match(health,/node scripts\/assess-pipeline-operational-health\.cjs/);
 });
