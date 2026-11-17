@@ -24,7 +24,8 @@ jobs:
   smoke-test:
     name: "Production URL Health Check"
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
+    # Bound the sequential customer checks, including both host parity probes.
     # Public health probe; this workflow does not prove that a commit was deployed.
 
     steps:
@@ -36,7 +37,11 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
-      - name: "⏳ Allow deployment propagation"
+      # GitHub push is NOT a Cloudflare deployment. Never delay the critical
+      # customer-drift alarm by 90 seconds on routine source commits.
+      # Only explicit owner-dispatched postdeploy certification may wait.
+      - name: "⏳ Allow propagation after deliberate manual release"
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' }}
         run: sleep 90
 
       - name: "🚀 Smoke test — critical pages"
