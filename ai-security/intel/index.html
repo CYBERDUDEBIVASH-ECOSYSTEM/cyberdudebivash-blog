@@ -65,10 +65,10 @@ h1{font-size:clamp(24px,4vw,38px);margin:6px 0 8px;color:#fff}
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="stat-n">17</div><div class="stat-l">Published</div></div>
+    <div class="stat"><div class="stat-n">18</div><div class="stat-l">Published</div></div>
     <div class="stat"><div class="stat-n">0</div><div class="stat-l">P1 Priority</div></div>
     <div class="stat"><div class="stat-n">5</div><div class="stat-l">Leads Held</div></div>
-    <div class="stat"><div class="stat-n">3/6</div><div class="stat-l">Sources Live</div></div>
+    <div class="stat"><div class="stat-n">5/6</div><div class="stat-l">Sources Live</div></div>
   </div>
 
   <div class="owasp-strip">
@@ -77,14 +77,54 @@ h1{font-size:clamp(24px,4vw,38px);margin:6px 0 8px;color:#fff}
   </div>
 
   <div class="grid">
-      <a class="card" href="https://arxiv.org/abs/2611.10843v1" target="_blank" rel="noopener">
+      <a class="card" href="https://github.com/advisories/GHSA-8vf2-hxg5-crqh" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P2">P2</span>
+          <span class="label">VERIFIED ADVISORY</span>
+          <span class="conf conf-high">HIGH confidence</span>
+        </div>
+        <div class="card-title">Kubeshark: MCP `start_kubeshark` argument injection via `pod_regex` → image redirect → cluster takeover</div>
+        <div class="card-meta">GitHub Security Advisories · CVE-2026-129236 · impact 63/100</div>
+        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0051</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Prompt Injection</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
+      </a>
+      <a class="card" href="https://github.com/advisories/GHSA-jq3q-62jc-fqq9" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P2">P2</span>
+          <span class="label">VERIFIED ADVISORY</span>
+          <span class="conf conf-high">HIGH confidence</span>
+        </div>
+        <div class="card-title">code-review-mcp-server: Command injection via unsanitized folderPath/baseBranch parameters</div>
+        <div class="card-meta">GitHub Security Advisories · CVE-2026-68934 · impact 63/100</div>
+        <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
+      </a>
+      <a class="card" href="https://github.com/advisories/GHSA-gj7r-p794-hhq5" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P2">P2</span>
+          <span class="label">VERIFIED ADVISORY</span>
+          <span class="conf conf-high">HIGH confidence</span>
+        </div>
+        <div class="card-title">Kubeshark: MCP `download_file` writes fetched bytes to an unvalidated destination path</div>
+        <div class="card-meta">GitHub Security Advisories · CVE-2026-129235 · impact 50/100</div>
+        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0051</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Prompt Injection</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.21577v1" target="_blank" rel="noopener">
         <div class="card-top">
           <span class="pri pri-P3">P3</span>
           <span class="label">PUBLISHED RESEARCH</span>
           <span class="conf conf-low">LOW confidence</span>
         </div>
-        <div class="card-title">Agents of Chaos: A Systematization of Knowledge (SoK) on Malicious Attacks on Agentic AI Systems</div>
-        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 30/100</div>
+        <div class="card-title">When Tool Names Are Not Identities: Measuring Provider Misbinding in MCP-Based AI Agents</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
+        <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.21480v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">RESILAGENT: A Three-Pillar Architecture for Cyber-Physical Resilience in Electrical Power and Energy Systems</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
         <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
       </a>
       <a class="card" href="https://arxiv.org/abs/2611.16369v1" target="_blank" rel="noopener">
@@ -137,55 +177,25 @@ h1{font-size:clamp(24px,4vw,38px);margin:6px 0 8px;color:#fff}
         <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
         <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
       </a>
-      <a class="card" href="https://arxiv.org/abs/2611.11539v1" target="_blank" rel="noopener">
+      <a class="card" href="https://arxiv.org/abs/2611.19090v1" target="_blank" rel="noopener">
         <div class="card-top">
           <span class="pri pri-P3">P3</span>
           <span class="label">PUBLISHED RESEARCH</span>
           <span class="conf conf-low">LOW confidence</span>
         </div>
-        <div class="card-title">PRISM: Causal Counterfactual Minimization of Agent Tool Privileges via Information Bottleneck Role Induction</div>
-        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
-        <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
-      </a>
-      <a class="card" href="https://arxiv.org/abs/2611.11104v1" target="_blank" rel="noopener">
-        <div class="card-top">
-          <span class="pri pri-P3">P3</span>
-          <span class="label">PUBLISHED RESEARCH</span>
-          <span class="conf conf-low">LOW confidence</span>
-        </div>
-        <div class="card-title">Tracing MCP Security Vulnerabilities: Constructing and Analyzing an MCP Security Vulnerability Dataset</div>
-        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
-        <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
-      </a>
-      <a class="card" href="https://arxiv.org/abs/2611.11067v1" target="_blank" rel="noopener">
-        <div class="card-top">
-          <span class="pri pri-P3">P3</span>
-          <span class="label">PUBLISHED RESEARCH</span>
-          <span class="conf conf-low">LOW confidence</span>
-        </div>
-        <div class="card-title">Beyond AUROC: Deployment-Aware Evaluation of Model-Internal Jailbreak Detectors</div>
-        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
+        <div class="card-title">When the Spec Sheet Lies: Injection Attacks on LLM-Generated Compliance Artifacts</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 10/100</div>
         <div class="tags"><span class="tag owasp">LLM01</span><span class="tag atlas">AML.T0051</span><span class="tag cat">Prompt Injection</span></div>
       </a>
-      <a class="card" href="https://arxiv.org/abs/2611.10612v1" target="_blank" rel="noopener">
+      <a class="card" href="https://arxiv.org/abs/2611.17818v1" target="_blank" rel="noopener">
         <div class="card-top">
           <span class="pri pri-P3">P3</span>
           <span class="label">PUBLISHED RESEARCH</span>
           <span class="conf conf-low">LOW confidence</span>
         </div>
-        <div class="card-title">An Agentic Multi-Agent Framework for System Log Anomaly Detection</div>
-        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
-        <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
-      </a>
-      <a class="card" href="https://arxiv.org/abs/2611.09734v1" target="_blank" rel="noopener">
-        <div class="card-top">
-          <span class="pri pri-P3">P3</span>
-          <span class="label">PUBLISHED RESEARCH</span>
-          <span class="conf conf-low">LOW confidence</span>
-        </div>
-        <div class="card-title">GuardrailAgent: An Agentic Framework for Jailbreak Defense</div>
-        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
-        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0051</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Prompt Injection</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
+        <div class="card-title">LLMs are Vulnerable to Malicious Requests with Indistinguishable Intent</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 10/100</div>
+        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag atlas">AML.T0051</span><span class="tag cat">Prompt Injection</span></div>
       </a>
       <a class="card" href="https://arxiv.org/abs/2611.13578v1" target="_blank" rel="noopener">
         <div class="card-top">
@@ -207,25 +217,25 @@ h1{font-size:clamp(24px,4vw,38px);margin:6px 0 8px;color:#fff}
         <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 10/100</div>
         <div class="tags"><span class="tag owasp">LLM01</span><span class="tag atlas">AML.T0051</span><span class="tag cat">Prompt Injection</span></div>
       </a>
-      <a class="card" href="https://arxiv.org/abs/2611.10756v1" target="_blank" rel="noopener">
+      <a class="card" href="https://arxiv.org/abs/2611.21088v1" target="_blank" rel="noopener">
         <div class="card-top">
           <span class="pri pri-P3">P3</span>
           <span class="label">PUBLISHED RESEARCH</span>
           <span class="conf conf-low">LOW confidence</span>
         </div>
-        <div class="card-title">Mirage: Provable Defense Against LLM KV Cache Timing Side Channels with Topology-Aware Isolation</div>
-        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 10/100</div>
-        <div class="tags"><span class="tag owasp">LLM05</span><span class="tag atlas">AML.T0010</span><span class="tag cat">AI Infrastructure / Inference Server</span></div>
+        <div class="card-title">AudioTrace: File-Level Membership Detection for Audio Large Language Models</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 0/100</div>
+        <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0057</span><span class="tag cat">Sensitive Information Disclosure</span></div>
       </a>
-      <a class="card" href="https://arxiv.org/abs/2611.08752v1" target="_blank" rel="noopener">
+      <a class="card" href="https://arxiv.org/abs/2611.18272v1" target="_blank" rel="noopener">
         <div class="card-top">
           <span class="pri pri-P3">P3</span>
           <span class="label">PUBLISHED RESEARCH</span>
           <span class="conf conf-low">LOW confidence</span>
         </div>
-        <div class="card-title">AttentionSwitch: Jailbreak Defense for LLMs via Joint Learning of Sparse Attention-Head Selection and Scaling</div>
-        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 10/100</div>
-        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag atlas">AML.T0051</span><span class="tag cat">Prompt Injection</span></div>
+        <div class="card-title">From Bytes to Behavior: Request-Level Attribution from Live GPU Hidden States</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 0/100</div>
+        <div class="tags"><span class="tag owasp">LLM05</span><span class="tag atlas">AML.T0010</span><span class="tag cat">AI Infrastructure / Inference Server</span></div>
       </a>
       <a class="card" href="https://arxiv.org/abs/2611.15013v1" target="_blank" rel="noopener">
         <div class="card-top">
@@ -251,7 +261,7 @@ h1{font-size:clamp(24px,4vw,38px);margin:6px 0 8px;color:#fff}
 
   <div class="foot">
     Machine-readable feed: <a class="api" href="/api/intel/ai-security.json">/api/intel/ai-security.json</a>
-    &nbsp;·&nbsp; Generated 2026-11-14T06:03:44.999Z &nbsp;·&nbsp; CYBERDUDEBIVASH® SENTINEL APEX™ AI Security Intelligence Division
+    &nbsp;·&nbsp; Generated 2026-11-17T17:00:37.060Z &nbsp;·&nbsp; CYBERDUDEBIVASH® SENTINEL APEX™ AI Security Intelligence Division
   </div>
 </div>
 </body>
