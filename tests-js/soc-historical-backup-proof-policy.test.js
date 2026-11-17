@@ -18,11 +18,11 @@ test('manual-only confirmed workflow has no scheduled, PR or push trigger', () =
   assert.doesNotMatch(yaml, /^\s*(schedule|push|pull_request|pull_request_target):/m);
   assert.ok(yaml.includes('APPROVAL_CONFIRMATION: ' + String.fromCharCode(36) + '{{ inputs.confirmation }}'));
   assert.ok(yaml.includes('P0 fail closed on invalid manual owner confirmation'));
-  assert.ok(yaml.includes("if [[ \"$APPROVAL_CONFIRMATION\" != 'VERIFY_HISTORICAL_BACKUP_OFFLINE' ]]; then"));
+  assert.ok(yaml.includes("if [[ \"$APPROVAL_CONFIRMATION\" != 'VERIFY_RECENT_BACKUP_OFFLINE' ]]; then"));
   assert.match(yaml, /Backup proof not authorized[\s\S]*?exit 2/);
   assert.ok(!yaml.split('\n').some(line => line.trim().startsWith('if:') && line.includes('inputs.confirmation')));
   assert.match(yaml, /github\.ref == 'refs\/heads\/main'/);
-  assert.match(yaml, /github\.repository == 'cyberdudebivash\/cyberdudebivash-blog'/);
+  assert.match(yaml, /github\.repository == 'CYBERDUDEBIVASH-ECOSYSTEM\/cyberdudebivash-blog'/);
   assert.match(yaml, /timeout-minutes:\s*5/);
 });
 test('read-only minimal GitHub permissions and no public artifact uploads', () => {
@@ -30,11 +30,15 @@ test('read-only minimal GitHub permissions and no public artifact uploads', () =
   assert.doesNotMatch(yaml, /contents:\s*write|actions:\s*write|actions\/upload-artifact|wrangler|git push|npm publish/i);
   assert.match(yaml, /uses: actions\/checkout@v5[\s\S]*?persist-credentials: false/);
 });
-test('pins Nov 5 backup run, source code and exact encrypted payload bytes', () => {
-  assert.match(yaml, /gh run download 42013963858/);
-  assert.match(yaml, /--name customer-data-backup-42013963858/);
-  assert.match(yaml, /stat -c '%s'[^]*'14302'/);
-  assert.match(yaml, /80973d53b2350260f2c4b478b2ee6a8f71f4ffa86476a2a1080c16d174606438/);
+test('pins Nov 13 migrated backup run, source code and exact encrypted payload bytes', () => {
+  assert.match(yaml, /14029734149/);
+  assert.match(yaml, /sha256:db0890afa42592b70adb41d7663fa2168dd110b85c5007bd795e900e20d5cce4/);
+  assert.match(yaml, /\.expired == false/);
+  assert.match(yaml, /\.workflow_run\.repository_id == 1216849478/);
+  assert.match(yaml, /gh run download 43412850919/);
+  assert.match(yaml, /--name customer-data-backup-43412850919/);
+  assert.match(yaml, /stat -c '%s'[^]*'15290'/);
+  assert.match(yaml, /7f4fcd2c835190ac20aab7fce6550add9869de4fa2e9bd87bd391b0fdf083e15/);
   assert.match(yaml, /692ee1f2f2a8894e5782972b61d3e2f820b2581f/);
   assert.match(yaml, /0933115405f0c70c22c34cdbe19ea451486fbad0/);
 });
