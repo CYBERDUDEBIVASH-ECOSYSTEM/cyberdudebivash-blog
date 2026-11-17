@@ -5,7 +5,7 @@ on:
     paths:
       - '.github/workflows/sentinel-apex.yml'
   schedule:
-    # Runs hourly at :13 UTC to protect runner capacity. GitHub Actions notes that
+    # Runs every 30 minutes at :03/:33 UTC for customer-facing source freshness. GitHub notes that
     # scheduled (cron) triggers can be delayed or dropped during periods of
     # high load, and explicitly calls out the start of every hour as a high
     # load time. This repo runs 9 separate cron schedules; stacking them all
@@ -13,7 +13,7 @@ on:
     # 2026-09-03 (root cause of the missing Sep 3 Blogger publications).
     # Every scheduled workflow in this repo now uses a distinct minute
     # offset — see the same rationale note in each sibling workflow file.
-    - cron: "13 * * * *"
+    - cron: "3,33 * * * *"
   workflow_dispatch:
     inputs:
       force_reset_state:

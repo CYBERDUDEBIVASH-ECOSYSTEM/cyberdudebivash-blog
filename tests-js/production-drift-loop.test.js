@@ -73,10 +73,10 @@ test('P0 drift checks every producer completion and has one daily low-cost backs
     'monitor concurrency remains bounded and read-only');
 });
 
-test('P0 source certification is four times daily while customer freshness runs hourly',()=>{
+test('P0 source certification is four times daily while customer freshness runs every 30 minutes',()=>{
   const health=fs.readFileSync(path.join(root,'.github/workflows/pipeline-health-certification.yml'),'utf8');
   const freshness=fs.readFileSync(path.join(root,'.github/workflows/freshness-check.yml'),'utf8');
   assert.match(health,/cron: ['"]49 2,8,14,20 \* \* \*['"]/);
-  assert.match(freshness,/cron: ['"]43 \* \* \* \*['"]/);
+  assert.match(freshness,/cron: ['"]13,43 \* \* \* \*['"]/);
   assert.match(health,/node scripts\/assess-pipeline-operational-health\.cjs/);
 });

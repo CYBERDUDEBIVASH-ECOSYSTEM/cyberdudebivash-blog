@@ -16,7 +16,9 @@ test('P0 Blogger publication limit is bounded and never interpolated directly in
 });
 
 test('P0 live Blogger publishing requires main, no untrusted ref text reaches Git shell',()=>{
-  assert.match(wf,/if: \$\{\{ github\.ref == 'refs\/heads\/main' \}\}/);
+  assert.match(wf,/if: \$\{\{ github\.ref == 'refs\/heads\/main' && \(github\.event_name == 'workflow_dispatch' \|\| vars\.BLOGGER_OAUTH_READY == 'true'\) \}\}/);
+  assert.doesNotMatch(wf,/if: \$\{\{ github\.ref == 'refs\/heads\/main' \}\}/,
+    'scheduled publisher must not run without confirmed OAuth readiness');
   assert.match(wf,/\[ "\$\{GITHUB_REF\}" != "refs\/heads\/main" \]/);
   assert.doesNotMatch(wf,/DRY_RUN_FLAG\}" != "--dry-run"/);
   assert.match(wf,/Unauthorized Blogger branch::Live publication requires main/);

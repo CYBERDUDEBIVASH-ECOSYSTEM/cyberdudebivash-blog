@@ -490,7 +490,7 @@ describe('live record freshness: what the homepage command center renders', () =
     const page = runCommandCenter(serve(feed(12, [item('NEW-A', 3, 3), item('OLD-1', 24 * 40, 24 * 40)])), null, { noModel: true });
     await settle(settle2);
     const html = page.html('cdb-triage-feed');
-    assert.match(html, /Live intelligence list unavailable/);
+    assert.match(html, /Live intelligence feed unavailable/);
     assert.doesNotMatch(html, /Title NEW-A|Title OLD-1|ARCHIVAL/);
     assert.equal(page.hidden('cdb-live-badge'), true, 'no badge without the freshness model');
   });

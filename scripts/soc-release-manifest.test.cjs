@@ -293,6 +293,7 @@ test('CLI: build then verify passes; a changed file turns verify into HOLD with 
   const secretsFile = path.join(root, 'secrets.json');
   fs.writeFileSync(approvalFile, JSON.stringify(approvalFor(manifest, {
     financial_attestation: { sha256: 'c'.repeat(64), attested_at: new Date().toISOString() },
+    approved_at: new Date().toISOString(),
   })));
   fs.writeFileSync(secretsFile, JSON.stringify(SECRETS));
   // The fixture feed timestamp is fixed in the past, so refresh it relative to the real clock first.
@@ -301,6 +302,7 @@ test('CLI: build then verify passes; a changed file turns verify into HOLD with 
   fs.writeFileSync(out, JSON.stringify(fresh));
   fs.writeFileSync(approvalFile, JSON.stringify(approvalFor(fresh, {
     financial_attestation: { sha256: 'c'.repeat(64), attested_at: new Date().toISOString() },
+    approved_at: new Date().toISOString(),
   })));
   const args = ['verify', '--manifest', out, '--approval', approvalFile, '--sha', SHA, '--target', 'production',
     '--secrets', secretsFile, '--root', root];

@@ -99,7 +99,13 @@ jobs:
             while IFS= read -r match; do
               [ -z "$match" ] && continue
               echo "::error title=Potential Secret Exposure::Tracked production content matched a credential/private-key signature."
-              echo "$match" | sed -E 's/([A-Za-z0-9_\/-]{6})[A-Za-z0-9_\/-]+/\1[REDACTED]/g'
+              # Never echo matched source. Partial regex redaction can leak
+              # credentials or private CTI text from exceptionally long report lines.
+              file_path="${match%%:*}"
+              remainder="${match#*:}"
+              line_number="${remainder%%:*}"
+              case "$line_number" in ''|*[!0-9]*) line_number='?' ;; esac
+              printf 'SENSITIVE_MATCH path=%s line=%s signature=%s (content withheld)\n' "$file_path" "$line_number" "$pattern"
               FOUND=1
             done < <(
               git grep -nE "$pattern" -- \

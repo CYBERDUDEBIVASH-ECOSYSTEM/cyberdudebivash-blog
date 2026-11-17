@@ -1,0 +1,99 @@
+# P0: Manual, read-only proof that migrated GitHub secrets are usable by hosted runners.
+# It cannot publish to Blogger, push repository state or deploy Cloudflare.
+name: "P0 Blogger OAuth — Read-Only Runner Certification"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: blogger-oauth-readonly-certification
+  cancel-in-progress: false
+
+jobs:
+  certify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Verify Google OAuth refresh and the exact CTI Blogger destination
+        shell: bash
+        env:
+          BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+          BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+
+          def hold(code):
+              # Never include exception bodies: Google may return credential-related details.
+              print("CERTIFICATION=HOLD_" + code)
+              sys.exit(1)
+
+          names = ("BLOGGER_CLIENT_ID", "BLOGGER_CLIENT_SECRET",
+                   "BLOGGER_REFRESH_TOKEN", "BLOGGER_BLOG_ID")
+          if any(not os.environ.get(name, "").strip() for name in names):
+              hold("MISSING_SECRET")
+
+          expected_blog_id = "2163240462341298251"
+          if os.environ["BLOGGER_BLOG_ID"] != expected_blog_id:
+              hold("BLOG_ID_MISMATCH")
+
+          form = urllib.parse.urlencode({
+              "client_id": os.environ["BLOGGER_CLIENT_ID"],
+              "client_secret": os.environ["BLOGGER_CLIENT_SECRET"],
+              "refresh_token": os.environ["BLOGGER_REFRESH_TOKEN"],
+              "grant_type": "refresh_token",
+          }).encode("utf-8")
+          token_request = urllib.request.Request(
+              "https://oauth2.googleapis.com/token",
+              data=form,
+              headers={"Content-Type": "application/x-www-form-urlencoded"},
+              method="POST",
+          )
+          try:
+              with urllib.request.urlopen(token_request, timeout=15) as response:
+                  token_data = json.load(response)
+          except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError,
+                  OSError, ValueError):
+              hold("OAUTH_REFRESH_FAILED")
+
+          access_token = token_data.get("access_token")
+          if not isinstance(access_token, str) or not access_token:
+              hold("ACCESS_TOKEN_MISSING")
+
+          # HTTP GET only: no Blogger draft, publication, update or delete APIs.
+          blog_request = urllib.request.Request(
+              "https://www.googleapis.com/blogger/v3/blogs/" + expected_blog_id,
+              headers={"Authorization": "Bearer " + access_token},
+              method="GET",
+          )
+          try:
+              with urllib.request.urlopen(blog_request, timeout=15) as response:
+                  blog = json.load(response)
+          except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError,
+                  OSError, ValueError):
+              hold("BLOG_READ_FAILED")
+
+          if str(blog.get("id", "")) != expected_blog_id:
+              hold("BLOG_ID_RESPONSE_MISMATCH")
+          if urllib.parse.urlsplit(str(blog.get("url", ""))).hostname != "cti.cyberdudebivash.in":
+              hold("BLOG_URL_RESPONSE_MISMATCH")
+
+          print("OAUTH_REFRESH=PASS")
+          print("BLOGGER_READ_ONLY_API=PASS")
+          print("BLOGGER_DESTINATION=CTI_VERIFIED")
+          print("BLOGGER_PUBLICATION=NOT_ATTEMPTED")
+          print("PRODUCTION_DEPLOYMENT=NONE")
+          print("CERTIFICATION=PASS")
+          PY
