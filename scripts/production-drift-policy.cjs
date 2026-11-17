@@ -162,6 +162,23 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   'scripts/certify-soc-dual-host-ui-release.cjs',
   '.github/workflows/soc-owner-release-evidence.yml',
   'scripts/soc-operator-release-preflight.cjs',
+  // P0 #433, run #44143008188 / #44133650054: exact named paths
+  // classified after source review on 2026-11-17. These are OPERATIONAL,
+  // never benign: every change continues to require manual release review.
+  // The CVE/RSS workflows can PUSH generated content to main; the OAuth
+  // workflow refreshes credentials only to GET the intended Blogger blog;
+  // security/branding workflows enforce CI policy. AGENTS.md is a governance
+  // charter; the two scripts provide read-only release evidence. No change
+  // below authorizes deployment, Blogger publication, billing, or migration.
+  // Do NOT replace with .github/workflows/**, scripts/** or AGENTS* globs.
+  '.github/workflows/blogger-oauth-readonly-certification.yml',
+  '.github/workflows/cve-pages.yml',
+  '.github/workflows/generate-rss.yml',
+  '.github/workflows/security-audit.yml',
+  '.github/workflows/sentinel-branding-check.yml',
+  'AGENTS.md',
+  'scripts/p0-soc-cti-evidence-gate.cjs',
+  'scripts/soc-live-homepage-certify.js',
 ]);
 
 /**
