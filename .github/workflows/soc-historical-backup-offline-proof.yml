@@ -65,7 +65,7 @@ jobs:
           }
           # Independently pin the GitHub artifact metadata before download.
           # The repository ID and commit are immutable across this transfer.
-          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/14029734149" \\
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/14029734149" \
             --jq 'select(.id == 14029734149 and .name == "customer-data-backup-43412850919" and .expired == false and .size_in_bytes == 8265 and .digest == "sha256:db0890afa42592b70adb41d7663fa2168dd110b85c5007bd795e900e20d5cce4" and .workflow_run.id == 43412850919 and .workflow_run.repository_id == 1216849478 and .workflow_run.head_branch == "main" and .workflow_run.head_sha == "70058bad5b3e215b2b3dbb9e6eba4e54e675ecf6") | .id' | grep -qx '14029734149' || {
             echo '::error title=Backup proof blocked::Pinned artifact provenance invalid or expired.'; exit 1;
           }
