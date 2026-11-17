@@ -234,8 +234,14 @@ jobs:
       - name: "💾 Commit Publication State"
         if: always()
         run: |
-          # An explicitly opted-in feature-branch dry run must not mutate any
-          # publication ledger or persist state; main is the sole writer.
+          # A manual dry run must be truly non-persistent even on main.
+          # The previous always() step could commit logs/provider state after
+          # --dry-run, creating a false publication ledger mutation.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            echo "DRY_RUN_GIT_MUTATIONS=NONE"
+            exit 0
+          fi
+          # Only reviewed main may persist live Blogger publication receipts.
           if [ "${GITHUB_REF}" != "refs/heads/main" ]; then
             echo "No publication-state commit outside main"
             exit 0
