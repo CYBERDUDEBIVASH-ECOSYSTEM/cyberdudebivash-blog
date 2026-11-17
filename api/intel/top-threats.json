@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T20:04:27.789Z",
+  "generated": "2026-11-17T21:25:25.866Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,6 +7,55 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/top-threats.json",
   "description": "S2N top threats: final_ps ≥ 70 AND quality_score ≥ 0.60",
-  "count": 0,
-  "items": []
+  "count": 1,
+  "items": [
+    {
+      "id": "CVE-2026-115731",
+      "title": "CVE-2026-115731: Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability — CISA KEV Active Exploitati",
+      "description": "Perforce Puppet Enterprise contains a deserialization of untrusted data vulnerability in Puppet’s report-processing code that allows a client with any CA-signed agent certificate to execute arbitrary code on the Puppet Server as the service user by submitting a report containing a crafted rich-data ",
+      "cvss": 9.9,
+      "final_ps": 100,
+      "quality_score": 0.607,
+      "threat_level": "CRITICAL",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 2,
+      "merged_sources": [
+        "nvd",
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Perforce",
+      "product": "Puppet Enterprise",
+      "due_date": "2026-12-01",
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://portal.perforce.com/s/cve/a91Qi000003IaHpIAK/report-deserialization-code-execution",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-115731",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=1.00",
+          "multi_source=2 sources",
+          "recency=14d (score=0.20)",
+          "QS=0.607"
+        ],
+        "priority": [
+          "+15 CISA_KEV",
+          "+10 CVSS≥9",
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    }
+  ]
 }
