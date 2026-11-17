@@ -12,9 +12,11 @@ on:
     types: [completed]
     branches: [main]
   schedule:
-    # Keep existing 30-minute cadence, offset from :00/:30 GitHub load spikes.
-    # No additional schedules or Cloudflare usage.
-    - cron: "11,41 * * * *"
+    # Low-cost independent backstop once daily, outside top-of-hour load.
+    # The six workflow_run triggers above still check every producer completion,
+    # including failures/cancellations, immediately and without deploying.
+    # Manual production releases remain separately certified and approved.
+    - cron: "41 4 * * *"
   workflow_dispatch:
 
 permissions:
