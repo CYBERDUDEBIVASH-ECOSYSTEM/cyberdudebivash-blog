@@ -44784,6 +44784,46 @@
       ]
     },
     {
+      "campaign_id": "campaign:cve-2026-115731",
+      "name": "Perforce Puppet Exploitation Campaign",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "item_count": 1,
+      "ioc_count": 0,
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "related_intel_ids": [
+        "CVE-2026-115731"
+      ],
+      "related_intel": [
+        {
+          "id": "CVE-2026-115731",
+          "title": "CVE-2026-115731: Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability — CISA KEV Active Exploitation",
+          "type": "CVE_REPORT",
+          "priority_score": 81,
+          "published": "2026-11-17",
+          "exploited": true,
+          "cisa_kev": true
+        }
+      ],
+      "shared_iocs": [],
+      "shared_cves": [
+        "CVE-2026-115731"
+      ],
+      "threat_actor": null,
+      "threat_actors": [],
+      "max_priority_score": 81,
+      "has_kev": true,
+      "has_ransomware": false,
+      "has_exploited": true,
+      "reasoning": [
+        "1 intel item(s) clustered with composite confidence 0.900",
+        "Single CVE basis: CVE-2026-115731",
+        "1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      ],
+      "clustering_model": "weighted_v2"
+    },
+    {
       "campaign_id": "campaign:cluster-72c63d44",
       "name": "SecLists Multiple Exploitation Campaign",
       "severity": "MEDIUM",
@@ -105662,7 +105702,7 @@
       "clustering_model": "graph_reconstruction_v1"
     }
   ],
-  "generated": "2026-11-17T17:59:09.073Z",
+  "generated": "2026-11-17T18:59:16.929Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0"
 }
