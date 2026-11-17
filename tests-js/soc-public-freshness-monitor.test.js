@@ -10,8 +10,8 @@ const feed=(generatedAt,totalPublished)=>({
   generatedAt,metadata:{lastPipelineRun:generatedAt,lastReportGeneratedAt:generatedAt},totalPublished,
   items:Array.from({length:15},(_,i)=>({id:'CVE-2026-'+(10000+i)}))
 });
-test('normal 30-minute scheduled freshness path now verifies BOTH customer SOC hostnames',()=>{
- assert.match(workflow,/cron: '13,43 \* \* \* \*'/);
+test('hourly scheduled freshness path verifies BOTH customer SOC hostnames',()=>{
+ assert.match(workflow,/cron: '43 \* \* \* \*'/);
  assert.match(workflow,/freshness-check:\s*\n\s*if: github.event_name != 'push'/);
  const idx=workflow.indexOf('id: soc_public_freshness');
  const summary=workflow.indexOf('name: "Monitor result summary"');
@@ -370,15 +370,16 @@ test('Blogger recovery may follow a verified source recovery, never an unverifie
  const expr=match[1].split('\n').map(line=>line.trim()).join(' ');
  // The expression is a checked-in GitHub if clause, evaluated only against
  // synthetic step outcomes. No token, API call, dispatch, or user data.
- const allowed=(sourceNeeded,postOutcome,postStatus,bloggerNeeded)=>{
+ const allowed=(sourceNeeded,postOutcome,postStatus,bloggerNeeded,oauthReady='true')=>{
    const steps={
      freshness:{outputs:{recovery_required:sourceNeeded?'true':'false'}},
      post_recovery:{outcome:postOutcome,outputs:{status:postStatus}},
      blogger_freshness:{outputs:{recovery_required:bloggerNeeded?'true':'false'}},
    };
-   return Boolean(vm.runInNewContext(expr,{steps},{timeout:1000}));
+   return Boolean(vm.runInNewContext(expr,{steps,vars:{BLOGGER_OAUTH_READY:oauthReady}},{timeout:1000}));
  };
- assert.equal(allowed(false,'skipped','',true),true,'normal independently stale Blogger recovers');
+ assert.equal(allowed(false,'skipped','',true),true,'normal independently stale Blogger recovers only with confirmed OAuth');
+ assert.equal(allowed(false,'skipped','',true,'false'),false,'invalid OAuth blocks all automatic recovery dispatches');
  assert.equal(allowed(true,'success','HEALTHY',true),true,'verified source recovery unblocks Blogger repair');
  assert.equal(allowed(true,'failure','PIPELINE_DOWN',true),false,'failed source recovery cannot publish');
  assert.equal(allowed(true,'success','PIPELINE_DOWN',true),false,'nonhealthy postcheck cannot publish');
