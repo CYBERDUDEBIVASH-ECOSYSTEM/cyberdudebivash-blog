@@ -28,26 +28,27 @@ def response():
 class PublicRetryTests(unittest.TestCase):
     @patch.object(probe.time, 'sleep')
     @patch.object(probe, 'urlopen')
-    def test_transient_429_retries_then_returns_real_response(self, open_url, sleep):
-        open_url.side_effect = [throttled(), response()]
+    def test_transient_503_retries_then_returns_real_response(self, open_url, sleep):
+        open_url.side_effect = [throttled(status=503), response()]
         self.assertEqual(probe.fetch(probe.BASE, 'feed'), 'valid response')
         self.assertEqual(open_url.call_count, 2)
         sleep.assert_called_once_with(2)
 
     @patch.object(probe.time, 'sleep')
     @patch.object(probe, 'urlopen')
-    def test_persistent_429_is_bounded_and_fails(self, open_url, sleep):
+    def test_provider_429_is_terminal_without_retry(self, open_url, sleep):
         open_url.side_effect = [throttled() for _ in range(3)]
         with self.assertRaises(probe.ProbeTransportError) as caught:
             probe.fetch(probe.BASE, 'mobile')
-        self.assertEqual((caught.exception.endpoint, caught.exception.http_status, caught.exception.attempts), ('mobile', 429, 3))
-        self.assertEqual(sleep.call_count, 2)
-        self.assertEqual(open_url.call_count, 3)
+        self.assertEqual((caught.exception.endpoint, caught.exception.http_status, caught.exception.attempts), ('mobile', 429, 1))
+        self.assertEqual(caught.exception.reason, 'rate_limited')
+        sleep.assert_not_called()
+        self.assertEqual(open_url.call_count, 1)
 
     @patch.object(probe.time, 'sleep')
     @patch.object(probe, 'urlopen')
     def test_long_retry_after_is_not_shortened(self, open_url, sleep):
-        open_url.side_effect = throttled('120')
+        open_url.side_effect = throttled('120', status=503)
         with self.assertRaises(probe.ProbeTransportError) as caught:
             probe.fetch(probe.BASE, 'feed')
         self.assertEqual(caught.exception.reason, 'retry_after_exceeds_budget')
@@ -71,7 +72,7 @@ class PublicRetryTests(unittest.TestCase):
     @patch.object(sys, 'argv', ['probe'])
     @patch.object(probe, 'fetch')
     def test_main_reports_endpoint_and_nonzero_without_recovery(self, fetch):
-        fetch.side_effect = probe.ProbeTransportError('feed', 'retries_exhausted', 3, 429)
+        fetch.side_effect = probe.ProbeTransportError('feed', 'rate_limited', 1, 429)
         output = io.StringIO()
         with redirect_stdout(output):
             self.assertEqual(probe.main(), 1)
