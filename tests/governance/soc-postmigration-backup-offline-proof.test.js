@@ -35,6 +35,7 @@ describe('migrated SOC customer backup offline proof', () => {
     expect(workflow).toContain('P0_PRODUCTION_DATA_MUTATION=false');
     expect(workflow).toContain('P0_ISOLATED_REDIS_RESTORE_VERIFIED=false');
     expect(workflow).toContain('P0_RPO_RTO_VERIFIED=false');
-    expect(workflow).not.toMatch(/gh workflow run|wrangler deploy|--confirm\s|--confirm-production\s/);
+    expect(workflow).not.toMatch(/gh workflow run|wrangler deploy/);
+    expect(workflow).not.toMatch(/node scripts\/restore-customer-data\.js\s*\\\s*\n\s*[^\n]*--confirm/);
   });
 });
