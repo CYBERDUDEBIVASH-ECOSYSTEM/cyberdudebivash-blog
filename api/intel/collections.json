@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T13:56:51.077Z",
+  "generated": "2026-11-18T19:43:27.806Z",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
   "count": 6,
   "collections": [
@@ -7,8 +7,16 @@
       "slug": "ransomware-intelligence",
       "name": "Ransomware Intelligence Collection",
       "description": "Ransomware campaigns, extortion groups, and encryption/exfiltration incidents.",
-      "count": 162,
+      "count": 163,
       "items": [
+        {
+          "slug": "the-gentlemen-ransomware-gang-allegedly-claims-to-have-breac",
+          "title": "The Gentlemen Ransomware Gang Allegedly Claims to Have Breached NVIDIA",
+          "url": "/posts/the-gentlemen-ransomware-gang-allegedly-claims-to-have-breac.html",
+          "generated": "2026-11-18T17:04:49.961Z",
+          "severity": "LOW",
+          "cves": []
+        },
         {
           "slug": "fbi-warns-hackers-abuse-google-search-to-spread-gootloader-m",
           "title": "FBI Warns Hackers Abuse Google Search to Spread Gootloader Malware and Launch Ransomware Attacks",
@@ -13188,6 +13196,45 @@
           ]
         },
         {
+          "campaign_id": "campaign:cve-2026-63496",
+          "name": "npm @augment-vir/node Exploitation Campaign",
+          "clustering_model": "weighted_v2",
+          "severity": "MEDIUM",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2026-11-18",
+          "last_seen": "2026-11-18",
+          "related_intel_ids": [
+            "CVE-2026-63496"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2026-63496",
+              "title": "augment-virShell allows Command Injection in `grep()` via Unsanitized `searchPattern`",
+              "type": "CVE_REPORT",
+              "priority_score": 62,
+              "published": "2026-11-18",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2026-63496"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 62,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2026-63496"
+          ]
+        },
+        {
           "campaign_id": "campaign:cve-2026-73654",
           "name": "npm @trigger.dev/core Exploitation Campaign",
           "severity": "LOW",
@@ -13455,8 +13502,18 @@
       "slug": "kev-actively-exploited",
       "name": "CISA KEV — Actively Exploited Collection",
       "description": "Vulnerabilities confirmed to be under active exploitation in the wild.",
-      "count": 438,
+      "count": 439,
       "items": [
+        {
+          "slug": "cve-2026-129448-the-hacker-news-threat-intelligence",
+          "title": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
+          "url": "/posts/cve-2026-129448-the-hacker-news-threat-intelligence.html",
+          "generated": "2026-11-18T19:33:31.464Z",
+          "severity": "CRITICAL",
+          "cves": [
+            "CVE-2026-129448"
+          ]
+        },
         {
           "slug": "cve-2026-115731-perforce-puppet-enterprise",
           "title": "CVE-2026-115731: Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability — CISA KEV Active Exploitation",
