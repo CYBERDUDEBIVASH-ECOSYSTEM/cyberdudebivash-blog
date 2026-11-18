@@ -148,6 +148,44 @@ class TestBloggerPublish(unittest.TestCase):
                 with self.assertRaises(BloggerPublishError):
                     self.publisher.publish_post("Title", "<p>x</p>", [])
 
+    def test_ambiguous_read_timeout_does_not_replay_nonidempotent_insert(self):
+        import requests as req_lib
+        with patch("requests.post", side_effect=[
+            req_lib.ReadTimeout("the server may have accepted the post"),
+            self._mock_publish_success(),
+        ]) as mock_post:
+            with patch("time.sleep") as sleep:
+                with self.assertRaisesRegex(BloggerPublishError, "BLOGGER_INSERT_REPLAY_SUPPRESSED"):
+                    self.publisher.publish_post("Title", "<p>x</p>", [])
+        self.assertEqual(mock_post.call_count, 1)
+        sleep.assert_not_called()
+
+    def test_server_error_does_not_replay_ambiguous_post(self):
+        import requests as req_lib
+        failed = MagicMock()
+        failed.status_code = 503
+        failed.ok = False
+        failed.text = "Service unavailable"
+        failed.raise_for_status.side_effect = req_lib.HTTPError("503")
+        with patch("requests.post", side_effect=[
+            failed, self._mock_publish_success(),
+        ]) as mock_post:
+            with patch("time.sleep") as sleep:
+                with self.assertRaisesRegex(BloggerPublishError, "BLOGGER_INSERT_REPLAY_SUPPRESSED"):
+                    self.publisher.publish_post("Title", "<p>x</p>", [])
+        self.assertEqual(mock_post.call_count, 1)
+        sleep.assert_not_called()
+
+    def test_oauth_failure_occurs_before_any_blogger_create(self):
+        import requests as req_lib
+        self.publisher._access_token = None
+        with patch.object(self.publisher, "_get_access_token",
+                          side_effect=req_lib.ConnectionError("OAuth unavailable")):
+            with patch("requests.post") as mock_post:
+                with self.assertRaises(req_lib.ConnectionError):
+                    self.publisher.publish_post("Title", "<p>x</p>", [])
+        mock_post.assert_not_called()
+
     def test_draft_flag_passed_in_params(self):
         with patch("requests.post", return_value=self._mock_publish_success()) as mock_post:
             self.publisher.publish_post("Title", "<p>x</p>", [], is_draft=True)
