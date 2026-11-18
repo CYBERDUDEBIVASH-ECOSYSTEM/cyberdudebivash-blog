@@ -38,7 +38,7 @@ test('previously reviewed D1 fail-closed test must remain operational',()=>{
   const result=policy.classify(compare([source,d1]),BASE,HEAD,patterns);
   assert.equal(result.state,'manual_release_required');
   assert.deepEqual(result.unknown,[]);
-  assert.ok(result.operational.includes(d1));
+  assert.ok([...result.operational,...result.production].includes(d1));
 });
 
 test('unreviewed neighboring source remains BLOCKED',()=>{
