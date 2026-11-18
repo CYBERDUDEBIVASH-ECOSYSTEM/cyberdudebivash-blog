@@ -213,10 +213,13 @@ class BloggerPublisher:
         auth_refreshed = False
 
         for attempt in range(1, self.config.retry_attempts + 1):
+            # OAuth refresh happens before posts.insert, so an OAuth transport
+            # error cannot be mistaken for an ambiguous published post.
+            headers = self._headers()
             try:
                 resp = requests.post(
                     url,
-                    headers=self._headers(),
+                    headers=headers,
                     json=payload,
                     params=params,
                     timeout=30,
@@ -286,17 +289,21 @@ class BloggerPublisher:
                 return post_data
 
             except requests.RequestException as e:
-                last_error = str(e)
-                if attempt == self.config.retry_attempts:
-                    raise BloggerPublishError(
-                        f"Failed after {attempt} attempts: {last_error}"
-                    ) from e
-                wait = self.config.retry_base_delay * (2 ** attempt)
-                logger.warning(
-                    "Publish attempt failed, retrying",
-                    extra={"attempt": attempt, "error": last_error, "wait": wait},
+                # P0: Blogger posts.insert is a non-idempotent create. After a
+                # timeout, broken connection or HTTP 5xx, Google may already
+                # have accepted the write. Retrying the same POST can create
+                # a duplicate public intelligence report. Only explicit 429
+                # rejection and 401 token refresh above can safely retry.
+                # Never emit response/exception bodies containing credentials.
+                logger.error(
+                    "Blogger insert outcome requires read-only reconciliation; automatic POST replay suppressed",
+                    extra={"attempt": attempt, "exception_type": type(e).__name__},
                 )
-                time.sleep(wait)
+                raise BloggerPublishError(
+                    "BLOGGER_INSERT_REPLAY_SUPPRESSED: reconcile latest Blogger "
+                    "posts.list and publication ledger before another create "
+                    f"(transport_class={type(e).__name__})"
+                ) from e
 
         if last_error.startswith("HTTP 429"):
             raise BloggerRateLimitError(f"All retry attempts exhausted — last error: {last_error}")
