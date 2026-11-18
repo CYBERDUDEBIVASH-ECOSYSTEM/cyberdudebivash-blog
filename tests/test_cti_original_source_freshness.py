@@ -51,6 +51,27 @@ def test_true_recent_original_source_can_still_be_syndicated(tmp_path):
     )
 
 
+def test_syndication_falls_back_to_verified_authoritative_candidate():
+    from automation.publication_scheduler import select_publication_batch
+    stale = article(
+        url="https://blog.cyberdudebivash.in/posts/"
+            "beware-the-new-ai-fueled-ransomware-boom.html"
+    )
+    # CISA/other source families retain their own date authority and must
+    # remain eligible when a stale canonical repost is filtered.
+    cisa = article(
+        url="https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        source="cisa_kev", rss_at="2026-11-18T00:00:00+00:00",
+    )
+    eligible = [
+        entry for entry in [stale, cisa]
+        if original_source_is_current(entry, 72, now=NOW, repo_root=ROOT)
+    ]
+    result = select_publication_batch([], eligible, 1)
+    assert result.articles == [cisa]
+    assert result.metrics["canonical_selected"] == 0
+
+
 def test_missing_original_date_fails_closed(tmp_path):
     path = tmp_path / "posts/no-provenance.html"
     path.parent.mkdir(parents=True)
