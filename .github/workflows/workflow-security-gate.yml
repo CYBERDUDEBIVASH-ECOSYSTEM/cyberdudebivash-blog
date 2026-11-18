@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           persist-credentials: false
           fetch-depth: 1
@@ -122,7 +122,7 @@ jobs:
           PY
 
       - name: "P0 production route and drift retry guard regressions"
-        run: node --test tests-js/production-route-markers.test.js tests-js/production-drift-loop.test.js tests-js/workflow-p0-hardening.test.js tests-js/soc-historical-backup-proof-policy.test.js
+        run: node --test tests-js/production-route-markers.test.js tests-js/production-drift-loop.test.js tests-js/workflow-p0-hardening.test.js tests-js/soc-historical-backup-proof-policy.test.js tests-js/workflow-critical-action-pinning.test.js
 
   customer-asset-contract:
     name: "Rendered customer route contract (offline)"
@@ -130,11 +130,11 @@ jobs:
     timeout-minutes: 12
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           persist-credentials: false
       - name: "Node.js 24"
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '24'
           cache: npm
