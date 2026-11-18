@@ -8,7 +8,8 @@ on:
       - 'api/intel/cve/**'
       - 'api/_lib/intelligence-hub.js'
       - 'generate-intelligence-hub.js'
-      - 'tests-js/**'
+      # Unit tests are exercised in PR CI and this workflow's generator step.
+      # Do not regenerate/push customer source data on unrelated tests-js edits.
       - '.github/workflows/intelligence-hub.yml'
   schedule:
     - cron: '47 */6 * * *'
@@ -24,18 +25,21 @@ concurrency:
 jobs:
   generate-intelligence-hub:
     name: "Generate & Validate Intelligence Hub"
+    # P0 zero-trust: even an explicit workflow_dispatch on a feature ref
+    # must not execute repository-write code from unreviewed source.
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
       - name: "📥 Checkout repository"
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "⚙️ Setup Node.js"
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '24'
 

@@ -13,7 +13,8 @@ const critical = [
   'freshness-check.yml',
   'backup-customer-data.yml',
   'workflow-security-gate.yml',
-  'alert-delivery.yml'
+  'alert-delivery.yml',
+  'intelligence-hub.yml'
 ];
 const approved = new Map([
   ['actions/checkout','fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09'],
