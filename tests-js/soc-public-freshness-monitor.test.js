@@ -365,7 +365,7 @@ test('Blogger recovery may follow a verified source recovery, never an unverifie
  const step=workflow.slice(start,end);
  assert.match(step,/id: blogger_recovery/);
  assert.match(step,/if: >-/);
- const match=step.match(/\n\s*if: >-\n([\s\S]*?)\n\s*uses: actions\/github-script@v7/);
+ const match=step.match(/\n\s*if: >-\n([\s\S]*?)\n\s*uses: actions\/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b/);
  assert(match,'extract exact GitHub expression from folded YAML condition');
  const expr=match[1].split('\n').map(line=>line.trim()).join(' ');
  // The expression is a checked-in GitHub if clause, evaluated only against
