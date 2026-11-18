@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T13:49:38.417Z",
+  "generated": "2026-11-18T14:54:16.434Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,11 +7,11 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7682,
+  "total_published": 7690,
   "s2n_stats": {
     "passed": 132,
     "suppressed": 4,
-    "avg_qs": 0.493
+    "avg_qs": 0.492
   },
   "items": [
     {
@@ -182,47 +182,6 @@
       }
     },
     {
-      "id": "CVE-2026-130686",
-      "title": "CVE-2026-130686 — Unknown Vendor vLLM from 0.6.0 CVSS 7.5 High Severity Vulnerability",
-      "description": "vLLM from 0.6.0 before 0.33.0 lacks a request-wide media budget, allowing remote inference clients to exhaust frontend resources by submitting many remote image URLs in one request. Attackers can send a compact request to /v1/messages or /v1/responses that forces downloading and decoding of every im",
-      "cvss": 7.5,
-      "final_ps": 63,
-      "quality_score": 0.58,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "vLLM from 0.6.0",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/vllm-project/vllm/security/advisories/GHSA-5r3c-5x4v-8gjh"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
-        ],
-        "priority": [
-          "base_ps=63 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-130683",
       "title": "CVE-2026-130683 — Unknown Vendor SiYuan before 3.8.10 CVSS 8.2 High Severity Vulnerability",
       "description": "SiYuan before 3.8.10 uses an incomplete deny-list in IsSensitivePath that omits shell-initialization files such as .zshenv and .bash_profile, as well as ~/.local. Authenticated administrators can call /api/file/copyFile with an absolute destination outside the workspace to write payloads there, whic",
@@ -258,6 +217,49 @@
         ],
         "priority": [
           "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-128074",
+      "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
+      "description": "Summary\n\nNuxt strips trailing slashes from the request path with a regular expression whose cost grows quadratically with the length of a run of consecutive slashes. A single unauthenticated request with a long run of slashes can occupy the server's event loop for a noticeable ti... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 57,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128074"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -301,6 +303,178 @@
         ],
         "priority": [
           "+4 critical_infra"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-76080",
+      "title": "CVE-2026-76080 - Probo: Unauthenticated cross-tenant and hidden-item disclosure via Query.node in the public Trust Cente",
+      "description": "CVE-2026-76080 - Probo: Unauthenticated cross-tenant and hidden-item disclosure via Query.node in the public Trust Center API",
+      "cvss": 9.1,
+      "final_ps": 53,
+      "quality_score": 0.433,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-11",
+      "last_seen": "2026-11-11",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76080"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-76080"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=6d (score=0.40)",
+          "QS=0.432"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-110959",
+      "title": "Low Security Vulnerability (CVE-2026-110959)",
+      "description": "CVE-2026-110959",
+      "cvss": 9.8,
+      "final_ps": 52,
+      "quality_score": 0.383,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-110959"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-110959?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=6d (score=0.40)",
+          "QS=0.383"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-124815",
+      "title": "Low Security Vulnerability (CVE-2026-124815)",
+      "description": "CVE-2026-124815",
+      "cvss": 10,
+      "final_ps": 52,
+      "quality_score": 0.383,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-124815"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-124815?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=6d (score=0.40)",
+          "QS=0.383"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-76954",
+      "title": "CVE-2026-76954 - Synology DiskStation Manager Auth API SQL Injection",
+      "description": "CVE-2026-76954 - Synology DiskStation Manager Auth API SQL Injection",
+      "cvss": 9.8,
+      "final_ps": 52,
+      "quality_score": 0.383,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76954"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-76954"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=6d (score=0.40)",
+          "QS=0.383"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -610,92 +784,6 @@
       }
     },
     {
-      "id": "CVE-2026-47501",
-      "title": "4-Year-Old NVIDIA Linux GPU Flaw Lets Users Hijack Entire Shared Servers",
-      "description": "A four-year-old NVIDIA Linux GPU driver flaw, tracked as CVE-2026-47501 and dubbed ForgePtr, could let users with access to a vulnerable GPU take control of the entire server. The flaw allowed Stealthium researchers to gain root, the highest level of access on Linux, from inside ... [Full analysis a",
-      "cvss": 7.8,
-      "final_ps": 46,
-      "quality_score": 0.493,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-47501"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cybersecuritynews.com/4-year-old-nvidia-linux-gpu-flaw/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.493"
-        ],
-        "priority": [
-          "base_ps=46 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-128130",
-      "title": "AIOHTTP: Pure-Python parser request replay and buffer growth behind a declined upgrade",
-      "description": "Summary\n\nWhen the pipelined request queue was full, the pure-Python parser stored the unparsed remainder internally and also returned it to the caller. After a handler declined an upgrade request, the buffered data was re-fed, so the buffer grew with each handled request and alre... [Full analysis a",
-      "cvss": 8.2,
-      "final_ps": 45,
-      "quality_score": 0.478,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128130"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-28qf-cpwq-vmc2"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=1d (score=0.85)",
-          "QS=0.478"
-        ],
-        "priority": [
-          "base_ps=45 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-63182",
       "title": "lightsaml allows Signature wrapping bypass",
       "description": "Summary\n\nLightSaml 5.0.0 (latest release; also confirmed on 4.6.1) validates an inbound samlp:Response by collecting its direct-child saml:Assertion elements and validating each one's ds:Signature via robrichards/xmlseclibs. The two layers disagree on which element a signature ac... [Full analysis a",
@@ -922,49 +1010,6 @@
       }
     },
     {
-      "id": "CVE-2026-119790",
-      "title": "Next.js: Information disclosure across root params when a 'use cache' function is called through unstable_cache()",
-      "description": "Next.js applications with 'use cache' can disclose cached data across root params when the same 'use cache' function is called both directly during rendering and through unstable_cache(), and that function reads a root param. Root params are route parameters of the root layout, a... [Full analysis a",
-      "cvss": 7.8,
-      "final_ps": 44,
-      "quality_score": 0.478,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-119790"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-mfr8-8qww-v76h"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=1d (score=0.85)",
-          "QS=0.478"
-        ],
-        "priority": [
-          "base_ps=44 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-129295",
       "title": "mail-parser is vulnerable to polynomial ReDoS in email header parsing",
       "description": "Summary\n\nTwo regular expressions used while parsing email headers backtrack\npolynomially on attacker-controlled input. Parsing a single small, well-formed\nemail can consume minutes to hours of CPU, denying service to any process that\nparses untrusted mail.\n\nBoth are reachable fro... [Full analysis a",
@@ -1008,12 +1053,55 @@
       }
     },
     {
+      "id": "CVE-2026-128130",
+      "title": "AIOHTTP: Pure-Python parser request replay and buffer growth behind a declined upgrade",
+      "description": "Summary\n\nWhen the pipelined request queue was full, the pure-Python parser stored the unparsed remainder internally and also returned it to the caller. After a handler declined an upgrade request, the buffered data was re-fed, so the buffer grew with each handled request and alre... [Full analysis a",
+      "cvss": 8.2,
+      "final_ps": 43,
+      "quality_score": 0.458,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128130"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-28qf-cpwq-vmc2"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=2d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "base_ps=43 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
       "id": "CVE-2026-128131",
       "title": "AIOHTTP: Concatenated compressed streams cause excessive CPU use",
       "description": "Summary\n\nWhen decompressing a payload made up of many concatenated compressed members (gzip, deflate or zstd), each member was decoded by passing the entire remaining input to a new decompressor, resulting in quadratic CPU time. Empty members produce no output, so client_max_size... [Full analysis a",
       "cvss": 7.5,
-      "final_ps": 44,
-      "quality_score": 0.478,
+      "final_ps": 42,
+      "quality_score": 0.458,
       "threat_level": "LOW",
       "type": "NEWS_REPORT",
       "source": "sentinel_apex",
@@ -1040,11 +1128,11 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=1d (score=0.85)",
-          "QS=0.478"
+          "recency=2d (score=0.65)",
+          "QS=0.458"
         ],
         "priority": [
-          "base_ps=44 (no boosts)"
+          "base_ps=42 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -2168,49 +2256,6 @@
       }
     },
     {
-      "id": "CVE-2026-124647",
-      "title": "Low Security Vulnerability (CVE-2026-124647)",
-      "description": "CVE-2026-124647",
-      "cvss": 8.6,
-      "final_ps": 40,
-      "quality_score": 0.383,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-124647"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-124647?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=6d (score=0.40)",
-          "QS=0.383"
-        ],
-        "priority": [
-          "base_ps=40 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-112292",
       "title": "CVE-2026-112292 - CheckCle through 1.6.0 Missing Authorization via Empty PocketBase API Rules",
       "description": "",
@@ -2252,7 +2297,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-35616",
@@ -3075,6 +3122,98 @@
         "priority": [
           "+8 exploited_in_wild",
           "+7 zero_day"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-110009",
+      "title": "CVE-2026-110009 — Unknown Vendor The Unzer Payments CVSS 9.8 Critical Vulnerability",
+      "description": "The Unzer Payments plugin for WordPress is vulnerable to Authentication Bypass leading to Account Takeover in all versions up to, and including, 2.2.1. The vulnerability exists because the Google Pay Express Checkout endpoint (`/?wc-api=google_pay_express`), handled by `startCheckoutDataWithNormaliz",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Unzer Payments",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/unzer-payments/tags/2.2.1/includes/Controllers/ExpressController.php#L173",
+        "https://plugins.trac.wordpress.org/browser/unzer-payments/tags/2.2.1/includes/Main.php#L96",
+        "https://plugins.trac.wordpress.org/browser/unzer-payments/tags/2.2.1/includes/Services/ExpressCheckoutService.php#L163",
+        "https://plugins.trac.wordpress.org/browser/unzer-payments/tags/2.2.1/includes/Services/ExpressCheckoutService.php#L246"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-110811",
+      "title": "CVE-2026-110811 — Unknown Vendor The Trust Payments CVSS 9.8 Critical Vulnerability",
+      "description": "The Trust Payments Gateway for WooCommerce (JavaScript Library) plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 1.3.8. The vulnerability exists because the `new_customer_account()` function stores the raw return value of `wp_create_user()` — includin",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Trust Payments",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/trust-payments-gateway-3ds2/tags/1.3.8/classes/class-wc-tp-gateway.php#L1880",
+        "https://plugins.trac.wordpress.org/browser/trust-payments-gateway-3ds2/tags/1.3.8/classes/class-wc-tp-gateway.php#L303",
+        "https://plugins.trac.wordpress.org/browser/trust-payments-gateway-3ds2/tags/1.3.8/classes/class-wc-tp-gateway.php#L308",
+        "https://www.wordfence.com/threat-intel/vulnerabilities/id/2f2d3fd0-f890-4a80-83ad-0212c1333980?source=cve"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -4081,234 +4220,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-128074",
-      "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
-      "description": "Summary\n\nNuxt strips trailing slashes from the request path with a regular expression whose cost grows quadratically with the length of a run of consecutive slashes. A single unauthenticated request with a long run of slashes can occupy the server's event loop for a noticeable ti... [Full analysis a",
-      "cvss": 9.1,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128074"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-110959",
-      "title": "Low Security Vulnerability (CVE-2026-110959)",
-      "description": "CVE-2026-110959",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-110959"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-110959?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-124815",
-      "title": "Low Security Vulnerability (CVE-2026-124815)",
-      "description": "CVE-2026-124815",
-      "cvss": 10,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-124815"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-124815?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-76954",
-      "title": "CVE-2026-76954 - Synology DiskStation Manager Auth API SQL Injection",
-      "description": "CVE-2026-76954 - Synology DiskStation Manager Auth API SQL Injection",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76954"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-76954"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-76080",
-      "title": "CVE-2026-76080 - Probo: Unauthenticated cross-tenant and hidden-item disclosure via Query.node in the public Trust Cente",
-      "description": "CVE-2026-76080 - Probo: Unauthenticated cross-tenant and hidden-item disclosure via Query.node in the public Trust Center API",
-      "cvss": 9.1,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-11",
-      "last_seen": "2026-11-11",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76080"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-76080"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-130690",
-      "title": "CVE-2026-130690 — Unknown Vendor NocoDB before 2026.10.1 CVSS 8.8 High Severity Vulnerability",
-      "description": "NocoDB before 2026.10.1 contains an incorrect authorization vulnerability that allows organization Creators to reach routes restricted to other roles because the aclFn middleware never enforced allowedRoles. Attackers can generate a super admin password reset link via org-users endpoints to take ove",
+      "id": "CVE-2026-130692",
+      "title": "CVE-2026-130692 — Unknown Vendor NocoDB before 2026.10.1 CVSS 8.8 High Severity Vulnerability",
+      "description": "NocoDB before 2026.10.1 contains a template injection vulnerability that allows authenticated Creator-role users to execute server-side JavaScript by supplying array-form property paths to Handlebars helpers in webhook templates. Attackers can bypass the string-only prototype guard to reach the func",
       "cvss": 8.8,
       "final_ps": 21,
       "quality_score": 0.525,
@@ -4330,7 +4244,93 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/nocodb/nocodb/security/advisories/GHSA-4rrc-r66w-5v7f"
+        "https://github.com/nocodb/nocodb/security/advisories/GHSA-2xx9-r3gm-mw87"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-130702",
+      "title": "CVE-2026-130702 — Unknown Vendor NocoDB before 2026.10.0 CVSS 8.8 High Severity Vulnerability",
+      "description": "NocoDB before 2026.10.0 contains an account takeover vulnerability that allows users with the base creator role to hijack other accounts by resending base invitations. Attackers can trigger baseUserInviteResend to mint a new invite_token, read it from the base member list, and reset the victim's pas",
+      "cvss": 8.8,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "NocoDB before 2026.10.0",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/nocodb/nocodb/security/advisories/GHSA-mf7h-mwxr-38r5"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-130709",
+      "title": "CVE-2026-130709 — Unknown Vendor NocoDB before 2026.09.0 CVSS 8.8 High Severity Vulnerability",
+      "description": "NocoDB before 2026.09.0 contains a server-side template injection vulnerability that allows authenticated Creator or Owner users to execute JavaScript by abusing Handlebars webhook helpers. Attackers can supply property paths like constructor.constructor to pluck, sortBy, filter, or withSort helpers",
+      "cvss": 8.8,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "NocoDB before 2026.09.0",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/nocodb/nocodb/security/advisories/GHSA-72fw-g74f-8mwr"
       ],
       "explanation": {
         "quality": [
@@ -4349,5 +4349,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-18T13:49:39.153Z"
+  "lastReportGeneratedAt": "2026-11-18T14:54:17.110Z"
 }
