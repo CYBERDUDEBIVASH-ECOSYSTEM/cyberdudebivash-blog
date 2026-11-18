@@ -370,16 +370,19 @@ test('Blogger recovery may follow a verified source recovery, never an unverifie
  const expr=match[1].split('\n').map(line=>line.trim()).join(' ');
  // The expression is a checked-in GitHub if clause, evaluated only against
  // synthetic step outcomes. No token, API call, dispatch, or user data.
- const allowed=(sourceNeeded,postOutcome,postStatus,bloggerNeeded,oauthReady='true')=>{
+ const allowed=(sourceNeeded,postOutcome,postStatus,bloggerNeeded,oauthReady='true',publicStale=true)=>{
    const steps={
      freshness:{outputs:{recovery_required:sourceNeeded?'true':'false'}},
      post_recovery:{outcome:postOutcome,outputs:{status:postStatus}},
      blogger_freshness:{outputs:{recovery_required:bloggerNeeded?'true':'false'}},
+     // Separate public-delivery evidence now participates in the condition.
+     blogger_public_recovery_safety:{outputs:{recovery_permitted:publicStale?'true':'false'}},
    };
    return Boolean(vm.runInNewContext(expr,{steps,vars:{BLOGGER_OAUTH_READY:oauthReady}},{timeout:1000}));
  };
  assert.equal(allowed(false,'skipped','',true),true,'stale Blogger recovery is permitted only with ready OAuth');
  assert.equal(allowed(false,'skipped','',true,'false'),false,'invalid OAuth must block automatic publication recovery');
+ assert.equal(allowed(false,'skipped','',true,'true',false),false,'unverified public freshness must block automatic publication recovery');
  assert.equal(allowed(true,'success','HEALTHY',true),true,'verified source recovery unblocks Blogger repair');
  assert.equal(allowed(true,'failure','PIPELINE_DOWN',true),false,'failed source recovery cannot publish');
  assert.equal(allowed(true,'success','PIPELINE_DOWN',true),false,'nonhealthy postcheck cannot publish');
