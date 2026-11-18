@@ -111,6 +111,12 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   // This exact production-critical publisher is OPERATIONAL; never benign.
   // Source merge #630 is NOT itself approval to publish or deploy.
   'automation/blogger_publisher.py',
+  // P0 #433/#434: hosted Blogger contract test tightened by reviewed PR #634.
+  // Exact test asserts scheduled four-post cap independently of manual
+  // one-report dry-run defaults; changes here can affect publisher release
+  // safety. OPERATIONAL/manual-review only, never benign or deployment proof.
+  // No automation/tests/** wildcard; unexpected sibling tests remain blocked.
+  'automation/tests/test_search_recovery_publication_limits.py',
   // P0 #433: the production drift monitor (run 43230308160, main 0207cff1) reports exactly these
   // two paths as UNKNOWN, which keeps the decision `blocked`. Inspected: a 96-line pure
   // BeautifulSoup HTML post-processor (presentation CSS only; no network, subprocess, env,
