@@ -391,3 +391,39 @@ test('Blogger recovery may follow a verified source recovery, never an unverifie
  assert.match(workflow,/steps\.post_recovery\.outputs\.status \|\| steps\.freshness\.outputs\.status/,
    'SOC failure summary must report latest verified source status, not pre-recovery outage');
 });
+
+test('P0 Blogger auto recovery requires public stale/feed-linkage evidence before live dispatch',()=>{
+ const pre=workflow.indexOf('id: blogger_public_recovery_safety');
+ const dispatch=workflow.indexOf('id: blogger_recovery');
+ const monitor=workflow.indexOf('id: public_delivery');
+ assert(pre>0&&dispatch>pre&&monitor>dispatch);
+ const preflight=workflow.slice(pre,dispatch);
+ const guarded=workflow.slice(dispatch,monitor);
+ assert(preflight.includes('scripts/check_blogger_public_delivery.py --attempts 1'));
+ assert(preflight.includes('PROBE_EXIT" -eq 2'));
+ assert(preflight.includes('PROBE_STATUS" = "BLOGGER_STALE"'));
+ assert(preflight.includes('PROBE_STATUS=UNVERIFIED'));
+ assert(preflight.includes('recovery_permitted=false'));
+ assert(guarded.includes("vars.BLOGGER_OAUTH_READY == 'true'"));
+ assert(guarded.includes("steps.blogger_public_recovery_safety.outputs.recovery_permitted == 'true'"));
+ assert(guarded.includes("dry_run: 'false'"));
+ assert(guarded.includes("max_posts: '4'"));
+});
+
+test('negative: dropping the public gate leaves the live Blogger dispatcher unsafe',()=>{
+ const needle="steps.blogger_public_recovery_safety.outputs.recovery_permitted == 'true'";
+ const changed=workflow.replace(needle,"true");
+ assert.notEqual(changed,workflow);
+ const section=x=>x.slice(x.indexOf('id: blogger_recovery'),x.indexOf('id: blogger_public_backpressure'));
+ assert(section(workflow).includes(needle));
+ assert(!section(changed).includes(needle));
+});
+
+test('Blogger 429 is a red incident, prevents another probe and prevents live auto-recovery',()=>{
+ assert(workflow.includes("steps.blogger_public_recovery_safety.outputs.status == 'BLOGGER_PUBLIC_RATE_LIMITED'"));
+ assert(workflow.includes("steps.blogger_public_recovery_safety.outputs.status != 'BLOGGER_PUBLIC_RATE_LIMITED'"));
+ const noRetry=workflow.slice(workflow.indexOf('id: blogger_public_backpressure'),workflow.indexOf('id: public_delivery'));
+ assert(noRetry.includes('exit 1'));
+ assert(workflow.includes('steps.blogger_public_backpressure.outcome'));
+ assert(workflow.includes("recovery_permitted=false"));
+});
