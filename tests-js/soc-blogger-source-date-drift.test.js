@@ -7,6 +7,7 @@ const policy = require('../scripts/production-drift-policy.cjs');
 
 const root = path.resolve(__dirname, '..');
 const source = 'automation/cti_original_source_freshness.py';
+const mainEntry = 'automation/main.py';
 const d1 = 'api/_lib/__tests__/d1-worker-native-fail-closed.test.js';
 const unreviewed = 'automation/cti_original_source_freshness_unverified.py';
 const deploy = fs.readFileSync(path.join(root,'.github/workflows/cloudflare-production-deploy.yml'),'utf8');
@@ -31,6 +32,28 @@ test('original source-date validator is reviewed operational, not benign',()=>{
   assert.equal(result.state,'manual_release_required');
   assert.deepEqual(result.unknown,[]);
   assert.ok([...result.operational,...result.production].includes(source));
+});
+
+
+test('Blogger publisher entrypoint with exact source-date selection is manual-release operational',()=>{
+  const code=fs.readFileSync(path.join(root,mainEntry),'utf8');
+  assert.match(code, /from \.cti_original_source_freshness import original_source_is_current/);
+  assert.match(code, /if original_source_is_current\(article, config\.max_article_age_hours\)/);
+  assert.match(code, /original_source_date_blocked/);
+  assert.equal(policy.isKnownBenignPath(mainEntry),false);
+  assert.equal(policy.isReviewedOperationalPath(mainEntry),true);
+  const result=policy.classify(compare([mainEntry,source]),BASE,HEAD,patterns);
+  assert.equal(result.state,'manual_release_required');
+  assert.deepEqual(result.unknown,[]);
+  assert.deepEqual(result.benign,[]);
+  assert.ok([...result.operational,...result.production].includes(mainEntry));
+});
+
+test('unreviewed adjacent publisher entrypoint remains blocked',()=>{
+  const neighbor='automation/main_unverified.py';
+  const result=policy.classify(compare([mainEntry,neighbor]),BASE,HEAD,patterns);
+  assert.equal(result.state,'blocked');
+  assert.deepEqual(result.unknown,[neighbor]);
 });
 
 test('previously reviewed D1 fail-closed test must remain operational',()=>{
