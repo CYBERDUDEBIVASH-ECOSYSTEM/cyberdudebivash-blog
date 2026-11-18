@@ -19,6 +19,7 @@ from pathlib import Path
 from .authority_transformer import AuthorityTransformer
 from .blogger_publisher import BloggerPublisher, BloggerPublishError, BloggerAuthError, BloggerRateLimitError
 from .canonical_rss import discover_local_canonical_rss
+from .cti_original_source_freshness import original_source_is_current
 from .config import Config
 from .content_discovery import ContentDiscoveryEngine, DiscoveredArticle, PublicationState
 from .logger import setup_logger
@@ -263,6 +264,31 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
     )
     external_fresh = discovery.discover()
     fresh_articles = canonical_fresh + external_fresh
+
+    # P0 customer trust: the first-party report's RSS date may reflect its
+    # later SOC syndication rather than the actual external source date.
+    # Filter BOTH fresh and persisted retry pools before ANY scheduler/factory
+    # wrapper or quality-preserving backfill can select the stale repost.
+    # No network, timestamp laundering or publication-state mutation here.
+    original_fresh_count = len(fresh_articles)
+    original_retry_count = len(retry_articles)
+    fresh_articles = [
+        article for article in fresh_articles
+        if original_source_is_current(article, config.max_article_age_hours)
+    ]
+    retry_articles = [
+        article for article in retry_articles
+        if original_source_is_current(article, config.max_article_age_hours)
+    ]
+    report["original_source_date_blocked"] = (
+        original_fresh_count - len(fresh_articles)
+        + original_retry_count - len(retry_articles)
+    )
+    if report["original_source_date_blocked"]:
+        logger.warning(
+            "P0 source provenance prevented stale first-party CTI repost selection",
+            extra={"blocked": report["original_source_date_blocked"]},
+        )
 
     selection = select_publication_batch(
         retry_articles,
