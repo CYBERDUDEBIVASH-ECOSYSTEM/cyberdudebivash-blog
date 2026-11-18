@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-18T15:58:46.392Z",
+  "generated": "2026-11-18T17:04:49.719Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19041,
+    "total_nodes": 19043,
     "actors": 8,
-    "cves": 9164,
-    "campaigns": 2839,
+    "cves": 9165,
+    "campaigns": 2840,
     "malware": 0,
     "iocs": 911,
-    "edges": 5616
+    "edges": 5617
   },
   "nodes": {
     "actor:lockbit": {
@@ -357865,6 +357865,44 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-63496": {
+      "id": "CVE-2026-63496",
+      "type": "CVE",
+      "name": "augment-virShell allows Command Injection in `grep()` via Unsanitized `searchPattern`",
+      "attributes": {
+        "cvss": 7.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "npm",
+        "product": "@augment-vir/node",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-63496": {
+      "id": "campaign:cve-2026-63496",
+      "type": "Campaign",
+      "name": "npm @augment-vir/node Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-63496"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-63496",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -408591,6 +408629,15 @@
       "id": "campaign:cve-2026-47426→includes→CVE-2026-47426",
       "source": "campaign:cve-2026-47426",
       "target": "CVE-2026-47426",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-63496→includes→CVE-2026-63496",
+      "source": "campaign:cve-2026-63496",
+      "target": "CVE-2026-63496",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-18",
