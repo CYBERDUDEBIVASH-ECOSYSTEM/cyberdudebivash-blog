@@ -18,24 +18,38 @@ function compare(files) {
 }
 function state(files) { return classify(compare(files), BASE, HEAD, paths).state; }
 
-test('P0 migrated native D1 fail-closed control requires manual review, and only exact path is trusted',()=>{
+test('P0 native D1 regression gate is never benign: operational when excluded from deploy paths, production otherwise',()=>{
   const file='api/_lib/__tests__/d1-worker-native-fail-closed.test.js';
+  const other='api/_lib/__tests__/d1-worker-native-fail-open.test.js';
   assert.equal(fs.existsSync(path.join(root,file)),true);
   assert.equal(isReviewedOperationalPath(file),true);
-  const result=classify(compare([file]),BASE,HEAD,paths);
-  assert.equal(result.state,'manual_release_required');
-  assert.deepEqual(result.operational,[file]);
-  assert.deepEqual(result.benign,[]);
-  assert.deepEqual(result.unknown,[]);
-  assert.match(renderDriftSummary(HEAD,BASE,result),/Manual release and independent postdeploy certification required/);
-  const other='api/_lib/__tests__/d1-worker-native-fail-open.test.js';
   assert.equal(isReviewedOperationalPath(other),false);
-  const blocked=classify(compare([file,other]),BASE,HEAD,paths);
+  const classifyFile=(list,patterns)=>classify(compare(list),BASE,HEAD,patterns);
+  // Current deployment patterns can include api/**; production takes precedence
+  // over operational in classifyChangedFiles. Both are manual-release, not GO.
+  const current=classifyFile([file],paths);
+  assert.equal(current.state,'manual_release_required');
+  assert.deepEqual(current.benign,[]);
+  assert.deepEqual(current.unknown,[]);
+  assert.ok([...current.production,...current.operational].includes(file));
+  // Original drift run reported this path UNKNOWN under its reviewed pattern
+  // snapshot. Exact allowlisting must work independently of broader api/**.
+  const matches=(p,name)=>p.endsWith('/**')?name.startsWith(p.slice(0,-2)):p===name;
+  const narrowed=paths.filter(p=>!matches(p,file)&&!matches(p,other));
+  assert.ok(narrowed.length>=20);
+  const reviewed=classifyFile([file],narrowed);
+  assert.equal(reviewed.state,'manual_release_required');
+  assert.deepEqual(reviewed.operational,[file]);
+  assert.deepEqual(reviewed.benign,[]);
+  assert.deepEqual(reviewed.unknown,[]);
+  assert.match(renderDriftSummary(HEAD,BASE,reviewed),
+    /Manual release and independent postdeploy certification required/);
+  const blocked=classifyFile([file,other],narrowed);
   assert.equal(blocked.state,'blocked');
   assert.deepEqual(blocked.unknown,[other]);
   const rename=compare([]);
   rename.files=[{filename:'docs/retired-native-d1-test.md',previous_filename:file,status:'renamed'}];
-  const classified=classify(rename,BASE,HEAD,paths);
+  const classified=classify(rename,BASE,HEAD,narrowed);
   assert.equal(classified.state,'manual_release_required');
   assert.ok(classified.operational.includes(file));
 });
