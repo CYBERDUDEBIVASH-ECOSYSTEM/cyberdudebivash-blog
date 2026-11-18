@@ -17,12 +17,14 @@ on:
       - "automation/**"
       - ".github/workflows/blogger-syndication.yml"
       - "requirements.txt"
+  # P0 least-surprise manual dispatch: omission of inputs never writes to Blogger.
+  # Live publication remains an explicit dry_run=false decision after separate gates.
   workflow_dispatch:
     inputs:
       dry_run:
         description: "Dry run (validate without publishing)"
         required: false
-        default: "false"
+        default: "true"
         type: choice
         options:
           - "false"
@@ -30,7 +32,7 @@ on:
       max_posts:
         description: "Max eligible posts per run (bounded production burst: 4)"
         required: false
-        default: "4"
+        default: "1"
 
 # P0-BLOGGER-FRESHNESS-2026-09-07:
 # The Blogger publisher previously shared `main-content-writers` with the
