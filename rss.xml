@@ -14,7 +14,7 @@
     <copyright>Copyright 2026 CyberDudeBivash. All rights reserved.</copyright>
     <managingEditor>bivash@cyberdudebivash.com (CyberDudeBivash)</managingEditor>
     <webMaster>bivash@cyberdudebivash.com (CyberDudeBivash)</webMaster>
-    <lastBuildDate>Wed, 18 Nov 2026 10:06:18 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 11:28:42 GMT</lastBuildDate>
     <pubDate>Wed, 18 Nov 2026 12:00:00 +0000</pubDate>
     <ttl>60</ttl>
     <category>Cybersecurity</category>
@@ -31,7 +31,63 @@
       <height>144</height>
     </image>
 
-    <item>
+      <item>
+    <title><![CDATA[AIOHTTP: Base64 multipart parts bypass client_max_size]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-128127.html</link>
+    <description><![CDATA[Score 41/100 LOW — CVSS 7.5 — Summary
+
+When reading a multipart part with Content-Transfer-Encoding: base64, BodyPartReader.read_chunk() kept reading until the chunk length was a multiple of 4, with no byte limit. A part with a short Content-Length, or a long run of whitespace, could cause the entire remainin... [Full analysis a. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Wed, 18 Nov 2026 11:28:42 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-128127.html</guid>
+    <category>Threat Intelligence</category>
+    <category>NEWS_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[NLTK: Symlink escape in chat80.sql_query bypasses the pathsec data-root sandbox to read out-of-root SQLite databases]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-126302.html</link>
+    <description><![CDATA[Score 36/100 LOW — CVSS 6.5 — Summary
+
+nltk.sem.chat80.sql_query() opens a SQLite database by handing the result of nltk.data.find(dbname) straight to sqlite3.connect() without the path-containment check that the NLTK data sandbox (nltk.pathsec) is meant to enforce. nltk.data.find() applies only lexical check... [Full analysis a. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Wed, 18 Nov 2026 11:28:42 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-126302.html</guid>
+    <category>Threat Intelligence</category>
+    <category>NEWS_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[mail-parser: Path Traversal vulnerability in attachment extraction]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-129296.html</link>
+    <description><![CDATA[Score 36/100 LOW — CVSS 6.5 — A path traversal vulnerability was identified in mail-parser when extracting email attachments using the write_attachments() and write_sample() APIs.
+
+A specially crafted email containing malicious attachment filenames (for example, using directory traversal sequences such as "..... [Full analysis a. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Wed, 18 Nov 2026 11:28:42 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-129296.html</guid>
+    <category>Threat Intelligence</category>
+    <category>NEWS_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Nuxt: Incomplete fix for GHSA-6gq8-jgmh-3ffp: an encoded slash (%2F) in the request path bypasses route rules on catch-all page routes]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-128071.html</link>
+    <description><![CDATA[Score 36/100 LOW — CVSS 6.5 — Summary
+
+Nuxt matches route rules against the request path with encoded slashes (%2F) left encoded, while the page router decodes them into route params. A request that spells a slash as %2F can therefore render a page through a catch-all route without the route rules configured ... [Full analysis a. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Wed, 18 Nov 2026 11:28:42 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-128071.html</guid>
+    <category>Threat Intelligence</category>
+    <category>NEWS_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[NLTK: Path Traversal in save_maxent_params / load_maxent_params Allow Arbitrary File READ/WRITE]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-15367.html</link>
+    <description><![CDATA[Score 36/100 LOW — CVSS 6.5 — Summary
+Path traversal in NLTK's save_maxent_params() and load_maxent_params() allows arbitrary file write and arbitrary file read outside the directories permitted by NLTK's pathsec security mechanism.
+
+This vulnerability was previously reported through Huntr, accepted by the NL... [Full analysis a. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Wed, 18 Nov 2026 11:28:42 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-15367.html</guid>
+    <category>Threat Intelligence</category>
+    <category>NEWS_REPORT</category>
+  </item>
+  <item>
     <title><![CDATA[CVE-2026-5765 — Unknown Vendor The Essential Real CVSS 8.8 High Severity Vulnerability]]></title>
     <link>https://blog.cyberdudebivash.in/posts/cve-2026-5765-unknown-vendor-the-essential-real.html</link>
     <description><![CDATA[Score 63/100 MEDIUM — CVSS 8.8 — The Essential Real Estate plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 5.3.3 via deserialization of untrusted input in the 'saved_search_check_result' function. This makes it possible for authenticated attackers, with Subscriber-level access and ab. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
