@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T19:46:05.490Z",
+  "generated": "2026-11-18T01:59:17.579Z",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
   "count": 6,
   "collections": [
@@ -8273,6 +8273,45 @@
           "clustering_model": "weighted_v2"
         },
         {
+          "campaign_id": "campaign:cve-2026-119793",
+          "name": "npm @libp2p/gossipsub Exploitation Campaign",
+          "clustering_model": "weighted_v2",
+          "severity": "HIGH",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2026-11-17",
+          "last_seen": "2026-11-17",
+          "related_intel_ids": [
+            "CVE-2026-119793"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2026-119793",
+              "title": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
+              "type": "CVE_REPORT",
+              "priority_score": 63,
+              "published": "2026-11-17",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2026-119793"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 68,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2026-119793"
+          ]
+        },
+        {
           "campaign_id": "campaign:cve-2026-42211-and-cve-2026-42342",
           "name": "npm react-router Exploitation Campaign",
           "severity": "MEDIUM",
@@ -13090,6 +13129,45 @@
           "clustering_model": "weighted_v2"
         },
         {
+          "campaign_id": "campaign:cve-2026-110789",
+          "name": "npm @libp2p/crypto Exploitation Campaign",
+          "clustering_model": "weighted_v2",
+          "severity": "MEDIUM",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2026-11-17",
+          "last_seen": "2026-11-17",
+          "related_intel_ids": [
+            "CVE-2026-110789"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2026-110789",
+              "title": "libp2p: ASN.1 DER decoder drives an unbounded synchronous loop on attacker-controlled length fields, stalling the Node event loop pre-auth",
+              "type": "CVE_REPORT",
+              "priority_score": 61,
+              "published": "2026-11-17",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2026-110789"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 61,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2026-110789"
+          ]
+        },
+        {
           "campaign_id": "campaign:cve-2026-73654",
           "name": "npm @trigger.dev/core Exploitation Campaign",
           "severity": "LOW",
@@ -17102,8 +17180,19 @@
       "slug": "cloud-devsecops",
       "name": "Cloud & DevSecOps Security Collection",
       "description": "Cloud misconfigurations, container security, and DevSecOps pipeline risk.",
-      "count": 75,
+      "count": 76,
       "items": [
+        {
+          "slug": "cve-2026-14265-maven-software-amazon-jdbc-aws-advanced-jdbc-wrapper",
+          "title": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
+          "url": "/posts/cve-2026-14265-maven-software-amazon-jdbc-aws-advanced-jdbc-wrapper.html",
+          "generated": "2026-11-17T21:25:26.113Z",
+          "severity": "HIGH",
+          "cves": [
+            "CVE-2026-14265",
+            "CVE-2026-14265"
+          ]
+        },
         {
           "slug": "cve-2026-130072-unknown-vendor-cloud-commander-cloudcmd",
           "title": "CVE-2026-130072 — Unknown Vendor Cloud Commander (cloudcmd) CVSS 9.1 Critical Vulnerability",
@@ -17906,6 +17995,45 @@
             "Single CVE basis: CVE-2026-130072"
           ],
           "clustering_model": "weighted_v2"
+        },
+        {
+          "campaign_id": "campaign:cve-2026-14265",
+          "name": "maven software.amazon.jdbc:aws-advanced-jdbc-wrapper Exploitation Campaign",
+          "clustering_model": "weighted_v2",
+          "severity": "HIGH",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2026-11-17",
+          "last_seen": "2026-11-17",
+          "related_intel_ids": [
+            "CVE-2026-14265"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2026-14265",
+              "title": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
+              "type": "CVE_REPORT",
+              "priority_score": 67,
+              "published": "2026-11-17",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2026-14265"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 67,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2026-14265"
+          ]
         },
         {
           "campaign_id": "campaign:cve-2026-18140",
