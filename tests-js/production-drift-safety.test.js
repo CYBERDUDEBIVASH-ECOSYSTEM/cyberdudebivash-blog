@@ -83,6 +83,33 @@ test('P0 change-engine alert regression is reviewed exact-path only; unknown sib
   assert.ok(verdict.operational.includes(file));
 });
 
+test('P0 reviewed Blogger publisher requires manual release; unexpected sibling remains unknown',()=>{
+  const file='automation/blogger_publisher.py';
+  const neighbor='automation/blogger_publisher_override.py';
+  assert.equal(fs.existsSync(path.join(root,file)),true);
+  assert.equal(isReviewedOperationalPath(file),true);
+  assert.equal(isReviewedOperationalPath(neighbor),false);
+  const normal=classify(compare([file]),BASE,HEAD,paths);
+  assert.equal(normal.state,'manual_release_required');
+  assert.deepEqual(normal.unknown,[]);
+  assert.deepEqual(normal.benign,[]);
+  const matches=(p,name)=>p.endsWith('/**')?name.startsWith(p.slice(0,-2)):p===name;
+  const narrowed=paths.filter(p=>!matches(p,file)&&!matches(p,neighbor));
+  assert.ok(narrowed.length>=20);
+  const reviewed=classify(compare([file]),BASE,HEAD,narrowed);
+  assert.equal(reviewed.state,'manual_release_required');
+  assert.deepEqual(reviewed.operational,[file]);
+  assert.deepEqual(reviewed.benign,[]);
+  const blocked=classify(compare([file,neighbor]),BASE,HEAD,narrowed);
+  assert.equal(blocked.state,'blocked');
+  assert.deepEqual(blocked.unknown,[neighbor]);
+  const ren=compare([]);
+  ren.files=[{filename:'docs/retired-blogger-publisher.md',previous_filename:file,status:'renamed'}];
+  const state=classify(ren,BASE,HEAD,narrowed);
+  assert.equal(state.state,'manual_release_required');
+  assert.ok(state.operational.includes(file));
+});
+
 test('production workflow cannot deploy on push or schedule', () => {
   assert.match(deploy,/\n  deploy:[\s\S]{0,350}?if: \$\{\{ github\.event_name == 'workflow_dispatch' && github\.ref == 'refs\/heads\/main' \}\}/);
 });
