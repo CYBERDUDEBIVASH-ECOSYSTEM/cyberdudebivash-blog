@@ -106,6 +106,11 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   // delivery review; never exempt via automation/** wildcard or mark benign.
   'automation/config.py',
   'automation/rss_aggregator.py',
+  // P0 #434: reviewed Blogger posts.insert OAuth, 401/429, non-idempotent
+  // timeout/5xx replay suppression, API read-back and published-state caller.
+  // This exact production-critical publisher is OPERATIONAL; never benign.
+  // Source merge #630 is NOT itself approval to publish or deploy.
+  'automation/blogger_publisher.py',
   // P0 #433: the production drift monitor (run 43230308160, main 0207cff1) reports exactly these
   // two paths as UNKNOWN, which keeps the decision `blocked`. Inspected: a 96-line pure
   // BeautifulSoup HTML post-processor (presentation CSS only; no network, subprocess, env,
