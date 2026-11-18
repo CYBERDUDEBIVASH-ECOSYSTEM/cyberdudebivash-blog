@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T00:22:36.591Z",
+  "generated": "2026-11-18T01:54:01.982Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,19 +7,19 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7608,
+  "total_published": 7623,
   "s2n_stats": {
-    "passed": 145,
+    "passed": 143,
     "suppressed": 3,
-    "avg_qs": 0.491
+    "avg_qs": 0.49
   },
   "items": [
     {
-      "id": "CVE-2026-114881",
-      "title": "CVE-2026-114881 — Unknown Vendor Vulnerability in the CVSS 9.1 Critical Vulnerability",
-      "description": "Vulnerability in the Document Management and Collaboration product of Oracle E-Business Suite (component: Attachments).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Document Manag",
-      "cvss": 9.1,
-      "final_ps": 73,
+      "id": "CVE-2026-114835",
+      "title": "CVE-2026-114835 — Unknown Vendor Vulnerability in the CVSS 10 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Access Manager product of Oracle Fusion Middleware (component: Admin Console).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Access M",
+      "cvss": 10,
+      "final_ps": 74,
       "quality_score": 0.565,
       "threat_level": "HIGH",
       "type": "CVE_REPORT",
@@ -35,6 +35,88 @@
       "ransomware": false,
       "vendor": "Unknown Vendor",
       "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=1d (score=0.85)",
+          "QS=0.565"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-114848",
+      "title": "CVE-2026-114848 — Unknown Vendor Vulnerability in the CVSS 9.9 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Text component of Oracle Database Server.  Supported versions that are affected are 19.3-19.33, 21.3-21.24 and  23.4.0-23.26.3. Easily exploitable vulnerability allows low privileged attacker having Create Session privilege with network access via Oracle Net to compromise",
+      "cvss": 9.9,
+      "final_ps": 74,
+      "quality_score": 0.565,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=1d (score=0.85)",
+          "QS=0.565"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-114856",
+      "title": "CVE-2026-114856 — Unknown Vendor Vulnerability in Oracle CVSS 9.6 Critical Vulnerability",
+      "description": "Vulnerability in Oracle REST Data Services (component: General).  Supported versions that are affected are 24.2.0-26.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTPS to compromise Oracle REST Data Services.  Successful attacks require human interact",
+      "cvss": 9.6,
+      "final_ps": 74,
+      "quality_score": 0.565,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in Oracle",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
@@ -320,189 +402,49 @@
       }
     },
     {
-      "id": "CVE-2026-14265",
-      "title": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
-      "description": "### Impact\nThe AWS Advanced JDBC Wrapper is an open-source JDBC driver wrapper that extends a JDBC driver to enable Amazon Aurora and AWS Cloud features such as failover handling and caching. We identified CVE-2026-14265, an issue in the RemoteQueryCachePlugin of the AWS Advanced JDBC Wrapper. When ",
-      "cvss": 7.5,
+      "id": "CVE-2026-114938",
+      "title": "Critical Java 17 RCE Vulnerability Puts Servers at Risk as Oracle Releases 11 Security Fixes",
+      "description": "A remote code execution (RCE) vulnerability in Java 17 has prompted warnings for server admins, especially as Oracle released 11 new Java SE security updates on the same day. The bug is tracked as CVE-2026-114938. Public reports say it needs no login and affects OpenJDK 17.0.6 an... [Full analysis a",
+      "cvss": 9.8,
       "final_ps": 66,
-      "quality_score": 0.578,
+      "quality_score": 0.473,
       "threat_level": "HIGH",
       "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
+      "source": "sentinel_apex",
+      "sources_confirmed": 3,
       "merged_sources": [
-        "github_advisories"
+        "sentinel_apex",
+        "talos",
+        "sentinelone"
       ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "maven",
-      "product": "software.amazon.jdbc:aws-advanced-jdbc-wrapper",
+      "vendor": "",
+      "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-14265",
-        "CVE-2026-14265"
+        "CVE-2026-114938"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-c5q4-97jw-jggh",
-        "https://github.com/aws/aws-advanced-jdbc-wrapper/security/advisories/GHSA-c5q4-97jw-jggh",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-14265",
-        "https://aws.amazon.com/security/security-bulletins/2026-051-aws"
+        "https://cybersecuritynews.com/java-17-rce-vulnerability/",
+        "https://blog.talosintelligence.com/java4shell/",
+        "https://www.sentinelone.com/blog/java4shell-vulnerability-in-openjdk-enables-rce-on-avx-512-cpus/"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.578"
-        ],
-        "priority": [
-          "+3 supply_chain"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-110782",
-      "title": "SAML2: Incomplete fix of CVE-2026-49283: unsigned embedded Response bypasses HTTP-Artifact signature verification (no em",
-      "description": "## Summary\nCVE-2026-49283 / GHSA-6929-8p9f-26jx (\"HTTP-Artifact TLS validator confusion allows cross-IdP authentication bypass\") was fixed so that `HTTPArtifact::receive()` verifies the embedded SAML `Response` using the IdP metadata signing keys. The current implementation (master `31c72c1d`, relea",
-      "cvss": 8.7,
-      "final_ps": 63,
-      "quality_score": 0.578,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "composer",
-      "product": "simplesamlphp/saml2",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-110782",
-        "CVE-2026-110782"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-r7hw-jx6r-756g",
-        "https://github.com/simplesamlphp/saml2/security/advisories/GHSA-r7hw-jx6r-756g",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-110782",
-        "https://github.com/simplesamlphp/saml2/commit/7b7fbb5322cb5607db3e5a329681f4886b1449fe"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.578"
-        ],
-        "priority": [
-          "base_ps=63 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-119793",
-      "title": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
-      "description": "### Summary\nA single gossipsub peer can grow a node's `topics` map without bound by flooding subscription RPCs, because the default configuration has no global, per-peer, or topic-length cap and peer scoring does not penalise subscription volume. The peer is never greylisted, so the growth continues",
-      "cvss": 7.5,
-      "final_ps": 63,
-      "quality_score": 0.52,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 2,
-      "merged_sources": [
-        "github_advisories",
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "npm",
-      "product": "@libp2p/gossipsub",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-119793"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-x2vm-cf3p-m2w8",
-        "https://github.com/libp2p/js-libp2p/security/advisories/GHSA-x2vm-cf3p-m2w8",
-        "https://github.com/libp2p/js-libp2p/pull/3593",
-        "https://github.com/libp2p/js-libp2p/commit/d5534174d8b7d23ac1bd45a7e738664fbfb0cf4c"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=1.00",
-          "multi_source=2 sources",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "multi_source=3 sources",
           "recency=999d (score=0.05)",
-          "QS=0.520"
+          "QS=0.473"
         ],
         "priority": [
-          "+4 critical_infra"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-110789",
-      "title": "libp2p: ASN.1 DER decoder drives an unbounded synchronous loop on attacker-controlled length fields, stalling the Node e",
-      "description": "### Summary\nA remote peer can stall a js-libp2p node's entire event loop for ~4–5 seconds per connection (and transiently allocate ~2 GB) by sending a ~15-byte crafted `publicKey` inside an Identify message. The malformed key reaches the DER decoder before any peer-id/signature check, so the attack ",
-      "cvss": 7.5,
-      "final_ps": 60,
-      "quality_score": 0.578,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "npm",
-      "product": "@libp2p/crypto",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-110789",
-        "CVE-2026-110789"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-rvfr-cqwq-rc4j",
-        "https://github.com/libp2p/js-libp2p/security/advisories/GHSA-rvfr-cqwq-rc4j",
-        "https://github.com/libp2p/js-libp2p/pull/3587",
-        "https://github.com/libp2p/js-libp2p/commit/ef6e1851cb00511a4793a5e68948e0cdad385332"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.578"
-        ],
-        "priority": [
-          "base_ps=60 (no boosts)"
+          "+10 CVSS≥9",
+          "+8 multi_source≥3"
         ],
         "suppression": null,
         "merge": null
@@ -672,52 +614,6 @@
           "data_confidence=0.45",
           "recency=0d (score=1.00)",
           "QS=0.443"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-114938",
-      "title": "Critical Java 17 RCE Vulnerability Puts Servers at Risk as Oracle Releases 11 Security Fixes",
-      "description": "A remote code execution (RCE) vulnerability in Java 17 has prompted warnings for server admins, especially as Oracle released 11 new Java SE security updates on the same day. The bug is tracked as CVE-2026-114938. Public reports say it needs no login and affects OpenJDK 17.0.6 an... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 55,
-      "quality_score": 0.435,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 2,
-      "merged_sources": [
-        "sentinel_apex",
-        "sentinelone"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114938"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cybersecuritynews.com/java-17-rce-vulnerability/",
-        "https://www.sentinelone.com/blog/java4shell-vulnerability-in-openjdk-enables-rce-on-avx-512-cpus/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "multi_source=2 sources",
-          "recency=999d (score=0.05)",
-          "QS=0.435"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -2351,9 +2247,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2026-33825",
@@ -2393,9 +2287,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2026-20122",
@@ -3566,6 +3458,393 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-114980",
+      "title": "CVE-2026-114980 — Unknown Vendor Vulnerability in the CVSS 9.9 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle AutoVue product of Oracle Supply Chain (component: Security Related Issues).   The supported version that is affected is 21.1.0. Easily exploitable vulnerability allows low privileged attacker with network access via HTTP to compromise Oracle AutoVue.  While the vulnerabi",
+      "cvss": 9.9,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-91500",
+      "title": "CVE-2026-91500 — Unknown Vendor Vulnerability in the CVSS 10 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Access Manager product of Oracle Fusion Middleware (component: Authentication Engine).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle ",
+      "cvss": 10,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-91510",
+      "title": "CVE-2026-91510 — Unknown Vendor Vulnerability in the CVSS 10 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Access Manager product of Oracle Fusion Middleware (component: Authentication Engine).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle ",
+      "cvss": 10,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-91561",
+      "title": "CVE-2026-91561 — Unknown Vendor Vulnerability in the CVSS 9.6 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Service Bus product of Oracle Fusion Middleware (component: Core).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.0.0. Easily exploitable vulnerability allows low privileged attacker with network access via RMI to compromise Oracle Service Bus.  While th",
+      "cvss": 9.6,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-101691",
+      "title": "CVE-2026-101691 — Unknown Vendor Vulnerability in the CVSS 9.3 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Mobile Field Service product of Oracle E-Business Suite (component: Admin UI).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Mobile Field Service",
+      "cvss": 9.3,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-115139",
+      "title": "CVE-2026-115139 — Unknown Vendor Vulnerability in the CVSS 9.3 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Hyperion Infrastructure Technology product of Oracle Hyperion (component: Installation and Configuration).   The supported version that is affected is 11.2.26.0.000. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromis",
+      "cvss": 9.3,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-91469",
+      "title": "CVE-2026-91469 — Unknown Vendor Vulnerability in the CVSS 9.4 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  Supported versions that are affected are 12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0 and  15.1.1.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise",
+      "cvss": 9.4,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-91507",
+      "title": "CVE-2026-91507 — Unknown Vendor Vulnerability in the CVSS 9.3 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Access Manager product of Oracle Fusion Middleware (component: Authentication Engine).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle ",
+      "cvss": 9.3,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-114881",
+      "title": "CVE-2026-114881 — Unknown Vendor Vulnerability in the CVSS 9.1 Critical Vulnerability",
+      "description": "Vulnerability in the Document Management and Collaboration product of Oracle E-Business Suite (component: Attachments).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Document Manag",
+      "cvss": 9.1,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-114924",
       "title": "CVE-2026-114924 — Unknown Vendor Vulnerability in the CVSS 9.8 Critical Vulnerability",
       "description": "Vulnerability in the Oracle Application Object Library product of Oracle E-Business Suite (component: Core).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Application Object",
@@ -4086,308 +4365,7 @@
       },
       "suppressed": false,
       "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114826",
-      "title": "CVE-2026-114826 — Unknown Vendor Vulnerability in the CVSS 9.8 Critical Vulnerability",
-      "description": "Vulnerability in the Service Delivery Platform product of Oracle Fusion Middleware (component: Messaging Enabler).   The supported version that is affected is 14.1.2.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via SOAP to compromise Service Delivery Plat",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in the",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114835",
-      "title": "CVE-2026-114835 — Unknown Vendor Vulnerability in the CVSS 10 Critical Vulnerability",
-      "description": "Vulnerability in the Oracle Access Manager product of Oracle Fusion Middleware (component: Admin Console).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Access M",
-      "cvss": 10,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in the",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114848",
-      "title": "CVE-2026-114848 — Unknown Vendor Vulnerability in the CVSS 9.9 Critical Vulnerability",
-      "description": "Vulnerability in the Oracle Text component of Oracle Database Server.  Supported versions that are affected are 19.3-19.33, 21.3-21.24 and  23.4.0-23.26.3. Easily exploitable vulnerability allows low privileged attacker having Create Session privilege with network access via Oracle Net to compromise",
-      "cvss": 9.9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in the",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114849",
-      "title": "CVE-2026-114849 — Unknown Vendor Vulnerability in Oracle CVSS 9.8 Critical Vulnerability",
-      "description": "Vulnerability in Oracle APEX (component: General).  Supported versions that are affected are 24.1.22, 24.2.21, 26.1.5 and  26.2.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTPS to compromise Oracle APEX.  Successful attacks of this vulnerability can r",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in Oracle",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114850",
-      "title": "CVE-2026-114850 — Unknown Vendor Vulnerability in Oracle CVSS 9.8 Critical Vulnerability",
-      "description": "Vulnerability in Oracle APEX (component: General).  Supported versions that are affected are 24.1.22, 24.2.21, 26.1.5 and  26.2.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTPS to compromise Oracle APEX.  Successful attacks of this vulnerability can r",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in Oracle",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114856",
-      "title": "CVE-2026-114856 — Unknown Vendor Vulnerability in Oracle CVSS 9.6 Critical Vulnerability",
-      "description": "Vulnerability in Oracle REST Data Services (component: General).  Supported versions that are affected are 24.2.0-26.3.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTPS to compromise Oracle REST Data Services.  Successful attacks require human interact",
-      "cvss": 9.6,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in Oracle",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114863",
-      "title": "CVE-2026-114863 — Unknown Vendor Vulnerability in the CVSS 9.8 Critical Vulnerability",
-      "description": "Vulnerability in the Oracle Universal Work Queue product of Oracle E-Business Suite (component: Media Integration issues).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Univ",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in the",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-18T00:22:37.511Z"
+  "lastReportGeneratedAt": "2026-11-18T01:54:02.983Z"
 }
