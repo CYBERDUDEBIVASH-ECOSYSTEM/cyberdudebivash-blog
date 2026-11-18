@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-18T12:28:49.221Z",
+  "generated": "2026-11-18T13:49:38.207Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19018,
+    "total_nodes": 19020,
     "actors": 8,
-    "cves": 9154,
-    "campaigns": 2827,
+    "cves": 9155,
+    "campaigns": 2828,
     "malware": 0,
     "iocs": 911,
-    "edges": 5604
+    "edges": 5605
   },
   "nodes": {
     "actor:lockbit": {
@@ -357427,6 +357427,44 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-130690": {
+      "id": "CVE-2026-130690",
+      "type": "CVE",
+      "name": "CVE-2026-130690 — Unknown Vendor NocoDB before 2026.10.1 CVSS 8.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.8,
+        "threat_level": "HIGH",
+        "priority_score": 68,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "NocoDB before 2026.10.1",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-130690": {
+      "id": "campaign:cve-2026-130690",
+      "type": "Campaign",
+      "name": "Unknown NocoDB Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-130690"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-130690",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -408045,6 +408083,15 @@
       "id": "campaign:cve-2026-130673→includes→CVE-2026-130673",
       "source": "campaign:cve-2026-130673",
       "target": "CVE-2026-130673",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-130690→includes→CVE-2026-130690",
+      "source": "campaign:cve-2026-130690",
+      "target": "CVE-2026-130690",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-18",
