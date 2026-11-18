@@ -166,6 +166,11 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   // fail-closed regression. It asserts no REST fallback if native D1 is absent.
   // CI control is OPERATIONAL, NOT benign, never an auto-release approval.
   'api/_lib/__tests__/d1-worker-native-fail-closed.test.js',
+  // P0 drift #44243528736: reviewed exact 705-line change-engine Jest suite
+  // (fake Redis/D1, CVE deltas, dedup, durable outbox, bounded fanout).
+  // This customer alert-regression gate is OPERATIONAL, never benign.
+  // Do not allowlist api/_lib/__tests__/** or skip manual source review.
+  'api/_lib/__tests__/change-engine.test.js',
   // P0 #433, run #44143008188 / #44133650054: exact named paths
   // classified after source review on 2026-11-17. These are OPERATIONAL,
   // never benign: every change continues to require manual release review.
