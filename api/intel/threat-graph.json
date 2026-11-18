@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-18T19:33:30.971Z",
+  "generated": "2026-11-18T20:53:50.114Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19110,
+    "total_nodes": 19148,
     "actors": 8,
-    "cves": 9200,
-    "campaigns": 2872,
+    "cves": 9217,
+    "campaigns": 2892,
     "malware": 0,
     "iocs": 911,
-    "edges": 5649
+    "edges": 5669
   },
   "nodes": {
     "actor:lockbit": {
@@ -18761,17 +18761,17 @@
     "CVE-2026-40217": {
       "id": "CVE-2026-40217",
       "type": "CVE",
-      "name": "LiteLLM has a sandbox escape in custom-code guardrail",
+      "name": "CVE-2026-40217: BerriAI LiteLLM Unprotected Alternate Channel Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
-        "cvss": 8.8,
-        "threat_level": "MEDIUM",
-        "priority_score": 53,
-        "exploited": false,
-        "cisa_kev": false,
+        "cvss": 0,
+        "threat_level": "CRITICAL",
+        "priority_score": 85,
+        "exploited": true,
+        "cisa_kev": true,
         "ransomware": false,
-        "vendor": "pip",
-        "product": "litellm",
-        "published": "2026-05-11",
+        "vendor": "BerriAI",
+        "product": "LiteLLM",
+        "published": "2026-11-18",
         "type": "CVE_REPORT"
       },
       "connections": []
@@ -267343,17 +267343,17 @@
     "CVE-2026-90817": {
       "id": "CVE-2026-90817",
       "type": "CVE",
-      "name": "CVE-2026-90817 - REDCap Remote Code Execution Vulnerability",
+      "name": "CVE-2026-90817: Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
-        "cvss": 9.8,
-        "threat_level": "MEDIUM",
-        "priority_score": 51,
-        "exploited": false,
-        "cisa_kev": false,
+        "cvss": 0,
+        "threat_level": "HIGH",
+        "priority_score": 81,
+        "exploited": true,
+        "cisa_kev": true,
         "ransomware": false,
-        "vendor": "",
-        "product": "",
-        "published": "2026-09-20",
+        "vendor": "Vanderbilt University",
+        "product": "Research Electronic Data Capture (REDCap)",
+        "published": "2026-11-18",
         "type": "CVE_REPORT"
       },
       "connections": []
@@ -350583,18 +350583,18 @@
     "CVE-2026-90436": {
       "id": "CVE-2026-90436",
       "type": "CVE",
-      "name": "Rapid7 Detected Exploitation of CVE-2026-90436 against Atlassian Confluence Data Center, N-able N-central also Exploited",
+      "name": "CVE-2026-90436: Apache Axis Unsafe Reflection Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
         "cvss": 0,
-        "threat_level": "LOW",
-        "priority_score": 41,
+        "threat_level": "HIGH",
+        "priority_score": 81,
         "exploited": true,
-        "cisa_kev": false,
+        "cisa_kev": true,
         "ransomware": false,
-        "vendor": "rapid7",
-        "product": "Threat Intelligence",
-        "published": "2026-11-16",
-        "type": "ZERO_DAY"
+        "vendor": "Apache",
+        "product": "Axis",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
       },
       "connections": []
     },
@@ -359169,6 +359169,730 @@
       "connections": [
         {
           "target": "CVE-2026-76415",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2024-10441": {
+      "id": "CVE-2024-10441",
+      "type": "CVE",
+      "name": "CVE-2024-10441: Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability — CISA KEV Active Exploitation",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "HIGH",
+        "priority_score": 81,
+        "exploited": true,
+        "cisa_kev": true,
+        "ransomware": false,
+        "vendor": "Synology",
+        "product": "DiskStation Manager (DSM)",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-130753": {
+      "id": "CVE-2026-130753",
+      "type": "CVE",
+      "name": "CVE-2026-130753 — Unknown Vendor heym before 0.0.142 CVSS 8.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.8,
+        "threat_level": "HIGH",
+        "priority_score": 68,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "heym before 0.0.142",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-130760": {
+      "id": "CVE-2026-130760",
+      "type": "CVE",
+      "name": "CVE-2026-130760 — Unknown Vendor Fleet before 4.86.2 CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "HIGH",
+        "priority_score": 67,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "Fleet before 4.86.2",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-69155": {
+      "id": "CVE-2026-69155",
+      "type": "CVE",
+      "name": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
+      "attributes": {
+        "cvss": 8.7,
+        "threat_level": "HIGH",
+        "priority_score": 66,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "rust",
+        "product": "atomic-server",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-132229": {
+      "id": "CVE-2026-132229",
+      "type": "CVE",
+      "name": "CVE-2026-132229 — Unknown Vendor A flaw was CVSS 8.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A flaw was",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-130751": {
+      "id": "CVE-2026-130751",
+      "type": "CVE",
+      "name": "CVE-2026-130751 — Unknown Vendor OpenWrt LuCI luci-app-travelmate CVSS 8.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "OpenWrt LuCI luci-app-travelmate",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-130758": {
+      "id": "CVE-2026-130758",
+      "type": "CVE",
+      "name": "CVE-2026-130758 — Unknown Vendor Fleet before 4.92.0 CVSS 7.2 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "Fleet before 4.92.0",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-69158": {
+      "id": "CVE-2026-69158",
+      "type": "CVE",
+      "name": "Atomic Server: Unauthenticated full-response SSRF in Atomic-Server /bookmark endpoint",
+      "attributes": {
+        "cvss": 8.6,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "rust",
+        "product": "atomic-server",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-76416": {
+      "id": "CVE-2026-76416",
+      "type": "CVE",
+      "name": "CVE-2026-76416 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability in",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-76417": {
+      "id": "CVE-2026-76417",
+      "type": "CVE",
+      "name": "CVE-2026-76417 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability in",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-76421": {
+      "id": "CVE-2026-76421",
+      "type": "CVE",
+      "name": "CVE-2026-76421 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability in",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-76422": {
+      "id": "CVE-2026-76422",
+      "type": "CVE",
+      "name": "CVE-2026-76422 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability in",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-76430": {
+      "id": "CVE-2026-76430",
+      "type": "CVE",
+      "name": "CVE-2026-76430 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability in",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-76515": {
+      "id": "CVE-2026-76515",
+      "type": "CVE",
+      "name": "CVE-2026-76515 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability in",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-69156": {
+      "id": "CVE-2026-69156",
+      "type": "CVE",
+      "name": "Atomic Server: Arbitrary file read via user-controlled `internalId` in the `/download` handler (leaks root agent private key)",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "rust",
+        "product": "atomic-server",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-130757": {
+      "id": "CVE-2026-130757",
+      "type": "CVE",
+      "name": "CVE-2026-130757 — Unknown Vendor Fleet before 4.92.0 CVSS 7.4 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.4,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "Fleet before 4.92.0",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-71481": {
+      "id": "CVE-2026-71481",
+      "type": "CVE",
+      "name": "ALTCHA PHP: verifySolution bypasses HMAC signature check when challenge signature is absent",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "composer",
+        "product": "altcha-org/altcha",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "DARKREADING-0c597ec3c532313d": {
+      "id": "DARKREADING-0c597ec3c532313d",
+      "type": "Intel",
+      "name": "AttackIQ Research Reveals How Iranian Cyber Groups Hand Off Network Access to Enable Destructive Attacks",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "LOW",
+        "priority_score": 34,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": true,
+        "vendor": "darkreading",
+        "product": "Threat Intelligence",
+        "published": "2026-11-18",
+        "type": "RANSOMWARE"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-40217": {
+      "id": "campaign:cve-2026-40217",
+      "type": "Campaign",
+      "name": "BerriAI LiteLLM Exploitation Campaign",
+      "attributes": {
+        "severity": "CRITICAL",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-40217 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-40217",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2024-10441": {
+      "id": "campaign:cve-2024-10441",
+      "type": "Campaign",
+      "name": "Synology DiskStation Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2024-10441 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      },
+      "connections": [
+        {
+          "target": "CVE-2024-10441",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-90817": {
+      "id": "campaign:cve-2026-90817",
+      "type": "Campaign",
+      "name": "Vanderbilt Research Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-90817 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-90817",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-90436": {
+      "id": "campaign:cve-2026-90436",
+      "type": "Campaign",
+      "name": "Apache Vulnerability Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-90436 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-90436",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-130753": {
+      "id": "campaign:cve-2026-130753",
+      "type": "Campaign",
+      "name": "Unknown heym Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-130753"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-130753",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-130760": {
+      "id": "campaign:cve-2026-130760",
+      "type": "Campaign",
+      "name": "Unknown Fleet Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-130760"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-130760",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-69155": {
+      "id": "campaign:cve-2026-69155",
+      "type": "Campaign",
+      "name": "rust atomic-server Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-69155"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-69155",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-132229": {
+      "id": "campaign:cve-2026-132229",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-132229"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-132229",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-130751": {
+      "id": "campaign:cve-2026-130751",
+      "type": "Campaign",
+      "name": "Unknown OpenWrt Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-130751"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-130751",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-130758": {
+      "id": "campaign:cve-2026-130758",
+      "type": "Campaign",
+      "name": "Unknown Fleet Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-130758"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-130758",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-69158": {
+      "id": "campaign:cve-2026-69158",
+      "type": "Campaign",
+      "name": "rust atomic-server Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-69158"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-69158",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-76416": {
+      "id": "campaign:cve-2026-76416",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-76416"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-76416",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-76417": {
+      "id": "campaign:cve-2026-76417",
+      "type": "Campaign",
+      "name": "Microsoft Ecosystem Targeting Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-76417"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-76417",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-76421": {
+      "id": "campaign:cve-2026-76421",
+      "type": "Campaign",
+      "name": "Microsoft Ecosystem Targeting Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-76421"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-76421",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-76422": {
+      "id": "campaign:cve-2026-76422",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-76422"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-76422",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-76430": {
+      "id": "campaign:cve-2026-76430",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-76430"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-76430",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-76515": {
+      "id": "campaign:cve-2026-76515",
+      "type": "Campaign",
+      "name": "Microsoft Ecosystem Targeting Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-76515"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-76515",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-69156": {
+      "id": "campaign:cve-2026-69156",
+      "type": "Campaign",
+      "name": "rust atomic-server Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-69156"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-69156",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-130757": {
+      "id": "campaign:cve-2026-130757",
+      "type": "Campaign",
+      "name": "Unknown Fleet Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-130757"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-130757",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-71481": {
+      "id": "campaign:cve-2026-71481",
+      "type": "Campaign",
+      "name": "composer altcha-org/altcha Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-71481"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-71481",
           "relationship": "includes",
           "confidence": 1
         }
@@ -410196,6 +410920,186 @@
       "id": "campaign:cve-2026-76415→includes→CVE-2026-76415",
       "source": "campaign:cve-2026-76415",
       "target": "CVE-2026-76415",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-40217→includes→CVE-2026-40217",
+      "source": "campaign:cve-2026-40217",
+      "target": "CVE-2026-40217",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2024-10441→includes→CVE-2024-10441",
+      "source": "campaign:cve-2024-10441",
+      "target": "CVE-2024-10441",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-90817→includes→CVE-2026-90817",
+      "source": "campaign:cve-2026-90817",
+      "target": "CVE-2026-90817",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-90436→includes→CVE-2026-90436",
+      "source": "campaign:cve-2026-90436",
+      "target": "CVE-2026-90436",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-130753→includes→CVE-2026-130753",
+      "source": "campaign:cve-2026-130753",
+      "target": "CVE-2026-130753",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-130760→includes→CVE-2026-130760",
+      "source": "campaign:cve-2026-130760",
+      "target": "CVE-2026-130760",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-69155→includes→CVE-2026-69155",
+      "source": "campaign:cve-2026-69155",
+      "target": "CVE-2026-69155",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-132229→includes→CVE-2026-132229",
+      "source": "campaign:cve-2026-132229",
+      "target": "CVE-2026-132229",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-130751→includes→CVE-2026-130751",
+      "source": "campaign:cve-2026-130751",
+      "target": "CVE-2026-130751",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-130758→includes→CVE-2026-130758",
+      "source": "campaign:cve-2026-130758",
+      "target": "CVE-2026-130758",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-69158→includes→CVE-2026-69158",
+      "source": "campaign:cve-2026-69158",
+      "target": "CVE-2026-69158",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-76416→includes→CVE-2026-76416",
+      "source": "campaign:cve-2026-76416",
+      "target": "CVE-2026-76416",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-76417→includes→CVE-2026-76417",
+      "source": "campaign:cve-2026-76417",
+      "target": "CVE-2026-76417",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-76421→includes→CVE-2026-76421",
+      "source": "campaign:cve-2026-76421",
+      "target": "CVE-2026-76421",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-76422→includes→CVE-2026-76422",
+      "source": "campaign:cve-2026-76422",
+      "target": "CVE-2026-76422",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-76430→includes→CVE-2026-76430",
+      "source": "campaign:cve-2026-76430",
+      "target": "CVE-2026-76430",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-76515→includes→CVE-2026-76515",
+      "source": "campaign:cve-2026-76515",
+      "target": "CVE-2026-76515",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-69156→includes→CVE-2026-69156",
+      "source": "campaign:cve-2026-69156",
+      "target": "CVE-2026-69156",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-130757→includes→CVE-2026-130757",
+      "source": "campaign:cve-2026-130757",
+      "target": "CVE-2026-130757",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-71481→includes→CVE-2026-71481",
+      "source": "campaign:cve-2026-71481",
+      "target": "CVE-2026-71481",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-18",
