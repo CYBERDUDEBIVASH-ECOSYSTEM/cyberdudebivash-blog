@@ -18,6 +18,28 @@ function compare(files) {
 }
 function state(files) { return classify(compare(files), BASE, HEAD, paths).state; }
 
+test('P0 migrated native D1 fail-closed control requires manual review, and only exact path is trusted',()=>{
+  const file='api/_lib/__tests__/d1-worker-native-fail-closed.test.js';
+  assert.equal(fs.existsSync(path.join(root,file)),true);
+  assert.equal(isReviewedOperationalPath(file),true);
+  const result=classify(compare([file]),BASE,HEAD,paths);
+  assert.equal(result.state,'manual_release_required');
+  assert.deepEqual(result.operational,[file]);
+  assert.deepEqual(result.benign,[]);
+  assert.deepEqual(result.unknown,[]);
+  assert.match(renderDriftSummary(HEAD,BASE,result),/Manual release and independent postdeploy certification required/);
+  const other='api/_lib/__tests__/d1-worker-native-fail-open.test.js';
+  assert.equal(isReviewedOperationalPath(other),false);
+  const blocked=classify(compare([file,other]),BASE,HEAD,paths);
+  assert.equal(blocked.state,'blocked');
+  assert.deepEqual(blocked.unknown,[other]);
+  const rename=compare([]);
+  rename.files=[{filename:'docs/retired-native-d1-test.md',previous_filename:file,status:'renamed'}];
+  const classified=classify(rename,BASE,HEAD,paths);
+  assert.equal(classified.state,'manual_release_required');
+  assert.ok(classified.operational.includes(file));
+});
+
 test('production workflow cannot deploy on push or schedule', () => {
   assert.match(deploy,/\n  deploy:[\s\S]{0,350}?if: \$\{\{ github\.event_name == 'workflow_dispatch' && github\.ref == 'refs\/heads\/main' \}\}/);
 });
