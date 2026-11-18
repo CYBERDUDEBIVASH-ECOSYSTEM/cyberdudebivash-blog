@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T23:25:55.760Z",
+  "generated": "2026-11-18T00:22:36.591Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,20 +7,20 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7593,
+  "total_published": 7608,
   "s2n_stats": {
-    "passed": 140,
+    "passed": 145,
     "suppressed": 3,
-    "avg_qs": 0.492
+    "avg_qs": 0.491
   },
   "items": [
     {
-      "id": "CVE-2026-130849",
-      "title": "CVE-2026-130849 — Unknown Vendor BZFlag bzfs before CVSS 9.8 Critical Vulnerability",
-      "description": "BZFlag bzfs before 2.4.32 contains a heap out-of-bounds write vulnerability in NetHandler::tcpReceive() that allows remote unauthenticated attackers to corrupt heap memory by sending a TCP message with a body length of exactly 1024. Attackers can overwrite the tcplen receive offset with a negative v",
-      "cvss": 9.8,
-      "final_ps": 76,
-      "quality_score": 0.58,
+      "id": "CVE-2026-114881",
+      "title": "CVE-2026-114881 — Unknown Vendor Vulnerability in the CVSS 9.1 Critical Vulnerability",
+      "description": "Vulnerability in the Document Management and Collaboration product of Oracle E-Business Suite (component: Attachments).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Document Manag",
+      "cvss": 9.1,
+      "final_ps": 73,
+      "quality_score": 0.565,
       "threat_level": "HIGH",
       "type": "CVE_REPORT",
       "source": "nvd",
@@ -34,22 +34,19 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "BZFlag bzfs before",
+      "product": "Vulnerability in the",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/BZFlag-Dev/bzflag/blob/v2.4.30/src/game/NetHandler.cxx#L575-L640",
-        "https://github.com/BZFlag-Dev/bzflag/commit/8e501d685aef549090b363260979a4eb93484ea1",
-        "https://github.com/BZFlag-Dev/bzflag/releases/tag/v2.4.32",
-        "https://www.vulncheck.com/advisories/bzflag-bzfs-before-2.4.32-heap-out-of-bounds-write-via-nethandler-tcpreceive"
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
       ],
       "explanation": {
         "quality": [
           "source_weight=1.00 (nvd)",
           "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
+          "recency=1d (score=0.85)",
+          "QS=0.565"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -59,12 +56,12 @@
       }
     },
     {
-      "id": "CVE-2026-130856",
-      "title": "CVE-2026-130856 — Unknown Vendor 53AIHub before 0.5.5 CVSS 9.8 Critical Vulnerability",
-      "description": "53AIHub before 0.5.5 contains a missing authentication vulnerability that allows remote unauthenticated attackers to reinitialize installed instances by calling the public POST /api/init endpoint. Attackers can reset an existing account's password, assign the top creator role, and obtain an access t",
+      "id": "CVE-2025-34217",
+      "title": "CVE-2025-34217 — vasion virtual appliance application CVSS 9.8 Critical Vulnerability",
+      "description": "Vasion Print (formerly PrinterLogic) Virtual Appliance Host and Application (VA/SaaS deployments) contain an undocumented 'printerlogic' user with a hardcoded SSH public key in '~/.ssh/authorized_keys' and a sudoers rule granting the printerlogic_ssh group 'NOPASSWD: ALL'. Possession of the matching",
       "cvss": 9.8,
-      "final_ps": 76,
-      "quality_score": 0.58,
+      "final_ps": 67,
+      "quality_score": 0.485,
       "threat_level": "HIGH",
       "type": "CVE_REPORT",
       "source": "nvd",
@@ -72,28 +69,248 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
+      "first_seen": "2025-09-30",
+      "last_seen": "2025-09-30",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "53AIHub before 0.5.5",
+      "vendor": "vasion",
+      "product": "virtual appliance application",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/53AI/53AIHub/blob/91ed7f4571397a8dd2aad144330cf2b47233e468/api/router/api.go#L86-L90",
-        "https://github.com/53AI/53AIHub/blob/91ed7f4571397a8dd2aad144330cf2b47233e468/api/service/enterprise_install.go#L138-L190",
-        "https://github.com/53AI/53AIHub/commit/ed56bc01b4ec68183e7b03e56043bd1f3bf7ba5f",
-        "https://github.com/53AI/53AIHub/issues/110"
+        "https://help.printerlogic.com/saas/Print/Security/Security-Bulletins.htm",
+        "https://help.printerlogic.com/va/Print/Security/Security-Bulletins.htm",
+        "https://pierrekim.github.io/blog/2025-04-08-vasion-printerlogic-83-vulnerabilities.html#va-undocumented-hardcoded-ssh-key",
+        "https://www.vulncheck.com/advisories/vasion-print-printerlogic-incorrect-encryption-algorithms-used-to-store-passwords"
       ],
       "explanation": {
         "quality": [
           "source_weight=1.00 (nvd)",
           "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
+          "recency=414d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2025-34204",
+      "title": "CVE-2025-34204 — vasion virtual appliance application CVSS 9.8 Critical Vulnerability",
+      "description": "Vasion Print (formerly PrinterLogic) Virtual Appliance Host and Application (VA and SaaS deployments) contains multiple Docker containers that run primary application processes (for example PHP workers, Node.js servers and custom binaries) as the root user. This increases the blast radius of a conta",
+      "cvss": 9.8,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2025-09-19",
+      "last_seen": "2025-09-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "vasion",
+      "product": "virtual appliance application",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://help.printerlogic.com/saas/Print/Security/Security-Bulletins.htm",
+        "https://help.printerlogic.com/va/Print/Security/Security-Bulletins.htm",
+        "https://pierrekim.github.io/blog/2025-04-08-vasion-printerlogic-83-vulnerabilities.html#va-processes-running-as-root",
+        "https://www.vulncheck.com/advisories/vasion-print-printerlogic-processes-running-as-root-inside-docker-instances"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=425d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2025-34206",
+      "title": "CVE-2025-34206 — vasion virtual appliance application CVSS 9.8 Critical Vulnerability",
+      "description": "Vasion Print (formerly PrinterLogic) Virtual Appliance Host and Application (VA and SaaS deployments) mount host configuration and secret material under /var/www/efs_storage into many Docker containers with overly-permissive filesystem permissions. Files such as secrets.env, GPG-encrypted blobs in .",
+      "cvss": 9.8,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2025-09-19",
+      "last_seen": "2025-09-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "vasion",
+      "product": "virtual appliance application",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://help.printerlogic.com/saas/Print/Security/Security-Bulletins.htm",
+        "https://help.printerlogic.com/va/Print/Security/Security-Bulletins.htm",
+        "https://pierrekim.github.io/blog/2025-04-08-vasion-printerlogic-83-vulnerabilities.html#va-insecure-security-architecture",
+        "https://www.vulncheck.com/advisories/vasion-print-printerlogic-insecure-shared-storage-permissions"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=425d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2018-25115",
+      "title": "CVE-2018-25115 — dlink dir-110 firmware CVSS 9.8 Critical Vulnerability",
+      "description": "Multiple D-Link DIR-series routers, including DIR-110, DIR-412, DIR-600, DIR-610, DIR-615, DIR-645, and DIR-815 firmware version 1.03, contain a vulnerability in the service.cgi endpoint that allows remote attackers to execute arbitrary system commands without authentication. The flaw stems from imp",
+      "cvss": 9.8,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2025-08-27",
+      "last_seen": "2025-08-27",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "dlink",
+      "product": "dir-110 firmware",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Cr0n1c/dlink_shell_poc/blob/master/dlink_auth_rce",
+        "https://legacy.us.dlink.com/",
+        "https://support.dlink.com/EndOfLifePolicy.aspx",
+        "https://www.exploit-db.com/exploits/43496"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=448d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2024-13979",
+      "title": "CVE-2024-13979 — st. joe erp system project st. joe erp system CVSS 9.8 Critical Vulnerability",
+      "description": "A SQL injection vulnerability exists in the St. Joe ERP system (\"圣乔ERP系统\") that allows unauthenticated remote attackers to execute arbitrary SQL commands via crafted HTTP POST requests to the login endpoint. The application fails to properly sanitize user-supplied input before incorporating it into ",
+      "cvss": 9.8,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2025-08-27",
+      "last_seen": "2025-08-27",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "st. joe erp system project",
+      "product": "st. joe erp system",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://blog.csdn.net/qq_41904294/article/details/144240396",
+        "https://en.fofa.info/result?qbase64=5Zyj5LmURVJQ57O757uf",
+        "https://github.com/adysec/POC/blob/main/wpoc/%E5%9C%A3%E4%B9%94ERP/%E5%9C%A3%E4%B9%94ERP%E7%B3%BB%E7%BB%9FSingleRowQueryConvertor%E5%AD%98%E5%9C%A8SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E.md",
+        "https://www.vulncheck.com/advisories/st-joes-erp-system-sqli"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=448d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2012-10023",
+      "title": "CVE-2012-10023 — freefloat freefloat ftp server CVSS 9.8 Critical Vulnerability",
+      "description": "A stack-based buffer overflow vulnerability exists in FreeFloat FTP Server version 1.0.0. The server fails to properly validate input passed to the USER command, allowing remote attackers to overwrite memory and potentially execute arbitrary code. The flaw is triggered by sending an overly long user",
+      "cvss": 9.8,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2025-08-05",
+      "last_seen": "2025-08-05",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "freefloat",
+      "product": "freefloat ftp server",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://my.saintcorporation.com/cgi-bin/exploit_info/freefloat_ftp_server_user_cmd",
+        "https://raw.githubusercontent.com/rapid7/metasploit-framework/master/modules/exploits/windows/ftp/freefloatftp_user.rb",
+        "https://web.archive.org/web/20101208040029/http://secunia.com/advisories/42465/",
+        "https://web.archive.org/web/20101213050627/http://www.freefloat.com/sv/about-/about-.php"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=470d (score=0.05)",
+          "QS=0.485"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -2134,7 +2351,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-33825",
@@ -2174,7 +2393,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-20122",
@@ -2214,7 +2435,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-20133",
@@ -2254,7 +2477,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-2749",
@@ -2294,7 +2519,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-48700",
@@ -3339,6 +3566,313 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-114924",
+      "title": "CVE-2026-114924 — Unknown Vendor Vulnerability in the CVSS 9.8 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Application Object Library product of Oracle E-Business Suite (component: Core).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Application Object",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-114925",
+      "title": "CVE-2026-114925 — Unknown Vendor Vulnerability in the CVSS 9.8 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Applications Framework product of Oracle E-Business Suite (component: REST Services).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Applications ",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-114978",
+      "title": "CVE-2026-114978 — Unknown Vendor Vulnerability in the CVSS 9.9 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Hyperion Financial Management product of Oracle Hyperion (component: Security).   The supported version that is affected is 11.2.26.0.000. Easily exploitable vulnerability allows low privileged attacker with network access via HTTP to compromise Oracle Hyperion Financial ",
+      "cvss": 9.9,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-114934",
+      "title": "CVE-2026-114934 — Unknown Vendor Vulnerability in the CVSS 9.3 Critical Vulnerability",
+      "description": "Vulnerability in the PeopleSoft Enterprise PeopleTools product of Oracle PeopleSoft (component: Integration Broker).  Supported versions that are affected are 8.61-8.63. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise PeopleSoft Enterprise ",
+      "cvss": 9.3,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-114956",
+      "title": "CVE-2026-114956 — Unknown Vendor Vulnerability in the CVSS 9.3 Critical Vulnerability",
+      "description": "Vulnerability in the Oracle Hyperion Planning product of Oracle Hyperion (component: Security).   The supported version that is affected is 11.2.26.0.000. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Hyperion Planning.  Successful",
+      "cvss": 9.3,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vulnerability in the",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cspunov2026.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-130849",
+      "title": "CVE-2026-130849 — Unknown Vendor BZFlag bzfs before CVSS 9.8 Critical Vulnerability",
+      "description": "BZFlag bzfs before 2.4.32 contains a heap out-of-bounds write vulnerability in NetHandler::tcpReceive() that allows remote unauthenticated attackers to corrupt heap memory by sending a TCP message with a body length of exactly 1024. Attackers can overwrite the tcplen receive offset with a negative v",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "BZFlag bzfs before",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/BZFlag-Dev/bzflag/blob/v2.4.30/src/game/NetHandler.cxx#L575-L640",
+        "https://github.com/BZFlag-Dev/bzflag/commit/8e501d685aef549090b363260979a4eb93484ea1",
+        "https://github.com/BZFlag-Dev/bzflag/releases/tag/v2.4.32",
+        "https://www.vulncheck.com/advisories/bzflag-bzfs-before-2.4.32-heap-out-of-bounds-write-via-nethandler-tcpreceive"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-130856",
+      "title": "CVE-2026-130856 — Unknown Vendor 53AIHub before 0.5.5 CVSS 9.8 Critical Vulnerability",
+      "description": "53AIHub before 0.5.5 contains a missing authentication vulnerability that allows remote unauthenticated attackers to reinitialize installed instances by calling the public POST /api/init endpoint. Attackers can reset an existing account's password, assign the top creator role, and obtain an access t",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "53AIHub before 0.5.5",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/53AI/53AIHub/blob/91ed7f4571397a8dd2aad144330cf2b47233e468/api/router/api.go#L86-L90",
+        "https://github.com/53AI/53AIHub/blob/91ed7f4571397a8dd2aad144330cf2b47233e468/api/service/enterprise_install.go#L138-L190",
+        "https://github.com/53AI/53AIHub/commit/ed56bc01b4ec68183e7b03e56043bd1f3bf7ba5f",
+        "https://github.com/53AI/53AIHub/issues/110"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-114784",
       "title": "CVE-2026-114784 — Unknown Vendor Vulnerability in the CVSS 10 Critical Vulnerability",
       "description": "Vulnerability in the Oracle Business Intelligence Enterprise Edition product of Oracle Analytics (component: Platform Security).  Supported versions that are affected are 8.2.0.0.0 and  26.01.0.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to comp",
@@ -3853,543 +4387,7 @@
       },
       "suppressed": false,
       "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114880",
-      "title": "CVE-2026-114880 — Unknown Vendor Vulnerability in the CVSS 9.8 Critical Vulnerability",
-      "description": "Vulnerability in the Document Management and Collaboration product of Oracle E-Business Suite (component: Attachments).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Document Manag",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in the",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-101691",
-      "title": "CVE-2026-101691 — Unknown Vendor Vulnerability in the CVSS 9.3 Critical Vulnerability",
-      "description": "Vulnerability in the Oracle Mobile Field Service product of Oracle E-Business Suite (component: Admin UI).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Mobile Field Service",
-      "cvss": 9.3,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in the",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114847",
-      "title": "CVE-2026-114847 — Unknown Vendor Vulnerability in Oracle CVSS 9.1 Critical Vulnerability",
-      "description": "Vulnerability in Oracle Autonomous Health Framework (component: Developer triaging platform).  Supported versions that are affected are 26.4-26.10. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Autonomous Health Framework.  Success",
-      "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in Oracle",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114862",
-      "title": "CVE-2026-114862 — Unknown Vendor Vulnerability in the CVSS 9.1 Critical Vulnerability",
-      "description": "Vulnerability in the PeopleSoft Enterprise PeopleTools product of Oracle PeopleSoft (component: Weblogic).  Supported versions that are affected are 8.61-8.63. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise PeopleSoft Enterprise PeopleTool",
-      "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in the",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114881",
-      "title": "CVE-2026-114881 — Unknown Vendor Vulnerability in the CVSS 9.1 Critical Vulnerability",
-      "description": "Vulnerability in the Document Management and Collaboration product of Oracle E-Business Suite (component: Attachments).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Document Manag",
-      "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Vulnerability in the",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.oracle.com/security-alerts/cspunov2026.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-130840",
-      "title": "CVE-2026-130840 — Unknown Vendor BISHENG before 3.0.0 CVSS 9.8 Critical Vulnerability",
-      "description": "BISHENG before 3.0.0 contains an authentication bypass vulnerability that allows unauthenticated remote attackers to impersonate administrators by abusing a hard-coded default jwt_secret used by AuthJwt. Attackers can forge an HS256 token offline naming user_id 1 with the admin role, send it as acce",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "BISHENG before 3.0.0",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/dataelement/bisheng/blob/v2.6.0-fix2/src/backend/bisheng/core/config/settings.py#L752",
-        "https://github.com/dataelement/bisheng/commit/b98e2bc5c819a6a8d35538d91eab85833bd77703",
-        "https://www.vulncheck.com/advisories/bisheng-before-3.0.0-authentication-bypass-via-hard-coded-jwt-signing-secret"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2025-34217",
-      "title": "CVE-2025-34217 — vasion virtual appliance application CVSS 9.8 Critical Vulnerability",
-      "description": "Vasion Print (formerly PrinterLogic) Virtual Appliance Host and Application (VA/SaaS deployments) contain an undocumented 'printerlogic' user with a hardcoded SSH public key in '~/.ssh/authorized_keys' and a sudoers rule granting the printerlogic_ssh group 'NOPASSWD: ALL'. Possession of the matching",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2025-09-30",
-      "last_seen": "2025-09-30",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "vasion",
-      "product": "virtual appliance application",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://help.printerlogic.com/saas/Print/Security/Security-Bulletins.htm",
-        "https://help.printerlogic.com/va/Print/Security/Security-Bulletins.htm",
-        "https://pierrekim.github.io/blog/2025-04-08-vasion-printerlogic-83-vulnerabilities.html#va-undocumented-hardcoded-ssh-key",
-        "https://www.vulncheck.com/advisories/vasion-print-printerlogic-incorrect-encryption-algorithms-used-to-store-passwords"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2025-34204",
-      "title": "CVE-2025-34204 — vasion virtual appliance application CVSS 9.8 Critical Vulnerability",
-      "description": "Vasion Print (formerly PrinterLogic) Virtual Appliance Host and Application (VA and SaaS deployments) contains multiple Docker containers that run primary application processes (for example PHP workers, Node.js servers and custom binaries) as the root user. This increases the blast radius of a conta",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2025-09-19",
-      "last_seen": "2025-09-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "vasion",
-      "product": "virtual appliance application",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://help.printerlogic.com/saas/Print/Security/Security-Bulletins.htm",
-        "https://help.printerlogic.com/va/Print/Security/Security-Bulletins.htm",
-        "https://pierrekim.github.io/blog/2025-04-08-vasion-printerlogic-83-vulnerabilities.html#va-processes-running-as-root",
-        "https://www.vulncheck.com/advisories/vasion-print-printerlogic-processes-running-as-root-inside-docker-instances"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2025-34206",
-      "title": "CVE-2025-34206 — vasion virtual appliance application CVSS 9.8 Critical Vulnerability",
-      "description": "Vasion Print (formerly PrinterLogic) Virtual Appliance Host and Application (VA and SaaS deployments) mount host configuration and secret material under /var/www/efs_storage into many Docker containers with overly-permissive filesystem permissions. Files such as secrets.env, GPG-encrypted blobs in .",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2025-09-19",
-      "last_seen": "2025-09-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "vasion",
-      "product": "virtual appliance application",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://help.printerlogic.com/saas/Print/Security/Security-Bulletins.htm",
-        "https://help.printerlogic.com/va/Print/Security/Security-Bulletins.htm",
-        "https://pierrekim.github.io/blog/2025-04-08-vasion-printerlogic-83-vulnerabilities.html#va-insecure-security-architecture",
-        "https://www.vulncheck.com/advisories/vasion-print-printerlogic-insecure-shared-storage-permissions"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2018-25115",
-      "title": "CVE-2018-25115 — dlink dir-110 firmware CVSS 9.8 Critical Vulnerability",
-      "description": "Multiple D-Link DIR-series routers, including DIR-110, DIR-412, DIR-600, DIR-610, DIR-615, DIR-645, and DIR-815 firmware version 1.03, contain a vulnerability in the service.cgi endpoint that allows remote attackers to execute arbitrary system commands without authentication. The flaw stems from imp",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2025-08-27",
-      "last_seen": "2025-08-27",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "dlink",
-      "product": "dir-110 firmware",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/Cr0n1c/dlink_shell_poc/blob/master/dlink_auth_rce",
-        "https://legacy.us.dlink.com/",
-        "https://support.dlink.com/EndOfLifePolicy.aspx",
-        "https://www.exploit-db.com/exploits/43496"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2024-13979",
-      "title": "CVE-2024-13979 — st. joe erp system project st. joe erp system CVSS 9.8 Critical Vulnerability",
-      "description": "A SQL injection vulnerability exists in the St. Joe ERP system (\"圣乔ERP系统\") that allows unauthenticated remote attackers to execute arbitrary SQL commands via crafted HTTP POST requests to the login endpoint. The application fails to properly sanitize user-supplied input before incorporating it into ",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2025-08-27",
-      "last_seen": "2025-08-27",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "st. joe erp system project",
-      "product": "st. joe erp system",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://blog.csdn.net/qq_41904294/article/details/144240396",
-        "https://en.fofa.info/result?qbase64=5Zyj5LmURVJQ57O757uf",
-        "https://github.com/adysec/POC/blob/main/wpoc/%E5%9C%A3%E4%B9%94ERP/%E5%9C%A3%E4%B9%94ERP%E7%B3%BB%E7%BB%9FSingleRowQueryConvertor%E5%AD%98%E5%9C%A8SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E.md",
-        "https://www.vulncheck.com/advisories/st-joes-erp-system-sqli"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2012-10023",
-      "title": "CVE-2012-10023 — freefloat freefloat ftp server CVSS 9.8 Critical Vulnerability",
-      "description": "A stack-based buffer overflow vulnerability exists in FreeFloat FTP Server version 1.0.0. The server fails to properly validate input passed to the USER command, allowing remote attackers to overwrite memory and potentially execute arbitrary code. The flaw is triggered by sending an overly long user",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2025-08-05",
-      "last_seen": "2025-08-05",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "freefloat",
-      "product": "freefloat ftp server",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://my.saintcorporation.com/cgi-bin/exploit_info/freefloat_ftp_server_user_cmd",
-        "https://raw.githubusercontent.com/rapid7/metasploit-framework/master/modules/exploits/windows/ftp/freefloatftp_user.rb",
-        "https://web.archive.org/web/20101208040029/http://secunia.com/advisories/42465/",
-        "https://web.archive.org/web/20101213050627/http://www.freefloat.com/sv/about-/about-.php"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-17T23:25:56.355Z"
+  "lastReportGeneratedAt": "2026-11-18T00:22:37.511Z"
 }
