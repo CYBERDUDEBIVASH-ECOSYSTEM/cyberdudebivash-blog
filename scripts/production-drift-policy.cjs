@@ -111,6 +111,12 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   // This exact production-critical publisher is OPERATIONAL; never benign.
   // Source merge #630 is NOT itself approval to publish or deploy.
   'automation/blogger_publisher.py',
+  // P0 #434/#640: audited 98-line local-only original-source chronology
+  // validator for first-party Blogger RSS. Prevents Nov14 original stories
+  // disguised as Nov17 RSS transport dates entering fresh/retry canaries.
+  // Exact file is OPERATIONAL (manual review), not benign or release proof.
+  // Do not allowlist automation/**: unknown siblings remain blocked.
+  'automation/cti_original_source_freshness.py',
   // P0 #433/#434: hosted Blogger contract test tightened by reviewed PR #634.
   // Exact test asserts scheduled four-post cap independently of manual
   // one-report dry-run defaults; changes here can affect publisher release
