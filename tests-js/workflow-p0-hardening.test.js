@@ -101,3 +101,40 @@ test('P0 AI security Git staging and commit errors are never disguised as no cha
   assert.match(yaml,/AI publication persistence not verified/);
   assert.match(yaml,/AI staged index unavailable/);
 });
+
+
+const hubWorkflow=path.join(root, '.github/workflows/intelligence-hub.yml');
+function hubWriterScopeIsSafe(yaml) {
+  const start=yaml.indexOf('  push:\n');
+  const end=yaml.indexOf('  schedule:\n', start);
+  if (start<0 || end<=start) return false;
+  const push=yaml.slice(start,end);
+  const mainOnly='    if: ' + '$' + "{{ github.ref == 'refs/heads/main' }}";
+  return push.includes('branches: [main]') &&
+    !push.includes("tests-js/**") &&
+    ["api/intel/products/**","api/intel/cve/**","api/_lib/intelligence-hub.js",
+      "generate-intelligence-hub.js",".github/workflows/intelligence-hub.yml"]
+      .every(file=>push.includes("'" + file + "'")) &&
+    yaml.includes(mainOnly) &&
+    yaml.includes("cron: '47 */6 * * *'") &&
+    yaml.includes("  workflow_dispatch:") &&
+    yaml.includes('run: bash scripts/publish-intelligence-hub.sh') &&
+    yaml.includes('cancel-in-progress: false');
+}
+
+test('P0 hub writer uses main-only execution and content-relevant push paths',()=>{
+  const yaml=fs.readFileSync(hubWorkflow,'utf8');
+  assert.equal(hubWriterScopeIsSafe(yaml), true);
+});
+
+test('negative: a feature-ref privileged dispatch or test-only regeneration fails the hub gate',()=>{
+  const yaml=fs.readFileSync(hubWorkflow,'utf8');
+  const guard='    if: ' + '$' + "{{ github.ref == 'refs/heads/main' }}";
+  assert.ok(yaml.includes(guard));
+  assert.equal(hubWriterScopeIsSafe(yaml.replace(guard,'')),false);
+  const pathLine="      - 'generate-intelligence-hub.js'\n";
+  assert.ok(yaml.includes(pathLine));
+  const broad=yaml.replace(pathLine,pathLine+"      - 'tests-js/**'\n");
+  assert.notEqual(broad,yaml);
+  assert.equal(hubWriterScopeIsSafe(broad),false);
+});
