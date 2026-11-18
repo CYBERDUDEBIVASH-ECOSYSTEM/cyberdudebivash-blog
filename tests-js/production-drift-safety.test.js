@@ -54,6 +54,35 @@ test('P0 native D1 regression gate is never benign: operational when excluded fr
   assert.ok(classified.operational.includes(file));
 });
 
+test('P0 change-engine alert regression is reviewed exact-path only; unknown sibling blocks release',()=>{
+  const file='api/_lib/__tests__/change-engine.test.js';
+  const other='api/_lib/__tests__/change-engine-bypass.test.js';
+  assert.equal(fs.existsSync(path.join(root,file)),true);
+  assert.equal(isReviewedOperationalPath(file),true);
+  assert.equal(isReviewedOperationalPath(other),false);
+  // Current production paths may take precedence over the operational label.
+  const known=classify(compare([file]),BASE,HEAD,paths);
+  assert.equal(known.state,'manual_release_required');
+  assert.deepEqual(known.unknown,[]);
+  assert.deepEqual(known.benign,[]);
+  const matches=(p,name)=>p.endsWith('/**')?name.startsWith(p.slice(0,-2)):p===name;
+  const narrowed=paths.filter(p=>!matches(p,file)&&!matches(p,other));
+  assert.ok(narrowed.length>=20);
+  const reviewed=classify(compare([file]),BASE,HEAD,narrowed);
+  assert.equal(reviewed.state,'manual_release_required');
+  assert.deepEqual(reviewed.operational,[file]);
+  assert.deepEqual(reviewed.unknown,[]);
+  assert.deepEqual(reviewed.benign,[]);
+  const rejected=classify(compare([file,other]),BASE,HEAD,narrowed);
+  assert.equal(rejected.state,'blocked');
+  assert.deepEqual(rejected.unknown,[other]);
+  const renamed=compare([]);
+  renamed.files=[{filename:'docs/archived-change-engine-test.md',previous_filename:file,status:'renamed'}];
+  const verdict=classify(renamed,BASE,HEAD,narrowed);
+  assert.equal(verdict.state,'manual_release_required');
+  assert.ok(verdict.operational.includes(file));
+});
+
 test('production workflow cannot deploy on push or schedule', () => {
   assert.match(deploy,/\n  deploy:[\s\S]{0,350}?if: \$\{\{ github\.event_name == 'workflow_dispatch' && github\.ref == 'refs\/heads\/main' \}\}/);
 });
