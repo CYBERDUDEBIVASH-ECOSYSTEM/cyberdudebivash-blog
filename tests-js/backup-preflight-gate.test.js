@@ -27,7 +27,7 @@ test('workflow must fail closed before backup and upload, without skip-based gre
   const yml = fs.readFileSync(workflow, 'utf8');
   const preflight = yml.indexOf('run: node scripts/backup-preflight-gate.cjs');
   const backup = yml.indexOf('run: node scripts/backup-customer-data.js backups/customer-data.enc');
-  const upload = yml.indexOf('uses: actions/upload-artifact@v4');
+  const upload = yml.indexOf('uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02');
   assert.ok(preflight > 0 && backup > preflight && upload > backup);
   assert.doesNotMatch(yml, /if:\s*steps\.preflight\.outputs\.ready\s*==\s*'true'/);
   assert.match(yml, /if-no-files-found:\s*error/);
