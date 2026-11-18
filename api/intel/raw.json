@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T20:53:50.384Z",
+  "generated": "2026-11-18T21:53:00.991Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,16 +8,16 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 137,
+  "count": 140,
   "items": [
     {
-      "id": "CVE-2026-130784",
-      "title": "CVE-2026-130784 — Unknown Vendor Incus before 7.6.0 CVSS 9.9 Critical Vulnerability",
-      "description": "Incus before 7.6.0 contains an authorization bypass vulnerability that allows restricted clients to create and access default project resources by exploiting entitlement checks against the requested project. Attackers can create bridge networks with raw.dnsmasq directives to execute code as root on ",
-      "cvss": 9.9,
-      "final_ps": 76,
+      "id": "CVE-2026-130760",
+      "title": "CVE-2026-130760 — Unknown Vendor Fleet before 4.86.2 CVSS 7.5 High Severity Vulnerability",
+      "description": "Fleet before 4.86.2 contains a denial of service vulnerability that allows unauthenticated attackers to exhaust server memory via unbounded BER recursion in PKCS#7 parsing. Attackers can send deeply nested indefinite-length structures to Apple MDM check-in, enrollment, SCEP, or OTA endpoints to cras",
+      "cvss": 7.5,
+      "final_ps": 63,
       "quality_score": 0.58,
-      "threat_level": "HIGH",
+      "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
       "source": "nvd",
       "sources_confirmed": 1,
@@ -30,12 +30,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Incus before 7.6.0",
+      "product": "Fleet before 4.86.2",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/lxc/incus/security/advisories/GHSA-5c64-j5m6-8433"
+        "https://github.com/fleetdm/fleet/security/advisories/GHSA-3qx5-8m9j-pmrp"
       ],
       "explanation": {
         "quality": [
@@ -45,7 +45,7 @@
           "QS=0.580"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=63 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -55,13 +55,63 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-130786",
-      "title": "CVE-2026-130786 — Unknown Vendor Incus before 7.6.0 CVSS 9.9 Critical Vulnerability",
-      "description": "Incus before 7.6.0 contains a configuration injection vulnerability that allows users who can launch instances from controlled images to inject LXC directives by embedding line breaks in OCI config.json values or oci.entrypoint and oci.cwd keys. Attackers can add liblxc hooks or crafted tmpfs lxc.mo",
-      "cvss": 9.9,
-      "final_ps": 76,
+      "id": "CVE-2026-69155",
+      "title": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
+      "description": "## Summary Files uploaded via `POST /upload` are served back by `GET /download/{path}` using `actix_files::NamedFile`. For `text/html` and `image/svg+xml`, actix-files (0.6.6) sets `Content-Disposition: inline`, so the browser **renders** the file instead of downloading it. The `/download` route set",
+      "cvss": 8.7,
+      "final_ps": 63,
+      "quality_score": 0.578,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "rust",
+      "product": "atomic-server",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-69155",
+        "CVE-2026-69155"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-x277-3wcg-g9r2",
+        "https://github.com/ontola/atomic-server/security/advisories/GHSA-x277-3wcg-g9r2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-69155",
+        "https://github.com/ontola/atomic-server/commit/457c1dc9af4cd00d2aec89720718e504a49f392d"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.578"
+        ],
+        "priority": [
+          "base_ps=63 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-130751",
+      "title": "CVE-2026-130751 — Unknown Vendor OpenWrt LuCI luci-app-travelmate CVSS 8.1 High Severity Vulnerability",
+      "description": "OpenWrt LuCI luci-app-travelmate on master before 3.0.0-1 and on openwrt-25.12 before 2.4.9-6 grants file exec permissions for state-mutating commands in the read scope of its rpcd ACL, letting authenticated read-only users run those commands as root. Attackers can invoke ubus file exec on /etc/init",
+      "cvss": 8.1,
+      "final_ps": 62,
       "quality_score": 0.58,
-      "threat_level": "HIGH",
+      "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
       "source": "nvd",
       "sources_confirmed": 1,
@@ -74,12 +124,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Incus before 7.6.0",
+      "product": "OpenWrt LuCI luci-app-travelmate",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/lxc/incus/security/advisories/GHSA-3wxw-5gh2-j2x2"
+        "https://github.com/openwrt/luci/security/advisories/GHSA-66wf-c49f-5whc"
       ],
       "explanation": {
         "quality": [
@@ -89,7 +139,101 @@
           "QS=0.580"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-130758",
+      "title": "CVE-2026-130758 — Unknown Vendor Fleet before 4.92.0 CVSS 7.2 High Severity Vulnerability",
+      "description": "Fleet before 4.92.0 contains an authorization bypass vulnerability in the deprecated POST /api/latest/fleet/mdm/apple/enqueue endpoint that allows team-scoped users to enqueue Apple MDM commands outside their teams. Attackers with team admin, maintainer, or GitOps roles can include one own-team host",
+      "cvss": 7.2,
+      "final_ps": 62,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Fleet before 4.92.0",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/fleetdm/fleet/security/advisories/GHSA-5vr5-74q2-mfg4"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-69158",
+      "title": "Atomic Server: Unauthenticated full-response SSRF in Atomic-Server /bookmark endpoint",
+      "description": "## Summary Atomic-Server exposes a `GET /bookmark` endpoint that fetches an attacker-supplied URL server-side, parses the response, and reflects the fetched content back to the caller. The endpoint requires no authentication and performs no authorization of its own, and the underlying fetch helper a",
+      "cvss": 8.6,
+      "final_ps": 62,
+      "quality_score": 0.578,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "rust",
+      "product": "atomic-server",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-69158",
+        "CVE-2026-69158"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-ff87-73jp-f3v4",
+        "https://github.com/ontola/atomic-server/security/advisories/GHSA-ff87-73jp-f3v4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-69158",
+        "https://github.com/ontola/atomic-server/commit/006ff290f7ec976c8cbafdceb7b6899389abd5be"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.578"
+        ],
+        "priority": [
+          "base_ps=62 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4265,10 +4409,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-111497",
-      "title": "CVE-2026-111497 — google brotli CVSS 9.8 Critical Vulnerability",
+      "id": "CVE-2026-132139",
+      "title": "CVE-2026-132139 — Unknown Vendor A weakness has CVSS 9.9 Critical Vulnerability",
       "description": "",
-      "cvss": 9.8,
+      "cvss": 9.9,
       "final_ps": 31,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -4278,21 +4422,21 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-10-22",
-      "last_seen": "2026-10-22",
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
       "exploited": false,
-      "cisa_kev": true,
+      "cisa_kev": false,
       "ransomware": false,
-      "vendor": "google",
-      "product": "brotli",
+      "vendor": "Unknown Vendor",
+      "product": "A weakness has",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/andybalholm/brotli/releases/tag/v1.2.7",
-        "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases#nodejs-brotli-decoder-out-of-bounds-write-permits-remote-code-execution-cve-2026-111497---high",
-        "http://www.openwall.com/lists/oss-security/2026/10/23/25",
-        "http://www.openwall.com/lists/oss-security/2026/10/24/6"
+        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
+        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0021-authenticated-setswmprofile-filename-stack-overflow",
+        "https://vuldb.com/cve/CVE-2026-132139",
+        "https://vuldb.com/submit/1044966"
       ],
       "explanation": {
         "quality": [
@@ -4312,10 +4456,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-109618",
-      "title": "CVE-2026-109618 — php php CVSS 9.8 Critical Vulnerability",
+      "id": "CVE-2026-130784",
+      "title": "CVE-2026-130784 — Unknown Vendor Incus before 7.6.0 CVSS 9.9 Critical Vulnerability",
       "description": "",
-      "cvss": 9.8,
+      "cvss": 9.9,
       "final_ps": 31,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -4325,21 +4469,62 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-10-21",
-      "last_seen": "2026-10-21",
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
       "exploited": false,
-      "cisa_kev": true,
+      "cisa_kev": false,
       "ransomware": false,
-      "vendor": "php",
-      "product": "php",
+      "vendor": "Unknown Vendor",
+      "product": "Incus before 7.6.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
-        "http://seclists.org/fulldisclosure/2026/Oct/51",
-        "http://www.openwall.com/lists/oss-security/2026/10/21/6",
-        "http://www.openwall.com/lists/oss-security/2026/10/23/5"
+        "https://github.com/lxc/incus/security/advisories/GHSA-5c64-j5m6-8433"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-130786",
+      "title": "CVE-2026-130786 — Unknown Vendor Incus before 7.6.0 CVSS 9.9 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.9,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Incus before 7.6.0",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/lxc/incus/security/advisories/GHSA-3wxw-5gh2-j2x2"
       ],
       "explanation": {
         "quality": [
@@ -4711,6 +4896,100 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-111497",
+      "title": "CVE-2026-111497 — google brotli CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-10-22",
+      "last_seen": "2026-10-22",
+      "exploited": false,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "google",
+      "product": "brotli",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/andybalholm/brotli/releases/tag/v1.2.7",
+        "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases#nodejs-brotli-decoder-out-of-bounds-write-permits-remote-code-execution-cve-2026-111497---high",
+        "http://www.openwall.com/lists/oss-security/2026/10/23/25",
+        "http://www.openwall.com/lists/oss-security/2026/10/24/6"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-109618",
+      "title": "CVE-2026-109618 — php php CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-10-21",
+      "last_seen": "2026-10-21",
+      "exploited": false,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "php",
+      "product": "php",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+        "http://seclists.org/fulldisclosure/2026/Oct/51",
+        "http://www.openwall.com/lists/oss-security/2026/10/21/6",
+        "http://www.openwall.com/lists/oss-security/2026/10/23/5"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-40217",
       "title": "CVE-2026-40217: BerriAI LiteLLM Unprotected Alternate Channel Vulnerability — CISA KEV Active Exploitation",
       "description": "",
@@ -4852,8 +5131,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-130753",
-      "title": "CVE-2026-130753 — Unknown Vendor heym before 0.0.142 CVSS 8.8 High Severity Vulnerability",
+      "id": "CVE-2026-130774",
+      "title": "CVE-2026-130774 — Unknown Vendor Incus before 7.6.0 CVSS 8.8 High Severity Vulnerability",
       "description": "",
       "cvss": 8.8,
       "final_ps": 21,
@@ -4871,12 +5150,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "heym before 0.0.142",
+      "product": "Incus before 7.6.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/heymrun/heym/security/advisories/GHSA-7qrv-28q7-w8rj"
+        "https://github.com/lxc/incus/security/advisories/GHSA-9c46-v3hw-v6m8"
       ],
       "explanation": {
         "quality": [
@@ -4896,10 +5175,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-130760",
-      "title": "CVE-2026-130760 — Unknown Vendor Fleet before 4.86.2 CVSS 7.5 High Severity Vulnerability",
+      "id": "CVE-2026-130770",
+      "title": "CVE-2026-130770 — Unknown Vendor Incus before 7.6.0 CVSS 8.4 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.5,
+      "cvss": 8.4,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -4915,12 +5194,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Fleet before 4.86.2",
+      "product": "Incus before 7.6.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/fleetdm/fleet/security/advisories/GHSA-3qx5-8m9j-pmrp"
+        "https://github.com/lxc/incus/security/advisories/GHSA-3rgf-297m-775x"
       ],
       "explanation": {
         "quality": [
@@ -4940,10 +5219,142 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-69155",
-      "title": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
+      "id": "CVE-2026-130766",
+      "title": "CVE-2026-130766 — Unknown Vendor Obot from 0.26.0 CVSS 8 High Severity Vulnerability",
       "description": "",
-      "cvss": 8.7,
+      "cvss": 8,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Obot from 0.26.0",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/obot-platform/obot/security/advisories/GHSA-x3hf-v55x-jcp6"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-130791",
+      "title": "CVE-2026-130791 — Unknown Vendor Finsys Dockhand before CVSS 8.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Finsys Dockhand before",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Finsys/dockhand/security/advisories/GHSA-c6m5-4xrm-4x39"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-76007",
+      "title": "CVE-2026-76007 — Unknown Vendor IBM Engineering AI CVSS 8.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "IBM Engineering AI",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.ibm.com/support/pages/node/7297294"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-68903",
+      "title": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
+      "description": "",
+      "cvss": 7.7,
       "final_ps": 21,
       "quality_score": 0.523,
       "threat_level": "LOW",
@@ -4958,19 +5369,19 @@
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "rust",
-      "product": "atomic-server",
+      "vendor": "go",
+      "product": "github.com/defilantech/llmkube",
       "due_date": null,
       "cves": [
-        "CVE-2026-69155",
-        "CVE-2026-69155"
+        "CVE-2026-68903",
+        "CVE-2026-68903"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-x277-3wcg-g9r2",
-        "https://github.com/ontola/atomic-server/security/advisories/GHSA-x277-3wcg-g9r2",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69155",
-        "https://github.com/ontola/atomic-server/commit/457c1dc9af4cd00d2aec89720718e504a49f392d"
+        "https://github.com/advisories/GHSA-jw3m-8q7m-f35r",
+        "https://github.com/defilantech/LLMKube/security/advisories/GHSA-jw3m-8q7m-f35r",
+        "https://github.com/defilantech/LLMKube/pull/981",
+        "https://github.com/defilantech/LLMKube/commit/ec2647fd4557962a971a1bc9435790b8e77ce961"
       ],
       "explanation": {
         "quality": [
@@ -4990,10 +5401,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-132229",
-      "title": "CVE-2026-132229 — Unknown Vendor A flaw was CVSS 8.1 High Severity Vulnerability",
+      "id": "CVE-2026-130764",
+      "title": "CVE-2026-130764 — Unknown Vendor Obot from 0.8.0 CVSS 7.6 High Severity Vulnerability",
       "description": "",
-      "cvss": 8.1,
+      "cvss": 7.6,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -5009,12 +5420,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "A flaw was",
+      "product": "Obot from 0.8.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://access.redhat.com/security/cve/CVE-2026-132229"
+        "https://github.com/obot-platform/obot/security/advisories/GHSA-57qx-69p6-3w3g"
       ],
       "explanation": {
         "quality": [
@@ -5034,10 +5445,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-130751",
-      "title": "CVE-2026-130751 — Unknown Vendor OpenWrt LuCI luci-app-travelmate CVSS 8.1 High Severity Vulnerability",
+      "id": "CVE-2026-130782",
+      "title": "CVE-2026-130782 — Unknown Vendor Incus before 7.6.0 CVSS 7.7 High Severity Vulnerability",
       "description": "",
-      "cvss": 8.1,
+      "cvss": 7.7,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -5053,12 +5464,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "OpenWrt LuCI luci-app-travelmate",
+      "product": "Incus before 7.6.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/openwrt/luci/security/advisories/GHSA-66wf-c49f-5whc"
+        "https://github.com/lxc/incus/security/advisories/GHSA-8r3h-vc36-6xpx"
       ],
       "explanation": {
         "quality": [
@@ -5078,10 +5489,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-130758",
-      "title": "CVE-2026-130758 — Unknown Vendor Fleet before 4.92.0 CVSS 7.2 High Severity Vulnerability",
+      "id": "CVE-2026-130787",
+      "title": "CVE-2026-130787 — Unknown Vendor Frappe ERPNext before CVSS 7.7 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.2,
+      "cvss": 7.7,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -5097,12 +5508,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Fleet before 4.92.0",
+      "product": "Frappe ERPNext before",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/fleetdm/fleet/security/advisories/GHSA-5vr5-74q2-mfg4"
+        "https://github.com/frappe/erpnext/security/advisories/GHSA-g7r2-v98g-6wcr"
       ],
       "explanation": {
         "quality": [
@@ -5122,44 +5533,38 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-69158",
-      "title": "Atomic Server: Unauthenticated full-response SSRF in Atomic-Server /bookmark endpoint",
+      "id": "CVE-2026-114585",
+      "title": "CVE-2026-114585 — Unknown Vendor IBM Engineering AI CVSS 7.6 High Severity Vulnerability",
       "description": "",
-      "cvss": 8.6,
+      "cvss": 7.6,
       "final_ps": 21,
-      "quality_score": 0.523,
+      "quality_score": 0.525,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "github_advisories",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "github_advisories"
+        "nvd"
       ],
       "first_seen": "2026-11-18",
       "last_seen": "2026-11-18",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "rust",
-      "product": "atomic-server",
+      "vendor": "Unknown Vendor",
+      "product": "IBM Engineering AI",
       "due_date": null,
-      "cves": [
-        "CVE-2026-69158",
-        "CVE-2026-69158"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-ff87-73jp-f3v4",
-        "https://github.com/ontola/atomic-server/security/advisories/GHSA-ff87-73jp-f3v4",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69158",
-        "https://github.com/ontola/atomic-server/commit/006ff290f7ec976c8cbafdceb7b6899389abd5be"
+        "https://www.ibm.com/support/pages/node/7297294"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.95 (github_advisories)",
+          "source_weight=1.00 (nvd)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.523"
+          "QS=0.525"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -5172,8 +5577,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-76411",
-      "title": "CVE-2026-76411 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
+      "id": "CVE-2026-127222",
+      "title": "CVE-2026-127222 — Unknown Vendor SGLang through 0.5.23, CVSS 7.5 High Severity Vulnerability",
       "description": "",
       "cvss": 7.5,
       "final_ps": 21,
@@ -5191,12 +5596,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
+      "product": "SGLang through 0.5.23,",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
+        "https://github.com/rahulreddykarne/CVE-2026-127222-sglang",
+        "https://github.com/sgl-project/sglang/commit/7b5fb39bb952da5f6da3bb7fe73c671cf449b6fa",
+        "https://github.com/sgl-project/sglang/pull/49896",
+        "https://rahulkarne.com/#/cve/CVE-2026-127222"
       ],
       "explanation": {
         "quality": [
@@ -5216,8 +5624,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-76414",
-      "title": "CVE-2026-76414 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
+      "id": "CVE-2026-132140",
+      "title": "CVE-2026-132140 — Unknown Vendor A security vulnerability CVSS 7.5 High Severity Vulnerability",
       "description": "",
       "cvss": 7.5,
       "final_ps": 21,
@@ -5235,320 +5643,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
+      "product": "A security vulnerability",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-76415",
-      "title": "CVE-2026-76415 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-76416",
-      "title": "CVE-2026-76416 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-76417",
-      "title": "CVE-2026-76417 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-76421",
-      "title": "CVE-2026-76421 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-76422",
-      "title": "CVE-2026-76422 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-76430",
-      "title": "CVE-2026-76430 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-76515",
-      "title": "CVE-2026-76515 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
+        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
+        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0022-unauthenticated-apmcfgupload-filename-null-dereference",
+        "https://vuldb.com/cve/CVE-2026-132140",
+        "https://vuldb.com/submit/1044967"
       ],
       "explanation": {
         "quality": [
@@ -5618,10 +5721,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-130757",
-      "title": "CVE-2026-130757 — Unknown Vendor Fleet before 4.92.0 CVSS 7.4 High Severity Vulnerability",
+      "id": "CVE-2026-130776",
+      "title": "CVE-2026-130776 — Unknown Vendor Incus before 7.6.0 CVSS 7.1 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.4,
+      "cvss": 7.1,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -5637,12 +5740,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Fleet before 4.92.0",
+      "product": "Incus before 7.6.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/fleetdm/fleet/security/advisories/GHSA-2r75-q53f-v8px"
+        "https://github.com/lxc/incus/security/advisories/GHSA-h2j8-4crh-vhfc"
       ],
       "explanation": {
         "quality": [
@@ -5650,6 +5753,56 @@
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
           "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-73864",
+      "title": "install-artifact-from-github loads downloaded native artifacts without integrity verification",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "npm",
+      "product": "install-artifact-from-github",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-73864",
+        "CVE-2026-73864"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-88q3-gch3-5396",
+        "https://github.com/uhop/install-artifact-from-github/security/advisories/GHSA-88q3-gch3-5396",
+        "https://github.com/uhop/install-artifact-from-github/commit/1d2d8637556a03f6235e50fe0c238c6dce291633",
+        "https://github.com/uhop/install-artifact-from-github/releases/tag/1.7.0"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -5712,6 +5865,56 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-71861",
+      "title": "Chainguard SDK: AWS SigV4 token replay in auth/aws.VerifyToken — Chainguard-Audience/Chainguard-Identity binding headers",
+      "description": "",
+      "cvss": 7.4,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "go",
+      "product": "chainguard.dev/sdk",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-71861",
+        "CVE-2026-71861"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-wq26-3j2m-4hvv",
+        "https://github.com/chainguard-dev/sdk/security/advisories/GHSA-wq26-3j2m-4hvv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-71861",
+        "https://github.com/chainguard-dev/sdk/commit/d27997d62aaffe85f905cce4cbe8cdebbd5e24eb"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-17332",
       "title": "CVE-2026-17332 — ibm api connect CVSS 8.7 High Severity Vulnerability",
       "description": "",
@@ -5737,50 +5940,6 @@
       "ioc_count": 0,
       "refs": [
         "https://www.ibm.com/support/pages/node/7295635"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-115338",
-      "title": "CVE-2026-115338 — progress ws ftp server CVSS 8.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 8.1,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-09",
-      "last_seen": "2026-11-09",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "progress",
-      "product": "ws ftp server",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://community.progress.com/s/article/WS-FTP-Server-Service-Pack-November-2026"
       ],
       "explanation": {
         "quality": [

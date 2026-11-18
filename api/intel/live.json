@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T20:53:50.384Z",
+  "generated": "2026-11-18T21:53:00.991Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,21 +7,21 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7742,
+  "total_published": 7757,
   "s2n_stats": {
-    "passed": 133,
+    "passed": 136,
     "suppressed": 4,
-    "avg_qs": 0.49
+    "avg_qs": 0.492
   },
   "items": [
     {
-      "id": "CVE-2026-130784",
-      "title": "CVE-2026-130784 — Unknown Vendor Incus before 7.6.0 CVSS 9.9 Critical Vulnerability",
-      "description": "Incus before 7.6.0 contains an authorization bypass vulnerability that allows restricted clients to create and access default project resources by exploiting entitlement checks against the requested project. Attackers can create bridge networks with raw.dnsmasq directives to execute code as root on ",
-      "cvss": 9.9,
-      "final_ps": 76,
+      "id": "CVE-2026-130760",
+      "title": "CVE-2026-130760 — Unknown Vendor Fleet before 4.86.2 CVSS 7.5 High Severity Vulnerability",
+      "description": "Fleet before 4.86.2 contains a denial of service vulnerability that allows unauthenticated attackers to exhaust server memory via unbounded BER recursion in PKCS#7 parsing. Attackers can send deeply nested indefinite-length structures to Apple MDM check-in, enrollment, SCEP, or OTA endpoints to cras",
+      "cvss": 7.5,
+      "final_ps": 63,
       "quality_score": 0.58,
-      "threat_level": "HIGH",
+      "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
       "source": "nvd",
       "sources_confirmed": 1,
@@ -34,12 +34,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Incus before 7.6.0",
+      "product": "Fleet before 4.86.2",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/lxc/incus/security/advisories/GHSA-5c64-j5m6-8433"
+        "https://github.com/fleetdm/fleet/security/advisories/GHSA-3qx5-8m9j-pmrp"
       ],
       "explanation": {
         "quality": [
@@ -49,20 +49,67 @@
           "QS=0.580"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=63 (no boosts)"
         ],
         "suppression": null,
         "merge": null
       }
     },
     {
-      "id": "CVE-2026-130786",
-      "title": "CVE-2026-130786 — Unknown Vendor Incus before 7.6.0 CVSS 9.9 Critical Vulnerability",
-      "description": "Incus before 7.6.0 contains a configuration injection vulnerability that allows users who can launch instances from controlled images to inject LXC directives by embedding line breaks in OCI config.json values or oci.entrypoint and oci.cwd keys. Attackers can add liblxc hooks or crafted tmpfs lxc.mo",
-      "cvss": 9.9,
-      "final_ps": 76,
+      "id": "CVE-2026-69155",
+      "title": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
+      "description": "## Summary Files uploaded via `POST /upload` are served back by `GET /download/{path}` using `actix_files::NamedFile`. For `text/html` and `image/svg+xml`, actix-files (0.6.6) sets `Content-Disposition: inline`, so the browser **renders** the file instead of downloading it. The `/download` route set",
+      "cvss": 8.7,
+      "final_ps": 63,
+      "quality_score": 0.578,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "rust",
+      "product": "atomic-server",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-69155",
+        "CVE-2026-69155"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-x277-3wcg-g9r2",
+        "https://github.com/ontola/atomic-server/security/advisories/GHSA-x277-3wcg-g9r2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-69155",
+        "https://github.com/ontola/atomic-server/commit/457c1dc9af4cd00d2aec89720718e504a49f392d"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.578"
+        ],
+        "priority": [
+          "base_ps=63 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-130751",
+      "title": "CVE-2026-130751 — Unknown Vendor OpenWrt LuCI luci-app-travelmate CVSS 8.1 High Severity Vulnerability",
+      "description": "OpenWrt LuCI luci-app-travelmate on master before 3.0.0-1 and on openwrt-25.12 before 2.4.9-6 grants file exec permissions for state-mutating commands in the read scope of its rpcd ACL, letting authenticated read-only users run those commands as root. Attackers can invoke ubus file exec on /etc/init",
+      "cvss": 8.1,
+      "final_ps": 62,
       "quality_score": 0.58,
-      "threat_level": "HIGH",
+      "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
       "source": "nvd",
       "sources_confirmed": 1,
@@ -75,12 +122,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Incus before 7.6.0",
+      "product": "OpenWrt LuCI luci-app-travelmate",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/lxc/incus/security/advisories/GHSA-3wxw-5gh2-j2x2"
+        "https://github.com/openwrt/luci/security/advisories/GHSA-66wf-c49f-5whc"
       ],
       "explanation": {
         "quality": [
@@ -90,7 +137,95 @@
           "QS=0.580"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-130758",
+      "title": "CVE-2026-130758 — Unknown Vendor Fleet before 4.92.0 CVSS 7.2 High Severity Vulnerability",
+      "description": "Fleet before 4.92.0 contains an authorization bypass vulnerability in the deprecated POST /api/latest/fleet/mdm/apple/enqueue endpoint that allows team-scoped users to enqueue Apple MDM commands outside their teams. Attackers with team admin, maintainer, or GitOps roles can include one own-team host",
+      "cvss": 7.2,
+      "final_ps": 62,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Fleet before 4.92.0",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/fleetdm/fleet/security/advisories/GHSA-5vr5-74q2-mfg4"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-69158",
+      "title": "Atomic Server: Unauthenticated full-response SSRF in Atomic-Server /bookmark endpoint",
+      "description": "## Summary Atomic-Server exposes a `GET /bookmark` endpoint that fetches an attacker-supplied URL server-side, parses the response, and reflects the fetched content back to the caller. The endpoint requires no authentication and performs no authorization of its own, and the underlying fetch helper a",
+      "cvss": 8.6,
+      "final_ps": 62,
+      "quality_score": 0.578,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "rust",
+      "product": "atomic-server",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-69158",
+        "CVE-2026-69158"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-ff87-73jp-f3v4",
+        "https://github.com/ontola/atomic-server/security/advisories/GHSA-ff87-73jp-f3v4",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-69158",
+        "https://github.com/ontola/atomic-server/commit/006ff290f7ec976c8cbafdceb7b6899389abd5be"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.578"
+        ],
+        "priority": [
+          "base_ps=62 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -2185,7 +2320,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-2749",
@@ -2225,7 +2362,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-48700",
@@ -2265,7 +2404,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-20128",
@@ -3358,6 +3499,138 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-132139",
+      "title": "CVE-2026-132139 — Unknown Vendor A weakness has CVSS 9.9 Critical Vulnerability",
+      "description": "A weakness has been identified in DrayTek Vigor2960 up to 1.5.1.6. Affected is the function setSWMProfile of the file /cgi-bin/mainfunction.cgi. Executing a manipulation of the argument filename can lead to stack-based buffer overflow. The attack may be performed from remote. The exploit has been ma",
+      "cvss": 9.9,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "A weakness has",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
+        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0021-authenticated-setswmprofile-filename-stack-overflow",
+        "https://vuldb.com/cve/CVE-2026-132139",
+        "https://vuldb.com/submit/1044966"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-130784",
+      "title": "CVE-2026-130784 — Unknown Vendor Incus before 7.6.0 CVSS 9.9 Critical Vulnerability",
+      "description": "Incus before 7.6.0 contains an authorization bypass vulnerability that allows restricted clients to create and access default project resources by exploiting entitlement checks against the requested project. Attackers can create bridge networks with raw.dnsmasq directives to execute code as root on ",
+      "cvss": 9.9,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Incus before 7.6.0",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/lxc/incus/security/advisories/GHSA-5c64-j5m6-8433"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-130786",
+      "title": "CVE-2026-130786 — Unknown Vendor Incus before 7.6.0 CVSS 9.9 Critical Vulnerability",
+      "description": "Incus before 7.6.0 contains a configuration injection vulnerability that allows users who can launch instances from controlled images to inject LXC directives by embedding line breaks in OCI config.json values or oci.entrypoint and oci.cwd keys. Attackers can add liblxc hooks or crafted tmpfs lxc.mo",
+      "cvss": 9.9,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Incus before 7.6.0",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/lxc/incus/security/advisories/GHSA-3wxw-5gh2-j2x2"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-130754",
       "title": "CVE-2026-130754 — Unknown Vendor All versions of CVSS 9.8 Critical Vulnerability",
       "description": "All versions of LaraDashboard contain an authentication bypass in SocialAuthService::findOrCreateUser(), which links a social login to an existing account by email without checking that the OAuth provider verified that email. Unauthenticated attackers using an OAuth/OIDC provider that asserts a vict",
@@ -3932,9 +4205,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-130753",
-      "title": "CVE-2026-130753 — Unknown Vendor heym before 0.0.142 CVSS 8.8 High Severity Vulnerability",
-      "description": "heym before 0.0.142 contains a remote code execution vulnerability in the Playwright step-mode node where _resolve_expressions_in_code substitutes workflow values directly into generated Python source. Authenticated non-admin users can craft step field values that break out of string literals to exe",
+      "id": "CVE-2026-130774",
+      "title": "CVE-2026-130774 — Unknown Vendor Incus before 7.6.0 CVSS 8.8 High Severity Vulnerability",
+      "description": "Incus before 7.6.0 contains a privilege escalation vulnerability: rebuilding a never-started unprivileged container makes it boot without a user namespace. Root processes inside the container run as host uid 0, keeping capabilities like sys_module, with no device cgroup restriction, letting them loa",
       "cvss": 8.8,
       "final_ps": 21,
       "quality_score": 0.525,
@@ -3951,12 +4224,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "heym before 0.0.142",
+      "product": "Incus before 7.6.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/heymrun/heym/security/advisories/GHSA-7qrv-28q7-w8rj"
+        "https://github.com/lxc/incus/security/advisories/GHSA-9c46-v3hw-v6m8"
       ],
       "explanation": {
         "quality": [
@@ -3975,10 +4248,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-130760",
-      "title": "CVE-2026-130760 — Unknown Vendor Fleet before 4.86.2 CVSS 7.5 High Severity Vulnerability",
-      "description": "Fleet before 4.86.2 contains a denial of service vulnerability that allows unauthenticated attackers to exhaust server memory via unbounded BER recursion in PKCS#7 parsing. Attackers can send deeply nested indefinite-length structures to Apple MDM check-in, enrollment, SCEP, or OTA endpoints to cras",
-      "cvss": 7.5,
+      "id": "CVE-2026-130770",
+      "title": "CVE-2026-130770 — Unknown Vendor Incus before 7.6.0 CVSS 8.4 High Severity Vulnerability",
+      "description": "Incus before 7.6.0 creates the NBD servers used for virtual machine migration and disk export on abstract unix sockets, which have no permission checks and whose names are visible in /proc/net/unix. A local unprivileged user can connect while an operation runs to read or modify the VM disk, gaining ",
+      "cvss": 8.4,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "MEDIUM",
@@ -3994,12 +4267,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Fleet before 4.86.2",
+      "product": "Incus before 7.6.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/fleetdm/fleet/security/advisories/GHSA-3qx5-8m9j-pmrp"
+        "https://github.com/lxc/incus/security/advisories/GHSA-3rgf-297m-775x"
       ],
       "explanation": {
         "quality": [
@@ -4018,44 +4291,38 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-69155",
-      "title": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
-      "description": "## Summary Files uploaded via `POST /upload` are served back by `GET /download/{path}` using `actix_files::NamedFile`. For `text/html` and `image/svg+xml`, actix-files (0.6.6) sets `Content-Disposition: inline`, so the browser **renders** the file instead of downloading it. The `/download` route set",
-      "cvss": 8.7,
+      "id": "CVE-2026-130766",
+      "title": "CVE-2026-130766 — Unknown Vendor Obot from 0.26.0 CVSS 8 High Severity Vulnerability",
+      "description": "Obot from 0.26.0 before 0.27.0 fails to validate the resource identifier in remote MCP server protected resource metadata, allowing malicious MCP servers to steal access tokens. Attackers can name a different service and authorization server with chosen scopes, causing Obot to obtain the victim's to",
+      "cvss": 8,
       "final_ps": 21,
-      "quality_score": 0.523,
+      "quality_score": 0.525,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
-      "source": "github_advisories",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "github_advisories"
+        "nvd"
       ],
       "first_seen": "2026-11-18",
       "last_seen": "2026-11-18",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "rust",
-      "product": "atomic-server",
+      "vendor": "Unknown Vendor",
+      "product": "Obot from 0.26.0",
       "due_date": null,
-      "cves": [
-        "CVE-2026-69155",
-        "CVE-2026-69155"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-x277-3wcg-g9r2",
-        "https://github.com/ontola/atomic-server/security/advisories/GHSA-x277-3wcg-g9r2",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69155",
-        "https://github.com/ontola/atomic-server/commit/457c1dc9af4cd00d2aec89720718e504a49f392d"
+        "https://github.com/obot-platform/obot/security/advisories/GHSA-x3hf-v55x-jcp6"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.95 (github_advisories)",
+          "source_weight=1.00 (nvd)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.523"
+          "QS=0.525"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -4067,9 +4334,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-132229",
-      "title": "CVE-2026-132229 — Unknown Vendor A flaw was CVSS 8.1 High Severity Vulnerability",
-      "description": "A flaw was found in hypershift-addon. Due to an overly permissive role-based access control (RBAC) configuration that grants permissions to all authenticated users rather than restricting them to the addon service, a low-privileged authenticated user can view, modify, or delete managed cluster resou",
+      "id": "CVE-2026-130791",
+      "title": "CVE-2026-130791 — Unknown Vendor Finsys Dockhand before CVSS 8.1 High Severity Vulnerability",
+      "description": "Finsys Dockhand before 1.0.55 contains a path traversal vulnerability that allows users with stacks:edit permission to move arbitrary server directories by supplying a crafted oldDir parameter. Attackers can send POST requests to /api/stacks/[name]/relocate with an unvalidated source path to relocat",
       "cvss": 8.1,
       "final_ps": 21,
       "quality_score": 0.525,
@@ -4086,276 +4353,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "A flaw was",
+      "product": "Finsys Dockhand before",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://access.redhat.com/security/cve/CVE-2026-132229"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-130751",
-      "title": "CVE-2026-130751 — Unknown Vendor OpenWrt LuCI luci-app-travelmate CVSS 8.1 High Severity Vulnerability",
-      "description": "OpenWrt LuCI luci-app-travelmate on master before 3.0.0-1 and on openwrt-25.12 before 2.4.9-6 grants file exec permissions for state-mutating commands in the read scope of its rpcd ACL, letting authenticated read-only users run those commands as root. Attackers can invoke ubus file exec on /etc/init",
-      "cvss": 8.1,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "OpenWrt LuCI luci-app-travelmate",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/openwrt/luci/security/advisories/GHSA-66wf-c49f-5whc"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-130758",
-      "title": "CVE-2026-130758 — Unknown Vendor Fleet before 4.92.0 CVSS 7.2 High Severity Vulnerability",
-      "description": "Fleet before 4.92.0 contains an authorization bypass vulnerability in the deprecated POST /api/latest/fleet/mdm/apple/enqueue endpoint that allows team-scoped users to enqueue Apple MDM commands outside their teams. Attackers with team admin, maintainer, or GitOps roles can include one own-team host",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Fleet before 4.92.0",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/fleetdm/fleet/security/advisories/GHSA-5vr5-74q2-mfg4"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-69158",
-      "title": "Atomic Server: Unauthenticated full-response SSRF in Atomic-Server /bookmark endpoint",
-      "description": "## Summary Atomic-Server exposes a `GET /bookmark` endpoint that fetches an attacker-supplied URL server-side, parses the response, and reflects the fetched content back to the caller. The endpoint requires no authentication and performs no authorization of its own, and the underlying fetch helper a",
-      "cvss": 8.6,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "rust",
-      "product": "atomic-server",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-69158",
-        "CVE-2026-69158"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-ff87-73jp-f3v4",
-        "https://github.com/ontola/atomic-server/security/advisories/GHSA-ff87-73jp-f3v4",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69158",
-        "https://github.com/ontola/atomic-server/commit/006ff290f7ec976c8cbafdceb7b6899389abd5be"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-76411",
-      "title": "CVE-2026-76411 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "A vulnerability in the phishcheck functionality of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device.\r\n\r This vulnerability is due to improper allocation of memory during processing of URLs. An attacker could exploit this vulnerability by sending a",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-76414",
-      "title": "CVE-2026-76414 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "A vulnerability in Microsoft Compiled HTML Help (CHM) file scanning of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device.\r\n\r This vulnerability is due to a logic error when scanning the CHM file and following the internal file pointers. An attacker",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-76415",
-      "title": "CVE-2026-76415 — Unknown Vendor A vulnerability in CVSS 7.5 High Severity Vulnerability",
-      "description": "A vulnerability in the Yoda'a Crytper (yC) Portable Executable (PE) unpacker of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition on an affected device. .\r\n\r This vulnerability is due to lack of proper error checking for negative values when processing the PE file to be",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability in",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-clamav-multi-e93M3vdA"
+        "https://github.com/Finsys/dockhand/security/advisories/GHSA-c6m5-4xrm-4x39"
       ],
       "explanation": {
         "quality": [
@@ -4374,5 +4377,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-18T20:53:50.893Z"
+  "lastReportGeneratedAt": "2026-11-18T21:53:01.694Z"
 }
