@@ -15,7 +15,10 @@ def test_public_blogger_hourly_delivery_contract_is_bounded():
 def test_blogger_workflow_uses_hourly_cadence_and_four_report_burst():
     workflow = Path(".github/workflows/blogger-syndication.yml").read_text(encoding="utf-8")
     assert 'cron: "17 * * * *"' in workflow
-    assert 'default: "4"' in workflow
+    # A manual omission must select only one nonpublishing candidate.
+    # Scheduled/push delivery still uses the separate bounded fallback of four.
+    assert 'default: "1"' in workflow
+    assert 'default: "true"' in workflow
     assert "github.event.inputs.max_posts || '4'" in workflow
     assert "target 4 verified reports/hour" in workflow
 
