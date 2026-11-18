@@ -117,6 +117,12 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   // Exact file is OPERATIONAL (manual review), not benign or release proof.
   // Do not allowlist automation/**: unknown siblings remain blocked.
   'automation/cti_original_source_freshness.py',
+  // P0 #434/#640: the publisher orchestration entrypoint filters BOTH
+  // fresh and persisted retries using that reviewed source-date validator
+  // before the scheduler, factory and backfill can choose a report.
+  // Production publication semantics: manual-review OPERATIONAL only.
+  // This is NOT a release authorization, Blogger reactivation or wildcard.
+  'automation/main.py',
   // P0 #433/#434: hosted Blogger contract test tightened by reviewed PR #634.
   // Exact test asserts scheduled four-post cap independently of manual
   // one-report dry-run defaults; changes here can affect publisher release
