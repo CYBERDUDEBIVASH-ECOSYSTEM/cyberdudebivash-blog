@@ -162,6 +162,10 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   'scripts/certify-soc-dual-host-ui-release.cjs',
   '.github/workflows/soc-owner-release-evidence.yml',
   'scripts/soc-operator-release-preflight.cjs',
+  // P0 drift run #44241195392: inspected this exact native D1 Worker Jest
+  // fail-closed regression. It asserts no REST fallback if native D1 is absent.
+  // CI control is OPERATIONAL, NOT benign, never an auto-release approval.
+  'api/_lib/__tests__/d1-worker-native-fail-closed.test.js',
   // P0 #433, run #44143008188 / #44133650054: exact named paths
   // classified after source review on 2026-11-17. These are OPERATIONAL,
   // never benign: every change continues to require manual release review.
