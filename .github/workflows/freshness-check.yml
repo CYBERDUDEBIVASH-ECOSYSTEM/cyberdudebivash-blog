@@ -208,6 +208,34 @@ jobs:
               ;;
           esac
 
+      # A stale local Blogger ledger does not authorize new public posts.
+      # One bounded, read-only public probe must prove a reachable/linked
+      # stale feed; HTTP 429, malformed JSON, missing links, transport failures
+      # and even an apparently healthy public feed all block auto-publishing.
+      - name: "P0 Blogger public recovery eligibility (read-only)"
+        id: blogger_public_recovery_safety
+        if: >-
+          vars.BLOGGER_OAUTH_READY == 'true' &&
+          steps.blogger_freshness.outputs.recovery_required == 'true'
+        timeout-minutes: 2
+        shell: bash
+        run: |
+          set +e
+          PROBE_OUTPUT=$(python3 scripts/check_blogger_public_delivery.py --attempts 1 2>&1)
+          PROBE_EXIT=$?
+          set -e
+          printf '%s\n' "$PROBE_OUTPUT"
+          PROBE_STATUS=$(printf '%s\n' "$PROBE_OUTPUT" | python3 -c 'import json,sys; d=json.loads(sys.stdin.read().strip()); s=d.get("status"); print(s if isinstance(s,str) and s.isidentifier() else "UNVERIFIED")' 2>/dev/null) || PROBE_STATUS=UNVERIFIED
+          echo "status=$PROBE_STATUS" >> "$GITHUB_OUTPUT"
+          echo "exit_code=$PROBE_EXIT" >> "$GITHUB_OUTPUT"
+          if [ "$PROBE_EXIT" -eq 2 ] && [ "$PROBE_STATUS" = "BLOGGER_STALE" ]; then
+            echo "recovery_permitted=true" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Blogger Public SLO Miss::Public feed independently confirmed stale and linked; existing bounded recovery may proceed."
+          else
+            echo "recovery_permitted=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Blogger Recovery Held::No live publisher dispatch: public status=$PROBE_STATUS, exit=$PROBE_EXIT."
+          fi
+
       - name: "Dispatch Blogger publication recovery when customer feed is stale"
         id: blogger_recovery
         # Source-recovery success is not proof of Blogger delivery. Permit the
@@ -217,6 +245,7 @@ jobs:
         if: >-
           vars.BLOGGER_OAUTH_READY == 'true' &&
           steps.blogger_freshness.outputs.recovery_required == 'true' &&
+          steps.blogger_public_recovery_safety.outputs.recovery_permitted == 'true' &&
           (
             steps.freshness.outputs.recovery_required != 'true' ||
             (steps.post_recovery.outcome == 'success' &&
@@ -292,10 +321,20 @@ jobs:
 
             throw new Error('Blogger recovery dispatch was accepted but no workflow run appeared within 60 seconds.');
 
+      # If the one-request safety probe got HTTP 429, do not poll the same
+      # public endpoint a second time. Keep this monitor RED and fail closed.
+      - name: "P0 Blogger public backpressure — stop and fail"
+        id: blogger_public_backpressure
+        if: ${{ !cancelled() && steps.blogger_public_recovery_safety.outputs.status == 'BLOGGER_PUBLIC_RATE_LIMITED' }}
+        shell: bash
+        run: |
+          echo "::error title=Blogger CTI HTTP 429::Customer public endpoint rate limited; recovery suppressed and duplicate public probe omitted."
+          exit 1
+
       - name: "Verify public Blogger feed and homepage delivery"
         id: public_delivery
         timeout-minutes: 9
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.blogger_public_recovery_safety.outputs.status != 'BLOGGER_PUBLIC_RATE_LIMITED' }}
         shell: bash
         run: |
           python3 scripts/check_blogger_public_delivery.py
@@ -331,6 +370,7 @@ jobs:
           echo "Blogger age (minutes): ${{ steps.blogger_freshness.outputs.age_minutes || 'unavailable' }}"
           echo "Blogger reports/window: ${{ steps.blogger_freshness.outputs.publication_count_window || 'unknown' }} / 4"
           echo "Latest Blogger post  : ${{ steps.blogger_freshness.outputs.latest_published_at || 'unavailable' }}"
+          echo "Public recovery preflight: ${{ steps.blogger_public_recovery_safety.outputs.status || 'not-run' }}"
           echo "Blogger recovery      : ${{ steps.blogger_recovery.outputs.dispatch_state || 'not-required' }}"
           echo "Blogger recovery run  : ${{ steps.blogger_recovery.outputs.recovery_run_url || 'not-dispatched' }}"
           echo "Timestamp             : $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
@@ -345,6 +385,8 @@ jobs:
             # Report the latest verified state, not the initial outage before recovery.
             echo "SOC source freshness: ${{ steps.post_recovery.outputs.status || steps.freshness.outputs.status || 'unavailable' }}"
             echo "Release operation: MANUAL_OWNER_APPROVED_ONLY"
+          elif [ "${{ steps.blogger_public_backpressure.outcome }}" = "failure" ]; then
+            echo "::error title=Blogger CTI HTTP 429::Public delivery was rate limited, therefore live Blogger recovery and duplicate probe were blocked."
           elif [ "${{ steps.public_delivery.outcome }}" = "failure" ]; then
             echo "::error title=Blogger Public Delivery Verification Failed::Public feed/homepage verification failed. Inspect the probe JSON for endpoint, HTTP status, attempts and defect. Publication is not verified; do not dispatch more posts to repair a read failure."
             echo "Monitor run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
