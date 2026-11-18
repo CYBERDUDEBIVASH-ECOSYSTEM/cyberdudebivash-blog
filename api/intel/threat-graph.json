@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-18T14:54:16.235Z",
+  "generated": "2026-11-18T15:58:46.392Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19037,
+    "total_nodes": 19041,
     "actors": 8,
-    "cves": 9163,
-    "campaigns": 2836,
+    "cves": 9164,
+    "campaigns": 2839,
     "malware": 0,
     "iocs": 911,
-    "edges": 5613
+    "edges": 5616
   },
   "nodes": {
     "actor:lockbit": {
@@ -69480,17 +69480,17 @@
     "CVE-2026-46619": {
       "id": "CVE-2026-46619",
       "type": "CVE",
-      "name": "OpenAM Authentication Bypass via MSISDN LDAP Injection",
+      "name": "CVE-2026-46619 — openidentityplatform openam CVSS 9.1 Critical Vulnerability",
       "attributes": {
-        "cvss": 7.5,
-        "threat_level": "LOW",
-        "priority_score": 43,
+        "cvss": 9.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "maven",
-        "product": "org.openidentityplatform.openam:openam-auth-msisdn",
-        "published": "2026-06-26",
+        "vendor": "openidentityplatform",
+        "product": "openam",
+        "published": "2026-09-15",
         "type": "CVE_REPORT"
       },
       "connections": []
@@ -73560,17 +73560,17 @@
     "CVE-2026-47426": {
       "id": "CVE-2026-47426",
       "type": "CVE",
-      "name": "OpenAM OAuth Client Impersonation via JWKS Resolver Cache",
+      "name": "CVE-2026-47426 — openidentityplatform openam CVSS 9.1 Critical Vulnerability",
       "attributes": {
-        "cvss": 7.5,
-        "threat_level": "LOW",
-        "priority_score": 43,
+        "cvss": 9.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "maven",
-        "product": "org.openidentityplatform.openam:openam-oauth2",
-        "published": "2026-06-29",
+        "vendor": "openidentityplatform",
+        "product": "openam",
+        "published": "2026-09-15",
         "type": "CVE_REPORT"
       },
       "connections": []
@@ -350515,7 +350515,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 41,
+        "priority_score": 39,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -350533,7 +350533,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 41,
+        "priority_score": 39,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -352162,8 +352162,8 @@
       "name": "65 Characters to RCE: Inside the Java4Shell Vulnerability",
       "attributes": {
         "cvss": 8.1,
-        "threat_level": "LOW",
-        "priority_score": 40,
+        "threat_level": "MEDIUM",
+        "priority_score": 45,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -356151,7 +356151,7 @@
       "attributes": {
         "cvss": 9.1,
         "threat_level": "MEDIUM",
-        "priority_score": 47,
+        "priority_score": 45,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -357783,6 +357783,84 @@
       "connections": [
         {
           "target": "CVE-2026-130697",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-130721": {
+      "id": "CVE-2026-130721",
+      "type": "CVE",
+      "name": "CVE-2026-130721 — Unknown Vendor NocoDB from 2026.06.2 CVSS 8.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "NocoDB from 2026.06.2",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-130721": {
+      "id": "campaign:cve-2026-130721",
+      "type": "Campaign",
+      "name": "Unknown NocoDB Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-130721"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-130721",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-46619": {
+      "id": "campaign:cve-2026-46619",
+      "type": "Campaign",
+      "name": "openidentityplatform openam Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-09-15",
+        "last_seen": "2026-09-15",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-46619"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-46619",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-47426": {
+      "id": "campaign:cve-2026-47426",
+      "type": "Campaign",
+      "name": "openidentityplatform openam Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-09-15",
+        "last_seen": "2026-09-15",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-47426"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-47426",
           "relationship": "includes",
           "confidence": 1
         }
@@ -408486,6 +408564,33 @@
       "id": "campaign:cve-2026-130697→includes→CVE-2026-130697",
       "source": "campaign:cve-2026-130697",
       "target": "CVE-2026-130697",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-130721→includes→CVE-2026-130721",
+      "source": "campaign:cve-2026-130721",
+      "target": "CVE-2026-130721",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-46619→includes→CVE-2026-46619",
+      "source": "campaign:cve-2026-46619",
+      "target": "CVE-2026-46619",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-47426→includes→CVE-2026-47426",
+      "source": "campaign:cve-2026-47426",
+      "target": "CVE-2026-47426",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-18",
