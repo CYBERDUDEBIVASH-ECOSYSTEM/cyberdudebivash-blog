@@ -1,0 +1,30 @@
+# P0 customer evidence: differentiate Blogger provider publication from CTI delivery.
+# Credentials never leave the Actions runner; this workflow cannot publish posts.
+name: "P0 Blogger Provider & Public Delivery — Read-Only Audit"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Checkout reviewed main without write credentials
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - name: Audit provider and public delivery using GET-only Blogger API
+        shell: bash
+        env:
+          BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+          BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+        run: |
+          set -euo pipefail
+          python3 scripts/blogger_provider_delivery_audit.py
