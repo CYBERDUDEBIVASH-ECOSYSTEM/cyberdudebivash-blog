@@ -133,6 +133,7 @@ def test_provenance_filter_precedes_all_scheduling_and_backfill_in_runtime():
     publish = text.index("# --- Transform and Publish ---")
     assert gate < selection < backfill < publish
     # Both fresh and retry pools must go through the exact same gate.
-    guarded = text[gate - 230:selection]
+    guarded = text[text.index("original_fresh_count ="):selection]
     assert "fresh_articles = [" in guarded
     assert "retry_articles = [" in guarded
+    assert guarded.count("original_source_is_current(") == 2
