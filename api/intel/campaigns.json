@@ -2092,20 +2092,20 @@
       "confidence": 0.9,
       "item_count": 1,
       "ioc_count": 0,
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
+      "first_seen": "2026-11-03",
+      "last_seen": "2026-11-03",
       "related_intel_ids": [
         "CVE-2026-115731"
       ],
       "related_intel": [
         {
           "id": "CVE-2026-115731",
-          "title": "CVE-2026-115731: Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability — CISA KEV Active Exploitation",
+          "title": "CVE-2026-115731 — puppet puppet CVSS 9.9 Critical Vulnerability",
           "type": "CVE_REPORT",
-          "priority_score": 79,
-          "published": "2026-11-17",
-          "exploited": true,
-          "cisa_kev": true
+          "priority_score": 63,
+          "published": "2026-11-03",
+          "exploited": false,
+          "cisa_kev": false
         }
       ],
       "shared_iocs": [],
@@ -46854,6 +46854,7 @@
     {
       "campaign_id": "campaign:cve-2026-130644",
       "name": "Unknown A Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "HIGH",
       "confidence": 0.9,
       "item_count": 1,
@@ -46887,6 +46888,45 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-130644"
+      ]
+    },
+    {
+      "campaign_id": "campaign:cve-2026-119618",
+      "name": "Apache Vulnerability Exploitation Campaign",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "item_count": 1,
+      "ioc_count": 0,
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "related_intel_ids": [
+        "CVE-2026-119618"
+      ],
+      "related_intel": [
+        {
+          "id": "CVE-2026-119618",
+          "title": "Critical Apache HTTP Server RCE Vulnerability Actively Exploited in Attacks",
+          "type": "CVE_REPORT",
+          "priority_score": 65,
+          "published": "2026-11-18",
+          "exploited": true,
+          "cisa_kev": false
+        }
+      ],
+      "shared_iocs": [],
+      "shared_cves": [
+        "CVE-2026-119618"
+      ],
+      "threat_actor": null,
+      "threat_actors": [],
+      "max_priority_score": 65,
+      "has_kev": false,
+      "has_ransomware": false,
+      "has_exploited": true,
+      "reasoning": [
+        "1 intel item(s) clustered with composite confidence 0.900",
+        "Single CVE basis: CVE-2026-119618",
+        "1 item(s) confirmed exploited in the wild"
       ],
       "clustering_model": "weighted_v2"
     },
@@ -106039,6 +106079,7 @@
     {
       "campaign_id": "campaign:cve-2022-43931",
       "name": "synology vpn Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "MEDIUM",
       "confidence": 0.9,
       "item_count": 1,
@@ -106072,12 +106113,12 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2022-43931"
-      ],
-      "clustering_model": "weighted_v2"
+      ]
     },
     {
       "campaign_id": "campaign:cve-2024-29241",
       "name": "synology surveillance Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "MEDIUM",
       "confidence": 0.9,
       "item_count": 1,
@@ -106111,12 +106152,12 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2024-29241"
-      ],
-      "clustering_model": "weighted_v2"
+      ]
     },
     {
       "campaign_id": "campaign:cve-2024-10443",
       "name": "synology photos Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "MEDIUM",
       "confidence": 0.9,
       "item_count": 1,
@@ -106150,12 +106191,12 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2024-10443"
-      ],
-      "clustering_model": "weighted_v2"
+      ]
     },
     {
       "campaign_id": "campaign:cve-2026-130121",
       "name": "Unknown The Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "MEDIUM",
       "confidence": 0.9,
       "item_count": 1,
@@ -106189,8 +106230,7 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-130121"
-      ],
-      "clustering_model": "weighted_v2"
+      ]
     },
     {
       "campaign_id": "campaign:cluster-6d58c496",
@@ -109329,7 +109369,7 @@
       "clustering_model": "graph_reconstruction_v1"
     }
   ],
-  "generated": "2026-11-18T04:59:57.640Z",
+  "generated": "2026-11-18T06:04:17.746Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0"
 }

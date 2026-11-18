@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T04:59:57.678Z",
+  "generated": "2026-11-18T06:04:17.783Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,8 +8,53 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 129,
+  "count": 130,
   "items": [
+    {
+      "id": "CVE-2024-29241",
+      "title": "CVE-2024-29241 — synology surveillance station CVSS 9.9 Critical Vulnerability",
+      "description": "Missing authorization vulnerability in System webapi component in Synology Surveillance Station before 9.2.0-9289 and 9.2.0-11289 allows remote authenticated users to obtain non-sensitive information, write sensitive configurations in DSM, and reboot or shutdown NAS via unspecified vectors.",
+      "cvss": 9.9,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2024-03-28",
+      "last_seen": "2024-03-28",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "synology",
+      "product": "surveillance station",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_04",
+        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_04"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=965d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
     {
       "id": "CVE-2026-131875",
       "title": "CVE-2026-131875 — Unknown Vendor fqterm before 0.9.11 CVSS 8.8 High Severity Vulnerability",
@@ -3811,96 +3856,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2024-10443",
-      "title": "CVE-2024-10443 — synology photos CVSS 9.8 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2024-11-15",
-      "last_seen": "2024-11-15",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "synology",
-      "product": "photos",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_18",
-        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_19"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2024-29241",
-      "title": "CVE-2024-29241 — synology surveillance station CVSS 9.9 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2024-03-28",
-      "last_seen": "2024-03-28",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "synology",
-      "product": "surveillance station",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_04",
-        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_04"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2022-43931",
       "title": "CVE-2022-43931 — synology vpn plus server CVSS 10 Critical Vulnerability",
       "description": "",
@@ -5520,12 +5475,57 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-114938",
-      "title": "Critical Java 17 RCE Vulnerability Puts Servers at Risk as Oracle Releases 11 Security Fixes",
+      "id": "CVE-2024-10443",
+      "title": "CVE-2024-10443 — synology photos CVSS 9.8 Critical Vulnerability",
       "description": "",
       "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2024-11-15",
+      "last_seen": "2024-11-15",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "synology",
+      "product": "photos",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_18",
+        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_19"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-119618",
+      "title": "Critical Apache HTTP Server RCE Vulnerability Actively Exploited in Attacks",
+      "description": "",
+      "cvss": 8.1,
       "final_ps": 28,
-      "quality_score": 0.438,
+      "quality_score": 0.497,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
       "source": "sentinel_apex",
@@ -5535,30 +5535,28 @@
       ],
       "first_seen": "2026-11-18",
       "last_seen": "2026-11-18",
-      "exploited": false,
+      "exploited": true,
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "",
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-114938"
+        "CVE-2026-119618"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cybersecuritynews.com/java-17-rce-vulnerability/",
-        "https://blog.talosintelligence.com/java4shell/",
-        "https://www.sentinelone.com/blog/java4shell-vulnerability-in-openjdk-enables-rce-on-avx-512-cpus/"
+        "https://cybersecuritynews.com/apache-http-server-rce-exploitation/"
       ],
       "explanation": {
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.438"
+          "QS=0.497"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "+8 exploited_in_wild"
         ],
         "suppression": null,
         "merge": null
@@ -5704,53 +5702,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-131871",
-      "title": "CVE-2026-131871 — Unknown Vendor WLA DX 9.7 CVSS 7.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.8,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "WLA DX 9.7",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/vhelin/wla-dx",
-        "https://github.com/vhelin/wla-dx/blob/v10.7/wlalink/analyze.c#L2152-L2156",
-        "https://github.com/vhelin/wla-dx/commit/63755ffcd12f78d3bbadf3b24796383c734c4d77",
-        "https://www.vulncheck.com/advisories/wla-dx-9.7-through-10.7-stack-buffer-overflow-via-wlalink-parse-data-blocks"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-130121",
       "title": "CVE-2026-130121 — Unknown Vendor The AI Puffer CVSS 7.2 High Severity Vulnerability",
       "description": "",
@@ -5789,6 +5740,101 @@
         ],
         "priority": [
           "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131871",
+      "title": "CVE-2026-131871 — Unknown Vendor WLA DX 9.7 CVSS 7.8 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.8,
+      "final_ps": 21,
+      "quality_score": 0.535,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "WLA DX 9.7",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-131871"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/vhelin/wla-dx",
+        "https://github.com/vhelin/wla-dx/blob/v10.7/wlalink/analyze.c#L2152-L2156",
+        "https://github.com/vhelin/wla-dx/commit/63755ffcd12f78d3bbadf3b24796383c734c4d77",
+        "https://www.vulncheck.com/advisories/wla-dx-9.7-through-10.7-stack-buffer-overflow-via-wlalink-parse-data-blocks"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.535"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-114938",
+      "title": "Critical Java4Shell Flaw Lets Hackers Execute Code Without Authentication on OpenJDK Servers",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114938"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cybersecuritynews.com/java4shell/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
         ],
         "suppression": null,
         "merge": null

@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-18T04:59:57.484Z",
+  "generated": "2026-11-18T06:04:17.648Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 18944,
+    "total_nodes": 18945,
     "actors": 8,
     "cves": 9112,
-    "campaigns": 2796,
+    "campaigns": 2797,
     "malware": 0,
     "iocs": 911,
-    "edges": 5573
+    "edges": 5574
   },
   "nodes": {
     "actor:lockbit": {
@@ -344909,17 +344909,17 @@
     "CVE-2026-119618": {
       "id": "CVE-2026-119618",
       "type": "CVE",
-      "name": "Apache Patches Critical HTTP/2 Flaw Allowing Remote Code Execution on Web Servers",
+      "name": "Critical Apache HTTP Server RCE Vulnerability Actively Exploited in Attacks",
       "attributes": {
-        "cvss": 9.8,
-        "threat_level": "MEDIUM",
-        "priority_score": 51,
-        "exploited": false,
+        "cvss": 8.1,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": true,
         "cisa_kev": false,
         "ransomware": false,
         "vendor": "",
         "product": "",
-        "published": "2026-11-12",
+        "published": "2026-11-18",
         "type": "CVE_REPORT"
       },
       "connections": []
@@ -352141,17 +352141,17 @@
     "CVE-2026-115731": {
       "id": "CVE-2026-115731",
       "type": "CVE",
-      "name": "CVE-2026-115731: Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability — CISA KEV Active Exploitation",
+      "name": "CVE-2026-115731 — puppet puppet CVSS 9.9 Critical Vulnerability",
       "attributes": {
-        "cvss": 0,
-        "threat_level": "HIGH",
-        "priority_score": 79,
-        "exploited": true,
-        "cisa_kev": true,
+        "cvss": 9.9,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
         "ransomware": false,
-        "vendor": "Perforce",
-        "product": "Puppet Enterprise",
-        "published": "2026-11-17",
+        "vendor": "puppet",
+        "product": "puppet",
+        "published": "2026-11-03",
         "type": "CVE_REPORT"
       },
       "connections": []
@@ -352159,7 +352159,7 @@
     "CVE-2026-114938": {
       "id": "CVE-2026-114938",
       "type": "CVE",
-      "name": "Critical Java 17 RCE Vulnerability Puts Servers at Risk as Oracle Releases 11 Security Fixes",
+      "name": "Critical Java4Shell Flaw Lets Hackers Execute Code Without Authentication on OpenJDK Servers",
       "attributes": {
         "cvss": 8.1,
         "threat_level": "LOW",
@@ -352213,14 +352213,14 @@
     "campaign:cve-2026-115731": {
       "id": "campaign:cve-2026-115731",
       "type": "Campaign",
-      "name": "Perforce Puppet Exploitation Campaign",
+      "name": "puppet puppet Exploitation Campaign",
       "attributes": {
-        "severity": "HIGH",
+        "severity": "MEDIUM",
         "item_count": 1,
-        "first_seen": "2026-11-17",
-        "last_seen": "2026-11-17",
+        "first_seen": "2026-11-03",
+        "last_seen": "2026-11-03",
         "confidence": 0.9,
-        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-115731 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-115731"
       },
       "connections": [
         {
@@ -355525,7 +355525,7 @@
       "attributes": {
         "cvss": 7.8,
         "threat_level": "MEDIUM",
-        "priority_score": 64,
+        "priority_score": 59,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -356029,6 +356029,26 @@
       "connections": [
         {
           "target": "CVE-2026-130121",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-119618": {
+      "id": "campaign:cve-2026-119618",
+      "type": "Campaign",
+      "name": "Apache Vulnerability Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-18",
+        "last_seen": "2026-11-18",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-119618 | 1 item(s) confirmed exploited in the wild"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-119618",
           "relationship": "includes",
           "confidence": 1
         }
@@ -406372,6 +406392,15 @@
       "id": "campaign:cve-2026-130121→includes→CVE-2026-130121",
       "source": "campaign:cve-2026-130121",
       "target": "CVE-2026-130121",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-18",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-119618→includes→CVE-2026-119618",
+      "source": "campaign:cve-2026-119618",
+      "target": "CVE-2026-119618",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-18",

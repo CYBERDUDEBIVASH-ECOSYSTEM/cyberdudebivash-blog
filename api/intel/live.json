@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T04:59:57.678Z",
+  "generated": "2026-11-18T06:04:17.783Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -9,11 +9,53 @@
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
   "total_published": 7639,
   "s2n_stats": {
-    "passed": 126,
+    "passed": 127,
     "suppressed": 3,
     "avg_qs": 0.491
   },
   "items": [
+    {
+      "id": "CVE-2024-29241",
+      "title": "CVE-2024-29241 — synology surveillance station CVSS 9.9 Critical Vulnerability",
+      "description": "Missing authorization vulnerability in System webapi component in Synology Surveillance Station before 9.2.0-9289 and 9.2.0-11289 allows remote authenticated users to obtain non-sensitive information, write sensitive configurations in DSM, and reboot or shutdown NAS via unspecified vectors.",
+      "cvss": 9.9,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2024-03-28",
+      "last_seen": "2024-03-28",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "synology",
+      "product": "surveillance station",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_04",
+        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_04"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=965d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
     {
       "id": "CVE-2026-131875",
       "title": "CVE-2026-131875 — Unknown Vendor fqterm before 0.9.11 CVSS 8.8 High Severity Vulnerability",
@@ -2270,7 +2312,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-33017",
@@ -4299,50 +4343,6 @@
       "refs": [
         "https://www.synology.com/en-global/security/advisory/Synology_SA_24_18",
         "https://www.synology.com/en-global/security/advisory/Synology_SA_24_19"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2024-29241",
-      "title": "CVE-2024-29241 — synology surveillance station CVSS 9.9 Critical Vulnerability",
-      "description": "Missing authorization vulnerability in System webapi component in Synology Surveillance Station before 9.2.0-9289 and 9.2.0-11289 allows remote authenticated users to obtain non-sensitive information, write sensitive configurations in DSM, and reboot or shutdown NAS via unspecified vectors.",
-      "cvss": 9.9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2024-03-28",
-      "last_seen": "2024-03-28",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "synology",
-      "product": "surveillance station",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_04",
-        "https://www.synology.com/en-global/security/advisory/Synology_SA_24_04"
       ],
       "explanation": {
         "quality": [
