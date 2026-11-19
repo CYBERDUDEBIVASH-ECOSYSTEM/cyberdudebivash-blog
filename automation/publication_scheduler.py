@@ -120,6 +120,25 @@ def _cves(article: DiscoveredArticle) -> set[str]:
     return values
 
 
+def ransomware_is_primary_topic(article: DiscoveredArticle) -> bool:
+    """Classify primary ransomware focus, not historical keyword mentions.
+
+    The full source body often discusses ransomware among other techniques.
+    A mere mention must not claim a ransomware incident or consume a
+    dedicated ransomware delivery slot. Explicit source, headline or
+    dedicated editorial labels are stronger signals of primary topic.
+    """
+    if str(article.source or "").lower() == "ransomware_intel":
+        return True
+    headline = str(article.title or "")
+    if re.search(r"\b(?:ransomware|double[ -]extortion|cyber[ -]extortion)\b", headline, re.I):
+        return True
+    return any(
+        re.search(r"\b(?:ransomware|extortion)\b", str(label), re.I)
+        for label in (article.labels or [])
+    )
+
+
 def classify_publication_family(article: DiscoveredArticle) -> str:
     """Map an article to the scheduler's commercial delivery family.
 
@@ -135,7 +154,7 @@ def classify_publication_family(article: DiscoveredArticle) -> str:
 
     if re.search(r"\b(?:zero[ -]?day|0[ -]?day)\b", text):
         return "zero_day"
-    if source == "ransomware_intel" or "ransomware" in text:
+    if ransomware_is_primary_topic(article):
         return "ransomware"
     if source == "breach_intel" or re.search(
         r"\b(?:data breach|breach notice|data exposure|data leak|exfiltrat(?:e|ed|ion))\b",
