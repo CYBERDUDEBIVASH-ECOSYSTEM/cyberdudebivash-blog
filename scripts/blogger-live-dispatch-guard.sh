@@ -2,7 +2,7 @@
 # Fail-closed secondary authorization control for Blogger write operations.
 # Evaluated before costly dependencies and again immediately before publisher.
 # No token handling, network access, repository writes or Blogger mutations.
-set -euo pipefail
+## Do not mutate caller shell options when this file is sourced.
 
 event="${GITHUB_EVENT_NAME:-}"
 dry_run="${CDB_BLOGGER_DRY_RUN_INPUT:-true}"
