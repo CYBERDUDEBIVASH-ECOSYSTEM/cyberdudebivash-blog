@@ -181,6 +181,7 @@ jobs:
           PUTER_MIN_REMAINING_MICROCENTS: ${{ vars.PUTER_MIN_REMAINING_MICROCENTS }}
 
           MAX_POSTS_PER_RUN: ${{ github.event.inputs.max_posts || '4' }}
+          CDB_BLOGGER_DRY_RUN_INPUT: ${{ github.event.inputs.dry_run || 'true' }}
           CDB_FACTORY_RETRY_QUEUE_LIMIT: "500"
           CDB_FACTORY_RETRY_ATTEMPTS: "5"
         run: |
@@ -208,6 +209,9 @@ jobs:
             exit 2
           fi
 
+          # P0 recovery canary: suppress X/Twitter only for an approved manual
+          # single-post live dispatch. Keep normal scheduled publishing unchanged.
+          . ./scripts/blogger-one-post-canary-egress.sh
           set +e
           python -m automation.premium_main \
             $DRY_RUN_FLAG \
