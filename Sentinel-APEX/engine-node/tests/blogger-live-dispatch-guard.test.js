@@ -7,7 +7,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '../../..');
 const guard = path.join(root, 'scripts/blogger-live-dispatch-guard.sh');
 
-function verify(event, dryRun, count, ready, canary) {
+function verify(event, dryRun, count, ready, canary, sourceUrl = '', sourceHash = '') {
   const env = {
     ...process.env,
     GITHUB_EVENT_NAME: event,
@@ -15,6 +15,8 @@ function verify(event, dryRun, count, ready, canary) {
     MAX_POSTS_PER_RUN: count,
     CDB_BLOGGER_OAUTH_READY: ready,
     CDB_BLOGGER_CANARY_APPROVED: canary,
+    CDB_BLOGGER_CANARY_SOURCE_URL: sourceUrl,
+    CDB_BLOGGER_CANARY_SOURCE_HASH: sourceHash,
   };
   const result = spawnSync('bash', [guard], { cwd: root, env, encoding: 'utf8', timeout: 5000 });
   assert.equal(result.signal, null);
@@ -34,9 +36,16 @@ test('manual single-post LIVE canary is blocked without explicit approval', () =
 });
 
 test('approved one-post canary is possible without enabling recurring writes', () => {
-  let x = verify('workflow_dispatch', 'false', '1', '', 'true');
+  let x = verify('workflow_dispatch', 'false', '1', '', 'true',
+    'https://blog.talosintelligence.com/analyzed-report/', '0123456789abcdef');
   assert.equal(x.code, 0, x.text);
   assert.match(x.text, /EXPLICIT_ONE_POST_CANARY/);
+});
+
+test('manual one-post live cannot proceed without source pin or with invalid pin', () => {
+  assert.equal(verify('workflow_dispatch', 'false', '1', '', 'true').code, 2);
+  assert.equal(verify('workflow_dispatch', 'false', '1', '', 'true', 'http://example.test/story', '0123456789abcdef').code, 2);
+  assert.equal(verify('workflow_dispatch', 'false', '1', '', 'true', 'https://example.test/story', 'BADHASH').code, 2);
 });
 
 test('manual bulk LIVE dispatch cannot bypass missing readiness variable', () => {
@@ -87,6 +96,10 @@ test('workflow applies guard before paid-dependency setup and again before publi
   assert.ok(workflow.includes('live_canary_approved:'));
   assert.ok(workflow.includes("CDB_BLOGGER_OAUTH_READY: ${{ vars.BLOGGER_OAUTH_READY }}"));
   assert.ok(workflow.includes("CDB_BLOGGER_CANARY_APPROVED: ${{ github.event.inputs.live_canary_approved || 'false' }}"));
+  assert.ok(workflow.includes('canary_source_url:'));
+  assert.ok(workflow.includes('canary_source_hash:'));
+  assert.ok(workflow.includes("CDB_BLOGGER_CANARY_SOURCE_URL: ${{ github.event.inputs.canary_source_url || '' }}"));
+  assert.ok(workflow.includes("CDB_BLOGGER_CANARY_SOURCE_HASH: ${{ github.event.inputs.canary_source_hash || '' }}"));
   const early = workflow.indexOf('run: bash scripts/blogger-live-dispatch-guard.sh');
   const install = workflow.indexOf('name: "📦 Install Dependencies"');
   const final = workflow.indexOf('. ./scripts/blogger-live-dispatch-guard.sh');
