@@ -91,3 +91,70 @@ def test_script_has_no_blogger_write_request_method():
     assert '/posts' in source
     assert 'method="PUT"' not in source
     assert 'method="PATCH"' not in source
+
+
+def test_mobile_same_host_canonical_redirect_has_one_bounded_fetch():
+    latest = audit.validate_post([post()], NOW)
+    html = f'<html><a href="{URL}">report</a></html>'.encode()
+    with patch.object(audit, "request", side_effect=[
+        (302, "", b"", "https://cti.cyberdudebivash.in/?m=0"),
+        (200, "text/html", html, ""),
+    ]) as req:
+        status, body, reason = audit.mobile_public_get()
+    assert (status, reason) == (200, "SAME_HOST_ONE_HOP")
+    assert req.call_count == 2
+    result = audit.evaluate_public(
+        provider=latest, feed_status=200, feed_location="", feed_body=feed(),
+        desktop_status=200, desktop_body=html,
+        mobile_status=status, mobile_body=body,
+    )
+    assert result == {
+        "feed": "MATCHES_PROVIDER",
+        "desktop": "MATCHES_PROVIDER",
+        "mobile": "MATCHES_PROVIDER",
+    }
+
+
+@pytest.mark.parametrize("location", [
+    "https://intel.cyberdudebivash.com/",
+    "http://cti.cyberdudebivash.in/",
+    "https://cti.cyberdudebivash.in:444/",
+    "https://evil.example/fake",
+    "https://cti.cyberdudebivash.in/2026/11/other.html",
+    "https://cti.cyberdudebivash.in/?m=0&next=https://evil.example",
+    "https://cti.cyberdudebivash.in/?m=1",
+    "",
+])
+def test_mobile_untrusted_redirect_never_follows(location):
+    with patch.object(audit, "request", return_value=(302, "", b"", location)) as req:
+        status, body, reason = audit.mobile_public_get()
+    assert status == 302
+    assert body == b""
+    assert reason in {"REDIRECT_UNTRUSTED", "REDIRECT_MISSING_LOCATION"}
+    req.assert_called_once_with(audit.ROOT + "/?m=1")
+
+
+def test_mobile_redirect_second_hop_remains_blocked():
+    with patch.object(audit, "request", side_effect=[
+        (302, "", b"", "/?m=0"),
+        (302, "", b"", "/"),
+    ]) as req:
+        status, body, reason = audit.mobile_public_get()
+    assert status == 302
+    assert reason == "SAME_HOST_ONE_HOP"
+    assert req.call_count == 2
+
+
+def test_mobile_canonical_destination_without_latest_link_still_fails():
+    p = audit.validate_post([post()], NOW)
+    with patch.object(audit, "request", side_effect=[
+        (302, "", b"", "/"),
+        (200, "text/html", b"<html><a href='/old'>old</a></html>", ""),
+    ]):
+        status, body, _ = audit.mobile_public_get()
+    result = audit.evaluate_public(
+        provider=p, feed_status=200, feed_location="", feed_body=feed(),
+        desktop_status=200, desktop_body=f'<a href="{URL}">new</a>'.encode(),
+        mobile_status=status, mobile_body=body
+    )
+    assert result["mobile"] == "LATEST_LINK_MISSING"
