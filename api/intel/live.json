@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19T01:07:39.430Z",
+  "generated": "2026-11-19T02:31:10.459Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,148 +7,13 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7771,
+  "total_published": 7776,
   "s2n_stats": {
-    "passed": 127,
+    "passed": 126,
     "suppressed": 4,
-    "avg_qs": 0.488
+    "avg_qs": 0.48
   },
   "items": [
-    {
-      "id": "CVE-2026-68903",
-      "title": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
-      "description": "### Summary LLMKube's `ModelReconciler` accepts arbitrary absolute paths and `file://` URIs in the `Model.spec.source` field and propagates them to two distinct sinks without path allowlisting: (1) `os.Open()` inside the controller pod itself (`copyLocalModel`), and (2) a Kubernetes `HostPathVolumeS",
-      "cvss": 7.7,
-      "final_ps": 62,
-      "quality_score": 0.578,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "go",
-      "product": "github.com/defilantech/llmkube",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-68903",
-        "CVE-2026-68903"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-jw3m-8q7m-f35r",
-        "https://github.com/defilantech/LLMKube/security/advisories/GHSA-jw3m-8q7m-f35r",
-        "https://github.com/defilantech/LLMKube/pull/981",
-        "https://github.com/defilantech/LLMKube/commit/ec2647fd4557962a971a1bc9435790b8e77ce961"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.578"
-        ],
-        "priority": [
-          "base_ps=62 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-127222",
-      "title": "CVE-2026-127222 — Unknown Vendor SGLang through 0.5.23, CVSS 7.5 High Severity Vulnerability",
-      "description": "SGLang through 0.5.23, fixed in commit 7b5fb39, contains a missing authorization vulnerability in the POST /load_lora_adapter_from_tensors HTTP endpoint, which lacks the @auth_level(AuthLevel.ADMIN_OPTIONAL) decorator applied to its sibling admin endpoints, allowing unauthenticated network-reachable",
-      "cvss": 7.5,
-      "final_ps": 59,
-      "quality_score": 0.565,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "SGLang through 0.5.23,",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/rahulreddykarne/CVE-2026-127222-sglang",
-        "https://github.com/sgl-project/sglang/commit/7b5fb39bb952da5f6da3bb7fe73c671cf449b6fa",
-        "https://github.com/sgl-project/sglang/pull/49896",
-        "https://rahulkarne.com/#/cve/CVE-2026-127222"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=1d (score=0.85)",
-          "QS=0.565"
-        ],
-        "priority": [
-          "base_ps=59 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-132140",
-      "title": "CVE-2026-132140 — Unknown Vendor A security vulnerability CVSS 7.5 High Severity Vulnerability",
-      "description": "A security vulnerability has been detected in DrayTek Vigor2960 up to 1.5.1.6. Affected by this vulnerability is an unknown functionality of the file mainfunction.cgi of the component Apmcfg Upload. The manipulation leads to null pointer dereference. It is possible to initiate the attack remotely. T",
-      "cvss": 7.5,
-      "final_ps": 59,
-      "quality_score": 0.565,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A security vulnerability",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
-        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0022-unauthenticated-apmcfgupload-filename-null-dereference",
-        "https://vuldb.com/cve/CVE-2026-132140",
-        "https://vuldb.com/submit/1044967"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=1d (score=0.85)",
-          "QS=0.565"
-        ],
-        "priority": [
-          "base_ps=59 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
     {
       "id": "CVE-2026-50522",
       "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public PoC",
@@ -2313,9 +2178,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2025-71418",
@@ -2359,9 +2222,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2023-54394",
@@ -2405,9 +2266,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2023-2868",
@@ -3942,6 +3801,142 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-123007",
+      "title": "NGINX HTTP/2 Flaws Could Allow Memory Corruption and Remote Code Execution on Web Servers",
+      "description": "Two critical vulnerabilities in NGINX could let remote attackers run code on vulnerable web servers without logging in. The flaws, tracked as CVE-2026-123633 and CVE-2026-123007, were disclosed on November 18, 2026. Both require NGINX to accept HTTP/2 connections from clients, bu... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-123007",
+        "CVE-2026-123633"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cybersecuritynews.com/nginx-http-2-vulnerabilities/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-126041",
+      "title": "CVE-2026-126041 - WP Ghost (Hide My WP Ghost) < 7.0.19 - Unauthenticated Hidden Login and Path Disclosure via Debug Para",
+      "description": "CVE-2026-126041 - WP Ghost (Hide My WP Ghost) < 7.0.19 - Unauthenticated Hidden Login and Path Disclosure via Debug Parameter",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-126041"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-126041"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-128851",
+      "title": "CVE-2026-128851 - Probono Form Basic < 1.3.3 - Unauthenticated Arbitrary File Upload",
+      "description": "CVE-2026-128851 - Probono Form Basic < 1.3.3 - Unauthenticated Arbitrary File Upload",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128851"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-128851"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-122142",
       "title": "Low Security Vulnerability (CVE-2026-122142)",
       "description": "CVE-2026-122142",
@@ -4302,41 +4297,44 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-132773",
-      "title": "CVE-2026-132773 — Unknown Vendor Attendize through 2.8.0 CVSS 7.1 High Severity Vulnerability",
-      "description": "Attendize through 2.8.0 contains an authorization bypass vulnerability in EventOrdersController::postCancelOrder() that allows authenticated organisers to cancel attendees belonging to other accounts' events. Attackers can cancel one of their own orders while supplying foreign attendee IDs, which At",
-      "cvss": 7.1,
+      "id": "CVE-2026-76088",
+      "title": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denial of Service (DoS)",
+      "description": "### Summary\nAn architectural security boundary bypass in inline-detach and MessageInspector allows remote, unauthenticated attackers to force unbounded recursive decompression routines. By supplying a specially crafted OpenPGP message containing deeply nested compressed packet structures, an attacke",
+      "cvss": 7.5,
       "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
+      "quality_score": 0.523,
+      "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "github_advisories"
       ],
       "first_seen": "2026-11-19",
       "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Attendize through 2.8.0",
+      "vendor": "maven",
+      "product": "org.pgpainless:pgpainless-core",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-76088",
+        "CVE-2026-76088"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/Attendize/Attendize/blob/9289acbab1583898fd85aeee66c7b613d8971deb/app/Http/Controllers/EventOrdersController.php#L206-L226",
-        "https://github.com/Attendize/Attendize/blob/9289acbab1583898fd85aeee66c7b613d8971deb/app/Models/Attendee.php#L66-L69",
-        "https://github.com/Attendize/Attendize/issues/1154",
-        "https://github.com/Attendize/Attendize/issues/1156"
+        "https://github.com/advisories/GHSA-cvx8-9ff6-54xq",
+        "https://github.com/pgpainless/pgpainless/security/advisories/GHSA-cvx8-9ff6-54xq",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-76088",
+        "https://github.com/pgpainless/pgpainless/commit/7662f084595945f1000f3f2e1bc4e15302194dec"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -4348,41 +4346,44 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-132751",
-      "title": "CVE-2026-132751 — Unknown Vendor yt through 4.4.4 CVSS 7.8 High Severity Vulnerability",
-      "description": "yt through 4.4.4 contains a code injection vulnerability that allows attackers to execute Python code by supplying a crafted con_args attribute in a ytdata HDF5 file. SavedDataset._parse_parameter_file() passes con_args to eval() unrestricted, so loading a malicious .h5 file with yt.load() runs atta",
-      "cvss": 7.8,
+      "id": "CVE-2026-63129",
+      "title": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
+      "description": "Several tools in `mssql-mcp-core` built T-SQL by string-interpolating caller-supplied identifiers and predicates directly into the statement passed to the node-mssql `Request.query()` batch API. Only data values were parameterized. Affected tools and inputs:\n- `update_data`, `delete_data`: `tableNam",
+      "cvss": 8.8,
       "final_ps": 21,
-      "quality_score": 0.525,
+      "quality_score": 0.523,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
+      "source": "github_advisories",
+      "sources_confirmed": 2,
       "merged_sources": [
-        "nvd"
+        "github_advisories",
+        "sentinel_apex"
       ],
       "first_seen": "2026-11-19",
       "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "yt through 4.4.4",
+      "vendor": "npm",
+      "product": "@connorbritain/mssql-mcp-core",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-63129"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/yt-project/yt/blob/yt-4.4.4/yt/frontends/ytdata/data_structures.py#L52-L56",
-        "https://github.com/yt-project/yt/commit/ce997aebb89423a6f5d86c3bda24094e908d3c2d",
-        "https://github.com/yt-project/yt/commit/ce997aebb89423a6f5d86c3bda24094e908d3c2d",
-        "https://github.com/yt-project/yt/issues/5641"
+        "https://github.com/advisories/GHSA-2m9m-6cr5-9x25",
+        "https://github.com/ConnorBritain/mssql-mcp-core/security/advisories/GHSA-2m9m-6cr5-9x25",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63129",
+        "https://github.com/ConnorBritain/mssql-mcp-core/pull/1"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -4394,5 +4395,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-19T01:07:40.696Z"
+  "lastReportGeneratedAt": "2026-11-19T02:31:11.043Z"
 }
