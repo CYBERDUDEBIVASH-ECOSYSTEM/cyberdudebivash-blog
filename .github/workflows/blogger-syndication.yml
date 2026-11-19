@@ -41,6 +41,16 @@ on:
         options:
           - "false"
           - "true"
+      canary_source_url:
+        description: "Exact reviewed dry-run source URL (required for live one-post canary)"
+        required: false
+        default: ""
+        type: string
+      canary_source_hash:
+        description: "16-hex URL+title identity from reviewed dry run (NOT HTML digest)"
+        required: false
+        default: ""
+        type: string
 
 # P0-BLOGGER-FRESHNESS-2026-09-07:
 # The Blogger publisher previously shared `main-content-writers` with the
@@ -83,6 +93,8 @@ jobs:
         env:
           CDB_BLOGGER_OAUTH_READY: ${{ vars.BLOGGER_OAUTH_READY }}
           CDB_BLOGGER_CANARY_APPROVED: ${{ github.event.inputs.live_canary_approved || 'false' }}
+          CDB_BLOGGER_CANARY_SOURCE_URL: ${{ github.event.inputs.canary_source_url || '' }}
+          CDB_BLOGGER_CANARY_SOURCE_HASH: ${{ github.event.inputs.canary_source_hash || '' }}
           CDB_BLOGGER_DRY_RUN_INPUT: ${{ github.event.inputs.dry_run || 'true' }}
           MAX_POSTS_PER_RUN: ${{ github.event.inputs.max_posts || '4' }}
         run: bash scripts/blogger-live-dispatch-guard.sh
@@ -201,6 +213,8 @@ jobs:
           CDB_BLOGGER_DRY_RUN_INPUT: ${{ github.event.inputs.dry_run || 'true' }}
           CDB_BLOGGER_OAUTH_READY: ${{ vars.BLOGGER_OAUTH_READY }}
           CDB_BLOGGER_CANARY_APPROVED: ${{ github.event.inputs.live_canary_approved || 'false' }}
+          CDB_BLOGGER_CANARY_SOURCE_URL: ${{ github.event.inputs.canary_source_url || '' }}
+          CDB_BLOGGER_CANARY_SOURCE_HASH: ${{ github.event.inputs.canary_source_hash || '' }}
           CDB_FACTORY_RETRY_QUEUE_LIMIT: "500"
           CDB_FACTORY_RETRY_ATTEMPTS: "5"
         run: |
