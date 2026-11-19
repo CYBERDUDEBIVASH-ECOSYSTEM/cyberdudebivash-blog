@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-19T06:02:32.254Z",
+  "generated": "2026-11-19T07:19:31.170Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19227,
+    "total_nodes": 19231,
     "actors": 8,
-    "cves": 9261,
-    "campaigns": 2926,
+    "cves": 9264,
+    "campaigns": 2927,
     "malware": 0,
     "iocs": 911,
-    "edges": 5703
+    "edges": 5704
   },
   "nodes": {
     "actor:lockbit": {
@@ -356057,16 +356057,16 @@
     "CVE-2026-5765": {
       "id": "CVE-2026-5765",
       "type": "CVE",
-      "name": "CVE-2026-5765 — Unknown Vendor The Essential Real CVSS 8.8 High Severity Vulnerability",
+      "name": "CVE-2026-5765 - Essential Real Estate <= 5.3.3 - Authenticated (Subscriber+) PHP Object Injection via 'ere_query' Parameter",
       "attributes": {
         "cvss": 8.8,
         "threat_level": "MEDIUM",
-        "priority_score": 63,
+        "priority_score": 46,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "Unknown Vendor",
-        "product": "The Essential Real",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-18",
         "type": "CVE_REPORT"
       },
@@ -360945,7 +360945,7 @@
       "attributes": {
         "cvss": 9.1,
         "threat_level": "MEDIUM",
-        "priority_score": 49,
+        "priority_score": 47,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -360963,7 +360963,7 @@
       "attributes": {
         "cvss": 9.1,
         "threat_level": "MEDIUM",
-        "priority_score": 49,
+        "priority_score": 47,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -361035,7 +361035,7 @@
       "attributes": {
         "cvss": 6.1,
         "threat_level": "LOW",
-        "priority_score": 37,
+        "priority_score": 35,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -361166,8 +361166,8 @@
       "name": "CVE-2026-132622 — Unknown Vendor A vulnerability was CVSS 9.1 Critical Vulnerability",
       "attributes": {
         "cvss": 9.1,
-        "threat_level": "HIGH",
-        "priority_score": 69,
+        "threat_level": "MEDIUM",
+        "priority_score": 64,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -361201,7 +361201,7 @@
       "type": "Campaign",
       "name": "Unknown A Exploitation Campaign",
       "attributes": {
-        "severity": "HIGH",
+        "severity": "MEDIUM",
         "item_count": 1,
         "first_seen": "2026-11-19",
         "last_seen": "2026-11-19",
@@ -361383,6 +361383,80 @@
       "connections": [
         {
           "target": "CVE-2026-84998",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-109555": {
+      "id": "CVE-2026-109555",
+      "type": "CVE",
+      "name": "CVE-2026-109555 — Unknown Vendor The WP STAGING CVSS 8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The WP STAGING",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-97329": {
+      "id": "CVE-2026-97329",
+      "type": "CVE",
+      "name": "CVE-2026-97329 - Team Members < 5.4.2 - Contributor+ Stored XSS via Member Photo Field",
+      "attributes": {
+        "cvss": 6.1,
+        "threat_level": "LOW",
+        "priority_score": 35,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-97330": {
+      "id": "CVE-2026-97330",
+      "type": "CVE",
+      "name": "CVE-2026-97330 - Team Members < 5.4.2 - Contributor+ Stored XSS via Member Social Link URL in Instant Preview",
+      "attributes": {
+        "cvss": 6.1,
+        "threat_level": "LOW",
+        "priority_score": 35,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-18",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-109555": {
+      "id": "campaign:cve-2026-109555",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-109555"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-109555",
           "relationship": "includes",
           "confidence": 1
         }
@@ -412896,6 +412970,15 @@
       "id": "campaign:cve-2026-84998→includes→CVE-2026-84998",
       "source": "campaign:cve-2026-84998",
       "target": "CVE-2026-84998",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-109555→includes→CVE-2026-109555",
+      "source": "campaign:cve-2026-109555",
+      "target": "CVE-2026-109555",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-19",
