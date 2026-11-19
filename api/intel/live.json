@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19T10:04:18.058Z",
+  "generated": "2026-11-19T11:26:58.844Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,51 +7,52 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7795,
+  "total_published": 7802,
   "s2n_stats": {
-    "passed": 140,
-    "suppressed": 4,
-    "avg_qs": 0.475
+    "passed": 133,
+    "suppressed": 6,
+    "avg_qs": 0.481
   },
   "items": [
     {
-      "id": "CVE-2026-109555",
-      "title": "CVE-2026-109555 — Unknown Vendor The WP STAGING CVSS 8 High Severity Vulnerability",
-      "description": "The WP STAGING and WP STAGING Pro plugins for WordPress are vulnerable to PHP Object Injection in all versions up to, and including, 4.17.0 and 6.17.0, respectively, via deserialization of untrusted input during database restore and staging reset. This is due to the database importer treating attack",
-      "cvss": 8,
-      "final_ps": 62,
-      "quality_score": 0.58,
+      "id": "CVE-2026-75506",
+      "title": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
+      "description": "Summary\n\nOliveTin's shellAfterCompleted post-execution hook injects unsanitized variables — including arbitrary command output (output), the authenticated username (ot_username), and the exit code (exitCode) — directly into a shell command template processed by sh -c. Unlike the ... [Full analysis a",
+      "cvss": 9.9,
+      "final_ps": 60,
+      "quality_score": 0.493,
       "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The WP STAGING",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-75506",
+        "CVE-2026-27626"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/changeset/3753692/wp-staging",
-        "https://wp-staging.com/wp-staging-pro-changelog/",
-        "https://www.wordfence.com/threat-intel/vulnerabilities/id/bf4d6205-3653-4678-86e0-4303a736bb72?source=cve"
+        "https://github.com/advisories/GHSA-vc6p-m6vx-6cwq"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
           "recency=0d (score=1.00)",
-          "QS=0.580"
+          "QS=0.493"
         ],
         "priority": [
-          "base_ps=62 (no boosts)"
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -92,49 +93,6 @@
           "data_confidence=0.70",
           "recency=2d (score=0.65)",
           "QS=0.458"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-76080",
-      "title": "CVE-2026-76080 - Probo: Unauthenticated cross-tenant and hidden-item disclosure via Query.node in the public Trust Cente",
-      "description": "CVE-2026-76080 - Probo: Unauthenticated cross-tenant and hidden-item disclosure via Query.node in the public Trust Center API",
-      "cvss": 9.1,
-      "final_ps": 53,
-      "quality_score": 0.433,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-11",
-      "last_seen": "2026-11-11",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76080"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-76080"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=7d (score=0.40)",
-          "QS=0.432"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -2220,6 +2178,49 @@
       }
     },
     {
+      "id": "CVE-2026-114942",
+      "title": "Low Security Vulnerability (CVE-2026-114942)",
+      "description": "CVE-2026-114942",
+      "cvss": 7,
+      "final_ps": 40,
+      "quality_score": 0.428,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114942"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/redhatcve/RH:CVE-2026-114942?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=1d (score=0.85)",
+          "QS=0.427"
+        ],
+        "priority": [
+          "base_ps=40 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
       "id": "CVE-2026-124647",
       "title": "Low Security Vulnerability (CVE-2026-124647)",
       "description": "CVE-2026-124647",
@@ -3273,6 +3274,52 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-14492",
+      "title": "CVE-2026-14492 — Unknown Vendor The WP Duplicate CVSS 9.8 Critical Vulnerability",
+      "description": "The WP Duplicate – WordPress Migration Plugin plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.1.11 via the save_single_batch_file function. This is due to a PHP type-juggling authentication bypass via loose != comparison with no is_string() guard, ",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The WP Duplicate",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/local-sync/tags/1.1.11/admin/class-local-sync-files-op.php#L777",
+        "https://plugins.trac.wordpress.org/browser/local-sync/tags/1.1.11/admin/class-local-sync-files-op.php#L800",
+        "https://plugins.trac.wordpress.org/browser/local-sync/tags/1.1.11/includes/class-local-sync-handle-server-requests.php#L131",
+        "https://plugins.trac.wordpress.org/browser/local-sync/tags/1.1.11/includes/class-local-sync-handle-server-requests.php#L36"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-132622",
       "title": "CVE-2026-132622 — Unknown Vendor A vulnerability was CVSS 9.1 Critical Vulnerability",
       "description": "A vulnerability was found in GearUP Hyperev up to 20261020. This impacts the function get_wlan_sitesurvey of the file ld/utils.lua of the component WLAN Site Survey. Performing a manipulation of the argument line results in os command injection. The attack is possible to be carried out remotely. The",
@@ -4209,9 +4256,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-129991",
-      "title": "CVE-2026-129991 Dokploy: Authenticated Command Injection via unescaped backup.prefix in database/service backup commands",
-      "description": "CVE-2026-129991 Dokploy: Authenticated Command Injection via unescaped backup.prefix in database/service backup commands leads to RCE as root",
+      "id": "CVE-2026-131253",
+      "title": "Splunk Patches Critical 9.9 RCE and Authentication Bypass Vulnerabilities in SOAR and Enterprise",
+      "description": "Splunk has released security updates for Splunk SOAR and Splunk Enterprise to fix a critical remote code execution flaw and a separate authentication bypass. The SOAR flaw, tracked as CVE-2026-131253, scored 9.9 out of 10 and requires an account with specific permissions. The Ent... [Full analysis a",
       "cvss": 9.8,
       "final_ps": 28,
       "quality_score": 0.438,
@@ -4222,8 +4269,8 @@
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -4231,11 +4278,12 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-129991"
+        "CVE-2026-131253",
+        "CVE-2026-76535"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/cvelist/CVELIST:CVE-2026-129991?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://cybersecuritynews.com/splunk-patches-vulnerabilities/"
       ],
       "explanation": {
         "quality": [
@@ -4254,14 +4302,14 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-129986",
-      "title": "CVE-2026-129986 Dokploy: OS Command Injection via filePath in mount.deleteFileMount → HOST RCE",
-      "description": "CVE-2026-129986 Dokploy: OS Command Injection via filePath in mount.deleteFileMount → HOST RCE",
-      "cvss": 9.8,
+      "id": "CVE-2026-27626",
+      "title": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
+      "description": "Summary\n\nOliveTin's shellAfterCompleted post-execution hook injects unsanitized variables — including arbitrary command output (output), the authenticated username (ot_username), and the exit code (exitCode) — directly into a shell command template processed by sh -c. Unlike the ... [Full analysis a",
+      "cvss": 9.9,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
+      "type": "NEWS_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
@@ -4276,11 +4324,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-129986"
+        "CVE-2026-27626"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/cvelist/CVELIST:CVE-2026-129986?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://github.com/advisories/GHSA-vc6p-m6vx-6cwq"
       ],
       "explanation": {
         "quality": [
@@ -4299,10 +4347,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-75506",
-      "title": "CVE-2026-75506 OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
-      "description": "CVE-2026-75506 OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
-      "cvss": 9,
+      "id": "CVE-2026-126041",
+      "title": "CVE-2026-126041 - WP Ghost (Hide My WP Ghost) < 7.0.19 - Unauthenticated Hidden Login and Path Disclosure via Debug Para",
+      "description": "CVE-2026-126041 - WP Ghost (Hide My WP Ghost) < 7.0.19 - Unauthenticated Hidden Login and Path Disclosure via Debug Parameter",
+      "cvss": 9.1,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "MEDIUM",
@@ -4321,56 +4369,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-75506"
+        "CVE-2026-126041"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/cvelist/CVELIST:CVE-2026-75506?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-129985",
-      "title": "CVE-2026-129985 Dokploy: RCE via Command Injection in Schedule appName",
-      "description": "CVE-2026-129985 Dokploy: RCE via Command Injection in Schedule appName",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-129985"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/cvelist/CVELIST:CVE-2026-129985?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://cvefeed.io/vuln/detail/CVE-2026-126041"
       ],
       "explanation": {
         "quality": [
@@ -4389,5 +4392,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-19T10:04:18.662Z"
+  "lastReportGeneratedAt": "2026-11-19T11:27:02.251Z"
 }
