@@ -120,6 +120,26 @@ def _cves(article: DiscoveredArticle) -> set[str]:
     return values
 
 
+def ransomware_primary_fields(*, title: object, source: object, labels: object) -> bool:
+    """Demand explicit primary-topic evidence, not an incidental body mention."""
+    if str(source or "").strip().lower() == "ransomware_intel":
+        return True
+    if re.search(r"\b(?:ransomware|double[ -]extortion|cyber[ -]extortion)\b", str(title or ""), re.I):
+        return True
+    label_values = [labels] if isinstance(labels, str) else (labels or [])
+    return any(
+        re.search(r"\b(?:ransomware|extortion)\b", str(label), re.I)
+        for label in label_values
+    )
+
+
+def ransomware_is_primary_topic(article: DiscoveredArticle) -> bool:
+    """Never infer a ransomware incident from a historical mention in prose."""
+    return ransomware_primary_fields(
+        title=article.title, source=article.source, labels=article.labels
+    )
+
+
 def classify_publication_family(article: DiscoveredArticle) -> str:
     """Map an article to the scheduler's commercial delivery family.
 
@@ -135,7 +155,7 @@ def classify_publication_family(article: DiscoveredArticle) -> str:
 
     if re.search(r"\b(?:zero[ -]?day|0[ -]?day)\b", text):
         return "zero_day"
-    if source == "ransomware_intel" or "ransomware" in text:
+    if ransomware_is_primary_topic(article):
         return "ransomware"
     if source == "breach_intel" or re.search(
         r"\b(?:data breach|breach notice|data exposure|data leak|exfiltrat(?:e|ed|ion))\b",
