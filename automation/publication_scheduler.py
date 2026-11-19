@@ -120,22 +120,23 @@ def _cves(article: DiscoveredArticle) -> set[str]:
     return values
 
 
-def ransomware_is_primary_topic(article: DiscoveredArticle) -> bool:
-    """Classify primary ransomware focus, not historical keyword mentions.
-
-    The full source body often discusses ransomware among other techniques.
-    A mere mention must not claim a ransomware incident or consume a
-    dedicated ransomware delivery slot. Explicit source, headline or
-    dedicated editorial labels are stronger signals of primary topic.
-    """
-    if str(article.source or "").lower() == "ransomware_intel":
+def ransomware_primary_fields(*, title: object, source: object, labels: object) -> bool:
+    """Demand explicit primary-topic evidence, not an incidental body mention."""
+    if str(source or "").strip().lower() == "ransomware_intel":
         return True
-    headline = str(article.title or "")
-    if re.search(r"\b(?:ransomware|double[ -]extortion|cyber[ -]extortion)\b", headline, re.I):
+    if re.search(r"\b(?:ransomware|double[ -]extortion|cyber[ -]extortion)\b", str(title or ""), re.I):
         return True
+    label_values = [labels] if isinstance(labels, str) else (labels or [])
     return any(
         re.search(r"\b(?:ransomware|extortion)\b", str(label), re.I)
-        for label in (article.labels or [])
+        for label in label_values
+    )
+
+
+def ransomware_is_primary_topic(article: DiscoveredArticle) -> bool:
+    """Never infer a ransomware incident from a historical mention in prose."""
+    return ransomware_primary_fields(
+        title=article.title, source=article.source, labels=article.labels
     )
 
 
