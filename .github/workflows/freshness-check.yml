@@ -65,6 +65,24 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
+      - name: "P0 Blogger scheduled-publisher readiness (read only)"
+        id: blogger_readiness
+        shell: bash
+        env:
+          BLOGGER_READY: ${{ vars.BLOGGER_OAUTH_READY }}
+        run: |
+          case "${BLOGGER_READY:-}" in
+            true) STATUS=READY ;;
+            false) STATUS=DISABLED ;;
+            "") STATUS=MISSING ;;
+            *) STATUS=INVALID ;;
+          esac
+          echo "status=$STATUS" >> "$GITHUB_OUTPUT"
+          echo "BLOGGER_SCHEDULE_GATE=$STATUS"
+          if [ "$STATUS" != "READY" ]; then
+            echo "::warning title=P0 Blogger Scheduler Held::BLOGGER_OAUTH_READY is $STATUS; hourly syndication is skipped before Blogger publishing. Do not enable until one-post canary is approved and provider/public fetch-back passes."
+          fi
+
       - name: "Setup Node.js 22"
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
@@ -366,6 +384,7 @@ jobs:
           echo "Public delivery step : ${{ steps.public_delivery.outcome || 'unavailable' }}"
           echo "SOC public feed check : ${{ steps.soc_public_freshness.outcome || 'unavailable' }}"
           echo "SOC source freshness only proves repository content; live edge freshness is verified separately."
+          echo "Blogger schedule gate : ${{ steps.blogger_readiness.outputs.status || 'UNKNOWN' }}"
           echo "Blogger freshness     : ${{ steps.blogger_freshness.outputs.status || 'UNAVAILABLE' }}"
           echo "Blogger age (minutes): ${{ steps.blogger_freshness.outputs.age_minutes || 'unavailable' }}"
           echo "Blogger reports/window: ${{ steps.blogger_freshness.outputs.publication_count_window || 'unknown' }} / 4"
