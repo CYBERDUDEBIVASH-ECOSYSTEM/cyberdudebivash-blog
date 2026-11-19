@@ -271,6 +271,18 @@ jobs:
           fi
           exit $PIPELINE_EXIT
 
+      # Only this manually requested read-only canary produces public-source
+      # editorial review evidence. Never export provider secrets or state.
+      # SHA pinned to the repository's already-approved upload-artifact v4.
+      - name: "P0 attach source-linked canary review preview (dry run only)"
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'true' && github.event.inputs.max_posts == '1' && steps.syndication_pipeline.outcome == 'success' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: cti-canary-review-${{ github.run_id }}
+          path: logs/canary-review/
+          if-no-files-found: error
+          retention-days: 1
+
       - name: "💾 Commit Publication State"
         if: always()
         run: |
