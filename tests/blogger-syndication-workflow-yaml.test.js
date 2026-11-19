@@ -25,6 +25,8 @@ describe('P0 Blogger Actions workflow YAML parser contract', () => {
       CDB_BLOGGER_OAUTH_READY: "${{ vars.BLOGGER_OAUTH_READY }}",
       CDB_BLOGGER_CANARY_APPROVED: "${{ github.event.inputs.live_canary_approved || 'false' }}",
       CDB_BLOGGER_DRY_RUN_INPUT: "${{ github.event.inputs.dry_run || 'true' }}",
+      CDB_BLOGGER_CANARY_SOURCE_URL: "${{ github.event.inputs.canary_source_url || '' }}",
+      CDB_BLOGGER_CANARY_SOURCE_HASH: "${{ github.event.inputs.canary_source_hash || '' }}",
       MAX_POSTS_PER_RUN: "${{ github.event.inputs.max_posts || '4' }}",
     };
     for (const [key, value] of Object.entries(keys)) {
@@ -33,6 +35,8 @@ describe('P0 Blogger Actions workflow YAML parser contract', () => {
     }
     expect(doc.on.workflow_dispatch.inputs.live_canary_approved.default).toBe('false');
     expect(doc.on.workflow_dispatch.inputs.dry_run.default).toBe('true');
+    expect(doc.on.workflow_dispatch.inputs.canary_source_url.default).toBe('');
+    expect(doc.on.workflow_dispatch.inputs.canary_source_hash.default).toBe('');
   });
 
   test('strict parser rejects exact duplicate mapping pattern from P0 GitHub 422', () => {
