@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19T20:53:12.730Z",
+  "generated": "2026-11-19T21:50:40.248Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,47 +8,50 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 124,
+  "count": 129,
   "items": [
     {
-      "id": "CVE-2026-30793",
-      "title": "CVE-2026-30793 — rustdesk rustdesk CVSS 9.8 Critical Vulnerability",
-      "description": "Cross-Site Request Forgery (CSRF) vulnerability in rustdesk-client RustDesk Client rustdesk-client on Windows, MacOS, Linux, iOS, Android (Flutter URI scheme handler, FFI bridge modules) allows Privilege Escalation. This vulnerability is associated with program files flutter/lib/common.Dart, src/flu",
-      "cvss": 9.8,
-      "final_ps": 67,
-      "quality_score": 0.485,
+      "id": "CVE-2026-128073",
+      "title": "gosaml2: Unauthenticated panic decrypting an EncryptedAssertion with a short or empty CipherValue",
+      "description": "### Summary An attacker who can supply a crafted SAML Response for parsing can crash a `gosaml2` service provider by sending an `EncryptedAssertion` with AES-GCM encryption metadata and a `CipherValue` shorter than the GCM nonce size (12 bytes). The library panics with `slice bounds out of range` be",
+      "cvss": 7.5,
+      "final_ps": 68,
+      "quality_score": 0.578,
       "threat_level": "HIGH",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "github_advisories"
       ],
-      "first_seen": "2026-03-05",
-      "last_seen": "2026-03-05",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "rustdesk",
-      "product": "rustdesk",
+      "vendor": "go",
+      "product": "github.com/russellhaering/gosaml2",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-128073",
+        "CVE-2026-128073"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://docs.google.com/document/d/e/2PACX-1vSds6jjpd38oO_yIAyd1HYtKNUuea-I-ozAPpGhYI7QgAU-QGJ7D8a4rOZVj1vmiUXV1EcdRHf9aZAW/pub",
-        "https://github.com/rustdesk/hbb_common",
-        "https://github.com/rustdesk/rustdesk",
-        "https://www.vulsec.org/"
+        "https://github.com/advisories/GHSA-5hj8-q7fv-qrj6",
+        "https://github.com/russellhaering/gosaml2/security/advisories/GHSA-5hj8-q7fv-qrj6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-128073",
+        "https://github.com/russellhaering/gosaml2/pull/281"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=1.00",
-          "recency=259d (score=0.05)",
-          "QS=0.485"
+          "recency=0d (score=1.00)",
+          "QS=0.578"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "+4 critical_infra"
         ],
         "suppression": null,
         "merge": null
@@ -58,10 +61,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-133309",
-      "title": "CVE-2026-133309 — Unknown Vendor @scalar/typebox before 0.1.4 CVSS 7.8 High Severity Vulnerability",
-      "description": "@scalar/typebox before 0.1.4 contains a code injection vulnerability in TypeCompiler that allows attackers to execute JavaScript by supplying crafted schema strings. Attackers can inject single-quote breakouts into string format, Kind names, property keys or Literal values to run arbitrary JavaScrip",
-      "cvss": 7.8,
+      "id": "CVE-2026-131200",
+      "title": "CVE-2026-131200 — Unknown Vendor In Splunk Enterprise CVSS 8.1 High Severity Vulnerability",
+      "description": "In Splunk Enterprise Security versions below 8.7.0, a user who holds the \"ess_analyst\" Splunk Enterprise Security role could create an attacker-controlled saved search. Threat intelligence lookup generation could later run the saved search with elevated permissions, which could let the user who crea",
+      "cvss": 8.1,
       "final_ps": 62,
       "quality_score": 0.58,
       "threat_level": "MEDIUM",
@@ -77,15 +80,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "@scalar/typebox before 0.1.4",
+      "product": "In Splunk Enterprise",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/scalar/typebox",
-        "https://github.com/scalar/typebox/blob/v0.1.3/src/compiler/compiler.ts#L427",
-        "https://github.com/scalar/typebox/commit/21d55f035a83868a3577be2142b9c9bbc125969b",
-        "https://github.com/scalar/typebox/pull/5"
+        "https://advisory.splunk.com/advisories/SVD-2026-1106"
       ],
       "explanation": {
         "quality": [
@@ -105,89 +105,47 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-27626",
-      "title": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
-      "description": "Summary\n\nOliveTin's shellAfterCompleted post-execution hook injects unsanitized variables — including arbitrary command output (output), the authenticated username (ot_username), and the exit code (exitCode) — directly into a shell command template processed by sh -c. Unlike the ... [Full analysis a",
-      "cvss": 9.9,
-      "final_ps": 60,
-      "quality_score": 0.493,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-27626"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-vc6p-m6vx-6cwq"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.493"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-122147",
-      "title": "Low Security Vulnerability [High EPSS] (CVE-2026-122147)",
-      "description": "CVE-2026-122147",
-      "cvss": 9.8,
-      "final_ps": 55,
-      "quality_score": 0.408,
+      "id": "CVE-2026-61713",
+      "title": "Servo Sandbox bypass: declarative refresh can auto-navigate a sandboxed iframe",
+      "description": "A sandboxed iframe can auto-navigate itself via declarative refresh even when automatic features should be blocked. This allows attacker-controlled embedded content to redirect itself without user action. ### Summary\nServo allows a sandboxed iframe to auto-navigate itself via declarative refresh in ",
+      "cvss": 8.3,
+      "final_ps": 62,
+      "quality_score": 0.578,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
-      "source": "sentinel_apex",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "sentinel_apex"
+        "github_advisories"
       ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
+      "vendor": "rust",
+      "product": "servo",
       "due_date": null,
       "cves": [
-        "CVE-2026-122147"
+        "CVE-2026-61713",
+        "CVE-2026-61713"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-122147?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://github.com/advisories/GHSA-pxh3-4qqv-58mg",
+        "https://github.com/servo/servo/security/advisories/GHSA-pxh3-4qqv-58mg",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-61713",
+        "https://github.com/servo/servo/pull/45116"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=2d (score=0.65)",
-          "QS=0.407"
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.578"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=62 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -197,43 +155,41 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-128074",
-      "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
-      "description": "Summary\n\nNuxt strips trailing slashes from the request path with a regular expression whose cost grows quadratically with the length of a run of consecutive slashes. A single unauthenticated request with a long run of slashes can occupy the server's event loop for a noticeable ti... [Full analysis a",
-      "cvss": 9.1,
-      "final_ps": 55,
-      "quality_score": 0.458,
+      "id": "CVE-2026-131179",
+      "title": "CVE-2026-131179 — Unknown Vendor In Splunk Enterprise CVSS 7.6 High Severity Vulnerability",
+      "description": "In Splunk Enterprise versions below 10.4.5, 10.2.9, 10.0.12, and 9.4.17, a user who holds the \"power\" Splunk role could add attacker-controlled Search Processing Language (SPL) to a shared dashboard. When another user opens the dashboard in Splunk Web, Splunk Enterprise could run the attacker-contro",
+      "cvss": 7.6,
+      "final_ps": 61,
+      "quality_score": 0.58,
       "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
+      "type": "CVE_REPORT",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "sentinel_apex"
+        "nvd"
       ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
+      "vendor": "Unknown Vendor",
+      "product": "In Splunk Enterprise",
       "due_date": null,
-      "cves": [
-        "CVE-2026-128074"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
+        "https://advisory.splunk.com/advisories/SVD-2026-1103"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=61 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -243,43 +199,311 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-119793",
-      "title": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
-      "description": "Summary\nA single gossipsub peer can grow a node's topics map without bound by flooding subscription RPCs, because the default configuration has no global, per-peer, or topic-length cap and peer scoring does not penalise subscription volume. The peer is never greylisted, so the gr... [Full analysis a",
+      "id": "CVE-2026-131182",
+      "title": "CVE-2026-131182 — Unknown Vendor In Splunk Enterprise CVSS 7.6 High Severity Vulnerability",
+      "description": "In Splunk Enterprise versions below 10.4.5, 10.2.9, 10.0.12, and 9.4.17, a user who holds the \"power\" Splunk role could store malicious Search Processing Language (SPL) in a shared dashboard. The malicious SPL could run using the permissions of the user who opened the dashboard and could access or m",
+      "cvss": 7.6,
+      "final_ps": 61,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "In Splunk Enterprise",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://advisory.splunk.com/advisories/SVD-2026-1103"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=61 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131190",
+      "title": "CVE-2026-131190 — Unknown Vendor In Splunk Enterprise CVSS 7.5 High Severity Vulnerability",
+      "description": "In Splunk Enterprise versions below 10.4.5, 10.2.9, 10.0.12, and 9.4.17, an unauthenticated user could access RapidDiag process metadata and log file inventory information through the Representational State Transfer (REST) API.\nThe vulnerability is possible because certain RapidDiag REST API endpoin",
       "cvss": 7.5,
-      "final_ps": 52,
-      "quality_score": 0.478,
+      "final_ps": 61,
+      "quality_score": 0.58,
       "threat_level": "MEDIUM",
-      "type": "CRITICAL_INFRASTRUCTURE",
-      "source": "sentinel_apex",
+      "type": "CVE_REPORT",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "sentinel_apex"
+        "nvd"
       ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
+      "vendor": "Unknown Vendor",
+      "product": "In Splunk Enterprise",
       "due_date": null,
-      "cves": [
-        "CVE-2026-119793"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-x2vm-cf3p-m2w8"
+        "https://advisory.splunk.com/advisories/SVD-2026-1103"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=1d (score=0.85)",
-          "QS=0.478"
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
         ],
         "priority": [
-          "+4 critical_infra"
+          "base_ps=61 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131192",
+      "title": "CVE-2026-131192 — Unknown Vendor In Splunk Enterprise CVSS 7.5 High Severity Vulnerability",
+      "description": "In Splunk Enterprise versions below 10.6.1, 10.4.5, 10.2.9, 10.0.12, and 9.4.17, an unauthenticated user could access live event data from the indexing pipeline through the Representational State Transfer (REST) API on a standalone instance or a search head that is not an indexer cluster member.\nThe",
+      "cvss": 7.5,
+      "final_ps": 61,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "In Splunk Enterprise",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://advisory.splunk.com/advisories/SVD-2026-1103"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=61 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131196",
+      "title": "CVE-2026-131196 — Unknown Vendor In Splunk Enterprise CVSS 7.5 High Severity Vulnerability",
+      "description": "In Splunk Enterprise versions below 10.4.5, 10.2.9, 10.0.12, and 9.4.17, an unauthenticated user who can connect to a Splunk-to-Splunk (S2S) data forwarding receiver could cause the Splunk daemon to terminate unexpectedly. The unexpected termination interrupts data indexing and access to the managem",
+      "cvss": 7.5,
+      "final_ps": 61,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "In Splunk Enterprise",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://advisory.splunk.com/advisories/SVD-2026-1103"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=61 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-62964",
+      "title": "Gortex: Arbitrary file write / repo-confinement escape in `write_file` / `edit_file` / `move_inline` MCP tools → code ex",
+      "description": "### Summary\nGortex is an MCP server exposing `write_file`, `edit_file`, and `move_inline` tools. `resolveFilePath` **exempts absolute paths** from confinement, and the write handlers — unlike `read_file` / `get_symbol_source` — **never call `guardSymlinkWithinRepo`**. A single MCP `write_file` call ",
+      "cvss": 7.8,
+      "final_ps": 60,
+      "quality_score": 0.578,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "go",
+      "product": "github.com/zzet/gortex",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-62964",
+        "CVE-2026-62964"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-w42c-h7hr-f67p",
+        "https://github.com/zzet/gortex/security/advisories/GHSA-w42c-h7hr-f67p",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-62964",
+        "https://github.com/zzet/gortex/commit/5ba2f066dd6dcd726c4e61b74851862dc596d994"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.578"
+        ],
+        "priority": [
+          "base_ps=60 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131177",
+      "title": "CVE-2026-131177 — Unknown Vendor In Splunk Enterprise CVSS 7.1 High Severity Vulnerability",
+      "description": "In Splunk Enterprise versions below 10.4.4, 10.2.9, 10.0.12, and 9.4.16, a user who does not hold the \"admin\" or \"power\" Splunk roles could run arbitrary Search Processing Language (SPL) searches with elevated privileges through saved search dispatch and access stored credentials and indexed data or",
+      "cvss": 7.1,
+      "final_ps": 60,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "In Splunk Enterprise",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://advisory.splunk.com/advisories/SVD-2026-1103"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=60 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131181",
+      "title": "CVE-2026-131181 — Unknown Vendor In Splunk Enterprise CVSS 7.1 High Severity Vulnerability",
+      "description": "In Splunk Enterprise versions below 10.4.5, 10.2.9, 10.0.12, and 9.4.16, a user who does not hold the \"admin\" or \"power\" Splunk roles could use Data Model Acceleration to run malicious Search Processing Language (SPL) commands and perform actions through the Representational State Transfer (REST) AP",
+      "cvss": 7.1,
+      "final_ps": 60,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "In Splunk Enterprise",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://advisory.splunk.com/advisories/SVD-2026-1103"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=60 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -3724,6 +3948,138 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-84236",
+      "title": "CVE-2026-84236 — Unknown Vendor IBM Guardium Data CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "IBM Guardium Data",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.ibm.com/support/pages/node/7297484"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-87977",
+      "title": "CVE-2026-87977 — Unknown Vendor IBM Guardium Data CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "IBM Guardium Data",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.ibm.com/support/pages/node/7297484"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-82339",
+      "title": "CVE-2026-82339 — Unknown Vendor IBM Guardium Data CVSS 9.1 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.1,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "IBM Guardium Data",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.ibm.com/support/pages/node/7297484"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-131253",
       "title": "CVE-2026-131253 — Unknown Vendor In Splunk SOAR CVSS 9.9 Critical Vulnerability",
       "description": "",
@@ -4132,6 +4488,53 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-30793",
+      "title": "CVE-2026-30793 — rustdesk rustdesk CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-03-05",
+      "last_seen": "2026-03-05",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "rustdesk",
+      "product": "rustdesk",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://docs.google.com/document/d/e/2PACX-1vSds6jjpd38oO_yIAyd1HYtKNUuea-I-ozAPpGhYI7QgAU-QGJ7D8a4rOZVj1vmiUXV1EcdRHf9aZAW/pub",
+        "https://github.com/rustdesk/hbb_common",
+        "https://github.com/rustdesk/rustdesk",
+        "https://www.vulsec.org/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-123890",
       "title": "Critical VMware vCenter Flaws Let Hackers Bypass Authentication and Access Servers",
       "description": "",
@@ -4159,6 +4562,52 @@
       "ioc_count": 0,
       "refs": [
         "https://cybersecuritynews.com/vmware-vcenter-authentication-bypass/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-27626",
+      "title": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
+      "description": "",
+      "cvss": 9.9,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-27626"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-vc6p-m6vx-6cwq"
       ],
       "explanation": {
         "quality": [
@@ -4224,10 +4673,148 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-131199",
-      "title": "CVE-2026-131199 — Unknown Vendor In Splunk Enterprise CVSS 8.8 High Severity Vulnerability",
+      "id": "CVE-2026-122147",
+      "title": "Low Security Vulnerability [High EPSS] (CVE-2026-122147)",
       "description": "",
-      "cvss": 8.8,
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-122147"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-122147?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128074",
+      "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
+      "description": "",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128074"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-119793",
+      "title": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 22,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CRITICAL_INFRASTRUCTURE",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-119793"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-x2vm-cf3p-m2w8"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+4 critical_infra"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131203",
+      "title": "CVE-2026-131203 — Unknown Vendor In Splunk Enterprise CVSS 8.3 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.3,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -4268,10 +4855,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-131175",
-      "title": "CVE-2026-131175 — Unknown Vendor In Splunk Enterprise CVSS 7.6 High Severity Vulnerability",
+      "id": "CVE-2026-131215",
+      "title": "CVE-2026-131215 — Unknown Vendor In Splunk Enterprise CVSS 8.3 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.6,
+      "cvss": 8.3,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -4292,7 +4879,7 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
+        "https://advisory.splunk.com/advisories/SVD-2026-1106"
       ],
       "explanation": {
         "quality": [
@@ -4312,149 +4899,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-131178",
-      "title": "CVE-2026-131178 — Unknown Vendor In Splunk Enterprise CVSS 7.6 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.6,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-128073",
-      "title": "gosaml2: Unauthenticated panic decrypting an EncryptedAssertion with a short or empty CipherValue",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "go",
-      "product": "github.com/russellhaering/gosaml2",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128073",
-        "CVE-2026-128073"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-5hj8-q7fv-qrj6",
-        "https://github.com/russellhaering/gosaml2/security/advisories/GHSA-5hj8-q7fv-qrj6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-128073",
-        "https://github.com/russellhaering/gosaml2/pull/281"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-133307",
-      "title": "CVE-2026-133307 — Unknown Vendor ClassiCube before 1.4.0 CVSS 8.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 8.8,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "ClassiCube before 1.4.0",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/ClassiCube/ClassiCube",
-        "https://github.com/ClassiCube/ClassiCube/blob/1.3.9/src/Bitmap.c#L529",
-        "https://github.com/ClassiCube/ClassiCube/commit/c461fa759f218e3c6bda4642b9af79a98dc84a43",
-        "https://github.com/ClassiCube/ClassiCube/releases/tag/1.4.0"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131200",
-      "title": "CVE-2026-131200 — Unknown Vendor In Splunk Enterprise CVSS 8.1 High Severity Vulnerability",
+      "id": "CVE-2026-131210",
+      "title": "CVE-2026-131210 — Unknown Vendor In Splunk Enterprise CVSS 8.1 High Severity Vulnerability",
       "description": "",
       "cvss": 8.1,
       "final_ps": 21,
@@ -4497,61 +4943,11 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-61713",
-      "title": "Servo Sandbox bypass: declarative refresh can auto-navigate a sandboxed iframe",
+      "id": "CVE-2026-131218",
+      "title": "CVE-2026-131218 — Unknown Vendor In Splunk Enterprise CVSS 8.3 High Severity Vulnerability",
       "description": "",
       "cvss": 8.3,
       "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "rust",
-      "product": "servo",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-61713",
-        "CVE-2026-61713"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-pxh3-4qqv-58mg",
-        "https://github.com/servo/servo/security/advisories/GHSA-pxh3-4qqv-58mg",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-61713",
-        "https://github.com/servo/servo/pull/45116"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131179",
-      "title": "CVE-2026-131179 — Unknown Vendor In Splunk Enterprise CVSS 7.6 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.6,
-      "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
@@ -4571,7 +4967,7 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
+        "https://advisory.splunk.com/advisories/SVD-2026-1106"
       ],
       "explanation": {
         "quality": [
@@ -4591,10 +4987,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-131182",
-      "title": "CVE-2026-131182 — Unknown Vendor In Splunk Enterprise CVSS 7.6 High Severity Vulnerability",
+      "id": "CVE-2026-131211",
+      "title": "CVE-2026-131211 — Unknown Vendor In Splunk App CVSS 7.3 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.6,
+      "cvss": 7.3,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -4610,326 +5006,12 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
+      "product": "In Splunk App",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131190",
-      "title": "CVE-2026-131190 — Unknown Vendor In Splunk Enterprise CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131192",
-      "title": "CVE-2026-131192 — Unknown Vendor In Splunk Enterprise CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131196",
-      "title": "CVE-2026-131196 — Unknown Vendor In Splunk Enterprise CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-62964",
-      "title": "Gortex: Arbitrary file write / repo-confinement escape in `write_file` / `edit_file` / `move_inline` MCP tools → code ex",
-      "description": "",
-      "cvss": 7.8,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "go",
-      "product": "github.com/zzet/gortex",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-62964",
-        "CVE-2026-62964"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-w42c-h7hr-f67p",
-        "https://github.com/zzet/gortex/security/advisories/GHSA-w42c-h7hr-f67p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-62964",
-        "https://github.com/zzet/gortex/commit/5ba2f066dd6dcd726c4e61b74851862dc596d994"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131177",
-      "title": "CVE-2026-131177 — Unknown Vendor In Splunk Enterprise CVSS 7.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.1,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131181",
-      "title": "CVE-2026-131181 — Unknown Vendor In Splunk Enterprise CVSS 7.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.1,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131188",
-      "title": "CVE-2026-131188 — Unknown Vendor In Splunk Enterprise CVSS 7.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.1,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
+        "https://advisory.splunk.com/advisories/SVD-2026-1106"
       ],
       "explanation": {
         "quality": [
@@ -5187,6 +5269,141 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-133309",
+      "title": "CVE-2026-133309 — Unknown Vendor @scalar/typebox before 0.1.4 CVSS 7.8 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.8,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "@scalar/typebox before 0.1.4",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/scalar/typebox",
+        "https://github.com/scalar/typebox/blob/v0.1.3/src/compiler/compiler.ts#L427",
+        "https://github.com/scalar/typebox/commit/21d55f035a83868a3577be2142b9c9bbc125969b",
+        "https://github.com/scalar/typebox/pull/5"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131199",
+      "title": "CVE-2026-131199 — Unknown Vendor In Splunk Enterprise CVSS 8.8 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.8,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "In Splunk Enterprise",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://advisory.splunk.com/advisories/SVD-2026-1106"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131175",
+      "title": "CVE-2026-131175 — Unknown Vendor In Splunk Enterprise CVSS 7.6 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.6,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "In Splunk Enterprise",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://advisory.splunk.com/advisories/SVD-2026-1103"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-132773",
       "title": "CVE-2026-132773 - Attendize through 2.8.0 Authorization Bypass via postCancelOrder",
       "description": "",
@@ -5214,6 +5431,52 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-132773"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-132825",
+      "title": "CVE-2026-132825 - Ruby Heap-Based Buffer Overflow in Case Conversion",
+      "description": "",
+      "cvss": 7.4,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-132825"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-132825"
       ],
       "explanation": {
         "quality": [
@@ -5628,52 +5891,6 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-132766"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=0d (score=1.00)",
-          "QS=0.398"
-        ],
-        "priority": [
-          "base_ps=16 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-132772",
-      "title": "CVE-2026-132772 - GPAC MP4Box before 26.07.0 Use-After-Free in xmt_node_start via XMT Parser",
-      "description": "",
-      "cvss": 6.6,
-      "final_ps": 16,
-      "quality_score": 0.398,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-132772"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-132772"
       ],
       "explanation": {
         "quality": [
