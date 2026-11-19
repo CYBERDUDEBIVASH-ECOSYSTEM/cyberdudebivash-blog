@@ -49786,6 +49786,7 @@
     {
       "campaign_id": "campaign:cve-2026-58213",
       "name": "go github.com/nats-io/nats-server/v2 Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "HIGH",
       "confidence": 0.9,
       "item_count": 1,
@@ -49819,6 +49820,44 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-58213"
+      ]
+    },
+    {
+      "campaign_id": "campaign:cve-2026-71535",
+      "name": "pip mareforma Exploitation Campaign",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "item_count": 1,
+      "ioc_count": 0,
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "related_intel_ids": [
+        "CVE-2026-71535"
+      ],
+      "related_intel": [
+        {
+          "id": "CVE-2026-71535",
+          "title": "Mareforma: Unsigned Claims Can Be Promoted to REPLICATED via Missing Signature Enforcement in Convergence Path",
+          "type": "CVE_REPORT",
+          "priority_score": 66,
+          "published": "2026-11-19",
+          "exploited": false,
+          "cisa_kev": false
+        }
+      ],
+      "shared_iocs": [],
+      "shared_cves": [
+        "CVE-2026-71535"
+      ],
+      "threat_actor": null,
+      "threat_actors": [],
+      "max_priority_score": 66,
+      "has_kev": false,
+      "has_ransomware": false,
+      "has_exploited": false,
+      "reasoning": [
+        "1 intel item(s) clustered with composite confidence 0.900",
+        "Single CVE basis: CVE-2026-71535"
       ],
       "clustering_model": "weighted_v2"
     },
@@ -114991,7 +115030,7 @@
       "clustering_model": "graph_reconstruction_v1"
     }
   ],
-  "generated": "2026-11-19T15:58:18.985Z",
+  "generated": "2026-11-19T17:05:04.856Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0"
 }

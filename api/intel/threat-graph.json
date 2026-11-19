@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-19T15:58:18.867Z",
+  "generated": "2026-11-19T17:05:04.727Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19288,
+    "total_nodes": 19291,
     "actors": 8,
-    "cves": 9298,
-    "campaigns": 2941,
+    "cves": 9299,
+    "campaigns": 2942,
     "malware": 0,
     "iocs": 911,
-    "edges": 5718
+    "edges": 5719
   },
   "nodes": {
     "actor:lockbit": {
@@ -360663,7 +360663,7 @@
       "attributes": {
         "cvss": 6.1,
         "threat_level": "LOW",
-        "priority_score": 37,
+        "priority_score": 35,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -361849,7 +361849,7 @@
       "attributes": {
         "cvss": 9.8,
         "threat_level": "MEDIUM",
-        "priority_score": 49,
+        "priority_score": 47,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -362511,6 +362511,62 @@
       "connections": [
         {
           "target": "CVE-2026-133185",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-71535": {
+      "id": "CVE-2026-71535",
+      "type": "CVE",
+      "name": "Mareforma: Unsigned Claims Can Be Promoted to REPLICATED via Missing Signature Enforcement in Convergence Path",
+      "attributes": {
+        "cvss": 7.1,
+        "threat_level": "HIGH",
+        "priority_score": 66,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "pip",
+        "product": "mareforma",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "RAPID7-4d320364fde2bff1": {
+      "id": "RAPID7-4d320364fde2bff1",
+      "type": "Intel",
+      "name": "What Is Preemptive MDR? A Guide For Security Leaders",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "LOW",
+        "priority_score": 31,
+        "exploited": true,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "rapid7",
+        "product": "Threat Intelligence",
+        "published": "2026-11-19",
+        "type": "AI_SECURITY"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-71535": {
+      "id": "campaign:cve-2026-71535",
+      "type": "Campaign",
+      "name": "pip mareforma Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-71535"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-71535",
           "relationship": "includes",
           "confidence": 1
         }
@@ -414159,6 +414215,15 @@
       "id": "campaign:cve-2026-133185→includes→CVE-2026-133185",
       "source": "campaign:cve-2026-133185",
       "target": "CVE-2026-133185",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-71535→includes→CVE-2026-71535",
+      "source": "campaign:cve-2026-71535",
+      "target": "CVE-2026-71535",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-19",
