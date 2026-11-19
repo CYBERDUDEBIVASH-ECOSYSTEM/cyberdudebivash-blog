@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-19T04:35:38.097Z",
+  "generated": "2026-11-19T06:02:32.254Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19219,
+    "total_nodes": 19227,
     "actors": 8,
-    "cves": 9257,
-    "campaigns": 2922,
+    "cves": 9261,
+    "campaigns": 2926,
     "malware": 0,
     "iocs": 911,
-    "edges": 5699
+    "edges": 5703
   },
   "nodes": {
     "actor:lockbit": {
@@ -361235,6 +361235,158 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-132625": {
+      "id": "CVE-2026-132625",
+      "type": "CVE",
+      "name": "CVE-2026-132625 — Unknown Vendor A vulnerability was CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability was",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-132626": {
+      "id": "CVE-2026-132626",
+      "type": "CVE",
+      "name": "CVE-2026-132626 — Unknown Vendor A vulnerability was CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability was",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-132627": {
+      "id": "CVE-2026-132627",
+      "type": "CVE",
+      "name": "CVE-2026-132627 — Unknown Vendor A security flaw CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A security flaw",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-84998": {
+      "id": "CVE-2026-84998",
+      "type": "CVE",
+      "name": "CVE-2026-84998 — Unknown Vendor The NextScripts: Social CVSS 7.2 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The NextScripts: Social",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-132625": {
+      "id": "campaign:cve-2026-132625",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-132625"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-132625",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-132626": {
+      "id": "campaign:cve-2026-132626",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-132626"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-132626",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-132627": {
+      "id": "campaign:cve-2026-132627",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-132627"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-132627",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-84998": {
+      "id": "campaign:cve-2026-84998",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-84998"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-84998",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -412708,6 +412860,42 @@
       "id": "campaign:cve-2026-132611→includes→CVE-2026-132611",
       "source": "campaign:cve-2026-132611",
       "target": "CVE-2026-132611",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-132625→includes→CVE-2026-132625",
+      "source": "campaign:cve-2026-132625",
+      "target": "CVE-2026-132625",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-132626→includes→CVE-2026-132626",
+      "source": "campaign:cve-2026-132626",
+      "target": "CVE-2026-132626",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-132627→includes→CVE-2026-132627",
+      "source": "campaign:cve-2026-132627",
+      "target": "CVE-2026-132627",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-84998→includes→CVE-2026-84998",
+      "source": "campaign:cve-2026-84998",
+      "target": "CVE-2026-84998",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-19",
