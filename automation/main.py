@@ -9,6 +9,7 @@ Usage:
 """
 
 import argparse
+import os
 import json
 import sys
 import time
@@ -19,6 +20,7 @@ from pathlib import Path
 from .authority_transformer import AuthorityTransformer
 from .blogger_publisher import BloggerPublisher, BloggerPublishError, BloggerAuthError, BloggerRateLimitError
 from .canonical_rss import discover_local_canonical_rss
+from .canary_source_identity import live_canary_pin_required, verify_reviewed_source_identity
 from .cti_original_source_freshness import original_source_is_current
 from .config import Config
 from .content_discovery import ContentDiscoveryEngine, DiscoveredArticle, PublicationState
@@ -321,11 +323,12 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
     report.update(selection.metrics)
     publish_target = max(0, int(config.max_posts_per_run or 0))
     attempt_limit = _publication_attempt_limit(publish_target)
+    canary_pin_required = live_canary_pin_required(dry_run=dry_run, max_posts=publish_target)
     attempted_keys = {_article_selection_key(article) for article in articles}
 
     def _enqueue_quality_backfill(reason: str) -> None:
         """Append one replacement without increasing the successful write cap."""
-        if dry_run:
+        if dry_run or canary_pin_required:
             return
         if report["published"] >= publish_target:
             return
@@ -388,6 +391,20 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
             "selected_sources": report["selected_sources"],
         },
     )
+
+    if canary_pin_required:
+        mismatch = verify_reviewed_source_identity(
+            articles,
+            os.getenv("CDB_BLOGGER_CANARY_SOURCE_URL", ""),
+            os.getenv("CDB_BLOGGER_CANARY_SOURCE_HASH", ""),
+        )
+        if mismatch:
+            logger.error("P0 Blogger canary identity mismatch; no publication attempted", extra={"reason": mismatch})
+            report["run_status"] = "FAILED"
+            report["errors"].append(mismatch)
+            report["run_end"] = datetime.now(timezone.utc).isoformat()
+            _write_run_report(report, config.logs_dir)
+            return report
 
     if not articles:
         logger.info("No new articles to syndicate this run")
@@ -455,6 +472,8 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
                     "DRY RUN — would publish",
                     extra={
                         "title": transformed["title"][:60],
+                        "source_url": article.url,
+                        "source_identity_hash": article.content_hash,
                         "labels": transformed["labels"],
                         "scheduler_family": post_result["scheduler_family"],
                         "canonical_handoff": post_result["canonical_handoff"],
