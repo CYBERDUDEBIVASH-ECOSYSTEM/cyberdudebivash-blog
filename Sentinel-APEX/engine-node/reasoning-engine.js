@@ -21,6 +21,7 @@
  */
 
 const detEngine = require('./detection-engine');
+const { verifiedAffectedTechnology, sourceDescribesConcreteEncryption } = require('./source-claim-guards');
 
 function _safe(fn, dflt) { try { return fn(); } catch (_) { return dflt; } }
 
@@ -43,19 +44,21 @@ function buildReasoning(item, mem) {
   const cvss = (typeof item.cvss === 'number' && item.cvss > 0) ? item.cvss : null;
   const kev = !!item.cisaKev;
   const exploited = !!item.exploited;
+  const affectedTechnology = verifiedAffectedTechnology(item);
+  const ransomwareMapped = tids.has('T1486') || tids.has('T1490');
+  const concreteEncryption = sourceDescribesConcreteEncryption(item);
   const iocCount = (Array.isArray(item.iocs) ? item.iocs : []).filter((i) => i && i.value).length;
 
   // ── 1. Verified Facts (directly supported only) ─────────────────────────
   if (cves.length) facts.push(`Affected CVE(s): ${cves.join(', ')}.`);
-  if (item.vendor || item.product) {
-    facts.push(`Affected technology: ${[item.vendor, item.product].filter(Boolean).join(' ')}.`);
-  }
+  if (affectedTechnology) facts.push(`Affected technology: ${affectedTechnology}.`);
   if (cvss != null) facts.push(`CVSS base score of ${cvss} assigned by an authoritative source.`);
   if (kev) facts.push('Listed in the CISA Known Exploited Vulnerabilities (KEV) catalog — exploitation confirmed by federal advisory.');
   if (exploited && !kev) facts.push('Active exploitation reported in source intelligence.');
   if (iocCount) facts.push(`${iocCount} indicator(s) of compromise extracted from source reporting.`);
   if (item.sourceCount > 1) facts.push(`Corroborated across ${item.sourceCount} independent source(s).`);
-  if (techniques.length) facts.push(`${techniques.length} MITRE ATT&CK technique(s) evidenced in the source material.`);
+  if (techniques.length) gaps.push(`${techniques.length} keyword-derived ATT&CK candidate mapping(s) require event-specific corroboration; mapping is not evidence of observed adversary activity.`);
+  if (!affectedTechnology && (item.vendor || item.product)) gaps.push('Affected vendor/product is not established by source-linked vulnerability evidence; reporting publisher labels do not prove affected assets.');
 
   // ── 2. Correlated Observations (knowledge graph) ────────────────────────
   if (mem && typeof mem.correlationNotes === 'function') {
@@ -64,8 +67,10 @@ function buildReasoning(item, mem) {
 
   // ── 3. Analyst Assessments (labeled, with basis) ────────────────────────
   const A = (confidence, text_) => assessments.push({ confidence, text: text_ });
-  if (tids.has('T1486') || tids.has('T1490')) {
-    A('HIGH', 'Activity is consistent with a ransomware operation — data encryption and/or recovery inhibition (shadow-copy deletion) was observed.');
+  if (ransomwareMapped && concreteEncryption) {
+    A('HIGH', 'Source text references concrete file encryption or recovery inhibition consistent with a possible ransomware operation; the incident is not independently verified.');
+  } else if (ransomwareMapped) {
+    A('LOW', 'Ransomware-related terminology appears in the source; event-specific encryption or recovery inhibition is not established by this description.');
   }
   if (tids.has('T1566') || tids.has('T1566.001') || tids.has('T1566.002')) {
     A('MEDIUM', 'Initial access is assessed to occur via phishing, based on delivery indicators in the source.');
@@ -105,11 +110,8 @@ function buildReasoning(item, mem) {
   if (kev || exploited) {
     O('HIGH', 'Continued and broadening exploitation is expected; additional threat actors are likely to adopt this vector.');
   }
-  if (tids.has('T1486') || tids.has('T1490')) {
-    O('MEDIUM', 'Double-extortion and data-leak-site activity is anticipated to accompany encryption events.');
-  }
-  if (observations.some((o) => /recurring target/.test(o))) {
-    O('MEDIUM', 'Given the repeated targeting pattern, further activity against this vendor/sector is probable.');
+  if (ransomwareMapped && concreteEncryption) {
+    O('LOW', 'Where an encryption event is independently confirmed, assess any accompanying extortion or data-disclosure claims separately.');
   }
   if (!outlook.length && cvss != null && cvss >= 7) {
     O('LOW', 'Exploitation activity may emerge as technical details become public; monitor vendor advisories.');
