@@ -73,6 +73,36 @@ def request(url: str, *, method="GET", payload=None, authorization=None):
         raise AuditFailure("network_or_tls_failure") from None
 
 
+
+def mobile_public_get() -> tuple[int, bytes, str]:
+    """Read mobile homepage, following at most ONE validated same-host redirect.
+
+    Blogger mobile rendering can canonicalize /?m=1 to / or /?m=0.
+    The destination is never trusted blindly: no HTTP downgrade, off-host,
+    alternate port, arbitrary path, credentials or second redirect is followed.
+    Final page must still contain the exact latest provider permalink.
+    """
+    requested = ROOT + "/?m=1"
+    status, _, body, location = request(requested)
+    if status not in (301, 302, 303, 307, 308):
+        return status, body, "DIRECT"
+    if not location:
+        return status, b"", "REDIRECT_MISSING_LOCATION"
+    destination = urllib.parse.urljoin(requested, location)
+    parts = urllib.parse.urlsplit(destination)
+    params = urllib.parse.parse_qs(parts.query, keep_blank_values=True)
+    if (parts.scheme != "https" or parts.hostname != HOST or
+            parts.port is not None or parts.username or parts.password or
+            parts.path != "/" or parts.fragment or
+            (set(params) - {"m"}) or len(params.get("m", [])) > 1 or
+            (params.get("m", ["0"])[0] not in ("0", "1")) or
+            destination == requested):
+        return status, b"", "REDIRECT_UNTRUSTED"
+    follow_status, _, follow_body, _ = request(destination)
+    # One hop maximum; a second redirect stays a failing HTTP_3xx verdict.
+    return follow_status, follow_body, "SAME_HOST_ONE_HOP"
+
+
 def parse_utc(value: object) -> datetime:
     if not isinstance(value, str) or not (value.endswith("Z") or value[-6:-5] in ("+", "-")):
         raise AuditFailure("post_timestamp_missing_explicit_timezone")
@@ -191,16 +221,17 @@ def run() -> dict:
 
     feed = request(ROOT + "/feeds/posts/summary?alt=json&max-results=5&orderby=published")
     desktop = request(ROOT + "/")
-    mobile = request(ROOT + "/?m=1")
+    mobile_status, mobile_body, mobile_redirect = mobile_public_get()
     public = evaluate_public(provider=provider, feed_status=feed[0], feed_location=feed[3], feed_body=feed[2],
                              desktop_status=desktop[0], desktop_body=desktop[2],
-                             mobile_status=mobile[0], mobile_body=mobile[2])
+                             mobile_status=mobile_status, mobile_body=mobile_body)
     delivery_ok = all(v == "MATCHES_PROVIDER" for v in public.values())
     status = "PUBLIC_DELIVERY_VERIFIED" if provider["fresh"] and delivery_ok else (
         "PROVIDER_STALE" if not provider["fresh"] else "PROVIDER_FRESH_PUBLIC_DELIVERY_BLOCKED"
     )
     return {"status": status, "provider": provider, "public": public,
-            "blog_id": BLOG_ID, "checked_at": now.isoformat(),
+            "mobile_redirect": mobile_redirect, "blog_id": BLOG_ID,
+            "checked_at": now.isoformat(),
             "blogger_publication": "NOT_ATTEMPTED", "production_deployment": "NONE"}
 
 
