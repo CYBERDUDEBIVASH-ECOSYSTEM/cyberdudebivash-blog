@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-19T03:28:58.515Z",
+  "generated": "2026-11-19T04:35:38.097Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19215,
+    "total_nodes": 19219,
     "actors": 8,
-    "cves": 9255,
-    "campaigns": 2920,
+    "cves": 9257,
+    "campaigns": 2922,
     "malware": 0,
     "iocs": 911,
-    "edges": 5697
+    "edges": 5699
   },
   "nodes": {
     "actor:lockbit": {
@@ -361159,6 +361159,82 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-132622": {
+      "id": "CVE-2026-132622",
+      "type": "CVE",
+      "name": "CVE-2026-132622 — Unknown Vendor A vulnerability was CVSS 9.1 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.1,
+        "threat_level": "HIGH",
+        "priority_score": 69,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability was",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-132611": {
+      "id": "CVE-2026-132611",
+      "type": "CVE",
+      "name": "CVE-2026-132611 — Unknown Vendor A security vulnerability CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A security vulnerability",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-132622": {
+      "id": "campaign:cve-2026-132622",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-132622"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-132622",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-132611": {
+      "id": "campaign:cve-2026-132611",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-132611"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-132611",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -412614,6 +412690,24 @@
       "id": "campaign:cve-2026-132610→includes→CVE-2026-132610",
       "source": "campaign:cve-2026-132610",
       "target": "CVE-2026-132610",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-132622→includes→CVE-2026-132622",
+      "source": "campaign:cve-2026-132622",
+      "target": "CVE-2026-132622",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-132611→includes→CVE-2026-132611",
+      "source": "campaign:cve-2026-132611",
+      "target": "CVE-2026-132611",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-19",

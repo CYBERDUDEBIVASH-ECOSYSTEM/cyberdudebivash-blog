@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19T03:28:58.713Z",
+  "generated": "2026-11-19T04:35:38.313Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,7 +8,7 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 135,
+  "count": 133,
   "items": [
     {
       "id": "CVE-2026-76088",
@@ -112,52 +112,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-76080",
-      "title": "CVE-2026-76080 - Probo: Unauthenticated cross-tenant and hidden-item disclosure via Query.node in the public Trust Cente",
-      "description": "CVE-2026-76080 - Probo: Unauthenticated cross-tenant and hidden-item disclosure via Query.node in the public Trust Center API",
-      "cvss": 9.1,
-      "final_ps": 53,
-      "quality_score": 0.433,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-11",
-      "last_seen": "2026-11-11",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76080"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-76080"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=7d (score=0.40)",
-          "QS=0.432"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-119793",
       "title": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
       "description": "Summary\nA single gossipsub peer can grow a node's topics map without bound by flooding subscription RPCs, because the default configuration has no global, per-peer, or topic-length cap and peer scoring does not penalise subscription volume. The peer is never greylisted, so the gr... [Full analysis a",
@@ -195,52 +149,6 @@
         ],
         "priority": [
           "+4 critical_infra"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-76954",
-      "title": "CVE-2026-76954 - Synology DiskStation Manager Auth API SQL Injection",
-      "description": "CVE-2026-76954 - Synology DiskStation Manager Auth API SQL Injection",
-      "cvss": 9.8,
-      "final_ps": 52,
-      "quality_score": 0.383,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76954"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-76954"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=6d (score=0.40)",
-          "QS=0.383"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -1349,7 +1257,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.45",
-          "recency=6d (score=0.40)",
+          "recency=7d (score=0.40)",
           "QS=0.383"
         ],
         "priority": [
@@ -1395,7 +1303,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=6d (score=0.40)",
+          "recency=7d (score=0.40)",
           "QS=0.432"
         ],
         "priority": [
@@ -3894,7 +3802,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=6d (score=0.40)",
+          "recency=7d (score=0.40)",
           "QS=0.432"
         ],
         "priority": [
@@ -4178,6 +4086,53 @@
         "priority": [
           "+8 exploited_in_wild",
           "+7 zero_day"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-132622",
+      "title": "CVE-2026-132622 — Unknown Vendor A vulnerability was CVSS 9.1 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.1,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "A vulnerability was",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://vuldb.com/cve/CVE-2026-132622",
+        "https://vuldb.com/submit/1045343",
+        "https://vuldb.com/vuln/439768",
+        "https://vuldb.com/vuln/439768/cti"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -5327,6 +5282,52 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-76954",
+      "title": "CVE-2026-76954 - Synology DiskStation Manager Auth API SQL Injection",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76954"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-76954"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-110959",
       "title": "Low Security Vulnerability (CVE-2026-110959)",
       "description": "",
@@ -5419,140 +5420,43 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-132773",
-      "title": "CVE-2026-132773 — Unknown Vendor Attendize through 2.8.0 CVSS 7.1 High Severity Vulnerability",
+      "id": "CVE-2026-76080",
+      "title": "CVE-2026-76080 - Probo: Unauthenticated cross-tenant and hidden-item disclosure via Query.node in the public Trust Cente",
       "description": "",
-      "cvss": 7.1,
-      "final_ps": 21,
-      "quality_score": 0.535,
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "first_seen": "2026-11-11",
+      "last_seen": "2026-11-11",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Attendize through 2.8.0",
+      "vendor": "",
+      "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-132773"
+        "CVE-2026-76080"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/Attendize/Attendize/blob/9289acbab1583898fd85aeee66c7b613d8971deb/app/Http/Controllers/EventOrdersController.php#L206-L226",
-        "https://github.com/Attendize/Attendize/blob/9289acbab1583898fd85aeee66c7b613d8971deb/app/Models/Attendee.php#L66-L69",
-        "https://github.com/Attendize/Attendize/issues/1154",
-        "https://github.com/Attendize/Attendize/issues/1156"
+        "https://cvefeed.io/vuln/detail/CVE-2026-76080"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.535"
+          "QS=0.438"
         ],
         "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-132751",
-      "title": "CVE-2026-132751 — Unknown Vendor yt through 4.4.4 CVSS 7.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.8,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "yt through 4.4.4",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/yt-project/yt/blob/yt-4.4.4/yt/frontends/ytdata/data_structures.py#L52-L56",
-        "https://github.com/yt-project/yt/commit/ce997aebb89423a6f5d86c3bda24094e908d3c2d",
-        "https://github.com/yt-project/yt/commit/ce997aebb89423a6f5d86c3bda24094e908d3c2d",
-        "https://github.com/yt-project/yt/issues/5641"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-132756",
-      "title": "CVE-2026-132756 — Unknown Vendor Geany through 2.1.0 CVSS 7.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.8,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Geany through 2.1.0",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/geany/geany/blob/2.1.0/src/build.c#L1100-L1111",
-        "https://github.com/geany/geany/blob/2.1.0/src/utils.c#L2561-L2610",
-        "https://github.com/geany/geany/issues/4611",
-        "https://www.vulncheck.com/advisories/geany-through-2.1.0-os-command-injection-via-filename-in-build-commands"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -5703,10 +5607,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-132748",
-      "title": "CVE-2026-132748 — Unknown Vendor Vtiger CRM through CVSS 7.2 High Severity Vulnerability",
+      "id": "CVE-2026-132611",
+      "title": "CVE-2026-132611 — Unknown Vendor A security vulnerability CVSS 7.3 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.2,
+      "cvss": 7.3,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -5722,15 +5626,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Vtiger CRM through",
+      "product": "A security vulnerability",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://code.vtiger.com/vtiger/vtigercrm/-/commit/484620881d0dd689497bec2cf3a5d8e10c23f833",
-        "https://code.vtiger.com/vtiger/vtigercrm/-/commit/a61e73fd18b9c06bea348b1e53240b71fdcc2144",
-        "https://code.vtiger.com/vtiger/vtigercrm/-/work_items/2015",
-        "https://www.vulncheck.com/advisories/vtiger-crm-through-8.4.0-php-code-injection-via-configuration-editor"
+        "https://github.com/wsx138/cve/issues/10",
+        "https://vuldb.com/cve/CVE-2026-132611",
+        "https://vuldb.com/submit/1045192",
+        "https://vuldb.com/vuln/439746"
       ],
       "explanation": {
         "quality": [
