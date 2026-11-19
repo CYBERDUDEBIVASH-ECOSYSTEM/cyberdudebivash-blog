@@ -22,6 +22,7 @@
 
 const detEngine = require('./detection-engine');
 const reasoning = require('./reasoning-engine');
+const { verifiedAffectedTechnology } = require('./source-claim-guards');
 
 function _safe(fn, dflt) { try { return fn(); } catch (_) { return dflt; } }
 const _FMT_KEYS = ['sigma', 'kql', 'splunk', 'osquery'];
@@ -52,15 +53,18 @@ function buildProducts(item, mem) {
   if (!item || typeof item !== 'object' || Array.isArray(item)) return empty;
 
   const text = `${item.title || ''}. ${item.desc || ''}`;
+  const affectedTechnology = verifiedAffectedTechnology(item);
   const r = _safe(() => reasoning.buildReasoning(item, mem), reasoning.buildReasoning({}));
-  const techniques = _safe(() => detEngine.mapTechniques(text), []);
+  // Do not generate deployable keyword-only detection rules for news coverage
+  // without an evidenced affected technology / CVE record.
+  const techniques = affectedTechnology ? _safe(() => detEngine.mapTechniques(text), []) : [];
   const rawIocs = (Array.isArray(item.iocs) ? item.iocs : []).filter((i) => i && i.value);
   const refs = [];
   if (item.id && /^CVE-/i.test(item.id)) refs.push(`https://nvd.nist.gov/vuln/detail/${item.id}`);
-  const { detections, suricata } = _safe(
+  const { detections, suricata } = affectedTechnology ? _safe(
     () => detEngine.buildDetections(text, rawIocs.map((i) => ({ type: i.type, value: i.value })), { references: refs }),
     { detections: [], suricata: [] },
-  );
+  ) : { detections: [], suricata: [] };
   const correlations = (mem && typeof mem.correlationNotes === 'function')
     ? _safe(() => mem.correlationNotes(item), []) : [];
 
@@ -72,8 +76,12 @@ function buildProducts(item, mem) {
   const cvss = (typeof item.cvss === 'number' && item.cvss > 0) ? item.cvss : null;
   const kev = !!item.cisaKev;
   const severity = cvss != null ? (cvss >= 9 ? 'CRITICAL' : cvss >= 7 ? 'HIGH' : cvss >= 4 ? 'MEDIUM' : 'LOW')
-    : (item.threatLevel || 'HIGH').toUpperCase();
-  const tech = [item.vendor, item.product].filter(Boolean).join(' ') || 'the affected technology';
+    : (affectedTechnology ? (item.threatLevel || 'UNASSESSED').toUpperCase() : 'UNASSESSED');
+  const tech = affectedTechnology || 'NOT_ESTABLISHED';
+  const sourceReviewDecisions = [
+    { owner: 'CTI Analyst', decision: 'Verify source claims and affected entities before raising an incident', timeline: 'Before publication/escalation' },
+    { owner: 'SOC Lead', decision: 'Check local asset inventory and telemetry before operational response', timeline: 'Before action' },
+  ];
 
   const iocFeed = rawIocs.slice(0, 50).map((i) => ({
     value: _defang(i.type, i.value),
@@ -84,20 +92,25 @@ function buildProducts(item, mem) {
   // ── Executive Advisory (CISO) ───────────────────────────────────────────
   const executiveAdvisory = {
     audience: 'CISO / Security Leadership',
-    headline: `${severity} threat affecting ${tech}`,
+    headline: affectedTechnology ? `${severity} threat affecting ${tech}`
+      : `Source-linked CTI research: ${String(item.title || 'unverified affected assets')}`, 
     situation: r.facts.slice(0, 4),
     businessRisk: r.assessments.filter((a) => /severity|risk|impact|ransomware|credential/i.test(a.text))
       .map((a) => `(${a.confidence}) ${a.text}`),
-    decisions: _decisions(severity, kev, item),
-    recommendedActions: _timeline(severity, kev, detections.length),
+    decisions: affectedTechnology ? _decisions(severity, kev, item) : sourceReviewDecisions,
+    recommendedActions: affectedTechnology ? _timeline(severity, kev, detections.length)
+      : ['Verify source provenance and determine whether any local asset is affected before enforcing controls.'],
   };
 
   // ── Board Brief ─────────────────────────────────────────────────────────
   const boardBrief = {
     audience: 'Board of Directors',
     bullets: [
-      `A ${severity.toLowerCase()}-severity cyber threat affects ${tech}${kev ? ', with exploitation confirmed by U.S. federal advisory (CISA KEV)' : ''}.`,
-      cvss != null ? `Technical severity is rated ${cvss}/10.` : `Severity is assessed as ${severity.toLowerCase()}.`,
+      affectedTechnology
+        ? `A ${severity.toLowerCase()}-severity cyber threat affects ${tech}${kev ? ', with exploitation confirmed by U.S. federal advisory (CISA KEV)' : ''}.`
+        : 'The cited research does not establish affected software, customer compromise or a confirmed event-specific incident.',
+      cvss != null ? `Technical severity is rated ${cvss}/10.`
+        : 'Technical CVSS severity is not established by this source record.',
       'Primary exposure is operational disruption, data loss, and potential regulatory liability (e.g. GDPR, NIS2, DORA, SOC 2) where in-scope systems are affected.',
       detections.length
         ? `Detection coverage is available and can be deployed to reduce exposure now.`
@@ -146,8 +159,9 @@ function buildProducts(item, mem) {
     cisa_kev: kev,
     exploited: !!item.exploited,
     cves,
-    vendor: item.vendor || null,
-    product: item.product || null,
+    vendor: affectedTechnology ? (item.vendor || null) : null,
+    product: affectedTechnology ? (item.product || null) : null,
+    affected_technology_status: affectedTechnology ? 'CVE_LINKED' : 'NOT_ESTABLISHED',
     mitre_attack: techniques.map((t) => ({ id: t.technique_id, name: t.name, tactic: t.tactic, confidence: t.confidence })),
     iocs: iocFeed,
     detections: {
