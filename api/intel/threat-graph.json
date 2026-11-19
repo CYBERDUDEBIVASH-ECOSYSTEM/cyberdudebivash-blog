@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-19T22:49:56.917Z",
+  "generated": "2026-11-19T23:43:47.458Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19414,
+    "total_nodes": 19416,
     "actors": 8,
-    "cves": 9369,
-    "campaigns": 2994,
+    "cves": 9370,
+    "campaigns": 2995,
     "malware": 0,
     "iocs": 911,
-    "edges": 5771
+    "edges": 5772
   },
   "nodes": {
     "actor:lockbit": {
@@ -364889,6 +364889,44 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-68791": {
+      "id": "CVE-2026-68791",
+      "type": "CVE",
+      "name": "CVE-2026-68791 — microsoft azure machine learning CVSS 10 Critical Vulnerability",
+      "attributes": {
+        "cvss": 10,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "microsoft",
+        "product": "azure machine learning",
+        "published": "2026-09-17",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-68791": {
+      "id": "campaign:cve-2026-68791",
+      "type": "Campaign",
+      "name": "Microsoft Ecosystem Targeting Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-09-17",
+        "last_seen": "2026-09-17",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-68791"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-68791",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -417010,6 +417048,15 @@
       "id": "campaign:cve-2026-97699→includes→CVE-2026-97699",
       "source": "campaign:cve-2026-97699",
       "target": "CVE-2026-97699",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-68791→includes→CVE-2026-68791",
+      "source": "campaign:cve-2026-68791",
+      "target": "CVE-2026-68791",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-19",
