@@ -75,6 +75,7 @@ def test_ransomware_only_in_summary_is_not_enough_to_claim_primary_topic():
         "Blockchain C2 network resilience analysis",
         summary="Researchers mention ransomware and extortion in historical background.",
         full_content="This technical research primarily investigates decentralized command-and-control.",
+        labels=["Threat Intelligence"],
     )
     assert not ransomware_is_primary_topic(article)
     assert classify_publication_family(article) == "threat_analysis"
