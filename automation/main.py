@@ -21,6 +21,7 @@ from .authority_transformer import AuthorityTransformer
 from .blogger_publisher import BloggerPublisher, BloggerPublishError, BloggerAuthError, BloggerRateLimitError
 from .canonical_rss import discover_local_canonical_rss
 from .canary_source_identity import live_canary_pin_required, verify_reviewed_source_identity
+from .canary_review_preview import write_canary_dry_run_review
 from .cti_original_source_freshness import original_source_is_current
 from .config import Config
 from .content_discovery import ContentDiscoveryEngine, DiscoveredArticle, PublicationState
@@ -468,6 +469,25 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
                 post_result[field] = transformed.get(field)
 
             if dry_run:
+                # P0: expose the exact source-linked, certified generated HTML
+                # as a downloadable text preview before any live authorization.
+                # Only the operator-selected manual one-post dry run emits it.
+                if publish_target == 1 and os.getenv("GITHUB_EVENT_NAME") == "workflow_dispatch":
+                    preview = write_canary_dry_run_review(
+                        article, transformed, config.logs_dir, post_result["scheduler_family"]
+                    )
+                    post_result["review_preview_sha256"] = preview["reviewed_html_sha256"]
+                    post_result["review_preview_available"] = True
+                    logger.info(
+                        "P0_BLOGGER_CANARY_REVIEW_ARTIFACT_READY",
+                        extra={
+                            "source_url": preview["source_url"],
+                            "source_identity_hash": preview["source_identity_hash"],
+                            "reviewed_html_sha256": preview["reviewed_html_sha256"],
+                            "source_published_at": preview["source_published_at"],
+                            "approval": "NOT_GRANTED",
+                        },
+                    )
                 logger.info(
                     "DRY RUN — would publish",
                     extra={
