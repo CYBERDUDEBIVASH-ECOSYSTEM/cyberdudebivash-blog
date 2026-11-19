@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-19T18:26:13.022Z",
+  "generated": "2026-11-19T19:37:41.954Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19309,
+    "total_nodes": 19313,
     "actors": 8,
-    "cves": 9308,
-    "campaigns": 2951,
+    "cves": 9310,
+    "campaigns": 2953,
     "malware": 0,
     "iocs": 911,
-    "edges": 5728
+    "edges": 5730
   },
   "nodes": {
     "actor:lockbit": {
@@ -362913,6 +362913,82 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-30793": {
+      "id": "CVE-2026-30793",
+      "type": "CVE",
+      "name": "CVE-2026-30793 — rustdesk rustdesk CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "rustdesk",
+        "product": "rustdesk",
+        "published": "2026-03-05",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-97205": {
+      "id": "CVE-2026-97205",
+      "type": "CVE",
+      "name": "CVE-2026-97205 — f5 dos CVSS 8.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "f5",
+        "product": "dos",
+        "published": "2026-10-14",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-30793": {
+      "id": "campaign:cve-2026-30793",
+      "type": "Campaign",
+      "name": "rustdesk rustdesk Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-03-05",
+        "last_seen": "2026-03-05",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-30793"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-30793",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-97205": {
+      "id": "campaign:cve-2026-97205",
+      "type": "Campaign",
+      "name": "f5 dos Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-10-14",
+        "last_seen": "2026-10-14",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-97205"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-97205",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -414647,6 +414723,24 @@
       "id": "campaign:cve-2026-133246→includes→CVE-2026-133246",
       "source": "campaign:cve-2026-133246",
       "target": "CVE-2026-133246",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-30793→includes→CVE-2026-30793",
+      "source": "campaign:cve-2026-30793",
+      "target": "CVE-2026-30793",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-97205→includes→CVE-2026-97205",
+      "source": "campaign:cve-2026-97205",
+      "target": "CVE-2026-97205",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-19",
