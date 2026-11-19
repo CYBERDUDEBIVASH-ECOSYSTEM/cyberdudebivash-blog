@@ -305,7 +305,7 @@ def classify_factory_family(article: DiscoveredArticle) -> str:
 
     if re.search(r"\b(?:zero[ -]?day|0[ -]?day)\b", text):
         return "zero_day"
-    if source == "ransomware_intel" or "ransomware" in text or "extortion" in text:
+    if _scheduler.ransomware_is_primary_topic(article):
         return "ransomware"
     if source == "breach_intel" or re.search(r"\b(?:data breach|breach notice|data exposure|records exposed|data leak)\b", text):
         return "breach"
