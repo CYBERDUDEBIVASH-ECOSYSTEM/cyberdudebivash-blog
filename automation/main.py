@@ -30,6 +30,7 @@ from .publication_scheduler import (
     select_publication_batch,
 )
 from .publication_verifier import fetch_back_and_verify
+from .editorial_quarantine import editorial_quarantine_reason
 from .report_integrity import PublicationIntegrityError, compute_artifact_hash
 from .search_console_submitter import SearchConsoleSubmitter
 from .social_amplifier import SocialAmplifier
@@ -288,6 +289,27 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
         logger.warning(
             "P0 source provenance prevented stale first-party CTI repost selection",
             extra={"blocked": report["original_source_date_blocked"]},
+        )
+
+    # P0 editorial containment: this reviewed canonical source dossier is not
+    # safe to syndicate despite its automated FLASH_READY score. Exclude from
+    # fresh and retry pools before scheduling and quality-preserving backfill.
+    _editorial_pool = len(fresh_articles) + len(retry_articles)
+    fresh_articles = [
+        article for article in fresh_articles
+        if not editorial_quarantine_reason(article.url)
+    ]
+    retry_articles = [
+        article for article in retry_articles
+        if not editorial_quarantine_reason(article.url)
+    ]
+    report["editorial_quarantined"] = (
+        _editorial_pool - len(fresh_articles) - len(retry_articles)
+    )
+    if report["editorial_quarantined"]:
+        logger.warning(
+            "P0 editorial quarantine excluded unsafe CTI source record",
+            extra={"blocked": report["editorial_quarantined"]},
         )
 
     selection = select_publication_batch(
