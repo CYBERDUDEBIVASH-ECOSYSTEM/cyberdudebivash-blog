@@ -186,6 +186,8 @@ jobs:
         run: node --test tests-js/nvd-cve-query-contract.test.js
       - name: P0 — Verify Cloudflare release control is manual-only and drift comparisons fail closed
         run: node --test tests-js/production-drift-safety.test.js
+      - name: P0 — Exact nine Blogger controls remain operator-reviewed; unknown siblings must block
+        run: node --test tests-js/soc-drift-nine-blogger-controls.test.js
       - name: P0 — SOC smoke push must not wait for a nonexistent Cloudflare deployment
         run: node --test tests-js/soc-smoke-push-readonly.test.js
 

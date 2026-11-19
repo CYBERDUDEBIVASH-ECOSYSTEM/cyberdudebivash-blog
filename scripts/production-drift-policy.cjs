@@ -211,6 +211,26 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   'AGENTS.md',
   'scripts/p0-soc-cti-evidence-gate.cjs',
   'scripts/soc-live-homepage-certify.js',
+  // P0 #433/#434: the verified full-tree drift job #44573375309 found
+  // EXACTLY nine new Blogger publication, content-selection, and provider-
+  // evidence controls UNKNOWN. Inspected each source file before classification.
+  // These files shape the customer publication lane or its acceptance proof:
+  //   - read-only OAuth/public audit & preview are still release-control inputs;
+  //   - source pin, editorial quarantine, scheduler and throughput are live
+  //     public-write safety controls;
+  //   - manual dispatch and X-egress guards are privilege/side-effect controls.
+  // Treat every change as OPERATIONAL: an operator must review and approve
+  // release; never benign, auto-deployed, or proof of customer delivery.
+  // No automation/**, scripts/** or workflow glob. New siblings stay UNKNOWN.
+  '.github/workflows/blogger-provider-delivery-readonly.yml',
+  'automation/canary_review_preview.py',
+  'automation/canary_source_identity.py',
+  'automation/editorial_quarantine.py',
+  'automation/premium_factory_throughput.py',
+  'automation/publication_scheduler.py',
+  'scripts/blogger-live-dispatch-guard.sh',
+  'scripts/blogger-one-post-canary-egress.sh',
+  'scripts/blogger_provider_delivery_audit.py',
 ]);
 
 /**
