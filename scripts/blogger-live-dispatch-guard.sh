@@ -9,6 +9,8 @@ dry_run="${CDB_BLOGGER_DRY_RUN_INPUT:-true}"
 count="${MAX_POSTS_PER_RUN:-}"
 ready="${CDB_BLOGGER_OAUTH_READY:-}"
 canary_approved="${CDB_BLOGGER_CANARY_APPROVED:-false}"
+canary_source_url="${CDB_BLOGGER_CANARY_SOURCE_URL:-}"
+canary_source_hash="${CDB_BLOGGER_CANARY_SOURCE_HASH:-}"
 
 case "$count" in 1|2|3|4) ;; *)
   echo "::error title=Blogger dispatch blocked::Invalid bounded post count"
@@ -26,6 +28,14 @@ if [ "$event" = "workflow_dispatch" ]; then
   fi
   if [ "$count" = "1" ]; then
     if [ "$canary_approved" = "true" ]; then
+      case "$canary_source_url" in
+        https://*) ;;
+        *) echo "::error title=Blogger canary held::Reviewed HTTPS source URL required"; exit 2 ;;
+      esac
+      if [[ ! "$canary_source_hash" =~ ^[0-9a-f]{16}$ ]]; then
+        echo "::error title=Blogger canary held::Reviewed 16-hex source identity required"
+        exit 2
+      fi
       echo "P0_BLOGGER_DISPATCH_AUTH=EXPLICIT_ONE_POST_CANARY"
       return 0 2>/dev/null || exit 0
     fi
