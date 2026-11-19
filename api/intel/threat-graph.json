@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-19T11:26:58.697Z",
+  "generated": "2026-11-19T12:31:46.237Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19259,
+    "total_nodes": 19265,
     "actors": 8,
-    "cves": 9284,
-    "campaigns": 2932,
+    "cves": 9287,
+    "campaigns": 2935,
     "malware": 0,
     "iocs": 911,
-    "edges": 5709
+    "edges": 5712
   },
   "nodes": {
     "actor:lockbit": {
@@ -361975,6 +361975,120 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-115677": {
+      "id": "CVE-2026-115677",
+      "type": "CVE",
+      "name": "CVE-2026-115677 — Unknown Vendor Buffer Copy without CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "Buffer Copy without",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-123968": {
+      "id": "CVE-2026-123968",
+      "type": "CVE",
+      "name": "CVE-2026-123968 — Unknown Vendor The Slimbox plugin CVSS 7.2 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The Slimbox plugin",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-123972": {
+      "id": "CVE-2026-123972",
+      "type": "CVE",
+      "name": "CVE-2026-123972 — Unknown Vendor The WP-Slimbox2 Plugin CVSS 7.2 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The WP-Slimbox2 Plugin",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-115677": {
+      "id": "campaign:cve-2026-115677",
+      "type": "Campaign",
+      "name": "Unknown Buffer Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-115677"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-115677",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-123968": {
+      "id": "campaign:cve-2026-123968",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-123968"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-123968",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-123972": {
+      "id": "campaign:cve-2026-123972",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-123972"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-123972",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -413538,6 +413652,33 @@
       "id": "campaign:cve-2026-126631→includes→CVE-2026-126631",
       "source": "campaign:cve-2026-126631",
       "target": "CVE-2026-126631",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-115677→includes→CVE-2026-115677",
+      "source": "campaign:cve-2026-115677",
+      "target": "CVE-2026-115677",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-123968→includes→CVE-2026-123968",
+      "source": "campaign:cve-2026-123968",
+      "target": "CVE-2026-123968",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-123972→includes→CVE-2026-123972",
+      "source": "campaign:cve-2026-123972",
+      "target": "CVE-2026-123972",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-19",
