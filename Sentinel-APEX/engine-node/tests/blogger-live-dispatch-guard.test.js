@@ -94,4 +94,9 @@ test('workflow applies guard before paid-dependency setup and again before publi
   assert.ok(early > 0 && early < install);
   assert.ok(final > early && final < python);
   assert.ok(workflow.includes("vars.BLOGGER_OAUTH_READY == 'true'"));
+  const monitor = fs.readFileSync(path.join(root,'.github/workflows/freshness-check.yml'), 'utf8');
+  assert.ok(monitor.includes('id: blogger_readiness'));
+  assert.ok(monitor.includes('BLOGGER_READY: ${{ vars.BLOGGER_OAUTH_READY }}'));
+  assert.ok(monitor.includes('BLOGGER_SCHEDULE_GATE=$STATUS'));
+  assert.ok(monitor.includes('Blogger schedule gate : ${{ steps.blogger_readiness.outputs.status'));
 });
