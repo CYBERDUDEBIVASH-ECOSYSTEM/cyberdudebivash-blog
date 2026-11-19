@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T19:43:27.806Z",
+  "generated": "2026-11-19T01:58:22.219Z",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
   "count": 6,
   "collections": [
@@ -3342,8 +3342,38 @@
       "slug": "ai-security-intelligence",
       "name": "AI Security & LLM Threat Collection",
       "description": "LLM security, prompt injection, AI agent risk, and AI governance coverage.",
-      "count": 268,
+      "count": 271,
       "items": [
+        {
+          "slug": "cve-2026-63129-npm-connorbritain-mssql-mcp-core",
+          "title": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
+          "url": "/posts/cve-2026-63129-npm-connorbritain-mssql-mcp-core.html",
+          "generated": "2026-11-19T01:07:40.661Z",
+          "severity": "HIGH",
+          "cves": [
+            "CVE-2026-63129"
+          ]
+        },
+        {
+          "slug": "cve-2026-114585-unknown-vendor-ibm-engineering-ai",
+          "title": "CVE-2026-114585 — Unknown Vendor IBM Engineering AI CVSS 7.6 High Severity Vulnerability",
+          "url": "/posts/cve-2026-114585-unknown-vendor-ibm-engineering-ai.html",
+          "generated": "2026-11-18T21:53:01.588Z",
+          "severity": "HIGH",
+          "cves": [
+            "CVE-2026-114585"
+          ]
+        },
+        {
+          "slug": "cve-2026-76007-unknown-vendor-ibm-engineering-ai",
+          "title": "CVE-2026-76007 — Unknown Vendor IBM Engineering AI CVSS 8.1 High Severity Vulnerability",
+          "url": "/posts/cve-2026-76007-unknown-vendor-ibm-engineering-ai.html",
+          "generated": "2026-11-18T21:53:01.543Z",
+          "severity": "HIGH",
+          "cves": [
+            "CVE-2026-76007"
+          ]
+        },
         {
           "slug": "cve-2026-119220-unknown-vendor-the-dokan-ai",
           "title": "CVE-2026-119220 — Unknown Vendor The Dokan: AI CVSS 7.5 High Severity Vulnerability",
@@ -6485,6 +6515,45 @@
           "reasoning": [
             "1 intel item(s) clustered with composite confidence 0.900",
             "Single CVE basis: CVE-2026-120314"
+          ],
+          "clustering_model": "weighted_v2"
+        },
+        {
+          "campaign_id": "campaign:cve-2026-63129",
+          "name": "npm @connorbritain/mssql-mcp-core Exploitation Campaign",
+          "severity": "MEDIUM",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2026-11-19",
+          "last_seen": "2026-11-19",
+          "related_intel_ids": [
+            "CVE-2026-63129"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2026-63129",
+              "title": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
+              "type": "CVE_REPORT",
+              "priority_score": 61,
+              "published": "2026-11-19",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2026-63129"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 61,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2026-63129"
           ],
           "clustering_model": "weighted_v2"
         },
@@ -13235,6 +13304,84 @@
           ]
         },
         {
+          "campaign_id": "campaign:cve-2026-73864",
+          "name": "npm install-artifact-from-github Exploitation Campaign",
+          "clustering_model": "weighted_v2",
+          "severity": "MEDIUM",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2026-11-18",
+          "last_seen": "2026-11-18",
+          "related_intel_ids": [
+            "CVE-2026-73864"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2026-73864",
+              "title": "install-artifact-from-github loads downloaded native artifacts without integrity verification",
+              "type": "CVE_REPORT",
+              "priority_score": 61,
+              "published": "2026-11-18",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2026-73864"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 61,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2026-73864"
+          ]
+        },
+        {
+          "campaign_id": "campaign:cve-2026-63129",
+          "name": "npm @connorbritain/mssql-mcp-core Exploitation Campaign",
+          "severity": "MEDIUM",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2026-11-19",
+          "last_seen": "2026-11-19",
+          "related_intel_ids": [
+            "CVE-2026-63129"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2026-63129",
+              "title": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
+              "type": "CVE_REPORT",
+              "priority_score": 61,
+              "published": "2026-11-19",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2026-63129"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 61,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2026-63129"
+          ],
+          "clustering_model": "weighted_v2"
+        },
+        {
           "campaign_id": "campaign:cve-2026-73654",
           "name": "npm @trigger.dev/core Exploitation Campaign",
           "severity": "LOW",
@@ -13502,8 +13649,38 @@
       "slug": "kev-actively-exploited",
       "name": "CISA KEV — Actively Exploited Collection",
       "description": "Vulnerabilities confirmed to be under active exploitation in the wild.",
-      "count": 439,
+      "count": 442,
       "items": [
+        {
+          "slug": "cve-2026-90817-vanderbilt-university-research-electronic-data-capture-redcap",
+          "title": "CVE-2026-90817: Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability — CISA KEV Active Exploitation",
+          "url": "/posts/cve-2026-90817-vanderbilt-university-research-electronic-data-capture-redcap.html",
+          "generated": "2026-11-18T20:53:50.726Z",
+          "severity": "HIGH",
+          "cves": [
+            "CVE-2026-90817"
+          ]
+        },
+        {
+          "slug": "cve-2024-10441-synology-diskstation-manager-dsm",
+          "title": "CVE-2024-10441: Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability — CISA KEV Active Exploitation",
+          "url": "/posts/cve-2024-10441-synology-diskstation-manager-dsm.html",
+          "generated": "2026-11-18T20:53:50.716Z",
+          "severity": "HIGH",
+          "cves": [
+            "CVE-2024-10441"
+          ]
+        },
+        {
+          "slug": "cve-2026-40217-berriai-litellm",
+          "title": "CVE-2026-40217: BerriAI LiteLLM Unprotected Alternate Channel Vulnerability — CISA KEV Active Exploitation",
+          "url": "/posts/cve-2026-40217-berriai-litellm.html",
+          "generated": "2026-11-18T20:53:50.701Z",
+          "severity": "CRITICAL",
+          "cves": [
+            "CVE-2026-40217"
+          ]
+        },
         {
           "slug": "cve-2026-129448-the-hacker-news-threat-intelligence",
           "title": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
@@ -17257,8 +17434,19 @@
       "slug": "cloud-devsecops",
       "name": "Cloud & DevSecOps Security Collection",
       "description": "Cloud misconfigurations, container security, and DevSecOps pipeline risk.",
-      "count": 76,
+      "count": 77,
       "items": [
+        {
+          "slug": "cve-2026-71861-go-chainguard-dev-sdk",
+          "title": "Chainguard SDK: AWS SigV4 token replay in auth/aws.VerifyToken — Chainguard-Audience/Chainguard-Identity binding headers not required in SignedHeaders",
+          "url": "/posts/cve-2026-71861-go-chainguard-dev-sdk.html",
+          "generated": "2026-11-18T22:52:59.611Z",
+          "severity": "HIGH",
+          "cves": [
+            "CVE-2026-71861",
+            "CVE-2026-71861"
+          ]
+        },
         {
           "slug": "cve-2026-14265-maven-software-amazon-jdbc-aws-advanced-jdbc-wrapper",
           "title": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
