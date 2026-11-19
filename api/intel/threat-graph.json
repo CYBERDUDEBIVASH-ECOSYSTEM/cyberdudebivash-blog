@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-19T12:31:46.237Z",
+  "generated": "2026-11-19T13:53:33.287Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19265,
+    "total_nodes": 19267,
     "actors": 8,
-    "cves": 9287,
-    "campaigns": 2935,
+    "cves": 9288,
+    "campaigns": 2936,
     "malware": 0,
     "iocs": 911,
-    "edges": 5712
+    "edges": 5713
   },
   "nodes": {
     "actor:lockbit": {
@@ -362089,6 +362089,44 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-133117": {
+      "id": "CVE-2026-133117",
+      "type": "CVE",
+      "name": "CVE-2026-133117 — Unknown Vendor WebToffee Product Feed CVSS 8.2 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.2,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "WebToffee Product Feed",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-133117": {
+      "id": "campaign:cve-2026-133117",
+      "type": "Campaign",
+      "name": "Unknown WebToffee Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133117"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133117",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -413679,6 +413717,15 @@
       "id": "campaign:cve-2026-123972→includes→CVE-2026-123972",
       "source": "campaign:cve-2026-123972",
       "target": "CVE-2026-123972",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-19",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133117→includes→CVE-2026-133117",
+      "source": "campaign:cve-2026-133117",
+      "target": "CVE-2026-133117",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-19",
