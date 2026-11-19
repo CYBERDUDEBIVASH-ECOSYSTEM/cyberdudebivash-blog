@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T23:50:17.683Z",
+  "generated": "2026-11-19T01:07:39.430Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,65 +7,18 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7765,
+  "total_published": 7771,
   "s2n_stats": {
-    "passed": 126,
-    "suppressed": 5,
+    "passed": 127,
+    "suppressed": 4,
     "avg_qs": 0.488
   },
   "items": [
     {
-      "id": "CVE-2026-69155",
-      "title": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
-      "description": "## Summary Files uploaded via `POST /upload` are served back by `GET /download/{path}` using `actix_files::NamedFile`. For `text/html` and `image/svg+xml`, actix-files (0.6.6) sets `Content-Disposition: inline`, so the browser **renders** the file instead of downloading it. The `/download` route set",
-      "cvss": 8.7,
-      "final_ps": 63,
-      "quality_score": 0.578,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "rust",
-      "product": "atomic-server",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-69155",
-        "CVE-2026-69155"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-x277-3wcg-g9r2",
-        "https://github.com/ontola/atomic-server/security/advisories/GHSA-x277-3wcg-g9r2",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69155",
-        "https://github.com/ontola/atomic-server/commit/457c1dc9af4cd00d2aec89720718e504a49f392d"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.578"
-        ],
-        "priority": [
-          "base_ps=63 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-69158",
-      "title": "Atomic Server: Unauthenticated full-response SSRF in Atomic-Server /bookmark endpoint",
-      "description": "## Summary Atomic-Server exposes a `GET /bookmark` endpoint that fetches an attacker-supplied URL server-side, parses the response, and reflects the fetched content back to the caller. The endpoint requires no authentication and performs no authorization of its own, and the underlying fetch helper a",
-      "cvss": 8.6,
+      "id": "CVE-2026-68903",
+      "title": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
+      "description": "### Summary LLMKube's `ModelReconciler` accepts arbitrary absolute paths and `file://` URIs in the `Model.spec.source` field and propagates them to two distinct sinks without path allowlisting: (1) `os.Open()` inside the controller pod itself (`copyLocalModel`), and (2) a Kubernetes `HostPathVolumeS",
+      "cvss": 7.7,
       "final_ps": 62,
       "quality_score": 0.578,
       "threat_level": "MEDIUM",
@@ -80,19 +33,19 @@
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "rust",
-      "product": "atomic-server",
+      "vendor": "go",
+      "product": "github.com/defilantech/llmkube",
       "due_date": null,
       "cves": [
-        "CVE-2026-69158",
-        "CVE-2026-69158"
+        "CVE-2026-68903",
+        "CVE-2026-68903"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-ff87-73jp-f3v4",
-        "https://github.com/ontola/atomic-server/security/advisories/GHSA-ff87-73jp-f3v4",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69158",
-        "https://github.com/ontola/atomic-server/commit/006ff290f7ec976c8cbafdceb7b6899389abd5be"
+        "https://github.com/advisories/GHSA-jw3m-8q7m-f35r",
+        "https://github.com/defilantech/LLMKube/security/advisories/GHSA-jw3m-8q7m-f35r",
+        "https://github.com/defilantech/LLMKube/pull/981",
+        "https://github.com/defilantech/LLMKube/commit/ec2647fd4557962a971a1bc9435790b8e77ce961"
       ],
       "explanation": {
         "quality": [
@@ -103,6 +56,94 @@
         ],
         "priority": [
           "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-127222",
+      "title": "CVE-2026-127222 — Unknown Vendor SGLang through 0.5.23, CVSS 7.5 High Severity Vulnerability",
+      "description": "SGLang through 0.5.23, fixed in commit 7b5fb39, contains a missing authorization vulnerability in the POST /load_lora_adapter_from_tensors HTTP endpoint, which lacks the @auth_level(AuthLevel.ADMIN_OPTIONAL) decorator applied to its sibling admin endpoints, allowing unauthenticated network-reachable",
+      "cvss": 7.5,
+      "final_ps": 59,
+      "quality_score": 0.565,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "SGLang through 0.5.23,",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/rahulreddykarne/CVE-2026-127222-sglang",
+        "https://github.com/sgl-project/sglang/commit/7b5fb39bb952da5f6da3bb7fe73c671cf449b6fa",
+        "https://github.com/sgl-project/sglang/pull/49896",
+        "https://rahulkarne.com/#/cve/CVE-2026-127222"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=1d (score=0.85)",
+          "QS=0.565"
+        ],
+        "priority": [
+          "base_ps=59 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-132140",
+      "title": "CVE-2026-132140 — Unknown Vendor A security vulnerability CVSS 7.5 High Severity Vulnerability",
+      "description": "A security vulnerability has been detected in DrayTek Vigor2960 up to 1.5.1.6. Affected by this vulnerability is an unknown functionality of the file mainfunction.cgi of the component Apmcfg Upload. The manipulation leads to null pointer dereference. It is possible to initiate the attack remotely. T",
+      "cvss": 7.5,
+      "final_ps": 59,
+      "quality_score": 0.565,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "A security vulnerability",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
+        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0022-unauthenticated-apmcfgupload-filename-null-dereference",
+        "https://vuldb.com/cve/CVE-2026-132140",
+        "https://vuldb.com/submit/1044967"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=1d (score=0.85)",
+          "QS=0.565"
+        ],
+        "priority": [
+          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -2272,7 +2313,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-71418",
@@ -4259,83 +4302,34 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-68903",
-      "title": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
-      "description": "### Summary LLMKube's `ModelReconciler` accepts arbitrary absolute paths and `file://` URIs in the `Model.spec.source` field and propagates them to two distinct sinks without path allowlisting: (1) `os.Open()` inside the controller pod itself (`copyLocalModel`), and (2) a Kubernetes `HostPathVolumeS",
-      "cvss": 7.7,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "go",
-      "product": "github.com/defilantech/llmkube",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-68903",
-        "CVE-2026-68903"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-jw3m-8q7m-f35r",
-        "https://github.com/defilantech/LLMKube/security/advisories/GHSA-jw3m-8q7m-f35r",
-        "https://github.com/defilantech/LLMKube/pull/981",
-        "https://github.com/defilantech/LLMKube/commit/ec2647fd4557962a971a1bc9435790b8e77ce961"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-127222",
-      "title": "CVE-2026-127222 — Unknown Vendor SGLang through 0.5.23, CVSS 7.5 High Severity Vulnerability",
-      "description": "SGLang through 0.5.23, fixed in commit 7b5fb39, contains a missing authorization vulnerability in the POST /load_lora_adapter_from_tensors HTTP endpoint, which lacks the @auth_level(AuthLevel.ADMIN_OPTIONAL) decorator applied to its sibling admin endpoints, allowing unauthenticated network-reachable",
-      "cvss": 7.5,
+      "id": "CVE-2026-132773",
+      "title": "CVE-2026-132773 — Unknown Vendor Attendize through 2.8.0 CVSS 7.1 High Severity Vulnerability",
+      "description": "Attendize through 2.8.0 contains an authorization bypass vulnerability in EventOrdersController::postCancelOrder() that allows authenticated organisers to cancel attendees belonging to other accounts' events. Attackers can cancel one of their own orders while supplying foreign attendee IDs, which At",
+      "cvss": 7.1,
       "final_ps": 21,
       "quality_score": 0.525,
-      "threat_level": "MEDIUM",
+      "threat_level": "HIGH",
       "type": "CVE_REPORT",
       "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "SGLang through 0.5.23,",
+      "product": "Attendize through 2.8.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/rahulreddykarne/CVE-2026-127222-sglang",
-        "https://github.com/sgl-project/sglang/commit/7b5fb39bb952da5f6da3bb7fe73c671cf449b6fa",
-        "https://github.com/sgl-project/sglang/pull/49896",
-        "https://rahulkarne.com/#/cve/CVE-2026-127222"
+        "https://github.com/Attendize/Attendize/blob/9289acbab1583898fd85aeee66c7b613d8971deb/app/Http/Controllers/EventOrdersController.php#L206-L226",
+        "https://github.com/Attendize/Attendize/blob/9289acbab1583898fd85aeee66c7b613d8971deb/app/Models/Attendee.php#L66-L69",
+        "https://github.com/Attendize/Attendize/issues/1154",
+        "https://github.com/Attendize/Attendize/issues/1156"
       ],
       "explanation": {
         "quality": [
@@ -4354,10 +4348,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-132140",
-      "title": "CVE-2026-132140 — Unknown Vendor A security vulnerability CVSS 7.5 High Severity Vulnerability",
-      "description": "A security vulnerability has been detected in DrayTek Vigor2960 up to 1.5.1.6. Affected by this vulnerability is an unknown functionality of the file mainfunction.cgi of the component Apmcfg Upload. The manipulation leads to null pointer dereference. It is possible to initiate the attack remotely. T",
-      "cvss": 7.5,
+      "id": "CVE-2026-132751",
+      "title": "CVE-2026-132751 — Unknown Vendor yt through 4.4.4 CVSS 7.8 High Severity Vulnerability",
+      "description": "yt through 4.4.4 contains a code injection vulnerability that allows attackers to execute Python code by supplying a crafted con_args attribute in a ytdata HDF5 file. SavedDataset._parse_parameter_file() passes con_args to eval() unrestricted, so loading a malicious .h5 file with yt.load() runs atta",
+      "cvss": 7.8,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "MEDIUM",
@@ -4367,21 +4361,21 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "A security vulnerability",
+      "product": "yt through 4.4.4",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
-        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0022-unauthenticated-apmcfgupload-filename-null-dereference",
-        "https://vuldb.com/cve/CVE-2026-132140",
-        "https://vuldb.com/submit/1044967"
+        "https://github.com/yt-project/yt/blob/yt-4.4.4/yt/frontends/ytdata/data_structures.py#L52-L56",
+        "https://github.com/yt-project/yt/commit/ce997aebb89423a6f5d86c3bda24094e908d3c2d",
+        "https://github.com/yt-project/yt/commit/ce997aebb89423a6f5d86c3bda24094e908d3c2d",
+        "https://github.com/yt-project/yt/issues/5641"
       ],
       "explanation": {
         "quality": [
@@ -4400,5 +4394,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-18T23:50:17.929Z"
+  "lastReportGeneratedAt": "2026-11-19T01:07:40.696Z"
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18T23:50:17.683Z",
+  "generated": "2026-11-19T01:07:39.430Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -11,60 +11,10 @@
   "count": 131,
   "items": [
     {
-      "id": "CVE-2026-69155",
-      "title": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
-      "description": "## Summary Files uploaded via `POST /upload` are served back by `GET /download/{path}` using `actix_files::NamedFile`. For `text/html` and `image/svg+xml`, actix-files (0.6.6) sets `Content-Disposition: inline`, so the browser **renders** the file instead of downloading it. The `/download` route set",
-      "cvss": 8.7,
-      "final_ps": 63,
-      "quality_score": 0.578,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "rust",
-      "product": "atomic-server",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-69155",
-        "CVE-2026-69155"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-x277-3wcg-g9r2",
-        "https://github.com/ontola/atomic-server/security/advisories/GHSA-x277-3wcg-g9r2",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69155",
-        "https://github.com/ontola/atomic-server/commit/457c1dc9af4cd00d2aec89720718e504a49f392d"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.578"
-        ],
-        "priority": [
-          "base_ps=63 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-69158",
-      "title": "Atomic Server: Unauthenticated full-response SSRF in Atomic-Server /bookmark endpoint",
-      "description": "## Summary Atomic-Server exposes a `GET /bookmark` endpoint that fetches an attacker-supplied URL server-side, parses the response, and reflects the fetched content back to the caller. The endpoint requires no authentication and performs no authorization of its own, and the underlying fetch helper a",
-      "cvss": 8.6,
+      "id": "CVE-2026-68903",
+      "title": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
+      "description": "### Summary LLMKube's `ModelReconciler` accepts arbitrary absolute paths and `file://` URIs in the `Model.spec.source` field and propagates them to two distinct sinks without path allowlisting: (1) `os.Open()` inside the controller pod itself (`copyLocalModel`), and (2) a Kubernetes `HostPathVolumeS",
+      "cvss": 7.7,
       "final_ps": 62,
       "quality_score": 0.578,
       "threat_level": "MEDIUM",
@@ -79,19 +29,19 @@
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "rust",
-      "product": "atomic-server",
+      "vendor": "go",
+      "product": "github.com/defilantech/llmkube",
       "due_date": null,
       "cves": [
-        "CVE-2026-69158",
-        "CVE-2026-69158"
+        "CVE-2026-68903",
+        "CVE-2026-68903"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-ff87-73jp-f3v4",
-        "https://github.com/ontola/atomic-server/security/advisories/GHSA-ff87-73jp-f3v4",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69158",
-        "https://github.com/ontola/atomic-server/commit/006ff290f7ec976c8cbafdceb7b6899389abd5be"
+        "https://github.com/advisories/GHSA-jw3m-8q7m-f35r",
+        "https://github.com/defilantech/LLMKube/security/advisories/GHSA-jw3m-8q7m-f35r",
+        "https://github.com/defilantech/LLMKube/pull/981",
+        "https://github.com/defilantech/LLMKube/commit/ec2647fd4557962a971a1bc9435790b8e77ce961"
       ],
       "explanation": {
         "quality": [
@@ -102,6 +52,100 @@
         ],
         "priority": [
           "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-127222",
+      "title": "CVE-2026-127222 — Unknown Vendor SGLang through 0.5.23, CVSS 7.5 High Severity Vulnerability",
+      "description": "SGLang through 0.5.23, fixed in commit 7b5fb39, contains a missing authorization vulnerability in the POST /load_lora_adapter_from_tensors HTTP endpoint, which lacks the @auth_level(AuthLevel.ADMIN_OPTIONAL) decorator applied to its sibling admin endpoints, allowing unauthenticated network-reachable",
+      "cvss": 7.5,
+      "final_ps": 59,
+      "quality_score": 0.565,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "SGLang through 0.5.23,",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/rahulreddykarne/CVE-2026-127222-sglang",
+        "https://github.com/sgl-project/sglang/commit/7b5fb39bb952da5f6da3bb7fe73c671cf449b6fa",
+        "https://github.com/sgl-project/sglang/pull/49896",
+        "https://rahulkarne.com/#/cve/CVE-2026-127222"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=1d (score=0.85)",
+          "QS=0.565"
+        ],
+        "priority": [
+          "base_ps=59 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-132140",
+      "title": "CVE-2026-132140 — Unknown Vendor A security vulnerability CVSS 7.5 High Severity Vulnerability",
+      "description": "A security vulnerability has been detected in DrayTek Vigor2960 up to 1.5.1.6. Affected by this vulnerability is an unknown functionality of the file mainfunction.cgi of the component Apmcfg Upload. The manipulation leads to null pointer dereference. It is possible to initiate the attack remotely. T",
+      "cvss": 7.5,
+      "final_ps": 59,
+      "quality_score": 0.565,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "A security vulnerability",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
+        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0022-unauthenticated-apmcfgupload-filename-null-dereference",
+        "https://vuldb.com/cve/CVE-2026-132140",
+        "https://vuldb.com/submit/1044967"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=1d (score=0.85)",
+          "QS=0.565"
+        ],
+        "priority": [
+          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -156,51 +200,6 @@
       },
       "suppressed": false,
       "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "DARKREADING-0c597ec3c532313d",
-      "title": "AttackIQ Research Reveals How Iranian Cyber Groups Hand Off Network Access to Enable Destructive Attacks",
-      "description": "Analysis of 20 Iranian state-sponsored threat groups details how espionage, ransomware, and hacktivism intersect in state-backed cyber campaigns.",
-      "cvss": null,
-      "final_ps": 51,
-      "quality_score": 0.378,
-      "threat_level": "MEDIUM",
-      "type": "RANSOMWARE",
-      "source": "darkreading",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "darkreading"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": true,
-      "vendor": "darkreading",
-      "product": "Threat Intelligence",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.darkreading.com/threat-intelligence/attackiq-research-reveals-iranian-cyber-groups"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.55 (darkreading)",
-          "data_confidence=0.65",
-          "recency=0d (score=1.00)",
-          "QS=0.378"
-        ],
-        "priority": [
-          "+10 ransomware_confirmed",
-          "+5 nation_state"
-        ],
-        "suppression": "Single-source item with no CVE IDs or IOCs",
-        "merge": null
-      },
-      "suppressed": true,
-      "suppression_reason": "Single-source item with no CVE IDs or IOCs",
       "iocs": []
     },
     {
@@ -4862,98 +4861,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-128074",
-      "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
-      "description": "",
-      "cvss": 9.1,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128074"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-110959",
-      "title": "Low Security Vulnerability (CVE-2026-110959)",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-12",
-      "last_seen": "2026-11-12",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-110959"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-110959?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-122142",
       "title": "Low Security Vulnerability (CVE-2026-122142)",
       "description": "",
@@ -5027,6 +4934,98 @@
       "ioc_count": 0,
       "refs": [
         "https://vulners.com/nvd/NVD:CVE-2026-122149?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128074",
+      "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
+      "description": "",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128074"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-110959",
+      "title": "Low Security Vulnerability (CVE-2026-110959)",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-12",
+      "last_seen": "2026-11-12",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-110959"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-110959?utm_source=rss&utm_medium=rss&utm_campaign=rss"
       ],
       "explanation": {
         "quality": [
@@ -5230,60 +5229,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-68903",
-      "title": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
+      "id": "CVE-2026-132773",
+      "title": "CVE-2026-132773 — Unknown Vendor Attendize through 2.8.0 CVSS 7.1 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.7,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "go",
-      "product": "github.com/defilantech/llmkube",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-68903",
-        "CVE-2026-68903"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-jw3m-8q7m-f35r",
-        "https://github.com/defilantech/LLMKube/security/advisories/GHSA-jw3m-8q7m-f35r",
-        "https://github.com/defilantech/LLMKube/pull/981",
-        "https://github.com/defilantech/LLMKube/commit/ec2647fd4557962a971a1bc9435790b8e77ce961"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-127222",
-      "title": "CVE-2026-127222 — Unknown Vendor SGLang through 0.5.23, CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
+      "cvss": 7.1,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -5293,21 +5242,21 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "SGLang through 0.5.23,",
+      "product": "Attendize through 2.8.0",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/rahulreddykarne/CVE-2026-127222-sglang",
-        "https://github.com/sgl-project/sglang/commit/7b5fb39bb952da5f6da3bb7fe73c671cf449b6fa",
-        "https://github.com/sgl-project/sglang/pull/49896",
-        "https://rahulkarne.com/#/cve/CVE-2026-127222"
+        "https://github.com/Attendize/Attendize/blob/9289acbab1583898fd85aeee66c7b613d8971deb/app/Http/Controllers/EventOrdersController.php#L206-L226",
+        "https://github.com/Attendize/Attendize/blob/9289acbab1583898fd85aeee66c7b613d8971deb/app/Models/Attendee.php#L66-L69",
+        "https://github.com/Attendize/Attendize/issues/1154",
+        "https://github.com/Attendize/Attendize/issues/1156"
       ],
       "explanation": {
         "quality": [
@@ -5327,10 +5276,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-132140",
-      "title": "CVE-2026-132140 — Unknown Vendor A security vulnerability CVSS 7.5 High Severity Vulnerability",
+      "id": "CVE-2026-132751",
+      "title": "CVE-2026-132751 — Unknown Vendor yt through 4.4.4 CVSS 7.8 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.5,
+      "cvss": 7.8,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -5340,21 +5289,21 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "A security vulnerability",
+      "product": "yt through 4.4.4",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
-        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0022-unauthenticated-apmcfgupload-filename-null-dereference",
-        "https://vuldb.com/cve/CVE-2026-132140",
-        "https://vuldb.com/submit/1044967"
+        "https://github.com/yt-project/yt/blob/yt-4.4.4/yt/frontends/ytdata/data_structures.py#L52-L56",
+        "https://github.com/yt-project/yt/commit/ce997aebb89423a6f5d86c3bda24094e908d3c2d",
+        "https://github.com/yt-project/yt/commit/ce997aebb89423a6f5d86c3bda24094e908d3c2d",
+        "https://github.com/yt-project/yt/issues/5641"
       ],
       "explanation": {
         "quality": [
@@ -5374,10 +5323,104 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-69156",
-      "title": "Atomic Server: Arbitrary file read via user-controlled `internalId` in the `/download` handler (leaks root agent private",
+      "id": "CVE-2026-132756",
+      "title": "CVE-2026-132756 — Unknown Vendor Geany through 2.1.0 CVSS 7.8 High Severity Vulnerability",
       "description": "",
-      "cvss": 8.1,
+      "cvss": 7.8,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Geany through 2.1.0",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/geany/geany/blob/2.1.0/src/build.c#L1100-L1111",
+        "https://github.com/geany/geany/blob/2.1.0/src/utils.c#L2561-L2610",
+        "https://github.com/geany/geany/issues/4611",
+        "https://www.vulncheck.com/advisories/geany-through-2.1.0-os-command-injection-via-filename-in-build-commands"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-132748",
+      "title": "CVE-2026-132748 — Unknown Vendor Vtiger CRM through CVSS 7.2 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Vtiger CRM through",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://code.vtiger.com/vtiger/vtigercrm/-/commit/484620881d0dd689497bec2cf3a5d8e10c23f833",
+        "https://code.vtiger.com/vtiger/vtigercrm/-/commit/a61e73fd18b9c06bea348b1e53240b71fdcc2144",
+        "https://code.vtiger.com/vtiger/vtigercrm/-/work_items/2015",
+        "https://www.vulncheck.com/advisories/vtiger-crm-through-8.4.0-php-code-injection-via-configuration-editor"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-76088",
+      "title": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denial of Service (DoS)",
+      "description": "",
+      "cvss": 7.5,
       "final_ps": 21,
       "quality_score": 0.523,
       "threat_level": "LOW",
@@ -5387,24 +5430,24 @@
       "merged_sources": [
         "github_advisories"
       ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "rust",
-      "product": "atomic-server",
+      "vendor": "maven",
+      "product": "org.pgpainless:pgpainless-core",
       "due_date": null,
       "cves": [
-        "CVE-2026-69156",
-        "CVE-2026-69156"
+        "CVE-2026-76088",
+        "CVE-2026-76088"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-8vc4-8hjq-988p",
-        "https://github.com/ontola/atomic-server/security/advisories/GHSA-8vc4-8hjq-988p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-69156",
-        "https://github.com/ontola/atomic-server/commit/59d067c797c946b839c9101fedff4c40171c0c61"
+        "https://github.com/advisories/GHSA-cvx8-9ff6-54xq",
+        "https://github.com/pgpainless/pgpainless/security/advisories/GHSA-cvx8-9ff6-54xq",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-76088",
+        "https://github.com/pgpainless/pgpainless/commit/7662f084595945f1000f3f2e1bc4e15302194dec"
       ],
       "explanation": {
         "quality": [
@@ -5474,56 +5517,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-71481",
-      "title": "ALTCHA PHP: verifySolution bypasses HMAC signature check when challenge signature is absent",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "composer",
-      "product": "altcha-org/altcha",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-71481",
-        "CVE-2026-71481"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-82w8-65qw-gch6",
-        "https://github.com/altcha-org/altcha-lib-php/security/advisories/GHSA-82w8-65qw-gch6",
-        "https://github.com/altcha-org/altcha-lib-php/commit/8b02ad2c9b82998613bac4d093517d457061cbbe",
-        "https://github.com/altcha-org/altcha-lib-php/releases/tag/v2.0.3"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-71861",
       "title": "Chainguard SDK: AWS SigV4 token replay in auth/aws.VerifyToken — Chainguard-Audience/Chainguard-Identity binding headers",
       "description": "",
@@ -5574,38 +5567,43 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-130774",
-      "title": "CVE-2026-130774 — Unknown Vendor Incus before 7.6.0 CVSS 8.8 High Severity Vulnerability",
+      "id": "CVE-2026-63129",
+      "title": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
       "description": "",
       "cvss": 8.8,
       "final_ps": 21,
-      "quality_score": 0.525,
+      "quality_score": 0.523,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "github_advisories"
       ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Incus before 7.6.0",
+      "vendor": "npm",
+      "product": "@connorbritain/mssql-mcp-core",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-63129"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/lxc/incus/security/advisories/GHSA-9c46-v3hw-v6m8"
+        "https://github.com/advisories/GHSA-2m9m-6cr5-9x25",
+        "https://github.com/ConnorBritain/mssql-mcp-core/security/advisories/GHSA-2m9m-6cr5-9x25",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63129",
+        "https://github.com/ConnorBritain/mssql-mcp-core/pull/1"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -5618,38 +5616,44 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-130760",
-      "title": "CVE-2026-130760 — Unknown Vendor Fleet before 4.86.2 CVSS 7.5 High Severity Vulnerability",
+      "id": "CVE-2026-69155",
+      "title": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
       "description": "",
-      "cvss": 7.5,
+      "cvss": 8.7,
       "final_ps": 21,
-      "quality_score": 0.525,
+      "quality_score": 0.523,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "github_advisories"
       ],
       "first_seen": "2026-11-18",
       "last_seen": "2026-11-18",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Fleet before 4.86.2",
+      "vendor": "rust",
+      "product": "atomic-server",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-69155",
+        "CVE-2026-69155"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/fleetdm/fleet/security/advisories/GHSA-3qx5-8m9j-pmrp"
+        "https://github.com/advisories/GHSA-x277-3wcg-g9r2",
+        "https://github.com/ontola/atomic-server/security/advisories/GHSA-x277-3wcg-g9r2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-69155",
+        "https://github.com/ontola/atomic-server/commit/457c1dc9af4cd00d2aec89720718e504a49f392d"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
