@@ -84,8 +84,6 @@ jobs:
           CDB_BLOGGER_OAUTH_READY: ${{ vars.BLOGGER_OAUTH_READY }}
           CDB_BLOGGER_CANARY_APPROVED: ${{ github.event.inputs.live_canary_approved || 'false' }}
           CDB_BLOGGER_DRY_RUN_INPUT: ${{ github.event.inputs.dry_run || 'true' }}
-          CDB_BLOGGER_OAUTH_READY: ${{ vars.BLOGGER_OAUTH_READY }}
-          CDB_BLOGGER_CANARY_APPROVED: ${{ github.event.inputs.live_canary_approved || 'false' }}
           MAX_POSTS_PER_RUN: ${{ github.event.inputs.max_posts || '4' }}
         run: bash scripts/blogger-live-dispatch-guard.sh
 
@@ -201,6 +199,8 @@ jobs:
 
           MAX_POSTS_PER_RUN: ${{ github.event.inputs.max_posts || '4' }}
           CDB_BLOGGER_DRY_RUN_INPUT: ${{ github.event.inputs.dry_run || 'true' }}
+          CDB_BLOGGER_OAUTH_READY: ${{ vars.BLOGGER_OAUTH_READY }}
+          CDB_BLOGGER_CANARY_APPROVED: ${{ github.event.inputs.live_canary_approved || 'false' }}
           CDB_FACTORY_RETRY_QUEUE_LIMIT: "500"
           CDB_FACTORY_RETRY_ATTEMPTS: "5"
         run: |
