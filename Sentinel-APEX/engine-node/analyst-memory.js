@@ -274,8 +274,8 @@ class AnalystMemory {
       notes.push(`Technique ${t.technique} was previously observed with: ${t.actors.join(', ')}`);
     }
     for (const r of c.repeatTargets) {
-      notes.push(`${r.type === 'vendor' ? 'Vendor' : 'Product'} ${r.name} has been targeted in `
-        + `${r.count} prior CYBERDUDEBIVASH reports (recurring target)`);
+      notes.push(`${r.type === 'vendor' ? 'Vendor/publisher label' : 'Product label'} ${r.name} was mentioned in `
+        + `${r.count} prior CYBERDUDEBIVASH reports (recurring coverage; NOT evidence of targeting)`);
     }
     if (c.relatedReports.length) {
       notes.push('Related prior intelligence: '
