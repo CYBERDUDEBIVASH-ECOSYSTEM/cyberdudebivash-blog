@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-20T01:00:29.223Z",
+  "generated": "2026-11-20T02:13:04.579Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19435,
+    "total_nodes": 19437,
     "actors": 8,
-    "cves": 9381,
-    "campaigns": 3003,
+    "cves": 9382,
+    "campaigns": 3004,
     "malware": 0,
     "iocs": 911,
-    "edges": 5780
+    "edges": 5781
   },
   "nodes": {
     "actor:lockbit": {
@@ -365285,6 +365285,44 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-133528": {
+      "id": "CVE-2026-133528",
+      "type": "CVE",
+      "name": "CVE-2026-133528 — Unknown Vendor BeamNG.drive before 0.40.6 CVSS 8.6 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.6,
+        "threat_level": "HIGH",
+        "priority_score": 67,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "BeamNG.drive before 0.40.6",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-133528": {
+      "id": "campaign:cve-2026-133528",
+      "type": "Campaign",
+      "name": "Unknown BeamNG.drive Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133528"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133528",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -417487,6 +417525,15 @@
       "id": "campaign:cve-2026-133201→includes→CVE-2026-133201",
       "source": "campaign:cve-2026-133201",
       "target": "CVE-2026-133201",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133528→includes→CVE-2026-133528",
+      "source": "campaign:cve-2026-133528",
+      "target": "CVE-2026-133528",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-20",

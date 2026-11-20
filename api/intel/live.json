@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T01:00:29.423Z",
+  "generated": "2026-11-20T02:13:04.730Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,11 +7,11 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7890,
+  "total_published": 7893,
   "s2n_stats": {
-    "passed": 121,
+    "passed": 116,
     "suppressed": 3,
-    "avg_qs": 0.491
+    "avg_qs": 0.49
   },
   "items": [
     {
@@ -501,135 +501,6 @@
       }
     },
     {
-      "id": "CVE-2026-128130",
-      "title": "AIOHTTP: Pure-Python parser request replay and buffer growth behind a declined upgrade",
-      "description": "Summary\n\nWhen the pipelined request queue was full, the pure-Python parser stored the unparsed remainder internally and also returned it to the caller. After a handler declined an upgrade request, the buffered data was re-fed, so the buffer grew with each handled request and alre... [Full analysis a",
-      "cvss": 8.2,
-      "final_ps": 43,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128130"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-28qf-cpwq-vmc2"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=43 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-63182",
-      "title": "lightsaml allows Signature wrapping bypass",
-      "description": "Summary\n\nLightSaml 5.0.0 (latest release; also confirmed on 4.6.1) validates an inbound samlp:Response by collecting its direct-child saml:Assertion elements and validating each one's ds:Signature via robrichards/xmlseclibs. The two layers disagree on which element a signature ac... [Full analysis a",
-      "cvss": 8.1,
-      "final_ps": 43,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-63182"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-w553-pwx6-3mg9"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=43 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-129295",
-      "title": "mail-parser is vulnerable to polynomial ReDoS in email header parsing",
-      "description": "Summary\n\nTwo regular expressions used while parsing email headers backtrack\npolynomially on attacker-controlled input. Parsing a single small, well-formed\nemail can consume minutes to hours of CPU, denying service to any process that\nparses untrusted mail.\n\nBoth are reachable fro... [Full analysis a",
-      "cvss": 7.5,
-      "final_ps": 42,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-129295"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-r7w7-vpq8-c5vv"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=42 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-128131",
       "title": "AIOHTTP: Concatenated compressed streams cause excessive CPU use",
       "description": "Summary\n\nWhen decompressing a payload made up of many concatenated compressed members (gzip, deflate or zstd), each member was decoded by passing the entire remaining input to a new decompressor, resulting in quadratic CPU time. Empty members produce no output, so client_max_size... [Full analysis a",
@@ -925,49 +796,6 @@
         "priority": [
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-128669",
-      "title": "Low Security Vulnerability (CVE-2026-128669)",
-      "description": "CVE-2026-128669",
-      "cvss": 7.1,
-      "final_ps": 41,
-      "quality_score": 0.428,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128669"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-128669?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=1d (score=0.85)",
-          "QS=0.427"
-        ],
-        "priority": [
-          "base_ps=41 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -2134,49 +1962,6 @@
       }
     },
     {
-      "id": "CVE-2026-130874",
-      "title": "Low Security Vulnerability (CVE-2026-130874)",
-      "description": "CVE-2026-130874",
-      "cvss": 7.5,
-      "final_ps": 40,
-      "quality_score": 0.408,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-130874"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-130874?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=2d (score=0.65)",
-          "QS=0.407"
-        ],
-        "priority": [
-          "base_ps=40 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-112292",
       "title": "CVE-2026-112292 - CheckCle through 1.6.0 Missing Authorization via Empty PocketBase API Rules",
       "description": "",
@@ -2306,9 +2091,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2025-71417",
@@ -2352,9 +2135,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2025-71418",
@@ -2398,9 +2179,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2023-54394",
@@ -2444,9 +2223,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2023-2868",
@@ -2490,9 +2267,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2023-27372",
@@ -4160,6 +3935,100 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-133528",
+      "title": "CVE-2026-133528 — Unknown Vendor BeamNG.drive before 0.40.6 CVSS 8.6 High Severity Vulnerability",
+      "description": "BeamNG.drive before 0.40.6 contains an out-of-bounds write vulnerability because JIT-compiled LuaJIT traces omit FFI array bounds checks, letting untrusted Lua escape the sandbox. Attackers supplying a malicious mod can JIT-compile an FFI store loop, write out of range using a tostring() address lea",
+      "cvss": 8.6,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "BeamNG.drive before 0.40.6",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/drbloop2000/BeamNG-Drive-RCE",
+        "https://store.steampowered.com/news/app/284160/view/681890829846973542",
+        "https://www.vulncheck.com/advisories/beamng-drive-before-0.40.6-luajit-ffi-sandbox-escape-via-jit-bounds-check-bypass"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-77313",
+      "title": "Flyto2 Core: SSRF guard validates the resolved IP but connects by hostname, allowing DNS-rebinding TOCTOU",
+      "description": "## Summary\n`validate_url_ssrf` resolves the hostname, checks the IP against private ranges, then **discards the IP and returns the hostname URL string**. aiohttp performs a fresh, independent DNS resolution at connect time. An attacker controlling DNS for a hostname (TTL 0, alternating public IP and",
+      "cvss": 7.1,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "pip",
+      "product": "flyto-core",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-77313",
+        "CVE-2026-77313"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-pfg2-w999-497v",
+        "https://github.com/flytohub/flyto-core/security/advisories/GHSA-pfg2-w999-497v",
+        "https://github.com/flytohub/flyto-core/commit/bf748df864d348004cf45d830bc59f62c5c4a58a",
+        "https://github.com/flytohub/flyto-core/releases/tag/v2.26.8"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-58210",
       "title": "NATS Server allows unauthenticated memory exhaustion through incomplete MQTT CONNECT packets",
       "description": "### Background NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing. The NATS Server supports MQTT clients, including authentication and parsing of MQTT `CONNECT` packets. ### Problem Description An unauthenti",
@@ -4403,7 +4272,146 @@
       },
       "suppressed": false,
       "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-128135",
+      "title": "NLTK: ZIP package extraction follows in-root hardlinks and overwrites files outside the NLTK data root",
+      "description": "## Summary NLTK ships a security wrapper, `nltk.pathsec.ZipFile`, that is meant to confine archive extraction to trusted data roots and to block link-based escapes. When `nltk.download()` installs a package, the extraction write opens each member's target path without checking whether that path is a",
+      "cvss": 7.1,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "pip",
+      "product": "nltk",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128135",
+        "CVE-2026-128135"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-wr3g-j6qj-xpgh",
+        "https://github.com/nltk/nltk/security/advisories/GHSA-wr3g-j6qj-xpgh",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-128135",
+        "https://github.com/nltk/nltk/pull/3753"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-76538",
+      "title": "Low Security Vulnerability (CVE-2026-76538)",
+      "description": "CVE-2026-76538",
+      "cvss": 8.8,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76538"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-76538?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-123007",
+      "title": "nginx2root:AI Discovers Five Critical nginx Flaws and a Path to Root",
+      "description": "nginx2root exposes five critical nginx flaws and a Linux kernel bug that can lead to remote code execution and root access. Xint Research has disclosed nginx2root, five distinct nginx vulnerabilities plus one Linux kernel bug, each with a proven exploit. The worst of the five, no... [Full analysis a",
+      "cvss": 8.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CLOUD_SECURITY",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-123007"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-20T01:00:29.589Z"
+  "lastReportGeneratedAt": "2026-11-20T02:13:05.469Z"
 }
