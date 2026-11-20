@@ -681,16 +681,47 @@ def _family_analysis(article: DiscoveredArticle, context: ReportContext) -> str:
     )
 
 
+# Public reports link readers to the originating publisher. Full ingested
+# evidence remains available to the internal compiler, but a commercial
+# syndication post must not reproduce pages of third-party research verbatim.
+_PUBLIC_SOURCE_EXCERPT_MAX = 140
+_PUBLIC_SOURCE_METADATA_PREFIXES = (
+    "Source Publisher:", "Original Article:", "Feed Evidence Type:",
+    "Evidence Capture:",
+)
+
+
+def _public_source_excerpt_lines(article: DiscoveredArticle) -> list[str]:
+    """Produce short attributed evidence, not the scraped publisher article."""
+    metadata: list[str] = []
+    sample = ""
+    for line in _source_lines(article):
+        if line.startswith(_PUBLIC_SOURCE_METADATA_PREFIXES):
+            if len(metadata) < len(_PUBLIC_SOURCE_METADATA_PREFIXES):
+                metadata.append(line[:220])
+        elif not sample:
+            sample = line
+    if sample:
+        if len(sample) > _PUBLIC_SOURCE_EXCERPT_MAX:
+            sample = sample[:_PUBLIC_SOURCE_EXCERPT_MAX]
+            split_at = sample.rfind(" ")
+            if split_at >= (_PUBLIC_SOURCE_EXCERPT_MAX * 3 // 4):
+                sample = sample[:split_at]
+            sample = sample.rstrip() + "…"
+        metadata.append("Brief source excerpt: " + sample)
+    return metadata or ["See the primary publisher's original report for technical details."]
+
+
 def _technical_evidence(article: DiscoveredArticle) -> str:
     rows = "".join(
         f'<div style="padding:8px 0;border-bottom:1px solid #1e293b;color:#cbd5e1;font-family:monospace;font-size:12px;line-height:1.6">{_esc(line)}</div>'
-        for line in _source_lines(article)
+        for line in _public_source_excerpt_lines(article)
     )
     return _section(
         "Source Evidence Extract",
         _panel(
             rows
-            + '<p style="margin:12px 0 0;color:#64748b;font-size:11px">This extract is escaped and rendered from the ingested source record; generated analysis is not presented as a source fact.</p>'
+            + '<p style="margin:12px 0 0;color:#64748b;font-size:11px">Brief, attributed excerpt only. Read the primary publisher\'s report for complete findings and indicators. Full ingested source evidence is used for internal classification and validation, not reproduced verbatim here.</p>'
         ),
         "#475569",
     )
