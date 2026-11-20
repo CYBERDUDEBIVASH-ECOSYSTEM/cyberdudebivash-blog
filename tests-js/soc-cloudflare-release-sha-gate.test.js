@@ -7,18 +7,20 @@ const {verify,approvedOrigin} = require('../scripts/soc-cloudflare-release-sha-g
 const A = 'a'.repeat(40), B = 'b'.repeat(40);
 function sample() {
   return {event:'workflow_dispatch', ref:'refs/heads/main',
-    repository:'cyberdudebivash/cyberdudebivash-blog',
-    origin:'https://github.com/cyberdudebivash/cyberdudebivash-blog.git',
+    repository:'CYBERDUDEBIVASH-ECOSYSTEM/cyberdudebivash-blog',
+    origin:'https://github.com/CYBERDUDEBIVASH-ECOSYSTEM/cyberdudebivash-blog.git',
     githubSha:A,headSha:A,mainSha:A,inputSha:A,approvedSha:A};
 }
 const result = mutate => { const s=sample(); if(mutate)mutate(s); return verify(s); };
 test('separately approved current-main manual dispatch passes pin, never deploy authorization',()=>{
   assert.deepEqual(result(),{status:'PASS_NOT_DEPLOY_AUTHORIZATION',codes:[]});
-  assert(approvedOrigin('git@github.com:cyberdudebivash/cyberdudebivash-blog.git'));
+  assert(approvedOrigin('git@github.com:CYBERDUDEBIVASH-ECOSYSTEM/cyberdudebivash-blog.git'));
 });
 test('wrong workflow event, ref or repository identity fail closed',()=>{
   for(const tweak of [s=>s.event='push',s=>s.ref='refs/heads/release',
-    s=>s.repository='attacker/repository',s=>s.origin='https://github.com/attacker/repository.git'])
+    s=>s.repository='attacker/repository',s=>s.origin='https://github.com/attacker/repository.git',
+    s=>s.repository='cyberdudebivash/cyberdudebivash-blog',
+    s=>s.origin='https://github.com/cyberdudebivash/cyberdudebivash-blog.git'])
     assert.equal(result(tweak).status,'HOLD');
 });
 test('all five SHA attestations are mandatory and correctly shaped',()=>{
