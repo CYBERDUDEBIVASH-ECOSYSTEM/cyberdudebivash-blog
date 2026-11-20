@@ -9,6 +9,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const ROOT = path.resolve(__dirname, '..');
 const RETIRED_PAGE_ID = '61583373732736';
+const RETIRED_PAGE_VANITY = /https?:\/\/(?:(?:www|m)\.)?facebook\.com\/(?:cyberdudebivash|cyberbivash)(?:\b|\/)/i;
 function htmlFiles(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
     const full = path.join(dir, entry.name);
@@ -26,6 +27,7 @@ test('SOC public HTML does not link to unverified Facebook Page A', () => {
   for (const file of paths) {
     const html = fs.readFileSync(file, 'utf8');
     assert.equal(html.includes(RETIRED_PAGE_ID), false, path.relative(ROOT, file));
+    assert.doesNotMatch(html, RETIRED_PAGE_VANITY, path.relative(ROOT, file));
   }
 });
 test('SOC homepage retains first-party approved identities and valid structured data', () => {
