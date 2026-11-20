@@ -14,7 +14,7 @@
     <copyright>Copyright 2026 CyberDudeBivash. All rights reserved.</copyright>
     <managingEditor>bivash@cyberdudebivash.com (CyberDudeBivash)</managingEditor>
     <webMaster>bivash@cyberdudebivash.com (CyberDudeBivash)</webMaster>
-    <lastBuildDate>Thu, 19 Nov 2026 23:43:47 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 01:00:29 GMT</lastBuildDate>
     <pubDate>Thu, 19 Nov 2026 12:00:00 +0000</pubDate>
     <ttl>60</ttl>
     <category>Cybersecurity</category>
@@ -31,7 +31,109 @@
       <height>144</height>
     </image>
 
-            <item>
+              <item>
+    <title><![CDATA[NATS Server allows unauthenticated memory exhaustion through incomplete MQTT CONNECT packets]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-58210-go-github-com-nats-io-nats-server-v2.html</link>
+    <description><![CDATA[Score 67/100 HIGH — CVSS 7.5 — ### Background NATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing. The NATS Server supports MQTT clients, including authentication and parsing of MQTT `CONNECT` packets. ### Problem Description An unauthenti. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-58210-go-github-com-nats-io-nats-server-v2.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Flyto2 Core: SSRF guard bypass via DNS rebinding (validate_url_ssrf resolves-then-connects without pinning)]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-77316-pip-flyto-core.html</link>
+    <description><![CDATA[Score 65/100 HIGH — CVSS 7.1 — # [MEDIUM] SSRF guard bypass via DNS rebinding — validate_url_ssrf resolves-then-connects without pinning - **CWE:** CWE-918 (SSRF) / CWE-367 (TOCTOU).
+- **CVSS v3.1:** `AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:L/A:N` = **6.8 Medium** (AC:H — needs attacker-controlled DNS with a low/zero TTL and to flip the an. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-77316-pip-flyto-core.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Flyto2 Core: http.paginate follows server-supplied next-page URLs (Link header / cursor) without SSRF revalidation]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-77315-pip-flyto-core.html</link>
+    <description><![CDATA[Score 65/100 HIGH — CVSS 8.5 — ## Summary
+`http.paginate` validates only the initial `base_url`, then follows server-supplied pagination targets (RFC 5988 `Link: rel="next"` headers, cursor/offset URLs) in a loop **without revalidating each follow-up URL**. An attacker's first-page response can point `next` at an internal address. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-77315-pip-flyto-core.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-82342 — Unknown Vendor IBM Guardium Data CVSS 8.1 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-82342-unknown-vendor-ibm-guardium-data.html</link>
+    <description><![CDATA[Score 63/100 MEDIUM — CVSS 8.1 — IBM Guardium Data Protection 12.2 is vulnerable to a stack-based buffer overflow when processing a specially crafted PROXY protocol v1 header. A remote attacker can exploit this vulnerability to cause a denial of service or potentially execute arbitrary code.. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-82342-unknown-vendor-ibm-guardium-data.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-84273 — Unknown Vendor IBM Guardium Data CVSS 8.1 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-84273-unknown-vendor-ibm-guardium-data.html</link>
+    <description><![CDATA[Score 63/100 MEDIUM — CVSS 8.1 — IBM Guardium Data Protection 12.2 is vulnerable to path traversal in the datasource functionality. An authenticated attacker could exploit this vulnerability to delete arbitrary files on the appliance.. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-84273-unknown-vendor-ibm-guardium-data.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[django-docutils unsafe Docutils defaults allow local file disclosure, SSRF, and stored XSS]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-59988-pip-django-docutils.html</link>
+    <description><![CDATA[Score 63/100 MEDIUM — CVSS 8.2 — ## Summary django-docutils before `0.30.0` rendered reStructuredText through Docutils without protected web-safe defaults. Public rendering paths, including `publish_doctree`, `publish_html_from_source`, `publish_html_from_doctree`, `publish_parts_from_doctree`, the `{% rst %}` template tag, the `rs. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-59988-pip-django-docutils.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-84087 — Unknown Vendor IBM Guardium Data CVSS 7.8 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-84087-unknown-vendor-ibm-guardium-data.html</link>
+    <description><![CDATA[Score 62/100 MEDIUM — CVSS 7.8 — IBM Guardium Data Protection 12.2 is vulnerable to local privilege escalation via the SUID-root podman_wrapper binary on the Collector appliance. A local attacker with low-privileged access to the Collector can exploit insufficient argument validation in the SUID binary to execute arbitrary commands. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-84087-unknown-vendor-ibm-guardium-data.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-133201 — Unknown Vendor A vulnerability was CVSS 7.5 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-133201-unknown-vendor-a-vulnerability-was.html</link>
+    <description><![CDATA[Score 61/100 MEDIUM — CVSS 7.5 — A vulnerability was determined in smartalock wireguard-lwip up to cfba91666590e86bd67842c71cedf9a423be823a. Impacted is the function mul of the file src/crypto/refc/x25519.c of the component X25519 Ladder. Executing a manipulation can lead to out-of-bounds write. The attack can be executed remotely.. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-133201-unknown-vendor-a-vulnerability-was.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[baserCMS: Path Traversal Bypass via realpath() in BcThemeFileService (CVE-2026-30940 Patch Bypass)]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-62955-composer-baserproject-baser-core.html</link>
+    <description><![CDATA[Score 59/100 MEDIUM — CVSS 7.2 — ### Summary The security patch introduced in baserCMS 5.2.3 to address CVE-2026-30940 / [GHSA-c5c6-37vq-pjcq](https://github.com/baserproject/basercms/security/advisories/GHSA-c5c6-37vq-pjcq) is **incomplete**. The patch added a `realpath()`-based directory traversal check in `BcThemeFileService::ge. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-62955-composer-baserproject-baser-core.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Flyto2 Core: SSRF guard validates the resolved IP but connects by hostname, allowing DNS-rebinding TOCTOU]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-77313-pip-flyto-core.html</link>
+    <description><![CDATA[Score 59/100 MEDIUM — CVSS 7.1 — ## Summary
+`validate_url_ssrf` resolves the hostname, checks the IP against private ranges, then **discards the IP and returns the hostname URL string**. aiohttp performs a fresh, independent DNS resolution at connect time. An attacker controlling DNS for a hostname (TTL 0, alternating public IP and. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-77313-pip-flyto-core.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[NLTK: ZIP package extraction follows in-root hardlinks and overwrites files outside the NLTK data root]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-128135-pip-nltk.html</link>
+    <description><![CDATA[Score 59/100 MEDIUM — CVSS 7.1 — ## Summary NLTK ships a security wrapper, `nltk.pathsec.ZipFile`, that is meant to confine archive extraction to trusted data roots and to block link-based escapes. When `nltk.download()` installs a package, the extraction write opens each member's target path without checking whether that path is a. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 01:00:29 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-128135-pip-nltk.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
     <title><![CDATA[CVE-2026-68791 — microsoft azure machine learning CVSS 10 Critical Vulnerability]]></title>
     <link>https://blog.cyberdudebivash.in/posts/cve-2026-68791-microsoft-azure-machine-learning.html</link>
     <description><![CDATA[Score 63/100 MEDIUM — CVSS 10 — Incorrect authorization in Azure Machine Learning allows an unauthorized attacker to disclose information over a network.. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
