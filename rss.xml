@@ -14,7 +14,7 @@
     <copyright>Copyright 2026 CyberDudeBivash. All rights reserved.</copyright>
     <managingEditor>bivash@cyberdudebivash.com (CyberDudeBivash)</managingEditor>
     <webMaster>bivash@cyberdudebivash.com (CyberDudeBivash)</webMaster>
-    <lastBuildDate>Fri, 20 Nov 2026 13:50:48 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 14:54:58 GMT</lastBuildDate>
     <pubDate>Fri, 20 Nov 2026 12:00:00 +0000</pubDate>
     <ttl>60</ttl>
     <category>Cybersecurity</category>
@@ -31,7 +31,132 @@
       <height>144</height>
     </image>
 
-    <item>
+      <item>
+    <title><![CDATA[CVE-2026-14914 — Unknown Vendor Unrestricted upload of CVSS 10 Critical Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-14914-unknown-vendor-unrestricted-upload-of.html</link>
+    <description><![CDATA[Score 71/100 HIGH — CVSS 10 — Unrestricted upload of file with dangerous type vulnerability in Tegsoft Yönetim ve Bilişim Hizmetleri Tic. Ltd. Şti. Tegsoft Contact Center allows Upload a Web Shell to a Web Server.
+
+This issue affects Tegsoft Contact Center: before latest-202611161510.. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-14914-unknown-vendor-unrestricted-upload-of.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-80188 — Unknown Vendor The BuddyBoss Addons CVSS 9.8 Critical Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-80188-unknown-vendor-the-buddyboss-addons.html</link>
+    <description><![CDATA[Score 71/100 HIGH — CVSS 9.8 — The BuddyBoss Addons plugin for WordPress is vulnerable to Authentication Bypass leading to Account Takeover in versions up to, and including, 1.2.1. This is due to the Social Login REST endpoint trusting unverified Apple and Facebook identity-token claims and linking an attacker-controlled provider. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-80188-unknown-vendor-the-buddyboss-addons.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-115578-go-github-com-phires-go-guerrilla.html</link>
+    <description><![CDATA[Score 68/100 HIGH — CVSS 7.5 — The defect
+----------
+Confirmed at HEAD. server.go: cmdXCLIENT = []byte("XCLIENT") is 7 bytes (line 78), so the dispatch match cmdXCLIENT.match(cmd) only guarantees len(input) >= 7. The handler then slices input[8:] (line 586): case sc.XClientOn && cmdXCLIENT.match(cmd): if toks := bytes.Split(input. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-115578-go-github-com-phires-go-guerrilla.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-58192-npm-appium-storage-plugin.html</link>
+    <description><![CDATA[Score 65/100 HIGH — CVSS 8.6 — ## Summary The Appium storage plugin exposes an HTTP endpoint `POST /storage/delete` that takes a user-supplied `name` and deletes it from the server storage folder. The handler passes `name` straight into `path.join(storageRoot, name)` and then `fs.rimraf()` **without any path sanitization**. By se. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-58192-npm-appium-storage-plugin.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[TeamPass folder re-parenting authorization bypass]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-103035-composer-nilsteampassnet-teampass.html</link>
+    <description><![CDATA[Score 64/100 MEDIUM — CVSS 8.3 — ## Summary Missing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credential subtree into their own personal space and removing it from the organization. Confirmed at HEAD. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-103035-composer-nilsteampassnet-teampass.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-104129-go-github-com-prest-prest.html</link>
+    <description><![CDATA[Score 63/100 MEDIUM — CVSS 8.1 — What the fix did and the gap
+----------------------------
+The v2.3.0 fix (commit e88dabb) routed the _select field through a strict new gate, sanitizeSelectField (postgres.go:947/1003/2097). The sibling _groupby path was left on the far weaker isSafeSQLExpression. adapters/postgres/postgres.go, Grou. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-104129-go-github-com-prest-prest.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Poweradmin: The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout, so an attacker holding the password can brute-force it within the validity window]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-115463-composer-poweradmin-poweradmin.html</link>
+    <description><![CDATA[Score 60/100 MEDIUM — CVSS 7.4 — ### Summary The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout The email second factor is a six-digit code drawn from `mt_rand()` and verified with no attempt limit, so an attacker who already has the password can brute-force it inside its validity windo. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-115463-composer-poweradmin-poweradmin.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Refitter: Unrestricted OpenAPI references permit build-host SSRF and file inclusion]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-63184-nuget-refitter.html</link>
+    <description><![CDATA[Score 59/100 MEDIUM — CVSS 7.1 — ### Summary Refitter (the `refitter` dotnet tool, built on NJsonSchema for `$ref` resolution) fetches remote
+`http(s)` URLs and reads local files (including absolute paths and `../` traversal outside the input
+directory), inlining the referenced schema into the generated Refit interface/contracts. R. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-63184-nuget-refitter.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[OpenSSL Hit by Critical 9.8 Heap Buffer Overflow Vulnerability in Base64 Encoding Function]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-121481.html</link>
+    <description><![CDATA[Score 51/100 MEDIUM — CVSS 9.8 — A heap buffer overflow in OpenSSL’s Base64 encoding function can corrupt application memory when the library processes very large inputs. The flaw, tracked as CVE-2026-121481, was published on November 18, 2026, with a critical CVSS 3.1 score of 9.8. That score describes the pote... [Full analysis a. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-121481.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-133268 - JetBrains YouTrack Authorization Bypass Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-133268.html</link>
+    <description><![CDATA[Score 43/100 LOW — CVSS 7.5 — CVE-2026-133268 - JetBrains YouTrack Authorization Bypass Vulnerability. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-133268.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-133274 - THC-Hydra through 9.7 Stack Buffer Overflow via hydra-http-form.c Cookie Handling]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-133274.html</link>
+    <description><![CDATA[Score 41/100 LOW — CVSS 7.2 — CVE-2026-133274 - THC-Hydra through 9.7 Stack Buffer Overflow via hydra-http-form.c Cookie Handling. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-133274.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-62258 - HTSlib: Stack write overflow in HTSlib CRAM decoder]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-62258.html</link>
+    <description><![CDATA[Score 41/100 LOW — CVSS 7.2 — CVE-2026-62258 - HTSlib: Stack write overflow in HTSlib CRAM decoder. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-62258.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[BYOD Ransomware Hackers Play Audio Ransom Messages on Computers Across Hospitals and Universities]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/byod-ransomware-hackers-play-audio-ransom-messages-on-comput.html</link>
+    <description><![CDATA[Score 33/100 LOW — CVSS null — Staff at the University of New Mexico Health Sciences Center reported hearing ransom messages from their computers during an October 26 cyberattack. Two weeks later, a recording from Vanderbilt University captured a voice announcing, “You have been compromised by BYOD.” The messa... [Full analysis a. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>
+    <pubDate>Fri, 20 Nov 2026 14:54:58 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/byod-ransomware-hackers-play-audio-ransom-messages-on-comput.html</guid>
+    <category>Threat Intelligence</category>
+    <category>RANSOMWARE</category>
+  </item>
+  <item>
     <title><![CDATA[CVE-2026-133707 — Unknown Vendor The targets R CVSS 7.8 High Severity Vulnerability]]></title>
     <link>https://blog.cyberdudebivash.in/posts/cve-2026-133707-unknown-vendor-the-targets-r.html</link>
     <description><![CDATA[Score 64/100 MEDIUM — CVSS 7.8 — The targets R package before 1.12.1 contains a code execution vulnerability that allows attackers to run arbitrary R code by planting format functions in the data store metadata file. Attackers can supply a crafted _targets data store whose custom format or CAS repository functions are passed to eva. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>

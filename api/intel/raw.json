@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T13:50:48.494Z",
+  "generated": "2026-11-20T14:54:58.139Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,46 +8,44 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 134,
+  "count": 138,
   "items": [
     {
-      "id": "CVE-2026-76466",
-      "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
-      "description": "Threat actors have been observed exploiting a recently disclosed critical security flaw in Cisco Expressway to breach a Russian organization shortly after the public release of a proof-of-concept (PoC) exploit. The activity involves the exploitation of CVE-2026-76466 (CVSS score: 9.8), a vulnerabili",
+      "id": "CVE-2026-85596",
+      "title": "CVE-2026-85596 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "description": "Traefik versions >= v3.7.0 and < v3.7.11 contain an authentication bypass in the Kubernetes Ingress NGINX provider. The TLS option generated for an Ingress carrying the nginx.ingress.kubernetes.io/auth-tls-secret annotation was named after the Ingress namespace and name. As a result, two Ingress obj",
       "cvss": 9.8,
-      "final_ps": 72,
-      "quality_score": 0.478,
+      "final_ps": 67,
+      "quality_score": 0.485,
       "threat_level": "HIGH",
       "type": "CVE_REPORT",
-      "source": "thehackernews",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "thehackernews"
+        "nvd"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2026-09-04",
+      "last_seen": "2026-09-04",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "The Hacker News",
-      "product": "Threat Intelligence",
+      "vendor": "traefik",
+      "product": "traefik",
       "due_date": null,
-      "cves": [
-        "CVE-2026-76466"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html"
+        "https://github.com/traefik/traefik/security/advisories/GHSA-j994-9gqj-9hwq",
+        "https://www.vulncheck.com/advisories/traefik-3.7-authentication-bypass-via-tls-option-conflict"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.55 (thehackernews)",
+          "source_weight=1.00 (nvd)",
           "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.478"
+          "recency=77d (score=0.05)",
+          "QS=0.485"
         ],
         "priority": [
-          "+12 PoC_available",
           "+10 CVSS≥9"
         ],
         "suppression": null,
@@ -58,12 +56,12 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-96771",
-      "title": "CVE-2026-96771 — Unknown Vendor The Hydrogen Calendar CVSS 7.2 High Severity Vulnerability",
-      "description": "The Hydrogen Calendar Embeds plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via ICS Feed Event Fields (SUMMARY/DESCRIPTION/LOCATION) in all versions up to, and including, 3.0.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthe",
-      "cvss": 7.2,
-      "final_ps": 68,
-      "quality_score": 0.58,
+      "id": "CVE-2026-109618",
+      "title": "CVE-2026-109618 — php php CVSS 9.8 Critical Vulnerability",
+      "description": "PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may r",
+      "cvss": 9.8,
+      "final_ps": 67,
+      "quality_score": 0.485,
       "threat_level": "HIGH",
       "type": "CVE_REPORT",
       "source": "nvd",
@@ -71,31 +69,31 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2026-10-21",
+      "last_seen": "2026-10-21",
       "exploited": false,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Hydrogen Calendar",
+      "vendor": "php",
+      "product": "php",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/hydrogen-calendar-embeds/tags/3.0.3/includes/class-hycal-ics-proxy.php#L327",
-        "https://plugins.trac.wordpress.org/browser/hydrogen-calendar-embeds/tags/3.0.3/includes/class-hycal-ics-proxy.php#L428",
-        "https://plugins.trac.wordpress.org/browser/hydrogen-calendar-embeds/tags/3.0.3/public/js/tippy.js#L116",
-        "https://plugins.trac.wordpress.org/browser/hydrogen-calendar-embeds/tags/3.0.3/public/js/tippy.js#L196"
+        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+        "http://seclists.org/fulldisclosure/2026/Oct/51",
+        "http://www.openwall.com/lists/oss-security/2026/10/21/6",
+        "http://www.openwall.com/lists/oss-security/2026/10/23/5"
       ],
       "explanation": {
         "quality": [
           "source_weight=1.00 (nvd)",
           "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
+          "recency=30d (score=0.05)",
+          "QS=0.485"
         ],
         "priority": [
-          "+4 critical_infra"
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -105,57 +103,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-125085",
-      "title": "CVE-2026-125085 — Unknown Vendor The Nexter Extension CVSS 8.8 High Severity Vulnerability",
-      "description": "The Nexter Extension – Security, Performance, Code Snippets & Site Toolkit plugin for WordPress is vulnerable to Privilege Escalation in versions up to, and including, 4.9.0 This is due to the role_switcher_to_view_admin_as() function handling the `reset-view` branch without a capability check or no",
-      "cvss": 8.8,
-      "final_ps": 64,
-      "quality_score": 0.58,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Nexter Extension",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/nexter-extension/tags/4.7.13/include/panel-settings/extensions/nexter-ext-view-admin-role.php#L268",
-        "https://plugins.trac.wordpress.org/browser/nexter-extension/tags/4.7.13/include/panel-settings/extensions/nexter-ext-view-admin-role.php#L290",
-        "https://plugins.trac.wordpress.org/browser/nexter-extension/tags/4.7.13/include/panel-settings/extensions/nexter-ext-view-admin-role.php#L323",
-        "https://plugins.trac.wordpress.org/browser/nexter-extension/tags/4.7.13/include/panel-settings/extensions/nexter-ext-view-admin-role.php#L45"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
-        ],
-        "priority": [
-          "base_ps=64 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-126716",
-      "title": "CVE-2026-126716 — Unknown Vendor The Mega Forms CVSS 8.1 High Severity Vulnerability",
-      "description": "The Mega Forms – Drag & Drop Form Builder with Multi-Step & Conditional Logic plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the delete_entry function in all versions up to, and including, 1.7.9 This makes it possible for unauthenticated att",
-      "cvss": 8.1,
+      "id": "CVE-2026-133708",
+      "title": "CVE-2026-133708 — Unknown Vendor diffpy.structure before 3.5.1 CVSS 7.8 High Severity Vulnerability",
+      "description": "diffpy.structure before 3.5.1 contains a code execution vulnerability that allows attackers to run Python code by supplying crafted CIF symmetry operations passed to eval() in get_symop(). Attackers can embed expressions in the _space_group_symop_operation_xyz or _symmetry_equiv_pos_as_xyz loop to e",
+      "cvss": 7.8,
       "final_ps": 62,
       "quality_score": 0.58,
       "threat_level": "MEDIUM",
@@ -171,15 +122,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The Mega Forms",
+      "product": "diffpy.structure before 3.5.1",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/mega-forms/tags/1.7.8/common/partials/class-mega-forms-api.php#L1303",
-        "https://plugins.trac.wordpress.org/browser/mega-forms/tags/1.7.8/common/partials/class-mega-forms-api.php#L1479",
-        "https://plugins.trac.wordpress.org/browser/mega-forms/tags/1.7.8/common/partials/class-mega-forms-files-api.php#L544",
-        "https://plugins.trac.wordpress.org/browser/mega-forms/tags/1.7.8/common/partials/class-mega-forms-submit.php#L237"
+        "https://github.com/diffpy/diffpy.structure/blob/3.5.0/src/diffpy/structure/parsers/p_cif.py",
+        "https://github.com/diffpy/diffpy.structure/commit/f4be1d534fa9cf488c8e83f258e59fe09b526f62",
+        "https://github.com/diffpy/diffpy.structure/issues/204",
+        "https://github.com/diffpy/diffpy.structure/releases/tag/3.5.1"
       ],
       "explanation": {
         "quality": [
@@ -199,11 +150,11 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-125059",
-      "title": "CVE-2026-125059 — Unknown Vendor The Mang Board CVSS 7.5 High Severity Vulnerability",
-      "description": "The Mang Board plugin for WordPress is vulnerable to Arbitrary File Deletion via Path Traversal in versions up to, and including, 2.4.8 via the `file_path` column handled by the `mbw_board_files_api_body()` function. The plugin stores an attacker-supplied value directly into the files admin table (n",
-      "cvss": 7.5,
-      "final_ps": 61,
+      "id": "CVE-2026-133710",
+      "title": "CVE-2026-133710 — Unknown Vendor llama.cpp b11003 before CVSS 7.8 High Severity Vulnerability",
+      "description": "llama.cpp b11003 before b12556 contains an integer overflow in the hrm_text loader load_arch_hparams() that allows attackers to bypass the block count check using crafted GGUF metadata. Attackers can supply a GGUF model whose layer factors wrap modulo 2^32, causing load_arch_tensors() to write tenso",
+      "cvss": 7.8,
+      "final_ps": 62,
       "quality_score": 0.58,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
@@ -218,15 +169,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The Mang Board",
+      "product": "llama.cpp b11003 before",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/mangboard/tags/2.4.8/api/mb-board.php#L330",
-        "https://plugins.trac.wordpress.org/browser/mangboard/tags/2.4.8/includes/functions/func.api.php#L152",
-        "https://plugins.trac.wordpress.org/browser/mangboard/tags/2.4.8/includes/functions/func.board.php#L1703",
-        "https://plugins.trac.wordpress.org/browser/mangboard/tags/2.4.8/models/admin/files.php#L87"
+        "https://github.com/ggml-org/llama.cpp/blob/b12555/src/models/hrm-text.cpp",
+        "https://github.com/ggml-org/llama.cpp/commit/50518b64c6f2191a116d2760042f106c4b3387d7",
+        "https://github.com/ggml-org/llama.cpp/pull/32601",
+        "https://github.com/ggml-org/llama.cpp/releases/tag/b12556"
       ],
       "explanation": {
         "quality": [
@@ -236,7 +187,7 @@
           "QS=0.580"
         ],
         "priority": [
-          "base_ps=61 (no boosts)"
+          "base_ps=62 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -246,10 +197,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-109387",
-      "title": "CVE-2026-109387 — Unknown Vendor The Photo Gallery, CVSS 7.2 High Severity Vulnerability",
-      "description": "The Photo Gallery, Sliders, Proofing and Themes – NextGEN Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'IPTC 2#120 (caption) / 2#005 (title) inside the image file' parameter in all versions up to, and including, 4.5.5 due to insufficient input sanitization and ou",
-      "cvss": 7.2,
+      "id": "CVE-2026-133578",
+      "title": "CVE-2026-133578 — Unknown Vendor A vulnerability was CVSS 7.3 High Severity Vulnerability",
+      "description": "A vulnerability was detected in itsourcecode Banking Management System 1.0. This impacts an unknown function of the file manage_donation.php of the component Donor Management. The manipulation of the argument ID results in sql injection. The attack may be performed from remote. The exploit is now pu",
+      "cvss": 7.3,
       "final_ps": 60,
       "quality_score": 0.58,
       "threat_level": "MEDIUM",
@@ -265,15 +216,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The Photo Gallery,",
+      "product": "A vulnerability was",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.2/src/Legacy/admin/functions.php#L382",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.2/src/Legacy/lib/meta.php#L310",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.2/src/Legacy/view/gallery.php#L55",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.2/static/Lightbox/shutter/shutter.js#L140"
+        "https://github.com/moreorless403-star/SQL-Injection-Vulnerability-Reports",
+        "https://itsourcecode.com/",
+        "https://vuldb.com/cve/CVE-2026-133578",
+        "https://vuldb.com/submit/1050049"
       ],
       "explanation": {
         "quality": [
@@ -293,44 +244,43 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-116550",
-      "title": "CVE-2026-116550 — Unknown Vendor The Photo Gallery, CVSS 7.2 High Severity Vulnerability",
-      "description": "The Photo Gallery, Sliders, Proofing and Themes – NextGEN Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 4.5.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthent",
-      "cvss": 7.2,
+      "id": "CVE-2026-76466",
+      "title": "Hackers Exploit Cisco Expressway Flaw CVE-2026-76466 to Breach Russian Organization",
+      "description": "Cisco Expressway flaw CVE-2026-76466 is being exploited to gain root access and move from exposed devices into internal networks. Attackers have exploited a critical flaw, tracked as CVE-2026-76466 (CVSS score of 9.8) in Cisco Expressway to breach a Russian organization, and they... [Full analysis a",
+      "cvss": 9.8,
       "final_ps": 60,
-      "quality_score": 0.58,
+      "quality_score": 0.493,
       "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
+      "type": "AI_SECURITY",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Photo Gallery,",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-76466"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.4/static/Lightbox/lightbox_context.js#L7",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.4/static/Lightbox/simplelightbox/nextgen_simple_lightbox_init.js#L301",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.4/static/Lightbox/simplelightbox/simple-lightbox.js#L1693",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.4/static/Lightbox/simplelightbox/simple-lightbox.js#L900"
+        "https://securityaffairs.com/203598/hacking/hackers-exploit-cisco-expressway-flaw-cve-2026-76466-to-breach-russian-organization.html"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
           "recency=0d (score=1.00)",
-          "QS=0.580"
+          "QS=0.493"
         ],
         "priority": [
-          "base_ps=60 (no boosts)"
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -340,44 +290,43 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-119611",
-      "title": "CVE-2026-119611 — Unknown Vendor The NextGEN Gallery CVSS 7.2 High Severity Vulnerability",
-      "description": "The NextGEN Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 4.5.5 via the 'ajax_pagination_referrer' request parameter used on the /ngg_tag/<tag>/ taxonomy page. This is due to the plugin reading the pagination base URL from $_REQUEST, pres",
-      "cvss": 7.2,
+      "id": "CVE-2026-119350",
+      "title": "Next.js: Cache poisoning of shared fallback shells in Cache Components via request-supplied placeholder route params",
+      "description": "Self-hosted Next.js applications served with next start and built with cacheComponents: true but without Partial Prefetching accept a request-supplied route param value as a prerender placeholder. One unauthenticated GET request can poison the fallback shell cache entry that a fa... [Full analysis a",
+      "cvss": 9.8,
       "final_ps": 60,
-      "quality_score": 0.58,
+      "quality_score": 0.493,
       "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The NextGEN Gallery",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-119350"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.5/src/DisplayType/Controller.php#L811",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.5/src/DisplayTypes/Taxonomy.php#L96",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.5/src/DisplayTypes/Thumbnails.php#L128",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.5/src/DisplayedGallery/Renderer.php#L460"
+        "https://github.com/advisories/GHSA-vvgp-ww4w-46vf"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
           "recency=0d (score=1.00)",
-          "QS=0.580"
+          "QS=0.493"
         ],
         "priority": [
-          "base_ps=60 (no boosts)"
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -387,44 +336,43 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-121790",
-      "title": "CVE-2026-121790 — Unknown Vendor The CWILL (Formerly CVSS 7.2 High Severity Vulnerability",
-      "description": "The CWILL (Formerly ParcelPanel) – Shipment Tracking, Tracking & Order Tracking for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'data[].courier_code, data[].tracking_number (plus pp_sign for the auth bypass)' parameter in all versions up to, and including, 4",
-      "cvss": 7.2,
+      "id": "CVE-2026-45374",
+      "title": "CodeWhale: Automation auto_approve defaults to true, bypassing the task-path hardening fix for silent recurring agent ex",
+      "description": "Maintainer resolution\n\nThe CodeWhale maintainers validated this report. CodeWhale 0.8.67 and earlier are affected. Version 0.9.0 contains the fix in commit 208421b9d23d81cea3311a1eeb2a2ea81d637686. Users should upgrade to 0.9.0 or later. The original reporter analysis is preserve... [Full analysis a",
+      "cvss": 9.6,
       "final_ps": 60,
-      "quality_score": 0.58,
+      "quality_score": 0.493,
       "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The CWILL (Formerly",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-45374"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/parcelpanel/tags/4.6.2/assets/js/admin-wc.min.js",
-        "https://plugins.trac.wordpress.org/browser/parcelpanel/tags/4.6.2/includes/Action/ShopOrder.php#L172",
-        "https://plugins.trac.wordpress.org/browser/parcelpanel/tags/4.6.2/includes/Api/Admin/AdminShipment.php#L27",
-        "https://plugins.trac.wordpress.org/browser/parcelpanel/tags/4.6.2/includes/Api/Admin/AdminShipment.php#L554"
+        "https://github.com/advisories/GHSA-8hp3-xxrg-v9c8"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
           "recency=0d (score=1.00)",
-          "QS=0.580"
+          "QS=0.493"
         ],
         "priority": [
-          "base_ps=60 (no boosts)"
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -434,44 +382,89 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-125094",
-      "title": "CVE-2026-125094 — Unknown Vendor The Optimole – CVSS 7.2 High Severity Vulnerability",
-      "description": "The Optimole – Optimize Images | Convert WebP & AVIF | CDN & Lazy Load | Image Optimization plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 4.2.19 due to insufficient input sanitization and output escaping. This make",
-      "cvss": 7.2,
+      "id": "CVE-2026-63312",
+      "title": "NLTK: StreamBackedCorpusView constructor os.stat leaks out-of-root file existence, size, and mtime bypassing pathsec ENF",
+      "description": "Summary\n\nStreamBackedCorpusView, a public API in nltk/corpus/reader/util.py, applies the pathsec sandbox to the file content it reads but not to the file metadata it probes in its constructor. When the view is created with a plain string fileid, __init__ calls os.stat(self._filei... [Full analysis a",
+      "cvss": 9.8,
       "final_ps": 60,
-      "quality_score": 0.58,
+      "quality_score": 0.493,
       "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Optimole –",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-63312"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/optimole-wp/tags/4.2.19/inc/admin.php#L520",
-        "https://plugins.trac.wordpress.org/browser/optimole-wp/tags/4.2.19/inc/manager.php#L593",
-        "https://plugins.trac.wordpress.org/browser/optimole-wp/tags/4.2.19/inc/rest.php#L184",
-        "https://plugins.trac.wordpress.org/browser/optimole-wp/tags/4.2.19/inc/v2/BgOptimizer/Lazyload.php#L132"
+        "https://github.com/advisories/GHSA-w674-vqhw-g3pg"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
           "recency=0d (score=1.00)",
-          "QS=0.580"
+          "QS=0.493"
         ],
         "priority": [
-          "base_ps=60 (no boosts)"
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-63411",
+      "title": "Jane: Instantiation RCE via parameter description -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "description": "Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the parameter description verbatim in a @param array{ \"\"?: ... } block. A */ in the ... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 60,
+      "quality_score": 0.493,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63411"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-xwcw-j52r-34x4"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.493"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -619,6 +612,52 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-123007",
+      "title": "nginx2root:AI Discovers Five Critical nginx Flaws and a Path to Root",
+      "description": "nginx2root exposes five critical nginx flaws and a Linux kernel bug that can lead to remote code execution and root access. Xint Research has disclosed nginx2root, five distinct nginx vulnerabilities plus one Linux kernel bug, each with a proven exploit. The worst of the five, no... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 59,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "CLOUD_SECURITY",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-123007"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-27626",
       "title": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
       "description": "Summary\n\nOliveTin's shellAfterCompleted post-execution hook injects unsanitized variables — including arbitrary command output (output), the authenticated username (ot_username), and the exit code (exitCode) — directly into a shell command template processed by sh -c. Unlike the ... [Full analysis a",
@@ -748,6 +787,52 @@
         ],
         "priority": [
           "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-114938",
+      "title": "Palo Alto Confirms Java Vulnerability Impacts Privilege Threat Analytics and Remote Access Connector",
+      "description": "Palo Alto Networks has confirmed that a critical Java vulnerability affects Idira Privilege Threat Analytics, Remote Access Connector, and on-premises HTML5 Gateway products. Tracked as CVE-2026-114938, the flaw could let a remote attacker run code without signing in when specifi... [Full analysis a",
+      "cvss": 8.1,
+      "final_ps": 55,
+      "quality_score": 0.493,
+      "threat_level": "MEDIUM",
+      "type": "CRITICAL_INFRASTRUCTURE",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114938"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cybersecuritynews.com/palo-alto-confirms-java-vulnerability-impacts/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.493"
+        ],
+        "priority": [
+          "+4 critical_infra"
         ],
         "suppression": null,
         "merge": null
@@ -1077,6 +1162,51 @@
       "iocs": []
     },
     {
+      "id": "SENTINELAPEX-d1a415906655",
+      "title": "BYOD Ransomware Hackers Play Audio Ransom Messages on Computers Across Hospitals and Universities",
+      "description": "Staff at the University of New Mexico Health Sciences Center reported hearing ransom messages from their computers during an October 26 cyberattack. Two weeks later, a recording from Vanderbilt University captured a voice announcing, “You have been compromised by BYOD.” The messa... [Full analysis a",
+      "cvss": null,
+      "final_ps": 49,
+      "quality_score": 0.392,
+      "threat_level": "MEDIUM",
+      "type": "RANSOMWARE",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": true,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://cybersecuritynews.com/byod-ransomware/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.35",
+          "recency=0d (score=1.00)",
+          "QS=0.392"
+        ],
+        "priority": [
+          "+10 ransomware_confirmed",
+          "+4 critical_infra"
+        ],
+        "suppression": "Single-source item with no CVE IDs or IOCs",
+        "merge": null
+      },
+      "suppressed": true,
+      "suppression_reason": "Single-source item with no CVE IDs or IOCs",
+      "iocs": []
+    },
+    {
       "id": "EXPLOITDB-13fc423caf742505",
       "title": "[webapps] OpenCATS 0.9.7.4 - SQL Injection",
       "description": "",
@@ -1208,52 +1338,6 @@
           "+10 CVSS≥9",
           "+8 exploited_in_wild",
           "+7 zero_day"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-123007",
-      "title": "nginx2root:AI Discovers Five Critical nginx Flaws and a Path to Root",
-      "description": "nginx2root exposes five critical nginx flaws and a Linux kernel bug that can lead to remote code execution and root access. Xint Research has disclosed nginx2root, five distinct nginx vulnerabilities plus one Linux kernel bug, each with a proven exploit. The worst of the five, no... [Full analysis a",
-      "cvss": 8.1,
-      "final_ps": 45,
-      "quality_score": 0.478,
-      "threat_level": "MEDIUM",
-      "type": "CLOUD_SECURITY",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-123007"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=1d (score=0.85)",
-          "QS=0.478"
-        ],
-        "priority": [
-          "base_ps=45 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -1449,52 +1533,6 @@
           "+12 PoC_available",
           "+8 exploited_in_wild",
           "+7 zero_day"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-114938",
-      "title": "65 Characters to RCE: Inside the Java4Shell Vulnerability",
-      "description": "Calif disclosed Java4Shell, a critical OpenJDK Base64 bug enabling pre-auth RCE in Jenkins, Jira, Keycloak and more. Patches are out. Update now. Calif researchers disclosed Java4Shell, a memory-corruption bug, tracked as CVE-2026-114938 (CVSS score of 9.2), in OpenJDK&#8217;s Ba... [Full analysis a",
-      "cvss": 8.1,
-      "final_ps": 43,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114938"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://securityaffairs.com/203387/hacking/65-characters-to-rce-inside-the-java4shell-vulnerability.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=2d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=43 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -2639,6 +2677,144 @@
           "data_confidence=0.50",
           "recency=0d (score=1.00)",
           "QS=0.453"
+        ],
+        "priority": [
+          "base_ps=40 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128131",
+      "title": "AIOHTTP: Concatenated compressed streams cause excessive CPU use",
+      "description": "Summary\n\nWhen decompressing a payload made up of many concatenated compressed members (gzip, deflate or zstd), each member was decoded by passing the entire remaining input to a new decompressor, resulting in quadratic CPU time. Empty members produce no output, so client_max_size... [Full analysis a",
+      "cvss": 7.5,
+      "final_ps": 40,
+      "quality_score": 0.433,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128131"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-h4cc-hm5h-fmm9"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=4d (score=0.40)",
+          "QS=0.432"
+        ],
+        "priority": [
+          "base_ps=40 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128128",
+      "title": "AIOHTTP: WebSocket max_msg_size bypass via integer overflow",
+      "description": "Summary\n\nThe max_msg_size check in the WebSocket reader added the declared frame length to the size of the partial message already buffered. In the C extension this addition is 64-bit arithmetic, so a declared length close to 2**63 overflowed and the check passed.\n\nImpact\n\nAn att... [Full analysis a",
+      "cvss": 7.5,
+      "final_ps": 40,
+      "quality_score": 0.433,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128128"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-3rp8-rxj8-mvjw"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=4d (score=0.40)",
+          "QS=0.432"
+        ],
+        "priority": [
+          "base_ps=40 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128127",
+      "title": "AIOHTTP: Base64 multipart parts bypass client_max_size",
+      "description": "Summary\n\nWhen reading a multipart part with Content-Transfer-Encoding: base64, BodyPartReader.read_chunk() kept reading until the chunk length was a multiple of 4, with no byte limit. A part with a short Content-Length, or a long run of whitespace, could cause the entire remainin... [Full analysis a",
+      "cvss": 7.5,
+      "final_ps": 40,
+      "quality_score": 0.433,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128127"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-24c4-3p7v-29cm"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=4d (score=0.40)",
+          "QS=0.432"
         ],
         "priority": [
           "base_ps=40 (no boosts)"
@@ -4236,8 +4412,52 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-85596",
-      "title": "CVE-2026-85596 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "id": "CVE-2026-14914",
+      "title": "CVE-2026-14914 — Unknown Vendor Unrestricted upload of CVSS 10 Critical Vulnerability",
+      "description": "",
+      "cvss": 10,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "Unrestricted upload of",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-1588"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-80188",
+      "title": "CVE-2026-80188 — Unknown Vendor The BuddyBoss Addons CVSS 9.8 Critical Vulnerability",
       "description": "",
       "cvss": 9.8,
       "final_ps": 31,
@@ -4249,19 +4469,19 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
+      "vendor": "Unknown Vendor",
+      "product": "The BuddyBoss Addons",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-j994-9gqj-9hwq",
-        "https://www.vulncheck.com/advisories/traefik-3.7-authentication-bypass-via-tls-option-conflict"
+        "https://buddyboss.com/resources/buddyboss-addons/addons-1-2-2/",
+        "https://www.wordfence.com/threat-intel/vulnerabilities/id/9cb4a3f2-af99-473d-b70e-1ea1afca23ff?source=cve"
       ],
       "explanation": {
         "quality": [
@@ -4777,272 +4997,90 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-109618",
-      "title": "CVE-2026-109618 — php php CVSS 9.8 Critical Vulnerability",
+      "id": "CVE-2026-121481",
+      "title": "OpenSSL Hit by Critical 9.8 Heap Buffer Overflow Vulnerability in Base64 Encoding Function",
       "description": "",
       "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
+      "final_ps": 28,
+      "quality_score": 0.438,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-10-21",
-      "last_seen": "2026-10-21",
-      "exploited": false,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "php",
-      "product": "php",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
-        "http://seclists.org/fulldisclosure/2026/Oct/51",
-        "http://www.openwall.com/lists/oss-security/2026/10/21/6",
-        "http://www.openwall.com/lists/oss-security/2026/10/23/5"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-119350",
-      "title": "Next.js: Cache poisoning of shared fallback shells in Cache Components via request-supplied placeholder route params",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
         "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-119350"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-vvgp-ww4w-46vf"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-45374",
-      "title": "CodeWhale: Automation auto_approve defaults to true, bypassing the task-path hardening fix for silent recurring agent ex",
-      "description": "",
-      "cvss": 9.6,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-45374"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-8hp3-xxrg-v9c8"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-63312",
-      "title": "NLTK: StreamBackedCorpusView constructor os.stat leaks out-of-root file existence, size, and mtime bypassing pathsec ENF",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-63312"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-w674-vqhw-g3pg"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-63411",
-      "title": "Jane: Instantiation RCE via parameter description -> raw PHPDoc */ breakout (jane-php/open-api-3)",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-63411"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-xwcw-j52r-34x4"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-133707",
-      "title": "CVE-2026-133707 — Unknown Vendor The targets R CVSS 7.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.8,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The targets R",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-121481"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/ropensci/targets/blob/1.12.0/R/class_store_format_custom.R",
-        "https://github.com/ropensci/targets/blob/1.12.0/R/class_store_repository_cas.R",
-        "https://github.com/ropensci/targets/commit/a9681eb237500c7e9a0814cfde31bd05c53d934f",
-        "https://github.com/ropensci/targets/issues/1602"
+        "https://cybersecuritynews.com/openssl-heap-buffer-overflow/"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-115578",
+      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "go",
+      "product": "github.com/phires/go-guerrilla",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-115578",
+        "CVE-2026-115578"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-hghq-53p7-c582",
+        "https://github.com/phires/go-guerrilla/security/advisories/GHSA-hghq-53p7-c582",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-115578",
+        "https://github.com/phires/go-guerrilla/commit/b6deed97ff70f52bf34c386d33967694e7330d33"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -5055,41 +5093,44 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-133708",
-      "title": "CVE-2026-133708 — Unknown Vendor diffpy.structure before 3.5.1 CVSS 7.8 High Severity Vulnerability",
+      "id": "CVE-2026-58192",
+      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
       "description": "",
-      "cvss": 7.8,
+      "cvss": 8.6,
       "final_ps": 21,
-      "quality_score": 0.525,
+      "quality_score": 0.523,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "github_advisories"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "diffpy.structure before 3.5.1",
+      "vendor": "npm",
+      "product": "@appium/storage-plugin",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-58192",
+        "CVE-2026-58192"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/diffpy/diffpy.structure/blob/3.5.0/src/diffpy/structure/parsers/p_cif.py",
-        "https://github.com/diffpy/diffpy.structure/commit/f4be1d534fa9cf488c8e83f258e59fe09b526f62",
-        "https://github.com/diffpy/diffpy.structure/issues/204",
-        "https://github.com/diffpy/diffpy.structure/releases/tag/3.5.1"
+        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr",
+        "https://github.com/appium/appium/security/advisories/GHSA-jwgx-mp9m-jwcr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-58192",
+        "https://github.com/appium/appium/pull/22362"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -5102,41 +5143,44 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-133710",
-      "title": "CVE-2026-133710 — Unknown Vendor llama.cpp b11003 before CVSS 7.8 High Severity Vulnerability",
+      "id": "CVE-2026-103035",
+      "title": "TeamPass folder re-parenting authorization bypass",
       "description": "",
-      "cvss": 7.8,
+      "cvss": 8.3,
       "final_ps": 21,
-      "quality_score": 0.525,
+      "quality_score": 0.523,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "github_advisories"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "llama.cpp b11003 before",
+      "vendor": "composer",
+      "product": "nilsteampassnet/TeamPass",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-103035",
+        "CVE-2026-103035"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/ggml-org/llama.cpp/blob/b12555/src/models/hrm-text.cpp",
-        "https://github.com/ggml-org/llama.cpp/commit/50518b64c6f2191a116d2760042f106c4b3387d7",
-        "https://github.com/ggml-org/llama.cpp/pull/32601",
-        "https://github.com/ggml-org/llama.cpp/releases/tag/b12556"
+        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6",
+        "https://github.com/nilsteampassnet/TeamPass/security/advisories/GHSA-66q9-mxf2-xqw6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103035",
+        "https://github.com/nilsteampassnet/TeamPass/commit/e022b27f99149995c90a81f83b8e0ae8b48f5a20"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -5149,41 +5193,44 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-133578",
-      "title": "CVE-2026-133578 — Unknown Vendor A vulnerability was CVSS 7.3 High Severity Vulnerability",
+      "id": "CVE-2026-104129",
+      "title": "pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)",
       "description": "",
-      "cvss": 7.3,
+      "cvss": 8.1,
       "final_ps": 21,
-      "quality_score": 0.525,
+      "quality_score": 0.523,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "github_advisories"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability was",
+      "vendor": "go",
+      "product": "github.com/prest/prest",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-104129",
+        "CVE-2026-104129"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/moreorless403-star/SQL-Injection-Vulnerability-Reports",
-        "https://itsourcecode.com/",
-        "https://vuldb.com/cve/CVE-2026-133578",
-        "https://vuldb.com/submit/1050049"
+        "https://github.com/advisories/GHSA-v9v2-98xq-627c",
+        "https://github.com/prest/prest/security/advisories/GHSA-v9v2-98xq-627c",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-104129",
+        "https://github.com/prest/prest/pull/1014"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -5231,6 +5278,106 @@
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
           "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-115463",
+      "title": "Poweradmin: The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout, so an atta",
+      "description": "",
+      "cvss": 7.4,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "composer",
+      "product": "poweradmin/poweradmin",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-115463",
+        "CVE-2026-115463"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-9657-8vc2-7g2p",
+        "https://github.com/poweradmin/poweradmin/security/advisories/GHSA-9657-8vc2-7g2p",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-115463",
+        "https://github.com/poweradmin/poweradmin/commit/021e5fea029cf8787247517cde752f9a6af1647c"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-63184",
+      "title": "Refitter: Unrestricted OpenAPI references permit build-host SSRF and file inclusion",
+      "description": "",
+      "cvss": 7.1,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "nuget",
+      "product": "Refitter",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63184",
+        "CVE-2026-63184"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-x6w4-f264-3vvr",
+        "https://github.com/christianhelle/refitter/security/advisories/GHSA-x6w4-f264-3vvr",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-63184",
+        "https://github.com/christianhelle/refitter/pull/1173"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -5473,6 +5620,52 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-131807",
+      "title": "Low Security Vulnerability (CVE-2026-131807)",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-131807"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-131807?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-133263",
       "title": "CVE-2026-133263 - JetBrains YouTrack Authorization Bypass via Guest Access",
       "description": "",
@@ -5500,6 +5693,52 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-133263"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-133268",
+      "title": "CVE-2026-133268 - JetBrains YouTrack Authorization Bypass Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-133268"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-133268"
       ],
       "explanation": {
         "quality": [
@@ -5611,21 +5850,21 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-128130",
-      "title": "AIOHTTP: Pure-Python parser request replay and buffer growth behind a declined upgrade",
+      "id": "CVE-2026-133274",
+      "title": "CVE-2026-133274 - THC-Hydra through 9.7 Stack Buffer Overflow via hydra-http-form.c Cookie Handling",
       "description": "",
-      "cvss": 8.2,
+      "cvss": 7.2,
       "final_ps": 18,
       "quality_score": 0.438,
       "threat_level": "LOW",
-      "type": "NEWS_REPORT",
+      "type": "CVE_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -5633,11 +5872,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-128130"
+        "CVE-2026-133274"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-28qf-cpwq-vmc2"
+        "https://cvefeed.io/vuln/detail/CVE-2026-133274"
       ],
       "explanation": {
         "quality": [
@@ -5703,6 +5942,52 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-62258",
+      "title": "CVE-2026-62258 - HTSlib: Stack write overflow in HTSlib CRAM decoder",
+      "description": "",
+      "cvss": 7.2,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-62258"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-62258"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-129295",
       "title": "mail-parser is vulnerable to polynomial ReDoS in email header parsing",
       "description": "",
@@ -5730,52 +6015,6 @@
       "ioc_count": 0,
       "refs": [
         "https://github.com/advisories/GHSA-r7w7-vpq8-c5vv"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-128131",
-      "title": "AIOHTTP: Concatenated compressed streams cause excessive CPU use",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128131"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-h4cc-hm5h-fmm9"
       ],
       "explanation": {
         "quality": [
@@ -5841,98 +6080,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-128128",
-      "title": "AIOHTTP: WebSocket max_msg_size bypass via integer overflow",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128128"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-3rp8-rxj8-mvjw"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-128127",
-      "title": "AIOHTTP: Base64 multipart parts bypass client_max_size",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128127"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-24c4-3p7v-29cm"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-128120",
       "title": "SvelteKit: DoS while parsing form data from a remote functions form",
       "description": "",
@@ -5960,6 +6107,52 @@
       "ioc_count": 0,
       "refs": [
         "https://github.com/advisories/GHSA-3r8g-jcqq-3p5j"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128130",
+      "title": "AIOHTTP: Pure-Python parser request replay and buffer growth behind a declined upgrade",
+      "description": "",
+      "cvss": 8.2,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128130"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-28qf-cpwq-vmc2"
       ],
       "explanation": {
         "quality": [

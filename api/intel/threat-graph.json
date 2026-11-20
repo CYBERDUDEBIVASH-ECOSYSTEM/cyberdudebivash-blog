@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-20T13:50:48.340Z",
+  "generated": "2026-11-20T14:54:57.925Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19540,
+    "total_nodes": 19561,
     "actors": 8,
-    "cves": 9446,
-    "campaigns": 3043,
+    "cves": 9459,
+    "campaigns": 3050,
     "malware": 0,
     "iocs": 911,
-    "edges": 5846
+    "edges": 5855
   },
   "nodes": {
     "actor:lockbit": {
@@ -743,6 +743,11 @@
           "target": "campaign:cve-2026-123890",
           "relationship": "executes",
           "confidence": 0.85
+        },
+        {
+          "target": "CVE-2026-133268",
+          "relationship": "exploits",
+          "confidence": 0.85
         }
       ],
       "attributes": {
@@ -1313,6 +1318,11 @@
         },
         {
           "target": "CVE-2026-133043",
+          "relationship": "exploits",
+          "confidence": 0.85
+        },
+        {
+          "target": "CVE-2026-133268",
           "relationship": "exploits",
           "confidence": 0.85
         }
@@ -300557,7 +300567,7 @@
     "CVE-2026-76466": {
       "id": "CVE-2026-76466",
       "type": "CVE",
-      "name": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
+      "name": "Hackers Exploit Cisco Expressway Flaw CVE-2026-76466 to Breach Russian Organization",
       "attributes": {
         "cvss": 9.8,
         "threat_level": "MEDIUM",
@@ -300565,10 +300575,10 @@
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "The Hacker News",
-        "product": "Threat Intelligence",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-20",
-        "type": "CVE_REPORT"
+        "type": "AI_SECURITY"
       },
       "connections": []
     },
@@ -352289,18 +352299,18 @@
     "CVE-2026-114938": {
       "id": "CVE-2026-114938",
       "type": "CVE",
-      "name": "65 Characters to RCE: Inside the Java4Shell Vulnerability",
+      "name": "Palo Alto Confirms Java Vulnerability Impacts Privilege Threat Analytics and Remote Access Connector",
       "attributes": {
         "cvss": 8.1,
-        "threat_level": "LOW",
-        "priority_score": 41,
+        "threat_level": "MEDIUM",
+        "priority_score": 52,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
         "vendor": "",
         "product": "",
-        "published": "2026-11-18",
-        "type": "CVE_REPORT"
+        "published": "2026-11-20",
+        "type": "CRITICAL_INFRASTRUCTURE"
       },
       "connections": []
     },
@@ -356317,7 +356327,7 @@
       "attributes": {
         "cvss": 8.2,
         "threat_level": "LOW",
-        "priority_score": 41,
+        "priority_score": 39,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -356353,7 +356363,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -356371,7 +356381,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -356389,7 +356399,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -361055,9 +361065,9 @@
       "type": "CVE",
       "name": "nginx2root:AI Discovers Five Critical nginx Flaws and a Path to Root",
       "attributes": {
-        "cvss": 8.1,
-        "threat_level": "LOW",
-        "priority_score": 43,
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 49,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -367381,6 +367391,398 @@
       "connections": [
         {
           "target": "CVE-2026-133578",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-14914": {
+      "id": "CVE-2026-14914",
+      "type": "CVE",
+      "name": "CVE-2026-14914 — Unknown Vendor Unrestricted upload of CVSS 10 Critical Vulnerability",
+      "attributes": {
+        "cvss": 10,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "Unrestricted upload of",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-80188": {
+      "id": "CVE-2026-80188",
+      "type": "CVE",
+      "name": "CVE-2026-80188 — Unknown Vendor The BuddyBoss Addons CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The BuddyBoss Addons",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-115578": {
+      "id": "CVE-2026-115578",
+      "type": "CVE",
+      "name": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "HIGH",
+        "priority_score": 68,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "go",
+        "product": "github.com/phires/go-guerrilla",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-58192": {
+      "id": "CVE-2026-58192",
+      "type": "CVE",
+      "name": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
+      "attributes": {
+        "cvss": 8.6,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "npm",
+        "product": "@appium/storage-plugin",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-103035": {
+      "id": "CVE-2026-103035",
+      "type": "CVE",
+      "name": "TeamPass folder re-parenting authorization bypass",
+      "attributes": {
+        "cvss": 8.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 64,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "composer",
+        "product": "nilsteampassnet/TeamPass",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-104129": {
+      "id": "CVE-2026-104129",
+      "type": "CVE",
+      "name": "pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "go",
+        "product": "github.com/prest/prest",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-115463": {
+      "id": "CVE-2026-115463",
+      "type": "CVE",
+      "name": "Poweradmin: The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout, so an attacker holding the password can brute-force it within the validity window",
+      "attributes": {
+        "cvss": 7.4,
+        "threat_level": "MEDIUM",
+        "priority_score": 60,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "composer",
+        "product": "poweradmin/poweradmin",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-63184": {
+      "id": "CVE-2026-63184",
+      "type": "CVE",
+      "name": "Refitter: Unrestricted OpenAPI references permit build-host SSRF and file inclusion",
+      "attributes": {
+        "cvss": 7.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 59,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "nuget",
+        "product": "Refitter",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-121481": {
+      "id": "CVE-2026-121481",
+      "type": "CVE",
+      "name": "OpenSSL Hit by Critical 9.8 Heap Buffer Overflow Vulnerability in Base64 Encoding Function",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 51,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-131807": {
+      "id": "CVE-2026-131807",
+      "type": "CVE",
+      "name": "Low Security Vulnerability (CVE-2026-131807)",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "LOW",
+        "priority_score": 43,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-133268": {
+      "id": "CVE-2026-133268",
+      "type": "CVE",
+      "name": "CVE-2026-133268 - JetBrains YouTrack Authorization Bypass Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "LOW",
+        "priority_score": 43,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-133274": {
+      "id": "CVE-2026-133274",
+      "type": "CVE",
+      "name": "CVE-2026-133274 - THC-Hydra through 9.7 Stack Buffer Overflow via hydra-http-form.c Cookie Handling",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "LOW",
+        "priority_score": 41,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-62258": {
+      "id": "CVE-2026-62258",
+      "type": "CVE",
+      "name": "CVE-2026-62258 - HTSlib: Stack write overflow in HTSlib CRAM decoder",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "LOW",
+        "priority_score": 41,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "SENTINELAPEX-d1a415906655": {
+      "id": "SENTINELAPEX-d1a415906655",
+      "type": "Intel",
+      "name": "BYOD Ransomware Hackers Play Audio Ransom Messages on Computers Across Hospitals and Universities",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "LOW",
+        "priority_score": 33,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": true,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-20",
+        "type": "RANSOMWARE"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-14914": {
+      "id": "campaign:cve-2026-14914",
+      "type": "Campaign",
+      "name": "Unknown Unrestricted Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-14914"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-14914",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-80188": {
+      "id": "campaign:cve-2026-80188",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-80188"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-80188",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-115578": {
+      "id": "campaign:cve-2026-115578",
+      "type": "Campaign",
+      "name": "go github.com/phires/go-guerrilla Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-115578"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-115578",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-58192": {
+      "id": "campaign:cve-2026-58192",
+      "type": "Campaign",
+      "name": "npm @appium/storage-plugin Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-58192"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-58192",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-103035": {
+      "id": "campaign:cve-2026-103035",
+      "type": "Campaign",
+      "name": "composer nilsteampassnet/TeamPass Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-103035"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-103035",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-104129": {
+      "id": "campaign:cve-2026-104129",
+      "type": "Campaign",
+      "name": "go github.com/prest/prest Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-104129"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-104129",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-115463": {
+      "id": "campaign:cve-2026-115463",
+      "type": "Campaign",
+      "name": "composer poweradmin/poweradmin Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-115463"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-115463",
           "relationship": "includes",
           "confidence": 1
         }
@@ -420181,6 +420583,87 @@
       "id": "campaign:cve-2026-133578→includes→CVE-2026-133578",
       "source": "campaign:cve-2026-133578",
       "target": "CVE-2026-133578",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "actor:apt41→exploits→CVE-2026-133268",
+      "source": "actor:apt41",
+      "target": "CVE-2026-133268",
+      "relationship": "exploits",
+      "confidence": 0.85,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "actor:cl0p→exploits→CVE-2026-133268",
+      "source": "actor:cl0p",
+      "target": "CVE-2026-133268",
+      "relationship": "exploits",
+      "confidence": 0.85,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-14914→includes→CVE-2026-14914",
+      "source": "campaign:cve-2026-14914",
+      "target": "CVE-2026-14914",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-80188→includes→CVE-2026-80188",
+      "source": "campaign:cve-2026-80188",
+      "target": "CVE-2026-80188",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-115578→includes→CVE-2026-115578",
+      "source": "campaign:cve-2026-115578",
+      "target": "CVE-2026-115578",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-58192→includes→CVE-2026-58192",
+      "source": "campaign:cve-2026-58192",
+      "target": "CVE-2026-58192",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-103035→includes→CVE-2026-103035",
+      "source": "campaign:cve-2026-103035",
+      "target": "CVE-2026-103035",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-104129→includes→CVE-2026-104129",
+      "source": "campaign:cve-2026-104129",
+      "target": "CVE-2026-104129",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-115463→includes→CVE-2026-115463",
+      "source": "campaign:cve-2026-115463",
+      "target": "CVE-2026-115463",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-20",
