@@ -447,6 +447,47 @@ class TestSourceEvidenceExtractDefanging(unittest.TestCase):
         self.assertNotIn(">attacker-c2-panel.ru<", html)
         self.assertIn("attacker-c2-panel[.]ru", html)
 
+    def test_public_source_extract_caps_large_third_party_copyrighted_body(self):
+        long_body = "External primary research contains observed incident details. " * 120
+        article = _article(
+            "Source-linked advisory",
+            source="global_rss",
+            cve_id=None,
+            url="https://securelist.com/example-research/",
+            full_content=(
+                "Source Publisher: Kaspersky Securelist\\n"
+                "Original Article: https://securelist.com/example-research/\\n"
+                "Feed Evidence Type: content:encoded\\n"
+                + long_body
+            ),
+        )
+        html = _technical_evidence(article)
+        self.assertIn("Source Publisher: Kaspersky Securelist", html)
+        self.assertIn("Original Article: https://securelist.com/example-research/", html)
+        self.assertIn("Brief source excerpt:", html)
+        self.assertIn("Read the primary publisher", html)
+        self.assertNotIn(long_body[:500], html)
+        self.assertNotIn(long_body[-250:], html)
+        # The full ingested source stays available to the internal compiler.
+        self.assertIn(long_body[:500], article.full_content)
+        # Only a short, bounded source quote may appear in public HTML.
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(html, "html.parser")
+        excerpt = soup.find(string=lambda text: text and text.startswith("Brief source excerpt:"))
+        self.assertIsNotNone(excerpt)
+        self.assertLessEqual(len(str(excerpt)) - len("Brief source excerpt: "), 141)
+
+    def test_public_source_excerpt_retains_defanging_and_escapes_html(self):
+        article = _article(
+            "Source analysis",
+            full_content="Payload retrieved from http://evil-payload-host.top/drop.exe and <script>alert(1)</script>",
+        )
+        html = _technical_evidence(article)
+        self.assertNotIn("http://evil-payload-host.top/drop.exe", html)
+        self.assertIn("hxxp", html)
+        self.assertNotIn("<script>", html)
+        self.assertIn("&lt;script&gt;", html)
+
     def test_publisher_citation_is_not_altered_in_the_source_extract(self):
         # The extract's own stated purpose ("escaped and rendered from the
         # ingested source record") implies fidelity to the real source --
