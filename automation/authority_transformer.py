@@ -1030,6 +1030,20 @@ def _extract_article_iocs(article: DiscoveredArticle) -> list:
         from sentinel_engine.ioc_extractor import DEFAULT_ALLOWLIST, extract_iocs
 
         text = article.full_content or article.summary or ""
+        # Long-form publisher research includes unrelated citations and
+        # decryption keys before its actual IOC appendix. Regex-matching
+        # the entire page can turn reference sites into bogus C2 domains
+        # and a configuration key into a bogus MD5 file indicator.
+        # The final explicitly headed appendix is authoritative here:
+        # the first occurrence can belong to a table of contents.
+        if str(getattr(article, "source", "")) == "global_rss":
+            sections = list(re.finditer(
+                r"(?im)^\s*#{0,6}\s*(?:indicators\s+of\s+compromise|"
+                r"indicators\s*/\s*observables|iocs?)\s*:?\s*$",
+                text,
+            ))
+            if sections:
+                text = text[sections[-1].end():]
         allowlist = DEFAULT_ALLOWLIST | _KNOWN_PUBLISHER_DOMAINS
         return [
             {"value": ioc.value, "type": ioc.type.value, "context": ioc.context}
@@ -1082,8 +1096,10 @@ def _render_iocs_html(iocs: list) -> str:
             "#f97316",
         )
     note = _panel(
-        "<em>Indicators are defanged for safe display (e.g. hxxp:// / [.]) -- "
-        "refang before use in blocking or detection tooling.</em>",
+        "<em>These are source-derived observables, defanged for safe display "
+        "(e.g. hxxp:// / [.]). Source association alone does not prove malice. "
+        "Validate context and benign or dual-use artifacts before using them "
+        "in blocking or detection tooling.</em>",
         "#f97316",
     )
     return _section("Indicators / Observables", rows + note, "#f97316")
