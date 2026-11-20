@@ -270,7 +270,7 @@ def _label_technical_context(soup: BeautifulSoup, source_only: bool, context: An
     # references in the November 20 Kaspersky AuditTeam/OpsAgent preview.
     # Keep the existing CVE advisory contract unchanged.
     family = str(getattr(context, "family", "") or "").lower()
-    if family == "cve_advisory":
+    if family in {"cve_advisory", "cisa_kev"}:
         notice.string = (
             "EVIDENCE CLASS // GENERAL VULNERABILITY-CLASS CONTEXT. The displayed evidence ledger "
             "does not establish CVE-specific exploit mechanics beyond its source-linked claims. "
