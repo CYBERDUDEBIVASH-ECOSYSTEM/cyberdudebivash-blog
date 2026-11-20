@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T13:58:04.167Z",
+  "generated": "2026-11-20T19:43:55.614Z",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
   "count": 6,
   "collections": [
@@ -7,8 +7,16 @@
       "slug": "ransomware-intelligence",
       "name": "Ransomware Intelligence Collection",
       "description": "Ransomware campaigns, extortion groups, and encryption/exfiltration incidents.",
-      "count": 164,
+      "count": 165,
       "items": [
+        {
+          "slug": "byod-ransomware-hackers-play-audio-ransom-messages-on-comput",
+          "title": "BYOD Ransomware Hackers Play Audio Ransom Messages on Computers Across Hospitals and Universities",
+          "url": "/posts/byod-ransomware-hackers-play-audio-ransom-messages-on-comput.html",
+          "generated": "2026-11-20T14:54:58.441Z",
+          "severity": "UNASSESSED",
+          "cves": []
+        },
         {
           "slug": "cisa-warns-of-4-exploited-flaws-linked-to-ransomware-crypto",
           "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
@@ -3350,8 +3358,28 @@
       "slug": "ai-security-intelligence",
       "name": "AI Security & LLM Threat Collection",
       "description": "LLM security, prompt injection, AI agent risk, and AI governance coverage.",
-      "count": 275,
+      "count": 277,
       "items": [
+        {
+          "slug": "cve-2026-76818",
+          "title": "Axon: Download of Code Without Integrity Check in axon-mcp",
+          "url": "/posts/cve-2026-76818.html",
+          "generated": "2026-11-20T18:58:05.901Z",
+          "severity": "HIGH",
+          "cves": [
+            "CVE-2026-76818"
+          ]
+        },
+        {
+          "slug": "cve-2026-130007",
+          "title": "k8s-mcp-server: Missing authentication on default SSE/HTTP transport allows unauthenticated Kubernetes tool execution",
+          "url": "/posts/cve-2026-130007.html",
+          "generated": "2026-11-20T18:58:05.896Z",
+          "severity": "CRITICAL",
+          "cves": [
+            "CVE-2026-130007"
+          ]
+        },
         {
           "slug": "cve-2026-76807",
           "title": "Todoist MCP Server: Browser DNS rebinding lets websites write and delete Todoist data through local MCP server",
@@ -8546,6 +8574,45 @@
             "1 intel item(s) clustered with composite confidence 0.900",
             "Single CVE basis: CVE-2026-119793"
           ]
+        },
+        {
+          "campaign_id": "campaign:cve-2026-58192",
+          "name": "npm @appium/storage-plugin Exploitation Campaign",
+          "severity": "HIGH",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2026-11-20",
+          "last_seen": "2026-11-20",
+          "related_intel_ids": [
+            "CVE-2026-58192"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2026-58192",
+              "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
+              "type": "CVE_REPORT",
+              "priority_score": 65,
+              "published": "2026-11-20",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2026-58192"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 65,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2026-58192"
+          ],
+          "clustering_model": "weighted_v2"
         },
         {
           "campaign_id": "campaign:cve-2026-42211-and-cve-2026-42342",
@@ -13827,8 +13894,18 @@
       "slug": "kev-actively-exploited",
       "name": "CISA KEV — Actively Exploited Collection",
       "description": "Vulnerabilities confirmed to be under active exploitation in the wild.",
-      "count": 444,
+      "count": 445,
       "items": [
+        {
+          "slug": "cve-2025-42884-sap-netweaver",
+          "title": "CVE-2025-42884: SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability — CISA KEV Active Exploitation",
+          "url": "/posts/cve-2025-42884-sap-netweaver.html",
+          "generated": "2026-11-20T18:58:05.885Z",
+          "severity": "HIGH",
+          "cves": [
+            "CVE-2025-42884"
+          ]
+        },
         {
           "slug": "cve-2026-123890",
           "title": "Critical VMware vCenter Flaws Let Hackers Bypass Authentication and Access Servers",
@@ -17631,8 +17708,18 @@
       "slug": "cloud-devsecops",
       "name": "Cloud & DevSecOps Security Collection",
       "description": "Cloud misconfigurations, container security, and DevSecOps pipeline risk.",
-      "count": 81,
+      "count": 82,
       "items": [
+        {
+          "slug": "cve-2026-130007",
+          "title": "k8s-mcp-server: Missing authentication on default SSE/HTTP transport allows unauthenticated Kubernetes tool execution",
+          "url": "/posts/cve-2026-130007.html",
+          "generated": "2026-11-20T18:58:05.896Z",
+          "severity": "CRITICAL",
+          "cves": [
+            "CVE-2026-130007"
+          ]
+        },
         {
           "slug": "cve-2026-133045",
           "title": "CVE-2026-133045 - JetBrains TeamCity VMware vSphere Cloud Profile Stored Cross-Site Scripting",
