@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-20T19:58:59.905Z",
+  "generated": "2026-11-20T20:51:21.297Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19596,
+    "total_nodes": 19598,
     "actors": 8,
-    "cves": 9481,
-    "campaigns": 3063,
+    "cves": 9482,
+    "campaigns": 3064,
     "malware": 0,
     "iocs": 911,
-    "edges": 5868
+    "edges": 5869
   },
   "nodes": {
     "actor:lockbit": {
@@ -363749,7 +363749,7 @@
       "attributes": {
         "cvss": 9.8,
         "threat_level": "MEDIUM",
-        "priority_score": 51,
+        "priority_score": 49,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -364769,7 +364769,7 @@
       "attributes": {
         "cvss": 8.8,
         "threat_level": "MEDIUM",
-        "priority_score": 48,
+        "priority_score": 46,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -364787,7 +364787,7 @@
       "attributes": {
         "cvss": 9.3,
         "threat_level": "MEDIUM",
-        "priority_score": 50,
+        "priority_score": 48,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -366543,7 +366543,7 @@
       "attributes": {
         "cvss": 7.1,
         "threat_level": "LOW",
-        "priority_score": 41,
+        "priority_score": 39,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368246,8 +368246,8 @@
       "name": "Low Security Vulnerability (CVE-2026-76544)",
       "attributes": {
         "cvss": 8.1,
-        "threat_level": "MEDIUM",
-        "priority_score": 45,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368283,7 +368283,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 43,
+        "priority_score": 41,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368443,6 +368443,44 @@
         "type": "CVE_REPORT"
       },
       "connections": []
+    },
+    "CVE-2026-133680": {
+      "id": "CVE-2026-133680",
+      "type": "CVE",
+      "name": "CVE-2026-133680 — Unknown Vendor A vulnerability was CVSS 9.9 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.9,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability was",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-133680": {
+      "id": "campaign:cve-2026-133680",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133680"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133680",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -421437,6 +421475,15 @@
       "id": "campaign:cve-2026-84693→includes→CVE-2026-84693",
       "source": "campaign:cve-2026-84693",
       "target": "CVE-2026-84693",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133680→includes→CVE-2026-133680",
+      "source": "campaign:cve-2026-133680",
+      "target": "CVE-2026-133680",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-20",
