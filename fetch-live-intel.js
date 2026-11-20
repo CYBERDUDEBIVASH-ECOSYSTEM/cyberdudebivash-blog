@@ -2905,20 +2905,82 @@ function updateIndexHTML(newCards) {
 }
 
 // ── RSS.XML UPDATER ────────────────────────────────────────────────────
+// P0: preserve source facts in the SOC -> Blogger syndication feed.
+// RSS is consumed as evidence by the CTI renderer: no null CVSS, no
+// unsupported detection/IOC marketing, and no invented publication date.
+function _rssCdata(value) {
+  return String(value ?? '').replace(/]]>/g, ']]]]><![CDATA[>');
+}
+
+function _rssXmlEscape(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[char]);
+}
+
+function renderRssItem(item) {
+  const slug = String(item?.slug ?? '');
+  if (!/^[a-z0-9][a-z0-9-]{0,150}$/.test(slug)) return '';
+  const link = CFG.baseUrl + '/posts/' + slug + '.html';
+  const priority = (typeof item.priority === 'number' && Number.isFinite(item.priority)
+    && item.priority >= 0 && item.priority <= 100)
+    ? 'Platform triage priority ' + item.priority + '/100' : '';
+  const level = /^(CRITICAL|HIGH|MEDIUM|LOW)$/i.test(String(item.threatLevel || ''))
+    ? String(item.threatLevel).toUpperCase() : '';
+  const hasCvss = item.type === 'CVE_REPORT' && typeof item.cvss === 'number'
+    && Number.isFinite(item.cvss) && item.cvss >= 0 && item.cvss <= 10;
+  const summary = String(item.desc || '').replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ').trim().slice(0, 300);
+  const description = [
+    priority + (priority && level ? ' (' + level + ')' : ''),
+    hasCvss ? 'CVSS ' + item.cvss : '',
+    summary,
+    'See the linked source report for evidence and any available detection guidance.',
+  ].filter(Boolean).join(' — ');
+  const publishedMs = Date.parse(String(item.pubDate || ''));
+  const published = Number.isFinite(publishedMs) && publishedMs > 0
+    && publishedMs <= Date.now() + 3600000
+    ? '    <pubDate>' + new Date(publishedMs).toUTCString() + '</pubDate>\n'
+    : '';
+  return [
+    '  <item>',
+    '    <title><![CDATA[' + _rssCdata(item.title) + ']]></title>',
+    '    <link>' + _rssXmlEscape(link) + '</link>',
+    '    <description><![CDATA[' + _rssCdata(description) + ']]></description>',
+    published.trimEnd(),
+    '    <guid isPermaLink="true">' + _rssXmlEscape(link) + '</guid>',
+    '    <category>Threat Intelligence</category>',
+    '    <category>' + _rssXmlEscape(item.cisaKev ? 'CISA KEV' : (item.type || 'General Intelligence')) + '</category>',
+    '  </item>',
+  ].filter(Boolean).join('\n');
+}
+
 function updateRSS(newItems) {
-  const rssItems = newItems.map(item => {
-    const link = `${CFG.baseUrl}/posts/${item.slug}.html`;
-    return `  <item>\n    <title><![CDATA[${item.title}]]></title>\n    <link>${link}</link>\n    <description><![CDATA[Score ${item.priority||0}/100 ${item.threatLevel||'HIGH'} — CVSS ${item.cvss} — ${(item.desc||'').slice(0,300)}. Full analysis, Sigma/YARA rules, IOCs, Attack Chain by CYBERDUDEBIVASH SENTINEL APEX v4.0.]]></description>\n    <pubDate>${new Date().toUTCString()}</pubDate>\n    <guid isPermaLink="true">${link}</guid>\n    <category>Threat Intelligence</category>\n    <category>${item.cisaKev?'CISA KEV':item.type||'CVE Analysis'}</category>\n  </item>`;
-  }).join('\n');
+  const rssItems = newItems.map(renderRssItem).filter(Boolean).join('\n');
+  if (!rssItems) {
+    log('rss.xml not modified: no valid source-backed items');
+    return;
+  }
   if (!fs.existsSync(CFG.rssPath)) {
-    safeWriteSync(CFG.rssPath, `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n    <title>CYBERDUDEBIVASH SENTINEL APEX — Global Threat Intelligence</title>\n    <link>${CFG.baseUrl}</link>\n    <description>Real-time cybersecurity intelligence by CYBERDUDEBIVASH SENTINEL APEX v4.0.</description>\n    <language>en-us</language>\n    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>\n    <atom:link href="${CFG.baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>\n${rssItems}\n  </channel>\n</rss>`, 'utf8');
+    safeWriteSync(CFG.rssPath, '<?xml version="1.0" encoding="UTF-8"?>\n'
+      + '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+      + '  <channel>\n'
+      + '    <title>CYBERDUDEBIVASH SENTINEL APEX — Global Threat Intelligence</title>\n'
+      + '    <link>' + CFG.baseUrl + '</link>\n'
+      + '    <description>Source-attributed cyber threat intelligence from CYBERDUDEBIVASH.</description>\n'
+      + '    <language>en-us</language>\n'
+      + '    <lastBuildDate>' + new Date().toUTCString() + '</lastBuildDate>\n'
+      + '    <atom:link href="' + CFG.baseUrl + '/rss.xml" rel="self" type="application/rss+xml"/>\n'
+      + rssItems + '\n  </channel>\n</rss>', 'utf8');
     log('rss.xml created fresh.'); return;
   }
   let rss = fs.readFileSync(CFG.rssPath, 'utf8');
-  rss = rss.replace(/(<lastBuildDate>)[^<]*(<\/lastBuildDate>)/, `$1${new Date().toUTCString()}$2`);
-  rss = rss.includes('<item>') ? rss.replace(/(<item>)/, `${rssItems}\n  $1`) : rss.replace('</channel>', `${rssItems}\n  </channel>`);
+  rss = rss.replace(/(<lastBuildDate>)[^<]*(<\/lastBuildDate>)/,
+    '$1' + new Date().toUTCString() + '$2');
+  rss = rss.includes('<item>')
+    ? rss.replace(/(<item>)/, rssItems + '\n  $1')
+    : rss.replace('</channel>', rssItems + '\n  </channel>');
   safeWriteSync(CFG.rssPath, rss, 'utf8');
-  log(`rss.xml updated: +${newItems.length} items.`);
+  log('rss.xml updated: +' + newItems.length + ' input items, source dates preserved.');
 }
 
 // ── SITEMAP UPDATER ────────────────────────────────────────────────────
@@ -3624,6 +3686,7 @@ if (require.main === module) {
     extractSentinelApexRecords, normalizeSentinelApexRecord,
     sapexCanonicalId, sapexNativeMitre, fetchSentinelApex,
     watermarkStart, acknowledgeExistingPost, resolveFirstAddedAt, selectLiveWindow,
+    renderRssItem,
     recordSourceSuccess, recordSourceFailure, getSourceHealthReport,
     fetchCISAKev, reconcileKevFlags, reconcileApiKevFlags, getKevCatalogIds, getKevCatalogMeta, parseKevCatalog, resetKevCatalogState,
   };
