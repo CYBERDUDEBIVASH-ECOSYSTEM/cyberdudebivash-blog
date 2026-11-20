@@ -11,6 +11,10 @@ const fs=require('node:fs');
 const path=require('node:path');
 const HOSTS=Object.freeze(['soc.cyberdudebivash.in','blog.cyberdudebivash.in']);
 const ASSETS=Object.freeze([
+  // The two customer-visible homepages must match the reviewed build exactly.
+  // Prior parity checked only /soc.html and missed a stale root Facebook footer.
+  {url:'/',file:'index.html',type:'html'},
+  {url:'/intelligence.html',file:'intelligence.html',type:'html'},
   {url:'/soc-intelligence-desk.js',file:'soc-intelligence-desk.js',type:'javascript'},
   {url:'/runtime-state.js',file:'runtime-state.js',type:'javascript'},
   {url:'/apex-command-center.js',file:'apex-command-center.js',type:'javascript'},

@@ -30,6 +30,16 @@ test('SOC public HTML does not link to unverified Facebook Page A', () => {
     assert.doesNotMatch(html, RETIRED_PAGE_VANITY, path.relative(ROOT, file));
   }
 });
+test('P0: immutable dual-host parity includes BOTH root homepages, not only SOC workspace assets', () => {
+  const {ASSETS, HOSTS} = require('./certify-soc-dual-host-ui-release.cjs');
+  assert.deepEqual(HOSTS, ['soc.cyberdudebivash.in', 'blog.cyberdudebivash.in']);
+  const byUrl = new Map(ASSETS.map(item => [item.url, item]));
+  assert.equal(byUrl.get('/')?.file, 'index.html');
+  assert.equal(byUrl.get('/intelligence.html')?.file, 'intelligence.html');
+  assert.equal(byUrl.get('/soc.html')?.file, 'soc.html');
+  assert.ok(ASSETS.every(item => item.type === 'html' || item.type === 'javascript' || item.type === 'css'));
+});
+
 test('SOC homepage retains first-party approved identities and valid structured data', () => {
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   assert.match(html, /https:\/\/www\.linkedin\.com\/company\/cyberdudebivash\//);
