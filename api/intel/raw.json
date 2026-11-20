@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T14:54:58.139Z",
+  "generated": "2026-11-20T15:56:36.907Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,92 +8,50 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 138,
+  "count": 142,
   "items": [
     {
-      "id": "CVE-2026-85596",
-      "title": "CVE-2026-85596 — traefik traefik CVSS 9.8 Critical Vulnerability",
-      "description": "Traefik versions >= v3.7.0 and < v3.7.11 contain an authentication bypass in the Kubernetes Ingress NGINX provider. The TLS option generated for an Ingress carrying the nginx.ingress.kubernetes.io/auth-tls-secret annotation was named after the Ingress namespace and name. As a result, two Ingress obj",
-      "cvss": 9.8,
-      "final_ps": 67,
-      "quality_score": 0.485,
+      "id": "CVE-2026-115578",
+      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
+      "description": "The defect\n----------\nConfirmed at HEAD. server.go: cmdXCLIENT = []byte(\"XCLIENT\") is 7 bytes (line 78), so the dispatch match cmdXCLIENT.match(cmd) only guarantees len(input) >= 7. The handler then slices input[8:] (line 586): case sc.XClientOn && cmdXCLIENT.match(cmd): if toks := bytes.Split(input",
+      "cvss": 7.5,
+      "final_ps": 68,
+      "quality_score": 0.578,
       "threat_level": "HIGH",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "github_advisories"
       ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
+      "vendor": "go",
+      "product": "github.com/phires/go-guerrilla",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-115578",
+        "CVE-2026-115578"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-j994-9gqj-9hwq",
-        "https://www.vulncheck.com/advisories/traefik-3.7-authentication-bypass-via-tls-option-conflict"
+        "https://github.com/advisories/GHSA-hghq-53p7-c582",
+        "https://github.com/phires/go-guerrilla/security/advisories/GHSA-hghq-53p7-c582",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-115578",
+        "https://github.com/phires/go-guerrilla/commit/b6deed97ff70f52bf34c386d33967694e7330d33"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.95 (github_advisories)",
           "data_confidence=1.00",
-          "recency=77d (score=0.05)",
-          "QS=0.485"
+          "recency=0d (score=1.00)",
+          "QS=0.578"
         ],
         "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-109618",
-      "title": "CVE-2026-109618 — php php CVSS 9.8 Critical Vulnerability",
-      "description": "PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may r",
-      "cvss": 9.8,
-      "final_ps": 67,
-      "quality_score": 0.485,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-10-21",
-      "last_seen": "2026-10-21",
-      "exploited": false,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "php",
-      "product": "php",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
-        "http://seclists.org/fulldisclosure/2026/Oct/51",
-        "http://www.openwall.com/lists/oss-security/2026/10/21/6",
-        "http://www.openwall.com/lists/oss-security/2026/10/23/5"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=30d (score=0.05)",
-          "QS=0.485"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
+          "+4 critical_infra"
         ],
         "suppression": null,
         "merge": null
@@ -197,6 +155,56 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-103035",
+      "title": "TeamPass folder re-parenting authorization bypass",
+      "description": "## Summary Missing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credential subtree into their own personal space and removing it from the organization. Confirmed at HEAD",
+      "cvss": 8.3,
+      "final_ps": 62,
+      "quality_score": 0.578,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "composer",
+      "product": "nilsteampassnet/TeamPass",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-103035",
+        "CVE-2026-103035"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6",
+        "https://github.com/nilsteampassnet/TeamPass/security/advisories/GHSA-66q9-mxf2-xqw6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103035",
+        "https://github.com/nilsteampassnet/TeamPass/commit/e022b27f99149995c90a81f83b8e0ae8b48f5a20"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.578"
+        ],
+        "priority": [
+          "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-133578",
       "title": "CVE-2026-133578 — Unknown Vendor A vulnerability was CVSS 7.3 High Severity Vulnerability",
       "description": "A vulnerability was detected in itsourcecode Banking Management System 1.0. This impacts an unknown function of the file manage_donation.php of the component Donor Management. The manipulation of the argument ID results in sql injection. The attack may be performed from remote. The exploit is now pu",
@@ -244,14 +252,61 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-76466",
-      "title": "Hackers Exploit Cisco Expressway Flaw CVE-2026-76466 to Breach Russian Organization",
-      "description": "Cisco Expressway flaw CVE-2026-76466 is being exploited to gain root access and move from exposed devices into internal networks. Attackers have exploited a critical flaw, tracked as CVE-2026-76466 (CVSS score of 9.8) in Cisco Expressway to breach a Russian organization, and they... [Full analysis a",
+      "id": "CVE-2026-131804",
+      "title": "CVE-2026-131804 — Unknown Vendor The Seraphinite Accelerator CVSS 7.2 High Severity Vulnerability",
+      "description": "The Seraphinite Accelerator plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'HTTP_USER_AGENT' parameter in all versions up to, and including, 2.31 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbi",
+      "cvss": 7.2,
+      "final_ps": 60,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Seraphinite Accelerator",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/seraphinite-accelerator/tags/2.31/Cmn/Gen.php#L1704",
+        "https://plugins.trac.wordpress.org/browser/seraphinite-accelerator/tags/2.31/Cmn/Ui.php#L593",
+        "https://plugins.trac.wordpress.org/browser/seraphinite-accelerator/tags/2.31/cache_ex.php#L35",
+        "https://plugins.trac.wordpress.org/browser/seraphinite-accelerator/tags/2.31/cache_ex.php#L75"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=60 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-121481",
+      "title": "OpenSSL Hit by Critical 9.8 Heap Buffer Overflow Vulnerability in Base64 Encoding Function",
+      "description": "A heap buffer overflow in OpenSSL’s Base64 encoding function can corrupt application memory when the library processes very large inputs. The flaw, tracked as CVE-2026-121481, was published on November 18, 2026, with a critical CVSS 3.1 score of 9.8. That score describes the pote... [Full analysis a",
       "cvss": 9.8,
       "final_ps": 60,
       "quality_score": 0.493,
       "threat_level": "MEDIUM",
-      "type": "AI_SECURITY",
+      "type": "CVE_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
@@ -266,11 +321,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-76466"
+        "CVE-2026-121481"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://securityaffairs.com/203598/hacking/hackers-exploit-cisco-expressway-flaw-cve-2026-76466-to-breach-russian-organization.html"
+        "https://cybersecuritynews.com/openssl-heap-buffer-overflow/"
       ],
       "explanation": {
         "quality": [
@@ -612,6 +667,56 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-115463",
+      "title": "Poweradmin: The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout, so an atta",
+      "description": "### Summary The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout The email second factor is a six-digit code drawn from `mt_rand()` and verified with no attempt limit, so an attacker who already has the password can brute-force it inside its validity windo",
+      "cvss": 7.4,
+      "final_ps": 59,
+      "quality_score": 0.578,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "composer",
+      "product": "poweradmin/poweradmin",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-115463",
+        "CVE-2026-115463"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-9657-8vc2-7g2p",
+        "https://github.com/poweradmin/poweradmin/security/advisories/GHSA-9657-8vc2-7g2p",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-115463",
+        "https://github.com/poweradmin/poweradmin/commit/021e5fea029cf8787247517cde752f9a6af1647c"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.578"
+        ],
+        "priority": [
+          "base_ps=59 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-123007",
       "title": "nginx2root:AI Discovers Five Critical nginx Flaws and a Path to Root",
       "description": "nginx2root exposes five critical nginx flaws and a Linux kernel bug that can lead to remote code execution and root access. Xint Research has disclosed nginx2root, five distinct nginx vulnerabilities plus one Linux kernel bug, each with a proven exploit. The worst of the five, no... [Full analysis a",
@@ -892,8 +997,8 @@
       "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
       "description": "Summary\n\nNuxt strips trailing slashes from the request path with a regular expression whose cost grows quadratically with the length of a run of consecutive slashes. A single unauthenticated request with a long run of slashes can occupy the server's event loop for a noticeable ti... [Full analysis a",
       "cvss": 9.1,
-      "final_ps": 55,
-      "quality_score": 0.458,
+      "final_ps": 53,
+      "quality_score": 0.433,
       "threat_level": "MEDIUM",
       "type": "NEWS_REPORT",
       "source": "sentinel_apex",
@@ -920,8 +1025,8 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
+          "recency=4d (score=0.40)",
+          "QS=0.432"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -2735,6 +2840,52 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-128118",
+      "title": "SvelteKit: Build-time server-only module import guard could fail, resulting in server secrets being statically replaced ",
+      "description": "Under certain circumstances, server-only imports, which typically cannot be included in the client bundle, could make their way into it, potentially exposing secrets. This could only occur when those server-only imports were made through src/params.js.",
+      "cvss": 7.5,
+      "final_ps": 40,
+      "quality_score": 0.433,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128118"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-m9j8-jcmv-hp69"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=4d (score=0.40)",
+          "QS=0.432"
+        ],
+        "priority": [
+          "base_ps=40 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-128128",
       "title": "AIOHTTP: WebSocket max_msg_size bypass via integer overflow",
       "description": "Summary\n\nThe max_msg_size check in the WebSocket reader added the declared frame length to the size of the partial message already buffered. In the C extension this addition is 64-bit arithmetic, so a declared length close to 2**63 overflowed and the check passed.\n\nImpact\n\nAn att... [Full analysis a",
@@ -2808,6 +2959,52 @@
       "ioc_count": 0,
       "refs": [
         "https://github.com/advisories/GHSA-24c4-3p7v-29cm"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=4d (score=0.40)",
+          "QS=0.432"
+        ],
+        "priority": [
+          "base_ps=40 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-128120",
+      "title": "SvelteKit: DoS while parsing form data from a remote functions form",
+      "description": "This only affects applications using the experimental remote functions flag and utilizing the form, query, or command remote functions. A specially-crafted request could block the event loop for extended periods of time during parsing.",
+      "cvss": 7.5,
+      "final_ps": 40,
+      "quality_score": 0.433,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128120"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-3r8g-jcqq-3p5j"
       ],
       "explanation": {
         "quality": [
@@ -4412,6 +4609,188 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-85594",
+      "title": "CVE-2026-85594 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-09-04",
+      "last_seen": "2026-09-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "traefik",
+      "product": "traefik",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/traefik/traefik/security/advisories/GHSA-m6wx-622r-48r9",
+        "https://www.vulncheck.com/advisories/traefik-3.7.1-crossprovidernamespaces-bypass-via-service-middleware"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-85595",
+      "title": "CVE-2026-85595 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-09-04",
+      "last_seen": "2026-09-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "traefik",
+      "product": "traefik",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/traefik/traefik/security/advisories/GHSA-5w68-77r2-r64c",
+        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-authentication-bypass-via-digestauth"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2025-34267",
+      "title": "CVE-2025-34267 — flowiseai flowise CVSS 9.9 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.9,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2025-10-14",
+      "last_seen": "2025-10-14",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "flowiseai",
+      "product": "flowise",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://flowiseai.com/",
+        "https://github.com/FlowiseAI/Flowise/pull/5231",
+        "https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-5w3r-f6gm-c25w",
+        "https://www.vulncheck.com/advisories/flowise-auth-command-execution-and-sandbox-bypass-via-puppeteer-and-playwright-packages"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-85597",
+      "title": "CVE-2026-85597 — traefik traefik CVSS 9.1 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.1,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-09-04",
+      "last_seen": "2026-09-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "traefik",
+      "product": "traefik",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/traefik/traefik/security/advisories/GHSA-g55h-rg46-x9c5",
+        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-mtls-bypass-via-tls-option-conflict"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-14914",
       "title": "CVE-2026-14914 — Unknown Vendor Unrestricted upload of CVSS 10 Critical Vulnerability",
       "description": "",
@@ -4997,14 +5376,106 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-121481",
-      "title": "OpenSSL Hit by Critical 9.8 Heap Buffer Overflow Vulnerability in Base64 Encoding Function",
+      "id": "CVE-2026-109618",
+      "title": "CVE-2026-109618 — php php CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-10-21",
+      "last_seen": "2026-10-21",
+      "exploited": false,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "php",
+      "product": "php",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+        "http://seclists.org/fulldisclosure/2026/Oct/51",
+        "http://www.openwall.com/lists/oss-security/2026/10/21/6",
+        "http://www.openwall.com/lists/oss-security/2026/10/23/5"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-85596",
+      "title": "CVE-2026-85596 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-09-04",
+      "last_seen": "2026-09-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "traefik",
+      "product": "traefik",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/traefik/traefik/security/advisories/GHSA-j994-9gqj-9hwq",
+        "https://www.vulncheck.com/advisories/traefik-3.7-authentication-bypass-via-tls-option-conflict"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-76466",
+      "title": "Hackers Exploit Cisco Expressway Flaw CVE-2026-76466 to Breach Russian Organization",
       "description": "",
       "cvss": 9.8,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "LOW",
-      "type": "CVE_REPORT",
+      "type": "AI_SECURITY",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
@@ -5019,11 +5490,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-121481"
+        "CVE-2026-76466"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cybersecuritynews.com/openssl-heap-buffer-overflow/"
+        "https://securityaffairs.com/203598/hacking/hackers-exploit-cisco-expressway-flaw-cve-2026-76466-to-breach-russian-organization.html"
       ],
       "explanation": {
         "quality": [
@@ -5043,158 +5514,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-115578",
-      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "go",
-      "product": "github.com/phires/go-guerrilla",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-115578",
-        "CVE-2026-115578"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-hghq-53p7-c582",
-        "https://github.com/phires/go-guerrilla/security/advisories/GHSA-hghq-53p7-c582",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-115578",
-        "https://github.com/phires/go-guerrilla/commit/b6deed97ff70f52bf34c386d33967694e7330d33"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-58192",
-      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
-      "description": "",
-      "cvss": 8.6,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "npm",
-      "product": "@appium/storage-plugin",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-58192",
-        "CVE-2026-58192"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr",
-        "https://github.com/appium/appium/security/advisories/GHSA-jwgx-mp9m-jwcr",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-58192",
-        "https://github.com/appium/appium/pull/22362"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-103035",
-      "title": "TeamPass folder re-parenting authorization bypass",
-      "description": "",
-      "cvss": 8.3,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "composer",
-      "product": "nilsteampassnet/TeamPass",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-103035",
-        "CVE-2026-103035"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6",
-        "https://github.com/nilsteampassnet/TeamPass/security/advisories/GHSA-66q9-mxf2-xqw6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-103035",
-        "https://github.com/nilsteampassnet/TeamPass/commit/e022b27f99149995c90a81f83b8e0ae8b48f5a20"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-104129",
-      "title": "pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)",
+      "id": "CVE-2026-103026",
+      "title": "Paymenter: Unauthenticated arbitrary method invocation in Livewire components",
       "description": "",
       "cvss": 8.1,
       "final_ps": 21,
@@ -5211,19 +5532,19 @@
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "go",
-      "product": "github.com/prest/prest",
+      "vendor": "composer",
+      "product": "paymenter/paymenter",
       "due_date": null,
       "cves": [
-        "CVE-2026-104129",
-        "CVE-2026-104129"
+        "CVE-2026-103026",
+        "CVE-2026-103026"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-v9v2-98xq-627c",
-        "https://github.com/prest/prest/security/advisories/GHSA-v9v2-98xq-627c",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-104129",
-        "https://github.com/prest/prest/pull/1014"
+        "https://github.com/advisories/GHSA-prhx-9q2h-ph2x",
+        "https://github.com/Paymenter/Paymenter/security/advisories/GHSA-prhx-9q2h-ph2x",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103026",
+        "https://github.com/Paymenter/Paymenter/commit/e0c04af1707a65d8fb91879883aa7eae3292cedc"
       ],
       "explanation": {
         "quality": [
@@ -5243,10 +5564,60 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-131804",
-      "title": "CVE-2026-131804 — Unknown Vendor The Seraphinite Accelerator CVSS 7.2 High Severity Vulnerability",
+      "id": "CVE-2026-130176",
+      "title": "aMQTT: Denial of Service (DoS) via Memory Leak in Unmanaged QoS 2 Session Handshakes",
       "description": "",
-      "cvss": 7.2,
+      "cvss": 7.5,
+      "final_ps": 21,
+      "quality_score": 0.523,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "pip",
+      "product": "amqtt",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-130176",
+        "CVE-2026-130176"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-wcqj-wx85-c75p",
+        "https://github.com/Yakifo/amqtt/security/advisories/GHSA-wcqj-wx85-c75p",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-130176",
+        "https://github.com/Yakifo/amqtt/pull/404"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.523"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-42010",
+      "title": "CVE-2026-42010 — gnu gnutls CVSS 7.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.1,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -5256,21 +5627,21 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2026-05-07",
+      "last_seen": "2026-05-07",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Seraphinite Accelerator",
+      "vendor": "gnu",
+      "product": "gnutls",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/seraphinite-accelerator/tags/2.31/Cmn/Gen.php#L1704",
-        "https://plugins.trac.wordpress.org/browser/seraphinite-accelerator/tags/2.31/Cmn/Ui.php#L593",
-        "https://plugins.trac.wordpress.org/browser/seraphinite-accelerator/tags/2.31/cache_ex.php#L35",
-        "https://plugins.trac.wordpress.org/browser/seraphinite-accelerator/tags/2.31/cache_ex.php#L75"
+        "https://access.redhat.com/errata/RHSA-2026:13274",
+        "https://access.redhat.com/errata/RHSA-2026:20611",
+        "https://access.redhat.com/errata/RHSA-2026:20612",
+        "https://access.redhat.com/errata/RHSA-2026:20613"
       ],
       "explanation": {
         "quality": [
@@ -5278,106 +5649,6 @@
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
           "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-115463",
-      "title": "Poweradmin: The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout, so an atta",
-      "description": "",
-      "cvss": 7.4,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "composer",
-      "product": "poweradmin/poweradmin",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-115463",
-        "CVE-2026-115463"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-9657-8vc2-7g2p",
-        "https://github.com/poweradmin/poweradmin/security/advisories/GHSA-9657-8vc2-7g2p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-115463",
-        "https://github.com/poweradmin/poweradmin/commit/021e5fea029cf8787247517cde752f9a6af1647c"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-63184",
-      "title": "Refitter: Unrestricted OpenAPI references permit build-host SSRF and file inclusion",
-      "description": "",
-      "cvss": 7.1,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "nuget",
-      "product": "Refitter",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-63184",
-        "CVE-2026-63184"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-x6w4-f264-3vvr",
-        "https://github.com/christianhelle/refitter/security/advisories/GHSA-x6w4-f264-3vvr",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-63184",
-        "https://github.com/christianhelle/refitter/pull/1173"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
@@ -6015,98 +6286,6 @@
       "ioc_count": 0,
       "refs": [
         "https://github.com/advisories/GHSA-r7w7-vpq8-c5vv"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-128118",
-      "title": "SvelteKit: Build-time server-only module import guard could fail, resulting in server secrets being statically replaced ",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128118"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-m9j8-jcmv-hp69"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-128120",
-      "title": "SvelteKit: DoS while parsing form data from a remote functions form",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128120"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-3r8g-jcqq-3p5j"
       ],
       "explanation": {
         "quality": [

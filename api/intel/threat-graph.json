@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-20T14:54:57.925Z",
+  "generated": "2026-11-20T15:56:36.699Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19561,
+    "total_nodes": 19573,
     "actors": 8,
-    "cves": 9459,
-    "campaigns": 3050,
+    "cves": 9465,
+    "campaigns": 3056,
     "malware": 0,
     "iocs": 911,
-    "edges": 5855
+    "edges": 5861
   },
   "nodes": {
     "actor:lockbit": {
@@ -350655,7 +350655,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -350673,7 +350673,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -356290,8 +356290,8 @@
       "name": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
       "attributes": {
         "cvss": 9.1,
-        "threat_level": "MEDIUM",
-        "priority_score": 45,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -367783,6 +367783,234 @@
       "connections": [
         {
           "target": "CVE-2026-115463",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2025-34267": {
+      "id": "CVE-2025-34267",
+      "type": "CVE",
+      "name": "CVE-2025-34267 — flowiseai flowise CVSS 9.9 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.9,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "flowiseai",
+        "product": "flowise",
+        "published": "2025-10-14",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-85594": {
+      "id": "CVE-2026-85594",
+      "type": "CVE",
+      "name": "CVE-2026-85594 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "traefik",
+        "product": "traefik",
+        "published": "2026-09-04",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-85595": {
+      "id": "CVE-2026-85595",
+      "type": "CVE",
+      "name": "CVE-2026-85595 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "traefik",
+        "product": "traefik",
+        "published": "2026-09-04",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-103026": {
+      "id": "CVE-2026-103026",
+      "type": "CVE",
+      "name": "Paymenter: Unauthenticated arbitrary method invocation in Livewire components",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "composer",
+        "product": "paymenter/paymenter",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-85597": {
+      "id": "CVE-2026-85597",
+      "type": "CVE",
+      "name": "CVE-2026-85597 — traefik traefik CVSS 9.1 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "traefik",
+        "product": "traefik",
+        "published": "2026-09-04",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-130176": {
+      "id": "CVE-2026-130176",
+      "type": "CVE",
+      "name": "aMQTT: Denial of Service (DoS) via Memory Leak in Unmanaged QoS 2 Session Handshakes",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "pip",
+        "product": "amqtt",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2025-34267": {
+      "id": "campaign:cve-2025-34267",
+      "type": "Campaign",
+      "name": "flowiseai flowise Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2025-10-14",
+        "last_seen": "2025-10-14",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2025-34267"
+      },
+      "connections": [
+        {
+          "target": "CVE-2025-34267",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-85594": {
+      "id": "campaign:cve-2026-85594",
+      "type": "Campaign",
+      "name": "traefik traefik Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-09-04",
+        "last_seen": "2026-09-04",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-85594"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-85594",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-85595": {
+      "id": "campaign:cve-2026-85595",
+      "type": "Campaign",
+      "name": "traefik traefik Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-09-04",
+        "last_seen": "2026-09-04",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-85595"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-85595",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-103026": {
+      "id": "campaign:cve-2026-103026",
+      "type": "Campaign",
+      "name": "composer paymenter/paymenter Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-103026"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-103026",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-85597": {
+      "id": "campaign:cve-2026-85597",
+      "type": "Campaign",
+      "name": "traefik traefik Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-09-04",
+        "last_seen": "2026-09-04",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-85597"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-85597",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-130176": {
+      "id": "campaign:cve-2026-130176",
+      "type": "Campaign",
+      "name": "pip amqtt Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-130176"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-130176",
           "relationship": "includes",
           "confidence": 1
         }
@@ -420664,6 +420892,60 @@
       "id": "campaign:cve-2026-115463→includes→CVE-2026-115463",
       "source": "campaign:cve-2026-115463",
       "target": "CVE-2026-115463",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2025-34267→includes→CVE-2025-34267",
+      "source": "campaign:cve-2025-34267",
+      "target": "CVE-2025-34267",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-85594→includes→CVE-2026-85594",
+      "source": "campaign:cve-2026-85594",
+      "target": "CVE-2026-85594",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-85595→includes→CVE-2026-85595",
+      "source": "campaign:cve-2026-85595",
+      "target": "CVE-2026-85595",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-103026→includes→CVE-2026-103026",
+      "source": "campaign:cve-2026-103026",
+      "target": "CVE-2026-103026",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-85597→includes→CVE-2026-85597",
+      "source": "campaign:cve-2026-85597",
+      "target": "CVE-2026-85597",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-130176→includes→CVE-2026-130176",
+      "source": "campaign:cve-2026-130176",
+      "target": "CVE-2026-130176",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-20",
