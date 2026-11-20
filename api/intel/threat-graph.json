@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-20T03:20:44.066Z",
+  "generated": "2026-11-20T04:32:44.081Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19446,
+    "total_nodes": 19450,
     "actors": 8,
-    "cves": 9388,
-    "campaigns": 3007,
+    "cves": 9390,
+    "campaigns": 3009,
     "malware": 0,
     "iocs": 911,
-    "edges": 5784
+    "edges": 5786
   },
   "nodes": {
     "actor:lockbit": {
@@ -361167,7 +361167,7 @@
       "attributes": {
         "cvss": 9,
         "threat_level": "MEDIUM",
-        "priority_score": 49,
+        "priority_score": 47,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -365403,7 +365403,7 @@
       "attributes": {
         "cvss": 6.5,
         "threat_level": "LOW",
-        "priority_score": 38,
+        "priority_score": 36,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -365487,6 +365487,82 @@
       "connections": [
         {
           "target": "CVE-2026-133478",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-133553": {
+      "id": "CVE-2026-133553",
+      "type": "CVE",
+      "name": "CVE-2026-133553 — Unknown Vendor A flaw was CVSS 7.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 64,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A flaw was",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-21622": {
+      "id": "CVE-2026-21622",
+      "type": "CVE",
+      "name": "CVE-2026-21622 — hex hexpm CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "hex",
+        "product": "hexpm",
+        "published": "2026-03-05",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-133553": {
+      "id": "campaign:cve-2026-133553",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133553"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133553",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-21622": {
+      "id": "campaign:cve-2026-21622",
+      "type": "Campaign",
+      "name": "hex hexpm Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-03-05",
+        "last_seen": "2026-03-05",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-21622"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-21622",
           "relationship": "includes",
           "confidence": 1
         }
@@ -417729,6 +417805,24 @@
       "id": "campaign:cve-2026-133478→includes→CVE-2026-133478",
       "source": "campaign:cve-2026-133478",
       "target": "CVE-2026-133478",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133553→includes→CVE-2026-133553",
+      "source": "campaign:cve-2026-133553",
+      "target": "CVE-2026-133553",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-21622→includes→CVE-2026-21622",
+      "source": "campaign:cve-2026-21622",
+      "target": "CVE-2026-21622",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-20",
