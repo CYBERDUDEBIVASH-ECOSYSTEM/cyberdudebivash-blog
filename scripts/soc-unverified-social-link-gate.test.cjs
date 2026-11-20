@@ -30,6 +30,19 @@ test('SOC public HTML does not link to unverified Facebook Page A', () => {
     assert.doesNotMatch(html, RETIRED_PAGE_VANITY, path.relative(ROOT, file));
   }
 });
+test('Blogger theme templates do not link to or embed unverified Facebook Page A', () => {
+  // The Blogger theme is a separate publishing surface from the Cloudflare-served HTML above.
+  // It previously carried the page id in JSON-LD sameAs, the footer social buttons and the contact grid.
+  const dir = path.join(ROOT, 'blogger-theme');
+  const themes = fs.readdirSync(dir).filter(name => name.endsWith('.xml'));
+  assert.ok(themes.length >= 1, 'Blogger theme inventory must be present');
+  for (const name of themes) {
+    const xml = fs.readFileSync(path.join(dir, name), 'utf8');
+    assert.equal(xml.includes(RETIRED_PAGE_ID), false, `blogger-theme/${name}`);
+    assert.doesNotMatch(xml, RETIRED_PAGE_VANITY, `blogger-theme/${name}`);
+    assert.doesNotMatch(xml, /facebook\.com\/profile\.php/i, `blogger-theme/${name}`);
+  }
+});
 test('P0: immutable dual-host parity includes BOTH root homepages, not only SOC workspace assets', () => {
   const {ASSETS, HOSTS} = require('./certify-soc-dual-host-ui-release.cjs');
   assert.deepEqual(HOSTS, ['soc.cyberdudebivash.in', 'blog.cyberdudebivash.in']);
