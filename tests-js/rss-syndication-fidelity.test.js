@@ -51,8 +51,9 @@ test('title and description CDATA delimiters cannot break XML context', () => {
   const result = renderRssItem({ ...source, title: 'title]]><script>bad</script>',
     desc: 'sample]]><script>bad</script>' });
   assert.match(result, /title\]\]\]\]><!\[CDATA\[><script>/);
-  assert.match(result, /sample\]\]\]\]><!\[CDATA\[><script>/);
+  assert.match(result, /sample\]\]\]\]><!\[CDATA\[> bad/);
   assert.equal((result.match(/<item>/g) || []).length, 1);
+  assert.doesNotMatch(result.match(/<description>[\s\S]*?<\/description>/)[0], /<script>/);
 });
 
 test('untrusted slug is rejected instead of creating a malicious link', () => {
