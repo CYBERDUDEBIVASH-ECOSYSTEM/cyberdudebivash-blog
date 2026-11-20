@@ -455,9 +455,9 @@ class TestSourceEvidenceExtractDefanging(unittest.TestCase):
             cve_id=None,
             url="https://securelist.com/example-research/",
             full_content=(
-                "Source Publisher: Kaspersky Securelist\\n"
-                "Original Article: https://securelist.com/example-research/\\n"
-                "Feed Evidence Type: content:encoded\\n"
+                "Source Publisher: Kaspersky Securelist\n"
+                "Original Article: https://securelist.com/example-research/\n"
+                "Feed Evidence Type: content:encoded\n"
                 + long_body
             ),
         )
