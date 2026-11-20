@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T20:51:21.483Z",
+  "generated": "2026-11-20T21:47:53.077Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,59 +8,12 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 129,
+  "count": 127,
   "items": [
     {
-      "id": "CVE-2026-133874",
-      "title": "CVE-2026-133874 — Unknown Vendor Iceburg CRM through CVSS 8.1 High Severity Vulnerability",
-      "description": "Iceburg CRM through 5.0.0 contains an incorrect authorization vulnerability in Module::saveRecord() that allows authenticated users to write to unauthorized modules by prefixing request body keys with another module id. Attackers with write access to one module can submit crafted requests to POST /d",
-      "cvss": 8.1,
-      "final_ps": 62,
-      "quality_score": 0.58,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "Iceburg CRM through",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/iceburgcrm/iceburgcrm",
-        "https://github.com/iceburgcrm/iceburgcrm/blob/v5.0.0/app/Http/Controllers/Api/CRMController.php#L43-L54",
-        "https://github.com/iceburgcrm/iceburgcrm/blob/v5.0.0/app/Models/Module.php#L283-L335",
-        "https://github.com/iceburgcrm/iceburgcrm/issues/28"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
-        ],
-        "priority": [
-          "base_ps=62 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-63412",
-      "title": "Jane: Instantiation RCE via query parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
-      "description": "Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the query parameter name verbatim in a @param array{ \"\"?: ... } block. A */ in the q... [Full analysis a",
+      "id": "CVE-2026-63413",
+      "title": "Jane: Instantiation RCE via header parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "description": "Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the header parameter name verbatim in a @param array{ \"\"?: ... } block. A */ in the ... [Full analysis a",
       "cvss": 9.8,
       "final_ps": 59,
       "quality_score": 0.478,
@@ -80,11 +33,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-63412"
+        "CVE-2026-63413"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-q8v2-3j4h-xg2p"
+        "https://github.com/advisories/GHSA-x9xr-53qx-9qcf"
       ],
       "explanation": {
         "quality": [
@@ -131,98 +84,6 @@
       "ioc_count": 0,
       "refs": [
         "https://github.com/advisories/GHSA-vc6p-m6vx-6cwq"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=1d (score=0.85)",
-          "QS=0.478"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-121852",
-      "title": "CVE-2026-121852 - AppPresser 4.4.11 - 4.5.3 - Unauthenticated Stored XSS via Debug Log",
-      "description": "CVE-2026-121852 - AppPresser 4.4.11 - 4.5.3 - Unauthenticated Stored XSS via Debug Log",
-      "cvss": 9.1,
-      "final_ps": 57,
-      "quality_score": 0.478,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-121852"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-121852"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=1d (score=0.85)",
-          "QS=0.478"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-132622",
-      "title": "CVE-2026-132622 - GearUP Hyperev WLAN Site Survey utils.lua get_wlan_sitesurvey os command injection",
-      "description": "CVE-2026-132622 - GearUP Hyperev WLAN Site Survey utils.lua get_wlan_sitesurvey os command injection",
-      "cvss": 9,
-      "final_ps": 57,
-      "quality_score": 0.478,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-132622"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-132622"
       ],
       "explanation": {
         "quality": [
@@ -373,53 +234,6 @@
           "+12 PoC_available",
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-42010",
-      "title": "CVE-2026-42010 — gnu gnutls CVSS 7.1 High Severity Vulnerability",
-      "description": "A flaw was found in gnutls. Servers configured with RSA-PSK (Rivest–Shamir–Adleman – Pre-Shared Key) wrongfully matched usernames containing a NUL character with truncated usernames. A remote attacker could exploit this by sending a specially crafted username, leading to an authentication bypass. Th",
-      "cvss": 7.1,
-      "final_ps": 51,
-      "quality_score": 0.485,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-05-07",
-      "last_seen": "2026-05-07",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "gnu",
-      "product": "gnutls",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://access.redhat.com/errata/RHSA-2026:13274",
-        "https://access.redhat.com/errata/RHSA-2026:20611",
-        "https://access.redhat.com/errata/RHSA-2026:20612",
-        "https://access.redhat.com/errata/RHSA-2026:20613"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=197d (score=0.05)",
-          "QS=0.485"
-        ],
-        "priority": [
-          "base_ps=51 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -595,7 +409,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=2d (score=0.65)",
+          "recency=3d (score=0.65)",
           "QS=0.458"
         ],
         "priority": [
@@ -1052,6 +866,98 @@
       "ioc_count": 0,
       "refs": [
         "https://github.com/advisories/GHSA-r7hm-rjvg-xx7j"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.493"
+        ],
+        "priority": [
+          "base_ps=46 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-97698",
+      "title": "Mistune: Quadratic-time DoS in parse_link_href via unbounded parenthesis scan on empty-label links",
+      "description": "Resolution\n\nFixed in Mistune 3.3.4. Upgrade to 3.3.4 or later.\n\n- Affected versions: < 3.3.4\n- First patched version: 3.3.4\n- Fix: https://github.com/lepture/mistune/compare/v3.3.3...v3.3.4\n\nThe reported payload was reproduced against the 3.3.3 release tag and verified to scale a... [Full analysis a",
+      "cvss": 7.5,
+      "final_ps": 46,
+      "quality_score": 0.493,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-97698"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-phmp-hrw4-r36r"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.493"
+        ],
+        "priority": [
+          "base_ps=46 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-115563",
+      "title": "Model Context Protocol Python SDK: OAuth client could send credentials to an authorization server chosen by the MCP serv",
+      "description": "Summary\nIn affected versions, the SDK's OAuth client support (mcp.client.auth) let the MCP server a client connected to decide where the client's OAuth credentials were sent:\n\n- the authorization server metadata issuer was not validated on every discovery path, and\n- stored or pr... [Full analysis a",
+      "cvss": 7.5,
+      "final_ps": 46,
+      "quality_score": 0.493,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-115563"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-qx49-fqc8-xw99"
       ],
       "explanation": {
         "quality": [
@@ -4551,6 +4457,144 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-63412",
+      "title": "Jane: Instantiation RCE via query parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63412"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-q8v2-3j4h-xg2p"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-121852",
+      "title": "CVE-2026-121852 - AppPresser 4.4.11 - 4.5.3 - Unauthenticated Stored XSS via Debug Log",
+      "description": "",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-121852"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-121852"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-132622",
+      "title": "CVE-2026-132622 - GearUP Hyperev WLAN Site Survey utils.lua get_wlan_sitesurvey os command injection",
+      "description": "",
+      "cvss": 9,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-132622"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-132622"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-76090",
       "title": "Tapir: Construction/decode RCE via property name -> raw case-class field (tapir-openapi-codegen)",
       "description": "",
@@ -4956,144 +5000,6 @@
         ],
         "priority": [
           "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-63413",
-      "title": "Jane: Instantiation RCE via header parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-63413"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-x9xr-53qx-9qcf"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-97698",
-      "title": "Mistune: Quadratic-time DoS in parse_link_href via unbounded parenthesis scan on empty-label links",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-97698"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-phmp-hrw4-r36r"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-115563",
-      "title": "Model Context Protocol Python SDK: OAuth client could send credentials to an authorization server chosen by the MCP serv",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-115563"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-qx49-fqc8-xw99"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
         ],
         "suppression": null,
         "merge": null
