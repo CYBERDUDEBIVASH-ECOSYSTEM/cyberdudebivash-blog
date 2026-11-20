@@ -71,6 +71,48 @@ def _context():
     )
 
 
+@pytest.mark.parametrize("family", [
+    "ransomware_reporting", "ransomware_claim", "threat_actor",
+    "breach_notice", "general_intelligence", "ai_security",
+])
+def test_source_only_non_cve_family_never_receives_vulnerability_disclaimer(family):
+    html = (
+        "<article><h3>Technical Analysis</h3>"
+        "<p>Source-reported campaign behavior requires local validation.</p></article>"
+    )
+    soup = BeautifulSoup(html, "html.parser")
+    context = SimpleNamespace(family=family)
+    assert v19_1._label_technical_context(soup, True, context) is True
+    label = soup.select_one("[data-cdb-v19-1-evidence-class]")
+    assert label is not None
+    text = label.get_text(" ", strip=True)
+    assert "SOURCE-LINKED THREAT-ACTIVITY CONTEXT" in text
+    assert "CVE" not in text
+    assert "memory-corruption" not in text
+    assert "customer-specific compromise" in text
+    assert v19_1._label_technical_context(soup, True, context) is False
+    assert len(soup.select("[data-cdb-v19-1-evidence-class]")) == 1
+
+
+@pytest.mark.parametrize("family", ["cve_advisory", "cisa_kev"])
+def test_source_only_cve_families_keep_existing_vulnerability_evidence_notice(family):
+    soup = BeautifulSoup("<article><h3>Technical Analysis</h3><p>Review source.</p></article>", "html.parser")
+    assert v19_1._label_technical_context(
+        soup, True, SimpleNamespace(family=family)
+    ) is True
+    label = soup.select_one("[data-cdb-v19-1-evidence-class]").get_text(" ", strip=True)
+    assert "GENERAL VULNERABILITY-CLASS CONTEXT" in label
+    assert "CVE-specific" in label
+
+
+def test_non_source_only_artifact_never_receives_generic_evidence_notice():
+    soup = BeautifulSoup("<article><h3>Technical Analysis</h3><p>Validated.</p></article>", "html.parser")
+    assert v19_1._label_technical_context(
+        soup, False, SimpleNamespace(family="ransomware_reporting")
+    ) is False
+    assert not soup.select("[data-cdb-v19-1-evidence-class]")
+
+
 def test_source_only_live_dossier_regressions_are_repaired_without_inventing_facts():
     rendered = v19_1.enforce_cti_integrity_revenue_v19_1(
         _source_only_fixture(),
