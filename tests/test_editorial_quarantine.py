@@ -68,4 +68,7 @@ def test_both_fresh_and_retry_queues_apply_exact_editorial_hold_before_schedulin
     src = (Path(__file__).resolve().parents[1] / "automation" / "main.py").read_text(
         encoding="utf-8")
     assert src.count("if not editorial_quarantine_reason(article.url)") == 2
-    assert src.index('report["editorial_quarantined"]') < src.index("selection = select_publication_batch(")
+    # There is also a pre-existing backfill helper call earlier in main.py.
+    # Assert the filter precedes the actual top-level pipeline selection call.
+    assert src.count("    selection = select_publication_batch(") == 2
+    assert src.index('report["editorial_quarantined"]') < src.rindex("    selection = select_publication_batch(")
