@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T10:00:36.296Z",
+  "generated": "2026-11-20T11:03:38.550Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,13 +7,363 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7920,
+  "total_published": 7934,
   "s2n_stats": {
-    "passed": 100,
+    "passed": 130,
     "suppressed": 3,
-    "avg_qs": 0.513
+    "avg_qs": 0.492
   },
   "items": [
+    {
+      "id": "CVE-2026-123890",
+      "title": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
+      "description": "The suspected China-nexus cyber espionage group known as Armory Castle (formerly UNC5221) has been attributed to the zero-day exploitation of a critical security flaw in VMware vCenter Server in early September 2026. The vulnerability, tracked as CVE-2026-123890 (CVSS score: 9.8), is a case of authe",
+      "cvss": 9.8,
+      "final_ps": 73,
+      "quality_score": 0.478,
+      "threat_level": "HIGH",
+      "type": "ZERO_DAY",
+      "source": "thehackernews",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "thehackernews"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "The Hacker News",
+      "product": "Threat Intelligence",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-123890"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.55 (thehackernews)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9",
+          "+7 zero_day"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-120556",
+      "title": "CVE-2026-120556 — Unknown Vendor The Toocheke Companion CVSS 8.1 High Severity Vulnerability",
+      "description": "The Toocheke Companion plugin for WordPress is vulnerable to Missing Authorization leading to arbitrary post and attachment deletion in versions up to, and including, 2.38. This is due to a missing object-level capability check in the toocheke_tapas_ajax_cleanup_start() and toocheke_tapas_ajax_clean",
+      "cvss": 8.1,
+      "final_ps": 62,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Toocheke Companion",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/toocheke-companion/tags/2.37/inc/class-toocheke-companion-import-tapas.php#L558",
+        "https://plugins.trac.wordpress.org/browser/toocheke-companion/tags/2.37/inc/class-toocheke-companion-import-tapas.php#L604",
+        "https://plugins.trac.wordpress.org/browser/toocheke-companion/tags/2.37/inc/class-toocheke-companion-import-tapas.php#L674",
+        "https://plugins.trac.wordpress.org/browser/toocheke-companion/tags/2.37/inc/class-toocheke-companion-import-tapas.php#L679"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-118522",
+      "title": "CVE-2026-118522 — Unknown Vendor The Video & CVSS 8.1 High Severity Vulnerability",
+      "description": "The Video & Photo Gallery for Ultimate Member plugin for WordPress is vulnerable to Arbitrary File Deletion in versions up to, and including, 1.1.4 This is due to the um_gallery_add_videos() AJAX handler persisting user-supplied videos[] values into the file_name column after only esc_url() — which ",
+      "cvss": 8.1,
+      "final_ps": 62,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Video &",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/gallery-for-ultimate-member/tags/1.1.4/includes/um-gallery-ajax.php#L222",
+        "https://plugins.trac.wordpress.org/browser/gallery-for-ultimate-member/tags/1.1.4/includes/um-gallery-ajax.php#L589",
+        "https://plugins.trac.wordpress.org/browser/gallery-for-ultimate-member/tags/1.1.4/includes/um-gallery-functions.php#L528",
+        "https://plugins.trac.wordpress.org/changeset/3806302/gallery-for-ultimate-member"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-130010",
+      "title": "CVE-2026-130010 — Unknown Vendor The Chatterbug Forms CVSS 8.1 High Severity Vulnerability",
+      "description": "The Chatterbug Forms – Fast, Flexible WordPress Form Builder plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the cbforms_delete_uploaded_files function in all versions up to, and including, 1.1 This makes it possible for unauthenticated attac",
+      "cvss": 8.1,
+      "final_ps": 62,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Chatterbug Forms",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/chatterbug-forms/tags/1.1/chatterbug-forms.php#L409",
+        "https://plugins.trac.wordpress.org/browser/chatterbug-forms/tags/1.1/chatterbug-forms.php#L475",
+        "https://plugins.trac.wordpress.org/browser/chatterbug-forms/tags/1.1/forms/entries.php#L25",
+        "https://plugins.trac.wordpress.org/browser/chatterbug-forms/tags/1.1/inc/cbforms-util.php#L484"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-133577",
+      "title": "CVE-2026-133577 — Unknown Vendor A flaw was CVSS 7.7 High Severity Vulnerability",
+      "description": "A flaw was found in the Kuadrant WebAssembly (WASM) shim shipped in Red Hat Connectivity Link 1.5. When a TokenRateLimitPolicy is attached to an HTTPRoute that also has an AuthPolicy - or when a RateLimitPolicy with defaults or overrides is attached to the Gateway or listener of such routes - the sh",
+      "cvss": 7.7,
+      "final_ps": 61,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "A flaw was",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://access.redhat.com/security/cve/CVE-2026-133577",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2577566"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=61 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-104927",
+      "title": "CVE-2026-104927 — Unknown Vendor The King Addons CVSS 7.5 High Severity Vulnerability",
+      "description": "The King Addons for Elementor – 100+ Elementor Widgets, 4 000+ Elementor Templates, WooCommerce Builder, Mega Menu, Popup Builder plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 51.1.89. This is due to the plugin not properly verifying that a user is ",
+      "cvss": 7.5,
+      "final_ps": 61,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The King Addons",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/king-addons/tags/51.1.87/includes/helpers/Dynamic_Posts_Grid_Ajax.php#L112",
+        "https://plugins.trac.wordpress.org/browser/king-addons/tags/51.1.87/includes/helpers/Dynamic_Posts_Grid_Ajax.php#L190",
+        "https://plugins.trac.wordpress.org/browser/king-addons/tags/51.1.87/includes/helpers/Dynamic_Posts_Grid_Ajax.php#L345",
+        "https://plugins.trac.wordpress.org/browser/king-addons/tags/51.1.87/includes/helpers/Dynamic_Posts_Grid_Ajax.php#L54"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=61 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-128102",
+      "title": "CVE-2026-128102 — Unknown Vendor The rtMedia for CVSS 7.5 High Severity Vulnerability",
+      "description": "The rtMedia for WordPress, BuddyPress and bbPress plugin for WordPress is vulnerable to generic SQL Injection via the 'custom_fields' parameter in all versions up to, and including, 4.7.17 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing ",
+      "cvss": 7.5,
+      "final_ps": 61,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The rtMedia for",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/buddypress-media/tags/4.7.17/app/main/controllers/media/RTMediaMedia.php#L149",
+        "https://plugins.trac.wordpress.org/browser/buddypress-media/tags/4.7.17/app/main/controllers/template/rtmedia-functions.php#L2468",
+        "https://plugins.trac.wordpress.org/browser/buddypress-media/tags/4.7.17/app/main/controllers/template/rtmedia-functions.php#L3892",
+        "https://plugins.trac.wordpress.org/browser/buddypress-media/tags/4.7.17/app/main/controllers/upload/RTMediaUploadEndpoint.php#L85"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=61 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-133502",
+      "title": "CVE-2026-133502 — Unknown Vendor A weakness has CVSS 7.3 High Severity Vulnerability",
+      "description": "A weakness has been identified in blinkospace blinko up to 1.8.8. Affected is an unknown function of the file /api/auth/verify-2fa of the component 2FA Endpoint. This manipulation of the argument userId causes improper authentication. The attack may be initiated remotely. The exploit has been made a",
+      "cvss": 7.3,
+      "final_ps": 60,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "A weakness has",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://gist.github.com/DReazer/fcc654ac4997e73cf2fed5127321dafa",
+        "https://github.com/blinkospace/blinko/",
+        "https://github.com/blinkospace/blinko/commit/80e1c4ffaffe66a97df2b5d85fad864ff3691dc8",
+        "https://github.com/blinkospace/blinko/pull/1274"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=60 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
     {
       "id": "CVE-2026-131582",
       "title": "CVE-2026-131582 — Unknown Vendor The PagBank / CVSS 7.2 High Severity Vulnerability",
@@ -97,6 +447,400 @@
         ],
         "priority": [
           "base_ps=60 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-121985",
+      "title": "CVE-2026-121985 — Unknown Vendor The FV Flowplayer CVSS 7.2 High Severity Vulnerability",
+      "description": "The FV Flowplayer Video Player plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 7.5.57.7212 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject ar",
+      "cvss": 7.2,
+      "final_ps": 60,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The FV Flowplayer",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/foliovision/fv-wordpress-flowplayer/commit/ff7ed422e0609a6edd285a3e5a36ce9751923425",
+        "https://plugins.trac.wordpress.org/browser/fv-wordpress-flowplayer/trunk/controller/class.fv-player-sanitize-user-input.php#L80",
+        "https://plugins.trac.wordpress.org/browser/fv-wordpress-flowplayer/trunk/controller/frontend.php#L664",
+        "https://plugins.trac.wordpress.org/browser/fv-wordpress-flowplayer/trunk/controller/shortcodes.php#L42"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=60 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-127112",
+      "title": "CVE-2026-127112 — Unknown Vendor The Events Made CVSS 7.2 High Severity Vulnerability",
+      "description": "The Events Made Easy plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'event[event_notes]' parameter in all versions up to, and including, 3.3.8 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitra",
+      "cvss": 7.2,
+      "final_ps": 60,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Events Made",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/liedekef/events-made-easy/commit/033bd0a98e618d60aa1b4361aada3c53d0d5b98a",
+        "https://plugins.trac.wordpress.org/browser/events-made-easy/tags/3.3.8/includes/eme-events.php#L4180",
+        "https://plugins.trac.wordpress.org/browser/events-made-easy/tags/3.3.8/includes/eme-fs.php#L663",
+        "https://plugins.trac.wordpress.org/browser/events-made-easy/tags/3.3.8/includes/eme-fs.php#L900"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=60 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-76807",
+      "title": "Todoist MCP Server: Browser DNS rebinding lets websites write and delete Todoist data through local MCP server",
+      "description": "The self-hosted todoist-mcp-http server accepts browser-origin MCP requests with attacker-controlled Host and Origin headers. A malicious website can use DNS rebinding to route its own origin to a victim's local 127.0.0.1 MCP server, then invoke Todoist MCP tools without a caller... [Full analysis a",
+      "cvss": 9.3,
+      "final_ps": 60,
+      "quality_score": 0.493,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76807"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-833v-v58w-294h"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.493"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-27626",
+      "title": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
+      "description": "Summary\n\nOliveTin's shellAfterCompleted post-execution hook injects unsanitized variables — including arbitrary command output (output), the authenticated username (ot_username), and the exit code (exitCode) — directly into a shell command template processed by sh -c. Unlike the ... [Full analysis a",
+      "cvss": 9.9,
+      "final_ps": 59,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-27626"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-vc6p-m6vx-6cwq"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-89095",
+      "title": "CVE-2026-89095 — Unknown Vendor The Shortcodes and CVSS 8.1 High Severity Vulnerability",
+      "description": "The Shortcodes and extra features for Phlox theme plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 2.17.22 via the 'extra_template_path' parameter parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary .php fil",
+      "cvss": 8.1,
+      "final_ps": 57,
+      "quality_score": 0.533,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 2,
+      "merged_sources": [
+        "nvd",
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Shortcodes and",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-89095"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/auxin-elements/tags/2.17.22/includes/elements/recent-posts-grid-carousel.php#L1116",
+        "https://plugins.trac.wordpress.org/browser/auxin-elements/tags/2.17.22/includes/general-functions.php#L1375",
+        "https://plugins.trac.wordpress.org/browser/auxin-elements/tags/2.17.22/public/includes/frontend-ajax.php#L122",
+        "https://plugins.trac.wordpress.org/browser/auxin-elements/tags/2.17.22/public/includes/frontend-ajax.php#L8"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "multi_source=2 sources",
+          "recency=999d (score=0.05)",
+          "QS=0.532"
+        ],
+        "priority": [
+          "base_ps=57 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-121852",
+      "title": "CVE-2026-121852 - AppPresser 4.4.11 - 4.5.3 - Unauthenticated Stored XSS via Debug Log",
+      "description": "CVE-2026-121852 - AppPresser 4.4.11 - 4.5.3 - Unauthenticated Stored XSS via Debug Log",
+      "cvss": 9.1,
+      "final_ps": 57,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-121852"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-121852"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-132622",
+      "title": "CVE-2026-132622 - GearUP Hyperev WLAN Site Survey utils.lua get_wlan_sitesurvey os command injection",
+      "description": "CVE-2026-132622 - GearUP Hyperev WLAN Site Survey utils.lua get_wlan_sitesurvey os command injection",
+      "cvss": 9,
+      "final_ps": 57,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-132622"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-132622"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-122147",
+      "title": "Low Security Vulnerability [High EPSS] (CVE-2026-122147)",
+      "description": "CVE-2026-122147",
+      "cvss": 9.8,
+      "final_ps": 55,
+      "quality_score": 0.408,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-122147"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-122147?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=2d (score=0.65)",
+          "QS=0.407"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-128074",
+      "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
+      "description": "Summary\n\nNuxt strips trailing slashes from the request path with a regular expression whose cost grows quadratically with the length of a run of consecutive slashes. A single unauthenticated request with a long run of slashes can occupy the server's event loop for a noticeable ti... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 55,
+      "quality_score": 0.458,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-16",
+      "last_seen": "2026-11-16",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-128074"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=3d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -224,6 +968,49 @@
           "+10 ransomware_confirmed",
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-119793",
+      "title": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
+      "description": "Summary\nA single gossipsub peer can grow a node's topics map without bound by flooding subscription RPCs, because the default configuration has no global, per-peer, or topic-length cap and peer scoring does not penalise subscription volume. The peer is never greylisted, so the gr... [Full analysis a",
+      "cvss": 7.5,
+      "final_ps": 50,
+      "quality_score": 0.458,
+      "threat_level": "MEDIUM",
+      "type": "CRITICAL_INFRASTRUCTURE",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-119793"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-x2vm-cf3p-m2w8"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=2d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "+4 critical_infra"
         ],
         "suppression": null,
         "merge": null
@@ -626,6 +1413,49 @@
           "+12 PoC_available",
           "+8 exploited_in_wild",
           "+7 zero_day"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-114938",
+      "title": "65 Characters to RCE: Inside the Java4Shell Vulnerability",
+      "description": "Calif disclosed Java4Shell, a critical OpenJDK Base64 bug enabling pre-auth RCE in Jenkins, Jira, Keycloak and more. Patches are out. Update now. Calif researchers disclosed Java4Shell, a memory-corruption bug, tracked as CVE-2026-114938 (CVSS score of 9.2), in OpenJDK&#8217;s Ba... [Full analysis a",
+      "cvss": 8.1,
+      "final_ps": 43,
+      "quality_score": 0.458,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114938"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://securityaffairs.com/203387/hacking/65-characters-to-rce-inside-the-java4shell-vulnerability.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=2d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "base_ps=43 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -1497,7 +2327,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-20128",
@@ -1537,7 +2369,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-32975",
@@ -1577,7 +2411,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-34197",
@@ -1617,7 +2453,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-112292",
@@ -1661,7 +2499,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-35616",
@@ -1705,7 +2545,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-105192",
@@ -1749,7 +2591,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-71417",
@@ -1793,7 +2637,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-71418",
@@ -1837,7 +2683,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2023-54394",
@@ -1881,7 +2729,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2023-2868",
@@ -1925,7 +2775,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2023-27372",
@@ -1969,7 +2821,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-23550",
@@ -2013,7 +2867,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-33017",
@@ -2057,7 +2913,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-61511",
@@ -2101,7 +2959,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2024-4898",
@@ -2145,7 +3005,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2019-0708",
@@ -2189,7 +3051,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-69212",
@@ -2233,7 +3097,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2024-36401",
@@ -2277,7 +3143,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-15748",
@@ -2592,6 +3460,52 @@
         "priority": [
           "+10 CVSS≥9",
           "+4 critical_infra"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-120681",
+      "title": "CVE-2026-120681 — Unknown Vendor The Mang Board CVSS 9.1 Critical Vulnerability",
+      "description": "The Mang Board plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.4.7. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to delete any board post — incl",
+      "cvss": 9.1,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Mang Board",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/mangboard/tags/2.4.7/api/mb-board.php#L19",
+        "https://plugins.trac.wordpress.org/browser/mangboard/tags/2.4.7/api/mb-board.php#L414",
+        "https://plugins.trac.wordpress.org/browser/mangboard/tags/2.4.7/includes/functions/func.api.php#L475",
+        "https://plugins.trac.wordpress.org/browser/mangboard/tags/2.4.8/api/mb-board.php"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -3082,646 +3996,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-14492",
-      "title": "CVE-2026-14492 — Unknown Vendor The WP Duplicate CVSS 9.8 Critical Vulnerability",
-      "description": "The WP Duplicate – WordPress Migration Plugin plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.1.11 via the save_single_batch_file function. This is due to a PHP type-juggling authentication bypass via loose != comparison with no is_string() guard, ",
+      "id": "CVE-2026-119350",
+      "title": "Next.js: Cache poisoning of shared fallback shells in Cache Components via request-supplied placeholder route params",
+      "description": "Self-hosted Next.js applications served with next start and built with cacheComponents: true but without Partial Prefetching accept a request-supplied route param value as a prerender placeholder. One unauthenticated GET request can poison the fallback shell cache entry that a fa... [Full analysis a",
       "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The WP Duplicate",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/local-sync/tags/1.1.11/admin/class-local-sync-files-op.php#L777",
-        "https://plugins.trac.wordpress.org/browser/local-sync/tags/1.1.11/admin/class-local-sync-files-op.php#L800",
-        "https://plugins.trac.wordpress.org/browser/local-sync/tags/1.1.11/includes/class-local-sync-handle-server-requests.php#L131",
-        "https://plugins.trac.wordpress.org/browser/local-sync/tags/1.1.11/includes/class-local-sync-handle-server-requests.php#L36"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-132622",
-      "title": "CVE-2026-132622 — Unknown Vendor A vulnerability was CVSS 9.1 Critical Vulnerability",
-      "description": "A vulnerability was found in GearUP Hyperev up to 20261020. This impacts the function get_wlan_sitesurvey of the file ld/utils.lua of the component WLAN Site Survey. Performing a manipulation of the argument line results in os command injection. The attack is possible to be carried out remotely. The",
-      "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability was",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://vuldb.com/cve/CVE-2026-132622",
-        "https://vuldb.com/submit/1045343",
-        "https://vuldb.com/vuln/439768",
-        "https://vuldb.com/vuln/439768/cti"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-132141",
-      "title": "CVE-2026-132141 — Unknown Vendor A vulnerability was CVSS 9.9 Critical Vulnerability",
-      "description": "A vulnerability was detected in DrayTek Vigor2960 up to 1.5.1.6. Affected by this issue is the function json_load_lock of the file /cgi-bin/mainfunction.cgi of the component Jsonstatus. The manipulation of the argument usefile results in stack-based buffer overflow. It is possible to launch the atta",
-      "cvss": 9.9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability was",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
-        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0023-authenticated-jsonstatus-usefile-stack-overflow",
-        "https://vuldb.com/cve/CVE-2026-132141",
-        "https://vuldb.com/submit/1044968"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-132143",
-      "title": "CVE-2026-132143 — Unknown Vendor A vulnerability has CVSS 9.9 Critical Vulnerability",
-      "description": "A vulnerability has been found in DrayTek Vigor2960 up to 1.5.1.6. This vulnerability affects the function doWebBackup of the file /cgi-bin/mainfunction.cgi of the component Backup Handler. Such manipulation of the argument path/value leads to stack-based buffer overflow. The attack can be launched ",
-      "cvss": 9.9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability has",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.7/Vigor2960_v1.5.1.7.zip",
-        "https://github.com/yikesoftware/DrayTek_Vigor2960_Security_Analysis/tree/main/cases/DRV2960-0025-authenticated-dowebbackup-stack-overflow",
-        "https://vuldb.com/cve/CVE-2026-132143",
-        "https://vuldb.com/submit/1044970"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-68791",
-      "title": "CVE-2026-68791 — microsoft azure machine learning CVSS 10 Critical Vulnerability",
-      "description": "Incorrect authorization in Azure Machine Learning allows an unauthorized attacker to disclose information over a network.",
-      "cvss": 10,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-09-17",
-      "last_seen": "2026-09-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "microsoft",
-      "product": "azure machine learning",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68791"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-28808",
-      "title": "CVE-2026-28808 — erlang erlang\\/inets CVSS 9.8 Critical Vulnerability",
-      "description": "Incorrect Authorization vulnerability in Erlang OTP (inets modules) allows unauthenticated access to CGI scripts protected by directory rules when served via script_alias.\n\nWhen script_alias maps a URL prefix to a directory outside DocumentRoot, mod_auth evaluates directory-based access controls aga",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-04-07",
-      "last_seen": "2026-04-07",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "erlang",
-      "product": "erlang\\/inets",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://cna.erlef.org/cves/CVE-2026-28808.html",
-        "https://github.com/erlang/otp/commit/07b8f441ca711f9812fad9e9115bab3c3aa92f79",
-        "https://github.com/erlang/otp/commit/8fc71ac6af4fbcc54103bec2983ef22e82942688",
-        "https://github.com/erlang/otp/commit/9dfa0c51eac97866078e808dec2183cb7871ff7c"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-23941",
-      "title": "CVE-2026-23941 — erlang erlang\\/inets CVSS 9.4 Critical Vulnerability",
-      "description": "Inconsistent Interpretation of HTTP Requests ('HTTP Request Smuggling') vulnerability in Erlang OTP (inets httpd module) allows HTTP Request Smuggling.\n\nThis vulnerability is associated with program files lib/inets/src/http_server/httpd_request.erl and program routines httpd_request:parse_headers/7.",
-      "cvss": 9.4,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-03-13",
-      "last_seen": "2026-03-13",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "erlang",
-      "product": "erlang\\/inets",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://cna.erlef.org/cves/CVE-2026-23941.html",
-        "https://github.com/erlang/otp/commit/a4b46336fd25aa100ac602eb9a627aaead7eda18",
-        "https://github.com/erlang/otp/commit/a761d391d8d08316cbd7d4a86733ba932b73c45b",
-        "https://github.com/erlang/otp/commit/e775a332f623851385ab6ddb866d9b150612ddf6"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-21622",
-      "title": "CVE-2026-21622 — hex hexpm CVSS 9.8 Critical Vulnerability",
-      "description": "Insufficient Session Expiration vulnerability in hexpm hexpm/hexpm (Hexpm.Accounts.PasswordReset module) allows Account Takeover.\n\nPassword reset tokens generated via the \"Reset your password\" flow do not expire. When a user requests a password reset, Hex sends an email containing a reset link with ",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-03-05",
-      "last_seen": "2026-03-05",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "hex",
-      "product": "hexpm",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://cna.erlef.org/cves/CVE-2026-21622.html",
-        "https://github.com/hexpm/hexpm/commit/617e44c71f1dd9043870205f371d375c5c4d886d",
-        "https://github.com/hexpm/hexpm/commit/bb0e42091995945deef10556f58d046a52eb7884",
-        "https://github.com/hexpm/hexpm/security/advisories/GHSA-6r94-pvwf-mxqm"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-30793",
-      "title": "CVE-2026-30793 — rustdesk rustdesk CVSS 9.8 Critical Vulnerability",
-      "description": "Cross-Site Request Forgery (CSRF) vulnerability in rustdesk-client RustDesk Client rustdesk-client on Windows, MacOS, Linux, iOS, Android (Flutter URI scheme handler, FFI bridge modules) allows Privilege Escalation. This vulnerability is associated with program files flutter/lib/common.Dart, src/flu",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-03-05",
-      "last_seen": "2026-03-05",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "rustdesk",
-      "product": "rustdesk",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://docs.google.com/document/d/e/2PACX-1vSds6jjpd38oO_yIAyd1HYtKNUuea-I-ozAPpGhYI7QgAU-QGJ7D8a4rOZVj1vmiUXV1EcdRHf9aZAW/pub",
-        "https://github.com/rustdesk/hbb_common",
-        "https://github.com/rustdesk/rustdesk",
-        "https://www.vulsec.org/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2024-10441",
-      "title": "U.S. CISA adds Apache Axis, Vanderbilt REDCap,BerriAI LiteLLM, and Synology DSM flaws to its Known Exploited Vulnerabili",
-      "description": "U.S. Cybersecurity and Infrastructure Security Agency (CISA) adds Apache Axis, Vanderbilt REDCap,BerriAI LiteLLM, and Synology DSM flaws to its Known Exploited Vulnerabilities catalog. The U.S. Cybersecurity and Infrastructure Security Agency (CISA) added Check Point and UnrealIR... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "AI_SECURITY",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2024-10441"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://securityaffairs.com/203504/hacking/u-s-cisa-adds-apache-axis-vanderbilt-redcapberriai-litellm-and-synology-dsm-flaws-to-its-known-exploited-vulnerabilities-catalog.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-121852",
-      "title": "CVE-2026-121852 - AppPresser 4.4.11 - 4.5.3 - Unauthenticated Stored XSS via Debug Log",
-      "description": "CVE-2026-121852 - AppPresser 4.4.11 - 4.5.3 - Unauthenticated Stored XSS via Debug Log",
-      "cvss": 9.1,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-121852"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-121852"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-123890",
-      "title": "Critical VMware vCenter Flaws Let Hackers Bypass Authentication and Access Servers",
-      "description": "Broadcom has released fixes for five VMware flaws, and one lets anyone with network access to vCenter skip login. Broadcom published the advisory,&#160;VMSA-2026-0009,&#160;on November 19, 2026. It covers vCenter, SDDC Manager, and VMware Tools. CVSS scores range from 6.7 to 9.8,... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-123890"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cybersecuritynews.com/vmware-vcenter-authentication-bypass/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-76807",
-      "title": "Low Security Vulnerability (CVE-2026-76807)",
-      "description": "CVE-2026-76807",
-      "cvss": 9.3,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76807"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-76807?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114938",
-      "title": "65 Characters to RCE: Inside the Java4Shell Vulnerability",
-      "description": "Calif disclosed Java4Shell, a critical OpenJDK Base64 bug enabling pre-auth RCE in Jenkins, Jira, Keycloak and more. Patches are out. Update now. Calif researchers disclosed Java4Shell, a memory-corruption bug, tracked as CVE-2026-114938 (CVSS score of 9.2), in OpenJDK&#8217;s Ba... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114938"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://securityaffairs.com/203387/hacking/65-characters-to-rce-inside-the-java4shell-vulnerability.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-27626",
-      "title": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
-      "description": "Summary\n\nOliveTin's shellAfterCompleted post-execution hook injects unsanitized variables — including arbitrary command output (output), the authenticated username (ot_username), and the exit code (exitCode) — directly into a shell command template processed by sh -c. Unlike the ... [Full analysis a",
-      "cvss": 9.9,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "MEDIUM",
@@ -3731,8 +4009,8 @@
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -3740,11 +4018,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-27626"
+        "CVE-2026-119350"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-vc6p-m6vx-6cwq"
+        "https://github.com/advisories/GHSA-vvgp-ww4w-46vf"
       ],
       "explanation": {
         "quality": [
@@ -3763,100 +4041,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-77296",
-      "title": "CVE-2026-77296 - MyMangaDB: Unauthenticated path traversal in cover-image upload allows arbitrary file write, escalating",
-      "description": "CVE-2026-77296 - MyMangaDB: Unauthenticated path traversal in cover-image upload allows arbitrary file write, escalating to the same database-overwrite takeover",
-      "cvss": 9.1,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-77296"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-77296"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-122147",
-      "title": "Low Security Vulnerability [High EPSS] (CVE-2026-122147)",
-      "description": "CVE-2026-122147",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-122147"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-122147?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-128074",
-      "title": "Nuxt payload URL generation has quadratic cost for repeated slashes in the request path",
-      "description": "Summary\n\nNuxt strips trailing slashes from the request path with a regular expression whose cost grows quadratically with the length of a run of consecutive slashes. A single unauthenticated request with a long run of slashes can occupy the server's event loop for a noticeable ti... [Full analysis a",
-      "cvss": 9.1,
+      "id": "CVE-2026-45374",
+      "title": "CodeWhale: Automation auto_approve defaults to true, bypassing the task-path hardening fix for silent recurring agent ex",
+      "description": "Maintainer resolution\n\nThe CodeWhale maintainers validated this report. CodeWhale 0.8.67 and earlier are affected. Version 0.9.0 contains the fix in commit 208421b9d23d81cea3311a1eeb2a2ea81d637686. Users should upgrade to 0.9.0 or later. The original reporter analysis is preserve... [Full analysis a",
+      "cvss": 9.6,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "MEDIUM",
@@ -3866,8 +4054,8 @@
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -3875,11 +4063,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-128074"
+        "CVE-2026-45374"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-r9jc-w898-3fv6"
+        "https://github.com/advisories/GHSA-8hp3-xxrg-v9c8"
       ],
       "explanation": {
         "quality": [
@@ -3898,55 +4086,190 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-119793",
-      "title": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
-      "description": "Summary\nA single gossipsub peer can grow a node's topics map without bound by flooding subscription RPCs, because the default configuration has no global, per-peer, or topic-length cap and peer scoring does not penalise subscription volume. The peer is never greylisted, so the gr... [Full analysis a",
+      "id": "CVE-2026-63312",
+      "title": "NLTK: StreamBackedCorpusView constructor os.stat leaks out-of-root file existence, size, and mtime bypassing pathsec ENF",
+      "description": "Summary\n\nStreamBackedCorpusView, a public API in nltk/corpus/reader/util.py, applies the pathsec sandbox to the file content it reads but not to the file metadata it probes in its constructor. When the view is created with a plain string fileid, __init__ calls os.stat(self._filei... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63312"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-w674-vqhw-g3pg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-63411",
+      "title": "Jane: Instantiation RCE via parameter description -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "description": "Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the parameter description verbatim in a @param array{ \"\"?: ... } block. A */ in the ... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63411"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-xwcw-j52r-34x4"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-63413",
+      "title": "Jane: Instantiation RCE via header parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "description": "Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the header parameter name verbatim in a @param array{ \"\"?: ... } block. A */ in the ... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63413"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-x9xr-53qx-9qcf"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-63412",
+      "title": "Jane: Instantiation RCE via query parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "description": "Summary\njane-php (open-api-3) builds PHP via nikic/php-parser (AST), so string literals are escaped -- but PHPDoc comment text is emitted RAW. The generated Client/Endpoint method docblocks embed the query parameter name verbatim in a @param array{ \"\"?: ... } block. A */ in the q... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63412"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-q8v2-3j4h-xg2p"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-130055",
+      "title": "CVE-2026-130055 — Unknown Vendor The VidShop for CVSS 7.5 High Severity Vulnerability",
+      "description": "The VidShop for WooCommerce plugin for WordPress is vulnerable to Sensitive Information Exposure in versions up to, and including, 1.10.0 via the /vsfw/v1/products/{id} REST API endpoint. This is due to the endpoint's permission_callback (check_public_permission) returning true unconditionally and t",
       "cvss": 7.5,
-      "final_ps": 22,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CRITICAL_INFRASTRUCTURE",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-119793"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-x2vm-cf3p-m2w8"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+4 critical_infra"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-118522",
-      "title": "CVE-2026-118522 — Unknown Vendor The Video & CVSS 8.1 High Severity Vulnerability",
-      "description": "The Video & Photo Gallery for Ultimate Member plugin for WordPress is vulnerable to Arbitrary File Deletion in versions up to, and including, 1.1.4 This is due to the um_gallery_add_videos() AJAX handler persisting user-supplied videos[] values into the file_name column after only esc_url() — which ",
-      "cvss": 8.1,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "MEDIUM",
@@ -3962,15 +4285,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The Video &",
+      "product": "The VidShop for",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/gallery-for-ultimate-member/tags/1.1.4/includes/um-gallery-ajax.php#L222",
-        "https://plugins.trac.wordpress.org/browser/gallery-for-ultimate-member/tags/1.1.4/includes/um-gallery-ajax.php#L589",
-        "https://plugins.trac.wordpress.org/browser/gallery-for-ultimate-member/tags/1.1.4/includes/um-gallery-functions.php#L528",
-        "https://plugins.trac.wordpress.org/changeset/3806302/gallery-for-ultimate-member"
+        "https://plugins.trac.wordpress.org/browser/vidshop-for-woocommerce/tags/1.10.0/includes/rest-api/v1/class-products-controller.php#L185",
+        "https://plugins.trac.wordpress.org/browser/vidshop-for-woocommerce/tags/1.10.0/includes/rest-api/v1/class-products-controller.php#L289",
+        "https://plugins.trac.wordpress.org/browser/vidshop-for-woocommerce/tags/1.10.0/includes/rest-api/v1/class-products-controller.php#L61",
+        "https://plugins.trac.wordpress.org/browser/vidshop-for-woocommerce/tags/1.10.0/includes/rest-api/v1/class-rest-controller.php#L36"
       ],
       "explanation": {
         "quality": [
@@ -3989,101 +4312,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-130010",
-      "title": "CVE-2026-130010 — Unknown Vendor The Chatterbug Forms CVSS 8.1 High Severity Vulnerability",
-      "description": "The Chatterbug Forms – Fast, Flexible WordPress Form Builder plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the cbforms_delete_uploaded_files function in all versions up to, and including, 1.1 This makes it possible for unauthenticated attac",
-      "cvss": 8.1,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Chatterbug Forms",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/chatterbug-forms/tags/1.1/chatterbug-forms.php#L409",
-        "https://plugins.trac.wordpress.org/browser/chatterbug-forms/tags/1.1/chatterbug-forms.php#L475",
-        "https://plugins.trac.wordpress.org/browser/chatterbug-forms/tags/1.1/forms/entries.php#L25",
-        "https://plugins.trac.wordpress.org/browser/chatterbug-forms/tags/1.1/inc/cbforms-util.php#L484"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-133502",
-      "title": "CVE-2026-133502 — Unknown Vendor A weakness has CVSS 7.3 High Severity Vulnerability",
-      "description": "A weakness has been identified in blinkospace blinko up to 1.8.8. Affected is an unknown function of the file /api/auth/verify-2fa of the component 2FA Endpoint. This manipulation of the argument userId causes improper authentication. The attack may be initiated remotely. The exploit has been made a",
-      "cvss": 7.3,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A weakness has",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://gist.github.com/DReazer/fcc654ac4997e73cf2fed5127321dafa",
-        "https://github.com/blinkospace/blinko/",
-        "https://github.com/blinkospace/blinko/commit/80e1c4ffaffe66a97df2b5d85fad864ff3691dc8",
-        "https://github.com/blinkospace/blinko/pull/1274"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-121985",
-      "title": "CVE-2026-121985 — Unknown Vendor The FV Flowplayer CVSS 7.2 High Severity Vulnerability",
-      "description": "The FV Flowplayer Video Player plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 7.5.57.7212 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject ar",
+      "id": "CVE-2026-120508",
+      "title": "CVE-2026-120508 — Unknown Vendor The Charitable – CVSS 7.2 High Severity Vulnerability",
+      "description": "The Charitable – Donation & Fundraising Platform (Donation Forms, Recurring Donations & Fundraising Campaigns) plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'stripe_payment_method' parameter in all versions up to, and including, 1.8.15.1 due to insufficient input sanitiza",
       "cvss": 7.2,
       "final_ps": 21,
       "quality_score": 0.525,
@@ -4100,15 +4331,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The FV Flowplayer",
+      "product": "The Charitable –",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/foliovision/fv-wordpress-flowplayer/commit/ff7ed422e0609a6edd285a3e5a36ce9751923425",
-        "https://plugins.trac.wordpress.org/browser/fv-wordpress-flowplayer/trunk/controller/class.fv-player-sanitize-user-input.php#L80",
-        "https://plugins.trac.wordpress.org/browser/fv-wordpress-flowplayer/trunk/controller/frontend.php#L664",
-        "https://plugins.trac.wordpress.org/browser/fv-wordpress-flowplayer/trunk/controller/shortcodes.php#L42"
+        "https://plugins.trac.wordpress.org/browser/charitable/tags/1.8.14.1/includes/admin/views/metaboxes/donation/donation-log.php#L36",
+        "https://plugins.trac.wordpress.org/browser/charitable/tags/1.8.14.1/includes/donations/class-charitable-donation-log.php#L94",
+        "https://plugins.trac.wordpress.org/browser/charitable/tags/1.8.14.1/includes/stripe/gateway/class-charitable-stripe-customer.php#L402",
+        "https://plugins.trac.wordpress.org/browser/charitable/tags/1.8.14.1/includes/stripe/gateway/class-charitable-stripe-gateway-processor-payment-intents.php#L41"
       ],
       "explanation": {
         "quality": [
@@ -4127,9 +4358,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-127112",
-      "title": "CVE-2026-127112 — Unknown Vendor The Events Made CVSS 7.2 High Severity Vulnerability",
-      "description": "The Events Made Easy plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'event[event_notes]' parameter in all versions up to, and including, 3.3.8 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitra",
+      "id": "CVE-2026-129327",
+      "title": "CVE-2026-129327 — Unknown Vendor The Apaczka.pl WooCommerce CVSS 7.2 High Severity Vulnerability",
+      "description": "The Apaczka.pl WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the '_apaczka[<id>][error_messages] (and sibling subkeys inside _apaczka[])' parameter in all versions up to, and including, 1.4.8 due to insufficient input sanitization and output escaping. This makes i",
       "cvss": 7.2,
       "final_ps": 21,
       "quality_score": 0.525,
@@ -4146,243 +4377,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The Events Made",
+      "product": "The Apaczka.pl WooCommerce",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/liedekef/events-made-easy/commit/033bd0a98e618d60aa1b4361aada3c53d0d5b98a",
-        "https://plugins.trac.wordpress.org/browser/events-made-easy/tags/3.3.8/includes/eme-events.php#L4180",
-        "https://plugins.trac.wordpress.org/browser/events-made-easy/tags/3.3.8/includes/eme-fs.php#L663",
-        "https://plugins.trac.wordpress.org/browser/events-made-easy/tags/3.3.8/includes/eme-fs.php#L900"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-120556",
-      "title": "CVE-2026-120556 — Unknown Vendor The Toocheke Companion CVSS 8.1 High Severity Vulnerability",
-      "description": "The Toocheke Companion plugin for WordPress is vulnerable to Missing Authorization leading to arbitrary post and attachment deletion in versions up to, and including, 2.38. This is due to a missing object-level capability check in the toocheke_tapas_ajax_cleanup_start() and toocheke_tapas_ajax_clean",
-      "cvss": 8.1,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Toocheke Companion",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/toocheke-companion/tags/2.37/inc/class-toocheke-companion-import-tapas.php#L558",
-        "https://plugins.trac.wordpress.org/browser/toocheke-companion/tags/2.37/inc/class-toocheke-companion-import-tapas.php#L604",
-        "https://plugins.trac.wordpress.org/browser/toocheke-companion/tags/2.37/inc/class-toocheke-companion-import-tapas.php#L674",
-        "https://plugins.trac.wordpress.org/browser/toocheke-companion/tags/2.37/inc/class-toocheke-companion-import-tapas.php#L679"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-89095",
-      "title": "CVE-2026-89095 — Unknown Vendor The Shortcodes and CVSS 8.1 High Severity Vulnerability",
-      "description": "The Shortcodes and extra features for Phlox theme plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 2.17.22 via the 'extra_template_path' parameter parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary .php fil",
-      "cvss": 8.1,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Shortcodes and",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/auxin-elements/tags/2.17.22/includes/elements/recent-posts-grid-carousel.php#L1116",
-        "https://plugins.trac.wordpress.org/browser/auxin-elements/tags/2.17.22/includes/general-functions.php#L1375",
-        "https://plugins.trac.wordpress.org/browser/auxin-elements/tags/2.17.22/public/includes/frontend-ajax.php#L122",
-        "https://plugins.trac.wordpress.org/browser/auxin-elements/tags/2.17.22/public/includes/frontend-ajax.php#L8"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-133577",
-      "title": "CVE-2026-133577 — Unknown Vendor A flaw was CVSS 7.7 High Severity Vulnerability",
-      "description": "A flaw was found in the Kuadrant WebAssembly (WASM) shim shipped in Red Hat Connectivity Link 1.5. When a TokenRateLimitPolicy is attached to an HTTPRoute that also has an AuthPolicy - or when a RateLimitPolicy with defaults or overrides is attached to the Gateway or listener of such routes - the sh",
-      "cvss": 7.7,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A flaw was",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://access.redhat.com/security/cve/CVE-2026-133577",
-        "https://bugzilla.redhat.com/show_bug.cgi?id=2577566"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-104927",
-      "title": "CVE-2026-104927 — Unknown Vendor The King Addons CVSS 7.5 High Severity Vulnerability",
-      "description": "The King Addons for Elementor – 100+ Elementor Widgets, 4 000+ Elementor Templates, WooCommerce Builder, Mega Menu, Popup Builder plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 51.1.89. This is due to the plugin not properly verifying that a user is ",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The King Addons",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/king-addons/tags/51.1.87/includes/helpers/Dynamic_Posts_Grid_Ajax.php#L112",
-        "https://plugins.trac.wordpress.org/browser/king-addons/tags/51.1.87/includes/helpers/Dynamic_Posts_Grid_Ajax.php#L190",
-        "https://plugins.trac.wordpress.org/browser/king-addons/tags/51.1.87/includes/helpers/Dynamic_Posts_Grid_Ajax.php#L345",
-        "https://plugins.trac.wordpress.org/browser/king-addons/tags/51.1.87/includes/helpers/Dynamic_Posts_Grid_Ajax.php#L54"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-128102",
-      "title": "CVE-2026-128102 — Unknown Vendor The rtMedia for CVSS 7.5 High Severity Vulnerability",
-      "description": "The rtMedia for WordPress, BuddyPress and bbPress plugin for WordPress is vulnerable to generic SQL Injection via the 'custom_fields' parameter in all versions up to, and including, 4.7.17 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing ",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The rtMedia for",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/buddypress-media/tags/4.7.17/app/main/controllers/media/RTMediaMedia.php#L149",
-        "https://plugins.trac.wordpress.org/browser/buddypress-media/tags/4.7.17/app/main/controllers/template/rtmedia-functions.php#L2468",
-        "https://plugins.trac.wordpress.org/browser/buddypress-media/tags/4.7.17/app/main/controllers/template/rtmedia-functions.php#L3892",
-        "https://plugins.trac.wordpress.org/browser/buddypress-media/tags/4.7.17/app/main/controllers/upload/RTMediaUploadEndpoint.php#L85"
+        "https://plugins.trac.wordpress.org/browser/apaczka/tags/1.4.9/classes/views/html-order-metabox.php",
+        "https://plugins.trac.wordpress.org/browser/apaczka/trunk",
+        "https://plugins.trac.wordpress.org/browser/apaczka/trunk/classes/shipping-method.php#L302",
+        "https://plugins.trac.wordpress.org/browser/apaczka/trunk/classes/shipping-method.php#L69"
       ],
       "explanation": {
         "quality": [
@@ -4401,5 +4404,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-20T10:00:36.492Z"
+  "lastReportGeneratedAt": "2026-11-20T11:03:38.811Z"
 }
