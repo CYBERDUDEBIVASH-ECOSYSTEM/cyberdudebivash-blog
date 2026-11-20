@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-20T12:31:07.794Z",
+  "generated": "2026-11-20T13:50:48.340Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19530,
+    "total_nodes": 19540,
     "actors": 8,
-    "cves": 9441,
-    "campaigns": 3038,
+    "cves": 9446,
+    "campaigns": 3043,
     "malware": 0,
     "iocs": 911,
-    "edges": 5841
+    "edges": 5846
   },
   "nodes": {
     "actor:lockbit": {
@@ -367195,6 +367195,196 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-133707": {
+      "id": "CVE-2026-133707",
+      "type": "CVE",
+      "name": "CVE-2026-133707 — Unknown Vendor The targets R CVSS 7.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 64,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The targets R",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-133708": {
+      "id": "CVE-2026-133708",
+      "type": "CVE",
+      "name": "CVE-2026-133708 — Unknown Vendor diffpy.structure before 3.5.1 CVSS 7.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 64,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "diffpy.structure before 3.5.1",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-133710": {
+      "id": "CVE-2026-133710",
+      "type": "CVE",
+      "name": "CVE-2026-133710 — Unknown Vendor llama.cpp b11003 before CVSS 7.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 64,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "llama.cpp b11003 before",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-85596": {
+      "id": "CVE-2026-85596",
+      "type": "CVE",
+      "name": "CVE-2026-85596 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "traefik",
+        "product": "traefik",
+        "published": "2026-09-04",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-133578": {
+      "id": "CVE-2026-133578",
+      "type": "CVE",
+      "name": "CVE-2026-133578 — Unknown Vendor A vulnerability was CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "A vulnerability was",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-133707": {
+      "id": "campaign:cve-2026-133707",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133707"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133707",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-133708": {
+      "id": "campaign:cve-2026-133708",
+      "type": "Campaign",
+      "name": "Unknown diffpy.structure Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133708"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133708",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-133710": {
+      "id": "campaign:cve-2026-133710",
+      "type": "Campaign",
+      "name": "Unknown llama.cpp Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133710"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133710",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-85596": {
+      "id": "campaign:cve-2026-85596",
+      "type": "Campaign",
+      "name": "traefik traefik Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-09-04",
+        "last_seen": "2026-09-04",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-85596"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-85596",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-133578": {
+      "id": "campaign:cve-2026-133578",
+      "type": "Campaign",
+      "name": "Unknown A Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133578"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133578",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -419946,6 +420136,51 @@
       "id": "campaign:cve-2026-131804→includes→CVE-2026-131804",
       "source": "campaign:cve-2026-131804",
       "target": "CVE-2026-131804",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133707→includes→CVE-2026-133707",
+      "source": "campaign:cve-2026-133707",
+      "target": "CVE-2026-133707",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133708→includes→CVE-2026-133708",
+      "source": "campaign:cve-2026-133708",
+      "target": "CVE-2026-133708",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133710→includes→CVE-2026-133710",
+      "source": "campaign:cve-2026-133710",
+      "target": "CVE-2026-133710",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-85596→includes→CVE-2026-85596",
+      "source": "campaign:cve-2026-85596",
+      "target": "CVE-2026-85596",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133578→includes→CVE-2026-133578",
+      "source": "campaign:cve-2026-133578",
+      "target": "CVE-2026-133578",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-20",
