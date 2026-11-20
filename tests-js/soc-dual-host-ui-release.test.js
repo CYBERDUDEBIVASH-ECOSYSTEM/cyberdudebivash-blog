@@ -34,14 +34,14 @@ test('classification demands actual approved build bytes and HTTP 200',()=>{
   assert.equal(classifyResponse(x).ok,false);
  }
 });
-test('both exact deployed Worker hosts serve FIVE approved asset byte digests',async()=>{
+test('both exact deployed Worker hosts serve every approved asset byte digest',async()=>{
  const f=fetchFixture();
  const r=await certify({releaseSha:sha,root:'/fixture',fetchImpl:f.fetchImpl,readFile});
  assert.equal(r.status,'PASS_NOT_RELEASE_AUTHORIZATION');
- assert.equal(r.checks,10);
+ assert.equal(r.checks,HOSTS.length*ASSETS.length);
  assert.deepEqual(f.seen.map(x=>new URL(x.url).hostname),
-   [...Array(5).fill(HOSTS[0]),...Array(5).fill(HOSTS[1])]);
- assert.deepEqual(f.seen.slice(0,5).map(x=>new URL(x.url).pathname),ASSETS.map(a=>a.url));
+   [...Array(ASSETS.length).fill(HOSTS[0]),...Array(ASSETS.length).fill(HOSTS[1])]);
+ assert.deepEqual(f.seen.slice(0,ASSETS.length).map(x=>new URL(x.url).pathname),ASSETS.map(a=>a.url));
  assert(f.seen.every(x=>x.method==='GET'&&x.redirect==='error'));
  assert(f.seen.every(x=>new URL(x.url).searchParams.get('release_sha')===sha));
 });
@@ -51,7 +51,7 @@ test('no stale legacy SOC hostname is accepted when blog is current',async()=>{
  const result=await certify({releaseSha:sha,root:'/fixture',readFile,fetchImpl:f.fetchImpl});
  assert.equal(result.status,'HOLD');
  assert(result.codes.includes('PUBLIC_UI_BUILD_BYTES_MISMATCH'));
- assert.equal(f.seen.length,12,'only one bad file is retried three times');
+ assert.equal(f.seen.length,HOSTS.length*ASSETS.length+2,'only one bad file is retried three times');
 });
 test('both hosts fail on HTML fallback, absent asset and invalid credentials',async()=>{
  for(const error of [{status:404},{contentType:'text/html',body:Buffer.from('stale html'+'x'.repeat(100))}]){
