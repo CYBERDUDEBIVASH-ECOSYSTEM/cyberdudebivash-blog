@@ -2,7 +2,7 @@
   "platform": "CYBERDUDEBIVASH SENTINEL APEX — AI Security Intelligence Division",
   "endpoint": "/api/intel/ai-security.json",
   "doctrine": "Sentinel-APEX/prompts/ai-security-master-prompt.md",
-  "generated": "2026-11-20T00:59:41.622Z",
+  "generated": "2026-11-20T02:51:25.153Z",
   "disclaimer": "Evidence-graded AI security intelligence. Confidence and evidence labels attached per item. Community leads are corroborated before publication.",
   "stats": {
     "published": 14,
@@ -37,6 +37,14 @@
         "error": null
       },
       {
+        "name": "GitHub Security Advisories",
+        "key": "ghsa",
+        "tier": 1,
+        "status": "ok",
+        "items": 60,
+        "error": null
+      },
+      {
         "name": "NVD (AI/LLM keyword)",
         "key": "nvd_ai",
         "tier": 1,
@@ -51,17 +59,9 @@
         "status": "ok",
         "items": 30,
         "error": null
-      },
-      {
-        "name": "GitHub Security Advisories",
-        "key": "ghsa",
-        "tier": 1,
-        "status": "ok",
-        "items": 60,
-        "error": null
       }
     ],
-    "runtimeMs": 723
+    "runtimeMs": 1687
   },
   "frameworks": {
     "owasp_llm_top10": {
@@ -427,6 +427,62 @@
       "has_analyst_report": false
     },
     {
+      "id": "48b3f8c0a5789a3d",
+      "title": "ToolPulse: Side-Channel Eavesdropping on Tool-Using LLM Agents",
+      "url": "https://arxiv.org/abs/2611.25470v1",
+      "source": "arXiv cs.CR (LLM security)",
+      "tier": 2,
+      "published": "2026-11-19T03:57:41Z",
+      "cve": null,
+      "severity": null,
+      "cvss": null,
+      "evidence_label": "PUBLISHED_RESEARCH",
+      "categories": [
+        {
+          "id": "agent_tool",
+          "label": "Agentic / Tool / MCP Exploitation"
+        }
+      ],
+      "owasp_llm": [
+        {
+          "id": "LLM06",
+          "name": "Sensitive Information Disclosure / Excessive Agency"
+        }
+      ],
+      "mitre_atlas": [
+        {
+          "id": "AML.T0053",
+          "name": "LLM Plugin Compromise"
+        }
+      ],
+      "agent_risk": {
+        "flags": {
+          "agentic": true,
+          "mcp": false,
+          "rag": false,
+          "tool_use": false,
+          "supply_chain": false
+        },
+        "level": "elevated"
+      },
+      "enterprise_impact": {
+        "score": 20,
+        "priority": "P3"
+      },
+      "confidence": {
+        "source": "MODERATE",
+        "evidence": "LOW",
+        "overall": "LOW",
+        "rationale": "Research source; 1 corroborating source(s)."
+      },
+      "corroboration": 1,
+      "detection": {
+        "detect": "Log every agent tool call with arguments; alert on tools reaching unexpected hosts, filesystem paths, or privileged actions.",
+        "hunt": "Trace agent action chains for excessive-agency patterns (self-granted scope, unbounded loops, denial-of-wallet spend)."
+      },
+      "has_analyst_report": false
+    },
+    {
       "id": "7be427122f334010",
       "title": "PIPETTE: Prompt Injection Purple-Teaming for Robust LLM Agents",
       "url": "https://arxiv.org/abs/2611.24362v1",
@@ -783,62 +839,6 @@
       "detection": {
         "detect": "Log every agent tool call with arguments; alert on tools reaching unexpected hosts, filesystem paths, or privileged actions.",
         "hunt": "Trace agent action chains for excessive-agency patterns (self-granted scope, unbounded loops, denial-of-wallet spend)."
-      },
-      "has_analyst_report": false
-    },
-    {
-      "id": "a9e58a0b9336b7b9",
-      "title": "When the Spec Sheet Lies: Injection Attacks on LLM-Generated Compliance Artifacts",
-      "url": "https://arxiv.org/abs/2611.19090v1",
-      "source": "arXiv cs.CR (LLM security)",
-      "tier": 2,
-      "published": "2026-11-14T02:01:39Z",
-      "cve": null,
-      "severity": null,
-      "cvss": null,
-      "evidence_label": "PUBLISHED_RESEARCH",
-      "categories": [
-        {
-          "id": "prompt_injection",
-          "label": "Prompt Injection"
-        }
-      ],
-      "owasp_llm": [
-        {
-          "id": "LLM01",
-          "name": "Prompt Injection"
-        }
-      ],
-      "mitre_atlas": [
-        {
-          "id": "AML.T0051",
-          "name": "LLM Prompt Injection"
-        }
-      ],
-      "agent_risk": {
-        "flags": {
-          "agentic": false,
-          "mcp": false,
-          "rag": false,
-          "tool_use": false,
-          "supply_chain": false
-        },
-        "level": "standard"
-      },
-      "enterprise_impact": {
-        "score": 10,
-        "priority": "P3"
-      },
-      "confidence": {
-        "source": "MODERATE",
-        "evidence": "LOW",
-        "overall": "LOW",
-        "rationale": "Research source; 1 corroborating source(s)."
-      },
-      "corroboration": 1,
-      "detection": {
-        "detect": "Monitor LLM gateway logs for delimiter-breaking tokens, role-swap phrases (\"ignore previous\", \"you are now\"), and base64/hex blobs in user or retrieved content.",
-        "hunt": "Correlate anomalous tool-invocation sequences that immediately follow untrusted content ingestion (email, web, RAG chunks)."
       },
       "has_analyst_report": false
     },
