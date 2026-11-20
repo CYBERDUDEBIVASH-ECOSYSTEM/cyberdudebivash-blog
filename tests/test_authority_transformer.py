@@ -1750,6 +1750,42 @@ class TestIocsWiredIntoTransform(unittest.TestCase):
     role_decisions, IOC extraction applies to every family (no CVE-only
     restriction) and needs no reportx_composer duplication guard."""
 
+    def test_global_rss_scope_uses_last_explicit_ioc_appendix_not_source_citations(self):
+        from automation.authority_transformer import _extract_article_iocs
+        article = _make_article(
+            source="global_rss",
+            cve_id=None,
+            full_content=(
+                "Table of contents\nIndicators of compromise\n"
+                "Background\n"
+                "Open sources first identified the group via dbdigest.com.\n"
+                "Configuration decryption key f4bb8c7e15d8b98d535eb20b09176b3d.\n"
+                "Technical Details\n"
+                "Indicators of compromise\n"
+                "File hashes\n"
+                "d3e49dceb89a25f5da4ff0c42e996857\n"
+                "Domains and IPs\n"
+                "d19v1tntmz2i98.cloudfront.net\n"
+                "157.20.104.111\n"
+            ),
+        )
+        values = {item["value"] for item in _extract_article_iocs(article)}
+        self.assertIn("d19v1tntmz2i98.cloudfront.net", values)
+        self.assertIn("d3e49dceb89a25f5da4ff0c42e996857", values)
+        self.assertIn("157.20.104.111", values)
+        self.assertNotIn("dbdigest.com", values)
+        self.assertNotIn("f4bb8c7e15d8b98d535eb20b09176b3d", values)
+
+    def test_global_rss_without_explicit_ioc_appendix_retains_existing_extraction(self):
+        from automation.authority_transformer import _extract_article_iocs
+        article = _make_article(
+            source="global_rss",
+            cve_id=None,
+            full_content="C2 domain identified: attacker-c2-panel.ru",
+        )
+        values = {item["value"] for item in _extract_article_iocs(article)}
+        self.assertIn("attacker-c2-panel.ru", values)
+
     def test_real_indicators_in_full_content_are_extracted_rendered_and_counted(self):
         article = _make_article(
             full_content=(
@@ -1902,6 +1938,14 @@ class TestIocRenderingAndDefanging(unittest.TestCase):
         self.assertNotIn("http://evil.example.top/x", html_out)
         self.assertNotIn(">a@evil.example.top<", html_out)
         self.assertIn("Indicators / Observables", html_out)
+
+    def test_rendered_indicators_warn_against_automatic_blocks(self):
+        from automation.authority_transformer import _render_iocs_html
+        output = _render_iocs_html([
+            {"type": "md5", "value": "109cdc24ccd4872a3e4bf6f2d4f3c3d4", "context": ""}
+        ])
+        self.assertIn("Source association alone does not prove malice", output)
+        self.assertIn("benign or dual-use artifacts", output)
 
     def test_cve_type_indicator_renders_unchanged_value(self):
         # defang() is a documented no-op for CVE/registry-key types --
