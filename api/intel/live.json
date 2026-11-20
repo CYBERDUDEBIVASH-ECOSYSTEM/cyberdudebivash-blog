@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T17:57:16.352Z",
+  "generated": "2026-11-20T18:58:05.717Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,55 +7,137 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7984,
+  "total_published": 7992,
   "s2n_stats": {
-    "passed": 137,
-    "suppressed": 4,
-    "avg_qs": 0.489
+    "passed": 129,
+    "suppressed": 3,
+    "avg_qs": 0.485
   },
   "items": [
     {
-      "id": "CVE-2026-115578",
-      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
-      "description": "The defect\n----------\nConfirmed at HEAD. server.go: cmdXCLIENT = []byte(\"XCLIENT\") is 7 bytes (line 78), so the dispatch match cmdXCLIENT.match(cmd) only guarantees len(input) >= 7. The handler then slices input[8:] (line 586): case sc.XClientOn && cmdXCLIENT.match(cmd): if toks := bytes.Split(input",
-      "cvss": 7.5,
-      "final_ps": 68,
-      "quality_score": 0.578,
-      "threat_level": "HIGH",
+      "id": "CVE-2026-76466",
+      "title": "CVE-2026-76466: Cisco Expressway Series Use of Hard-coded Credentials Vulnerability — CISA KEV Active Exploitation",
+      "description": "Cisco Expressway Series contains a use of hard-coded credentials vulnerability that allows an unauthenticated, remote attacker with persistent cookies and network access to execute commands as root on a clustered device via the database service.",
+      "cvss": null,
+      "final_ps": 95,
+      "quality_score": 0.58,
+      "threat_level": "CRITICAL",
       "type": "CVE_REPORT",
-      "source": "github_advisories",
+      "source": "cisa_kev",
       "sources_confirmed": 1,
       "merged_sources": [
-        "github_advisories"
+        "cisa_kev"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
+      "exploited": true,
+      "cisa_kev": true,
       "ransomware": false,
-      "vendor": "go",
-      "product": "github.com/phires/go-guerrilla",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-115578",
-        "CVE-2026-115578"
-      ],
+      "vendor": "Cisco",
+      "product": "Expressway Series",
+      "due_date": "2026-11-23",
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-hghq-53p7-c582",
-        "https://github.com/phires/go-guerrilla/security/advisories/GHSA-hghq-53p7-c582",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-115578",
-        "https://github.com/phires/go-guerrilla/commit/b6deed97ff70f52bf34c386d33967694e7330d33"
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-76466"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=1.00",
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.65",
           "recency=0d (score=1.00)",
-          "QS=0.578"
+          "QS=0.580"
         ],
         "priority": [
-          "+4 critical_infra"
+          "+15 CISA_KEV",
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-85594",
+      "title": "CVE-2026-85594 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "description": "Traefik versions from v3.7.1 fail to enforce crossProviderNamespaces restrictions on the traefik.ingress.kubernetes.io/service.middlewares Service annotation in the Kubernetes Ingress provider. A namespace-limited tenant excluded from the allowlist can attach an operator-owned middleware to its Serv",
+      "cvss": 9.8,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-09-04",
+      "last_seen": "2026-09-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "traefik",
+      "product": "traefik",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/traefik/traefik/security/advisories/GHSA-m6wx-622r-48r9",
+        "https://www.vulncheck.com/advisories/traefik-3.7.1-crossprovidernamespaces-bypass-via-service-middleware"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=77d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-85595",
+      "title": "CVE-2026-85595 — traefik traefik CVSS 9.8 Critical Vulnerability",
+      "description": "Traefik versions before v2.11.55 and versions v3.0.0 before v3.7.11 contain an authentication bypass vulnerability in the digestAuth middleware where unknown usernames receive an empty secret instead of rejection. Attackers can compute a valid digest response using the empty secret and arbitrary cre",
+      "cvss": 9.8,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-09-04",
+      "last_seen": "2026-09-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "traefik",
+      "product": "traefik",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/traefik/traefik/security/advisories/GHSA-5w68-77r2-r64c",
+        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-authentication-bypass-via-digestauth"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=77d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -106,44 +188,83 @@
       }
     },
     {
-      "id": "CVE-2026-103035",
-      "title": "TeamPass folder re-parenting authorization bypass",
-      "description": "## Summary Missing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credential subtree into their own personal space and removing it from the organization. Confirmed at HEAD",
-      "cvss": 8.3,
-      "final_ps": 62,
-      "quality_score": 0.578,
-      "threat_level": "MEDIUM",
+      "id": "CVE-2026-85597",
+      "title": "CVE-2026-85597 — traefik traefik CVSS 9.1 Critical Vulnerability",
+      "description": "Traefik before v2.11.55 and v3.0.0 before v3.7.11 contain a TLS option conflict resolution vulnerability that allows unauthenticated attackers to bypass client-certificate authentication by creating conflicting TLS options on multi-host routers. Attackers can reach protected backends by exploiting s",
+      "cvss": 9.1,
+      "final_ps": 66,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
       "type": "CVE_REPORT",
-      "source": "github_advisories",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "github_advisories"
+        "nvd"
+      ],
+      "first_seen": "2026-09-04",
+      "last_seen": "2026-09-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "traefik",
+      "product": "traefik",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/traefik/traefik/security/advisories/GHSA-g55h-rg46-x9c5",
+        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-mtls-bypass-via-tls-option-conflict"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=77d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-133874",
+      "title": "CVE-2026-133874 — Unknown Vendor Iceburg CRM through CVSS 8.1 High Severity Vulnerability",
+      "description": "Iceburg CRM through 5.0.0 contains an incorrect authorization vulnerability in Module::saveRecord() that allows authenticated users to write to unauthorized modules by prefixing request body keys with another module id. Attackers with write access to one module can submit crafted requests to POST /d",
+      "cvss": 8.1,
+      "final_ps": 62,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "composer",
-      "product": "nilsteampassnet/TeamPass",
+      "vendor": "Unknown Vendor",
+      "product": "Iceburg CRM through",
       "due_date": null,
-      "cves": [
-        "CVE-2026-103035",
-        "CVE-2026-103035"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6",
-        "https://github.com/nilsteampassnet/TeamPass/security/advisories/GHSA-66q9-mxf2-xqw6",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-103035",
-        "https://github.com/nilsteampassnet/TeamPass/commit/e022b27f99149995c90a81f83b8e0ae8b48f5a20"
+        "https://github.com/iceburgcrm/iceburgcrm",
+        "https://github.com/iceburgcrm/iceburgcrm/blob/v5.0.0/app/Http/Controllers/Api/CRMController.php#L43-L54",
+        "https://github.com/iceburgcrm/iceburgcrm/blob/v5.0.0/app/Models/Module.php#L283-L335",
+        "https://github.com/iceburgcrm/iceburgcrm/issues/28"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.95 (github_advisories)",
+          "source_weight=1.00 (nvd)",
           "data_confidence=1.00",
           "recency=0d (score=1.00)",
-          "QS=0.578"
+          "QS=0.580"
         ],
         "priority": [
           "base_ps=62 (no boosts)"
@@ -153,133 +274,42 @@
       }
     },
     {
-      "id": "CVE-2026-103026",
-      "title": "Paymenter: Unauthenticated arbitrary method invocation in Livewire components",
-      "description": "### Summary A Livewire function allowed attackers to call any public function, allowing attackers to call any public method on the component. Because an attacker can call any function, they can also overwrite locked data. ### Technical Details `app/Livewire/Traits/HasConfirmation.php` exposed a publ",
+      "id": "CVE-2026-82675",
+      "title": "CVE-2026-82675 — Unknown Vendor The GiveWP – CVSS 8.1 High Severity Vulnerability",
+      "description": "The GiveWP – Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to donor account account takeover in all versions up to, and including, 4.17.0. This is due to the plugin not properly validating a donor's identity prior to updating the password of a linked WordPress account. ",
       "cvss": 8.1,
-      "final_ps": 61,
-      "quality_score": 0.578,
+      "final_ps": 62,
+      "quality_score": 0.58,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
-      "source": "github_advisories",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "github_advisories"
+        "nvd"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "composer",
-      "product": "paymenter/paymenter",
+      "vendor": "Unknown Vendor",
+      "product": "The GiveWP –",
       "due_date": null,
-      "cves": [
-        "CVE-2026-103026",
-        "CVE-2026-103026"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-prhx-9q2h-ph2x",
-        "https://github.com/Paymenter/Paymenter/security/advisories/GHSA-prhx-9q2h-ph2x",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-103026",
-        "https://github.com/Paymenter/Paymenter/commit/e0c04af1707a65d8fb91879883aa7eae3292cedc"
+        "https://plugins.trac.wordpress.org/changeset/3723820/give",
+        "https://www.wordfence.com/threat-intel/vulnerabilities/id/b3e832de-1c20-49a9-8d5e-d5066dc984b6?source=cve"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.95 (github_advisories)",
+          "source_weight=1.00 (nvd)",
           "data_confidence=1.00",
           "recency=0d (score=1.00)",
-          "QS=0.578"
+          "QS=0.580"
         ],
         "priority": [
-          "base_ps=61 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-121481",
-      "title": "OpenSSL Hit by Critical 9.8 Heap Buffer Overflow Vulnerability in Base64 Encoding Function",
-      "description": "A heap buffer overflow in OpenSSL’s Base64 encoding function can corrupt application memory when the library processes very large inputs. The flaw, tracked as CVE-2026-121481, was published on November 18, 2026, with a critical CVSS 3.1 score of 9.8. That score describes the pote... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 60,
-      "quality_score": 0.493,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-121481"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cybersecuritynews.com/openssl-heap-buffer-overflow/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.493"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-76466",
-      "title": "Hackers Exploit Cisco Expressway Flaw CVE-2026-76466 to Breach Russian Organization",
-      "description": "Cisco Expressway flaw CVE-2026-76466 is being exploited to gain root access and move from exposed devices into internal networks. Attackers have exploited a critical flaw, tracked as CVE-2026-76466 (CVSS score of 9.8) in Cisco Expressway to breach a Russian organization, and they... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 60,
-      "quality_score": 0.493,
-      "threat_level": "MEDIUM",
-      "type": "AI_SECURITY",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76466"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://securityaffairs.com/203598/hacking/hackers-exploit-cisco-expressway-flaw-cve-2026-76466-to-breach-russian-organization.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.493"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
+          "base_ps=62 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -452,53 +482,6 @@
         ],
         "priority": [
           "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-115463",
-      "title": "Poweradmin: The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout, so an atta",
-      "description": "### Summary The email second factor is an mt_rand() six-digit code verified with no attempt limit or lockout The email second factor is a six-digit code drawn from `mt_rand()` and verified with no attempt limit, so an attacker who already has the password can brute-force it inside its validity windo",
-      "cvss": 7.4,
-      "final_ps": 59,
-      "quality_score": 0.578,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "composer",
-      "product": "poweradmin/poweradmin",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-115463",
-        "CVE-2026-115463"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-9657-8vc2-7g2p",
-        "https://github.com/poweradmin/poweradmin/security/advisories/GHSA-9657-8vc2-7g2p",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-115463",
-        "https://github.com/poweradmin/poweradmin/commit/021e5fea029cf8787247517cde752f9a6af1647c"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.578"
-        ],
-        "priority": [
-          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -800,49 +783,6 @@
         ],
         "priority": [
           "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-114938",
-      "title": "Palo Alto Confirms Java Vulnerability Impacts Privilege Threat Analytics and Remote Access Connector",
-      "description": "Palo Alto Networks has confirmed that a critical Java vulnerability affects Idira Privilege Threat Analytics, Remote Access Connector, and on-premises HTML5 Gateway products. Tracked as CVE-2026-114938, the flaw could let a remote attacker run code without signing in when specifi... [Full analysis a",
-      "cvss": 8.1,
-      "final_ps": 55,
-      "quality_score": 0.493,
-      "threat_level": "MEDIUM",
-      "type": "CRITICAL_INFRASTRUCTURE",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114938"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cybersecuritynews.com/palo-alto-confirms-java-vulnerability-impacts/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.493"
-        ],
-        "priority": [
-          "+4 critical_infra"
         ],
         "suppression": null,
         "merge": null
@@ -2329,9 +2269,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2026-20128",
@@ -3212,7 +3150,7 @@
       "first_seen": "2026-11-18",
       "last_seen": "2026-11-18",
       "exploited": true,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "The Hacker News",
       "product": "Threat Intelligence",
@@ -3304,7 +3242,7 @@
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
-      "cisa_kev": false,
+      "cisa_kev": true,
       "ransomware": false,
       "vendor": "The Hacker News",
       "product": "Threat Intelligence",
@@ -3741,391 +3679,44 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-133493",
-      "title": "CVE-2026-133493 — Unknown Vendor A vulnerability was CVSS 10 Critical Vulnerability",
-      "description": "A vulnerability was identified in D-Link DIR-600L 2.17b02. Affected is the function genacgi_main of the file gena.cgi of the component GENA Handler. Such manipulation leads to os command injection. The attack can be launched remotely. The exploit is publicly available and might be used.",
-      "cvss": 10,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
+      "id": "CVE-2025-42884",
+      "title": "CVE-2025-42884: SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability — CISA KEV A",
+      "description": "SAP NetWeaver Enterprise Portal contains an improper neutralization of special elements in data query logic vulnerability that allows an unauthenticated attacker to disclose or modify server information via injected JNDI environment properties or a URL used during JNDI lookup operations.",
+      "cvss": null,
+      "final_ps": 29,
+      "quality_score": 0.515,
+      "threat_level": "CRITICAL",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "cisa_kev",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "cisa_kev"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A vulnerability was",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/ruanyi101/router-firmware-security-advisories/blob/main/router-firmware-GitHub-advisories/related-findings/D-Link-DIR-600L-gena-cgi-command-injection-affected-model.md",
-        "https://vuldb.com/cve/CVE-2026-133493",
-        "https://vuldb.com/submit/1049874",
-        "https://vuldb.com/vuln/440913"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-84236",
-      "title": "CVE-2026-84236 — Unknown Vendor IBM Guardium Data CVSS 9.8 Critical Vulnerability",
-      "description": "IBM Guardium Data Protection 12.2 is vulnerable to insecure deserialization in the SharePoint Tap MulticastTransceiver component. An unauthenticated remote attacker could exploit this vulnerability to execute arbitrary code on the affected system.",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "IBM Guardium Data",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.ibm.com/support/pages/node/7297484"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-87977",
-      "title": "CVE-2026-87977 — Unknown Vendor IBM Guardium Data CVSS 9.8 Critical Vulnerability",
-      "description": "IBM Guardium Data Protection 12.2 is vulnerable to SQL injection in the edge-controller component. An unauthenticated remote attacker could exploit this vulnerability to access or modify sensitive database information.",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "IBM Guardium Data",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.ibm.com/support/pages/node/7297484"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-82339",
-      "title": "CVE-2026-82339 — Unknown Vendor IBM Guardium Data CVSS 9.1 Critical Vulnerability",
-      "description": "IBM Guardium Data Protection 12.2 is vulnerable to missing authentication in the SharePoint S-TAP RelayService, allowing an unauthenticated network attacker to inject forged audit events and access the active monitoring policy.",
-      "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "IBM Guardium Data",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.ibm.com/support/pages/node/7297484"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-131253",
-      "title": "CVE-2026-131253 — Unknown Vendor In Splunk SOAR CVSS 9.9 Critical Vulnerability",
-      "description": "In Splunk SOAR versions below 8.8.0, an authenticated user that holds a role with the Apps edit, Containers edit, and Playbooks execute permissions could use the App Wizard to execute arbitrary code as the user account that runs Splunk SOAR. This could compromise the confidentiality, integrity, and ",
-      "cvss": 9.9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk SOAR",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1108"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-131287",
-      "title": "CVE-2026-131287 — Unknown Vendor In Splunk SOAR CVSS 9.6 Critical Vulnerability",
-      "description": "In Splunk SOAR versions below 8.8.0, a user that holds a role with the Playbooks view, edit, execute, and delete permissions could cause existing cross-repository playbook references to run attacker-controlled playbook code.\nThe vulnerability is possible because Splunk SOAR can bind existing cross-r",
-      "cvss": 9.6,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk SOAR",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1108"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-76536",
-      "title": "CVE-2026-76536 — Unknown Vendor In Splunk Enterprise CVSS 9.4 Critical Vulnerability",
-      "description": "In Splunk Enterprise versions below 10.4.5, 10.2.9, 10.0.12, and 9.4.17, an unauthenticated user could use an empty clustering shared secret to read and modify clustering configuration through the cluster configuration Representational State Transfer (REST) API endpoint on a standalone instance. Thi",
-      "cvss": 9.4,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1103"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-131202",
-      "title": "CVE-2026-131202 — Unknown Vendor In Splunk Enterprise CVSS 9.1 Critical Vulnerability",
-      "description": "In Splunk Enterprise Security versions below 8.7.0, a user who holds the \"ess_admin\" Splunk Enterprise Security role could execute arbitrary code on the search head as the user account running Splunk Enterprise by combining lookup file upload and Configuration Checker functionality.\nThe vulnerabilit",
-      "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "In Splunk Enterprise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://advisory.splunk.com/advisories/SVD-2026-1106"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-109618",
-      "title": "CVE-2026-109618 — php php CVSS 9.8 Critical Vulnerability",
-      "description": "PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may r",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-10-21",
-      "last_seen": "2026-10-21",
-      "exploited": false,
+      "exploited": true,
       "cisa_kev": true,
       "ransomware": false,
-      "vendor": "php",
-      "product": "php",
-      "due_date": null,
+      "vendor": "SAP",
+      "product": "NetWeaver",
+      "due_date": "2026-11-23",
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
-        "http://seclists.org/fulldisclosure/2026/Oct/51",
-        "http://www.openwall.com/lists/oss-security/2026/10/21/6",
-        "http://www.openwall.com/lists/oss-security/2026/10/23/5"
+        "https://support.sap.com/en/my-support/knowledge-base/security-notes-news/bulletin-2025.html",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-42884"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.40",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.515"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "+8 exploited_in_wild"
         ],
         "suppression": null,
         "merge": null
@@ -4134,39 +3725,40 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-85594",
-      "title": "CVE-2026-85594 — traefik traefik CVSS 9.8 Critical Vulnerability",
-      "description": "Traefik versions from v3.7.1 fail to enforce crossProviderNamespaces restrictions on the traefik.ingress.kubernetes.io/service.middlewares Service annotation in the Kubernetes Ingress provider. A namespace-limited tenant excluded from the allowlist can attach an operator-owned middleware to its Serv",
+      "id": "CVE-2026-76090",
+      "title": "Tapir: Construction/decode RCE via property name -> raw case-class field (tapir-openapi-codegen)",
+      "description": "The OpenAPI code generator (tapir-openapi-codegen-core) builds Scala source by string templating and emitted several names/values from the (untrusted) OpenAPI document without escaping or validation, allowing injection of arbitrary Scala that runs at generated-code compile time a... [Full analysis a",
       "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-76090"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-m6wx-622r-48r9",
-        "https://www.vulncheck.com/advisories/traefik-3.7.1-crossprovidernamespaces-bypass-via-service-middleware"
+        "https://github.com/advisories/GHSA-gpcc-36pq-8qxr"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.438"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -4178,83 +3770,40 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-85595",
-      "title": "CVE-2026-85595 — traefik traefik CVSS 9.8 Critical Vulnerability",
-      "description": "Traefik versions before v2.11.55 and versions v3.0.0 before v3.7.11 contain an authentication bypass vulnerability in the digestAuth middleware where unknown usernames receive an empty secret instead of rejection. Attackers can compute a valid digest response using the empty secret and arbitrary cre",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-5w68-77r2-r64c",
-        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-authentication-bypass-via-digestauth"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-85597",
-      "title": "CVE-2026-85597 — traefik traefik CVSS 9.1 Critical Vulnerability",
-      "description": "Traefik before v2.11.55 and v3.0.0 before v3.7.11 contain a TLS option conflict resolution vulnerability that allows unauthenticated attackers to bypass client-certificate authentication by creating conflicting TLS options on multi-host routers. Attackers can reach protected backends by exploiting s",
+      "id": "CVE-2026-130007",
+      "title": "k8s-mcp-server: Missing authentication on default SSE/HTTP transport allows unauthenticated Kubernetes tool execution",
+      "description": "Summary\nWhen k8s-mcp-server runs in its default SSE transport mode, the MCP tools/call\nendpoint is dispatched with no authentication, session token, or Origin check.\nAny client that can reach the listening port can enumerate and invoke the\nserver's Kubernetes tools (including des... [Full analysis a",
       "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-130007"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-g55h-rg46-x9c5",
-        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-mtls-bypass-via-tls-option-conflict"
+        "https://github.com/advisories/GHSA-m932-63jc-4jqq"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.438"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -4266,39 +3815,40 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-85596",
-      "title": "CVE-2026-85596 — traefik traefik CVSS 9.8 Critical Vulnerability",
-      "description": "Traefik versions >= v3.7.0 and < v3.7.11 contain an authentication bypass in the Kubernetes Ingress NGINX provider. The TLS option generated for an Ingress carrying the nginx.ingress.kubernetes.io/auth-tls-secret annotation was named after the Ingress namespace and name. As a result, two Ingress obj",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
+      "id": "CVE-2026-22308",
+      "title": "Low Security Vulnerability (CVE-2026-22308)",
+      "description": "CVE-2026-22308",
+      "cvss": 9.3,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-22308"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-j994-9gqj-9hwq",
-        "https://www.vulncheck.com/advisories/traefik-3.7-authentication-bypass-via-tls-option-conflict"
+        "https://vulners.com/nvd/NVD:CVE-2026-22308?utm_source=rss&utm_medium=rss&utm_campaign=rss"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.438"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -4310,9 +3860,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-133874",
-      "title": "CVE-2026-133874 — Unknown Vendor Iceburg CRM through CVSS 8.1 High Severity Vulnerability",
-      "description": "Iceburg CRM through 5.0.0 contains an incorrect authorization vulnerability in Module::saveRecord() that allows authenticated users to write to unauthorized modules by prefixing request body keys with another module id. Attackers with write access to one module can submit crafted requests to POST /d",
+      "id": "CVE-2026-84693",
+      "title": "CVE-2026-84693 — Unknown Vendor The WPvivid — CVSS 8.1 High Severity Vulnerability",
+      "description": "The WPvivid — Backup, Migration & Staging plugin for WordPress is vulnerable to Arbitrary File Deletion in version up to, and including, 0.9.134. This is due to a timing side channel in the bundled RSA decryption path, insufficient validation of migration receiver backup records, and missing path va",
       "cvss": 8.1,
       "final_ps": 21,
       "quality_score": 0.525,
@@ -4329,15 +3879,13 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "Iceburg CRM through",
+      "product": "The WPvivid —",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/iceburgcrm/iceburgcrm",
-        "https://github.com/iceburgcrm/iceburgcrm/blob/v5.0.0/app/Http/Controllers/Api/CRMController.php#L43-L54",
-        "https://github.com/iceburgcrm/iceburgcrm/blob/v5.0.0/app/Models/Module.php#L283-L335",
-        "https://github.com/iceburgcrm/iceburgcrm/issues/28"
+        "https://plugins.trac.wordpress.org/changeset/3689144/wpvivid-backuprestore",
+        "https://www.wordfence.com/threat-intel/vulnerabilities/id/df2c1c82-56ee-4b42-8062-1ecf88f41ce8?source=cve"
       ],
       "explanation": {
         "quality": [
@@ -4356,10 +3904,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-82675",
-      "title": "CVE-2026-82675 — Unknown Vendor The GiveWP – CVSS 8.1 High Severity Vulnerability",
-      "description": "The GiveWP – Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to donor account account takeover in all versions up to, and including, 4.17.0. This is due to the plugin not properly validating a donor's identity prior to updating the password of a linked WordPress account. ",
-      "cvss": 8.1,
+      "id": "CVE-2026-133879",
+      "title": "CVE-2026-133879 — Unknown Vendor A flaw was CVSS 7.7 High Severity Vulnerability",
+      "description": "A flaw was found in KubeVirt/containerized-data-importer. When a VirtualMachine with an embedded DataVolumeTemplate carrying the cdi.kubevirt.io/storage.checkStaticVolume annotation and a cross-namespace clone source is created by a tenant, the service-account clone authorization check can be bypass",
+      "cvss": 7.7,
       "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "MEDIUM",
@@ -4375,13 +3923,13 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The GiveWP –",
+      "product": "A flaw was",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/changeset/3723820/give",
-        "https://www.wordfence.com/threat-intel/vulnerabilities/id/b3e832de-1c20-49a9-8d5e-d5066dc984b6?source=cve"
+        "https://access.redhat.com/security/cve/CVE-2026-133879",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2578653"
       ],
       "explanation": {
         "quality": [
@@ -4392,6 +3940,458 @@
         ],
         "priority": [
           "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-133872",
+      "title": "CVE-2026-133872 — Unknown Vendor LessPass self-hosted sync CVSS 7.4 High Severity Vulnerability",
+      "description": "LessPass self-hosted sync server backend before commit 9469b0c lacks rate limiting on the JWT login endpoints /tokens/auth/ and /auth/jwt/create/, allowing unlimited authentication attempts. Unauthenticated remote attackers can brute force passwords or perform credential stuffing against known accou",
+      "cvss": 7.4,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "LessPass self-hosted sync",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/lesspass/lesspass",
+        "https://github.com/lesspass/lesspass/blob/d8f29da390d4492a5ea7c106779c93f71aa976ff/backend/lesspass/settings.py",
+        "https://github.com/lesspass/lesspass/commit/9469b0cb90b5a79e2ab4f7f07bb67318dd312b99",
+        "https://github.com/lesspass/lesspass/security/advisories/GHSA-4mwq-gh5h-pxjg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-42010",
+      "title": "CVE-2026-42010 — gnu gnutls CVSS 7.1 High Severity Vulnerability",
+      "description": "A flaw was found in gnutls. Servers configured with RSA-PSK (Rivest–Shamir–Adleman – Pre-Shared Key) wrongfully matched usernames containing a NUL character with truncated usernames. A remote attacker could exploit this by sending a specially crafted username, leading to an authentication bypass. Th",
+      "cvss": 7.1,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-05-07",
+      "last_seen": "2026-05-07",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "gnu",
+      "product": "gnutls",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://access.redhat.com/errata/RHSA-2026:13274",
+        "https://access.redhat.com/errata/RHSA-2026:20611",
+        "https://access.redhat.com/errata/RHSA-2026:20612",
+        "https://access.redhat.com/errata/RHSA-2026:20613"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-77315",
+      "title": "Flyto2 Core: http.paginate follows server-supplied next-page URLs (Link header / cursor) without SSRF revalidation",
+      "description": "Summary\nhttp.paginate validates only the initial base_url, then follows server-supplied pagination targets (RFC 5988 Link: rel=\"next\" headers, cursor/offset URLs) in a loop without revalidating each follow-up URL. An attacker's first-page response can point next at an internal ad... [Full analysis a",
+      "cvss": 8.5,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-77315"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-2mr3-rxrq-238c"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-77313",
+      "title": "Flyto2 Core: SSRF guard validates the resolved IP but connects by hostname, allowing DNS-rebinding TOCTOU",
+      "description": "Summary\nvalidate_url_ssrf resolves the hostname, checks the IP against private ranges, then discards the IP and returns the hostname URL string. aiohttp performs a fresh, independent DNS resolution at connect time. An attacker controlling DNS for a hostname (TTL 0, alternating pu... [Full analysis a",
+      "cvss": 7.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "AI_SECURITY",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-77313"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-pfg2-w999-497v"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-71535",
+      "title": "Mareforma: Unsigned Claims Can Be Promoted to REPLICATED via Missing Signature Enforcement in Convergence Path",
+      "description": "Summary\n\nmareforma 0.3.3 contains a critical integrity flaw in the REPLICATED convergence logic (_maybe_update_replicated_unlocked() in mareforma/db/core.py:1300-1319). The peer-selection SQL query that determines whether two independent claims \"agree\" on the same anchor does not... [Full analysis a",
+      "cvss": 7.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-71535"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-8776-qf3h-26r3"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-130008",
+      "title": "sqlite-mcp: Read-only mode bypass via statement chaining and SQL injection in describe_table",
+      "description": "Summary\n\nIn read-only mode (the default), a client that can call the MCP tools can write to the database the server is meant to expose read-only, read other SQLite files, and create new SQLite files anywhere the server process can write. There are two ways in: statement chaining ... [Full analysis a",
+      "cvss": 8.8,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-130008"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-q433-mp6c-8v4f"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-58213",
+      "title": "NATS Server: MQTT SUBSCRIBE Protocol Injection via Leaf Node/Route Forwarding allows arbitrary NATS command injection",
+      "description": "Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports MQTT clients and can bridge MQTT activity into NATS subjects across routes and leafnode connectio... [Full analysis a",
+      "cvss": 7.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-58213"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-qrcv-3558-gj4f"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-76538",
+      "title": "Low Security Vulnerability (CVE-2026-76538)",
+      "description": "CVE-2026-76538",
+      "cvss": 8.8,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76538"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-76538?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-83816",
+      "title": "CodeWhale: exec_shell parallel-readonly classifier auto-approves fd/rg/git grep exec flags enabling silent RCE",
+      "description": "Maintainer resolution\n\nThe CodeWhale maintainers validated this report. CodeWhale 0.8.67 and earlier are affected. Version 0.9.0 contains the fix in commit 208421b9d23d81cea3311a1eeb2a2ea81d637686. Users should upgrade to 0.9.0 or later. The original reporter analysis is preserve... [Full analysis a",
+      "cvss": 8.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-83816"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-3mgh-93r5-r7jf"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-97699",
+      "title": "Mistune: Quadratic-time DoS in inline image parsing (precedence_scan) bypasses not-is-image guards",
+      "description": "Resolution\n\nFixed in Mistune 3.3.4. Upgrade to 3.3.4 or later.\n\n- Affected versions: < 3.3.4\n- First patched version: 3.3.4\n- Fix: https://github.com/lepture/mistune/compare/v3.3.3...v3.3.4\n\nThe reported payload was reproduced against the 3.3.3 release tag and verified to scale a... [Full analysis a",
+      "cvss": 7.8,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-97699"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-ww7q-mxrj-5ffg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4400,5 +4400,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-20T17:57:16.799Z"
+  "lastReportGeneratedAt": "2026-11-20T18:58:05.942Z"
 }

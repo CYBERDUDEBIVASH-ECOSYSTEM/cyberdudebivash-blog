@@ -2166,6 +2166,47 @@
       ]
     },
     {
+      "campaign_id": "campaign:cve-2026-129448",
+      "name": "Apache Vulnerability Exploitation Campaign",
+      "clustering_model": "weighted_v2",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "item_count": 1,
+      "ioc_count": 0,
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "related_intel_ids": [
+        "CVE-2026-129448"
+      ],
+      "related_intel": [
+        {
+          "id": "CVE-2026-129448",
+          "title": "CVE-2026-129448: Apache Roller Deserialization of Untrusted Data Vulnerability — CISA KEV Active Exploitation",
+          "type": "CVE_REPORT",
+          "priority_score": 100,
+          "published": "2026-11-20",
+          "exploited": true,
+          "cisa_kev": true
+        }
+      ],
+      "shared_iocs": [],
+      "shared_cves": [
+        "CVE-2026-129448"
+      ],
+      "threat_actor": null,
+      "threat_actors": [],
+      "max_priority_score": 100,
+      "has_kev": true,
+      "has_ransomware": false,
+      "has_exploited": true,
+      "reasoning": [
+        "1 intel item(s) clustered with composite confidence 0.900",
+        "Single CVE basis: CVE-2026-129448",
+        "1 item(s) confirmed exploited in the wild",
+        "1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      ]
+    },
+    {
       "campaign_id": "campaign:cve-2026-60367-and-cve-2026-60369",
       "name": "Unknown Unknown Exploitation Campaign",
       "severity": "HIGH",
@@ -48337,46 +48378,6 @@
       ]
     },
     {
-      "campaign_id": "campaign:cve-2026-129448",
-      "name": "Apache Vulnerability Exploitation Campaign",
-      "clustering_model": "weighted_v2",
-      "severity": "HIGH",
-      "confidence": 0.9,
-      "item_count": 1,
-      "ioc_count": 0,
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "related_intel_ids": [
-        "CVE-2026-129448"
-      ],
-      "related_intel": [
-        {
-          "id": "CVE-2026-129448",
-          "title": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
-          "type": "CVE_REPORT",
-          "priority_score": 77,
-          "published": "2026-11-18",
-          "exploited": true,
-          "cisa_kev": false
-        }
-      ],
-      "shared_iocs": [],
-      "shared_cves": [
-        "CVE-2026-129448"
-      ],
-      "threat_actor": null,
-      "threat_actors": [],
-      "max_priority_score": 77,
-      "has_kev": false,
-      "has_ransomware": false,
-      "has_exploited": true,
-      "reasoning": [
-        "1 intel item(s) clustered with composite confidence 0.900",
-        "Single CVE basis: CVE-2026-129448",
-        "1 item(s) confirmed exploited in the wild"
-      ]
-    },
-    {
       "campaign_id": "campaign:cve-2026-130754",
       "name": "Unknown All Exploitation Campaign",
       "clustering_model": "weighted_v2",
@@ -50657,12 +50658,12 @@
       "related_intel": [
         {
           "id": "CVE-2026-123890",
-          "title": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
-          "type": "ZERO_DAY",
-          "priority_score": 61,
+          "title": "CVE-2026-123890: VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability — CISA KEV Active Exploitation",
+          "type": "CVE_REPORT",
+          "priority_score": 81,
           "published": "2026-11-20",
-          "exploited": false,
-          "cisa_kev": false
+          "exploited": true,
+          "cisa_kev": true
         }
       ],
       "shared_iocs": [],
@@ -50691,15 +50692,16 @@
           "category": "nation_state"
         }
       ],
-      "max_priority_score": 66,
-      "has_kev": false,
+      "max_priority_score": 81,
+      "has_kev": true,
       "has_ransomware": false,
       "has_exploited": true,
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "2 related CVEs: CVE-2026-123890, CVE-2026-59309",
         "1 item(s) confirmed exploited in the wild",
-        "Single CVE basis: CVE-2026-123890"
+        "Single CVE basis: CVE-2026-123890",
+        "1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
       ]
     },
     {
@@ -51485,6 +51487,7 @@
     {
       "campaign_id": "campaign:cve-2026-133874",
       "name": "Unknown Iceburg Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "HIGH",
       "confidence": 0.9,
       "item_count": 1,
@@ -51518,12 +51521,12 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-133874"
-      ],
-      "clustering_model": "weighted_v2"
+      ]
     },
     {
       "campaign_id": "campaign:cve-2026-82675",
       "name": "Unknown The Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "HIGH",
       "confidence": 0.9,
       "item_count": 1,
@@ -51557,6 +51560,124 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-82675"
+      ]
+    },
+    {
+      "campaign_id": "campaign:cve-2025-42884",
+      "name": "SAP NetWeaver Exploitation Campaign",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "item_count": 1,
+      "ioc_count": 0,
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "related_intel_ids": [
+        "CVE-2025-42884"
+      ],
+      "related_intel": [
+        {
+          "id": "CVE-2025-42884",
+          "title": "CVE-2025-42884: SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability — CISA KEV Active Exploitation",
+          "type": "CVE_REPORT",
+          "priority_score": 81,
+          "published": "2026-11-20",
+          "exploited": true,
+          "cisa_kev": true
+        }
+      ],
+      "shared_iocs": [],
+      "shared_cves": [
+        "CVE-2025-42884"
+      ],
+      "threat_actor": null,
+      "threat_actors": [],
+      "max_priority_score": 81,
+      "has_kev": true,
+      "has_ransomware": false,
+      "has_exploited": true,
+      "reasoning": [
+        "1 intel item(s) clustered with composite confidence 0.900",
+        "Single CVE basis: CVE-2025-42884",
+        "1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      ],
+      "clustering_model": "weighted_v2"
+    },
+    {
+      "campaign_id": "campaign:cve-2026-76466",
+      "name": "Cisco Infrastructure Attack Campaign",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "item_count": 1,
+      "ioc_count": 0,
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "related_intel_ids": [
+        "CVE-2026-76466"
+      ],
+      "related_intel": [
+        {
+          "id": "CVE-2026-76466",
+          "title": "CVE-2026-76466: Cisco Expressway Series Use of Hard-coded Credentials Vulnerability — CISA KEV Active Exploitation",
+          "type": "CVE_REPORT",
+          "priority_score": 81,
+          "published": "2026-11-20",
+          "exploited": true,
+          "cisa_kev": true
+        }
+      ],
+      "shared_iocs": [],
+      "shared_cves": [
+        "CVE-2026-76466"
+      ],
+      "threat_actor": null,
+      "threat_actors": [],
+      "max_priority_score": 81,
+      "has_kev": true,
+      "has_ransomware": false,
+      "has_exploited": true,
+      "reasoning": [
+        "1 intel item(s) clustered with composite confidence 0.900",
+        "Single CVE basis: CVE-2026-76466",
+        "1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      ],
+      "clustering_model": "weighted_v2"
+    },
+    {
+      "campaign_id": "campaign:cve-2026-84693",
+      "name": "Unknown The Exploitation Campaign",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "item_count": 1,
+      "ioc_count": 0,
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "related_intel_ids": [
+        "CVE-2026-84693"
+      ],
+      "related_intel": [
+        {
+          "id": "CVE-2026-84693",
+          "title": "CVE-2026-84693 — Unknown Vendor The WPvivid — CVSS 8.1 High Severity Vulnerability",
+          "type": "CVE_REPORT",
+          "priority_score": 65,
+          "published": "2026-11-20",
+          "exploited": false,
+          "cisa_kev": false
+        }
+      ],
+      "shared_iocs": [],
+      "shared_cves": [
+        "CVE-2026-84693"
+      ],
+      "threat_actor": null,
+      "threat_actors": [],
+      "max_priority_score": 65,
+      "has_kev": false,
+      "has_ransomware": false,
+      "has_exploited": false,
+      "reasoning": [
+        "1 intel item(s) clustered with composite confidence 0.900",
+        "Single CVE basis: CVE-2026-84693"
       ],
       "clustering_model": "weighted_v2"
     },
@@ -116442,6 +116563,7 @@
     {
       "campaign_id": "campaign:cve-2026-133879",
       "name": "Unknown A Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "MEDIUM",
       "confidence": 0.9,
       "item_count": 1,
@@ -116475,12 +116597,12 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-133879"
-      ],
-      "clustering_model": "weighted_v2"
+      ]
     },
     {
       "campaign_id": "campaign:cve-2026-133872",
       "name": "Unknown LessPass Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "MEDIUM",
       "confidence": 0.9,
       "item_count": 1,
@@ -116514,8 +116636,7 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-133872"
-      ],
-      "clustering_model": "weighted_v2"
+      ]
     },
     {
       "campaign_id": "campaign:cluster-6d58c496",
@@ -119654,7 +119775,7 @@
       "clustering_model": "graph_reconstruction_v1"
     }
   ],
-  "generated": "2026-11-20T17:57:16.320Z",
+  "generated": "2026-11-20T18:58:05.675Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0"
 }

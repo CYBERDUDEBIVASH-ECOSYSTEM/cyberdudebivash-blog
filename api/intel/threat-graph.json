@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-20T17:57:16.165Z",
+  "generated": "2026-11-20T18:58:05.497Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19581,
+    "total_nodes": 19595,
     "actors": 8,
-    "cves": 9469,
-    "campaigns": 3060,
+    "cves": 9480,
+    "campaigns": 3063,
     "malware": 0,
     "iocs": 911,
-    "edges": 5865
+    "edges": 5868
   },
   "nodes": {
     "actor:lockbit": {
@@ -300567,18 +300567,18 @@
     "CVE-2026-76466": {
       "id": "CVE-2026-76466",
       "type": "CVE",
-      "name": "Hackers Exploit Cisco Expressway Flaw CVE-2026-76466 to Breach Russian Organization",
+      "name": "CVE-2026-76466: Cisco Expressway Series Use of Hard-coded Credentials Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
-        "cvss": 9.8,
-        "threat_level": "MEDIUM",
-        "priority_score": 51,
-        "exploited": false,
-        "cisa_kev": false,
+        "cvss": 0,
+        "threat_level": "HIGH",
+        "priority_score": 81,
+        "exploited": true,
+        "cisa_kev": true,
         "ransomware": false,
-        "vendor": "",
-        "product": "",
+        "vendor": "Cisco",
+        "product": "Expressway Series",
         "published": "2026-11-20",
-        "type": "AI_SECURITY"
+        "type": "CVE_REPORT"
       },
       "connections": []
     },
@@ -358841,17 +358841,17 @@
     "CVE-2026-129448": {
       "id": "CVE-2026-129448",
       "type": "CVE",
-      "name": "Apache Roller RCE Flaw CVE-2026-129448 Under Active Attack",
+      "name": "CVE-2026-129448: Apache Roller Deserialization of Untrusted Data Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
         "cvss": 9.8,
-        "threat_level": "MEDIUM",
-        "priority_score": 49,
-        "exploited": false,
-        "cisa_kev": false,
+        "threat_level": "CRITICAL",
+        "priority_score": 100,
+        "exploited": true,
+        "cisa_kev": true,
         "ransomware": false,
-        "vendor": "",
-        "product": "",
-        "published": "2026-11-18",
+        "vendor": "Apache",
+        "product": "Roller",
+        "published": "2026-11-20",
         "type": "CVE_REPORT"
       },
       "connections": []
@@ -359079,12 +359079,12 @@
       "type": "Campaign",
       "name": "Apache Vulnerability Exploitation Campaign",
       "attributes": {
-        "severity": "HIGH",
+        "severity": "CRITICAL",
         "item_count": 1,
-        "first_seen": "2026-11-18",
-        "last_seen": "2026-11-18",
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
         "confidence": 0.9,
-        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-129448 | 1 item(s) confirmed exploited in the wild"
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-129448 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
       },
       "connections": [
         {
@@ -363547,18 +363547,18 @@
     "CVE-2026-123890": {
       "id": "CVE-2026-123890",
       "type": "CVE",
-      "name": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
+      "name": "CVE-2026-123890: VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
-        "cvss": 9.8,
-        "threat_level": "MEDIUM",
-        "priority_score": 61,
-        "exploited": false,
-        "cisa_kev": false,
+        "cvss": 0,
+        "threat_level": "HIGH",
+        "priority_score": 81,
+        "exploited": true,
+        "cisa_kev": true,
         "ransomware": false,
-        "vendor": "The Hacker News",
-        "product": "Threat Intelligence",
+        "vendor": "Broadcom",
+        "product": "VMware vCenter",
         "published": "2026-11-20",
-        "type": "ZERO_DAY"
+        "type": "CVE_REPORT"
       },
       "connections": []
     },
@@ -363587,7 +363587,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 41,
+        "priority_score": 39,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -363605,7 +363605,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 41,
+        "priority_score": 39,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -363747,16 +363747,16 @@
       "type": "CVE",
       "name": "Tapir: Construction/decode RCE via property name -> raw case-class field (tapir-openapi-codegen)",
       "attributes": {
-        "cvss": 0,
-        "threat_level": "LOW",
-        "priority_score": 30,
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 51,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "maven",
-        "product": "com.softwaremill.sttp.tapir:tapir-openapi-codegen-core",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-19",
-        "type": "CVE_REPORT"
+        "type": "NEWS_REPORT"
       },
       "connections": []
     },
@@ -364563,14 +364563,14 @@
     "campaign:cve-2026-123890": {
       "id": "campaign:cve-2026-123890",
       "type": "Campaign",
-      "name": "China-Nexus Covert Intrusion Campaign",
+      "name": "Broadcom VMware Exploitation Campaign",
       "attributes": {
-        "severity": "MEDIUM",
+        "severity": "HIGH",
         "item_count": 1,
         "first_seen": "2026-11-20",
         "last_seen": "2026-11-20",
         "confidence": 0.9,
-        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-123890"
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-123890 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
       },
       "connections": [
         {
@@ -364625,14 +364625,14 @@
       "attributes": {
         "cvss": 8.1,
         "threat_level": "MEDIUM",
-        "priority_score": 63,
+        "priority_score": 45,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "rust",
-        "product": "codewhale-tui",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-19",
-        "type": "CVE_REPORT"
+        "type": "NEWS_REPORT"
       },
       "connections": []
     },
@@ -364641,16 +364641,16 @@
       "type": "CVE",
       "name": "sqlite-mcp: Read-only mode bypass via statement chaining and SQL injection in describe_table",
       "attributes": {
-        "cvss": 8.2,
+        "cvss": 8.8,
         "threat_level": "MEDIUM",
-        "priority_score": 63,
+        "priority_score": 48,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "go",
-        "product": "github.com/StacklokLabs/sqlite-mcp",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-19",
-        "type": "CVE_REPORT"
+        "type": "NEWS_REPORT"
       },
       "connections": []
     },
@@ -364660,15 +364660,15 @@
       "name": "Guard Core: Quadratic ReDoS in built-in detection pattern freezes the event loop with a single request",
       "attributes": {
         "cvss": 7.5,
-        "threat_level": "MEDIUM",
-        "priority_score": 61,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "pip",
-        "product": "guard-core",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-19",
-        "type": "CVE_REPORT"
+        "type": "NEWS_REPORT"
       },
       "connections": []
     },
@@ -364696,15 +364696,15 @@
       "name": "Model Context Protocol Python SDK: OAuth client could send credentials to an authorization server chosen by the MCP server",
       "attributes": {
         "cvss": 7.5,
-        "threat_level": "MEDIUM",
-        "priority_score": 61,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "pip",
-        "product": "mcp",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-19",
-        "type": "CVE_REPORT"
+        "type": "NEWS_REPORT"
       },
       "connections": []
     },
@@ -364714,15 +364714,15 @@
       "name": "Mistune: Quadratic-time DoS in parse_link_href via unbounded parenthesis scan on empty-label links",
       "attributes": {
         "cvss": 7.5,
-        "threat_level": "MEDIUM",
-        "priority_score": 61,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "pip",
-        "product": "mistune",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-19",
-        "type": "CVE_REPORT"
+        "type": "NEWS_REPORT"
       },
       "connections": []
     },
@@ -364731,16 +364731,16 @@
       "type": "CVE",
       "name": "Mistune: Quadratic-time DoS in inline image parsing (precedence_scan) bypasses not-is-image guards",
       "attributes": {
-        "cvss": 7.5,
-        "threat_level": "MEDIUM",
-        "priority_score": 61,
+        "cvss": 7.8,
+        "threat_level": "LOW",
+        "priority_score": 44,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "pip",
-        "product": "mistune",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-19",
-        "type": "CVE_REPORT"
+        "type": "NEWS_REPORT"
       },
       "connections": []
     },
@@ -364750,15 +364750,15 @@
       "name": "fzf: Arbitrary command execution via bash arithmetic expansion on unvalidated layout size in fzf-tmux (-l/-u attached value)",
       "attributes": {
         "cvss": 7,
-        "threat_level": "MEDIUM",
-        "priority_score": 58,
+        "threat_level": "LOW",
+        "priority_score": 40,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "go",
-        "product": "github.com/junegunn/fzf",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-19",
-        "type": "CVE_REPORT"
+        "type": "NEWS_REPORT"
       },
       "connections": []
     },
@@ -368163,6 +368163,264 @@
       "connections": [
         {
           "target": "CVE-2026-133872",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2025-42884": {
+      "id": "CVE-2025-42884",
+      "type": "CVE",
+      "name": "CVE-2025-42884: SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability — CISA KEV Active Exploitation",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "HIGH",
+        "priority_score": 81,
+        "exploited": true,
+        "cisa_kev": true,
+        "ransomware": false,
+        "vendor": "SAP",
+        "product": "NetWeaver",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-84693": {
+      "id": "CVE-2026-84693",
+      "type": "CVE",
+      "name": "CVE-2026-84693 — Unknown Vendor The WPvivid — CVSS 8.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The WPvivid —",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-130007": {
+      "id": "CVE-2026-130007",
+      "type": "CVE",
+      "name": "k8s-mcp-server: Missing authentication on default SSE/HTTP transport allows unauthenticated Kubernetes tool execution",
+      "attributes": {
+        "cvss": 9.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 49,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "NEWS_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-22308": {
+      "id": "CVE-2026-22308",
+      "type": "CVE",
+      "name": "Low Security Vulnerability (CVE-2026-22308)",
+      "attributes": {
+        "cvss": 9.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 48,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-76544": {
+      "id": "CVE-2026-76544",
+      "type": "CVE",
+      "name": "Low Security Vulnerability (CVE-2026-76544)",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 45,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-93916": {
+      "id": "CVE-2026-93916",
+      "type": "CVE",
+      "name": "CVE-2026-93916 - Dimension Insufficient Session Expiration Allows Persistent Super Administrator Access",
+      "attributes": {
+        "cvss": 7.8,
+        "threat_level": "LOW",
+        "priority_score": 44,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-76818": {
+      "id": "CVE-2026-76818",
+      "type": "CVE",
+      "name": "Axon: Download of Code Without Integrity Check in axon-mcp",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "LOW",
+        "priority_score": 43,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "NEWS_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-22310": {
+      "id": "CVE-2026-22310",
+      "type": "CVE",
+      "name": "CVE-2026-22310 - Stored cross-site scripting in JTL-Shop",
+      "attributes": {
+        "cvss": 8,
+        "threat_level": "LOW",
+        "priority_score": 43,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-131809": {
+      "id": "CVE-2026-131809",
+      "type": "CVE",
+      "name": "Low Security Vulnerability (CVE-2026-131809)",
+      "attributes": {
+        "cvss": 7.6,
+        "threat_level": "LOW",
+        "priority_score": 41,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-63390": {
+      "id": "CVE-2026-63390",
+      "type": "CVE",
+      "name": "CVE-2026-63390 - HTSlib: Heap buffer overflow in BCF reader due to improper validation of input.",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "LOW",
+        "priority_score": 39,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-81434": {
+      "id": "CVE-2026-81434",
+      "type": "CVE",
+      "name": "CVE-2026-81434 - Dimension Reflected XSS in Device Configuration History Page",
+      "attributes": {
+        "cvss": 6.1,
+        "threat_level": "LOW",
+        "priority_score": 37,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-19",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2025-42884": {
+      "id": "campaign:cve-2025-42884",
+      "type": "Campaign",
+      "name": "SAP NetWeaver Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2025-42884 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      },
+      "connections": [
+        {
+          "target": "CVE-2025-42884",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-76466": {
+      "id": "campaign:cve-2026-76466",
+      "type": "Campaign",
+      "name": "Cisco Infrastructure Attack Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-76466 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-76466",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-84693": {
+      "id": "campaign:cve-2026-84693",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-84693"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-84693",
           "relationship": "includes",
           "confidence": 1
         }
@@ -421134,6 +421392,33 @@
       "id": "campaign:cve-2026-133872→includes→CVE-2026-133872",
       "source": "campaign:cve-2026-133872",
       "target": "CVE-2026-133872",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2025-42884→includes→CVE-2025-42884",
+      "source": "campaign:cve-2025-42884",
+      "target": "CVE-2025-42884",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-76466→includes→CVE-2026-76466",
+      "source": "campaign:cve-2026-76466",
+      "target": "CVE-2026-76466",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-84693→includes→CVE-2026-84693",
+      "source": "campaign:cve-2026-84693",
+      "target": "CVE-2026-84693",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-20",
