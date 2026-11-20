@@ -38,6 +38,7 @@ from . import premium_publication as _premium
 from .key_judgements import KeyJudgement
 from .logger import setup_logger
 from .provider_quota_ledger import telemetry_snapshot as quota_telemetry_snapshot
+from .source_evidence_hydrator import validated_soc_citation
 
 logger = setup_logger("premium_evidence_compiler")
 
@@ -153,6 +154,13 @@ def deterministic_references(article) -> list[tuple[str, str]]:
     if primary:
         publisher = str(getattr(article, "source_publisher", "") or getattr(article, "source", "") or "Primary cited source")
         candidates.append((publisher, primary))
+
+    # A first-party SOC report can link the external article it summarized.
+    # Preserve that provenance chain; do not call the link independently
+    # verified research or count it as a second confirmed intelligence source.
+    cited = validated_soc_citation(article)
+    if cited:
+        candidates.append(("External reporting cited by SOC (not independently verified)", cited))
 
     cve_id = str(getattr(article, "cve_id", "") or "").strip().upper()
     if re.fullmatch(r"CVE-\d{4}-\d{4,}", cve_id):
