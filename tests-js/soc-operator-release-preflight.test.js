@@ -12,7 +12,7 @@ function sample(){
   const t=stamp(20);
   return {
     approvedSha:SHA,accountId:ACCOUNT,nowMs:NOW,
-    git:{origin:'https://github.com/cyberdudebivash/cyberdudebivash-blog.git',
+    git:{origin:'https://github.com/CYBERDUDEBIVASH-ECOSYSTEM/cyberdudebivash-blog.git',
       head:SHA,upstream:SHA,clean:true,shallow:false},
     budgetEvidence:{
       schemaVersion:'cdb-cloudflare-shared-budget/v1',
@@ -48,11 +48,12 @@ test('reconciled local source and genuine private budget receipt passes only off
   assert.equal(out.workerDeploymentAuthorized,false);
 });
 test('unapproved or wrong remote fails even for clean matching HEAD and fresh intel',()=>{
-  assert(isApprovedOrigin('git@github.com:cyberdudebivash/cyberdudebivash-blog.git'));
-  assert(isApprovedOrigin('https://github.com/cyberdudebivash/cyberdudebivash-blog'));
+  assert(isApprovedOrigin('git@github.com:CYBERDUDEBIVASH-ECOSYSTEM/cyberdudebivash-blog.git'));
+  assert(isApprovedOrigin('https://github.com/CYBERDUDEBIVASH-ECOSYSTEM/cyberdudebivash-blog'));
   for(const remote of ['https://github.com/attacker/cyberdudebivash-blog.git',
-    'https://github.com/cyberdudebivash/cyberdudebivash-blog-malicious',
-    'https://evil.example/cyberdudebivash/cyberdudebivash-blog'])
+    'https://github.com/CYBERDUDEBIVASH-ECOSYSTEM/cyberdudebivash-blog-malicious',
+    'https://evil.example/CYBERDUDEBIVASH-ECOSYSTEM/cyberdudebivash-blog',
+    'https://github.com/cyberdudebivash/cyberdudebivash-blog.git'])
     assert(evaluate(x=>x.git.origin=remote).codes.includes('REPOSITORY_ORIGIN_NOT_APPROVED'));
 });
 test('unpinned/unfetched origin main, dirty local edits, incomplete history fail closed',()=>{
