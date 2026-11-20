@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T16:58:03.922Z",
+  "generated": "2026-11-20T17:57:16.352Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,7 +8,7 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 139,
+  "count": 141,
   "items": [
     {
       "id": "CVE-2026-115578",
@@ -61,91 +61,44 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-133708",
-      "title": "CVE-2026-133708 — Unknown Vendor diffpy.structure before 3.5.1 CVSS 7.8 High Severity Vulnerability",
-      "description": "diffpy.structure before 3.5.1 contains a code execution vulnerability that allows attackers to run Python code by supplying crafted CIF symmetry operations passed to eval() in get_symop(). Attackers can embed expressions in the _space_group_symop_operation_xyz or _symmetry_equiv_pos_as_xyz loop to e",
-      "cvss": 7.8,
-      "final_ps": 62,
-      "quality_score": 0.58,
-      "threat_level": "MEDIUM",
+      "id": "CVE-2025-34267",
+      "title": "CVE-2025-34267 — flowiseai flowise CVSS 9.9 Critical Vulnerability",
+      "description": "Flowise v3.0.1 < 3.0.8, and 3.0.8 < 3.1.3 with 'ALLOW_BUILTIN_DEP' enabled contain an authenticated remote code execution vulnerability and node VM sandbox escape due to insecure use of integrated modules (Puppeteer and Playwright) within the nodevm execution environment. An authenticated attacker a",
+      "cvss": 9.9,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
       "type": "CVE_REPORT",
       "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2025-10-14",
+      "last_seen": "2025-10-14",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "diffpy.structure before 3.5.1",
+      "vendor": "flowiseai",
+      "product": "flowise",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/diffpy/diffpy.structure/blob/3.5.0/src/diffpy/structure/parsers/p_cif.py",
-        "https://github.com/diffpy/diffpy.structure/commit/f4be1d534fa9cf488c8e83f258e59fe09b526f62",
-        "https://github.com/diffpy/diffpy.structure/issues/204",
-        "https://github.com/diffpy/diffpy.structure/releases/tag/3.5.1"
+        "https://flowiseai.com/",
+        "https://github.com/FlowiseAI/Flowise/pull/5231",
+        "https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-5w3r-f6gm-c25w",
+        "https://www.vulncheck.com/advisories/flowise-auth-command-execution-and-sandbox-bypass-via-puppeteer-and-playwright-packages"
       ],
       "explanation": {
         "quality": [
           "source_weight=1.00 (nvd)",
           "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
+          "recency=402d (score=0.05)",
+          "QS=0.485"
         ],
         "priority": [
-          "base_ps=62 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-133710",
-      "title": "CVE-2026-133710 — Unknown Vendor llama.cpp b11003 before CVSS 7.8 High Severity Vulnerability",
-      "description": "llama.cpp b11003 before b12556 contains an integer overflow in the hrm_text loader load_arch_hparams() that allows attackers to bypass the block count check using crafted GGUF metadata. Attackers can supply a GGUF model whose layer factors wrap modulo 2^32, causing load_arch_tensors() to write tenso",
-      "cvss": 7.8,
-      "final_ps": 62,
-      "quality_score": 0.58,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "llama.cpp b11003 before",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/ggml-org/llama.cpp/blob/b12555/src/models/hrm-text.cpp",
-        "https://github.com/ggml-org/llama.cpp/commit/50518b64c6f2191a116d2760042f106c4b3387d7",
-        "https://github.com/ggml-org/llama.cpp/pull/32601",
-        "https://github.com/ggml-org/llama.cpp/releases/tag/b12556"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
-        ],
-        "priority": [
-          "base_ps=62 (no boosts)"
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -196,6 +149,148 @@
         ],
         "priority": [
           "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-103026",
+      "title": "Paymenter: Unauthenticated arbitrary method invocation in Livewire components",
+      "description": "### Summary A Livewire function allowed attackers to call any public function, allowing attackers to call any public method on the component. Because an attacker can call any function, they can also overwrite locked data. ### Technical Details `app/Livewire/Traits/HasConfirmation.php` exposed a publ",
+      "cvss": 8.1,
+      "final_ps": 61,
+      "quality_score": 0.578,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "composer",
+      "product": "paymenter/paymenter",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-103026",
+        "CVE-2026-103026"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-prhx-9q2h-ph2x",
+        "https://github.com/Paymenter/Paymenter/security/advisories/GHSA-prhx-9q2h-ph2x",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103026",
+        "https://github.com/Paymenter/Paymenter/commit/e0c04af1707a65d8fb91879883aa7eae3292cedc"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.578"
+        ],
+        "priority": [
+          "base_ps=61 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-121481",
+      "title": "OpenSSL Hit by Critical 9.8 Heap Buffer Overflow Vulnerability in Base64 Encoding Function",
+      "description": "A heap buffer overflow in OpenSSL’s Base64 encoding function can corrupt application memory when the library processes very large inputs. The flaw, tracked as CVE-2026-121481, was published on November 18, 2026, with a critical CVSS 3.1 score of 9.8. That score describes the pote... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 60,
+      "quality_score": 0.493,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-121481"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cybersecuritynews.com/openssl-heap-buffer-overflow/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.493"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-76466",
+      "title": "Hackers Exploit Cisco Expressway Flaw CVE-2026-76466 to Breach Russian Organization",
+      "description": "Cisco Expressway flaw CVE-2026-76466 is being exploited to gain root access and move from exposed devices into internal networks. Attackers have exploited a critical flaw, tracked as CVE-2026-76466 (CVSS score of 9.8) in Cisco Expressway to breach a Russian organization, and they... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 60,
+      "quality_score": 0.493,
+      "threat_level": "MEDIUM",
+      "type": "AI_SECURITY",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76466"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://securityaffairs.com/203598/hacking/hackers-exploit-cisco-expressway-flaw-cve-2026-76466-to-breach-russian-organization.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.493"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -5281,11 +5376,11 @@
       "iocs": []
     },
     {
-      "id": "CVE-2025-34267",
-      "title": "CVE-2025-34267 — flowiseai flowise CVSS 9.9 Critical Vulnerability",
+      "id": "CVE-2026-133874",
+      "title": "CVE-2026-133874 — Unknown Vendor Iceburg CRM through CVSS 8.1 High Severity Vulnerability",
       "description": "",
-      "cvss": 9.9,
-      "final_ps": 31,
+      "cvss": 8.1,
+      "final_ps": 21,
       "quality_score": 0.525,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
@@ -5294,21 +5389,21 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2025-10-14",
-      "last_seen": "2025-10-14",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "flowiseai",
-      "product": "flowise",
+      "vendor": "Unknown Vendor",
+      "product": "Iceburg CRM through",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://flowiseai.com/",
-        "https://github.com/FlowiseAI/Flowise/pull/5231",
-        "https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-5w3r-f6gm-c25w",
-        "https://www.vulncheck.com/advisories/flowise-auth-command-execution-and-sandbox-bypass-via-puppeteer-and-playwright-packages"
+        "https://github.com/iceburgcrm/iceburgcrm",
+        "https://github.com/iceburgcrm/iceburgcrm/blob/v5.0.0/app/Http/Controllers/Api/CRMController.php#L43-L54",
+        "https://github.com/iceburgcrm/iceburgcrm/blob/v5.0.0/app/Models/Module.php#L283-L335",
+        "https://github.com/iceburgcrm/iceburgcrm/issues/28"
       ],
       "explanation": {
         "quality": [
@@ -5318,7 +5413,7 @@
           "QS=0.525"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=21 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -5328,136 +5423,131 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-76466",
-      "title": "Hackers Exploit Cisco Expressway Flaw CVE-2026-76466 to Breach Russian Organization",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "AI_SECURITY",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76466"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://securityaffairs.com/203598/hacking/hackers-exploit-cisco-expressway-flaw-cve-2026-76466-to-breach-russian-organization.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-121481",
-      "title": "OpenSSL Hit by Critical 9.8 Heap Buffer Overflow Vulnerability in Base64 Encoding Function",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-121481"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cybersecuritynews.com/openssl-heap-buffer-overflow/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-103026",
-      "title": "Paymenter: Unauthenticated arbitrary method invocation in Livewire components",
+      "id": "CVE-2026-82675",
+      "title": "CVE-2026-82675 — Unknown Vendor The GiveWP – CVSS 8.1 High Severity Vulnerability",
       "description": "",
       "cvss": 8.1,
       "final_ps": 21,
-      "quality_score": 0.523,
+      "quality_score": 0.525,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "github_advisories",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "github_advisories"
+        "nvd"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "composer",
-      "product": "paymenter/paymenter",
+      "vendor": "Unknown Vendor",
+      "product": "The GiveWP –",
       "due_date": null,
-      "cves": [
-        "CVE-2026-103026",
-        "CVE-2026-103026"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-prhx-9q2h-ph2x",
-        "https://github.com/Paymenter/Paymenter/security/advisories/GHSA-prhx-9q2h-ph2x",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-103026",
-        "https://github.com/Paymenter/Paymenter/commit/e0c04af1707a65d8fb91879883aa7eae3292cedc"
+        "https://plugins.trac.wordpress.org/changeset/3723820/give",
+        "https://www.wordfence.com/threat-intel/vulnerabilities/id/b3e832de-1c20-49a9-8d5e-d5066dc984b6?source=cve"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.95 (github_advisories)",
+          "source_weight=1.00 (nvd)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.523"
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-133879",
+      "title": "CVE-2026-133879 — Unknown Vendor A flaw was CVSS 7.7 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.7,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "A flaw was",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://access.redhat.com/security/cve/CVE-2026-133879",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2578653"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-133872",
+      "title": "CVE-2026-133872 — Unknown Vendor LessPass self-hosted sync CVSS 7.4 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.4,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "LessPass self-hosted sync",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/lesspass/lesspass",
+        "https://github.com/lesspass/lesspass/blob/d8f29da390d4492a5ea7c106779c93f71aa976ff/backend/lesspass/settings.py",
+        "https://github.com/lesspass/lesspass/commit/9469b0cb90b5a79e2ab4f7f07bb67318dd312b99",
+        "https://github.com/lesspass/lesspass/security/advisories/GHSA-4mwq-gh5h-pxjg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
         ],
         "priority": [
           "base_ps=21 (no boosts)"
