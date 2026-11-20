@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20T22:46:55.997Z",
+  "generated": "2026-11-20T23:46:57.180Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,13 +7,185 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 7999,
+  "total_published": 8006,
   "s2n_stats": {
-    "passed": 119,
+    "passed": 126,
     "suppressed": 3,
-    "avg_qs": 0.484
+    "avg_qs": 0.488
   },
   "items": [
+    {
+      "id": "CVE-2026-63312",
+      "title": "NLTK: StreamBackedCorpusView constructor os.stat leaks out-of-root file existence, size, and mtime bypassing pathsec ENF",
+      "description": "Summary\n\nStreamBackedCorpusView, a public API in nltk/corpus/reader/util.py, applies the pathsec sandbox to the file content it reads but not to the file metadata it probes in its constructor. When the view is created with a plain string fileid, __init__ calls os.stat(self._filei... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 60,
+      "quality_score": 0.493,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63312"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-w674-vqhw-g3pg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.493"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-119350",
+      "title": "Next.js: Cache poisoning of shared fallback shells in Cache Components via request-supplied placeholder route params",
+      "description": "Self-hosted Next.js applications served with next start and built with cacheComponents: true but without Partial Prefetching accept a request-supplied route param value as a prerender placeholder. One unauthenticated GET request can poison the fallback shell cache entry that a fa... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 59,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-119350"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-vvgp-ww4w-46vf"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-45374",
+      "title": "CodeWhale: Automation auto_approve defaults to true, bypassing the task-path hardening fix for silent recurring agent ex",
+      "description": "Maintainer resolution\n\nThe CodeWhale maintainers validated this report. CodeWhale 0.8.67 and earlier are affected. Version 0.9.0 contains the fix in commit 208421b9d23d81cea3311a1eeb2a2ea81d637686. Users should upgrade to 0.9.0 or later. The original reporter analysis is preserve... [Full analysis a",
+      "cvss": 9.6,
+      "final_ps": 59,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-45374"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-8hp3-xxrg-v9c8"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-76807",
+      "title": "Todoist MCP Server: Browser DNS rebinding lets websites write and delete Todoist data through local MCP server",
+      "description": "The self-hosted todoist-mcp-http server accepts browser-origin MCP requests with attacker-controlled Host and Origin headers. A malicious website can use DNS rebinding to route its own origin to a victim's local 127.0.0.1 MCP server, then invoke Todoist MCP tools without a caller... [Full analysis a",
+      "cvss": 9.3,
+      "final_ps": 58,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76807"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-833v-v58w-294h"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
     {
       "id": "CVE-2026-27626",
       "title": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
@@ -49,6 +221,49 @@
           "data_confidence=0.70",
           "recency=2d (score=0.65)",
           "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-22308",
+      "title": "Low Security Vulnerability (CVE-2026-22308)",
+      "description": "CVE-2026-22308",
+      "cvss": 9.3,
+      "final_ps": 56,
+      "quality_score": 0.428,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-22308"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-22308?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=1d (score=0.85)",
+          "QS=0.427"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -533,49 +748,6 @@
       }
     },
     {
-      "id": "CVE-2026-83816",
-      "title": "CodeWhale: exec_shell parallel-readonly classifier auto-approves fd/rg/git grep exec flags enabling silent RCE",
-      "description": "Maintainer resolution\n\nThe CodeWhale maintainers validated this report. CodeWhale 0.8.67 and earlier are affected. Version 0.9.0 contains the fix in commit 208421b9d23d81cea3311a1eeb2a2ea81d637686. Users should upgrade to 0.9.0 or later. The original reporter analysis is preserve... [Full analysis a",
-      "cvss": 8.1,
-      "final_ps": 47,
-      "quality_score": 0.493,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-83816"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-3mgh-93r5-r7jf"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.493"
-        ],
-        "priority": [
-          "base_ps=47 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-58644",
       "title": "CISA Adds Exploited SharePoint RCE Zero-Day CVE-2026-58644 to KEV",
       "description": "",
@@ -619,49 +791,6 @@
       }
     },
     {
-      "id": "CVE-2026-129302",
-      "title": "Guard Core: Quadratic ReDoS in built-in detection pattern freezes the event loop with a single request",
-      "description": "Summary\n\nA polynomial (quadratic) regular-expression denial of service in guard-core's built-in penetration-detection patterns allows any unauthenticated remote client to freeze every endpoint of an application for seconds per request, using only the default configuration. The tr... [Full analysis a",
-      "cvss": 7.5,
-      "final_ps": 46,
-      "quality_score": 0.493,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-129302"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-r7hm-rjvg-xx7j"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.493"
-        ],
-        "priority": [
-          "base_ps=46 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-76538",
       "title": "Low Security Vulnerability (CVE-2026-76538)",
       "description": "CVE-2026-76538",
@@ -696,6 +825,49 @@
           "data_confidence=0.45",
           "recency=1d (score=0.85)",
           "QS=0.427"
+        ],
+        "priority": [
+          "base_ps=45 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-83816",
+      "title": "CodeWhale: exec_shell parallel-readonly classifier auto-approves fd/rg/git grep exec flags enabling silent RCE",
+      "description": "Maintainer resolution\n\nThe CodeWhale maintainers validated this report. CodeWhale 0.8.67 and earlier are affected. Version 0.9.0 contains the fix in commit 208421b9d23d81cea3311a1eeb2a2ea81d637686. Users should upgrade to 0.9.0 or later. The original reporter analysis is preserve... [Full analysis a",
+      "cvss": 8.1,
+      "final_ps": 45,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-83816"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-3mgh-93r5-r7jf"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
         ],
         "priority": [
           "base_ps=45 (no boosts)"
@@ -958,6 +1130,49 @@
       "ioc_count": 0,
       "refs": [
         "https://github.com/advisories/GHSA-ww7q-mxrj-5ffg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "base_ps=44 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-129302",
+      "title": "Guard Core: Quadratic ReDoS in built-in detection pattern freezes the event loop with a single request",
+      "description": "Summary\n\nA polynomial (quadratic) regular-expression denial of service in guard-core's built-in penetration-detection patterns allows any unauthenticated remote client to freeze every endpoint of an application for seconds per request, using only the default configuration. The tr... [Full analysis a",
+      "cvss": 7.5,
+      "final_ps": 44,
+      "quality_score": 0.478,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-129302"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-r7hm-rjvg-xx7j"
       ],
       "explanation": {
         "quality": [
@@ -2042,221 +2257,6 @@
         "priority": [
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-128131",
-      "title": "AIOHTTP: Concatenated compressed streams cause excessive CPU use",
-      "description": "Summary\n\nWhen decompressing a payload made up of many concatenated compressed members (gzip, deflate or zstd), each member was decoded by passing the entire remaining input to a new decompressor, resulting in quadratic CPU time. Empty members produce no output, so client_max_size... [Full analysis a",
-      "cvss": 7.5,
-      "final_ps": 40,
-      "quality_score": 0.433,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128131"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-h4cc-hm5h-fmm9"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=4d (score=0.40)",
-          "QS=0.432"
-        ],
-        "priority": [
-          "base_ps=40 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-128118",
-      "title": "SvelteKit: Build-time server-only module import guard could fail, resulting in server secrets being statically replaced ",
-      "description": "Under certain circumstances, server-only imports, which typically cannot be included in the client bundle, could make their way into it, potentially exposing secrets. This could only occur when those server-only imports were made through src/params.js.",
-      "cvss": 7.5,
-      "final_ps": 40,
-      "quality_score": 0.433,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128118"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-m9j8-jcmv-hp69"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=4d (score=0.40)",
-          "QS=0.432"
-        ],
-        "priority": [
-          "base_ps=40 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-128128",
-      "title": "AIOHTTP: WebSocket max_msg_size bypass via integer overflow",
-      "description": "Summary\n\nThe max_msg_size check in the WebSocket reader added the declared frame length to the size of the partial message already buffered. In the C extension this addition is 64-bit arithmetic, so a declared length close to 2**63 overflowed and the check passed.\n\nImpact\n\nAn att... [Full analysis a",
-      "cvss": 7.5,
-      "final_ps": 40,
-      "quality_score": 0.433,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128128"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-3rp8-rxj8-mvjw"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=4d (score=0.40)",
-          "QS=0.432"
-        ],
-        "priority": [
-          "base_ps=40 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-128127",
-      "title": "AIOHTTP: Base64 multipart parts bypass client_max_size",
-      "description": "Summary\n\nWhen reading a multipart part with Content-Transfer-Encoding: base64, BodyPartReader.read_chunk() kept reading until the chunk length was a multiple of 4, with no byte limit. A part with a short Content-Length, or a long run of whitespace, could cause the entire remainin... [Full analysis a",
-      "cvss": 7.5,
-      "final_ps": 40,
-      "quality_score": 0.433,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128127"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-24c4-3p7v-29cm"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=4d (score=0.40)",
-          "QS=0.432"
-        ],
-        "priority": [
-          "base_ps=40 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-128120",
-      "title": "SvelteKit: DoS while parsing form data from a remote functions form",
-      "description": "This only affects applications using the experimental remote functions flag and utilizing the form, query, or command remote functions. A specially-crafted request could block the event loop for extended periods of time during parsing.",
-      "cvss": 7.5,
-      "final_ps": 40,
-      "quality_score": 0.433,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-16",
-      "last_seen": "2026-11-16",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-128120"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-3r8g-jcqq-3p5j"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=4d (score=0.40)",
-          "QS=0.432"
-        ],
-        "priority": [
-          "base_ps=40 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4175,43 +4175,92 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-22308",
-      "title": "Low Security Vulnerability (CVE-2026-22308)",
-      "description": "CVE-2026-22308",
-      "cvss": 9.3,
-      "final_ps": 28,
+      "id": "CVE-2026-114938",
+      "title": "Palo Alto Confirms Java Vulnerability Impacts Privilege Threat Analytics and Remote Access Connector",
+      "description": "Palo Alto Networks has confirmed that a critical Java vulnerability affects Idira Privilege Threat Analytics, Remote Access Connector, and on-premises HTML5 Gateway products. Tracked as CVE-2026-114938, the flaw could let a remote attacker run code without signing in when specifi... [Full analysis a",
+      "cvss": 8.1,
+      "final_ps": 22,
       "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CRITICAL_INFRASTRUCTURE",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114938"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cybersecuritynews.com/palo-alto-confirms-java-vulnerability-impacts/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+4 critical_infra"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-77309",
+      "title": "AIT-GUI route chain allows unauthenticated Python execution in server process",
+      "description": "## Summary\nA security issue exists where unauthenticated callers can instruct the AIT-GUI server to execute arbitrary Python scripts. The attack vector involves obtaining a session cookie through GET /, followed by a malicious POST /script/run request containing an absolute file path that bypasses t",
+      "cvss": 8.8,
+      "final_ps": 21,
+      "quality_score": 0.523,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
-      "source": "sentinel_apex",
+      "source": "github_advisories",
       "sources_confirmed": 1,
       "merged_sources": [
-        "sentinel_apex"
+        "github_advisories"
       ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
+      "vendor": "pip",
+      "product": "ait-gui",
       "due_date": null,
       "cves": [
-        "CVE-2026-22308"
+        "CVE-2026-77309",
+        "CVE-2026-77309"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-22308?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://github.com/advisories/GHSA-jrjx-9jjw-747m",
+        "https://github.com/NASA-AMMOS/AIT-GUI/security/advisories/GHSA-jrjx-9jjw-747m",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-77309",
+        "https://github.com/NASA-AMMOS/AIT-GUI/commit/beb8fc0813eded89f985d3eb9a73535dd327726d"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.438"
+          "QS=0.523"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=21 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4220,43 +4269,44 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-119350",
-      "title": "Next.js: Cache poisoning of shared fallback shells in Cache Components via request-supplied placeholder route params",
-      "description": "Self-hosted Next.js applications served with next start and built with cacheComponents: true but without Partial Prefetching accept a request-supplied route param value as a prerender placeholder. One unauthenticated GET request can poison the fallback shell cache entry that a fa... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
+      "id": "CVE-2026-134172",
+      "title": "CVE-2026-134172 — Unknown Vendor audio-separator before 0.47.2 CVSS 7.8 High Severity Vulnerability",
+      "description": "audio-separator before 0.47.2 contains an insecure deserialization vulnerability that allows attackers to execute code by supplying malicious Demucs .th model files loaded via torch.load with weights_only=False. Local users writing to the shared /tmp/audio-separator-models/ default directory, or att",
+      "cvss": 7.8,
+      "final_ps": 21,
+      "quality_score": 0.525,
       "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
+      "type": "CVE_REPORT",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "sentinel_apex"
+        "nvd"
       ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
+      "vendor": "Unknown Vendor",
+      "product": "audio-separator before 0.47.2",
       "due_date": null,
-      "cves": [
-        "CVE-2026-119350"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-vvgp-ww4w-46vf"
+        "https://github.com/nomadkaraoke/python-audio-separator/blob/465b60f0271e880a7289a2c9aaeb13817c3b2bed/audio_separator/separator/separator.py#L126",
+        "https://github.com/nomadkaraoke/python-audio-separator/blob/465b60f0271e880a7289a2c9aaeb13817c3b2bed/audio_separator/separator/uvr_lib_v5/demucs/states.py#L43",
+        "https://github.com/nomadkaraoke/python-audio-separator/commit/6d7d3fd60accda60c7ad8807ce5731022475dcf3",
+        "https://github.com/nomadkaraoke/python-audio-separator/pull/316"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.438"
+          "QS=0.525"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=21 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4265,43 +4315,44 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-45374",
-      "title": "CodeWhale: Automation auto_approve defaults to true, bypassing the task-path hardening fix for silent recurring agent ex",
-      "description": "Maintainer resolution\n\nThe CodeWhale maintainers validated this report. CodeWhale 0.8.67 and earlier are affected. Version 0.9.0 contains the fix in commit 208421b9d23d81cea3311a1eeb2a2ea81d637686. Users should upgrade to 0.9.0 or later. The original reporter analysis is preserve... [Full analysis a",
-      "cvss": 9.6,
-      "final_ps": 28,
-      "quality_score": 0.438,
+      "id": "CVE-2026-134164",
+      "title": "CVE-2026-134164 — Unknown Vendor probe-image-size before 7.5.0 CVSS 7.5 High Severity Vulnerability",
+      "description": "probe-image-size before 7.5.0 contains an algorithmic-complexity denial of service vulnerability in lib/exif_utils.js that allows remote unauthenticated attackers to exhaust CPU by supplying self-referencing EXIF IFDs. Attackers can submit a crafted 9.6 KB JPEG with repeated ExifIFD and InteropIFD p",
+      "cvss": 7.5,
+      "final_ps": 21,
+      "quality_score": 0.525,
       "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
+      "type": "CVE_REPORT",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "sentinel_apex"
+        "nvd"
       ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
+      "vendor": "Unknown Vendor",
+      "product": "probe-image-size before 7.5.0",
       "due_date": null,
-      "cves": [
-        "CVE-2026-45374"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-8hp3-xxrg-v9c8"
+        "https://github.com/nodeca/probe-image-size/blob/64565c3c8b4b69655426cdfce250e6a93455c9da/lib/exif_utils.js#L210-L216",
+        "https://github.com/nodeca/probe-image-size/commit/d91678eaff2aad93f7b05bc5212b75856164ec7a",
+        "https://github.com/nodeca/probe-image-size/security/advisories/GHSA-gvwc-5hr5-44p8",
+        "https://www.npmjs.com/package/probe-image-size/v/7.5.0"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.438"
+          "QS=0.525"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "base_ps=21 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4310,88 +4361,44 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-63312",
-      "title": "NLTK: StreamBackedCorpusView constructor os.stat leaks out-of-root file existence, size, and mtime bypassing pathsec ENF",
-      "description": "Summary\n\nStreamBackedCorpusView, a public API in nltk/corpus/reader/util.py, applies the pathsec sandbox to the file content it reads but not to the file metadata it probes in its constructor. When the view is created with a plain string fileid, __init__ calls os.stat(self._filei... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
+      "id": "CVE-2026-134167",
+      "title": "CVE-2026-134167 — Unknown Vendor devpi-web before 5.2.0 CVSS 7.5 High Severity Vulnerability",
+      "description": "devpi-web before 5.2.0 contains an unauthenticated path traversal vulnerability in the +doc documentation route because docs_file_exists and docs_file_path in doczip.py never confine relpath to the documentation directory. Attackers can request a relpath with a leading // or percent-encoded .. segme",
+      "cvss": 7.5,
+      "final_ps": 21,
+      "quality_score": 0.525,
       "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
+      "type": "CVE_REPORT",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "sentinel_apex"
+        "nvd"
       ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
+      "vendor": "Unknown Vendor",
+      "product": "devpi-web before 5.2.0",
       "due_date": null,
-      "cves": [
-        "CVE-2026-63312"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-w674-vqhw-g3pg"
+        "https://github.com/devpi/devpi/blob/a67a065777d372acca968ab7b5cf362dc2ceb911/web/devpi_web/doczip.py#L78-L87",
+        "https://github.com/devpi/devpi/commit/680fca1607840905dab6c54059b65ba326f46850",
+        "https://github.com/devpi/devpi/security/advisories/GHSA-w72q-5vww-p2rh",
+        "https://pypi.org/project/devpi-web/5.2.0/"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.438"
+          "QS=0.525"
         ],
         "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-76807",
-      "title": "Todoist MCP Server: Browser DNS rebinding lets websites write and delete Todoist data through local MCP server",
-      "description": "The self-hosted todoist-mcp-http server accepts browser-origin MCP requests with attacker-controlled Host and Origin headers. A malicious website can use DNS rebinding to route its own origin to a victim's local 127.0.0.1 MCP server, then invoke Todoist MCP tools without a caller... [Full analysis a",
-      "cvss": 9.3,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76807"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-833v-v58w-294h"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
+          "base_ps=21 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4400,5 +4407,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-20T22:46:56.213Z"
+  "lastReportGeneratedAt": "2026-11-20T23:46:57.743Z"
 }
