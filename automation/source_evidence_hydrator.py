@@ -219,7 +219,7 @@ def _extract_article_text(html: str) -> str:
 
 _SOC_POSTS_DIR = Path(__file__).resolve().parents[1] / "posts"
 _SOC_HOSTS = frozenset({"blog.cyberdudebivash.in", "soc.cyberdudebivash.in"})
-_SOC_POST_PATH = re.compile(r"^/posts/([a-z0-9][a-z0-9-]{0,150})\\.html$")
+_SOC_POST_PATH = re.compile(r"^/posts/([a-z0-9][a-z0-9-]{0,150})\.html$")
 
 
 def _soc_local_slug(source_url: str) -> Optional[str]:
