@@ -56,8 +56,27 @@ test('P0: immutable dual-host parity includes BOTH root homepages, not only SOC 
 test('SOC homepage retains first-party approved identities and valid structured data', () => {
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   assert.match(html, /https:\/\/www\.linkedin\.com\/company\/cyberdudebivash\//);
-  assert.match(html, /https:\/\/www\.instagram\.com\/cyberdudebivash_official\//);
+  // Owner directive 2026-11-20: the Instagram profile link was retired from every published surface.
+  assert.doesNotMatch(html, /instagram\.com\/cyberdudebivash/i);
   const blocks = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)];
   assert.ok(blocks.length > 0, 'structured data must remain available');
   for (const [, json] of blocks) assert.doesNotThrow(() => JSON.parse(json));
+});
+
+test('no published page, post or Blogger theme links to or declares a retired social profile', () => {
+  // Owner directive 2026-11-20 (researcher findings #7-#13): no first-party link to or structured-data
+  // declaration of the X/Twitter, Instagram, Facebook, Tumblr or ORCID profiles, or the GitHub profile page.
+  // X share-intent links, cited third-party posts and GitHub repository links are not profile links.
+  const RETIRED = /https?:\/\/(?:(?:www|m|mobile)\.)?(?:facebook\.com|fb\.com|instagram\.com\/cyberdudebivash|orcid\.org|[a-z0-9-]*\.?tumblr\.com|(?:x|twitter)\.com\/(?:cdbsentinelapex|cyberbivash|cyberdudebivash|Iambivash007)\b|github\.com\/cyberdudebivash\/?(?=["'\s)<,#?&]|$))/i;
+  const files = [
+    ...['index.html', 'intelligence.html', 'enterprise.html', 'products.html', 'api.html', 'monetization.js']
+      .map(name => path.join(ROOT, name)),
+    ...htmlFiles(path.join(ROOT, 'posts')),
+    ...fs.readdirSync(path.join(ROOT, 'blogger-theme')).filter(n => n.endsWith('.xml')).map(n => path.join(ROOT, 'blogger-theme', n)),
+  ];
+  assert.ok(files.length >= 20, 'published-surface inventory must be present');
+  for (const file of files) {
+    const text = fs.readFileSync(file, 'utf8');
+    assert.doesNotMatch(text, RETIRED, path.relative(ROOT, file));
+  }
 });

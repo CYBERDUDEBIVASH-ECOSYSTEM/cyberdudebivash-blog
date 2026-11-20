@@ -15,7 +15,7 @@
     apiUrl: '/api.html',
     productsUrl: '/products.html',
     intelUrl: 'https://intel.cyberdudebivash.com',
-twitter: 'https://x.com/cdbsentinelapex',
+twitter: '', // DEPRECATED 2026-11-20: retired X profile link (owner directive); remove in the next major release
     exitDelay: 30000,          // ms before exit intent activates
     scrollCTAInterval: 600,    // px scroll before first inline CTA
     toastInterval: 45000,      // ms between social proof toasts
