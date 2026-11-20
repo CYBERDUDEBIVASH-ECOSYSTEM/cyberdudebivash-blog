@@ -254,7 +254,7 @@ def _sanitize_summary_surfaces(soup: BeautifulSoup, article: Any, context: Any, 
     return changed
 
 
-def _label_technical_context(soup: BeautifulSoup, source_only: bool) -> bool:
+def _label_technical_context(soup: BeautifulSoup, source_only: bool, context: Any = None) -> bool:
     if not source_only:
         return False
     heading = _heading(soup, "technical analysis")
@@ -265,13 +265,27 @@ def _label_technical_context(soup: BeautifulSoup, source_only: bool) -> bool:
     notice = soup.new_tag("div")
     notice["class"] = ["cdbv19-1-evidence-class"]
     notice["data-cdb-v19-1-evidence-class"] = "general_context"
-    notice.string = (
-        "EVIDENCE CLASS // GENERAL VULNERABILITY-CLASS CONTEXT. The displayed evidence ledger "
-        "does not establish CVE-specific exploit mechanics beyond its source-linked claims. "
-        "Treat prerequisites, parser path, memory-corruption consequences, execution potential, "
-        "and mitigation behavior as unresolved for this CVE until authoritative upstream evidence "
-        "is collected."
-    )
+    # A source-only ransomware campaign is not a vulnerability advisory.
+    # The former universal disclaimer made false CVE/parser/memory-corruption
+    # references in the November 20 Kaspersky AuditTeam/OpsAgent preview.
+    # Keep the existing CVE advisory contract unchanged.
+    family = str(getattr(context, "family", "") or "").lower()
+    if family == "cve_advisory":
+        notice.string = (
+            "EVIDENCE CLASS // GENERAL VULNERABILITY-CLASS CONTEXT. The displayed evidence ledger "
+            "does not establish CVE-specific exploit mechanics beyond its source-linked claims. "
+            "Treat prerequisites, parser path, memory-corruption consequences, execution potential, "
+            "and mitigation behavior as unresolved for this CVE until authoritative upstream evidence "
+            "is collected."
+        )
+    else:
+        notice.string = (
+            "EVIDENCE CLASS // SOURCE-LINKED THREAT-ACTIVITY CONTEXT. Technical behavior is "
+            "reported only to the extent supported by the cited source. No customer-specific "
+            "compromise, independent threat attribution, validated detection coverage, or "
+            "unobserved execution chain is inferred. Verify additional technical details "
+            "against primary evidence before operational use."
+        )
     heading.insert_after(notice)
     _RUNTIME["technical_context_labels"] += 1
     return True
@@ -537,7 +551,7 @@ def enforce_cti_integrity_revenue_v19_1(rendered_html: str, article: Any = None,
 
     changed = False
     changed |= _sanitize_summary_surfaces(soup, article, context, caps)
-    changed |= _label_technical_context(soup, source_only)
+    changed |= _label_technical_context(soup, source_only, context)
     changed |= _replace_flash_ready_public_label(soup, source_only)
     changed |= _normalize_corroboration(soup, source_only)
     changed |= _normalize_operational_depth(soup, source_only, caps)
