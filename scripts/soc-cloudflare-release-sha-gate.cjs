@@ -8,10 +8,10 @@
  * No deployment, customer operations, secret printing, or repository writes.
  */
 const cp = require('node:child_process');
-const REPO = 'cyberdudebivash/cyberdudebivash-blog';
+const REPO = 'CYBERDUDEBIVASH-ECOSYSTEM/cyberdudebivash-blog';
 const SHA = /^[a-f0-9]{40}$/i;
 const approvedOrigin = (x) => typeof x === 'string' &&
-  /^(?:https:\/\/github\.com\/|git@github\.com:|ssh:\/\/git@github\.com\/)cyberdudebivash\/cyberdudebivash-blog(?:\.git)?$/i.test(x.trim());
+  /^(?:https:\/\/github\.com\/|git@github\.com:|ssh:\/\/git@github\.com\/)CYBERDUDEBIVASH-ECOSYSTEM\/cyberdudebivash-blog(?:\.git)?$/i.test(x.trim());
 const norm = x => typeof x === 'string' && SHA.test(x) ? x.toLowerCase() : null;
 function verify({event, ref, repository, origin, githubSha, headSha, mainSha, inputSha, approvedSha} = {}) {
   const errors = new Set();
