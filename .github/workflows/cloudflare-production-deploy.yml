@@ -240,6 +240,21 @@ jobs:
           test -s dist-public/soc-hybrid-workspace.js
           test -s dist-public/soc-evidence-drawer.js
 
+      # Source scans alone are not sufficient: the final generated customer
+      # entry points must not reintroduce the disabled Facebook Page identity.
+      # Keep research archives and unrelated third-party IOC evidence intact.
+      - name: "P0 predeploy disabled Facebook Page referral ban — fail closed"
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in dist-public/index.html dist-public/soc.html dist-public/intelligence.html; do
+            test -s "$file"
+            if grep -Eiq '61583373732736|facebook[.]com/(cyberdudebivash|cyberbivash)([/?#]|$)' "$file"; then
+              echo "::error::P0 disabled Facebook Page remains in public branding: $file"
+              exit 1
+            fi
+          done
+
       - name: "Predeploy customer route certification parity — rendered build"
         run: node scripts/preflight-customer-route-markers.cjs dist-public
 
