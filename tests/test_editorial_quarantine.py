@@ -38,3 +38,37 @@ def test_main_filters_quarantine_before_scheduling():
     assert "from .editorial_quarantine import editorial_quarantine_reason" in script
     assert script.index('report["editorial_quarantined"]') < script.index(anchor)
     assert script.count("if not editorial_quarantine_reason(article.url)") == 2
+
+# P0 #434 run 44666151995: the 20-Nov report passed transformation but its
+# source permalink was 404 and four CISA KEV CVEs were absent from the
+# public dossier, replaced by unrelated CVE links. Do not publish this exact
+# canonical record via dry-run selection, retry or backfill until repaired.
+CISA_CANARY = (
+    "https://blog.cyberdudebivash.in/posts/"
+    "cisa-warns-of-4-exploited-flaws-linked-to-ransomware-crypto.html"
+)
+
+
+def test_proven_unverifiable_cisa_canary_is_quarantined_exactly():
+    assert "P0 editorial hold #434" in reason(CISA_CANARY)
+    assert "HTTP 404" in reason(CISA_CANARY)
+    assert reason(CISA_CANARY + "?utm_medium=rss#preview") == reason(CISA_CANARY)
+
+
+def test_quarantine_does_not_block_other_cisa_sources_or_original_publisher():
+    assert reason("https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html") is None
+    assert reason(CISA_CANARY.replace("/cisa-warns-", "/other-warns-")) is None
+    assert reason("https://blog.cyberdudebivash.in.attacker.example" +
+                  CISA_CANARY.split(".in", 1)[1]) is None
+    assert reason(CISA_CANARY.replace("https://", "http://")) is None
+
+
+def test_both_fresh_and_retry_queues_apply_exact_editorial_hold_before_scheduling():
+    from pathlib import Path
+    src = (Path(__file__).resolve().parents[1] / "automation" / "main.py").read_text(
+        encoding="utf-8")
+    assert src.count("if not editorial_quarantine_reason(article.url)") == 2
+    # There is also a pre-existing backfill helper call earlier in main.py.
+    # Assert the filter precedes the actual top-level pipeline selection call.
+    assert src.count("    selection = select_publication_batch(") == 2
+    assert src.index('report["editorial_quarantined"]') < src.rindex("    selection = select_publication_batch(")

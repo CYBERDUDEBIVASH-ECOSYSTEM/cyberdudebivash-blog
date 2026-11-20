@@ -17,6 +17,17 @@ _P0_HOLDS: dict[tuple[str, str], str] = {
         "Dark Reading with affected technology and makes unsupported "
         "event-specific ransomware/encryption assertions"
     ),
+    (
+        "blog.cyberdudebivash.in",
+        "/posts/cisa-warns-of-4-exploited-flaws-linked-to-ransomware-crypto.html",
+    ): (
+        "P0 editorial hold #434: one-post dry-run 44666151995 selected "
+        "a first-party canonical source returning HTTP 404 publicly; "
+        "its 144426-byte report omitted all four underlying exploited-CVE IDs "
+        "and displayed unrelated CVE links. Reconcile original-source "
+        "evidence and publish an independently reviewed replacement before "
+        "considering Blogger release"
+    ),
 }
 
 
