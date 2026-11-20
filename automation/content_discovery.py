@@ -59,6 +59,10 @@ class DiscoveredArticle:
     # authoritative system (nvd, cisa_kev, ...) rather than an aggregator
     # covering many distinct outlets.
     source_publisher: Optional[str] = None
+    # An outbound article cited by our own SOC report, copied only from a
+    # bounded, locally inspected source page. This is a reporting citation,
+    # NOT independently verified incident evidence or a second source count.
+    cited_external_source_url: Optional[str] = None
 
     # Structured vulnerability data — populated by source modules (NVD, CISA
     # KEV) when available, and backfilled by automation/enrichment.py for
