@@ -26,8 +26,10 @@ material.
 from __future__ import annotations
 
 import ipaddress
+import re
 import socket
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Optional
 from urllib.parse import urljoin, urlsplit
 
@@ -57,6 +59,7 @@ _RUNTIME = {
     "non_html": 0,
     "not_richer": 0,
     "bytes_read": 0,
+    "local_soc_citations_captured": 0,
 }
 
 
@@ -214,9 +217,99 @@ def _extract_article_text(html: str) -> str:
     return clipped + "..."
 
 
+_SOC_POSTS_DIR = Path(__file__).resolve().parents[1] / "posts"
+_SOC_HOSTS = frozenset({"blog.cyberdudebivash.in", "soc.cyberdudebivash.in"})
+_SOC_POST_PATH = re.compile(r"^/posts/([a-z0-9][a-z0-9-]{0,150})\\.html$")
+
+
+def _soc_local_slug(source_url: str) -> Optional[str]:
+    """Only map our exact public SOC article path into checked-out local files."""
+    try:
+        parsed = urlsplit(str(source_url or ""))
+        if (parsed.scheme != "https" or parsed.hostname not in _SOC_HOSTS
+                or parsed.username or parsed.password or parsed.port is not None
+                or parsed.query or parsed.fragment):
+            return None
+    except ValueError:
+        return None
+    match = _SOC_POST_PATH.fullmatch(parsed.path)
+    return match.group(1) if match else None
+
+
+def _safe_cited_external_url(value: str) -> Optional[str]:
+    """Validate a clickable external citation WITHOUT fetching or corroborating it."""
+    raw = str(value or "").strip()
+    if not raw or len(raw) > 2048 or any(ch.isspace() for ch in raw):
+        return None
+    try:
+        parsed = urlsplit(raw)
+        host = (parsed.hostname or "").lower().rstrip(".")
+        port = parsed.port
+    except ValueError:
+        return None
+    if (parsed.scheme != "https" or not host or parsed.username or parsed.password
+            or port not in (None, 443) or host == "localhost"
+            or host.endswith((".local", ".internal"))
+            or host in {"cyberdudebivash.in", "cyberdudebivash.com", "cyberbivash.blogspot.com"}
+            or host.endswith((".cyberdudebivash.in", ".cyberdudebivash.com"))
+            or not re.fullmatch(r"[a-z0-9][a-z0-9.-]*[a-z0-9]", host)
+            or "." not in host):
+        return None
+    try:
+        ipaddress.ip_address(host)
+    except ValueError:
+        pass
+    else:
+        return None
+    return raw
+
+
+def validated_soc_citation(article: DiscoveredArticle) -> Optional[str]:
+    """Reference safety only. Never imply external fact-checking or source confirmation."""
+    if str(getattr(article, "source", "")) != "rss":
+        return None
+    if not _soc_local_slug(getattr(article, "url", "")):
+        return None
+    return _safe_cited_external_url(getattr(article, "cited_external_source_url", None))
+
+
+def _locally_cited_soc_source(source_url: str) -> Optional[str]:
+    """Inspect only a selected trusted first-party post, with zero HTTP requests."""
+    slug = _soc_local_slug(source_url)
+    if not slug:
+        return None
+    path = _SOC_POSTS_DIR / (slug + ".html")
+    try:
+        if not path.is_file() or path.stat().st_size > MAX_RESPONSE_BYTES:
+            return None
+        raw = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return None
+    # This explicit link is annotated by our SOC authoring UI as cited
+    # reporting; ordinary marketing and navigation links are not references.
+    soup = BeautifulSoup(raw, "lxml")
+    for anchor in soup.select(".cdb-soc12-focus a[href]"):
+        if anchor.get_text(" ", strip=True).lower().startswith("open cited source"):
+            citation = _safe_cited_external_url(anchor.get("href", ""))
+            if citation:
+                return citation
+    return None
+
+
 def hydrate_selected_article(article: DiscoveredArticle) -> HydrationResult:
     """Hydrate one selected global-RSS candidate with its own publisher page."""
     before = len(_plain_words(str(article.full_content or article.summary or "")))
+    if str(article.source or "") == "rss":
+        # First-party RSS already comes from this checkout. Read only the
+        # selected, exact local SOC article; never fetch it over the network.
+        citation = _locally_cited_soc_source(str(article.url or ""))
+        if citation:
+            article.cited_external_source_url = citation
+            _RUNTIME["local_soc_citations_captured"] += 1
+        return HydrationResult(
+            False, False, "local_soc_citation_captured" if citation
+            else "local_soc_citation_unavailable", before, before
+        )
     if str(article.source or "") != "global_rss" or before >= HYDRATE_BELOW_SOURCE_WORDS:
         return HydrationResult(False, False, "not_eligible", before, before)
 
