@@ -19,6 +19,7 @@ from .config import Config
 from .content_discovery import DiscoveredArticle
 from .report_integrity import ReportContext, build_report_context
 from .seo_optimizer import _truncate
+from .source_evidence_hydrator import validated_soc_citation
 
 
 @dataclass(frozen=True)
@@ -773,6 +774,12 @@ def _attack_section(package: DetectionPackage) -> str:
 
 def _references(article: DiscoveredArticle, context: ReportContext) -> str:
     refs = [f'<a href="{_esc(article.url)}" target="_blank" rel="noopener noreferrer" style="color:#60a5fa">Primary source record</a>']
+    cited = validated_soc_citation(article)
+    if cited:
+        refs.append(
+            f'<a href="{_esc(cited)}" target="_blank" rel="noopener noreferrer" style="color:#60a5fa">'
+            "External reporting cited by SOC (not independently verified)</a>"
+        )
     if article.cve_id:
         refs.append(
             f'<a href="https://nvd.nist.gov/vuln/detail/{_esc(article.cve_id)}" target="_blank" rel="noopener noreferrer" style="color:#60a5fa">NVD — {_esc(article.cve_id)}</a>'
