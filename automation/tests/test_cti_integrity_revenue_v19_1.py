@@ -316,3 +316,73 @@ def test_integrity_rejects_wrong_product_on_paid_checkout_cta():
     )
     with pytest.raises(PublicationIntegrityError, match="bypasses canonical platform checkout"):
         v19_1._validate_final(soup, "HIGH", False, v19_1._capabilities(soup))
+
+
+
+@pytest.mark.parametrize("marking", [
+    "TLP:RED", "TLP:AMBER", "TLP:AMBER+STRICT", "TLP:GREEN",
+    "TLP:WHITE", "TLP:UNKNOWN", "PRIVATE",
+])
+def test_restricted_or_unapproved_rendered_tlp_cannot_be_relabelled_public(marking):
+    rendered = _source_only_fixture().replace(
+        "<strong>NOT ASSIGNED</strong>", f"<strong>{marking}</strong>", 1
+    )
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(
+            rendered, article=SimpleNamespace(title="Source report"), context=_context(),
+        )
+
+
+@pytest.mark.parametrize("field", ["tlp", "tlp_marking", "sharing_tlp", "distribution_tlp"])
+def test_restricted_article_tlp_blocks_even_if_displayed_badge_is_unassigned(field):
+    data = {"title": "Source report", field: "TLP:AMBER+STRICT"}
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(
+            _source_only_fixture(), article=SimpleNamespace(**data), context=_context(),
+        )
+
+
+def test_restricted_context_tlp_blocks_even_if_rendered_badge_was_clear():
+    rendered = _source_only_fixture().replace(
+        "<strong>NOT ASSIGNED</strong>", "<strong>TLP:CLEAR</strong>", 1,
+    )
+    context = SimpleNamespace(family="cve_advisory", tlp="TLP:GREEN")
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(
+            rendered, article=SimpleNamespace(title="Source report"), context=context,
+        )
+
+
+@pytest.mark.parametrize("markup", [
+    '<meta name="tlp" content="TLP:RED">',
+    '<meta property="cdb:tlp" content="TLP:AMBER">',
+    '<div data-tlp="TLP:GREEN">source-only research</div>',
+])
+def test_rendered_metadata_tlp_cannot_bypass_public_release_gate(markup):
+    rendered = _source_only_fixture().replace("<article>", "<article>" + markup, 1)
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(
+            rendered, article=SimpleNamespace(title="Source report"), context=_context(),
+        )
+
+
+def test_public_clear_marking_and_explicit_unassigned_can_render():
+    for mark in ("TLP:CLEAR", "CLEAR", "NOT ASSIGNED"):
+        rendered = _source_only_fixture().replace(
+            "<strong>NOT ASSIGNED</strong>", f"<strong>{mark}</strong>", 1,
+        )
+        result = v19_1.enforce_cti_integrity_revenue_v19_1(
+            rendered, article=SimpleNamespace(title="Source report", tlp="TLP:CLEAR"),
+            context=SimpleNamespace(family="cve_advisory", tlp_marking="TLP:CLEAR"),
+        )
+        assert "TLP:CLEAR" in result
+
+
+def test_already_integrity_wrapped_content_does_not_bypass_tlp_restriction():
+    # An external patch to a rendered article must not defeat the gate simply
+    # because an earlier version carries the presentation marker.
+    marked = f"<!-- {v19_1.MARKER} -->" + _source_only_fixture().replace(
+        "<strong>NOT ASSIGNED</strong>", "<strong>TLP:RED</strong>", 1,
+    )
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(marked)
