@@ -20,6 +20,17 @@ _PUBLIC_HOST = "cti.cyberdudebivash.in"
 _FEED_URL = f"https://{_PUBLIC_HOST}/feeds/posts/default?alt=json&max-results=10"
 _MAX_PAGE_BYTES = 768 * 1024
 _MAX_FEED_BYTES = 5 * 1024 * 1024
+# A post may move off the first ten feed entries between API write and
+# independent public verification. Never retry writes to compensate for
+# legitimate concurrent posts; inspect at most 30 recent read-only records.
+_MAX_FEED_PAGES = 3
+_FEED_PAGE_SIZE = 10
+
+
+def _feed_page_url(page_index: int) -> str:
+    if page_index == 0:
+        return _FEED_URL
+    return f"{_FEED_URL}&start-index={1 + page_index * _FEED_PAGE_SIZE}"
 
 
 def _normalize(value: str) -> str:
@@ -73,15 +84,35 @@ def verify_public_delivery(report: dict, *, http_get=None,
                 if not expected or expected not in _normalize(page.text):
                     raise ValueError("public_post_title_mismatch")
                 verified += 1
-            feed = _read_public(_FEED_URL, get=get)
-            if not feed.content or len(feed.content) > _MAX_FEED_BYTES:
-                raise ValueError("public_feed_invalid_body_size")
-            feed_items = feed.json().get("feed", {}).get("entry", [])
-            observed_ids = {str(item.get("id", {}).get("$t", "")) for item in feed_items}
-            for post in posts:
-                post_id = str(post["blogger_post_id"])
-                if not any(entry.endswith("post-" + post_id) for entry in observed_ids):
-                    raise ValueError("public_feed_missing_new_post_id")
+            expected_ids = {str(post["blogger_post_id"]) for post in posts}
+            observed_ids = set()
+            for page_index in range(_MAX_FEED_PAGES):
+                feed = _read_public(_feed_page_url(page_index), get=get)
+                if not feed.content or len(feed.content) > _MAX_FEED_BYTES:
+                    raise ValueError("public_feed_invalid_body_size")
+                # Distinguish a malformed feed from an honest not-yet-indexed
+                # record. Never accept a 200 HTML error page as feed delivery.
+                entries = feed.json().get("feed", {}).get("entry", [])
+                if not isinstance(entries, list):
+                    raise ValueError("public_feed_invalid_entry_shape")
+                observed_ids.update(
+                    str(item.get("id", {}).get("$t", ""))
+                    for item in entries if isinstance(item, dict)
+                )
+                if all(any(
+                    entry.endswith("post-" + post_id) for entry in observed_ids
+                ) for post_id in expected_ids):
+                    break
+                if not entries:
+                    break
+            else:
+                # The bounded 30-entry window is an availability check, not
+                # permission to generate more writes to force a feed match.
+                pass
+            if not all(any(
+                entry.endswith("post-" + post_id) for entry in observed_ids
+            ) for post_id in expected_ids):
+                raise ValueError("public_feed_missing_new_post_id")
             return {"status": "PASS", "verified": verified, "feed": "MATCH", "attempts": attempt}
         except (requests.RequestException, ValueError, TypeError, AttributeError, KeyError, json.JSONDecodeError) as exc:
             last_reason = str(exc)[:100] if isinstance(exc, ValueError) else "public_delivery_probe_error"
