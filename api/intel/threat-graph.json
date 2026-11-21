@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T13:58:14.947Z",
+  "generated": "2026-11-21T14:51:35.718Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19688,
+    "total_nodes": 19692,
     "actors": 8,
-    "cves": 9529,
-    "campaigns": 3106,
+    "cves": 9531,
+    "campaigns": 3108,
     "malware": 0,
     "iocs": 911,
-    "edges": 5911
+    "edges": 5913
   },
   "nodes": {
     "actor:lockbit": {
@@ -370185,6 +370185,82 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-124976": {
+      "id": "CVE-2026-124976",
+      "type": "CVE",
+      "name": "CVE-2026-124976 — Unknown Vendor The Swift Performance CVSS 7.2 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The Swift Performance",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-130323": {
+      "id": "CVE-2026-130323",
+      "type": "CVE",
+      "name": "CVE-2026-130323 — Unknown Vendor The Accept Stripe CVSS 7.2 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The Accept Stripe",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-124976": {
+      "id": "campaign:cve-2026-124976",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-124976"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-124976",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-130323": {
+      "id": "campaign:cve-2026-130323",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-130323"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-130323",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -423566,6 +423642,24 @@
       "id": "campaign:cve-2026-124216→includes→CVE-2026-124216",
       "source": "campaign:cve-2026-124216",
       "target": "CVE-2026-124216",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-124976→includes→CVE-2026-124976",
+      "source": "campaign:cve-2026-124976",
+      "target": "CVE-2026-124976",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-130323→includes→CVE-2026-130323",
+      "source": "campaign:cve-2026-130323",
+      "target": "CVE-2026-130323",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",
