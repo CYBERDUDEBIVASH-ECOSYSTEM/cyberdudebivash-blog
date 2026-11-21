@@ -69,14 +69,18 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
-      - name: "🔒 npm audit — production critical vulnerabilities"
+      - name: "P0 verify dependency release-policy parity"
+        run: node --test tests-js/customer-release-runtime-audit-gate.test.js
+
+      - name: "🔒 npm audit — production moderate-or-higher vulnerabilities"
         run: |
-          if [ ! -f "package.json" ]; then
-            echo "No package.json found — dependency audit not applicable"
-            exit 0
+          set -euo pipefail
+          if [ ! -f package.json ] || [ ! -f package-lock.json ]; then
+            echo "::error title=Dependency audit blocked::Production npm manifest or lockfile missing"
+            exit 1
           fi
           npm ci --ignore-scripts --no-fund --legacy-peer-deps
-          npm audit --omit=dev --audit-level=critical
+          npm audit --omit=dev --audit-level=moderate
 
       - name: "🔍 Production Secret Exposure Gate"
         shell: bash
