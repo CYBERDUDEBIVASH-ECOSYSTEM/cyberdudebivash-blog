@@ -1,108 +1,71 @@
-name: "🛰 SENTINEL APEX — Auto RSS Generator"
+name: "🛰 SENTINEL APEX — SOC RSS Source Truth (Read Only)"
 
+# The high-frequency SENTINEL APEX publisher is the sole source RSS writer.
+# This previously scheduled writer rebuilt rss.xml from date-only HTML and
+# pushed to main, competing with fresh intel publication. Keep the filename
+# for existing workflow references, but remove all mutation and cron.
 on:
   push:
     branches: [main]
     paths:
       - 'posts/**'
+      - 'rss.xml'
+      - 'fetch-live-intel.js'
       - 'generate-rss.js'
-  schedule:
-    - cron: '29 */6 * * *'
+      - 'scripts/verify-soc-rss-source-truth.cjs'
+      - '.github/workflows/generate-rss.yml'
+  pull_request:
+    paths:
+      - 'posts/**'
+      - 'rss.xml'
+      - 'fetch-live-intel.js'
+      - 'generate-rss.js'
+      - 'scripts/verify-soc-rss-source-truth.cjs'
+      - '.github/workflows/generate-rss.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: main-content-writers
-  cancel-in-progress: false
+  group: soc-rss-source-truth-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  generate-rss:
-    name: "Generate & Validate RSS Feed"
+  verify-rss:
+    name: "Verify existing RSS canonical sources, chronology and bounds"
     runs-on: ubuntu-latest
     timeout-minutes: 5
-
     steps:
-      - name: "📥 Checkout repository"
-        uses: actions/checkout@v5
+      - name: "Checkout (no persisted write token)"
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+          persist-credentials: false
 
-      - name: "⚙️ Setup Node.js"
-        uses: actions/setup-node@v5
+      - name: "Setup locked runtime"
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '24'
 
-      - name: "🛰 Generate RSS feed"
+      - name: "Read-only source RSS verification"
+        shell: bash
         run: |
-          echo "🛰 Generating RSS feed — $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
-          node generate-rss.js
-          echo "✅ generate-rss.js completed"
+          set -euo pipefail
+          node --check scripts/verify-soc-rss-source-truth.cjs
+          node scripts/verify-soc-rss-source-truth.cjs
 
-      - name: "✅ Validate RSS XML"
+      - name: "RSS chronology and single-writer regression tests"
+        shell: bash
         run: |
-          if [ ! -f "rss.xml" ]; then
-            echo "::error title=RSS Generation Failed::rss.xml was not generated"
-            exit 1
-          fi
-          size=$(wc -c < rss.xml)
-          if [ "$size" -lt 500 ]; then
-            echo "::error title=RSS Too Small::rss.xml is only ${size} bytes — generation may have failed"
-            exit 1
-          fi
-          if ! grep -q '<rss version="2.0"' rss.xml; then
-            echo "::error title=RSS Invalid::rss.xml missing <rss version=\"2.0\"> declaration"
-            exit 1
-          fi
-          if ! grep -q '<item>' rss.xml; then
-            echo "::error title=RSS No Items::rss.xml has no <item> elements"
-            exit 1
-          fi
-          item_count=$(grep -c '<item>' rss.xml)
-          echo "✅ rss.xml validated: ${size} bytes, ${item_count} items"
-          echo "📡 Feed: https://blog.cyberdudebivash.in/rss.xml"
+          set -euo pipefail
+          node --test tests-js/rss-date-integrity.test.js tests-js/soc-rss-source-truth.test.js
 
-      - name: "🔍 Check for changes"
-        id: check_changes
+      - name: "Verify read-only workflow did not change source artifacts"
+        shell: bash
         run: |
-          if git diff --quiet rss.xml 2>/dev/null; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-            echo "ℹ️ rss.xml unchanged — no commit needed"
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-            echo "📝 rss.xml has changes — will commit"
-          fi
-
-      - name: "📦 Commit and push rss.xml"
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
-          git config user.name "CYBERDUDEBIVASH"
-          git config user.email "bivash@cyberdudebivash.com"
-          git add rss.xml
-          git commit -m "🛰 [SENTINEL APEX] Auto-update rss.xml — $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
-          for i in 1 2 3; do
-            git push origin main && echo "✅ Push succeeded (attempt $i)" && break
-            if [ $i -lt 3 ]; then
-              echo "⚠️ Push attempt $i failed — rebasing..."
-              git pull --rebase origin main || { echo "⚠️ Rebase conflict — aborting cleanly, will retry"; git rebase --abort 2>/dev/null || true; }
-              sleep $((i * 3))
-            else
-              echo "::error title=RSS Push Failed::Failed to push rss.xml after 3 attempts"
-              exit 1
-            fi
-          done
-
-      - name: "📋 Run summary"
-        if: always()
-        run: |
-          echo "════════════════════════════════════"
-          echo "🛰 SENTINEL APEX RSS Generator Done"
-          echo "Timestamp : $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
-          echo "Trigger   : ${{ github.event_name }}"
-          if [ -f rss.xml ]; then
-            echo "RSS size  : $(wc -c < rss.xml) bytes"
-            echo "RSS items : $(grep -c '<item>' rss.xml || echo 0)"
-          fi
-          echo "════════════════════════════════════"
+          set -euo pipefail
+          git diff --exit-code -- rss.xml
+          git diff --exit-code -- posts
+          test -z "$(git status --porcelain --untracked-files=all)"
+          echo "RSS_VALIDATION_PASS_READ_ONLY_NOT_EDGE_DELIVERY"
