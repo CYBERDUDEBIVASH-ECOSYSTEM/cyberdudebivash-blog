@@ -114,7 +114,7 @@ def enhance_cash_conversion(rendered_html: str, article: Any = None, context: An
             # Repair any legacy card shown by an older v18 renderer as well.
             if tier == "starter":
                 card = anchor.find_parent("article")
-                if card:
+                if card and panel in card.parents:
                     tag = card.find("small")
                     if tag:
                         tag.string = "CURRENT PRICE AT CHECKOUT"
@@ -126,7 +126,7 @@ def enhance_cash_conversion(rendered_html: str, article: Any = None, context: An
                         tag.string = "Legacy Starter retired. See current PRO Defense pricing, entitlements and terms before purchase."
             else:
                 card = anchor.find_parent("article")
-                if card:
+                if card and panel in card.parents:
                     tag = card.find("small")
                     if tag and ("₹" in tag.get_text() or "$" in tag.get_text()):
                         tag.string = "CURRENT PRICE AT CHECKOUT"
