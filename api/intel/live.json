@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T05:31:11.201Z",
+  "generated": "2026-11-21T06:32:47.244Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,11 +7,11 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8012,
+  "total_published": 8013,
   "s2n_stats": {
-    "passed": 110,
+    "passed": 111,
     "suppressed": 3,
-    "avg_qs": 0.49
+    "avg_qs": 0.491
   },
   "items": [
     {
@@ -839,6 +839,49 @@
         ],
         "priority": [
           "base_ps=43 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-129225",
+      "title": "NLTK: Uncontrolled recursion in DependencyGraph traversal causes denial of service via deep dependency chains",
+      "description": "Root Cause\nThe dependency-graph traversal helpers recurse over dependency links without any depth\nbound or visited set. DependencyGraph._tree (nltk/parse/dependencygraph.py:404)\nrecurses once per dependency link, triples (nltk/parse/dependencygraph.py:432) is a\nrecursive generato... [Full analysis a",
+      "cvss": 5.3,
+      "final_ps": 43,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-129225"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-xfcv-m889-fmqg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.50",
+          "recency=1d (score=0.85)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+3 supply_chain"
         ],
         "suppression": null,
         "merge": null
@@ -2267,7 +2310,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2023-27372",
@@ -2996,6 +3041,52 @@
         "priority": [
           "+10 CVSS≥9",
           "+4 critical_infra"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-120539",
+      "title": "CVE-2026-120539 — Unknown Vendor The Restrictions for CVSS 9.8 Critical Vulnerability",
+      "description": "The Restrictions for BuddyPress plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.5.4 This is due to the plugin splicing the attacker-controlled request URI into a PHP expression inside a double-quoted string and evaluating it with eval(). Because PH",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Restrictions for",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/seventhqueen/buddypress-restrict/releases/tag/1.5.5",
+        "https://plugins.trac.wordpress.org/browser/bp-restrict/tags/1.5.4/admin/class-bp-restrict-admin.php#L213",
+        "https://plugins.trac.wordpress.org/browser/bp-restrict/tags/1.5.4/admin/class-bp-restrict-pmpro.php#L184",
+        "https://plugins.trac.wordpress.org/browser/bp-restrict/tags/1.5.4/admin/class-bp-restrict-pmpro.php#L187"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -4309,101 +4400,7 @@
       },
       "suppressed": false,
       "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-77309",
-      "title": "AIT-GUI route chain allows unauthenticated Python execution in server process",
-      "description": "## Summary\nA security issue exists where unauthenticated callers can instruct the AIT-GUI server to execute arbitrary Python scripts. The attack vector involves obtaining a session cookie through GET /, followed by a malicious POST /script/run request containing an absolute file path that bypasses t",
-      "cvss": 8.8,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "pip",
-      "product": "ait-gui",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-77309",
-        "CVE-2026-77309"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-jrjx-9jjw-747m",
-        "https://github.com/NASA-AMMOS/AIT-GUI/security/advisories/GHSA-jrjx-9jjw-747m",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77309",
-        "https://github.com/NASA-AMMOS/AIT-GUI/commit/beb8fc0813eded89f985d3eb9a73535dd327726d"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-129225",
-      "title": "NLTK: Uncontrolled recursion in DependencyGraph traversal causes denial of service via deep dependency chains",
-      "description": "Root Cause\nThe dependency-graph traversal helpers recurse over dependency links without any depth\nbound or visited set. DependencyGraph._tree (nltk/parse/dependencygraph.py:404)\nrecurses once per dependency link, triples (nltk/parse/dependencygraph.py:432) is a\nrecursive generato... [Full analysis a",
-      "cvss": 5.3,
-      "final_ps": 19,
-      "quality_score": 0.398,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-129225"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-xfcv-m889-fmqg"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=0d (score=1.00)",
-          "QS=0.398"
-        ],
-        "priority": [
-          "+3 supply_chain"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-21T04:30:40.875Z"
+  "lastReportGeneratedAt": "2026-11-21T06:32:47.594Z"
 }

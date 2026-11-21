@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T05:31:10.996Z",
+  "generated": "2026-11-21T06:32:47.122Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19626,
+    "total_nodes": 19628,
     "actors": 8,
-    "cves": 9498,
-    "campaigns": 3075,
+    "cves": 9499,
+    "campaigns": 3076,
     "malware": 0,
     "iocs": 911,
-    "edges": 5880
+    "edges": 5881
   },
   "nodes": {
     "actor:lockbit": {
@@ -365525,7 +365525,7 @@
       "attributes": {
         "cvss": 9.1,
         "threat_level": "MEDIUM",
-        "priority_score": 47,
+        "priority_score": 45,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -369003,6 +369003,44 @@
       "connections": [
         {
           "target": "CVE-2026-19793",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-120539": {
+      "id": "CVE-2026-120539",
+      "type": "CVE",
+      "name": "CVE-2026-120539 — Unknown Vendor The Restrictions for CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The Restrictions for",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-120539": {
+      "id": "campaign:cve-2026-120539",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-120539"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-120539",
           "relationship": "includes",
           "confidence": 1
         }
@@ -422109,6 +422147,15 @@
       "id": "campaign:cve-2026-19793→includes→CVE-2026-19793",
       "source": "campaign:cve-2026-19793",
       "target": "CVE-2026-19793",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-120539→includes→CVE-2026-120539",
+      "source": "campaign:cve-2026-120539",
+      "target": "CVE-2026-120539",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",

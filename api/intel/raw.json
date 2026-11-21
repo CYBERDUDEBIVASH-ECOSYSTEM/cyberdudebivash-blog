@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T05:31:11.201Z",
+  "generated": "2026-11-21T06:32:47.244Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,7 +8,7 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 113,
+  "count": 114,
   "items": [
     {
       "id": "CVE-2026-50522",
@@ -887,6 +887,52 @@
         ],
         "priority": [
           "base_ps=43 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-129225",
+      "title": "NLTK: Uncontrolled recursion in DependencyGraph traversal causes denial of service via deep dependency chains",
+      "description": "Root Cause\nThe dependency-graph traversal helpers recurse over dependency links without any depth\nbound or visited set. DependencyGraph._tree (nltk/parse/dependencygraph.py:404)\nrecurses once per dependency link, triples (nltk/parse/dependencygraph.py:432) is a\nrecursive generato... [Full analysis a",
+      "cvss": 5.3,
+      "final_ps": 43,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-129225"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-xfcv-m889-fmqg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.50",
+          "recency=1d (score=0.85)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+3 supply_chain"
         ],
         "suppression": null,
         "merge": null
@@ -3260,6 +3306,53 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-120539",
+      "title": "CVE-2026-120539 — Unknown Vendor The Restrictions for CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Restrictions for",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/seventhqueen/buddypress-restrict/releases/tag/1.5.5",
+        "https://plugins.trac.wordpress.org/browser/bp-restrict/tags/1.5.4/admin/class-bp-restrict-admin.php#L213",
+        "https://plugins.trac.wordpress.org/browser/bp-restrict/tags/1.5.4/admin/class-bp-restrict-pmpro.php#L184",
+        "https://plugins.trac.wordpress.org/browser/bp-restrict/tags/1.5.4/admin/class-bp-restrict-pmpro.php#L187"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-133680",
       "title": "CVE-2026-133680 — Unknown Vendor A vulnerability was CVSS 9.9 Critical Vulnerability",
       "description": "",
@@ -4637,52 +4730,6 @@
         ],
         "priority": [
           "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-129225",
-      "title": "NLTK: Uncontrolled recursion in DependencyGraph traversal causes denial of service via deep dependency chains",
-      "description": "",
-      "cvss": 5.3,
-      "final_ps": 19,
-      "quality_score": 0.398,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-129225"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-xfcv-m889-fmqg"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=0d (score=1.00)",
-          "QS=0.398"
-        ],
-        "priority": [
-          "+3 supply_chain"
         ],
         "suppression": null,
         "merge": null
