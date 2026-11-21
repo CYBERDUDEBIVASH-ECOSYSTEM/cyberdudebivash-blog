@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-21T07:36:48.720Z",
-  "lastUpdated": "2026-11-21T07:36:48.720Z",
+  "generatedAt": "2026-11-21T07:50:09.925Z",
+  "lastUpdated": "2026-11-21T07:50:09.925Z",
   "totalPublished": 8015,
   "metadata": {
-    "generated": "2026-11-21T07:36:48.720Z",
+    "generated": "2026-11-21T07:50:09.925Z",
     "version": "5.0",
     "pipeline": "SENTINEL APEX v5.0",
     "platform": "blog.cyberdudebivash.in",
@@ -14,10 +14,10 @@
       "entries": 1790,
       "invalidEntries": 0,
       "duplicateEntries": 0,
-      "verifiedAt": "2026-11-21T07:36:43.808Z"
+      "verifiedAt": "2026-11-21T07:49:57.702Z"
     },
     "lastReportGeneratedAt": "2026-11-21T07:18:18.282Z",
-    "lastPipelineRun": "2026-11-21T07:37:08.403Z"
+    "lastPipelineRun": "2026-11-21T07:50:29.299Z"
   },
   "source": "CYBERDUDEBIVASH SENTINEL APEX v5.0",
   "platform": "blog.cyberdudebivash.in",
@@ -31,6 +31,131 @@
     "sources": 5
   },
   "items": [
+    {
+      "id": "CVE-2026-77313",
+      "title": "Flyto2 Core: SSRF guard validates the resolved IP but connects by hostname, allowing DNS-rebinding TOCTOU",
+      "desc": "Summary\nvalidate_url_ssrf resolves the hostname, checks the IP against private ranges, then discards the IP and returns the hostname URL string. aiohttp performs a fresh, independent DNS resolution at",
+      "cvss": 7.1,
+      "type": "AI_SECURITY",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-20",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://github.com/advisories/GHSA-pfg2-w999-497v"
+      ],
+      "priority": 39,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-77313",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-77313.html",
+      "_addedAt": "2026-11-21T07:50:09.924Z"
+    },
+    {
+      "id": "CVE-2026-129230",
+      "title": "NLTK: Uncontrolled recursion in WordNet Synset hypernym walkers (max_depth/min_depth/hypernym_paths/hypernym_distances) ",
+      "desc": "Summary\n\nFour hypernym-walking methods on the WordNet Synset class in nltk/corpus/reader/wordnet.py (max_depth, min_depth, hypernym_paths, and hypernym_distances) traverse the hypernym pointer graph b",
+      "cvss": 5.5,
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-19",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://github.com/advisories/GHSA-53pg-5qp8-mhvr"
+      ],
+      "priority": 32,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-129230",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-129230.html",
+      "_addedAt": "2026-11-21T07:50:08.708Z"
+    },
+    {
+      "id": "CVE-2026-129304",
+      "title": "Guard Core: Unvalidated X-Forwarded-For-derived string used as a Redis key component and interpolated into a KEYS glob p",
+      "desc": "Summary\n\n_extract_from_forwarded_header() (guard_core/utils.py:172-181 in 3.12.0; :179 on master 08780f1) returns the selected X-Forwarded-For entry without any ipaddress validation. When that entry i",
+      "cvss": 5.4,
+      "type": "SOCIAL_ENGINEERING",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-19",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://github.com/advisories/GHSA-gm9r-hvc9-96gv"
+      ],
+      "priority": 32,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-129304",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-129304.html",
+      "_addedAt": "2026-11-21T07:50:08.708Z"
+    },
+    {
+      "id": "CVE-2026-95839",
+      "title": "containerd image-triggered daemon crash via malformed digest in subject-annotated descriptor",
+      "desc": "Impact\n\nA bug in containerd's image manifest processing causes an unrecovered panic when a child descriptor contains the io.containerd.manifest.subject annotation and a malformed digest. Pulling or im",
+      "cvss": 5.3,
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-19",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://github.com/advisories/GHSA-vwhp-8p66-mq4f"
+      ],
+      "priority": 31,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-95839",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-95839.html",
+      "_addedAt": "2026-11-21T07:50:07.877Z"
+    },
+    {
+      "id": "SENTINELAPEX-af49db8f1841",
+      "title": "ZDI-26-1027: (0Day) Open Robotics RViz fillIndexBuffer Heap-based Buffer Overflow Remote Code Execution Vulnerability",
+      "desc": "ZDI-26-1027: (0Day) Open Robotics RViz fillIndexBuffer Heap-based Buffer Overflow Remote Code Execution Vulnerability",
+      "cvss": null,
+      "type": "ZERO_DAY",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-18",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "http://www.zerodayinitiative.com/advisories/ZDI-26-1027/"
+      ],
+      "priority": 24,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "zdi-26-1027-0day-open-robotics-rviz-fillindexbuffer-heap",
+      "link": "https://blog.cyberdudebivash.in/posts/zdi-26-1027-0day-open-robotics-rviz-fillindexbuffer-heap.html",
+      "_addedAt": "2026-11-21T07:50:07.877Z"
+    },
     {
       "id": "SENTINELAPEX-e89af715d422",
       "title": "ZDI-26-1031: (0Day) LiteLLM MCP Command Injection Remote Code Execution Vulnerability",
@@ -3723,132 +3848,7 @@
       "slug": "cve-2026-121852",
       "link": "https://blog.cyberdudebivash.in/posts/cve-2026-121852.html",
       "_addedAt": "2026-11-20T22:46:55.960Z"
-    },
-    {
-      "id": "CVE-2026-132622",
-      "title": "CVE-2026-132622 - GearUP Hyperev WLAN Site Survey utils.lua get_wlan_sitesurvey os command injection",
-      "desc": "CVE-2026-132622 - GearUP Hyperev WLAN Site Survey utils.lua get_wlan_sitesurvey os command injection",
-      "cvss": 9,
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-19",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-132622"
-      ],
-      "priority": 45,
-      "threatLevel": "MEDIUM",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-132622",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-132622.html",
-      "_addedAt": "2026-11-20T22:46:55.960Z"
-    },
-    {
-      "id": "CVE-2026-77313",
-      "title": "Flyto2 Core: SSRF guard validates the resolved IP but connects by hostname, allowing DNS-rebinding TOCTOU",
-      "desc": "Summary\nvalidate_url_ssrf resolves the hostname, checks the IP against private ranges, then discards the IP and returns the hostname URL string. aiohttp performs a fresh, independent DNS resolution at",
-      "cvss": 7.1,
-      "type": "AI_SECURITY",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-20",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://github.com/advisories/GHSA-pfg2-w999-497v"
-      ],
-      "priority": 39,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-77313",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-77313.html",
-      "_addedAt": "2026-11-20T22:46:55.960Z"
-    },
-    {
-      "id": "CVE-2026-2307",
-      "title": "CVE-2026-2307 - Elementor <= 4.0.5 - Authenticated (Contributor+) Sensitive Information Exposure",
-      "desc": "CVE-2026-2307 - Elementor <= 4.0.5 - Authenticated (Contributor+) Sensitive Information Exposure",
-      "cvss": 6.5,
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-19",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-2307"
-      ],
-      "priority": 34,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-2307",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-2307.html",
-      "_addedAt": "2026-11-20T22:46:54.909Z"
-    },
-    {
-      "id": "CVE-2026-129230",
-      "title": "NLTK: Uncontrolled recursion in WordNet Synset hypernym walkers (max_depth/min_depth/hypernym_paths/hypernym_distances) ",
-      "desc": "Summary\n\nFour hypernym-walking methods on the WordNet Synset class in nltk/corpus/reader/wordnet.py (max_depth, min_depth, hypernym_paths, and hypernym_distances) traverse the hypernym pointer graph b",
-      "cvss": 5.5,
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-19",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://github.com/advisories/GHSA-53pg-5qp8-mhvr"
-      ],
-      "priority": 32,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-129230",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-129230.html",
-      "_addedAt": "2026-11-20T22:46:54.909Z"
-    },
-    {
-      "id": "CVE-2026-129304",
-      "title": "Guard Core: Unvalidated X-Forwarded-For-derived string used as a Redis key component and interpolated into a KEYS glob p",
-      "desc": "Summary\n\n_extract_from_forwarded_header() (guard_core/utils.py:172-181 in 3.12.0; :179 on master 08780f1) returns the selected X-Forwarded-For entry without any ipaddress validation. When that entry i",
-      "cvss": 5.4,
-      "type": "SOCIAL_ENGINEERING",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-19",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://github.com/advisories/GHSA-gm9r-hvc9-96gv"
-      ],
-      "priority": 32,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-129304",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-129304.html",
-      "_addedAt": "2026-11-20T22:46:54.909Z"
     }
   ],
-  "_heartbeat": "2026-11-21T07:37:08.403Z"
+  "_heartbeat": "2026-11-21T07:50:29.299Z"
 }
