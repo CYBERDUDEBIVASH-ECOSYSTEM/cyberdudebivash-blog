@@ -31,7 +31,10 @@ def verify_public_first_party_source(article, *, http_get=None) -> str | None:
     """
     source_url = str(getattr(article, "url", "") or "")
     parsed = urlsplit(source_url)
-    if parsed.hostname != _ORIGIN_HOST or not parsed.path.startswith("/posts/"):
+    # This gate only covers canonical first-party HTML dossiers. Historical
+    # non-HTML /posts/ endpoints keep their existing admission contract.
+    if (parsed.hostname != _ORIGIN_HOST or not parsed.path.startswith("/posts/")
+            or not parsed.path.endswith(".html")):
         return None
     if (parsed.scheme != "https" or not _POST_PATH.fullmatch(parsed.path)
             or parsed.query or parsed.fragment or parsed.username is not None
