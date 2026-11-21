@@ -74,10 +74,17 @@ function extractTitle(html) {
 }
 
 /** Extract datePublished from JSON-LD or visible date spans */
+function isValidUtcDay(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(value + 'T00:00:00Z');
+  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
+}
+
+/** Extract only verifiable UTC source publication dates */
 function extractDate(html, filename) {
   // Try JSON-LD datePublished
   const jsonLdMatch = html.match(/"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})"/i);
-  if (jsonLdMatch) return jsonLdMatch[1];
+  if (jsonLdMatch && isValidUtcDay(jsonLdMatch[1])) return jsonLdMatch[1];
 
   // Try visible date span patterns: "22 April 2026" or "April 22, 2026"
   const spanMatch = html.match(/(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})/i);
@@ -87,7 +94,8 @@ function extractDate(html, filename) {
     const d = spanMatch[1].padStart(2,'0');
     const mo = months[spanMatch[2].toLowerCase()];
     const y = spanMatch[3];
-    return `${y}-${mo}-${d}`;
+    const day = `${y}-${mo}-${d}`;
+    return isValidUtcDay(day) ? day : null;
   }
 
   // No verifiable publication date. Never invent one: a fixed April date for any file name
@@ -100,7 +108,11 @@ function extractDate(html, filename) {
 /** Parse ISO date string to RFC 822 format for RSS */
 function toRFC822(dateStr) {
   // dateStr: YYYY-MM-DD
-  const d = new Date(`${dateStr}T12:00:00Z`);
+  if (!isValidUtcDay(dateStr)) throw new Error('RSS_INVALID_SOURCE_CALENDAR_DATE');
+  // Date-only source evidence has no trustworthy hour. Midnight UTC is
+  // the conservative lower bound; noon wrongly projected morning items
+  // into the future and may distort customer feed-reader ordering.
+  const d = new Date(`${dateStr}T00:00:00Z`);
   return d.toUTCString().replace('GMT', '+0000');
 }
 
@@ -160,6 +172,8 @@ function buildRSS(opts) {
 
   const items = [];
   const undated = [];
+  const futureDated = [];
+  const currentUtcDay = new Date().toISOString().slice(0, 10);
 
   for (const filename of postFiles) {
     const filePath = path.join(POSTS_DIR_, filename);
@@ -176,6 +190,11 @@ function buildRSS(opts) {
     const link        = extractCanonical(html, filename);
     const dateStr     = extractDate(html, filename);
     if (!dateStr) { undated.push(filename); continue; }
+    if (dateStr > currentUtcDay) {
+      // Do not publish embargoed, erroneous or future-dated items as live.
+      futureDated.push(filename);
+      continue;
+    }
     const keywords    = extractKeywords(html);
     const summary     = extractSummary(html, 200);
 
@@ -193,6 +212,10 @@ function buildRSS(opts) {
 
   if (undated.length) {
     console.warn(`[RSS Generator] WARN: ${undated.length} post(s) excluded: no verifiable publication date (${undated.slice(0, 5).join(', ')}${undated.length > 5 ? ', ...' : ''})`);
+  }
+
+  if (futureDated.length) {
+    console.warn(`[RSS Generator] HOLD: ${futureDated.length} future-dated source post(s) quarantined (${futureDated.slice(0, 5).join(', ')}${futureDated.length > 5 ? ', ...' : ''})`);
   }
 
   // Sort newest-first by date
