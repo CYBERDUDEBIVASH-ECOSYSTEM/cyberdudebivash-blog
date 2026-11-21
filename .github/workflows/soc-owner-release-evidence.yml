@@ -30,6 +30,18 @@ jobs:
         with:
           node-version: '22'
 
+      # Source integrity is a PREDEPLOY prerequisite. It must not depend
+      # on whether the old production Worker currently serves October data.
+      # Local source checks perform zero Cloudflare, Blogger or payment I/O.
+      - name: "P0 source publication-ledger and RSS chronology (local read-only)"
+        id: source
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/assert-publication-ledger.cjs
+          node scripts/verify-soc-rss-source-truth.cjs
+
       - name: "P0 private account-wide zero-overage attestation"
         id: budget
         continue-on-error: true
@@ -64,11 +76,12 @@ jobs:
         continue-on-error: true
         run: node scripts/certify-soc-s2n-api-release.cjs --monitor-public
 
-      - name: "P0 release-evidence verdict — never deployment authorization"
+      - name: "P0 two-phase release-evidence verdict — never deployment authorization"
         id: gate
         if: ${{ always() }}
         shell: bash
         env:
+          SOURCE_OUTCOME: ${{ steps.source.outcome }}
           BUDGET_OUTCOME: ${{ steps.budget.outcome }}
           DOMAINS_OUTCOME: ${{ steps.domains.outcome }}
           VERSION_OUTCOME: ${{ steps.version.outcome }}
@@ -76,23 +89,43 @@ jobs:
           S2N_OUTCOME: ${{ steps.s2n.outcome }}
         run: |
           set -euo pipefail
+          # A stale PUBLIC edge is expected BEFORE a protected deploy, but
+          # it must never be counted as a passing customer-release check.
+          # Independent PREDEPLOY prerequisites remain visible to the owner.
+          prereq=HOLD
+          delivery=HOLD
+          if [ "${SOURCE_OUTCOME:-}" = success ] && [ "${BUDGET_OUTCOME:-}" = success ] &&
+             [ "${DOMAINS_OUTCOME:-}" = success ] && [ "${VERSION_OUTCOME:-}" = success ]; then
+            prereq=PASS_NOT_DEPLOY_AUTHORIZATION
+          fi
+          if [ "${ROOT_OUTCOME:-}" = success ] && [ "${S2N_OUTCOME:-}" = success ]; then
+            delivery=PASS_NOT_CUSTOMER_GA
+          fi
           {
-            echo '### SOC OWNER READ-ONLY RELEASE EVIDENCE'
-            echo '| Required evidence | Observed result |'
+            echo '### SOC OWNER READ-ONLY RELEASE EVIDENCE — TWO SEPARATE STAGES'
+            echo '| Stage / evidence | Observed result |'
             echo '|---|---|'
-            echo "| Account-wide zero-overage attestation | ${BUDGET_OUTCOME:-unavailable} |"
-            echo "| Both existing Worker domains | ${DOMAINS_OUTCOME:-unavailable} |"
-            echo "| Active deployed Worker version (not rollback-tested) | ${VERSION_OUTCOME:-unavailable} |"
-            echo "| SOC/blog root feed parity | ${ROOT_OUTCOME:-unavailable} |"
-            echo "| SOC/blog S2N feed parity | ${S2N_OUTCOME:-unavailable} |"
+            echo "| Predeploy: locally verified report ledger and RSS | ${SOURCE_OUTCOME:-unavailable} |"
+            echo "| Predeploy: account-wide zero-overage attestation | ${BUDGET_OUTCOME:-unavailable} |"
+            echo "| Predeploy: both established Worker Custom Domains | ${DOMAINS_OUTCOME:-unavailable} |"
+            echo "| Predeploy: current Worker version (rollback NOT tested) | ${VERSION_OUTCOME:-unavailable} |"
+            echo "| **Independent predeployment prerequisite verdict** | **${prereq}** |"
+            echo "| Postdeploy/current-edge: SOC/blog root feed parity | ${ROOT_OUTCOME:-unavailable} |"
+            echo "| Postdeploy/current-edge: SOC/blog S2N feed parity | ${S2N_OUTCOME:-unavailable} |"
+            echo "| **Current public-delivery verdict** | **${delivery}** |"
             echo
-            echo 'Evidence only: no DNS change, Worker deployment, publisher dispatch, charge or customer mutation.'
-            echo 'Still required: exact current release SHA, full drift disposition, rollback plan, separately approved manual deployment and customer canary acceptance.'
+            echo 'This audit performs NO Worker deployment, DNS change, Blogger publication, paid checkout or customer mutation.'
+            echo 'A predeployment PASS never authorizes or proves a deployed release.'
+            echo 'A public-delivery HOLD is NOT waived by passing finance, domain or source checks.'
+            echo 'Still required: owner-approved exact current SHA, full drift review, rollback version and plan, protected manual deployment, source-post byte parity, customer and payment acceptance.'
           } >> "$GITHUB_STEP_SUMMARY"
-          if [ "$BUDGET_OUTCOME" != success ] || [ "$DOMAINS_OUTCOME" != success ] ||
-             [ "$VERSION_OUTCOME" != success ] || [ "$ROOT_OUTCOME" != success ] ||
-             [ "$S2N_OUTCOME" != success ]; then
-            echo 'HOLD: SOC_READ_ONLY_EVIDENCE_INCOMPLETE — production release NOT authorized'
+          if [ "$prereq" != PASS_NOT_DEPLOY_AUTHORIZATION ]; then
+            echo 'HOLD: SOC_PREDEPLOY_PREREQUISITES_NOT_CERTIFIED — no deploy authorization'
+            exit 2
+          fi
+          if [ "$delivery" != PASS_NOT_CUSTOMER_GA ]; then
+            echo 'PASS: SOC_PREDEPLOY_EVIDENCE_COMPLETE_NOT_DEPLOY_AUTHORIZATION'
+            echo 'HOLD: SOC_READ_ONLY_EVIDENCE_INCOMPLETE — current public edge is not certified'
             exit 2
           fi
           echo 'PASS: SOC_READ_ONLY_EVIDENCE_COMPLETE_NOT_DEPLOY_AUTHORIZATION'

@@ -115,3 +115,33 @@ test('new evidence utilities stay exact-path OPERATIONAL and unknown siblings st
   assert.deepEqual(out.unknown,[]);
   assert.equal(drift.isReviewedOperationalPath('scripts/soc-cloudflare-owner-inventory-v2.cjs'),false);
 });
+
+
+test('P0 owner audit explicitly separates local predeployment prerequisites from stale public delivery',()=>{
+  const wf=fs.readFileSync(path.join(root,'.github/workflows/soc-owner-release-evidence.yml'),'utf8');
+  const local=wf.indexOf('P0 source publication-ledger and RSS chronology (local read-only)');
+  const privateBudget=wf.indexOf('P0 private account-wide zero-overage attestation');
+  const rootProbe=wf.indexOf('P0 root feed source versus two public hostnames');
+  const gate=wf.indexOf('P0 two-phase release-evidence verdict');
+  assert.ok(local>0&&privateBudget>local&&rootProbe>privateBudget&&gate>rootProbe);
+  assert.match(wf,/node scripts\/assert-publication-ledger\.cjs/);
+  assert.match(wf,/node scripts\/verify-soc-rss-source-truth\.cjs/);
+  assert.match(wf,/SOURCE_OUTCOME: \$\{\{ steps\.source\.outcome \}\}/);
+  assert.match(wf,/BUDGET_OUTCOME: \$\{\{ steps\.budget\.outcome \}\}/);
+  assert.match(wf,/DOMAINS_OUTCOME: \$\{\{ steps\.domains\.outcome \}\}/);
+  assert.match(wf,/VERSION_OUTCOME: \$\{\{ steps\.version\.outcome \}\}/);
+  assert.match(wf,/ROOT_OUTCOME: \$\{\{ steps\.root\.outcome \}\}/);
+  assert.match(wf,/S2N_OUTCOME: \$\{\{ steps\.s2n\.outcome \}\}/);
+  assert.match(wf,/prereq=PASS_NOT_DEPLOY_AUTHORIZATION/);
+  assert.match(wf,/delivery=PASS_NOT_CUSTOMER_GA/);
+  assert.match(wf,/HOLD: SOC_PREDEPLOY_PREREQUISITES_NOT_CERTIFIED/);
+  assert.match(wf,/HOLD: SOC_READ_ONLY_EVIDENCE_INCOMPLETE/);
+  assert.match(wf,/exit 2/);
+  const publicMismatch=wf.indexOf('if [ "$delivery" != PASS_NOT_CUSTOMER_GA ]; then');
+  const publicHold=wf.indexOf('HOLD: SOC_READ_ONLY_EVIDENCE_INCOMPLETE');
+  assert.ok(publicMismatch>0&&publicHold>publicMismatch);
+  assert.match(wf,/A public-delivery HOLD is NOT waived by passing finance/);
+  assert.doesNotMatch(wf,/github\.event_name == 'push'|^\s*push:|^\s*schedule:/m);
+  assert.doesNotMatch(wf,/npx wrangler|wrangler deploy|curl\s+-X\s*(?:POST|PUT|PATCH|DELETE)/i);
+  assert.doesNotMatch(wf,/(?:actions|contents):\s*write/);
+});
