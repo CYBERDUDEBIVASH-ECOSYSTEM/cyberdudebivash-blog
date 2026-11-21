@@ -478,6 +478,35 @@ function acknowledgeExistingPost(state, item) {
 }
 
 // ── SOURCE 1: NVD CVE API v2.0 ─────────────────────────────────────────
+/**
+ * NVD CVE product identity: use structured CPE identifiers first, then only
+ * an explicitly named product in a source-authored, anchored WordPress-plugin
+ * or theme description. Never infer a vendor from the first three prose
+ * words, and never claim "Unknown Vendor The..." as a product.
+ *
+ * This function neither fetches the network nor adds attribution evidence.
+ */
+function nvdSourceIdentity(cve, description = '') {
+  const cpe = cve?.configurations?.[0]?.nodes?.[0]?.cpeMatch?.[0]?.criteria || '';
+  const token = value => {
+    if (typeof value !== 'string' || value === '*' || value === '-' ||
+        value.length > 90 || !/^[A-Za-z0-9][A-Za-z0-9_.+()-]*$/.test(value)) return '';
+    return value.replace(/_/g, ' ').trim();
+  };
+  const vendor = token((cpe.match(/^cpe:2\.3:[aoh]:([^:]+):/) || [])[1]);
+  let product = token((cpe.match(/^cpe:2\.3:[aoh]:[^:]+:([^:]+):/) || [])[1]);
+
+  if (!product && typeof description === 'string') {
+    // Wordfence/CNA language: "The <actual product> plugin for WordPress
+    // is vulnerable..." No other prose pattern establishes product identity.
+    const named = description.match(/^The\s+([A-Za-z0-9][A-Za-z0-9 .+&'()/-]{2,79}?)\s+(?:plugin|theme)\s+for\s+WordPress\b/i);
+    if (named) product = named[1].replace(/\s+/g, ' ').trim();
+  }
+  const subject = [vendor, product].filter(Boolean).join(' ').trim() ||
+    'Affected software (product not identified)';
+  return { vendor, product, subject };
+}
+
 async function fetchNVD(state) {
   const end   = new Date();
   const lastFetch = getSourceLastFetch(state, 'nvd');
@@ -505,9 +534,7 @@ async function fetchNVD(state) {
       const cweId  = cve.weaknesses?.[0]?.description?.[0]?.value||'';
       const refs   = (cve.references||[]).map(r=>r.url).slice(0,6);
       const pubDate= cve.published?.slice(0,10)||isoNow();
-      const cpe    = cve.configurations?.[0]?.nodes?.[0]?.cpeMatch?.[0]?.criteria||'';
-      const vendor  = (cpe.match(/cpe:2\.3:[aoh]:([^:]+):/)||[])[1]?.replace(/_/g,' ')||'Unknown Vendor';
-      const product = (cpe.match(/cpe:2\.3:[aoh]:[^:]+:([^:]+):/)||[])[1]?.replace(/_/g,' ')||desc.split(/\s+/).slice(0,3).join(' ')||'Unknown Product';
+      const { vendor, product, subject } = nvdSourceIdentity(cve, desc);
       // Vulnerability advisories describe affected products, fix commits and
       // docs, not attacker infrastructure: regex hits here (vendor domains,
       // commit SHAs, 169.254.169.254, version strings) are not IOCs. Only
@@ -515,7 +542,7 @@ async function fetchNVD(state) {
       // contribute indicators. Gap register ICF-P0-009.
       const iocs = [];
       const sevLabel = cvss >= 9.0 ? 'Critical Vulnerability' : 'High Severity Vulnerability';
-      return { source:'nvd', type:'CVE_REPORT', id, title:`${id} — ${vendor} ${product} CVSS ${cvss} ${sevLabel}`,
+      return { source:'nvd', type:'CVE_REPORT', id, title:`${id} — ${subject} CVSS ${cvss} ${sevLabel}`,
         desc, cvss, vector, cweId, refs, pubDate, vendor, product, exploited:false, cisaKev:false, ransomware:false,
         iocs, sourceCount:1, daysOld: Math.floor((Date.now()-new Date(pubDate).getTime())/86400000) };
     };
@@ -3702,6 +3729,7 @@ if (require.main === module) {
     watermarkStart, acknowledgeExistingPost, resolveFirstAddedAt, selectLiveWindow,
     renderRssItem, retainLatestRssItems, MAX_SOURCE_RSS_ITEMS,
     recordSourceSuccess, recordSourceFailure, getSourceHealthReport,
+    nvdSourceIdentity,
     fetchCISAKev, reconcileKevFlags, reconcileApiKevFlags, getKevCatalogIds, getKevCatalogMeta, parseKevCatalog, resetKevCatalogState,
   };
 }
