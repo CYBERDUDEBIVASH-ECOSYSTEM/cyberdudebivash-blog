@@ -95,6 +95,11 @@ if(require.main===module) {
     const state=JSON.parse(fs.readFileSync(path.join(__dirname,'..','intel-state.json'),'utf8'));
     const result=evaluate(state);
     console.log(JSON.stringify(result));
+    if(result.status==='POLL_HEALTHY_LOW_YIELD') {
+      // This publishes a GitHub warning, not a fake full source-diversity pass.
+      // Enterprise GA and source-product certification still HOLD.
+      console.error('::warning title=Intel Source Diversity Below Release Floor::Fresh source polling succeeded, but fewer than five independent sources yielded records. Paid-customer release remains HOLD.');
+    }
     process.exitCode=result.exitCode;
   }catch(_){
     console.error('MONITOR_ERROR: INGESTION_EVIDENCE_UNAVAILABLE');
