@@ -123,3 +123,14 @@ test('checked-in RSS and canonical post files pass source truth independent of e
   assert.equal(result.status,'PASS_READ_ONLY');
   assert.ok(result.itemCount>=3);
 });
+
+
+test('global workflow security policy revokes secondary RSS contents-write allowance',()=>{
+  const policy = fs.readFileSync(path.join(ROOT,'.github/workflows/workflow-security-gate.yml'),'utf8');
+  const begin = policy.indexOf('content_writers = {');
+  const end = policy.indexOf('}',begin);
+  assert.ok(begin > 0 && end > begin,'security allowlist must remain identifiable');
+  const writers = policy.slice(begin,end);
+  assert.doesNotMatch(writers, /['"]generate-rss\.yml['"]/);
+  assert.match(policy, /contents:write is not in the approved writer allowlist/);
+});
