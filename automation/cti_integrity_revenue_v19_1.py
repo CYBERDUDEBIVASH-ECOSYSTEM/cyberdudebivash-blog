@@ -63,6 +63,50 @@ _RUNTIME = {
 }
 
 _CANONICAL_SEVERITIES = frozenset({"CRITICAL", "HIGH", "MEDIUM", "LOW", "INFORMATIONAL"})
+_TLP_PUBLIC_LABELS = frozenset({"TLP:CLEAR", "CLEAR"})
+_TLP_UNASSIGNED_LABELS = frozenset({"", "NOT ASSIGNED", "UNASSIGNED", "N/A"})
+_TLP_SOURCE_ATTRIBUTES = ("tlp", "tlp_marking", "sharing_tlp", "distribution_tlp")
+_TLP_META_NAMES = frozenset({"tlp", "cdb:tlp", "traffic-light-protocol"})
+
+
+def _assert_public_tlp(value: Any, evidence_surface: str) -> None:
+    """A report may declare a public distribution marking, never reclassify a restriction.
+
+    Missing/placeholder values are compatible with this *public-output*
+    presentation compiler, but do not assert that third-party classified
+    material is authorized for release; earlier source/provenance admission
+    remains independent. Unknown, historic and restricted labels fail closed.
+    """
+    if value is None:
+        return
+    if not isinstance(value, str):
+        raise PublicationIntegrityError([f"PUBLIC_TLP_RELEASE_BLOCKED:{evidence_surface}"])
+    value = re.sub(r"\s+", " ", value).strip().upper()
+    if value not in _TLP_PUBLIC_LABELS | _TLP_UNASSIGNED_LABELS:
+        # Never echo restricted marking values into public logs.
+        raise PublicationIntegrityError([f"PUBLIC_TLP_RELEASE_BLOCKED:{evidence_surface}"])
+
+
+def _require_public_distribution(soup: BeautifulSoup, article: Any = None,
+                                 context: Any = None) -> None:
+    """Fail before any HTML mutation if source, context or page declares TLP restriction."""
+    for surface, record in (("article", article), ("context", context)):
+        if record is None:
+            continue
+        for attr in _TLP_SOURCE_ATTRIBUTES:
+            if hasattr(record, attr):
+                _assert_public_tlp(getattr(record, attr), f"{surface}.{attr}")
+
+    for card in soup.select(".cdbd-kpi"):
+        label, value = card.find("span"), card.find("strong")
+        if label and label.get_text(" ", strip=True).strip().upper() in {"TLP", "TRAFFIC LIGHT PROTOCOL"}:
+            _assert_public_tlp(value.get_text(" ", strip=True) if value else "", "rendered_tlp_kpi")
+    for node in soup.find_all(attrs={"data-tlp": True}):
+        _assert_public_tlp(node.get("data-tlp"), "rendered_data_tlp")
+    for node in soup.find_all("meta"):
+        name = str(node.get("name") or node.get("property") or "").strip().lower()
+        if name in _TLP_META_NAMES:
+            _assert_public_tlp(node.get("content"), "rendered_tlp_meta")
 
 _ARTIFACT_PATTERNS = {
     "ioc": re.compile(r"\bIOCs?\b|\bindicator pack\b", re.I),
@@ -388,7 +432,10 @@ def _assign_public_tlp(soup: BeautifulSoup) -> bool:
         value = card.find("strong")
         if not (label and value and label.get_text(" ", strip=True).upper() == "TLP"):
             continue
-        if value.get_text(" ", strip=True).upper() not in {"TLP:CLEAR", "CLEAR"}:
+        # Never rewrite restricted marking as TLP:CLEAR. A public
+        # distribution label is not authority to disclose TLP:RED/AMBER/GREEN.
+        _assert_public_tlp(value.get_text(" ", strip=True), "rendered_tlp_kpi")
+        if value.get_text(" ", strip=True).upper() not in _TLP_PUBLIC_LABELS:
             value.string = PUBLIC_TLP
             card["data-cdb-distribution-assigned-by"] = "CYBERDUDEBIVASH"
             changed = True
@@ -578,11 +625,16 @@ def _validate_final(soup: BeautifulSoup, severity: str, source_only: bool, caps:
 
 
 def enforce_cti_integrity_revenue_v19_1(rendered_html: str, article: Any = None, context: Any = None) -> str:
-    if not rendered_html or MARKER in rendered_html:
+    if not rendered_html:
+        return rendered_html
+    soup = BeautifulSoup(rendered_html, "html.parser")
+    # Highest-priority permission boundary: even already-wrapped HTML
+    # cannot carry restricted TLP content to a public Blogger surface.
+    _require_public_distribution(soup, article, context)
+    if MARKER in rendered_html:
         return rendered_html
 
     _RUNTIME["reports_seen"] += 1
-    soup = BeautifulSoup(rendered_html, "html.parser")
     source_only = _is_source_only(soup)
     caps = _capabilities(soup)
     severity = _canonical_severity(soup, context)
