@@ -138,3 +138,18 @@ test('date-only RFC822 conversion refuses invalid calendar dates and stays UTC',
   assert.throws(() => toRFC822('2026-02-31'), /RSS_INVALID_SOURCE_CALENDAR_DATE/);
   assert.throws(() => toRFC822('not-a-date'), /RSS_INVALID_SOURCE_CALENDAR_DATE/);
 });
+
+
+
+test('committed first-party RSS snapshot does not claim future publication or malformed dates', () => {
+  const xml = fs.readFileSync(path.join(__dirname, '..', 'rss.xml'), 'utf8');
+  const dates = [...xml.matchAll(/<pubDate>([^<]+)<\/pubDate>/g)].map(match => match[1]);
+  assert.ok(dates.length >= 1, 'feed has at least a channel date');
+  for (const date of dates) {
+    const timestamp = Date.parse(date);
+    assert.ok(Number.isFinite(timestamp), 'RSS date is parseable');
+    assert.ok(timestamp <= Date.now() + 5 * 60_000, 'RSS publication time is not in the future');
+  }
+  assert.doesNotMatch(xml, /<pubDate>[^<]*12:00:00 \+0000<\/pubDate>/,
+    'do not reintroduce the generator’s synthetic future-noon metadata');
+});
