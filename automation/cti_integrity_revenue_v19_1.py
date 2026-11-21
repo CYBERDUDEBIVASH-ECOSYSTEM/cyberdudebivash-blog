@@ -435,7 +435,7 @@ def _assign_public_tlp(soup: BeautifulSoup) -> bool:
         # Never rewrite restricted marking as TLP:CLEAR. A public
         # distribution label is not authority to disclose TLP:RED/AMBER/GREEN.
         _assert_public_tlp(value.get_text(" ", strip=True), "rendered_tlp_kpi")
-        if value.get_text(" ", strip=True).upper() not in _TLP_PUBLIC_LABELS:
+        if value.get_text(" ", strip=True).upper() != PUBLIC_TLP:
             value.string = PUBLIC_TLP
             card["data-cdb-distribution-assigned-by"] = "CYBERDUDEBIVASH"
             changed = True
