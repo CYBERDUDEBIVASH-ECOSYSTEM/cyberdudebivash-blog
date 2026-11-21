@@ -231,6 +231,37 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   'scripts/blogger-live-dispatch-guard.sh',
   'scripts/blogger-one-post-canary-egress.sh',
   'scripts/blogger_provider_delivery_audit.py',
+  // P0 2026-11-21 drift run #44879654422: exactly 21 previously UNKNOWN
+  // names from independently verified full Git trees. Inspected source roles:
+  // CTI renderer/commercial layers, original-source GET/fetch-back gates,
+  // selected-candidate evidence hydrator, focused regression tests, Blogger
+  // theme revisions, and byte-parity / chronology READ-ONLY certifiers.
+  // All can influence customer trust or release safety. Therefore classify
+  // ONLY these exact paths as OPERATIONAL and retain manual release review.
+  // This is inventory classification, NOT approval of code/ads/provider
+  // licenses, NOT a deploy, and NOT postdeploy/customer certification.
+  // No automation/**, blogger-theme/** or scripts/** wildcard exemption.
+  'automation/astra_cash_conversion_v19.py',
+  'automation/astra_revenue_intelligence_v18.py',
+  'automation/authority_transformer.py',
+  'automation/blogger_public_delivery_gate.py',
+  'automation/content_discovery.py',
+  'automation/cti_integrity_revenue_v19_1.py',
+  'automation/premium_evidence_compiler.py',
+  'automation/report_renderer.py',
+  'automation/source_delivery_guard.py',
+  'automation/source_evidence_hydrator.py',
+  'automation/tests/test_astra_cash_conversion_v19.py',
+  'automation/tests/test_astra_revenue_intelligence_v18.py',
+  'automation/tests/test_cti_integrity_revenue_v19_1.py',
+  'automation/tests/test_source_evidence_hydrator.py',
+  'blogger-theme/cyberbivash-v22-FINAL.xml',
+  'blogger-theme/cyberbivash-v22-part1.xml',
+  'blogger-theme/cyberbivash-v22-part2.xml',
+  'blogger-theme/cyberbivash-v23-FINAL.xml',
+  'blogger-theme/cyberbivash-v24-TRUST.xml',
+  'scripts/certify-soc-cti-source-handoff.cjs',
+  'scripts/verify-soc-rss-source-truth.cjs',
 ]);
 
 /**
