@@ -12,7 +12,7 @@ Production invariants
 - v18 remains responsible for deciding which tier to recommend.
 - api/_lib/payment-utils.js remains the canonical plan/price source.
 - api/v1/billing remains the canonical payment/entitlement authority.
-- paid CTI CTAs are rewritten only to /buy.html?plan=<tier>&checkout=1.
+- paid CTI CTAs target the canonical SENTINEL APEX /upgrade.html product.
 - public documentation CTAs remain public and are never paywalled.
 - presentation is fail-open; a conversion-layer defect cannot block a report.
 - telemetry is aggregate only: no email, API key, order/payment ID, prompt,
@@ -33,7 +33,7 @@ logger = setup_logger("astra_cash_conversion_v19")
 
 MARKER = "CDB-ASTRA-CASH-CONVERSION-V19"
 _INSTALL_ATTR = "__cdb_astra_cash_conversion_v19__"
-BUY_URL = "https://blog.cyberdudebivash.in/buy.html"
+BUY_URL = "https://intel.cyberdudebivash.com/upgrade.html"
 PAID_TIERS = frozenset({"starter", "pro", "enterprise"})
 
 _INNER_ASSEMBLE_HTML: Optional[Callable] = None
@@ -61,9 +61,11 @@ def direct_checkout_url(tier: str, family: str, cta: str) -> str:
         raise ValueError(f"unsupported paid tier: {tier!r}")
     normalized_family = _safe_token(family)
     normalized_cta = _safe_token(cta, "paid_cta")
+    # Starter is a retired blog billing product: preserve old source intent
+    # solely as marketing attribution, never offer a different price/plan.
+    canonical_tier = "pro" if normalized_tier == "starter" else normalized_tier
     query = urlencode({
-        "plan": normalized_tier,
-        "checkout": "1",
+        "plan": canonical_tier,
         "utm_source": "sentinel_apex_report",
         "utm_medium": "cti_dossier",
         "utm_campaign": "astra_cash_conversion_v19",
@@ -74,9 +76,9 @@ def direct_checkout_url(tier: str, family: str, cta: str) -> str:
 
 def _checkout_label(tier: str) -> str:
     return {
-        "starter": "START API STARTER CHECKOUT →",
-        "pro": "START SOC PRO CHECKOUT →",
-        "enterprise": "START ENTERPRISE CHECKOUT →",
+        "starter": "VIEW PRO DEFENSE PRICE & FEATURES →",
+        "pro": "VIEW PRO DEFENSE PRICE & FEATURES →",
+        "enterprise": "VIEW ENTERPRISE SOC PRICE & FEATURES →",
     }[tier]
 
 
@@ -107,9 +109,31 @@ def enhance_cash_conversion(rendered_html: str, article: Any = None, context: An
             if tier not in PAID_TIERS:
                 continue
             cta = _safe_token(anchor.get("data-cdb-v18-cta"), "paid_cta")
+            # Retired blog Starter is NOT purchasable at its historical price.
+            # The only supported mapping now is the currently priced PRO plan.
+            # Repair any legacy card shown by an older v18 renderer as well.
+            if tier == "starter":
+                card = anchor.find_parent("article")
+                if card and panel in card.parents:
+                    tag = card.find("small")
+                    if tag:
+                        tag.string = "CURRENT PRICE AT CHECKOUT"
+                    tag = card.find("strong")
+                    if tag:
+                        tag.string = "PRO DEFENSE"
+                    tag = card.find("p")
+                    if tag:
+                        tag.string = "Legacy Starter retired. See current PRO Defense pricing, entitlements and terms before purchase."
+            else:
+                card = anchor.find_parent("article")
+                if card and panel in card.parents:
+                    tag = card.find("small")
+                    if tag and ("₹" in tag.get_text() or "$" in tag.get_text()):
+                        tag.string = "CURRENT PRICE AT CHECKOUT"
             anchor["href"] = direct_checkout_url(tier, family, cta)
+            anchor["data-cdb-tier"] = "pro" if tier == "starter" else tier
             anchor["data-cdb-v19-direct-checkout"] = "true"
-            anchor["data-cdb-v19-plan"] = tier
+            anchor["data-cdb-v19-plan"] = "pro" if tier == "starter" else tier
             anchor.string = _checkout_label(tier)
             rewritten += 1
             _RUNTIME["checkout_links_created"] += 1
@@ -120,10 +144,9 @@ def enhance_cash_conversion(rendered_html: str, article: Any = None, context: An
             note["class"] = ["cdbv19-checkout-note"]
             note["data-cdb-v19-checkout-boundary"] = "true"
             note.string = (
-                "DIRECT CHECKOUT // Canonical plan pricing is loaded from the billing API. "
-                "Razorpay instant checkout is offered where available; verified UPI/bank "
-                "fallback remains available. Paid access changes delivery and entitlement, "
-                "never intelligence certainty."
+                "CANONICAL CHECKOUT // This report does not quote a subscription price. "
+                "Current plan terms and payment availability are verified at the SENTINEL APEX "
+                "checkout. Paid access changes delivery and entitlement, never intelligence certainty."
             )
             boundary = panel.select_one(".cdbv18-boundary")
             if boundary is not None:
@@ -172,8 +195,8 @@ def telemetry_snapshot() -> dict:
         "panels_rewritten": int(_RUNTIME["panels_rewritten"]),
         "checkout_links_created": int(_RUNTIME["checkout_links_created"]),
         "checkout_links_by_tier": dict(_RUNTIME["checkout_links_by_tier"]),
-        "checkout_surface": "/buy.html",
-        "canonical_pricing_source": "api/_lib/payment-utils.js",
+        "checkout_surface": "https://intel.cyberdudebivash.com/upgrade.html",
+        "canonical_pricing_source": "https://intel.cyberdudebivash.com/api/pricing",
         "canonical_payment_authority": "api/v1/billing",
         "quality_or_evidence_gate_changed": False,
         "provider_policy_changed": False,
@@ -218,7 +241,7 @@ def install_astra_cash_conversion_v19(main_module) -> None:
         "SENTINEL APEX ASTRA Cash Conversion Engine v19 installed",
         extra={
             "marker": MARKER,
-            "direct_checkout_surface": "/buy.html",
+            "direct_checkout_surface": "https://intel.cyberdudebivash.com/upgrade.html",
             "new_billing_system_created": False,
             "pricing_changed": False,
             "quality_gate_changed": False,

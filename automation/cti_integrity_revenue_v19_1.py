@@ -407,15 +407,38 @@ def _repair_paid_ctas(soup: BeautifulSoup, context: Any = None) -> bool:
         tier = str(anchor.get("data-cdb-tier") or "").strip().lower()
         if tier not in PAID_TIERS:
             continue
-        href = str(anchor.get("href") or "")
-        if "/buy.html?" in href and "utm_campaign=astra_cash_conversion_v19" in href:
-            continue
+        canonical_tier = "pro" if tier == "starter" else tier
         cta = str(anchor.get("data-cdb-v18-cta") or "paid_cta")
-        anchor["href"] = direct_checkout_url(tier, family, cta)
-        anchor["data-cdb-v19-direct-checkout"] = "true"
-        anchor["data-cdb-v19-plan"] = tier
-        changed = True
-        _RUNTIME["paid_links_repaired"] += 1
+        correct_url = direct_checkout_url(tier, family, cta)
+        # Retired blog Starter maps to PRO only as a disclosed compatibility
+        # route; it must not remain a cheaper sales offer in a new dossier.
+        if (str(anchor.get("href") or "") != correct_url
+                or str(anchor.get("data-cdb-tier") or "") != canonical_tier):
+            anchor["href"] = correct_url
+            anchor["data-cdb-tier"] = canonical_tier
+            anchor["data-cdb-v19-direct-checkout"] = "true"
+            anchor["data-cdb-v19-plan"] = canonical_tier
+            anchor.string = (
+                "VIEW PRO DEFENSE PRICE & FEATURES →" if canonical_tier == "pro"
+                else "VIEW ENTERPRISE SOC PRICE & FEATURES →"
+            )
+            changed = True
+            _RUNTIME["paid_links_repaired"] += 1
+        card = anchor.find_parent("article")
+        if card is not None and panel in card.parents:
+            small = card.find("small")
+            if small and ("₹" in small.get_text() or "$" in small.get_text()):
+                small.string = "CURRENT PRICE AT CHECKOUT"
+                changed = True
+            if tier == "starter":
+                strong = card.find("strong")
+                if strong:
+                    strong.string = "PRO DEFENSE"
+                    changed = True
+                paragraph = card.find("p")
+                if paragraph:
+                    paragraph.string = "Legacy Starter is retired; confirm PRO Defense pricing and entitlements at checkout."
+                    changed = True
     return changed
 
 
@@ -526,12 +549,27 @@ def _validate_final(soup: BeautifulSoup, severity: str, source_only: bool, caps:
 
     panel = soup.select_one(".cdbv18-commercial[data-astra-revenue-v18='true']")
     if panel is not None:
+        # New reports must never offer prices from the retired SOC/blog
+        # checkout: pricing belongs exclusively to SENTINEL APEX.
+        if re.search(r"(?:₹|\bINR\s*)\s*[0-9][0-9,]*", panel.get_text(" ", strip=True)):
+            issues.append("commercial panel contains an unsupported hardcoded legacy price")
         for anchor in panel.select("a[data-cdb-tier]"):
             tier = str(anchor.get("data-cdb-tier") or "").strip().lower()
+            if tier == "starter":
+                issues.append("retired blog starter plan still advertised")
             if tier in PAID_TIERS:
-                href = str(anchor.get("href") or "")
-                if "/buy.html?" not in href or "utm_campaign=astra_cash_conversion_v19" not in href:
-                    issues.append(f"paid {tier} CTA bypasses v19 direct checkout")
+                parsed = urlparse(str(anchor.get("href") or ""))
+                query = parse_qs(parsed.query)
+                if (
+                    parsed.scheme != "https"
+                    or parsed.hostname != "intel.cyberdudebivash.com"
+                    or parsed.path != "/upgrade.html"
+                    or parsed.port is not None or parsed.username or parsed.password
+                    or parsed.fragment
+                    or query.get("plan") != [tier]
+                    or query.get("utm_campaign") != ["astra_cash_conversion_v19"]
+                ):
+                    issues.append(f"paid {tier} CTA bypasses canonical platform checkout")
 
     if issues:
         _RUNTIME["publication_blocks"] += 1

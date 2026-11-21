@@ -30,8 +30,8 @@ def _v18_panel() -> str:
 def _query(href: str) -> dict[str, list[str]]:
     parsed = urlparse(href)
     assert parsed.scheme == "https"
-    assert parsed.netloc == "blog.cyberdudebivash.in"
-    assert parsed.path == "/buy.html"
+    assert parsed.netloc == "intel.cyberdudebivash.com"
+    assert parsed.path == "/upgrade.html"
     return parse_qs(parsed.query)
 
 
@@ -39,7 +39,7 @@ def test_direct_checkout_url_is_tier_scoped_and_attributed():
     url = v19.direct_checkout_url("pro", "cve_advisory", "soc_pro")
     query = _query(url)
     assert query["plan"] == ["pro"]
-    assert query["checkout"] == ["1"]
+    assert "checkout" not in query
     assert query["utm_source"] == ["sentinel_apex_report"]
     assert query["utm_medium"] == ["cti_dossier"]
     assert query["utm_campaign"] == ["astra_cash_conversion_v19"]
@@ -59,8 +59,11 @@ def test_v19_rewrites_every_paid_v18_cta_but_preserves_public_docs():
     )
 
     assert v19.MARKER in rendered
+    assert "₹999" not in rendered
+    assert "VIEW PRO DEFENSE PRICE &amp; FEATURES" in rendered
+    assert "https://intel.cyberdudebivash.com/upgrade.html" in rendered
     assert "data-cdb-v19-direct-checkout=\"true\"" in rendered
-    assert "DIRECT CHECKOUT //" in rendered
+    assert "CANONICAL CHECKOUT //" in rendered
     assert "Paid access changes delivery and entitlement, never intelligence certainty." in rendered
 
     from bs4 import BeautifulSoup
@@ -71,11 +74,11 @@ def test_v19_rewrites_every_paid_v18_cta_but_preserves_public_docs():
 
     paid = soup.select('a[data-cdb-v19-direct-checkout="true"]')
     assert len(paid) == 4  # starter, pro card, enterprise, recommended pro
-    assert {a["data-cdb-v19-plan"] for a in paid} == {"starter", "pro", "enterprise"}
+    assert {a["data-cdb-v19-plan"] for a in paid} == {"pro", "enterprise"}
     for anchor in paid:
         query = _query(anchor["href"])
         assert query["plan"] == [anchor["data-cdb-v19-plan"]]
-        assert query["checkout"] == ["1"]
+        assert "checkout" not in query
         assert query["utm_campaign"] == ["astra_cash_conversion_v19"]
 
 
