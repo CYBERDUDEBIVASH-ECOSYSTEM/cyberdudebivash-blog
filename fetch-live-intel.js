@@ -2954,8 +2954,21 @@ function renderRssItem(item) {
   ].filter(Boolean).join('\n');
 }
 
+// One source publisher, one bounded RSS window. The removed secondary cron
+// used to rewrite/truncate the feed from posts/; retain that fixed 50-item
+// source budget here so the primary publisher never grows XML without bound.
+// Item order is preserved: freshly published items are already prepended.
+const MAX_SOURCE_RSS_ITEMS = 50;
+function retainLatestRssItems(xml, limit = MAX_SOURCE_RSS_ITEMS) {
+  if (typeof xml !== 'string' || !Number.isSafeInteger(limit) || limit < 1 || limit > 500)
+    throw new Error('RSS_WINDOW_BOUNDS_INVALID');
+  let seen = 0;
+  return xml.replace(/<item>([\s\S]*?)<\/item>/gi, match =>
+    (++seen <= limit ? match : ''));
+}
+
 function updateRSS(newItems) {
-  const rssItems = newItems.map(renderRssItem).filter(Boolean).join('\n');
+  const rssItems = newItems.map(renderRssItem).filter(Boolean).slice(0, MAX_SOURCE_RSS_ITEMS).join('\n');
   if (!rssItems) {
     log('rss.xml not modified: no valid source-backed items');
     return;
@@ -2979,6 +2992,7 @@ function updateRSS(newItems) {
   rss = rss.includes('<item>')
     ? rss.replace(/(<item>)/, rssItems + '\n  $1')
     : rss.replace('</channel>', rssItems + '\n  </channel>');
+  rss = retainLatestRssItems(rss);
   safeWriteSync(CFG.rssPath, rss, 'utf8');
   log('rss.xml updated: +' + newItems.length + ' input items, source dates preserved.');
 }
@@ -3686,7 +3700,7 @@ if (require.main === module) {
     extractSentinelApexRecords, normalizeSentinelApexRecord,
     sapexCanonicalId, sapexNativeMitre, fetchSentinelApex,
     watermarkStart, acknowledgeExistingPost, resolveFirstAddedAt, selectLiveWindow,
-    renderRssItem,
+    renderRssItem, retainLatestRssItems, MAX_SOURCE_RSS_ITEMS,
     recordSourceSuccess, recordSourceFailure, getSourceHealthReport,
     fetchCISAKev, reconcileKevFlags, reconcileApiKevFlags, getKevCatalogIds, getKevCatalogMeta, parseKevCatalog, resetKevCatalogState,
   };
