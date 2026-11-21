@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T06:32:47.244Z",
+  "generated": "2026-11-21T07:18:17.993Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,13 +7,57 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8013,
+  "total_published": 8015,
   "s2n_stats": {
-    "passed": 111,
+    "passed": 112,
     "suppressed": 3,
     "avg_qs": 0.491
   },
   "items": [
+    {
+      "id": "CVE-2026-19793",
+      "title": "CVE-2026-19793 — Unknown Vendor The WP Import CVSS 8.8 High Severity Vulnerability",
+      "description": "The WP Import Export Lite plugin for WordPress is vulnerable to Limited Code Injection in all versions up to, and including, 3.9.32 via the 'comment' parameter. This is due to a two-stage shortcode check that evaluates the raw mapping placeholder before data substitution, causing the neutralizer to ",
+      "cvss": 8.8,
+      "final_ps": 64,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The WP Import",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/class-wpie-general.php#L586",
+        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/export/class-wpie-comment.php#L409",
+        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/import/class-wpie-comment.php#L67",
+        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/import/class-wpie-import-base.php#L142"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=64 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
     {
       "id": "CVE-2026-50522",
       "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public PoC",
@@ -2266,7 +2310,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2023-2868",
@@ -4354,53 +4400,7 @@
       },
       "suppressed": false,
       "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-19793",
-      "title": "CVE-2026-19793 — Unknown Vendor The WP Import CVSS 8.8 High Severity Vulnerability",
-      "description": "The WP Import Export Lite plugin for WordPress is vulnerable to Limited Code Injection in all versions up to, and including, 3.9.32 via the 'comment' parameter. This is due to a two-stage shortcode check that evaluates the raw mapping placeholder before data substitution, causing the neutralizer to ",
-      "cvss": 8.8,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The WP Import",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/class-wpie-general.php#L586",
-        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/export/class-wpie-comment.php#L409",
-        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/import/class-wpie-comment.php#L67",
-        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/import/class-wpie-import-base.php#L142"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-21T06:32:47.594Z"
+  "lastReportGeneratedAt": "2026-11-21T07:18:18.282Z"
 }

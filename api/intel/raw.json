@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T06:32:47.244Z",
+  "generated": "2026-11-21T07:18:17.993Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,8 +8,55 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 114,
+  "count": 115,
   "items": [
+    {
+      "id": "CVE-2026-19793",
+      "title": "CVE-2026-19793 — Unknown Vendor The WP Import CVSS 8.8 High Severity Vulnerability",
+      "description": "The WP Import Export Lite plugin for WordPress is vulnerable to Limited Code Injection in all versions up to, and including, 3.9.32 via the 'comment' parameter. This is due to a two-stage shortcode check that evaluates the raw mapping placeholder before data substitution, causing the neutralizer to ",
+      "cvss": 8.8,
+      "final_ps": 64,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The WP Import",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/class-wpie-general.php#L586",
+        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/export/class-wpie-comment.php#L409",
+        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/import/class-wpie-comment.php#L67",
+        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/import/class-wpie-import-base.php#L142"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=64 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
     {
       "id": "CVE-2026-50522",
       "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public PoC",
@@ -4642,8 +4689,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-19793",
-      "title": "CVE-2026-19793 — Unknown Vendor The WP Import CVSS 8.8 High Severity Vulnerability",
+      "id": "CVE-2026-129220",
+      "title": "CVE-2026-129220 — Unknown Vendor The Everest Forms CVSS 8.8 High Severity Vulnerability",
       "description": "",
       "cvss": 8.8,
       "final_ps": 21,
@@ -4661,15 +4708,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The WP Import",
+      "product": "The Everest Forms",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/class-wpie-general.php#L586",
-        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/export/class-wpie-comment.php#L409",
-        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/import/class-wpie-comment.php#L67",
-        "https://plugins.trac.wordpress.org/browser/wp-import-export-lite/trunk/includes/classes/import/class-wpie-import-base.php#L142"
+        "https://github.com/themegrill/everest-forms/pull/1683",
+        "https://plugins.trac.wordpress.org/browser/everest-forms/tags/3.6.4/includes/RestApi/controllers/version1/class-evf-plugin-status.php#L147",
+        "https://plugins.trac.wordpress.org/browser/everest-forms/tags/3.6.4/includes/RestApi/controllers/version1/class-evf-plugin-status.php#L223",
+        "https://plugins.trac.wordpress.org/browser/everest-forms/tags/3.6.4/includes/RestApi/controllers/version1/class-evf-plugin-status.php#L262"
       ],
       "explanation": {
         "quality": [
@@ -4689,44 +4736,41 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-77309",
-      "title": "AIT-GUI route chain allows unauthenticated Python execution in server process",
+      "id": "CVE-2026-123086",
+      "title": "CVE-2026-123086 — Unknown Vendor The PublishPress Revisions: CVSS 8.1 High Severity Vulnerability",
       "description": "",
-      "cvss": 8.8,
+      "cvss": 8.1,
       "final_ps": 21,
-      "quality_score": 0.523,
+      "quality_score": 0.525,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "github_advisories",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "github_advisories"
+        "nvd"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "pip",
-      "product": "ait-gui",
+      "vendor": "Unknown Vendor",
+      "product": "The PublishPress Revisions:",
       "due_date": null,
-      "cves": [
-        "CVE-2026-77309",
-        "CVE-2026-77309"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-jrjx-9jjw-747m",
-        "https://github.com/NASA-AMMOS/AIT-GUI/security/advisories/GHSA-jrjx-9jjw-747m",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-77309",
-        "https://github.com/NASA-AMMOS/AIT-GUI/commit/beb8fc0813eded89f985d3eb9a73535dd327726d"
+        "https://plugins.trac.wordpress.org/browser/revisionary/tags/4.3.2/admin/admin-posts_rvy.php#L45",
+        "https://plugins.trac.wordpress.org/browser/revisionary/tags/4.3.2/admin/class-list-table_rvy.php#L64",
+        "https://plugins.trac.wordpress.org/browser/revisionary/tags/4.3.2/admin/class-list-table_rvy.php#L88",
+        "https://plugins.trac.wordpress.org/changeset/3812996/revisionary/trunk/admin/class-list-table_rvy.php"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.95 (github_advisories)",
+          "source_weight=1.00 (nvd)",
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.523"
+          "QS=0.525"
         ],
         "priority": [
           "base_ps=21 (no boosts)"

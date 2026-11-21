@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T06:32:47.122Z",
+  "generated": "2026-11-21T07:18:17.785Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19628,
+    "total_nodes": 19632,
     "actors": 8,
-    "cves": 9499,
-    "campaigns": 3076,
+    "cves": 9501,
+    "campaigns": 3078,
     "malware": 0,
     "iocs": 911,
-    "edges": 5881
+    "edges": 5883
   },
   "nodes": {
     "actor:lockbit": {
@@ -369045,6 +369045,82 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-129220": {
+      "id": "CVE-2026-129220",
+      "type": "CVE",
+      "name": "CVE-2026-129220 — Unknown Vendor The Everest Forms CVSS 8.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.8,
+        "threat_level": "HIGH",
+        "priority_score": 68,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The Everest Forms",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-123086": {
+      "id": "CVE-2026-123086",
+      "type": "CVE",
+      "name": "CVE-2026-123086 — Unknown Vendor The PublishPress Revisions: CVSS 8.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The PublishPress Revisions:",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-129220": {
+      "id": "campaign:cve-2026-129220",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-129220"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-129220",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-123086": {
+      "id": "campaign:cve-2026-123086",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-123086"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-123086",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -422156,6 +422232,24 @@
       "id": "campaign:cve-2026-120539→includes→CVE-2026-120539",
       "source": "campaign:cve-2026-120539",
       "target": "CVE-2026-120539",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-129220→includes→CVE-2026-129220",
+      "source": "campaign:cve-2026-129220",
+      "target": "CVE-2026-129220",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-123086→includes→CVE-2026-123086",
+      "source": "campaign:cve-2026-123086",
+      "target": "CVE-2026-123086",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",
