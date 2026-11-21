@@ -146,9 +146,12 @@ def test_source_only_live_dossier_regressions_are_repaired_without_inventing_fac
     for anchor in soup.select('a[data-cdb-tier="starter"],a[data-cdb-tier="pro"],a[data-cdb-tier="enterprise"]'):
         parsed = urlparse(anchor["href"])
         query = parse_qs(parsed.query)
-        assert parsed.path == "/buy.html"
-        assert query["checkout"] == ["1"]
+        assert parsed.scheme == "https"
+        assert parsed.netloc == "intel.cyberdudebivash.com"
+        assert parsed.path == "/upgrade.html"
+        assert "checkout" not in query
         assert query["plan"] == [anchor["data-cdb-tier"]]
+        assert anchor["data-cdb-tier"] != "starter"
         assert query["utm_campaign"] == ["astra_cash_conversion_v19"]
 
     service_links = soup.select('a[data-cdb-v19-1-service-intake="true"]')
