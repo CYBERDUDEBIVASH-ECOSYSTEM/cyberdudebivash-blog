@@ -54,9 +54,13 @@ function validateRss(xml, {nowMs = Date.now(), root = path.resolve(__dirname, '.
   const channelText = xml.slice(xml.indexOf('<channel>') + '<channel>'.length,
                                 xml.indexOf('<item'));
   const lastBuild = dateFromRss(onlyTag(channelText, 'lastBuildDate'), nowMs);
-  const publication = dateFromRss(onlyTag(channelText, 'pubDate'), nowMs);
-  if (lastBuild === null || (publication !== null &&
-       publication > lastBuild + CLOCK_SKEW_MS)) {
+  const rawChannelPubDate = onlyTag(channelText, 'pubDate');
+  const publication = rawChannelPubDate === null ? null :
+    dateFromRss(rawChannelPubDate, nowMs);
+  // An absent optional channel date may be legitimate, but a present and
+  // invalid (including future) date is an integrity failure, never absence.
+  if (lastBuild === null || (rawChannelPubDate !== null && publication === null) ||
+      (publication !== null && publication > lastBuild + CLOCK_SKEW_MS)) {
     failures.push('CHANNEL_FRESHNESS_OR_DATE_INVALID');
   }
   const seen = new Set();
