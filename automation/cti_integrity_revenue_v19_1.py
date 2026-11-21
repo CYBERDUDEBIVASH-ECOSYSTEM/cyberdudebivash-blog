@@ -543,22 +543,98 @@ def _clean_related_titles(soup: BeautifulSoup) -> bool:
     return changed
 
 
-def _inject_integrity_note(soup: BeautifulSoup, source_only: bool) -> bool:
+def _inject_integrity_note(soup: BeautifulSoup, source_only: bool,
+                           caps: Optional[dict[str, bool]] = None) -> bool:
+    """Compact buyer/analyst decision evidence. No guessed facts or source dates.
+
+    These are render-time *presence* classifications only. They never imply
+    an IOC is safe to block, a technique is validated, a detection is
+    deployable, or a customer's infrastructure is affected.
+    """
     if soup.select_one("[data-cdb-v19-1-integrity-note='true']") is not None:
         return False
     anchor = soup.select_one(".cdbv18-commercial") or soup.select_one(".cdbv8-control")
     if anchor is None:
         return False
-    note = soup.new_tag("div")
+    caps = caps or {}
+    rows = [
+        ("Evidence basis", (
+            "Single-source preliminary; seek corroboration" if source_only
+            else "Source-linked; independently verify material claims"
+        )),
+        ("Indicators", (
+            "Referenced; validate provenance and expiry" if caps.get("ioc")
+            else "No established source-backed IOC pack"
+        )),
+        ("ATT&CK", (
+            "Technique reference present; mapping requires analyst validation"
+            if caps.get("attack_mapping") else "No established technique mapping"
+        )),
+        ("Detection content", (
+            "Rule-like text present; not production-tested"
+            if caps.get("sigma") or caps.get("yara")
+            else "No validated executable rule supplied"
+        )),
+        ("Hunting", (
+            "Query-like text present; verify telemetry and logic"
+            if caps.get("hunt_query") else "No validated hunting query supplied"
+        )),
+        ("Customer impact", "Not determined by this public report"),
+        ("Distribution", PUBLIC_TLP),
+    ]
+    note = soup.new_tag("aside")
     note["class"] = ["cdbv19-1-integrity-note"]
     note["data-cdb-v19-1-integrity-note"] = "true"
-    note.string = (
-        "PUBLIC INTELLIGENCE INTEGRITY // Severity, corroboration, artifact availability, "
-        "technical evidence class, information-sharing label, and paid delivery links are "
-        "canonicalized from the rendered evidence product."
-        + (" Source-only evidence is labeled preliminary." if source_only else "")
+    note["role"] = "note"
+    note["aria-label"] = "Enterprise intelligence evidence disclosure"
+    heading = soup.new_tag("h4")
+    heading.string = "INTELLIGENCE ASSURANCE / WHAT THE EVIDENCE SUPPORTS"
+    note.append(heading)
+    grid = soup.new_tag("dl")
+    grid["class"] = ["cdbv19-1-integrity-grid"]
+    for label, value in rows:
+        pair = soup.new_tag("div")
+        term = soup.new_tag("dt")
+        term.string = label
+        definition = soup.new_tag("dd")
+        definition.string = value
+        pair.extend((term, definition))
+        grid.append(pair)
+    note.append(grid)
+    disclaimer = soup.new_tag("p")
+    disclaimer.string = (
+        "Analyst guidance is not a production detection guarantee. Validate cited "
+        "sources, internal asset exposure, telemetry coverage, false positives, "
+        "and response authority before taking action. A pipeline heartbeat does "
+        "not prove a new report or live customer delivery."
+    )
+    note.append(disclaimer)
+    css = soup.new_tag("style")
+    css["id"] = "cdb-v19-1-enterprise-evidence-css"
+    css.string = (
+        ".cdbv19-1-integrity-note{margin:16px 0;padding:18px;border:1px solid "
+        "rgba(59,204,215,.34);border-left:4px solid #5cf3d1;border-radius:12px;"
+        "background:linear-gradient(135deg,#0c1726,#101f30);color:#e5f2fa;"
+        "box-shadow:0 16px 34px rgba(0,0,0,.18)}"
+        ".cdbv19-1-integrity-note h4{margin:0 0 14px;font-size:13px;"
+        "letter-spacing:.075em;color:#89ffe0!important;line-height:1.5}"
+        ".cdbv19-1-integrity-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));"
+        "gap:10px;margin:0 0 12px}"
+        ".cdbv19-1-integrity-grid>div{padding:9px 11px;border-radius:7px;"
+        "border:1px solid rgba(165,192,213,.18);background:rgba(0,0,0,.19);min-width:0}"
+        ".cdbv19-1-integrity-grid dt{color:#a9c4da;font-size:10px;font-weight:700;"
+        "text-transform:uppercase;letter-spacing:.07em}"
+        ".cdbv19-1-integrity-grid dd{margin:5px 0 0;font-size:12px;"
+        "line-height:1.45;color:#f1f8ff;overflow-wrap:anywhere}"
+        ".cdbv19-1-integrity-note p{margin:0;color:#c6dbe6!important;"
+        "font-size:11px;line-height:1.55}"
+        "@media(max-width:640px){.cdbv19-1-integrity-grid{grid-template-columns:1fr}"
+        ".cdbv19-1-integrity-note{padding:13px}}"
+        "@media print{.cdbv19-1-integrity-note{background:#fff!important;color:#111!important;"
+        "box-shadow:none}.cdbv19-1-integrity-grid dd,.cdbv19-1-integrity-note p{color:#111!important}}"
     )
     anchor.insert_before(note)
+    note.insert_before(css)
     return True
 
 
@@ -650,7 +726,7 @@ def enforce_cti_integrity_revenue_v19_1(rendered_html: str, article: Any = None,
     changed |= _repair_paid_ctas(soup, context)
     changed |= _rewrite_service_intake(soup, context)
     changed |= _clean_related_titles(soup)
-    changed |= _inject_integrity_note(soup, source_only)
+    changed |= _inject_integrity_note(soup, source_only, caps)
 
     _validate_final(soup, severity, source_only, caps)
 
