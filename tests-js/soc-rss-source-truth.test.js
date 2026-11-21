@@ -134,3 +134,28 @@ test('global workflow security policy revokes secondary RSS contents-write allow
   assert.doesNotMatch(writers, /['"]generate-rss\.yml['"]/);
   assert.match(policy, /contents:write is not in the approved writer allowlist/);
 });
+
+
+
+test('primary source publisher rejects bad RSS before staging/committing or pushing after rebase',()=>{
+  const workflow=fs.readFileSync(path.join(ROOT,'.github/workflows/sentinel-apex.yml'),'utf8');
+  const precommit=workflow.indexOf('P0 first-party RSS chronology and canonical source — precommit');
+  const detectChanges=workflow.indexOf('- name: "Detect changes"');
+  const commit=workflow.indexOf('- name: "Commit and push intel');
+  assert.ok(precommit>0 && detectChanges>precommit && commit>detectChanges);
+  const precommitStage=workflow.slice(precommit,detectChanges);
+  assert.match(precommitStage,/node scripts\/verify-soc-rss-source-truth\.cjs/);
+  const pushStage=workflow.slice(commit);
+  const beforePush=pushStage.indexOf('node scripts/verify-soc-rss-source-truth.cjs');
+  const actualPush=pushStage.indexOf('if git push origin main; then');
+  const rebase=pushStage.indexOf('git pull --rebase origin main');
+  assert.ok(beforePush>0 && actualPush>beforePush && rebase>actualPush,
+    'pre-push RSS check must be inside retry loop and before each GitHub main push');
+  assert.match(pushStage,/node scripts\/assert-publication-ledger\.cjs[\s\S]*node scripts\/verify-soc-rss-source-truth\.cjs[\s\S]*if git push origin main; then/);
+});
+
+test('source RSS verification is a local read: no Cloudflare deployment, Blogger publication or network requests',()=>{
+  const verifier=fs.readFileSync(path.join(ROOT,'scripts/verify-soc-rss-source-truth.cjs'),'utf8');
+  assert.doesNotMatch(verifier, /(?:globalThis\.fetch|https?\.get\(|request\(|spawn\(|exec\(|wrangler|blogger\.googleapis|git\s+push)/i);
+  assert.match(verifier,/PASS_READ_ONLY/);
+});
