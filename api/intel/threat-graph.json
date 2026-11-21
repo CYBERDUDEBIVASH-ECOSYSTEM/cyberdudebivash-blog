@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T08:50:36.240Z",
+  "generated": "2026-11-21T09:47:57.324Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19656,
+    "total_nodes": 19658,
     "actors": 8,
-    "cves": 9513,
-    "campaigns": 3090,
+    "cves": 9514,
+    "campaigns": 3091,
     "malware": 0,
     "iocs": 911,
-    "edges": 5895
+    "edges": 5896
   },
   "nodes": {
     "actor:lockbit": {
@@ -358841,18 +358841,18 @@
     "CVE-2026-129448": {
       "id": "CVE-2026-129448",
       "type": "CVE",
-      "name": "CVE-2026-129448: Apache Roller Deserialization of Untrusted Data Vulnerability — CISA KEV Active Exploitation",
+      "name": "Hackers Exploit Critical VMware, Cisco, and Apache Flaws as Espionage Attacks Emerge",
       "attributes": {
-        "cvss": 0,
+        "cvss": 9.8,
         "threat_level": "HIGH",
-        "priority_score": 79,
+        "priority_score": 71,
         "exploited": true,
-        "cisa_kev": true,
+        "cisa_kev": false,
         "ransomware": false,
-        "vendor": "Apache",
-        "product": "Roller",
-        "published": "2026-11-20",
-        "type": "CVE_REPORT"
+        "vendor": "The Hacker News",
+        "product": "Threat Intelligence",
+        "published": "2026-11-21",
+        "type": "CLOUD_SECURITY"
       },
       "connections": []
     },
@@ -359081,10 +359081,10 @@
       "attributes": {
         "severity": "HIGH",
         "item_count": 1,
-        "first_seen": "2026-11-20",
-        "last_seen": "2026-11-20",
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
         "confidence": 0.9,
-        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-129448 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-129448 | 1 item(s) confirmed exploited in the wild"
       },
       "connections": [
         {
@@ -361067,7 +361067,7 @@
       "attributes": {
         "cvss": 9.8,
         "threat_level": "MEDIUM",
-        "priority_score": 49,
+        "priority_score": 47,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -369573,6 +369573,44 @@
       "connections": [
         {
           "target": "CVE-2026-96991",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-125054": {
+      "id": "CVE-2026-125054",
+      "type": "CVE",
+      "name": "CVE-2026-125054 — Unknown Vendor The SiteOrigin CSS CVSS 7.2 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The SiteOrigin CSS",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-125054": {
+      "id": "campaign:cve-2026-125054",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-125054"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-125054",
           "relationship": "includes",
           "confidence": 1
         }
@@ -422814,6 +422852,15 @@
       "id": "campaign:cve-2026-96991→includes→CVE-2026-96991",
       "source": "campaign:cve-2026-96991",
       "target": "CVE-2026-96991",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-125054→includes→CVE-2026-125054",
+      "source": "campaign:cve-2026-125054",
+      "target": "CVE-2026-125054",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",
