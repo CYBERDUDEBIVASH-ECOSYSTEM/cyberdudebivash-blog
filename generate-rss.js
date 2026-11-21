@@ -222,7 +222,14 @@ function buildRSS(opts) {
   items.sort((a, b) => (b.dateStr > a.dateStr ? 1 : b.dateStr < a.dateStr ? -1 : 0));
 
   const latestItems = items.slice(0, MAX_ITEMS);
-  const lastBuildDate = toRFC822(latestItems[0]?.dateStr || new Date().toISOString().slice(0,10));
+  if (!latestItems.length) {
+    // A successful zero-item rebuild with a new channel date would imply
+    // a fresh intelligence release where no dated evidence exists.
+    // Keep the previous last-known-good RSS bytes instead of fabricating
+    // publication metadata.
+    throw new Error('RSS_NO_ELIGIBLE_DATED_REPORTS');
+  }
+  const lastBuildDate = toRFC822(latestItems[0].dateStr);
 
   console.log(`[RSS Generator] Building feed with ${latestItems.length} item(s)`);
 
