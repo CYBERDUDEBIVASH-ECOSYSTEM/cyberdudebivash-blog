@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T03:23:18.904Z",
+  "generated": "2026-11-21T04:30:39.953Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19624,
+    "total_nodes": 19626,
     "actors": 8,
-    "cves": 9497,
-    "campaigns": 3074,
+    "cves": 9498,
+    "campaigns": 3075,
     "malware": 0,
     "iocs": 911,
-    "edges": 5879
+    "edges": 5880
   },
   "nodes": {
     "actor:lockbit": {
@@ -361307,7 +361307,7 @@
       "attributes": {
         "cvss": 9,
         "threat_level": "MEDIUM",
-        "priority_score": 47,
+        "priority_score": 45,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368969,6 +368969,44 @@
         "type": "CVE_REPORT"
       },
       "connections": []
+    },
+    "CVE-2026-19793": {
+      "id": "CVE-2026-19793",
+      "type": "CVE",
+      "name": "CVE-2026-19793 — Unknown Vendor The WP Import CVSS 8.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.8,
+        "threat_level": "HIGH",
+        "priority_score": 68,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The WP Import",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-19793": {
+      "id": "campaign:cve-2026-19793",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-19793"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-19793",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -422062,6 +422100,15 @@
       "id": "campaign:cve-2026-132275→includes→CVE-2026-132275",
       "source": "campaign:cve-2026-132275",
       "target": "CVE-2026-132275",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-19793→includes→CVE-2026-19793",
+      "source": "campaign:cve-2026-19793",
+      "target": "CVE-2026-19793",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",
