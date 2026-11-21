@@ -425,7 +425,7 @@ def _repair_paid_ctas(soup: BeautifulSoup, context: Any = None) -> bool:
             changed = True
             _RUNTIME["paid_links_repaired"] += 1
         card = anchor.find_parent("article")
-        if card is not None:
+        if card is not None and panel in card.parents:
             small = card.find("small")
             if small and ("₹" in small.get_text() or "$" in small.get_text()):
                 small.string = "CURRENT PRICE AT CHECKOUT"
