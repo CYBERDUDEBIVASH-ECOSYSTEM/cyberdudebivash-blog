@@ -153,3 +153,25 @@ test('committed first-party RSS snapshot does not claim future publication or ma
   // A genuinely observed 12:00 UTC timestamp is permitted. The gate
   // rejects only impossible future dates, not a valid time-of-day.
 });
+
+
+
+test('zero eligible source posts cannot emit a fake fresh feed or overwrite last known-good bytes', t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'rss-empty-release-'));
+  const postsDir = path.join(dir, 'posts');
+  const outputFile = path.join(dir, 'rss.xml');
+  fs.mkdirSync(postsDir);
+  fs.writeFileSync(outputFile, 'PREVIOUS_VALID_SOURCE_RSS', 'utf8');
+  fs.writeFileSync(path.join(postsDir, 'future.html'),
+    page({ title:'Not yet published', date:'2027-01-01' }));
+  t.mock.method(console, 'log', () => {});
+  t.mock.method(console, 'warn', () => {});
+  t.mock.timers.enable({ apis:['Date'], now: Date.parse('2026-11-21T06:00:00Z') });
+  try {
+    assert.throws(() => buildRSS({ postsDir, outputFile }),
+      /RSS_NO_ELIGIBLE_DATED_REPORTS/);
+    assert.equal(fs.readFileSync(outputFile, 'utf8'), 'PREVIOUS_VALID_SOURCE_RSS');
+  } finally {
+    fs.rmSync(dir, { recursive:true, force:true });
+  }
+});
