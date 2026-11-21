@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-20T23:46:56.967Z",
+  "generated": "2026-11-21T01:05:14.783Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19616,
+    "total_nodes": 19623,
     "actors": 8,
-    "cves": 9493,
-    "campaigns": 3071,
+    "cves": 9496,
+    "campaigns": 3074,
     "malware": 0,
     "iocs": 911,
-    "edges": 5876
+    "edges": 5879
   },
   "nodes": {
     "actor:lockbit": {
@@ -300571,7 +300571,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -363551,7 +363551,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -365111,7 +365111,7 @@
       "attributes": {
         "cvss": 8.5,
         "threat_level": "MEDIUM",
-        "priority_score": 47,
+        "priority_score": 45,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -365237,7 +365237,7 @@
       "attributes": {
         "cvss": 7.1,
         "threat_level": "LOW",
-        "priority_score": 41,
+        "priority_score": 39,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -366453,7 +366453,7 @@
       "attributes": {
         "cvss": 9.8,
         "threat_level": "MEDIUM",
-        "priority_score": 51,
+        "priority_score": 49,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -366723,7 +366723,7 @@
       "attributes": {
         "cvss": 5.3,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -366777,7 +366777,7 @@
       "attributes": {
         "cvss": 6.1,
         "threat_level": "LOW",
-        "priority_score": 37,
+        "priority_score": 35,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368175,7 +368175,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -368489,7 +368489,7 @@
       "attributes": {
         "cvss": 7.3,
         "threat_level": "MEDIUM",
-        "priority_score": 62,
+        "priority_score": 60,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368525,7 +368525,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 43,
+        "priority_score": 41,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368599,7 +368599,7 @@
       "attributes": {
         "cvss": 7.8,
         "threat_level": "MEDIUM",
-        "priority_score": 64,
+        "priority_score": 62,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368617,7 +368617,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "MEDIUM",
-        "priority_score": 63,
+        "priority_score": 61,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368635,7 +368635,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "MEDIUM",
-        "priority_score": 63,
+        "priority_score": 61,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368653,7 +368653,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "MEDIUM",
-        "priority_score": 63,
+        "priority_score": 61,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368815,6 +368815,138 @@
       "connections": [
         {
           "target": "CVE-2026-63341",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-122247": {
+      "id": "CVE-2026-122247",
+      "type": "CVE",
+      "name": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (`POST /api/global/users/init`)",
+      "attributes": {
+        "cvss": 8.2,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "npm",
+        "product": "@budibase/server",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-122244": {
+      "id": "CVE-2026-122244",
+      "type": "CVE",
+      "name": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in `jsonFormatter.format()` rendered through `{@html}` in the CSP-less Builder origin",
+      "attributes": {
+        "cvss": 7.7,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "npm",
+        "product": "@budibase/server",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-132275": {
+      "id": "CVE-2026-132275",
+      "type": "CVE",
+      "name": "svglib: Exponential resource consumption via nested <use> references in svg2rlg",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "pip",
+        "product": "svglib",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "KREBSONSECURITY-5e6da20d451a8e45": {
+      "id": "KREBSONSECURITY-5e6da20d451a8e45",
+      "type": "Intel",
+      "name": "CTO of ‘RansomwareHelp’ Indicted for Wire Fraud",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "LOW",
+        "priority_score": 26,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": true,
+        "vendor": "KrebsOnSecurity",
+        "product": "Threat Intelligence",
+        "published": "2026-11-21",
+        "type": "RANSOMWARE"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-122247": {
+      "id": "campaign:cve-2026-122247",
+      "type": "Campaign",
+      "name": "npm @budibase/server Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-122247"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-122247",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-122244": {
+      "id": "campaign:cve-2026-122244",
+      "type": "Campaign",
+      "name": "npm @budibase/server Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-122244"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-122244",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-132275": {
+      "id": "campaign:cve-2026-132275",
+      "type": "Campaign",
+      "name": "pip svglib Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-20",
+        "last_seen": "2026-11-20",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-132275"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-132275",
           "relationship": "includes",
           "confidence": 1
         }
@@ -421888,6 +422020,33 @@
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-20",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-122247→includes→CVE-2026-122247",
+      "source": "campaign:cve-2026-122247",
+      "target": "CVE-2026-122247",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-122244→includes→CVE-2026-122244",
+      "source": "campaign:cve-2026-122244",
+      "target": "CVE-2026-122244",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-132275→includes→CVE-2026-132275",
+      "source": "campaign:cve-2026-132275",
+      "target": "CVE-2026-132275",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
       "sources": []
     }
   ]

@@ -14,7 +14,7 @@
     <copyright>Copyright 2026 CyberDudeBivash. All rights reserved.</copyright>
     <managingEditor>bivash@cyberdudebivash.com (CyberDudeBivash)</managingEditor>
     <webMaster>bivash@cyberdudebivash.com (CyberDudeBivash)</webMaster>
-    <lastBuildDate>Fri, 20 Nov 2026 23:46:57 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 01:05:16 GMT</lastBuildDate>
     <pubDate>Fri, 20 Nov 2026 12:00:00 +0000</pubDate>
     <ttl>60</ttl>
     <category>Cybersecurity</category>
@@ -31,7 +31,43 @@
       <height>144</height>
     </image>
 
-      <item>
+        <item>
+    <title><![CDATA[Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (`POST /api/global/users/init`)]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-122247-npm-budibase-server.html</link>
+    <description><![CDATA[Platform triage priority 63/100 (MEDIUM) — CVSS 8.2 — ## Description ### Summary On a self-hosted, single-tenant Budibase instance (`multiTenancy:false`), the public bootstrap endpoint `POST /api/global/users/init` remains fully exploitable **after** the instance has been provisioned. Its "already initialised" guard (`checkAnyUserExists()`) is evaluate — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-122247-npm-budibase-server.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in `jsonFormatter.format()` rendered through `{@html}` in the CSP-less Builder origin]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-122244-npm-budibase-server.html</link>
+    <description><![CDATA[Platform triage priority 61/100 (MEDIUM) — CVSS 7.7 — ## Description ### Summary A **low-privileged application end-user** (role `BASIC` - **not** a builder or admin, and on a public data-collection form, an unauthenticated visitor) can store an HTML/JavaScript payload in ordinary row data. When a **builder or admin** later opens that table in the Budi — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-122244-npm-budibase-server.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[svglib: Exponential resource consumption via nested <use> references in svg2rlg]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-132275-pip-svglib.html</link>
+    <description><![CDATA[Platform triage priority 61/100 (MEDIUM) — CVSS 7.5 — # Summary `svg2rlg()` expands ` ` references without any limit on the total number of expansions. Only direct cycles are rejected (`CircularRefError`). A group containing N ` ` elements that point to another such group multiplies the work by N per nesting level, so an SVG of about 1.4 KB makes svgli — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-132275-pip-svglib.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CTO of ‘RansomwareHelp’ Indicted for Wire Fraud]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cto-of-ransomwarehelp-indicted-for-wire-fraud.html</link>
+    <description><![CDATA[Platform triage priority 26/100 (LOW) — The chief technology officer and co-founder of ransomwarehelp.com, a six year old Florida business that claimed to use "advanced cryptographic tools" to restore data locked by ransomware, has been charged with wire fraud after an FBI sting operation found the company was simply paying the attackers  — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cto-of-ransomwarehelp-indicted-for-wire-fraud.html</guid>
+    <category>Threat Intelligence</category>
+    <category>RANSOMWARE</category>
+  </item>
+  <item>
     <title><![CDATA[AIT-GUI route chain allows unauthenticated Python execution in server process]]></title>
     <link>https://blog.cyberdudebivash.in/posts/cve-2026-77309-pip-ait-gui.html</link>
     <description><![CDATA[Platform triage priority 66/100 (HIGH) — CVSS 8.8 — ## Summary A security issue exists where unauthenticated callers can instruct the AIT-GUI server to execute arbitrary Python scripts. The attack vector involves obtaining a session cookie through GET /, followed by a malicious POST /script/run request containing an absolute file path that bypasses t — See the linked source report for evidence and any available detection guidance.]]></description>
