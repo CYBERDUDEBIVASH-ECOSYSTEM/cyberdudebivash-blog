@@ -752,3 +752,57 @@ test('P0 baseline monitoring has no auto deploy and cannot mark production certi
   assert.match(source,/last manual production certification failed/);
   assert.doesNotMatch(source,/createWorkflowDispatch|wrangler deploy|\/dispatches/);
 });
+
+
+
+test('P0 Nov21 full-tree drift: exactly 21 inspected CTI/Blog/receipt paths are operational, never deploy-approved',()=>{
+  const exact=[
+    'automation/astra_cash_conversion_v19.py',
+    'automation/astra_revenue_intelligence_v18.py',
+    'automation/authority_transformer.py',
+    'automation/blogger_public_delivery_gate.py',
+    'automation/content_discovery.py',
+    'automation/cti_integrity_revenue_v19_1.py',
+    'automation/premium_evidence_compiler.py',
+    'automation/report_renderer.py',
+    'automation/source_delivery_guard.py',
+    'automation/source_evidence_hydrator.py',
+    'automation/tests/test_astra_cash_conversion_v19.py',
+    'automation/tests/test_astra_revenue_intelligence_v18.py',
+    'automation/tests/test_cti_integrity_revenue_v19_1.py',
+    'automation/tests/test_source_evidence_hydrator.py',
+    'blogger-theme/cyberbivash-v22-FINAL.xml',
+    'blogger-theme/cyberbivash-v22-part1.xml',
+    'blogger-theme/cyberbivash-v22-part2.xml',
+    'blogger-theme/cyberbivash-v23-FINAL.xml',
+    'blogger-theme/cyberbivash-v24-TRUST.xml',
+    'scripts/certify-soc-cti-source-handoff.cjs',
+    'scripts/verify-soc-rss-source-truth.cjs',
+  ];
+  assert.equal(exact.length,21,'do not silently broaden reviewed class');
+  for(const file of exact){
+    assert.equal(fs.existsSync(path.join(root,file)),true,file);
+    assert.equal(isReviewedOperationalPath(file),true,file);
+  }
+  const result=classify(compare(exact),BASE,HEAD,paths);
+  assert.equal(result.state,'manual_release_required');
+  assert.deepEqual(result.unknown,[]);
+  assert.deepEqual(result.benign,[],'customer publishing control sources are never safe documentation');
+  assert.equal(result.production.length+result.operational.length,21);
+  assert.match(renderDriftSummary(HEAD,BASE,result),/Manual release and independent postdeploy certification required/);
+  assert.doesNotMatch(renderDriftSummary(HEAD,BASE,result),/decision: \*\*no_drift\*\*/);
+  // An entire unreviewed directory, renamed source, or future control stays blocked.
+  const neighbors=[
+    'automation/astra_cash_conversion_v20.py',
+    'automation/tests/test_secret_bypass.py',
+    'blogger-theme/cyberbivash-v25-UNKNOWN.xml',
+    'scripts/verify-soc-rss-source-truth-v2.cjs',
+  ];
+  for(const unknown of neighbors){
+    assert.equal(isReviewedOperationalPath(unknown),false,unknown);
+    const blocked=classify(compare([...exact,unknown]),BASE,HEAD,paths);
+    assert.equal(blocked.state,'blocked',unknown);
+    assert.deepEqual(blocked.unknown,[unknown]);
+    assert.ok(blocked.production.length+blocked.operational.length>=21);
+  }
+});
