@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T16:45:20.870Z",
+  "generated": "2026-11-21T17:42:55.206Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,8 +8,55 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 101,
+  "count": 102,
   "items": [
+    {
+      "id": "CVE-2026-133985",
+      "title": "CVE-2026-133985 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "description": "A flaw has been found in TRENDnet TEW-657BRM 1.00.1. Affected by this issue is some unknown functionality of the file /usr/sbin/restore_config.cgi. Executing a manipulation can lead to out-of-bounds read. The attack may be launched remotely. The exploit has been published and may be used. The vendor",
+      "cvss": 8.8,
+      "final_ps": 62,
+      "quality_score": 0.52,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/ruanyi101/router-firmware-security-advisories/blob/main/router-firmware-GitHub-advisories/advisories/TRENDnet-TEW-657BRM-restore_config-cgi.md",
+        "https://vuldb.com/cve/CVE-2026-133985",
+        "https://vuldb.com/submit/1052043",
+        "https://vuldb.com/vuln/441575"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.520"
+        ],
+        "priority": [
+          "base_ps=62 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
     {
       "id": "CVE-2026-133983",
       "title": "CVE-2026-133983 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
@@ -3215,6 +3262,51 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-134292",
+      "title": "CVE-2026-134292 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/surrealdb/surrealdb/security/advisories/GHSA-5w6j-qm42-4rc2",
+        "https://www.vulncheck.com/advisories/surrealdb-1.0.0-before-4.0.0-function-capability-bypass-via-javascript-built-in-bridge"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-76466",
       "title": "CVE-2026-76466: Cisco Expressway Series Use of Hard-coded Credentials Vulnerability — CISA KEV Active Exploitation",
       "description": "",
@@ -3999,572 +4091,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-116518",
-      "title": "CVE-2026-116518 — Unknown Vendor The ElasticPress plugin CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The ElasticPress plugin",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/elasticpress/tags/5.3.5/assets/js/status-report/components/reports/report/value.js#L32",
-        "https://plugins.trac.wordpress.org/browser/elasticpress/tags/5.3.5/includes/classes/Indexable/Post/Post.php#L1218",
-        "https://plugins.trac.wordpress.org/browser/elasticpress/tags/5.3.5/includes/classes/QueryLogger.php#L312",
-        "https://plugins.trac.wordpress.org/browser/elasticpress/tags/5.3.5/includes/classes/StatusReport/FailedQueries.php#L165"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-124976",
-      "title": "CVE-2026-124976 — Unknown Vendor The Swift Performance CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Swift Performance",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/swift-performance-lite/trunk/includes/cache-status/ajax-cache-status.php#L48",
-        "https://plugins.trac.wordpress.org/browser/swift-performance-lite/trunk/includes/cache-status/ajax-cache-status.php#L68",
-        "https://plugins.trac.wordpress.org/browser/swift-performance-lite/trunk/includes/classes/class.ajax.php#L531",
-        "https://plugins.trac.wordpress.org/browser/swift-performance-lite/trunk/modules/cache/cache.php#L557"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-130323",
-      "title": "CVE-2026-130323 — Unknown Vendor The Accept Stripe CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Accept Stripe",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/stripe-payments/tags/2.1.4/includes/class-asp.php#L636",
-        "https://plugins.trac.wordpress.org/browser/stripe-payments/tags/2.1.4/public/assets/js/stripe-handler-ng.js#L156",
-        "https://plugins.trac.wordpress.org/browser/stripe-payments/tags/2.1.4/public/assets/js/stripe-handler-ng.js#L178",
-        "https://plugins.trac.wordpress.org/browser/stripe-payments/tags/2.1.4/public/assets/js/stripe-handler-ng.js#L207"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-120736",
-      "title": "CVE-2026-120736 — Unknown Vendor The AutomatorWP – CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The AutomatorWP –",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/includes/custom-tables/logs.php#L715",
-        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/integrations/contact-form-7/includes/functions.php#L148",
-        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/integrations/contact-form-7/includes/triggers/anonymous-submit-form.php#L97",
-        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/integrations/wordpress/actions/send-email.php#L207"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-120745",
-      "title": "CVE-2026-120745 — Unknown Vendor The Paid Membership CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Paid Membership",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/wp-user-avatar/tags/4.17.7/assets/js/member-directory.js#L49",
-        "https://plugins.trac.wordpress.org/browser/wp-user-avatar/tags/4.17.7/src/Classes/RegistrationAuth.php#L198",
-        "https://plugins.trac.wordpress.org/browser/wp-user-avatar/tags/4.17.7/src/ShortcodeParser/Builder/FrontendProfileBuilder.php#L342",
-        "https://plugins.trac.wordpress.org/changeset/3798748/wp-user-avatar/trunk/src/ShortcodeParser/Builder/FrontendProfileBuilder.php"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-123830",
-      "title": "CVE-2026-123830 — Unknown Vendor The wpForo Forum CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The wpForo Forum",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/wpforo/tags/3.2.4/admin/listtables/Members.php#L69",
-        "https://plugins.trac.wordpress.org/browser/wpforo/tags/3.2.4/classes/Members.php#L972",
-        "https://plugins.trac.wordpress.org/browser/wpforo/tags/3.2.4/includes/hooks.php#L2251",
-        "https://plugins.trac.wordpress.org/changeset?reponame=&new=3801437%40wpforo%2Ftags%2F3.2.5&old=3779698%40wpforo%2Ftags%2F3.2.4"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-124216",
-      "title": "CVE-2026-124216 — Unknown Vendor The Orphans plugin CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Orphans plugin",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/iworks/sierotki/releases/tag/3.4.6",
-        "https://plugins.trac.wordpress.org/browser/sierotki/tags/3.4.5/includes/iworks/class-iworks-orphan.php#L266",
-        "https://plugins.trac.wordpress.org/browser/sierotki/tags/3.4.5/includes/iworks/class-iworks-orphan.php#L484",
-        "https://plugins.trac.wordpress.org/browser/sierotki/tags/3.4.5/includes/iworks/class-iworks-orphan.php#L502"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-107632",
-      "title": "CVE-2026-107632 — Unknown Vendor The Unbounce Landing CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Unbounce Landing",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/UBHTTP.php#L285",
-        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/UBHTTP.php#L482",
-        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/Unbounce-Page.php#L151",
-        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/Unbounce-Page.php#L57"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-118049",
-      "title": "CVE-2026-118049 — Unknown Vendor The Tutor LMS CVSS 8.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 8.1,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Tutor LMS",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Q_And_A.php#L292",
-        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Q_And_A.php#L322",
-        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Utils.php#L7657",
-        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Utils.php#L7762"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-125054",
-      "title": "CVE-2026-125054 — Unknown Vendor The SiteOrigin CSS CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The SiteOrigin CSS",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/siteorigin/so-css/compare/1.6.9...1.6.10",
-        "https://plugins.trac.wordpress.org/browser/so-css/tags/1.6.9/js/inspector.js#L200",
-        "https://plugins.trac.wordpress.org/browser/so-css/tags/1.6.9/js/inspector.js#L419",
-        "https://plugins.trac.wordpress.org/browser/so-css/tags/1.6.9/js/inspector.js#L541"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-107654",
-      "title": "CVE-2026-107654 — Unknown Vendor The One to CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The One to",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://downloads.wordpress.org/plugin/wpguppy-lite.1.1.7.zip",
-        "https://plugins.trac.wordpress.org/browser/wpguppy-lite/trunk/includes/class-wp-guppy-model.php#L253",
-        "https://plugins.trac.wordpress.org/browser/wpguppy-lite/trunk/includes/class-wp-guppy-rest-api.php#L1785",
-        "https://plugins.trac.wordpress.org/browser/wpguppy-lite/trunk/includes/class-wp-guppy-rest-api.php#L401"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-119114",
-      "title": "CVE-2026-119114 — Unknown Vendor The WP Fastest CVSS 7.4 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.4,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The WP Fastest",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/wp-fastest-cache/tags/1.5.3/wpFastestCache.php#L1389",
-        "https://plugins.trac.wordpress.org/browser/wp-fastest-cache/tags/1.5.3/wpFastestCache.php#L1501",
-        "https://plugins.trac.wordpress.org/browser/wp-fastest-cache/tags/1.5.3/wpFastestCache.php#L1517",
-        "https://plugins.trac.wordpress.org/browser/wp-fastest-cache/tags/1.5.3/wpFastestCache.php#L1627"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-133985",
-      "title": "CVE-2026-133985 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "id": "CVE-2026-134253",
+      "title": "CVE-2026-134253 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
       "description": "",
       "cvss": 8.8,
       "final_ps": 19,
@@ -4587,10 +4115,8 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/ruanyi101/router-firmware-security-advisories/blob/main/router-firmware-GitHub-advisories/advisories/TRENDnet-TEW-657BRM-restore_config-cgi.md",
-        "https://vuldb.com/cve/CVE-2026-133985",
-        "https://vuldb.com/submit/1052043",
-        "https://vuldb.com/vuln/441575"
+        "https://github.com/getgrav/grav/security/advisories/GHSA-3rqp-8h7g-xxv8",
+        "https://www.vulncheck.com/advisories/grav-api-plugin-1.0.0-before-1.1.4-rce-via-blueprint-upload-theme-template-write"
       ],
       "explanation": {
         "quality": [
@@ -4610,43 +4136,542 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-114025",
-      "title": "CVE-2026-114025 - Apple iOS, iPadOS, macOS, and tvOS Out-of-Bounds Write Vulnerability",
+      "id": "CVE-2026-134258",
+      "title": "CVE-2026-134258 — Affected software (product not identified) CVSS 8.7 High Severity Vulnerability",
       "description": "",
-      "cvss": 5.3,
-      "final_ps": 16,
-      "quality_score": 0.398,
+      "cvss": 8.7,
+      "final_ps": 19,
+      "quality_score": 0.465,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "sentinel_apex",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "sentinel_apex"
+        "nvd"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "",
       "product": "",
       "due_date": null,
-      "cves": [
-        "CVE-2026-114025"
-      ],
+      "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-114025"
+        "https://github.com/Admidio/admidio/security/advisories/GHSA-gp7m-9622-gcw9",
+        "https://www.vulncheck.com/advisories/admidio-5.0.0-before-5.0.18-path-traversal-to-stored-xss-via-file-rename"
       ],
       "explanation": {
         "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.398"
+          "QS=0.465"
         ],
         "priority": [
-          "base_ps=16 (no boosts)"
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134250",
+      "title": "CVE-2026-134250 — Affected software (product not identified) CVSS 8 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/getgrav/grav/security/advisories/GHSA-2vpw-p335-mmmp",
+        "https://www.vulncheck.com/advisories/grav-form-plugin-1.1.0-before-9.1.40-stored-xss-via-unsanitized-file-uploads"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134262",
+      "title": "CVE-2026-134262 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Admidio/admidio/security/advisories/GHSA-v28h-h5qh-45hr",
+        "https://www.vulncheck.com/advisories/admidio-5.0.0-before-5.0.18-stored-xss-via-role-name-in-profile-view"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134282",
+      "title": "CVE-2026-134282 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-fppf-ghrf-8wp7",
+        "https://www.vulncheck.com/advisories/vikunja-0.14.0-before-2.8.0-arbitrary-file-read-and-privilege-escalation-via-xml-binding"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134245",
+      "title": "CVE-2026-134245 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/siyuan-note/siyuan/commit/76bbb54d0e23cf27b789376826d982a616c79488",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-xxqp-6jxw-qr84",
+        "https://www.vulncheck.com/advisories/siyuan-3.8.0-before-3.8.10-incorrect-authorization-via-assets-cross-document-asset-collision"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134246",
+      "title": "CVE-2026-134246 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/siyuan-note/siyuan/commit/0432ef213d112e5ace886963f8e57fdf348c76c5",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-vmvr-gf8m-x483",
+        "https://www.vulncheck.com/advisories/siyuan-3.6.0-before-3.6.2-and-3.7.3-before-3.8.10-missing-authorization-in-getdomtext-exposes-cached-ocr-text"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134247",
+      "title": "CVE-2026-134247 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/siyuan-note/siyuan/commit/9a087492f1d3aeb97c22db156ed27769ebc87ac8",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-q2x4-crw5-q567",
+        "https://www.vulncheck.com/advisories/siyuan-3.8.0-before-3.8.10-incorrect-authorization-exposes-asset-text-via-getassetcontentbypath"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134248",
+      "title": "CVE-2026-134248 — Affected software (product not identified) CVSS 7.7 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.7,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/siyuan-note/siyuan/commit/7b70b90a5ec49b13f81b5f2779f57a7fdf53dd57",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-qwg4-fj37-jjqq",
+        "https://www.vulncheck.com/advisories/siyuan-3.6.0-before-3.8.10-information-disclosure-via-copystdmarkdown-block-references"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134249",
+      "title": "CVE-2026-134249 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/siyuan-note/siyuan/commit/f951019168faf035b36c98f8e672719d511881ac",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-gmcm-mggw-8759",
+        "https://www.vulncheck.com/advisories/siyuan-before-3.8.10-authentication-bypass-via-x-forwarded-for-on-history-route"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134284",
+      "title": "CVE-2026-134284 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-8pm4-w983-mx58",
+        "https://www.vulncheck.com/advisories/vikunja-from-1.0.0-before-2.8.0-account-takeover-via-oidc-email-fallback"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134254",
+      "title": "CVE-2026-134254 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Admidio/admidio/security/advisories/GHSA-4fqv-v627-2ggm",
+        "https://www.vulncheck.com/advisories/admidio-5.0.0-before-5.0.18-path-traversal-via-documents-files-rename"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134268",
+      "title": "CVE-2026-134268 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-fqwr-p5xj-xx36",
+        "https://www.vulncheck.com/advisories/vikunja-0.21.0-before-2.8.0-denial-of-service-via-project-position-recalculation"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
         ],
         "suppression": null,
         "merge": null
