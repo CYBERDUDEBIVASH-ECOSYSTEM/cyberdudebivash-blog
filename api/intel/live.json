@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T14:51:35.923Z",
+  "generated": "2026-11-21T15:45:34.752Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,11 +7,11 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8045,
+  "total_published": 8046,
   "s2n_stats": {
     "passed": 97,
     "suppressed": 3,
-    "avg_qs": 0.506
+    "avg_qs": 0.504
   },
   "items": [
     {
@@ -4323,12 +4323,12 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-118061",
-      "title": "CVE-2026-118061 — Unknown Vendor The VikBooking Hotel CVSS 7.2 High Severity Vulnerability",
-      "description": "The VikBooking Hotel Booking Engine & PMS plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'inquiry (array keys)' parameter in all versions up to, and including, 1.8.20 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated att",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
+      "id": "CVE-2026-133983",
+      "title": "CVE-2026-133983 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "description": "A vulnerability was detected in eigent-ai eigent up to 1.0.2. Affected by this vulnerability is an unknown functionality of the file backend/app/controller/chat_controller.py of the component Local Agent Control API. Performing a manipulation results in missing authentication. The attack may be init",
+      "cvss": 7.3,
+      "final_ps": 19,
+      "quality_score": 0.465,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
       "source": "nvd",
@@ -4341,26 +4341,26 @@
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The VikBooking Hotel",
+      "vendor": "",
+      "product": "",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/vikbooking/tags/1.8.16/admin/helpers/availability.php#L2190",
-        "https://plugins.trac.wordpress.org/browser/vikbooking/tags/1.8.16/admin/views/editorder/tmpl/default.php#L1435",
-        "https://plugins.trac.wordpress.org/browser/vikbooking/tags/1.8.16/site/controller.php#L4598",
-        "https://plugins.trac.wordpress.org/browser/vikbooking/tags/1.8.16/site/controller.php#L4674"
+        "https://github.com/eigent-ai/eigent/",
+        "https://github.com/eigent-ai/eigent/commit/59f43afcb1b0ba7b2de8c65d585124f196c4aa17",
+        "https://github.com/eigent-ai/eigent/pull/1842",
+        "https://github.com/eigent-ai/eigent/releases/tag/v1.0.3"
       ],
       "explanation": {
         "quality": [
           "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
+          "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.465"
         ],
         "priority": [
-          "base_ps=21 (no boosts)"
+          "base_ps=19 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4369,44 +4369,43 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-119061",
-      "title": "CVE-2026-119061 — Unknown Vendor The VikBooking Hotel CVSS 7.2 High Severity Vulnerability",
-      "description": "The VikBooking Hotel Booking Engine & PMS plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'vbf<field_id>' parameter in all versions up to, and including, 1.8.20 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers ",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
+      "id": "CVE-2026-113955",
+      "title": "CVE-2026-113955 - Apple iOS and iPadOS Cross-Origin Information Disclosure Vulnerability",
+      "description": "CVE-2026-113955 - Apple iOS and iPadOS Cross-Origin Information Disclosure Vulnerability",
+      "cvss": 5.3,
+      "final_ps": 16,
+      "quality_score": 0.398,
+      "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The VikBooking Hotel",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-113955"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/vikbooking/tags/1.8.20/admin/views/orders/tmpl/default.php#L602",
-        "https://plugins.trac.wordpress.org/browser/vikbooking/tags/1.8.20/site/controller.php#L1098",
-        "https://plugins.trac.wordpress.org/browser/vikbooking/tags/1.8.20/site/controller.php#L304",
-        "https://plugins.trac.wordpress.org/browser/vikbooking/tags/1.8.20/site/views/booking/tmpl/default.php#L396"
+        "https://cvefeed.io/vuln/detail/CVE-2026-113955"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.25",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.398"
         ],
         "priority": [
-          "base_ps=21 (no boosts)"
+          "base_ps=16 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4415,5 +4414,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-21T14:51:36.326Z"
+  "lastReportGeneratedAt": "2026-11-21T15:45:34.853Z"
 }
