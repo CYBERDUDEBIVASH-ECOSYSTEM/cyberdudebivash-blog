@@ -338,6 +338,14 @@ jobs:
             fi
           done
 
+      # A successful Blogger API write is not equivalent to customer-visible
+      # delivery. Inspect each new public permalink and its exact ID in the
+      # public feed after ledger persistence; never retry Blogger writes here.
+      # Read-only, bounded GETs; no additional schedule or paid service.
+      - name: "P0 certify new Blogger public permalink and feed delivery"
+        if: ${{ always() && steps.syndication_pipeline.outcome == 'success' && (github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != 'true') }}
+        run: python -m automation.blogger_public_delivery_gate --logs-dir logs --marker .current-syndication-start
+
       - name: "📊 Pipeline Summary"
         if: always()
         run: |
