@@ -35,6 +35,7 @@ from .publication_scheduler import (
 from .publication_verifier import fetch_back_and_verify
 from .editorial_quarantine import editorial_quarantine_reason
 from .report_integrity import PublicationIntegrityError, compute_artifact_hash
+from .source_delivery_guard import verify_public_first_party_source
 from .search_console_submitter import SearchConsoleSubmitter
 from .social_amplifier import SocialAmplifier
 from .source_evidence_hydrator import hydrate_selected_article, telemetry_snapshot as source_hydration_telemetry
@@ -204,6 +205,7 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
         "requeued": 0,
         "integrity_blocked": 0,
         "fetch_back_discrepancies": 0,
+        "source_delivery_blocked": 0,
         "publish_target": max(0, int(config.max_posts_per_run or 0)),
         "publication_attempt_limit": _publication_attempt_limit(config.max_posts_per_run),
         "backfill_selected": 0,
@@ -434,6 +436,16 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
         }
 
         try:
+            # P0: a local first-party RSS source is not proof its SOC URL
+            # is actually deployed. Fail closed before any Blogger write;
+            # retain the existing bounded backfill of other eligible sources.
+            delivery_reason = verify_public_first_party_source(article)
+            if delivery_reason:
+                report["source_delivery_blocked"] += 1
+                raise PublicationIntegrityError([
+                    f"first-party SOC public source not deliverable: {delivery_reason}"
+                ])
+
             # P0 source-depth recovery: only the finite selected global-RSS
             # candidate set is eligible. This may replace a short feed excerpt
             # with a richer capture from the exact publisher article URL; it
