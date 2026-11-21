@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T15:45:34.752Z",
+  "generated": "2026-11-21T16:45:20.870Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,8 +8,55 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 100,
+  "count": 101,
   "items": [
+    {
+      "id": "CVE-2026-133983",
+      "title": "CVE-2026-133983 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "description": "A vulnerability was detected in eigent-ai eigent up to 1.0.2. Affected by this vulnerability is an unknown functionality of the file backend/app/controller/chat_controller.py of the component Local Agent Control API. Performing a manipulation results in missing authentication. The attack may be init",
+      "cvss": 7.3,
+      "final_ps": 58,
+      "quality_score": 0.52,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/eigent-ai/eigent/",
+        "https://github.com/eigent-ai/eigent/commit/59f43afcb1b0ba7b2de8c65d585124f196c4aa17",
+        "https://github.com/eigent-ai/eigent/pull/1842",
+        "https://github.com/eigent-ai/eigent/releases/tag/v1.0.3"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.520"
+        ],
+        "priority": [
+          "base_ps=58 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
     {
       "id": "CVE-2026-50522",
       "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public PoC",
@@ -4516,10 +4563,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-133983",
-      "title": "CVE-2026-133983 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "id": "CVE-2026-133985",
+      "title": "CVE-2026-133985 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.3,
+      "cvss": 8.8,
       "final_ps": 19,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -4540,10 +4587,10 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/eigent-ai/eigent/",
-        "https://github.com/eigent-ai/eigent/commit/59f43afcb1b0ba7b2de8c65d585124f196c4aa17",
-        "https://github.com/eigent-ai/eigent/pull/1842",
-        "https://github.com/eigent-ai/eigent/releases/tag/v1.0.3"
+        "https://github.com/ruanyi101/router-firmware-security-advisories/blob/main/router-firmware-GitHub-advisories/advisories/TRENDnet-TEW-657BRM-restore_config-cgi.md",
+        "https://vuldb.com/cve/CVE-2026-133985",
+        "https://vuldb.com/submit/1052043",
+        "https://vuldb.com/vuln/441575"
       ],
       "explanation": {
         "quality": [
@@ -4563,8 +4610,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-113955",
-      "title": "CVE-2026-113955 - Apple iOS and iPadOS Cross-Origin Information Disclosure Vulnerability",
+      "id": "CVE-2026-114025",
+      "title": "CVE-2026-114025 - Apple iOS, iPadOS, macOS, and tvOS Out-of-Bounds Write Vulnerability",
       "description": "",
       "cvss": 5.3,
       "final_ps": 16,
@@ -4585,11 +4632,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-113955"
+        "CVE-2026-114025"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-113955"
+        "https://cvefeed.io/vuln/detail/CVE-2026-114025"
       ],
       "explanation": {
         "quality": [

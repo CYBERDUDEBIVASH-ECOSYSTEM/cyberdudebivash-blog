@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T15:45:34.552Z",
+  "generated": "2026-11-21T16:45:20.704Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19694,
+    "total_nodes": 19696,
     "actors": 8,
-    "cves": 9532,
-    "campaigns": 3109,
+    "cves": 9533,
+    "campaigns": 3110,
     "malware": 0,
     "iocs": 911,
-    "edges": 5914
+    "edges": 5915
   },
   "nodes": {
     "actor:lockbit": {
@@ -370299,6 +370299,44 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-133985": {
+      "id": "CVE-2026-133985",
+      "type": "CVE",
+      "name": "CVE-2026-133985 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.8,
+        "threat_level": "HIGH",
+        "priority_score": 68,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-133985": {
+      "id": "campaign:cve-2026-133985",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133985"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133985",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -423707,6 +423745,15 @@
       "id": "campaign:cve-2026-133983→includes→CVE-2026-133983",
       "source": "campaign:cve-2026-133983",
       "target": "CVE-2026-133983",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133985→includes→CVE-2026-133985",
+      "source": "campaign:cve-2026-133985",
+      "target": "CVE-2026-133985",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",
