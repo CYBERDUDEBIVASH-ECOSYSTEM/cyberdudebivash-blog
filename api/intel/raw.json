@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T17:42:55.206Z",
+  "generated": "2026-11-21T18:44:54.761Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,14 +8,14 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 102,
+  "count": 103,
   "items": [
     {
-      "id": "CVE-2026-133985",
-      "title": "CVE-2026-133985 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
-      "description": "A flaw has been found in TRENDnet TEW-657BRM 1.00.1. Affected by this issue is some unknown functionality of the file /usr/sbin/restore_config.cgi. Executing a manipulation can lead to out-of-bounds read. The attack may be launched remotely. The exploit has been published and may be used. The vendor",
-      "cvss": 8.8,
-      "final_ps": 62,
+      "id": "CVE-2026-134248",
+      "title": "CVE-2026-134248 — Affected software (product not identified) CVSS 7.7 High Severity Vulnerability",
+      "description": "SiYuan 3.6.0 before 3.8.10 contains an information disclosure vulnerability that allows authenticated Readers to read protected documents through block-reference footnote resolution in Markdown export. Attackers can request copyStdMarkdown for a public document referencing a hidden, disabled, or pas",
+      "cvss": 7.7,
+      "final_ps": 59,
       "quality_score": 0.52,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
@@ -35,10 +35,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/ruanyi101/router-firmware-security-advisories/blob/main/router-firmware-GitHub-advisories/advisories/TRENDnet-TEW-657BRM-restore_config-cgi.md",
-        "https://vuldb.com/cve/CVE-2026-133985",
-        "https://vuldb.com/submit/1052043",
-        "https://vuldb.com/vuln/441575"
+        "https://github.com/siyuan-note/siyuan/commit/7b70b90a5ec49b13f81b5f2779f57a7fdf53dd57",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-qwg4-fj37-jjqq",
+        "https://www.vulncheck.com/advisories/siyuan-3.6.0-before-3.8.10-information-disclosure-via-copystdmarkdown-block-references"
       ],
       "explanation": {
         "quality": [
@@ -48,7 +47,7 @@
           "QS=0.520"
         ],
         "priority": [
-          "base_ps=62 (no boosts)"
+          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -58,11 +57,11 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-133983",
-      "title": "CVE-2026-133983 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
-      "description": "A vulnerability was detected in eigent-ai eigent up to 1.0.2. Affected by this vulnerability is an unknown functionality of the file backend/app/controller/chat_controller.py of the component Local Agent Control API. Performing a manipulation results in missing authentication. The attack may be init",
-      "cvss": 7.3,
-      "final_ps": 58,
+      "id": "CVE-2026-134249",
+      "title": "CVE-2026-134249 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "SiYuan before 3.8.10 contains an authentication bypass vulnerability that allows unauthenticated attackers to gain Administrator role by spoofing X-Forwarded-For through a loopback-trusted reverse proxy. Attackers can send requests with Host set to localhost and X-Forwarded-For set to 127.0.0.1 to r",
+      "cvss": 7.5,
+      "final_ps": 59,
       "quality_score": 0.52,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
@@ -82,10 +81,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/eigent-ai/eigent/",
-        "https://github.com/eigent-ai/eigent/commit/59f43afcb1b0ba7b2de8c65d585124f196c4aa17",
-        "https://github.com/eigent-ai/eigent/pull/1842",
-        "https://github.com/eigent-ai/eigent/releases/tag/v1.0.3"
+        "https://github.com/siyuan-note/siyuan/commit/f951019168faf035b36c98f8e672719d511881ac",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-gmcm-mggw-8759",
+        "https://www.vulncheck.com/advisories/siyuan-before-3.8.10-authentication-bypass-via-x-forwarded-for-on-history-route"
       ],
       "explanation": {
         "quality": [
@@ -95,7 +93,52 @@
           "QS=0.520"
         ],
         "priority": [
-          "base_ps=58 (no boosts)"
+          "base_ps=59 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134284",
+      "title": "CVE-2026-134284 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "Vikunja from 1.0.0 before 2.8.0 contains an account takeover vulnerability that allows attackers to hijack SSO identities by planting local accounts with unverified victim emails. When emailfallback is enabled, attackers register or edit a local account using the victim's email, causing the victim's",
+      "cvss": 7.5,
+      "final_ps": 59,
+      "quality_score": 0.52,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-8pm4-w983-mx58",
+        "https://www.vulncheck.com/advisories/vikunja-from-1.0.0-before-2.8.0-account-takeover-via-oidc-email-fallback"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.520"
+        ],
+        "priority": [
+          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -3262,6 +3305,53 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-133993",
+      "title": "CVE-2026-133993 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
+      "description": "",
+      "cvss": 10,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/ruanyi101/router-firmware-security-advisories/blob/main/router-firmware-GitHub-advisories/related-findings/D-Link-DIR-600L-gena-cgi-stack-overflow-review.md",
+        "https://vuldb.com/cve/CVE-2026-133993",
+        "https://vuldb.com/submit/1052046",
+        "https://vuldb.com/vuln/441598"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-134292",
       "title": "CVE-2026-134292 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
       "description": "",
@@ -4091,6 +4181,190 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-134254",
+      "title": "CVE-2026-134254 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Admidio/admidio/security/advisories/GHSA-4fqv-v627-2ggm",
+        "https://www.vulncheck.com/advisories/admidio-5.0.0-before-5.0.18-path-traversal-via-documents-files-rename"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134268",
+      "title": "CVE-2026-134268 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-fqwr-p5xj-xx36",
+        "https://www.vulncheck.com/advisories/vikunja-0.21.0-before-2.8.0-denial-of-service-via-project-position-recalculation"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-133985",
+      "title": "CVE-2026-133985 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.8,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/ruanyi101/router-firmware-security-advisories/blob/main/router-firmware-GitHub-advisories/advisories/TRENDnet-TEW-657BRM-restore_config-cgi.md",
+        "https://vuldb.com/cve/CVE-2026-133985",
+        "https://vuldb.com/submit/1052043",
+        "https://vuldb.com/vuln/441575"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-133983",
+      "title": "CVE-2026-133983 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.3,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/eigent-ai/eigent/",
+        "https://github.com/eigent-ai/eigent/commit/59f43afcb1b0ba7b2de8c65d585124f196c4aa17",
+        "https://github.com/eigent-ai/eigent/pull/1842",
+        "https://github.com/eigent-ai/eigent/releases/tag/v1.0.3"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-134253",
       "title": "CVE-2026-134253 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
       "description": "",
@@ -4435,233 +4709,6 @@
         "https://github.com/siyuan-note/siyuan/commit/9a087492f1d3aeb97c22db156ed27769ebc87ac8",
         "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-q2x4-crw5-q567",
         "https://www.vulncheck.com/advisories/siyuan-3.8.0-before-3.8.10-incorrect-authorization-exposes-asset-text-via-getassetcontentbypath"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134248",
-      "title": "CVE-2026-134248 — Affected software (product not identified) CVSS 7.7 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.7,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/siyuan-note/siyuan/commit/7b70b90a5ec49b13f81b5f2779f57a7fdf53dd57",
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-qwg4-fj37-jjqq",
-        "https://www.vulncheck.com/advisories/siyuan-3.6.0-before-3.8.10-information-disclosure-via-copystdmarkdown-block-references"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134249",
-      "title": "CVE-2026-134249 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/siyuan-note/siyuan/commit/f951019168faf035b36c98f8e672719d511881ac",
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-gmcm-mggw-8759",
-        "https://www.vulncheck.com/advisories/siyuan-before-3.8.10-authentication-bypass-via-x-forwarded-for-on-history-route"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134284",
-      "title": "CVE-2026-134284 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-8pm4-w983-mx58",
-        "https://www.vulncheck.com/advisories/vikunja-from-1.0.0-before-2.8.0-account-takeover-via-oidc-email-fallback"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134254",
-      "title": "CVE-2026-134254 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.1,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/Admidio/admidio/security/advisories/GHSA-4fqv-v627-2ggm",
-        "https://www.vulncheck.com/advisories/admidio-5.0.0-before-5.0.18-path-traversal-via-documents-files-rename"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134268",
-      "title": "CVE-2026-134268 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.1,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-fqwr-p5xj-xx36",
-        "https://www.vulncheck.com/advisories/vikunja-0.21.0-before-2.8.0-denial-of-service-via-project-position-recalculation"
       ],
       "explanation": {
         "quality": [

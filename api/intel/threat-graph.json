@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T17:42:54.999Z",
+  "generated": "2026-11-21T18:44:54.602Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19724,
+    "total_nodes": 19726,
     "actors": 8,
-    "cves": 9547,
-    "campaigns": 3124,
+    "cves": 9548,
+    "campaigns": 3125,
     "malware": 0,
     "iocs": 911,
-    "edges": 5929
+    "edges": 5930
   },
   "nodes": {
     "actor:lockbit": {
@@ -370869,6 +370869,44 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-133993": {
+      "id": "CVE-2026-133993",
+      "type": "CVE",
+      "name": "CVE-2026-133993 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
+      "attributes": {
+        "cvss": 10,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-133993": {
+      "id": "campaign:cve-2026-133993",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133993"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133993",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -424412,6 +424450,15 @@
       "id": "campaign:cve-2026-134268→includes→CVE-2026-134268",
       "source": "campaign:cve-2026-134268",
       "target": "CVE-2026-134268",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133993→includes→CVE-2026-133993",
+      "source": "campaign:cve-2026-133993",
+      "target": "CVE-2026-133993",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",
