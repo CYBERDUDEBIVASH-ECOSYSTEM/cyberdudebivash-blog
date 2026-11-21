@@ -315,9 +315,13 @@ jobs:
 
       # This gate runs AFTER the existing push step, so authentic new
       # reports are never discarded by an outage in other feed providers.
-      # It fails the workflow when source yield is below the existing minimum
-      # and does not dispatch recovery, reset dedup, or call any endpoint.
-      - name: "P0 source-yield truth — block false green pipeline"
+      # Five sources with NEW records remains the separate enterprise GA
+      # threshold. Sparse-event runs can succeed with ≥5 independently
+      # attested CURRENT successful source polls (even empty), but must
+      # emit an explicit low-yield warning and leave the GA gate HOLD.
+      # Stale/replayed polls and provider denials never count as success.
+      # No recovery dispatch, source fabrication, dedup reset or provider IO.
+      - name: "P0 source-yield and fresh-poll truth — no fake enterprise coverage"
         run: node scripts/check-intel-source-yield.cjs
 
       - name: "Run summary"
