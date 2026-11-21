@@ -107,7 +107,7 @@ test('alert runner installs lockfile-defined runtime dependencies before evaluat
     content.indexOf(moduleLoad) < content.indexOf(evaluate) &&
     content.indexOf(evaluate) < content.indexOf(deliver);
   assert.equal(pkg.dependencies['js-yaml'], lock.packages[''].dependencies['js-yaml']);
-  assert.equal(pkg.dependencies['js-yaml'], '5.2.2');
+  assert.equal(pkg.dependencies['js-yaml'], '5.5.0');
   assert.equal(safe(yaml), true);
   // Negative controls: removal, reordering, or skipping dependency install
   // must fail this contract before any alert evaluator executes.

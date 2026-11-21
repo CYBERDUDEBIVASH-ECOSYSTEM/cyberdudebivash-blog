@@ -229,7 +229,7 @@ export const KnowledgeGraphNodeSchema = z.object({
     'ioc_url', 'ioc_email', 'ioc_mutex', 'ioc_registry', 'ioc_service',
     'technique', 'vendor', 'product', 'threat_actor', 'campaign', 'report',
   ]),
-  properties: z.record(z.unknown()).optional(),
+  properties: z.record(z.string(), z.unknown()).optional(),
 });
 
 // Knowledge graph edge validator
@@ -243,7 +243,7 @@ export const KnowledgeGraphEdgeSchema = z.object({
 
 // Knowledge graph validator
 export const KnowledgeGraphSchema = z.object({
-  entities: z.record(KnowledgeGraphNodeSchema),
+  entities: z.record(z.string(), KnowledgeGraphNodeSchema),
   relations: z.array(KnowledgeGraphEdgeSchema),
   generated_at: z.string().datetime(),
   version: z.string(),
