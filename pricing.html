@@ -647,6 +647,14 @@
     <span id="usdLabel">USD $</span>
   </div>
   <p class="plan-currency-note" id="currencyNote">Prices shown in Indian Rupees (INR). Toggle for USD.</p>
+  <p class="platform-note" id="free-product-boundary">
+    <strong>Two separate free access routes:</strong> this SOC site's Free API Key uses the
+    <a href="/api-dashboard.html">SOC API dashboard</a> and its own usage limits.
+    The <a href="https://intel.cyberdudebivash.com/get-api-key.html?plan=community">SENTINEL APEX Community tier</a>
+    is keyless, with different published limits. Paid plans below are purchased and managed
+    on the SENTINEL APEX checkout platform. Check the <a href="/service-status.html">current SOC service evidence</a>
+    before relying on live-feed freshness.
+  </p>
 
   <div class="pricing-grid">
 
@@ -658,13 +666,13 @@
         <span class="plan-price" data-inr="0" data-usd="0">0</span>
         <span class="plan-period">/month</span>
       </div>
-      <p class="plan-tagline">Get started with live threat data.</p>
+      <p class="plan-tagline">Explore SOC source intelligence; verify the current feed freshness before integration.</p>
       <button class="plan-cta cta-free" onclick="window.location.href='/api-dashboard.html'">
         Get Free API Key
       </button>
       <hr class="plan-divider">
       <ul class="features-list">
-        <li><span class="ico ico-check">✓</span> 10 live threat items per request</li>
+        <li><span class="ico ico-check">✓</span> Up to 10 SOC intelligence items per request (subject to current feed freshness)</li>
         <li><span class="ico ico-check">✓</span> CVE lookups (CVSS ≥ 7.0)</li>
         <li><span class="ico ico-check">✓</span> Top threats feed</li>
         <li><span class="ico ico-check">✓</span> 100 API calls/day</li>
@@ -771,11 +779,16 @@
 
   <div class="faq-item">
     <button class="faq-question" onclick="toggleFaq(this)">
-      Is the free API key still available here?
+      What is the difference between the SOC free key and SENTINEL APEX Community?
       <span class="faq-chevron">▼</span>
     </button>
     <div class="faq-answer">
-      <p>Yes. <a href="/api-dashboard.html">Get a free API key</a> on the API dashboard: 100 calls/day, live threat items, CVE lookups and the top threats feed.</p>
+      <p>The <a href="/api-dashboard.html">SOC API dashboard</a> offers a separate Free API Key
+      (advertised SOC tier: 100 requests/day, with its own registration and service availability).
+      The <a href="https://intel.cyberdudebivash.com/get-api-key.html?plan=community">SENTINEL APEX Community tier</a>
+      is keyless and separately advertises 50 requests/day. The two services have different endpoints,
+      entitlements and limits; neither free tier is a paid enterprise SLA. Check the relevant platform
+      before integrating or upgrading.</p>
     </div>
   </div>
 
@@ -814,7 +827,7 @@
 <!-- ── Bottom CTA ────────────────────────────────────────────────── -->
 <section class="bottom-cta">
   <h2>Ready to Upgrade Your SOC?</h2>
-  <p>Join security teams using SENTINEL APEX for production threat intelligence.</p>
+  <p>Review current intelligence freshness evidence, plan entitlements and checkout terms before subscribing.</p>
   <a class="btn-cta-large" data-intel-plan="pro" data-intel-medium="pricing-bottom" href="https://intel.cyberdudebivash.com/upgrade.html?plan=pro&amp;utm_source=blog&amp;utm_medium=pricing-bottom&amp;utm_campaign=plan-checkout">
     Get PRO Defense →
   </a>
