@@ -35,11 +35,16 @@
   },
   "dependencies": {
     "@resvg/resvg-wasm": "2.6.2",
-    "js-yaml": "5.2.2",
+    "js-yaml": "5.5.0",
     "marked": "18.0.7",
-    "satori": "0.29.0",
+    "satori": "0.33.5",
     "uuid": "11.1.1",
-    "zod": "^3.22.0"
+    "zod": "^4.6.7"
+  },
+  "overrides": {
+    "satori": {
+      "fflate": "0.7.5"
+    }
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
