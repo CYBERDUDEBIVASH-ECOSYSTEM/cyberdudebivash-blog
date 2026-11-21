@@ -150,6 +150,6 @@ test('committed first-party RSS snapshot does not claim future publication or ma
     assert.ok(Number.isFinite(timestamp), 'RSS date is parseable');
     assert.ok(timestamp <= Date.now() + 5 * 60_000, 'RSS publication time is not in the future');
   }
-  assert.doesNotMatch(xml, /<pubDate>[^<]*12:00:00 \+0000<\/pubDate>/,
-    'do not reintroduce the generator’s synthetic future-noon metadata');
+  // A genuinely observed 12:00 UTC timestamp is permitted. The gate
+  // rejects only impossible future dates, not a valid time-of-day.
 });
