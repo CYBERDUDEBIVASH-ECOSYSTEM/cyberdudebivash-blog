@@ -386,3 +386,56 @@ def test_already_integrity_wrapped_content_does_not_bypass_tlp_restriction():
     )
     with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
         v19_1.enforce_cti_integrity_revenue_v19_1(marked)
+
+
+
+def test_enterprise_evidence_disclosure_shows_precise_source_only_limitations():
+    rendered = v19_1.enforce_cti_integrity_revenue_v19_1(
+        _source_only_fixture(),
+        article=SimpleNamespace(title="Source linked research"),
+        context=_context(),
+    )
+    soup = BeautifulSoup(rendered, "html.parser")
+    panel = soup.select_one('[data-cdb-v19-1-integrity-note="true"]')
+    assert panel is not None
+    assert panel.get("aria-label") == "Enterprise intelligence evidence disclosure"
+    assert panel.name == "aside"
+    rows = {
+        div.find("dt").get_text(strip=True): div.find("dd").get_text(" ", strip=True)
+        for div in panel.select("dl > div")
+    }
+    assert len(rows) == 7
+    assert rows["Evidence basis"] == "Single-source preliminary; seek corroboration"
+    assert rows["Indicators"] == "No established source-backed IOC pack"
+    assert rows["ATT&CK"] == "No established technique mapping"
+    assert rows["Detection content"] == "No validated executable rule supplied"
+    assert rows["Customer impact"] == "Not determined by this public report"
+    assert rows["Distribution"] == "TLP:CLEAR"
+    assert "A pipeline heartbeat does not prove a new report" in panel.get_text(" ", strip=True)
+    assert "source linked" not in rows["Customer impact"].lower()
+    assert soup.select_one("style#cdb-v19-1-enterprise-evidence-css") is not None
+    assert "max-width:640px" in rendered
+    assert len(soup.select('[data-cdb-v19-1-integrity-note="true"]')) == 1
+
+
+def test_enterprise_assurance_presence_never_claims_validated_detection_rule():
+    html = _source_only_fixture().replace(
+        "<p>Not established in cited evidence.</p>",
+        "<p>T1059 referenced; analyst must confirm actual observed behavior.</p>", 1,
+    ).replace(
+        "<p>Identify telemetry and validate evidence before deployment.</p>",
+        "<pre>title: Source Sourced Rule\nlogsource:\n  category: process_creation\ndetection:\n  condition: selection</pre>", 1,
+    )
+    rendered = v19_1.enforce_cti_integrity_revenue_v19_1(
+        html, article=SimpleNamespace(title="Technical record"), context=_context(),
+    )
+    soup = BeautifulSoup(rendered, "html.parser")
+    panel = soup.select_one('[data-cdb-v19-1-integrity-note="true"]')
+    rows = {
+        item.find("dt").get_text(strip=True): item.find("dd").get_text(" ", strip=True)
+        for item in panel.select("dl > div")
+    }
+    assert rows["Detection content"] == "Rule-like text present; not production-tested"
+    assert rows["ATT&CK"] == "Technique reference present; mapping requires analyst validation"
+    assert rows["Customer impact"] == "Not determined by this public report"
+    assert "Production-tested" not in panel.get_text(" ", strip=True)
