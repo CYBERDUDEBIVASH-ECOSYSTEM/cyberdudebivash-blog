@@ -39,7 +39,7 @@ def test_api_success_does_not_hide_public_404():
 
 def test_public_feed_must_contain_same_new_post_id():
     def get(url, **kwargs):
-        if url == _FEED_URL:
+        if url.startswith(_FEED_URL):
             return resp(json.dumps({"feed": {"entry": [{"id": {"$t": "tag:blogger.com,1999:blog-123.post-9999"}}]}}), "application/json")
         return resp(f"<html><h1>{TITLE}</h1></html>")
     result = verify_public_delivery(REPORT, http_get=get, attempts=1)
@@ -67,3 +67,35 @@ def test_public_probe_retries_then_verifies():
         return resp(f"<html>{TITLE}</html>")
     result = verify_public_delivery(REPORT, http_get=get, attempts=2, sleep_seconds=0, sleeper=lambda *_a: None)
     assert result["status"] == "PASS" and result["attempts"] == 2
+
+
+
+def test_bounded_pagination_recognizes_concurrently_displaced_post():
+    from automation.blogger_public_delivery_gate import _feed_page_url
+    checked = []
+    def get(url, **kwargs):
+        checked.append(url)
+        if url == _FEED_URL:
+            return resp(json.dumps({"feed": {"entry": [{"id": {"$t": "tag:blogger.com,1999:blog-123.post-9999"}}]}}), "application/json")
+        if url == _feed_page_url(1):
+            return resp(json.dumps({"feed": {"entry": [{"id": {"$t": "tag:blogger.com,1999:blog-123.post-" + ID}}]}}), "application/json")
+        assert url == URL
+        return resp(f"<html><h1>{TITLE}</h1></html>")
+    result = verify_public_delivery(REPORT, http_get=get, attempts=1)
+    assert result["status"] == "PASS"
+    assert _feed_page_url(1) in checked and _feed_page_url(2) not in checked
+
+
+def test_feed_search_is_bounded_to_three_read_only_pages():
+    from automation.blogger_public_delivery_gate import _feed_page_url
+    checked = []
+    def get(url, **kwargs):
+        checked.append(url)
+        if url.startswith(_FEED_URL):
+            return resp(json.dumps({"feed": {"entry": [{"id": {"$t": "tag:blogger.com,1999:blog-123.post-9999"}}]}}), "application/json")
+        return resp(f"<html><h1>{TITLE}</h1></html>")
+    result = verify_public_delivery(REPORT, http_get=get, attempts=1)
+    assert result["status"] == "FAIL"
+    assert result["reason"] == "public_feed_missing_new_post_id"
+    assert len(checked) == 4
+    assert checked[1:] == [_feed_page_url(0), _feed_page_url(1), _feed_page_url(2)]

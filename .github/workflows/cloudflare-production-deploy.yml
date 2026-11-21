@@ -211,7 +211,7 @@ jobs:
       - name: "Cloudflare runtime gate"
         run: |
           npm run check:cloudflare
-          node --test scripts/build-cloudflare-assets.test.js workers/lib/route-table.test.js workers/lib/router.test.js tests-js/production-route-markers.test.js
+          node --test scripts/build-cloudflare-assets.test.js workers/lib/route-table.test.js workers/lib/router.test.js tests-js/production-route-markers.test.js tests-js/soc-cti-source-handoff.test.js
 
       - name: "Commercial dashboard integrity gate"
         run: python3 tests/test_commercial_intel_surfaces.py
@@ -271,6 +271,12 @@ jobs:
       - name: "P0 predeploy S2N API ledger and built-asset parity — fail closed"
         shell: bash
         run: node scripts/certify-soc-s2n-api-release.cjs --predeploy
+
+      # P0: the latest RSS candidates must be present in the exact reviewed
+      # dist-public bundle before any Cloudflare write. A feed referencing a
+      # missing source article must not produce an apparent green deployment.
+      - name: "P0 predeploy SOC-to-CTI source dossiers present in exact build"
+        run: node scripts/certify-soc-cti-source-handoff.cjs --predeploy
 
       - name: "Wrangler configuration dry-run"
         run: npx wrangler deploy --dry-run --config wrangler.jsonc --outdir .wrangler-dry-run
@@ -390,6 +396,12 @@ jobs:
       - name: "P0 SOC dual-host UI exact build-byte parity — postdeploy"
         shell: bash
         run: node scripts/certify-soc-dual-host-ui-release.cjs
+
+      # SOC feeds and dashboard assets alone do NOT prove an actual
+      # first-party /posts/*.html report is live. These are the exact
+      # source records CTI Blogger cites. Read-only six-path byte gate.
+      - name: "P0 SOC-to-CTI real post handoff parity — both domains"
+        run: node scripts/certify-soc-cti-source-handoff.cjs --release-asset
 
       - name: "P0 postcondition — verify existing domain mapping unchanged"
         shell: bash
