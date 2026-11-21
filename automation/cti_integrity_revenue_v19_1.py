@@ -63,6 +63,50 @@ _RUNTIME = {
 }
 
 _CANONICAL_SEVERITIES = frozenset({"CRITICAL", "HIGH", "MEDIUM", "LOW", "INFORMATIONAL"})
+_TLP_PUBLIC_LABELS = frozenset({"TLP:CLEAR", "CLEAR"})
+_TLP_UNASSIGNED_LABELS = frozenset({"", "NOT ASSIGNED", "UNASSIGNED", "N/A"})
+_TLP_SOURCE_ATTRIBUTES = ("tlp", "tlp_marking", "sharing_tlp", "distribution_tlp")
+_TLP_META_NAMES = frozenset({"tlp", "cdb:tlp", "traffic-light-protocol"})
+
+
+def _assert_public_tlp(value: Any, evidence_surface: str) -> None:
+    """A report may declare a public distribution marking, never reclassify a restriction.
+
+    Missing/placeholder values are compatible with this *public-output*
+    presentation compiler, but do not assert that third-party classified
+    material is authorized for release; earlier source/provenance admission
+    remains independent. Unknown, historic and restricted labels fail closed.
+    """
+    if value is None:
+        return
+    if not isinstance(value, str):
+        raise PublicationIntegrityError([f"PUBLIC_TLP_RELEASE_BLOCKED:{evidence_surface}"])
+    value = re.sub(r"\s+", " ", value).strip().upper()
+    if value not in _TLP_PUBLIC_LABELS | _TLP_UNASSIGNED_LABELS:
+        # Never echo restricted marking values into public logs.
+        raise PublicationIntegrityError([f"PUBLIC_TLP_RELEASE_BLOCKED:{evidence_surface}"])
+
+
+def _require_public_distribution(soup: BeautifulSoup, article: Any = None,
+                                 context: Any = None) -> None:
+    """Fail before any HTML mutation if source, context or page declares TLP restriction."""
+    for surface, record in (("article", article), ("context", context)):
+        if record is None:
+            continue
+        for attr in _TLP_SOURCE_ATTRIBUTES:
+            if hasattr(record, attr):
+                _assert_public_tlp(getattr(record, attr), f"{surface}.{attr}")
+
+    for card in soup.select(".cdbd-kpi"):
+        label, value = card.find("span"), card.find("strong")
+        if label and label.get_text(" ", strip=True).strip().upper() in {"TLP", "TRAFFIC LIGHT PROTOCOL"}:
+            _assert_public_tlp(value.get_text(" ", strip=True) if value else "", "rendered_tlp_kpi")
+    for node in soup.find_all(attrs={"data-tlp": True}):
+        _assert_public_tlp(node.get("data-tlp"), "rendered_data_tlp")
+    for node in soup.find_all("meta"):
+        name = str(node.get("name") or node.get("property") or "").strip().lower()
+        if name in _TLP_META_NAMES:
+            _assert_public_tlp(node.get("content"), "rendered_tlp_meta")
 
 _ARTIFACT_PATTERNS = {
     "ioc": re.compile(r"\bIOCs?\b|\bindicator pack\b", re.I),
@@ -388,7 +432,10 @@ def _assign_public_tlp(soup: BeautifulSoup) -> bool:
         value = card.find("strong")
         if not (label and value and label.get_text(" ", strip=True).upper() == "TLP"):
             continue
-        if value.get_text(" ", strip=True).upper() not in {"TLP:CLEAR", "CLEAR"}:
+        # Never rewrite restricted marking as TLP:CLEAR. A public
+        # distribution label is not authority to disclose TLP:RED/AMBER/GREEN.
+        _assert_public_tlp(value.get_text(" ", strip=True), "rendered_tlp_kpi")
+        if value.get_text(" ", strip=True).upper() != PUBLIC_TLP:
             value.string = PUBLIC_TLP
             card["data-cdb-distribution-assigned-by"] = "CYBERDUDEBIVASH"
             changed = True
@@ -496,22 +543,98 @@ def _clean_related_titles(soup: BeautifulSoup) -> bool:
     return changed
 
 
-def _inject_integrity_note(soup: BeautifulSoup, source_only: bool) -> bool:
+def _inject_integrity_note(soup: BeautifulSoup, source_only: bool,
+                           caps: Optional[dict[str, bool]] = None) -> bool:
+    """Compact buyer/analyst decision evidence. No guessed facts or source dates.
+
+    These are render-time *presence* classifications only. They never imply
+    an IOC is safe to block, a technique is validated, a detection is
+    deployable, or a customer's infrastructure is affected.
+    """
     if soup.select_one("[data-cdb-v19-1-integrity-note='true']") is not None:
         return False
     anchor = soup.select_one(".cdbv18-commercial") or soup.select_one(".cdbv8-control")
     if anchor is None:
         return False
-    note = soup.new_tag("div")
+    caps = caps or {}
+    rows = [
+        ("Evidence basis", (
+            "Single-source preliminary; seek corroboration" if source_only
+            else "Source-linked; independently verify material claims"
+        )),
+        ("Indicators", (
+            "Referenced; validate provenance and expiry" if caps.get("ioc")
+            else "No established source-backed IOC pack"
+        )),
+        ("ATT&CK", (
+            "Technique reference present; mapping requires analyst validation"
+            if caps.get("attack_mapping") else "No established technique mapping"
+        )),
+        ("Detection content", (
+            "Rule-like text present; not production-tested"
+            if caps.get("sigma") or caps.get("yara")
+            else "No validated executable rule supplied"
+        )),
+        ("Hunting", (
+            "Query-like text present; verify telemetry and logic"
+            if caps.get("hunt_query") else "No validated hunting query supplied"
+        )),
+        ("Customer impact", "Not determined by this public report"),
+        ("Distribution", PUBLIC_TLP),
+    ]
+    note = soup.new_tag("aside")
     note["class"] = ["cdbv19-1-integrity-note"]
     note["data-cdb-v19-1-integrity-note"] = "true"
-    note.string = (
-        "PUBLIC INTELLIGENCE INTEGRITY // Severity, corroboration, artifact availability, "
-        "technical evidence class, information-sharing label, and paid delivery links are "
-        "canonicalized from the rendered evidence product."
-        + (" Source-only evidence is labeled preliminary." if source_only else "")
+    note["role"] = "note"
+    note["aria-label"] = "Enterprise intelligence evidence disclosure"
+    heading = soup.new_tag("h4")
+    heading.string = "INTELLIGENCE ASSURANCE / WHAT THE EVIDENCE SUPPORTS"
+    note.append(heading)
+    grid = soup.new_tag("dl")
+    grid["class"] = ["cdbv19-1-integrity-grid"]
+    for label, value in rows:
+        pair = soup.new_tag("div")
+        term = soup.new_tag("dt")
+        term.string = label
+        definition = soup.new_tag("dd")
+        definition.string = value
+        pair.extend((term, definition))
+        grid.append(pair)
+    note.append(grid)
+    disclaimer = soup.new_tag("p")
+    disclaimer.string = (
+        "Analyst guidance is not a production detection guarantee. Validate cited "
+        "sources, internal asset exposure, telemetry coverage, false positives, "
+        "and response authority before taking action. A pipeline heartbeat does "
+        "not prove a new report or live customer delivery."
+    )
+    note.append(disclaimer)
+    css = soup.new_tag("style")
+    css["id"] = "cdb-v19-1-enterprise-evidence-css"
+    css.string = (
+        ".cdbv19-1-integrity-note{margin:16px 0;padding:18px;border:1px solid "
+        "rgba(59,204,215,.34);border-left:4px solid #5cf3d1;border-radius:12px;"
+        "background:linear-gradient(135deg,#0c1726,#101f30);color:#e5f2fa;"
+        "box-shadow:0 16px 34px rgba(0,0,0,.18)}"
+        ".cdbv19-1-integrity-note h4{margin:0 0 14px;font-size:13px;"
+        "letter-spacing:.075em;color:#89ffe0!important;line-height:1.5}"
+        ".cdbv19-1-integrity-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));"
+        "gap:10px;margin:0 0 12px}"
+        ".cdbv19-1-integrity-grid>div{padding:9px 11px;border-radius:7px;"
+        "border:1px solid rgba(165,192,213,.18);background:rgba(0,0,0,.19);min-width:0}"
+        ".cdbv19-1-integrity-grid dt{color:#a9c4da;font-size:10px;font-weight:700;"
+        "text-transform:uppercase;letter-spacing:.07em}"
+        ".cdbv19-1-integrity-grid dd{margin:5px 0 0;font-size:12px;"
+        "line-height:1.45;color:#f1f8ff;overflow-wrap:anywhere}"
+        ".cdbv19-1-integrity-note p{margin:0;color:#c6dbe6!important;"
+        "font-size:11px;line-height:1.55}"
+        "@media(max-width:640px){.cdbv19-1-integrity-grid{grid-template-columns:1fr}"
+        ".cdbv19-1-integrity-note{padding:13px}}"
+        "@media print{.cdbv19-1-integrity-note{background:#fff!important;color:#111!important;"
+        "box-shadow:none}.cdbv19-1-integrity-grid dd,.cdbv19-1-integrity-note p{color:#111!important}}"
     )
     anchor.insert_before(note)
+    note.insert_before(css)
     return True
 
 
@@ -578,11 +701,16 @@ def _validate_final(soup: BeautifulSoup, severity: str, source_only: bool, caps:
 
 
 def enforce_cti_integrity_revenue_v19_1(rendered_html: str, article: Any = None, context: Any = None) -> str:
-    if not rendered_html or MARKER in rendered_html:
+    if not rendered_html:
+        return rendered_html
+    soup = BeautifulSoup(rendered_html, "html.parser")
+    # Highest-priority permission boundary: even already-wrapped HTML
+    # cannot carry restricted TLP content to a public Blogger surface.
+    _require_public_distribution(soup, article, context)
+    if MARKER in rendered_html:
         return rendered_html
 
     _RUNTIME["reports_seen"] += 1
-    soup = BeautifulSoup(rendered_html, "html.parser")
     source_only = _is_source_only(soup)
     caps = _capabilities(soup)
     severity = _canonical_severity(soup, context)
@@ -598,7 +726,7 @@ def enforce_cti_integrity_revenue_v19_1(rendered_html: str, article: Any = None,
     changed |= _repair_paid_ctas(soup, context)
     changed |= _rewrite_service_intake(soup, context)
     changed |= _clean_related_titles(soup)
-    changed |= _inject_integrity_note(soup, source_only)
+    changed |= _inject_integrity_note(soup, source_only, caps)
 
     _validate_final(soup, severity, source_only, caps)
 

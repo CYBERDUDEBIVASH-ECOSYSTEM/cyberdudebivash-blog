@@ -316,3 +316,126 @@ def test_integrity_rejects_wrong_product_on_paid_checkout_cta():
     )
     with pytest.raises(PublicationIntegrityError, match="bypasses canonical platform checkout"):
         v19_1._validate_final(soup, "HIGH", False, v19_1._capabilities(soup))
+
+
+
+@pytest.mark.parametrize("marking", [
+    "TLP:RED", "TLP:AMBER", "TLP:AMBER+STRICT", "TLP:GREEN",
+    "TLP:WHITE", "TLP:UNKNOWN", "PRIVATE",
+])
+def test_restricted_or_unapproved_rendered_tlp_cannot_be_relabelled_public(marking):
+    rendered = _source_only_fixture().replace(
+        "<strong>NOT ASSIGNED</strong>", f"<strong>{marking}</strong>", 1
+    )
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(
+            rendered, article=SimpleNamespace(title="Source report"), context=_context(),
+        )
+
+
+@pytest.mark.parametrize("field", ["tlp", "tlp_marking", "sharing_tlp", "distribution_tlp"])
+def test_restricted_article_tlp_blocks_even_if_displayed_badge_is_unassigned(field):
+    data = {"title": "Source report", field: "TLP:AMBER+STRICT"}
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(
+            _source_only_fixture(), article=SimpleNamespace(**data), context=_context(),
+        )
+
+
+def test_restricted_context_tlp_blocks_even_if_rendered_badge_was_clear():
+    rendered = _source_only_fixture().replace(
+        "<strong>NOT ASSIGNED</strong>", "<strong>TLP:CLEAR</strong>", 1,
+    )
+    context = SimpleNamespace(family="cve_advisory", tlp="TLP:GREEN")
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(
+            rendered, article=SimpleNamespace(title="Source report"), context=context,
+        )
+
+
+@pytest.mark.parametrize("markup", [
+    '<meta name="tlp" content="TLP:RED">',
+    '<meta property="cdb:tlp" content="TLP:AMBER">',
+    '<div data-tlp="TLP:GREEN">source-only research</div>',
+])
+def test_rendered_metadata_tlp_cannot_bypass_public_release_gate(markup):
+    rendered = _source_only_fixture().replace("<article>", "<article>" + markup, 1)
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(
+            rendered, article=SimpleNamespace(title="Source report"), context=_context(),
+        )
+
+
+def test_public_clear_marking_and_explicit_unassigned_can_render():
+    for mark in ("TLP:CLEAR", "CLEAR", "NOT ASSIGNED"):
+        rendered = _source_only_fixture().replace(
+            "<strong>NOT ASSIGNED</strong>", f"<strong>{mark}</strong>", 1,
+        )
+        result = v19_1.enforce_cti_integrity_revenue_v19_1(
+            rendered, article=SimpleNamespace(title="Source report", tlp="TLP:CLEAR"),
+            context=SimpleNamespace(family="cve_advisory", tlp_marking="TLP:CLEAR"),
+        )
+        assert "TLP:CLEAR" in result
+
+
+def test_already_integrity_wrapped_content_does_not_bypass_tlp_restriction():
+    # An external patch to a rendered article must not defeat the gate simply
+    # because an earlier version carries the presentation marker.
+    marked = f"<!-- {v19_1.MARKER} -->" + _source_only_fixture().replace(
+        "<strong>NOT ASSIGNED</strong>", "<strong>TLP:RED</strong>", 1,
+    )
+    with pytest.raises(PublicationIntegrityError, match="PUBLIC_TLP_RELEASE_BLOCKED"):
+        v19_1.enforce_cti_integrity_revenue_v19_1(marked)
+
+
+
+def test_enterprise_evidence_disclosure_shows_precise_source_only_limitations():
+    rendered = v19_1.enforce_cti_integrity_revenue_v19_1(
+        _source_only_fixture(),
+        article=SimpleNamespace(title="Source linked research"),
+        context=_context(),
+    )
+    soup = BeautifulSoup(rendered, "html.parser")
+    panel = soup.select_one('[data-cdb-v19-1-integrity-note="true"]')
+    assert panel is not None
+    assert panel.get("aria-label") == "Enterprise intelligence evidence disclosure"
+    assert panel.name == "aside"
+    rows = {
+        div.find("dt").get_text(strip=True): div.find("dd").get_text(" ", strip=True)
+        for div in panel.select("dl > div")
+    }
+    assert len(rows) == 7
+    assert rows["Evidence basis"] == "Single-source preliminary; seek corroboration"
+    assert rows["Indicators"] == "No established source-backed IOC pack"
+    assert rows["ATT&CK"] == "No established technique mapping"
+    assert rows["Detection content"] == "No validated executable rule supplied"
+    assert rows["Customer impact"] == "Not determined by this public report"
+    assert rows["Distribution"] == "TLP:CLEAR"
+    assert "A pipeline heartbeat does not prove a new report" in panel.get_text(" ", strip=True)
+    assert "source linked" not in rows["Customer impact"].lower()
+    assert soup.select_one("style#cdb-v19-1-enterprise-evidence-css") is not None
+    assert "max-width:640px" in rendered
+    assert len(soup.select('[data-cdb-v19-1-integrity-note="true"]')) == 1
+
+
+def test_enterprise_assurance_presence_never_claims_validated_detection_rule():
+    html = _source_only_fixture().replace(
+        "<p>Not established in cited evidence.</p>",
+        "<p>T1059 referenced; analyst must confirm actual observed behavior.</p>", 1,
+    ).replace(
+        "<p>Identify telemetry and validate evidence before deployment.</p>",
+        "<pre>title: Source Sourced Rule\nlogsource:\n  category: process_creation\ndetection:\n  condition: selection</pre>", 1,
+    )
+    rendered = v19_1.enforce_cti_integrity_revenue_v19_1(
+        html, article=SimpleNamespace(title="Technical record"), context=_context(),
+    )
+    soup = BeautifulSoup(rendered, "html.parser")
+    panel = soup.select_one('[data-cdb-v19-1-integrity-note="true"]')
+    rows = {
+        item.find("dt").get_text(strip=True): item.find("dd").get_text(" ", strip=True)
+        for item in panel.select("dl > div")
+    }
+    assert rows["Detection content"] == "Rule-like text present; not production-tested"
+    assert rows["ATT&CK"] == "Technique reference present; mapping requires analyst validation"
+    assert rows["Customer impact"] == "Not determined by this public report"
+    assert "Production-tested" not in panel.get_text(" ", strip=True)
