@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T09:47:57.472Z",
+  "generated": "2026-11-21T10:48:05.432Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -15,9 +15,9 @@
   },
   "items": [
     {
-      "id": "CVE-2026-133361",
-      "title": "CVE-2026-133361 — Unknown Vendor The BlockStrap Page CVSS 7.2 High Severity Vulnerability",
-      "description": "The BlockStrap Page Builder – Bootstrap Blocks plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 0.1.65 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers t",
+      "id": "CVE-2026-126011",
+      "title": "CVE-2026-126011 — Unknown Vendor The Photo Gallery, CVSS 7.2 High Severity Vulnerability",
+      "description": "The Photo Gallery, Sliders, Proofing and Themes – NextGEN Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 4.5.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthent",
       "cvss": 7.2,
       "final_ps": 60,
       "quality_score": 0.58,
@@ -34,15 +34,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The BlockStrap Page",
+      "product": "The Photo Gallery,",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/AyeCode/blockstrap-page-builder-blocks/archive/refs/heads/main.zip",
-        "https://plugins.trac.wordpress.org/browser/blockstrap-page-builder-blocks/tags/0.1.65/blocks/class-blockstrap-widget-modal.php#L480",
-        "https://plugins.trac.wordpress.org/browser/blockstrap-page-builder-blocks/tags/0.1.65/blocks/class-blockstrap-widget-modal.php#L500",
-        "https://plugins.trac.wordpress.org/browser/blockstrap-page-builder-blocks/tags/0.1.65/blockstrap-page-builder-blocks.php#L121"
+        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/src/Display/LightboxManager.php#L319",
+        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/lightbox_context.js#L6",
+        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/thickbox/thickbox.js#L35",
+        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/thickbox/thickbox.js#L496"
       ],
       "explanation": {
         "quality": [
@@ -59,9 +59,9 @@
       }
     },
     {
-      "id": "CVE-2026-96991",
-      "title": "CVE-2026-96991 — Unknown Vendor The SchemaEngine AI CVSS 7.2 High Severity Vulnerability",
-      "description": "The SchemaEngine AI – AI Schema Markup, Reviews & Rich Snippets for SEO plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content via WebPage JSON-LD Description in all versions up to, and including, 3.1.3 due to insufficient input sanitization and output escaping. This m",
+      "id": "CVE-2026-131822",
+      "title": "CVE-2026-131822 — Unknown Vendor The Contact Form CVSS 7.2 High Severity Vulnerability",
+      "description": "The Contact Form to Any API plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'your-message (any CF7 form field)' parameter in all versions up to, and including, 3.0.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attac",
       "cvss": 7.2,
       "final_ps": 60,
       "quality_score": 0.58,
@@ -78,15 +78,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The SchemaEngine AI",
+      "product": "The Contact Form",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/review-schema/tags/3.1.0/app/Modules/Schema/Hooks/SchemaFrontend.php#L51",
-        "https://plugins.trac.wordpress.org/browser/review-schema/tags/3.1.0/app/Modules/Schema/Models/Schema.php#L1566",
-        "https://plugins.trac.wordpress.org/browser/review-schema/tags/3.1.0/app/Modules/Schema/Models/Schema.php#L157",
-        "https://plugins.trac.wordpress.org/browser/review-schema/tags/3.1.0/app/Modules/Schema/Models/Schema.php#L169"
+        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/class-cf7-to-any-api-admin.php#L640",
+        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/class-cf7-to-any-api-admin.php#L759",
+        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/partials/cf7-to-any-api-admin-entries.php#L115",
+        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/includes/class-cf7-to-any-api.php#L181"
       ],
       "explanation": {
         "quality": [
@@ -3863,6 +3863,144 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-132620",
+      "title": "CVE-2026-132620 — Unknown Vendor The WPBot – CVSS 7.2 High Severity Vulnerability",
+      "description": "The WPBot – AI ChatBot for WordPress & Growth Suite: SEO, AI Writer, Email Marketing, Social Media plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'text' parameter in all versions up to, and including, 9.1 due to insufficient input sanitization and output escaping. This mak",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The WPBot –",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://downloads.wordpress.org/plugin/chatbot.9.2.zip",
+        "https://plugins.trac.wordpress.org/browser/chatbot/tags/9.0/includes/chat-sessions/reports/view/partials/view-single-chat.php#L123",
+        "https://plugins.trac.wordpress.org/browser/chatbot/tags/9.0/includes/chatbot/src/Conversation/Message.php#L94",
+        "https://plugins.trac.wordpress.org/browser/chatbot/tags/9.0/includes/chatbot/src/Rest/Routes.php#L146"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-133361",
+      "title": "CVE-2026-133361 — Unknown Vendor The BlockStrap Page CVSS 7.2 High Severity Vulnerability",
+      "description": "The BlockStrap Page Builder – Bootstrap Blocks plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 0.1.65 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers t",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The BlockStrap Page",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/AyeCode/blockstrap-page-builder-blocks/archive/refs/heads/main.zip",
+        "https://plugins.trac.wordpress.org/browser/blockstrap-page-builder-blocks/tags/0.1.65/blocks/class-blockstrap-widget-modal.php#L480",
+        "https://plugins.trac.wordpress.org/browser/blockstrap-page-builder-blocks/tags/0.1.65/blocks/class-blockstrap-widget-modal.php#L500",
+        "https://plugins.trac.wordpress.org/browser/blockstrap-page-builder-blocks/tags/0.1.65/blockstrap-page-builder-blocks.php#L121"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-96991",
+      "title": "CVE-2026-96991 — Unknown Vendor The SchemaEngine AI CVSS 7.2 High Severity Vulnerability",
+      "description": "The SchemaEngine AI – AI Schema Markup, Reviews & Rich Snippets for SEO plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content via WebPage JSON-LD Description in all versions up to, and including, 3.1.3 due to insufficient input sanitization and output escaping. This m",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The SchemaEngine AI",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/review-schema/tags/3.1.0/app/Modules/Schema/Hooks/SchemaFrontend.php#L51",
+        "https://plugins.trac.wordpress.org/browser/review-schema/tags/3.1.0/app/Modules/Schema/Models/Schema.php#L1566",
+        "https://plugins.trac.wordpress.org/browser/review-schema/tags/3.1.0/app/Modules/Schema/Models/Schema.php#L157",
+        "https://plugins.trac.wordpress.org/browser/review-schema/tags/3.1.0/app/Modules/Schema/Models/Schema.php#L169"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-125054",
       "title": "CVE-2026-125054 — Unknown Vendor The SiteOrigin CSS CVSS 7.2 High Severity Vulnerability",
       "description": "The SiteOrigin CSS plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'class' parameter in all versions up to, and including, 1.6.9 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary we",
@@ -4259,144 +4397,6 @@
         "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/fields/upload.php#L399",
         "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/fields/upload.php#L403",
         "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/fields/upload.php#L626"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-125039",
-      "title": "CVE-2026-125039 — Unknown Vendor The EZ SQL CVSS 7.2 High Severity Vulnerability",
-      "description": "The EZ SQL Reports Shortcode Widget and DB Backup plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'User-Agent header (stored to comment_agent)' parameter in all versions up to, and including, 5.26.45 due to insufficient input sanitization and output escaping. This makes it ",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The EZ SQL",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L385",
-        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L396",
-        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L977",
-        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L989"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-126011",
-      "title": "CVE-2026-126011 — Unknown Vendor The Photo Gallery, CVSS 7.2 High Severity Vulnerability",
-      "description": "The Photo Gallery, Sliders, Proofing and Themes – NextGEN Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 4.5.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthent",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Photo Gallery,",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/src/Display/LightboxManager.php#L319",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/lightbox_context.js#L6",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/thickbox/thickbox.js#L35",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/thickbox/thickbox.js#L496"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-131822",
-      "title": "CVE-2026-131822 — Unknown Vendor The Contact Form CVSS 7.2 High Severity Vulnerability",
-      "description": "The Contact Form to Any API plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'your-message (any CF7 form field)' parameter in all versions up to, and including, 3.0.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attac",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Contact Form",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/class-cf7-to-any-api-admin.php#L640",
-        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/class-cf7-to-any-api-admin.php#L759",
-        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/partials/cf7-to-any-api-admin-entries.php#L115",
-        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/includes/class-cf7-to-any-api.php#L181"
       ],
       "explanation": {
         "quality": [
