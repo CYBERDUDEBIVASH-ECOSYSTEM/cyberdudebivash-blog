@@ -5,11 +5,45 @@
  * Transport OK is not a claim of new verified intelligence.
  * Bounded, read-only. No remote calls, resets, delivery or deployment.
  * Called AFTER normal commit/push, so successful genuine publication is kept.
+ * A high-frequency poll may return zero new records from healthy authoritative
+ * sources. This condition is NOT an outage and does NOT satisfy the separate
+ * minimum five *nonempty* sources for commercial/operational release gates.
+ * Only fresh per-source success receipts can avoid a false publisher failure.
+ * Never count yesterday's successful polls, cached items, or denied providers.
  */
 const fs = require('node:fs');
 const path = require('node:path');
 const MIN_ACTIVE_SOURCES = 5;
+const MIN_CURRENT_SUCCESSFUL_POLLS = 5;
+const MAX_SOURCE_POLL_LAG_MS = 5 * 60000;
 const MAX_RUN_AGE_MINUTES = 120;
+
+/** Count only actual current-run successful source fetches, including valid empty results. */
+function countFreshSuccessfulPolls(health, runCheckedAt, totalSources) {
+  if (!health || typeof health !== 'object' || Array.isArray(health)) return 0;
+  const records = Object.entries(health);
+  if (records.length > totalSources) return -1;
+  let current = 0;
+  for (const [name, source] of records) {
+    if (!/^[a-z0-9_]{2,64}$/.test(name) ||
+        !source || typeof source !== 'object' || Array.isArray(source) ||
+        !['ok','empty'].includes(source.status) ||
+        source.consecutiveFails !== 0 ||
+        !Number.isSafeInteger(source.lastItemCount) || source.lastItemCount < 0 ||
+        (source.status === 'empty' && source.lastItemCount !== 0) ||
+        (source.status === 'ok' && source.lastItemCount < 1)) continue;
+    const success = Date.parse(source.lastSuccess || '');
+    const fetched = Date.parse(source.lastFetchAt || '');
+    if (!Number.isFinite(success) || !Number.isFinite(fetched) ||
+        Math.abs(success - fetched) > 5000 ||
+        success < runCheckedAt - MAX_SOURCE_POLL_LAG_MS ||
+        success > runCheckedAt + 60000 ||
+        fetched < runCheckedAt - MAX_SOURCE_POLL_LAG_MS ||
+        fetched > runCheckedAt + 60000) continue;
+    current++;
+  }
+  return current;
+}
 function evaluate(state,nowMs=Date.now()) {
   const run = state && state.lastIngestion;
   if(!state || !run || !Number.isSafeInteger(run.totalSources) || run.totalSources<1 ||
@@ -33,11 +67,27 @@ function evaluate(state,nowMs=Date.now()) {
   const coverage={activeSources:run.activeSources,totalSources:run.totalSources,
     fetchedRecords:run.fetchedRecords,reportsGenerated:run.reportsGenerated};
   if(run.activeSources<MIN_ACTIVE_SOURCES) {
+    const freshSuccessfulPolls = countFreshSuccessfulPolls(
+      state.sourceHealth, checkedAt, run.totalSources);
+    if(freshSuccessfulPolls < 0) {
+      return {status:'MONITOR_ERROR',exitCode:1,code:'SOURCE_POLL_LEDGER_INVALID'};
+    }
+    // Distinct provenance: a fresh successful empty poll is not a new IOC,
+    // source corroboration, or a passing paid-customer release requirement.
+    // Separate product/GA gates require status exactly COVERAGE_VERIFIED.
+    if(freshSuccessfulPolls>=MIN_CURRENT_SUCCESSFUL_POLLS) {
+      return {status:'POLL_HEALTHY_LOW_YIELD',exitCode:0,
+        code:'FRESH_SOURCE_POLLS_CONFIRMED_LOW_NEW_RECORD_DIVERSITY',
+        freshSuccessfulPolls,
+        releaseSourceDiversityCertified:false,
+        ...coverage};
+    }
     return {status:'SOURCE_COVERAGE_DEGRADED',exitCode:2,
-      code:'FEWER_THAN_FIVE_SOURCES_RETURNED_RECORDS',...coverage};
+      code:'FEWER_THAN_FIVE_SOURCES_RETURNED_RECORDS',
+      freshSuccessfulPolls,releaseSourceDiversityCertified:false,...coverage};
   }
   return {status:'COVERAGE_VERIFIED',exitCode:0,
-    code:'SOURCE_YIELD_MET_MINIMUM',...coverage};
+    code:'SOURCE_YIELD_MET_MINIMUM',releaseSourceDiversityCertified:true,...coverage};
 }
 if(require.main===module) {
   try {
@@ -51,4 +101,4 @@ if(require.main===module) {
     process.exitCode=1;
   }
 }
-module.exports={evaluate,MIN_ACTIVE_SOURCES};
+module.exports={evaluate,MIN_ACTIVE_SOURCES,MIN_CURRENT_SUCCESSFUL_POLLS,countFreshSuccessfulPolls};
