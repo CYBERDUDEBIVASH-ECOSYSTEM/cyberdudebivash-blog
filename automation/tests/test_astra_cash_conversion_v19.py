@@ -60,7 +60,7 @@ def test_v19_rewrites_every_paid_v18_cta_but_preserves_public_docs():
 
     assert v19.MARKER in rendered
     assert "₹999" not in rendered
-    assert "VIEW PRO DEFENSE PRICE & FEATURES" in rendered
+    assert "VIEW PRO DEFENSE PRICE &amp; FEATURES" in rendered
     assert "https://intel.cyberdudebivash.com/upgrade.html" in rendered
     assert "data-cdb-v19-direct-checkout=\"true\"" in rendered
     assert "CANONICAL CHECKOUT //" in rendered
