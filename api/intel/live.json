@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T19:47:35.402Z",
+  "generated": "2026-11-21T20:41:09.735Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,19 +7,19 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8064,
+  "total_published": 8070,
   "s2n_stats": {
-    "passed": 102,
+    "passed": 106,
     "suppressed": 3,
-    "avg_qs": 0.499
+    "avg_qs": 0.497
   },
   "items": [
     {
-      "id": "CVE-2026-134253",
-      "title": "CVE-2026-134253 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
-      "description": "Grav API plugin from 1.0.0 before 1.1.4 contains a remote code execution vulnerability that allows publishers with media and page write rights to write theme template files through the blueprint-upload endpoint. Attackers can upload a file into a theme's Twig templates folder and include it from san",
-      "cvss": 8.8,
-      "final_ps": 62,
+      "id": "CVE-2026-134245",
+      "title": "CVE-2026-134245 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "SiYuan 3.8.0 before 3.8.10 contains an incorrect authorization vulnerability in the serveAssets route that allows unauthenticated attackers to read password-protected document assets via name collisions. Attackers can request GET /assets/<name> when a visible document references the same relative as",
+      "cvss": 7.5,
+      "final_ps": 59,
       "quality_score": 0.52,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
@@ -39,8 +39,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-3rqp-8h7g-xxv8",
-        "https://www.vulncheck.com/advisories/grav-api-plugin-1.0.0-before-1.1.4-rce-via-blueprint-upload-theme-template-write"
+        "https://github.com/siyuan-note/siyuan/commit/76bbb54d0e23cf27b789376826d982a616c79488",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-xxqp-6jxw-qr84",
+        "https://www.vulncheck.com/advisories/siyuan-3.8.0-before-3.8.10-incorrect-authorization-via-assets-cross-document-asset-collision"
       ],
       "explanation": {
         "quality": [
@@ -50,18 +51,18 @@
           "QS=0.520"
         ],
         "priority": [
-          "base_ps=62 (no boosts)"
+          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
       }
     },
     {
-      "id": "CVE-2026-134258",
-      "title": "CVE-2026-134258 — Affected software (product not identified) CVSS 8.7 High Severity Vulnerability",
-      "description": "Admidio 5.0.0 before 5.0.18 contains a path traversal vulnerability in the Documents & Files renameFile() action that allows authenticated users with folder upload rights to move files outside adm_my_files by supplying ../ sequences in adm_new_name. Attackers can relocate an uploaded SVG containing ",
-      "cvss": 8.7,
-      "final_ps": 62,
+      "id": "CVE-2026-134246",
+      "title": "CVE-2026-134246 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "SiYuan 3.6.0 before 3.6.2 and 3.7.3 before 3.8.10 contains a missing authorization vulnerability in the /api/block/getDOMText endpoint, which renders caller-supplied DOM without checking publish access for referenced image paths. When publish authentication is disabled, anonymous visitors can submit",
+      "cvss": 7.5,
+      "final_ps": 59,
       "quality_score": 0.52,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
@@ -81,8 +82,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/Admidio/admidio/security/advisories/GHSA-gp7m-9622-gcw9",
-        "https://www.vulncheck.com/advisories/admidio-5.0.0-before-5.0.18-path-traversal-to-stored-xss-via-file-rename"
+        "https://github.com/siyuan-note/siyuan/commit/0432ef213d112e5ace886963f8e57fdf348c76c5",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-vmvr-gf8m-x483",
+        "https://www.vulncheck.com/advisories/siyuan-3.6.0-before-3.6.2-and-3.7.3-before-3.8.10-missing-authorization-in-getdomtext-exposes-cached-ocr-text"
       ],
       "explanation": {
         "quality": [
@@ -92,18 +94,18 @@
           "QS=0.520"
         ],
         "priority": [
-          "base_ps=62 (no boosts)"
+          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
       }
     },
     {
-      "id": "CVE-2026-134250",
-      "title": "CVE-2026-134250 — Affected software (product not identified) CVSS 8 High Severity Vulnerability",
-      "description": "Grav Form plugin 1.1.0 before 9.1.40 contains a stored cross-site scripting vulnerability in Form::uploadFiles(), which sanitizes SVG only when a file's last extension is .svg and accepts markup under unrecognized extensions. Anonymous attackers can upload files like drawing.svg.foo through public a",
-      "cvss": 8,
-      "final_ps": 60,
+      "id": "CVE-2026-134247",
+      "title": "CVE-2026-134247 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "SiYuan 3.8.0 before 3.8.10 contains an incorrect authorization vulnerability that allows anonymous attackers to read indexed asset text referenced only by publish-disabled attribute-view rows. Attackers can request /api/asset/getDocAssets on a public host document to obtain the leaked asset path, th",
+      "cvss": 7.5,
+      "final_ps": 59,
       "quality_score": 0.52,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
@@ -123,8 +125,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/getgrav/grav/security/advisories/GHSA-2vpw-p335-mmmp",
-        "https://www.vulncheck.com/advisories/grav-form-plugin-1.1.0-before-9.1.40-stored-xss-via-unsanitized-file-uploads"
+        "https://github.com/siyuan-note/siyuan/commit/9a087492f1d3aeb97c22db156ed27769ebc87ac8",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-q2x4-crw5-q567",
+        "https://www.vulncheck.com/advisories/siyuan-3.8.0-before-3.8.10-incorrect-authorization-exposes-asset-text-via-getassetcontentbypath"
       ],
       "explanation": {
         "quality": [
@@ -134,18 +137,18 @@
           "QS=0.520"
         ],
         "priority": [
-          "base_ps=60 (no boosts)"
+          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
       }
     },
     {
-      "id": "CVE-2026-134262",
-      "title": "CVE-2026-134262 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
-      "description": "Admidio 5.0.0 before 5.0.18 contains a stored cross-site scripting vulnerability that allows role administrators to inject JavaScript by placing quote-breaking payloads in role names rendered unencoded in the data-message attribute in modules/profile/roles_functions.php. Attackers can execute script",
-      "cvss": 8.1,
-      "final_ps": 60,
+      "id": "CVE-2026-134248",
+      "title": "CVE-2026-134248 — Affected software (product not identified) CVSS 7.7 High Severity Vulnerability",
+      "description": "SiYuan 3.6.0 before 3.8.10 contains an information disclosure vulnerability that allows authenticated Readers to read protected documents through block-reference footnote resolution in Markdown export. Attackers can request copyStdMarkdown for a public document referencing a hidden, disabled, or pas",
+      "cvss": 7.7,
+      "final_ps": 59,
       "quality_score": 0.52,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
@@ -165,8 +168,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/Admidio/admidio/security/advisories/GHSA-v28h-h5qh-45hr",
-        "https://www.vulncheck.com/advisories/admidio-5.0.0-before-5.0.18-stored-xss-via-role-name-in-profile-view"
+        "https://github.com/siyuan-note/siyuan/commit/7b70b90a5ec49b13f81b5f2779f57a7fdf53dd57",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-qwg4-fj37-jjqq",
+        "https://www.vulncheck.com/advisories/siyuan-3.6.0-before-3.8.10-information-disclosure-via-copystdmarkdown-block-references"
       ],
       "explanation": {
         "quality": [
@@ -176,18 +180,18 @@
           "QS=0.520"
         ],
         "priority": [
-          "base_ps=60 (no boosts)"
+          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
       }
     },
     {
-      "id": "CVE-2026-134282",
-      "title": "CVE-2026-134282 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
-      "description": "Vikunja from 0.14.0 before 2.8.0 contains a mass assignment vulnerability that allows authenticated users to set json-hidden fields by sending XML request bodies to the v1 API. Attackers can set BackgroundFileID on project creation to download any stored file via the background endpoint, or create b",
-      "cvss": 8.1,
-      "final_ps": 60,
+      "id": "CVE-2026-134249",
+      "title": "CVE-2026-134249 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "SiYuan before 3.8.10 contains an authentication bypass vulnerability that allows unauthenticated attackers to gain Administrator role by spoofing X-Forwarded-For through a loopback-trusted reverse proxy. Attackers can send requests with Host set to localhost and X-Forwarded-For set to 127.0.0.1 to r",
+      "cvss": 7.5,
+      "final_ps": 59,
       "quality_score": 0.52,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
@@ -207,8 +211,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-fppf-ghrf-8wp7",
-        "https://www.vulncheck.com/advisories/vikunja-0.14.0-before-2.8.0-arbitrary-file-read-and-privilege-escalation-via-xml-binding"
+        "https://github.com/siyuan-note/siyuan/commit/f951019168faf035b36c98f8e672719d511881ac",
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-gmcm-mggw-8759",
+        "https://www.vulncheck.com/advisories/siyuan-before-3.8.10-authentication-bypass-via-x-forwarded-for-on-history-route"
       ],
       "explanation": {
         "quality": [
@@ -218,7 +223,49 @@
           "QS=0.520"
         ],
         "priority": [
-          "base_ps=60 (no boosts)"
+          "base_ps=59 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-134287",
+      "title": "CVE-2026-134287 — Affected software (product not identified) CVSS 7.7 High Severity Vulnerability",
+      "description": "OpenRemote core before 1.34.0 contains an authentication bypass vulnerability in UserAssetProvisioningMQTTHandler that allows unauthenticated attackers to impersonate provisioned devices without proof of private key possession. Attackers can publish a known device's public certificate to the provisi",
+      "cvss": 7.7,
+      "final_ps": 59,
+      "quality_score": 0.52,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/openremote/core/security/advisories/GHSA-7jp3-2229-xgqj",
+        "https://www.vulncheck.com/advisories/openremote-before-1.34.0-authentication-bypass-via-x-509-mqtt-provisioning"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.520"
+        ],
+        "priority": [
+          "base_ps=59 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -2268,7 +2315,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-69212",
@@ -3450,6 +3499,96 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-94564",
+      "title": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
+      "description": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-94564"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-94564"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-94565",
+      "title": "CVE-2026-94565 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module",
+      "description": "CVE-2026-94565 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-94565"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-94565"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-114023",
       "title": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
       "description": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
@@ -4125,9 +4264,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-134245",
-      "title": "CVE-2026-134245 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
-      "description": "SiYuan 3.8.0 before 3.8.10 contains an incorrect authorization vulnerability in the serveAssets route that allows unauthenticated attackers to read password-protected document assets via name collisions. Attackers can request GET /assets/<name> when a visible document references the same relative as",
+      "id": "CVE-2026-134284",
+      "title": "CVE-2026-134284 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "Vikunja from 1.0.0 before 2.8.0 contains an account takeover vulnerability that allows attackers to hijack SSO identities by planting local accounts with unverified victim emails. When emailfallback is enabled, attackers register or edit a local account using the victim's email, causing the victim's",
       "cvss": 7.5,
       "final_ps": 19,
       "quality_score": 0.465,
@@ -4149,9 +4288,8 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/siyuan-note/siyuan/commit/76bbb54d0e23cf27b789376826d982a616c79488",
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-xxqp-6jxw-qr84",
-        "https://www.vulncheck.com/advisories/siyuan-3.8.0-before-3.8.10-incorrect-authorization-via-assets-cross-document-asset-collision"
+        "https://github.com/go-vikunja/vikunja/security/advisories/GHSA-8pm4-w983-mx58",
+        "https://www.vulncheck.com/advisories/vikunja-from-1.0.0-before-2.8.0-account-takeover-via-oidc-email-fallback"
       ],
       "explanation": {
         "quality": [
@@ -4170,9 +4308,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-134246",
-      "title": "CVE-2026-134246 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
-      "description": "SiYuan 3.6.0 before 3.6.2 and 3.7.3 before 3.8.10 contains a missing authorization vulnerability in the /api/block/getDOMText endpoint, which renders caller-supplied DOM without checking publish access for referenced image paths. When publish authentication is disabled, anonymous visitors can submit",
+      "id": "CVE-2026-134291",
+      "title": "CVE-2026-134291 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "SurrealDB 3.0.0 before 4.0.0 contains a path traversal vulnerability in its filesystem storage bucket that only canonicalizes the bucket root, not descendant symlinks. Attackers can reference paths through a pre-existing symlink inside the bucket that pass the lexical prefix check, reading and writi",
       "cvss": 7.5,
       "final_ps": 19,
       "quality_score": 0.465,
@@ -4194,9 +4332,8 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/siyuan-note/siyuan/commit/0432ef213d112e5ace886963f8e57fdf348c76c5",
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-vmvr-gf8m-x483",
-        "https://www.vulncheck.com/advisories/siyuan-3.6.0-before-3.6.2-and-3.7.3-before-3.8.10-missing-authorization-in-getdomtext-exposes-cached-ocr-text"
+        "https://github.com/surrealdb/surrealdb/security/advisories/GHSA-7pqw-x84x-frxc",
+        "https://www.vulncheck.com/advisories/surrealdb-3.0.0-before-4.0.0-path-traversal-via-filesystem-bucket-symlinks"
       ],
       "explanation": {
         "quality": [
@@ -4215,10 +4352,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-134247",
-      "title": "CVE-2026-134247 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
-      "description": "SiYuan 3.8.0 before 3.8.10 contains an incorrect authorization vulnerability that allows anonymous attackers to read indexed asset text referenced only by publish-disabled attribute-view rows. Attackers can request /api/asset/getDocAssets on a public host document to obtain the leaked asset path, th",
-      "cvss": 7.5,
+      "id": "CVE-2026-134254",
+      "title": "CVE-2026-134254 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
+      "description": "Admidio from 5.0.0 before 5.0.18 contains a path traversal vulnerability in DocumentsService::renameFile() that allows authenticated users to move files outside adm_my_files by supplying an unvalidated adm_new_name value. Attackers with folder upload permission can submit ../ sequences to file_renam",
+      "cvss": 7.1,
       "final_ps": 19,
       "quality_score": 0.465,
       "threat_level": "MEDIUM",
@@ -4239,143 +4376,8 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/siyuan-note/siyuan/commit/9a087492f1d3aeb97c22db156ed27769ebc87ac8",
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-q2x4-crw5-q567",
-        "https://www.vulncheck.com/advisories/siyuan-3.8.0-before-3.8.10-incorrect-authorization-exposes-asset-text-via-getassetcontentbypath"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-134287",
-      "title": "CVE-2026-134287 — Affected software (product not identified) CVSS 7.7 High Severity Vulnerability",
-      "description": "OpenRemote core before 1.34.0 contains an authentication bypass vulnerability in UserAssetProvisioningMQTTHandler that allows unauthenticated attackers to impersonate provisioned devices without proof of private key possession. Attackers can publish a known device's public certificate to the provisi",
-      "cvss": 7.7,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/openremote/core/security/advisories/GHSA-7jp3-2229-xgqj",
-        "https://www.vulncheck.com/advisories/openremote-before-1.34.0-authentication-bypass-via-x-509-mqtt-provisioning"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-134248",
-      "title": "CVE-2026-134248 — Affected software (product not identified) CVSS 7.7 High Severity Vulnerability",
-      "description": "SiYuan 3.6.0 before 3.8.10 contains an information disclosure vulnerability that allows authenticated Readers to read protected documents through block-reference footnote resolution in Markdown export. Attackers can request copyStdMarkdown for a public document referencing a hidden, disabled, or pas",
-      "cvss": 7.7,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/siyuan-note/siyuan/commit/7b70b90a5ec49b13f81b5f2779f57a7fdf53dd57",
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-qwg4-fj37-jjqq",
-        "https://www.vulncheck.com/advisories/siyuan-3.6.0-before-3.8.10-information-disclosure-via-copystdmarkdown-block-references"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-134249",
-      "title": "CVE-2026-134249 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
-      "description": "SiYuan before 3.8.10 contains an authentication bypass vulnerability that allows unauthenticated attackers to gain Administrator role by spoofing X-Forwarded-For through a loopback-trusted reverse proxy. Attackers can send requests with Host set to localhost and X-Forwarded-For set to 127.0.0.1 to r",
-      "cvss": 7.5,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/siyuan-note/siyuan/commit/f951019168faf035b36c98f8e672719d511881ac",
-        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-gmcm-mggw-8759",
-        "https://www.vulncheck.com/advisories/siyuan-before-3.8.10-authentication-bypass-via-x-forwarded-for-on-history-route"
+        "https://github.com/Admidio/admidio/security/advisories/GHSA-4fqv-v627-2ggm",
+        "https://www.vulncheck.com/advisories/admidio-5.0.0-before-5.0.18-path-traversal-via-documents-files-rename"
       ],
       "explanation": {
         "quality": [
@@ -4394,5 +4396,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-21T19:47:35.759Z"
+  "lastReportGeneratedAt": "2026-11-21T20:41:10.098Z"
 }

@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T19:47:35.196Z",
+  "generated": "2026-11-21T20:41:09.528Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19730,
+    "total_nodes": 19737,
     "actors": 8,
-    "cves": 9550,
-    "campaigns": 3127,
+    "cves": 9556,
+    "campaigns": 3128,
     "malware": 0,
     "iocs": 911,
-    "edges": 5932
+    "edges": 5933
   },
   "nodes": {
     "actor:lockbit": {
@@ -300567,18 +300567,18 @@
     "CVE-2026-76466": {
       "id": "CVE-2026-76466",
       "type": "CVE",
-      "name": "CVE-2026-76466: Cisco Expressway Series Use of Hard-coded Credentials Vulnerability — CISA KEV Active Exploitation",
+      "name": "Hackers Exploit Cisco Expressway Flaw CVE-2026-76466 to Breach Russian Organization",
       "attributes": {
-        "cvss": 0,
-        "threat_level": "HIGH",
-        "priority_score": 82,
-        "exploited": true,
-        "cisa_kev": true,
+        "cvss": 7.8,
+        "threat_level": "LOW",
+        "priority_score": 42,
+        "exploited": false,
+        "cisa_kev": false,
         "ransomware": false,
-        "vendor": "Cisco",
-        "product": "Expressway Series",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-20",
-        "type": "CVE_REPORT"
+        "type": "AI_SECURITY"
       },
       "connections": []
     },
@@ -370983,6 +370983,134 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-134291": {
+      "id": "CVE-2026-134291",
+      "type": "CVE",
+      "name": "CVE-2026-134291 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-94564": {
+      "id": "CVE-2026-94564",
+      "type": "CVE",
+      "name": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
+      "attributes": {
+        "cvss": 9.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 47,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-94565": {
+      "id": "CVE-2026-94565",
+      "type": "CVE",
+      "name": "CVE-2026-94565 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module",
+      "attributes": {
+        "cvss": 9.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 47,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-94567": {
+      "id": "CVE-2026-94567",
+      "type": "CVE",
+      "name": "CVE-2026-94567 - NukeViet CMS: Stored XSS via SVG upload: the sanitizer is blind to markup hidden inside an internal DTD entity",
+      "attributes": {
+        "cvss": 6.1,
+        "threat_level": "LOW",
+        "priority_score": 35,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-94598": {
+      "id": "CVE-2026-94598",
+      "type": "CVE",
+      "name": "CVE-2026-94598 - NukeViet CMS: Stored XSS via internal marker injection in iframe srcdoc sanitization",
+      "attributes": {
+        "cvss": 6.1,
+        "threat_level": "LOW",
+        "priority_score": 35,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-94599": {
+      "id": "CVE-2026-94599",
+      "type": "CVE",
+      "name": "CVE-2026-94599 - NukeViet CMS: Reflected XSS in news module search via double URL decoding of the q parameter",
+      "attributes": {
+        "cvss": 6.1,
+        "threat_level": "LOW",
+        "priority_score": 35,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-20",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-134291": {
+      "id": "campaign:cve-2026-134291",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-134291"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-134291",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -424553,6 +424681,15 @@
       "id": "campaign:cve-2026-134287→includes→CVE-2026-134287",
       "source": "campaign:cve-2026-134287",
       "target": "CVE-2026-134287",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-134291→includes→CVE-2026-134291",
+      "source": "campaign:cve-2026-134291",
+      "target": "CVE-2026-134291",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",
