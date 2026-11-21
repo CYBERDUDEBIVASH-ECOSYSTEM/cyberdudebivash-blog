@@ -265,3 +265,54 @@ def test_telemetry_is_non_secret_and_does_not_change_commercial_truth_sources():
     assert "email" not in serialized
     assert "api_key" not in serialized
     assert "password" not in serialized
+
+
+
+def test_legacy_starter_card_is_repaired_without_mutating_report_severity():
+    html = """
+    <article>
+      <div class="cdbd-kpi"><span>SEVERITY</span><strong>HIGH</strong></div>
+      <section class="cdbv18-commercial" data-astra-revenue-v18="true" data-report-family="ransomware_claim">
+        <article><small>₹999 / MONTH</small><strong>API STARTER</strong>
+          <p>5,000 API calls/day</p>
+          <a data-cdb-tier="starter" data-cdb-v18-cta="api_starter" href="https://blog.cyberdudebivash.in/buy.html?plan=starter">Get API Starter</a>
+        </article>
+      </section>
+    </article>
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    assert v19_1._repair_paid_ctas(soup, _context()) is True
+    panel = soup.select_one(".cdbv18-commercial")
+    assert "₹999" not in panel.get_text(" ", strip=True)
+    assert "API STARTER" not in panel.get_text(" ", strip=True)
+    anchor = panel.select_one("a[data-cdb-tier]")
+    url = urlparse(anchor["href"])
+    assert url.netloc == "intel.cyberdudebivash.com"
+    assert parse_qs(url.query)["plan"] == ["pro"]
+    assert anchor["data-cdb-tier"] == "pro"
+    severity = soup.select_one(".cdbd-kpi strong")
+    assert severity.get_text(strip=True) == "HIGH"
+
+
+@pytest.mark.parametrize("bad_price", ["₹999 / MONTH", "INR 1,499 / MONTH", "₹4,999 / MONTH"])
+def test_integrity_rejects_unverified_legacy_checkout_price(bad_price):
+    soup = BeautifulSoup(
+        '<section class="cdbv18-commercial" data-astra-revenue-v18="true">'
+        '<article><small>' + bad_price + '</small>'
+        '<a data-cdb-tier="pro" href="https://intel.cyberdudebivash.com/upgrade.html?plan=pro'
+        '&utm_campaign=astra_cash_conversion_v19">VIEW PLAN</a></article></section>',
+        "html.parser",
+    )
+    with pytest.raises(PublicationIntegrityError, match="hardcoded legacy price"):
+        v19_1._validate_final(soup, "HIGH", False, v19_1._capabilities(soup))
+
+
+def test_integrity_rejects_wrong_product_on_paid_checkout_cta():
+    soup = BeautifulSoup(
+        '<section class="cdbv18-commercial" data-astra-revenue-v18="true">'
+        '<a data-cdb-tier="enterprise" href="https://intel.cyberdudebivash.com/'
+        'upgrade.html?plan=pro&utm_campaign=astra_cash_conversion_v19">VIEW PLAN</a></section>',
+        "html.parser",
+    )
+    with pytest.raises(PublicationIntegrityError, match="bypasses canonical platform checkout"):
+        v19_1._validate_final(soup, "HIGH", False, v19_1._capabilities(soup))
