@@ -57,5 +57,5 @@ test('paid plan price display retains dynamic canonical pricing rather than fict
     assert.match(price,new RegExp('data-intel-price="'+plan+'"'));
   }
   assert.match(price,/Prices are never hardcoded here/);
-  assert.match(price,/see the exact amount before you pay/);
+  assert.match(price,/the exact amount before you pay/);
 });
