@@ -211,7 +211,7 @@ jobs:
       - name: "Cloudflare runtime gate"
         run: |
           npm run check:cloudflare
-          node --test scripts/build-cloudflare-assets.test.js workers/lib/route-table.test.js workers/lib/router.test.js tests-js/production-route-markers.test.js tests-js/soc-cti-source-handoff.test.js
+          node --test scripts/build-cloudflare-assets.test.js workers/lib/route-table.test.js workers/lib/router.test.js tests-js/production-route-markers.test.js tests-js/soc-cti-source-handoff.test.js tests-js/soc-commercial-checkout-trust.test.js
 
       - name: "Commercial dashboard integrity gate"
         run: python3 tests/test_commercial_intel_surfaces.py
