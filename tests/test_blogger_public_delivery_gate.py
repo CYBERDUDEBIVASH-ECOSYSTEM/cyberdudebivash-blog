@@ -39,7 +39,7 @@ def test_api_success_does_not_hide_public_404():
 
 def test_public_feed_must_contain_same_new_post_id():
     def get(url, **kwargs):
-        if url == _FEED_URL:
+        if url.startswith(_FEED_URL):
             return resp(json.dumps({"feed": {"entry": [{"id": {"$t": "tag:blogger.com,1999:blog-123.post-9999"}}]}}), "application/json")
         return resp(f"<html><h1>{TITLE}</h1></html>")
     result = verify_public_delivery(REPORT, http_get=get, attempts=1)
