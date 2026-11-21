@@ -229,11 +229,16 @@ def test_commercial_panel_uses_existing_entitlements_and_utm_attribution(monkeyp
     context = SimpleNamespace(family="ransomware_claim", report_id="CDB-CTI-2026-TEST")
     html = astra._commercial_panel_html(article, context)
 
-    assert "API STARTER" in html
-    assert "5,000 API calls/day" in html
-    assert "SOC PRO" in html
-    assert "25,000 API calls/day" in html
-    assert "STIX 2.1 export" in html
+    assert "API STARTER" not in html
+    assert "COMMUNITY ACCESS" in html
+    assert "5,000 API calls/day" not in html
+    assert "Legacy Starter" not in html
+    assert "PRO DEFENSE" in html
+    assert "25,000 API calls/day" not in html
+    assert "CURRENT PRICE AT CHECKOUT" not in html or "₹" not in html
+    assert "PRICE &amp; LIMITS AT CHECKOUT" in html
+    assert "₹999" not in html and "₹1,499" not in html and "₹4,999" not in html
+    assert "data-cdb-tier=\"starter\"" not in html
     assert "utm_campaign=astra_revenue_v18" in html.replace("&amp;", "&")
     assert "Customer exposure or compromise is never inferred" in html
     assert "SOC 2 certified" not in html
