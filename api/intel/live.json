@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T12:53:28.931Z",
+  "generated": "2026-11-21T13:58:15.083Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,105 +7,17 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8042,
+  "total_published": 8043,
   "s2n_stats": {
-    "passed": 100,
+    "passed": 99,
     "suppressed": 3,
     "avg_qs": 0.508
   },
   "items": [
     {
-      "id": "CVE-2026-107632",
-      "title": "CVE-2026-107632 — Unknown Vendor The Unbounce Landing CVSS 7.2 High Severity Vulnerability",
-      "description": "The Unbounce Landing Pages plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 1.1.6. This is due to insufficient input sanitization and output escaping on the proxy error message that is persisted to the 'ub-proxy-error-message' option: unauthenticate",
-      "cvss": 7.2,
-      "final_ps": 68,
-      "quality_score": 0.58,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Unbounce Landing",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/UBHTTP.php#L285",
-        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/UBHTTP.php#L482",
-        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/Unbounce-Page.php#L151",
-        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/Unbounce-Page.php#L57"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
-        ],
-        "priority": [
-          "+4 critical_infra"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-118049",
-      "title": "CVE-2026-118049 — Unknown Vendor The Tutor LMS CVSS 8.1 High Severity Vulnerability",
-      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.2.0 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attack",
-      "cvss": 8.1,
-      "final_ps": 62,
-      "quality_score": 0.58,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Tutor LMS",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Q_And_A.php#L292",
-        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Q_And_A.php#L322",
-        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Utils.php#L7657",
-        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Utils.php#L7762"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
-        ],
-        "priority": [
-          "base_ps=62 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-125054",
-      "title": "CVE-2026-125054 — Unknown Vendor The SiteOrigin CSS CVSS 7.2 High Severity Vulnerability",
-      "description": "The SiteOrigin CSS plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'class' parameter in all versions up to, and including, 1.6.9 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary we",
+      "id": "CVE-2026-120736",
+      "title": "CVE-2026-120736 — Unknown Vendor The AutomatorWP – CVSS 7.2 High Severity Vulnerability",
+      "description": "The AutomatorWP – No-Code Workflow Automation, Integration & Webhooks Plugin, now with AI plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'your-message (any CF7 form field used in a form_field: tag)' parameter in all versions up to, and including, 6.0.9 due to insufficient ",
       "cvss": 7.2,
       "final_ps": 60,
       "quality_score": 0.58,
@@ -122,15 +34,59 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The SiteOrigin CSS",
+      "product": "The AutomatorWP –",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/siteorigin/so-css/compare/1.6.9...1.6.10",
-        "https://plugins.trac.wordpress.org/browser/so-css/tags/1.6.9/js/inspector.js#L200",
-        "https://plugins.trac.wordpress.org/browser/so-css/tags/1.6.9/js/inspector.js#L419",
-        "https://plugins.trac.wordpress.org/browser/so-css/tags/1.6.9/js/inspector.js#L541"
+        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/includes/custom-tables/logs.php#L715",
+        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/integrations/contact-form-7/includes/functions.php#L148",
+        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/integrations/contact-form-7/includes/triggers/anonymous-submit-form.php#L97",
+        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/integrations/wordpress/actions/send-email.php#L207"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=60 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-120745",
+      "title": "CVE-2026-120745 — Unknown Vendor The Paid Membership CVSS 7.2 High Severity Vulnerability",
+      "description": "The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content – ProfilePress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'reg_bio' parameter in all versions up to, and including, 4.18.0 due to insufficient input sanitization ",
+      "cvss": 7.2,
+      "final_ps": 60,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Paid Membership",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/wp-user-avatar/tags/4.17.7/assets/js/member-directory.js#L49",
+        "https://plugins.trac.wordpress.org/browser/wp-user-avatar/tags/4.17.7/src/Classes/RegistrationAuth.php#L198",
+        "https://plugins.trac.wordpress.org/browser/wp-user-avatar/tags/4.17.7/src/ShortcodeParser/Builder/FrontendProfileBuilder.php#L342",
+        "https://plugins.trac.wordpress.org/changeset/3798748/wp-user-avatar/trunk/src/ShortcodeParser/Builder/FrontendProfileBuilder.php"
       ],
       "explanation": {
         "quality": [
@@ -2322,9 +2278,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2026-129448",
@@ -3909,6 +3863,236 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-123830",
+      "title": "CVE-2026-123830 — Unknown Vendor The wpForo Forum CVSS 7.2 High Severity Vulnerability",
+      "description": "The wpForo Forum plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'data[display_name]' parameter in all versions up to, and including, 3.2.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary w",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The wpForo Forum",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/wpforo/tags/3.2.4/admin/listtables/Members.php#L69",
+        "https://plugins.trac.wordpress.org/browser/wpforo/tags/3.2.4/classes/Members.php#L972",
+        "https://plugins.trac.wordpress.org/browser/wpforo/tags/3.2.4/includes/hooks.php#L2251",
+        "https://plugins.trac.wordpress.org/changeset?reponame=&new=3801437%40wpforo%2Ftags%2F3.2.5&old=3779698%40wpforo%2Ftags%2F3.2.4"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-124216",
+      "title": "CVE-2026-124216 — Unknown Vendor The Orphans plugin CVSS 7.2 High Severity Vulnerability",
+      "description": "The Orphans plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 3.4.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pa",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Orphans plugin",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/iworks/sierotki/releases/tag/3.4.6",
+        "https://plugins.trac.wordpress.org/browser/sierotki/tags/3.4.5/includes/iworks/class-iworks-orphan.php#L266",
+        "https://plugins.trac.wordpress.org/browser/sierotki/tags/3.4.5/includes/iworks/class-iworks-orphan.php#L484",
+        "https://plugins.trac.wordpress.org/browser/sierotki/tags/3.4.5/includes/iworks/class-iworks-orphan.php#L502"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-107632",
+      "title": "CVE-2026-107632 — Unknown Vendor The Unbounce Landing CVSS 7.2 High Severity Vulnerability",
+      "description": "The Unbounce Landing Pages plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 1.1.6. This is due to insufficient input sanitization and output escaping on the proxy error message that is persisted to the 'ub-proxy-error-message' option: unauthenticate",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Unbounce Landing",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/UBHTTP.php#L285",
+        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/UBHTTP.php#L482",
+        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/Unbounce-Page.php#L151",
+        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/Unbounce-Page.php#L57"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-118049",
+      "title": "CVE-2026-118049 — Unknown Vendor The Tutor LMS CVSS 8.1 High Severity Vulnerability",
+      "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.2.0 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attack",
+      "cvss": 8.1,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Tutor LMS",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Q_And_A.php#L292",
+        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Q_And_A.php#L322",
+        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Utils.php#L7657",
+        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Utils.php#L7762"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-125054",
+      "title": "CVE-2026-125054 — Unknown Vendor The SiteOrigin CSS CVSS 7.2 High Severity Vulnerability",
+      "description": "The SiteOrigin CSS plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via the 'class' parameter in all versions up to, and including, 1.6.9 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary we",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The SiteOrigin CSS",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/siteorigin/so-css/compare/1.6.9...1.6.10",
+        "https://plugins.trac.wordpress.org/browser/so-css/tags/1.6.9/js/inspector.js#L200",
+        "https://plugins.trac.wordpress.org/browser/so-css/tags/1.6.9/js/inspector.js#L419",
+        "https://plugins.trac.wordpress.org/browser/so-css/tags/1.6.9/js/inspector.js#L541"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-107654",
       "title": "CVE-2026-107654 — Unknown Vendor The One to CVSS 7.5 High Severity Vulnerability",
       "description": "The One to one user Chat by WPGuppy plugin for WordPress is vulnerable to generic SQL Injection via the 'userId' parameter in all versions up to, and including, 1.1.6 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes ",
@@ -4229,191 +4413,7 @@
       },
       "suppressed": false,
       "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-133367",
-      "title": "CVE-2026-133367 — Unknown Vendor The WPC Frequently CVSS 7.2 High Severity Vulnerability",
-      "description": "The WPC Frequently Bought Together for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'variation' parameter in all versions up to, and including, 8.0.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attack",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The WPC Frequently",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/woo-bought-together/tags/8.0.2/includes/class-woobt.php#L219",
-        "https://plugins.trac.wordpress.org/browser/woo-bought-together/tags/8.0.2/includes/class-woobt.php#L610",
-        "https://plugins.trac.wordpress.org/browser/woo-bought-together/tags/8.0.2/includes/class-woobt.php#L624",
-        "https://plugins.trac.wordpress.org/browser/woo-bought-together/tags/8.0.2/includes/class-woobt.php#L67"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-116518",
-      "title": "CVE-2026-116518 — Unknown Vendor The ElasticPress plugin CVSS 7.2 High Severity Vulnerability",
-      "description": "The ElasticPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'orderby' parameter in all versions up to, and including, 5.3.5 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts ",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The ElasticPress plugin",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/elasticpress/tags/5.3.5/assets/js/status-report/components/reports/report/value.js#L32",
-        "https://plugins.trac.wordpress.org/browser/elasticpress/tags/5.3.5/includes/classes/Indexable/Post/Post.php#L1218",
-        "https://plugins.trac.wordpress.org/browser/elasticpress/tags/5.3.5/includes/classes/QueryLogger.php#L312",
-        "https://plugins.trac.wordpress.org/browser/elasticpress/tags/5.3.5/includes/classes/StatusReport/FailedQueries.php#L165"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-120736",
-      "title": "CVE-2026-120736 — Unknown Vendor The AutomatorWP – CVSS 7.2 High Severity Vulnerability",
-      "description": "The AutomatorWP – No-Code Workflow Automation, Integration & Webhooks Plugin, now with AI plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'your-message (any CF7 form field used in a form_field: tag)' parameter in all versions up to, and including, 6.0.9 due to insufficient ",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The AutomatorWP –",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/includes/custom-tables/logs.php#L715",
-        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/integrations/contact-form-7/includes/functions.php#L148",
-        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/integrations/contact-form-7/includes/triggers/anonymous-submit-form.php#L97",
-        "https://plugins.trac.wordpress.org/browser/automatorwp/tags/6.0.6/integrations/wordpress/actions/send-email.php#L207"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-120745",
-      "title": "CVE-2026-120745 — Unknown Vendor The Paid Membership CVSS 7.2 High Severity Vulnerability",
-      "description": "The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content – ProfilePress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'reg_bio' parameter in all versions up to, and including, 4.18.0 due to insufficient input sanitization ",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Paid Membership",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/wp-user-avatar/tags/4.17.7/assets/js/member-directory.js#L49",
-        "https://plugins.trac.wordpress.org/browser/wp-user-avatar/tags/4.17.7/src/Classes/RegistrationAuth.php#L198",
-        "https://plugins.trac.wordpress.org/browser/wp-user-avatar/tags/4.17.7/src/ShortcodeParser/Builder/FrontendProfileBuilder.php#L342",
-        "https://plugins.trac.wordpress.org/changeset/3798748/wp-user-avatar/trunk/src/ShortcodeParser/Builder/FrontendProfileBuilder.php"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-21T12:53:29.293Z"
+  "lastReportGeneratedAt": "2026-11-21T13:58:15.323Z"
 }

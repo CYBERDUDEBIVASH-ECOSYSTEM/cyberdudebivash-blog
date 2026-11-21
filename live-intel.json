@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-21T12:53:28.930Z",
-  "lastUpdated": "2026-11-21T12:53:28.930Z",
-  "totalPublished": 8042,
+  "generatedAt": "2026-11-21T13:58:15.081Z",
+  "lastUpdated": "2026-11-21T13:58:15.081Z",
+  "totalPublished": 8043,
   "metadata": {
-    "generated": "2026-11-21T12:53:28.930Z",
+    "generated": "2026-11-21T13:58:15.081Z",
     "version": "5.0",
     "pipeline": "SENTINEL APEX v5.0",
     "platform": "blog.cyberdudebivash.in",
@@ -14,10 +14,10 @@
       "entries": 1790,
       "invalidEntries": 0,
       "duplicateEntries": 0,
-      "verifiedAt": "2026-11-21T12:53:23.413Z"
+      "verifiedAt": "2026-11-21T13:58:10.018Z"
     },
-    "lastReportGeneratedAt": "2026-11-21T12:53:29.293Z",
-    "lastPipelineRun": "2026-11-21T12:53:48.213Z"
+    "lastReportGeneratedAt": "2026-11-21T13:58:15.323Z",
+    "lastPipelineRun": "2026-11-21T13:58:34.582Z"
   },
   "source": "CYBERDUDEBIVASH SENTINEL APEX v5.0",
   "platform": "blog.cyberdudebivash.in",
@@ -31,6 +31,57 @@
     "sources": 7
   },
   "items": [
+    {
+      "id": "CVE-2026-124216",
+      "title": "CVE-2026-124216 — Unknown Vendor The Orphans plugin CVSS 7.2 High Severity Vulnerability",
+      "desc": "The Orphans plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 3.4.5 due to insufficient input sanitization and output ",
+      "cvss": 7.2,
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "pubDate": "2026-11-21",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Orphans plugin",
+      "dueDate": null,
+      "refs": [
+        "https://github.com/iworks/sierotki/releases/tag/3.4.6",
+        "https://plugins.trac.wordpress.org/browser/sierotki/tags/3.4.5/includes/iworks/class-iworks-orphan.php#L266"
+      ],
+      "priority": 61,
+      "threatLevel": "MEDIUM",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-124216-unknown-vendor-the-orphans-plugin",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-124216-unknown-vendor-the-orphans-plugin.html",
+      "_addedAt": "2026-11-21T13:58:13.009Z"
+    },
+    {
+      "id": "CVE-2026-133621",
+      "title": "CVE-2026-133621 - shader-slang slangpy EXR Image Loader tinyexr.h DecodePixelData out-of-bounds",
+      "desc": "CVE-2026-133621 - shader-slang slangpy EXR Image Loader tinyexr.h DecodePixelData out-of-bounds",
+      "cvss": null,
+      "type": "MALWARE_REPORT",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-20",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://intel.cyberdudebivash.com/reports/2026/11/intel--1c50d5907c5b43521661e235.html"
+      ],
+      "priority": 11,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-133621",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-133621.html",
+      "_addedAt": "2026-11-21T13:58:13.009Z"
+    },
     {
       "id": "SECURITYWEEK-f63f02c3138ce708",
       "title": "Amazon: China-Linked Hackers’ AI Agents Exploited Medical Software Zero-Day",
@@ -148,7 +199,7 @@
       "refs": [
         "https://intel.cyberdudebivash.com/reports/2026/11/intel--e94c84ce4ca619fa1ae812e9.html"
       ],
-      "priority": 11,
+      "priority": 9,
       "threatLevel": "LOW",
       "sourceCount": 1,
       "iocCount": 0,
@@ -173,7 +224,7 @@
       "refs": [
         "https://intel.cyberdudebivash.com/reports/2026/11/intel--47277694e2e25545503f88db.html"
       ],
-      "priority": 11,
+      "priority": 9,
       "threatLevel": "LOW",
       "sourceCount": 1,
       "iocCount": 0,
@@ -560,7 +611,7 @@
       "refs": [
         "https://intel.cyberdudebivash.com/reports/2026/11/intel--ac6426ecffeff7d638a21ae3.html"
       ],
-      "priority": 11,
+      "priority": 9,
       "threatLevel": "LOW",
       "sourceCount": 1,
       "iocCount": 0,
@@ -1250,7 +1301,7 @@
       "refs": [
         "https://intel.cyberdudebivash.com/reports/2026/11/intel--9d1c7bd1432879641d64035f.html"
       ],
-      "priority": 11,
+      "priority": 9,
       "threatLevel": "LOW",
       "sourceCount": 1,
       "iocCount": 0,
@@ -3772,57 +3823,7 @@
       "slug": "cve-2026-121717",
       "link": "https://blog.cyberdudebivash.in/posts/cve-2026-121717.html",
       "_addedAt": "2026-11-21T01:05:12.487Z"
-    },
-    {
-      "id": "CVE-2026-115563",
-      "title": "Model Context Protocol Python SDK: OAuth client could send credentials to an authorization server chosen by the MCP serv",
-      "desc": "Summary\nIn affected versions, the SDK's OAuth client support (mcp.client.auth) let the MCP server a client connected to decide where the client's OAuth credentials were sent:\n\n- the authorization serv",
-      "cvss": 7.5,
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-19",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://github.com/advisories/GHSA-qx49-fqc8-xw99"
-      ],
-      "priority": 41,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-115563",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-115563.html",
-      "_addedAt": "2026-11-20T23:46:57.178Z"
-    },
-    {
-      "id": "CVE-2026-76818",
-      "title": "Axon: Download of Code Without Integrity Check in axon-mcp",
-      "desc": "Summary\naxon rtk-install downloads a pre-built rtkx binary from GitHub releases and executes it via subprocess.run() on every text-compression call, without verifying its integrity — no checksum, sign",
-      "cvss": 7.5,
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-19",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://github.com/advisories/GHSA-r7wg-f7r2-8wf7"
-      ],
-      "priority": 41,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-76818",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-76818.html",
-      "_addedAt": "2026-11-20T23:46:57.178Z"
     }
   ],
-  "_heartbeat": "2026-11-21T12:53:48.213Z"
+  "_heartbeat": "2026-11-21T13:58:34.582Z"
 }
