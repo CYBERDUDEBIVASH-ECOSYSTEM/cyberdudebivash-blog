@@ -136,3 +136,114 @@ test('scheduled publisher heartbeat never manufactures a new report timestamp or
   assert.equal(Object.hasOwn(output2.metadata,'generatedAt'),false,'missing publication timestamp is never forged');
   assert.equal(output2.metadata.lastPipelineRun,now);
 });
+
+
+function withCurrentSourceReceipts(state,{ok=3,empty=26,degraded=6,lagMinutes=0}={}) {
+  const checkedAt=Date.parse(state.lastIngestion.checkedAt);
+  const timestamp=new Date(checkedAt-lagMinutes*60000).toISOString();
+  state.sourceHealth={};
+  for (let i=0;i<ok+empty;i++) {
+    const name='source_'+String(i).padStart(2,'0');
+    state.sourceHealth[name]={
+      status:i<ok?'ok':'empty',lastItemCount:i<ok?1:0,
+      consecutiveFails:0,lastSuccess:timestamp,lastFetchAt:timestamp
+    };
+  }
+  for(let i=0;i<degraded;i++){
+    state.sourceHealth['denied_'+i]={
+      status:'degraded',lastItemCount:0,consecutiveFails:70,
+      lastError:'COMMERCIAL_USE_NOT_APPROVED'
+    };
+  }
+  return state;
+}
+
+test('reproduce 21 Nov failure: 29 verified fresh polls, only 3 novel sources and 2 reports is a publisher success with explicit GA hold',()=>{
+  const state=withCurrentSourceReceipts(fixture({
+    active:3,total:35,records:158,reports:2,age:0
+  }));
+  const result=evaluate(state,now);
+  assert.equal(result.status,'POLL_HEALTHY_LOW_YIELD');
+  assert.equal(result.exitCode,0,'real report publication must not be retroactively reported as failed polling');
+  assert.equal(result.code,'FRESH_SOURCE_POLLS_CONFIRMED_LOW_NEW_RECORD_DIVERSITY');
+  assert.equal(result.freshSuccessfulPolls,29);
+  assert.equal(result.activeSources,3,'only sources with real new data count toward source diversity');
+  assert.equal(result.fetchedRecords,158);
+  assert.equal(result.reportsGenerated,2);
+  assert.equal(result.releaseSourceDiversityCertified,false,'never silently satisfy five-novel-source enterprise gate');
+  assert.notEqual(result.status,'COVERAGE_VERIFIED');
+});
+
+test('fresh valid empty source polls are not invented report records',()=>{
+  const state=withCurrentSourceReceipts(fixture({
+    active:0,total:35,records:0,reports:0,age:0
+  }),{ok:0,empty:29,degraded:6});
+  const result=evaluate(state,now);
+  assert.equal(result.status,'POLL_HEALTHY_LOW_YIELD');
+  assert.equal(result.reportsGenerated,0);
+  assert.equal(result.fetchedRecords,0);
+  assert.equal(result.activeSources,0);
+  assert.equal(result.releaseSourceDiversityCertified,false);
+});
+
+test('historical source success cannot turn a weak current run green',()=>{
+  const stale=withCurrentSourceReceipts(fixture({
+    active:3,total:35,records:158,reports:2,age:0
+  }),{lagMinutes:30});
+  const result=evaluate(stale,now);
+  assert.equal(result.status,'SOURCE_COVERAGE_DEGRADED');
+  assert.equal(result.exitCode,2);
+  assert.equal(result.freshSuccessfulPolls,0);
+});
+
+test('unapproved/commercially blocked and 404 or 429 sources never count as healthy',()=>{
+  const state=withCurrentSourceReceipts(fixture({active:3,total:35,records:158,reports:2,age:0}),
+    {ok:1,empty:3,degraded:31});
+  const result=evaluate(state,now);
+  assert.equal(result.status,'SOURCE_COVERAGE_DEGRADED');
+  assert.equal(result.freshSuccessfulPolls,4);
+  assert.equal(result.exitCode,2);
+});
+
+test('fake, future, replayed and contradictory source receipts cannot bypass the source floor',()=>{
+  for(const scenario of ['future','stale','inconsistent_fetch','empty_with_items','ok_without_items','failing_transport']){
+    const state=withCurrentSourceReceipts(fixture({active:3,total:35,records:20,reports:1,age:0}),
+      {ok:0,empty:5,degraded:30});
+    for(const source of Object.values(state.sourceHealth)){
+      if(source.status!=='empty')continue;
+      if(scenario==='future')source.lastSuccess=new Date(now+10*60000).toISOString();
+      if(scenario==='stale')source.lastSuccess=new Date(now-20*60000).toISOString();
+      if(scenario==='inconsistent_fetch')source.lastFetchAt=new Date(now-20*60000).toISOString();
+      if(scenario==='empty_with_items')source.lastItemCount=3;
+      if(scenario==='ok_without_items'){source.status='ok';source.lastItemCount=0;}
+      if(scenario==='failing_transport')source.consecutiveFails=1;
+    }
+    const actual=evaluate(state,now);
+    assert.equal(actual.status,'SOURCE_COVERAGE_DEGRADED',scenario);
+    assert.equal(actual.exitCode,2,scenario);
+  }
+});
+
+test('source poll ledger cannot contain more sources than the configured source count',()=>{
+  const state=withCurrentSourceReceipts(fixture({active:1,total:5,records:5,reports:1,age:0}),{
+    ok:2,empty:4,degraded:0
+  });
+  assert.equal(evaluate(state,now).code,'SOURCE_POLL_LEDGER_INVALID');
+});
+
+test('five nonempty novel sources remain the only FULL coverage-success status',()=>{
+  const state=fixture({active:5,total:35,records:5,reports:1,age:0});
+  const result=evaluate(state,now);
+  assert.equal(result.status,'COVERAGE_VERIFIED');
+  assert.equal(result.releaseSourceDiversityCertified,true);
+});
+
+test('commercial GA and full platform-health gates continue to reject low-yield as full source verification',()=>{
+  const fs=require('node:fs'),path=require('node:path');
+  for(const file of ['scripts/soc-commercial-ga-gate.cjs','scripts/assess-pipeline-operational-health.cjs']){
+    const source=fs.readFileSync(path.join(__dirname,'..',file),'utf8');
+    assert.match(source,/source\.status\s*!==\s*'COVERAGE_VERIFIED'|yieldResult\.status\s*===\s*'COVERAGE_VERIFIED'/,
+      file+' must require full five-nonempty-source coverage for platform or commercial certification');
+    assert.doesNotMatch(source,/POLL_HEALTHY_LOW_YIELD/,file+' must not consider healthy empty polls a substitute for real diverse intel');
+  }
+});
