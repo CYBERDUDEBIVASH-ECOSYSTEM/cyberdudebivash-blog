@@ -556,10 +556,10 @@ def _recommended_tier(article: Any, context: Any) -> tuple[str, str, str]:
         "cve_advisory", "cisa_advisory",
     }
     if family in high_ops or scheduler_family in {"zero_day", "ransomware", "malware", "campaign"}:
-        return "pro", "SOC PRO", "IOC + detection + higher-rate operational intelligence"
+        return "pro", "PRO DEFENSE", "Review available IOC and detection products, limits and supported integrations at checkout"
     if scheduler_family in {"vulnerability", "breach"}:
-        return "pro", "SOC PRO", "Full operational API depth + detection intelligence"
-    return "starter", "API STARTER", "Higher-rate API access for automation and enrichment"
+        return "pro", "PRO DEFENSE", "Review operational intelligence access and integration limits at checkout"
+    return "pro", "PRO DEFENSE", "Authenticated operational threat intelligence with plan-scoped entitlements"
 
 
 def _commercial_panel_html(article: Any, context: Any) -> str:
@@ -568,7 +568,7 @@ def _commercial_panel_html(article: Any, context: Any) -> str:
     report_id = str(getattr(context, "report_id", None) or "").strip()
     family = str(getattr(context, "family", None) or _scheduler.classify_publication_family(article))
     primary_url = _utm(PRICING_URL, content=f"{tier}_{family}")
-    starter_url = _utm(API_DASHBOARD_URL, content=f"starter_{family}")
+    community_url = "https://intel.cyberdudebivash.com/get-api-key.html?plan=community"
     pro_url = _utm(PRICING_URL, content=f"pro_{family}")
     enterprise_url = _utm(PRICING_URL, content=f"enterprise_{family}")
     docs_url = _utm(API_DOCS_URL, content=f"api_docs_{family}")
@@ -581,9 +581,9 @@ def _commercial_panel_html(article: Any, context: Any) -> str:
   <div class="cdbv18-boundary">This public dossier remains source-linked intelligence. Customer exposure or compromise is never inferred here. Paid tiers add authenticated operational delivery, not stronger factual certainty.</div>
   <div class="cdbv18-grid">
     <article><small>PUBLIC</small><strong>PUBLIC DOSSIER</strong><p>Source-linked analysis, provenance, evidence boundaries, executive and SOC decision support.</p><a href="{_html.escape(docs_url, quote=True)}" target="_blank" rel="noopener" data-cdb-v18-cta="api_docs" data-cdb-tier="free">API DOCUMENTATION</a></article>
-    <article><small>₹999 / MONTH</small><strong>API STARTER</strong><p>5,000 API calls/day, weekly intelligence digest, and a single authenticated API key.</p><a href="{_html.escape(starter_url, quote=True)}" target="_blank" rel="noopener" data-cdb-v18-cta="api_starter" data-cdb-tier="starter">GET API ACCESS</a></article>
-    <article class="recommended"><small>RECOMMENDED · ₹1,499 / MONTH</small><strong>SOC PRO</strong><p>25,000 API calls/day plus IOC access, detection intelligence, and authenticated full-intel API depth.</p><a href="{_html.escape(pro_url, quote=True)}" target="_blank" rel="noopener" data-cdb-v18-cta="soc_pro" data-cdb-tier="pro">UNLOCK SOC PRO</a></article>
-    <article><small>₹4,999 / MONTH</small><strong>ENTERPRISE</strong><p>STIX 2.1 export, bulk intelligence access, extended API capacity, and priority support.</p><a href="{_html.escape(enterprise_url, quote=True)}" target="_blank" rel="noopener" data-cdb-v18-cta="enterprise" data-cdb-tier="enterprise">ENTERPRISE ACCESS</a></article>
+    <article><small>FREE · SEPARATE PLATFORM</small><strong>COMMUNITY ACCESS</strong><p>Keyless public API access, with published Community quotas and best-effort availability. This is distinct from legacy SOC API-key plans.</p><a href="{_html.escape(community_url, quote=True)}" target="_blank" rel="noopener" data-cdb-v18-cta="community" data-cdb-tier="free">EXPLORE COMMUNITY ACCESS</a></article>
+    <article class="recommended"><small>PRICE &amp; LIMITS AT CHECKOUT</small><strong>PRO DEFENSE</strong><p>Authenticated operational intelligence. Verify current price, quotas, API access, inclusions and billing period at the secure SENTINEL APEX checkout.</p><a href="{_html.escape(pro_url, quote=True)}" target="_blank" rel="noopener" data-cdb-v18-cta="soc_pro" data-cdb-tier="pro">VIEW PRO DEFENSE PLAN</a></article>
+    <article><small>PRICE &amp; SCOPE AT CHECKOUT</small><strong>ENTERPRISE SOC</strong><p>Enterprise intelligence and integration options depend on the current plan and executed terms. Verify price, entitlements, support and SLA before purchase.</p><a href="{_html.escape(enterprise_url, quote=True)}" target="_blank" rel="noopener" data-cdb-v18-cta="enterprise" data-cdb-tier="enterprise">VIEW ENTERPRISE SOC</a></article>
   </div>
   <div class="cdbv18-primary"><span>{_html.escape(rationale)}</span><a href="{_html.escape(primary_url, quote=True)}" target="_blank" rel="noopener" data-cdb-v18-cta="recommended" data-cdb-tier="{_html.escape(tier, quote=True)}">VIEW {label} OPTIONS →</a></div>
 </section>"""
