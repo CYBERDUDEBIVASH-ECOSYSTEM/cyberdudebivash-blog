@@ -218,6 +218,15 @@ jobs:
       - name: "P0 fail-closed finalized report ledger and both source feeds"
         run: node scripts/assert-publication-ledger.cjs
 
+      # Validate exact source RSS and first-party post files BEFORE any
+      # generated intelligence output is staged or committed. This is not a
+      # Cloudflare/public-delivery check and performs no external I/O.
+      - name: "P0 first-party RSS chronology and canonical source — precommit"
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/verify-soc-rss-source-truth.cjs
+
       - name: "Detect changes"
         id: changes
         run: |
@@ -281,6 +290,10 @@ jobs:
             # A rebase can combine two independent publisher revisions; always
             # reverify the final index before every customer-impacting push.
             node scripts/assert-publication-ledger.cjs
+            # A race/rebase can change RSS and its referenced HTML assets.
+            # Keep this guard adjacent to every push attempt, not just the
+            # original runner checkout.
+            node scripts/verify-soc-rss-source-truth.cjs
             if git push origin main; then
               echo "✅ Push succeeded (attempt $i)"
               break
