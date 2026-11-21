@@ -71,7 +71,7 @@ test('an undated archival redirect stub is excluded; the real report keeps its o
 
 test('a historical advisory regenerated "today" keeps its original publication date', (t) => {
   const { xml } = run(t, { 'cve-2026-111.html': page({ title: 'Old advisory', date: '2026-07-05' }) }, '2026-11-12T08:00:00Z');
-  assert.equal(itemsOf(xml)[0].pubDate, 'Sun, 05 Jul 2026 12:00:00 +0000');
+  assert.equal(itemsOf(xml)[0].pubDate, 'Sun, 05 Jul 2026 00:00:00 +0000');
 });
 
 test('the feed is idempotent: identical posts give byte-identical output on different days', (t) => {
@@ -98,4 +98,43 @@ test('the generator source keeps no date-inventing fallback and stays CLI-compat
   const fn = src.slice(src.indexOf('function extractDate('), src.indexOf('/** Parse ISO date string'));
   assert.doesNotMatch(fn, /new Date\(/, 'extractDate must not read the clock');
   assert.match(src, /if \(require\.main === module\) buildRSS\(\);/, '`node generate-rss.js` still builds the feed');
+});
+
+
+
+test('date-only source timestamps never invent a noon publication instant', (t) => {
+  const now = Date.parse('2026-11-21T05:31:11Z');
+  const { xml } = run(t, { 'today.html': page({title:'Today', date:'2026-11-21'}) }, '2026-11-21T05:31:11Z');
+  const itemDate = Date.parse(itemsOf(xml)[0].pubDate);
+  const channel = xml.match(/<channel>[\s\S]*?<pubDate>([^<]+)<\/pubDate>/)[1];
+  assert.equal(itemsOf(xml)[0].pubDate, 'Sat, 21 Nov 2026 00:00:00 +0000');
+  assert.ok(itemDate <= now);
+  assert.ok(Date.parse(channel) <= now);
+  assert.equal(Date.parse(channel), itemDate);
+});
+
+test('future source publication date is held out of public RSS, without backdating', (t) => {
+  const {xml, warnings} = run(t, {
+    'future.html': page({title:'Future', date:'2026-11-22'}),
+    'current.html': page({title:'Current', date:'2026-11-21'}),
+  }, '2026-11-21T04:00:00Z');
+  assert.equal(itemsOf(xml).length, 1);
+  assert.ok(itemsOf(xml)[0].link.includes('/posts/current.html'));
+  assert.ok(warnings.some(x => /future-dated source post\(s\) quarantined/.test(x) && /future.html/.test(x)));
+});
+
+test('invalid calendar dates are never promoted to RSS, even with syntactically valid JSON-LD', (t) => {
+  const {xml, warnings} = run(t, {
+    'feb31.html': page({title:'Invalid leap month',date:'2026-02-31'}),
+    'valid.html': page({title:'Valid',date:'2026-02-28'}),
+  }, '2026-06-01T10:00:00Z');
+  assert.equal(itemsOf(xml).length, 1);
+  assert.equal(itemsOf(xml)[0].pubDate, 'Sat, 28 Feb 2026 00:00:00 +0000');
+  assert.ok(warnings.some(x => /no verifiable publication date/.test(x) && /feb31.html/.test(x)));
+});
+
+test('date-only RFC822 conversion refuses invalid calendar dates and stays UTC', () => {
+  assert.equal(toRFC822('2026-11-21'), 'Sat, 21 Nov 2026 00:00:00 +0000');
+  assert.throws(() => toRFC822('2026-02-31'), /RSS_INVALID_SOURCE_CALENDAR_DATE/);
+  assert.throws(() => toRFC822('not-a-date'), /RSS_INVALID_SOURCE_CALENDAR_DATE/);
 });
