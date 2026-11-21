@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T10:48:05.275Z",
+  "generated": "2026-11-21T11:45:29.605Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19658,
+    "total_nodes": 19662,
     "actors": 8,
-    "cves": 9514,
-    "campaigns": 3091,
+    "cves": 9516,
+    "campaigns": 3093,
     "malware": 0,
     "iocs": 911,
-    "edges": 5896
+    "edges": 5898
   },
   "nodes": {
     "actor:lockbit": {
@@ -369615,6 +369615,82 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-107632": {
+      "id": "CVE-2026-107632",
+      "type": "CVE",
+      "name": "CVE-2026-107632 — Unknown Vendor The Unbounce Landing CVSS 7.2 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.2,
+        "threat_level": "HIGH",
+        "priority_score": 68,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The Unbounce Landing",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-118049": {
+      "id": "CVE-2026-118049",
+      "type": "CVE",
+      "name": "CVE-2026-118049 — Unknown Vendor The Tutor LMS CVSS 8.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.1,
+        "threat_level": "HIGH",
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "Unknown Vendor",
+        "product": "The Tutor LMS",
+        "published": "2026-11-21",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-107632": {
+      "id": "campaign:cve-2026-107632",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-107632"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-107632",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-118049": {
+      "id": "campaign:cve-2026-118049",
+      "type": "Campaign",
+      "name": "Unknown The Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-21",
+        "last_seen": "2026-11-21",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-118049"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-118049",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -422861,6 +422937,24 @@
       "id": "campaign:cve-2026-125054→includes→CVE-2026-125054",
       "source": "campaign:cve-2026-125054",
       "target": "CVE-2026-125054",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-107632→includes→CVE-2026-107632",
+      "source": "campaign:cve-2026-107632",
+      "target": "CVE-2026-107632",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-118049→includes→CVE-2026-118049",
+      "source": "campaign:cve-2026-118049",
+      "target": "CVE-2026-118049",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",

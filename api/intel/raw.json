@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T10:48:05.432Z",
+  "generated": "2026-11-21T11:45:29.810Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,12 +8,12 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 102,
+  "count": 103,
   "items": [
     {
-      "id": "CVE-2026-126011",
-      "title": "CVE-2026-126011 — Unknown Vendor The Photo Gallery, CVSS 7.2 High Severity Vulnerability",
-      "description": "The Photo Gallery, Sliders, Proofing and Themes – NextGEN Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'comment' parameter in all versions up to, and including, 4.5.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthent",
+      "id": "CVE-2026-120485",
+      "title": "CVE-2026-120485 — Unknown Vendor The Admin Columns CVSS 7.2 High Severity Vulnerability",
+      "description": "The Admin Columns plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'url' parameter in all versions up to, and including, 7.1.8 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in ",
       "cvss": 7.2,
       "final_ps": 60,
       "quality_score": 0.58,
@@ -30,15 +30,15 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The Photo Gallery,",
+      "product": "The Admin Columns",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/src/Display/LightboxManager.php#L319",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/lightbox_context.js#L6",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/thickbox/thickbox.js#L35",
-        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/thickbox/thickbox.js#L496"
+        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.8/assets/js/table.js",
+        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.8/classes/ColumnFactory/Comment/AuthorUrlFactory.php#L29",
+        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.8/classes/Formatter/Linkable.php#L51",
+        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.8/classes/Helper/Html.php#L44"
       ],
       "explanation": {
         "quality": [
@@ -58,9 +58,9 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-131822",
-      "title": "CVE-2026-131822 — Unknown Vendor The Contact Form CVSS 7.2 High Severity Vulnerability",
-      "description": "The Contact Form to Any API plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'your-message (any CF7 form field)' parameter in all versions up to, and including, 3.0.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attac",
+      "id": "CVE-2026-120529",
+      "title": "CVE-2026-120529 — Unknown Vendor The Admin Columns CVSS 7.2 High Severity Vulnerability",
+      "description": "The Admin Columns plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'HTTP_USER_AGENT' parameter in all versions up to, and including, 7.1.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web",
       "cvss": 7.2,
       "final_ps": 60,
       "quality_score": 0.58,
@@ -77,15 +77,62 @@
       "cisa_kev": false,
       "ransomware": false,
       "vendor": "Unknown Vendor",
-      "product": "The Contact Form",
+      "product": "The Admin Columns",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/class-cf7-to-any-api-admin.php#L640",
-        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/class-cf7-to-any-api-admin.php#L759",
-        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/partials/cf7-to-any-api-admin-entries.php#L115",
-        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/includes/class-cf7-to-any-api.php#L181"
+        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.7/assets/js/table.js",
+        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.7/classes/ColumnFactory/Comment/AgentFactory.php#L27",
+        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.7/classes/Formatter/ColumnFilter.php#L37",
+        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.7/classes/Formatter/Comment/Property.php#L23"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "base_ps=60 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-120676",
+      "title": "CVE-2026-120676 — Unknown Vendor The Forminator Forms CVSS 7.2 High Severity Vulnerability",
+      "description": "The Forminator Forms – Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'upload-1 (the File Upload field's element_id)' parameter in all versions up to, and including, 1.58.4 due to insufficient input sanitization and output e",
+      "cvss": 7.2,
+      "final_ps": 60,
+      "quality_score": 0.58,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Forminator Forms",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/abstracts/abstract-class-field.php#L2420",
+        "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/fields/upload.php#L399",
+        "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/fields/upload.php#L403",
+        "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/fields/upload.php#L626"
       ],
       "explanation": {
         "quality": [
@@ -4046,6 +4093,241 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-107632",
+      "title": "CVE-2026-107632 — Unknown Vendor The Unbounce Landing CVSS 7.2 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Unbounce Landing",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/UBHTTP.php#L285",
+        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/UBHTTP.php#L482",
+        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/Unbounce-Page.php#L151",
+        "https://plugins.trac.wordpress.org/browser/unbounce/tags/1.1.6/Unbounce-Page.php#L57"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-118049",
+      "title": "CVE-2026-118049 — Unknown Vendor The Tutor LMS CVSS 8.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Tutor LMS",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Q_And_A.php#L292",
+        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Q_And_A.php#L322",
+        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Utils.php#L7657",
+        "https://plugins.trac.wordpress.org/browser/tutor/tags/4.1.3/classes/Utils.php#L7762"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-125039",
+      "title": "CVE-2026-125039 — Unknown Vendor The EZ SQL CVSS 7.2 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The EZ SQL",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L385",
+        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L396",
+        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L977",
+        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L989"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-126011",
+      "title": "CVE-2026-126011 — Unknown Vendor The Photo Gallery, CVSS 7.2 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Photo Gallery,",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/src/Display/LightboxManager.php#L319",
+        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/lightbox_context.js#L6",
+        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/thickbox/thickbox.js#L35",
+        "https://plugins.trac.wordpress.org/browser/nextgen-gallery/tags/4.5.6/static/Lightbox/thickbox/thickbox.js#L496"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131822",
+      "title": "CVE-2026-131822 — Unknown Vendor The Contact Form CVSS 7.2 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.2,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "Unknown Vendor",
+      "product": "The Contact Form",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/class-cf7-to-any-api-admin.php#L640",
+        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/class-cf7-to-any-api-admin.php#L759",
+        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/admin/partials/cf7-to-any-api-admin-entries.php#L115",
+        "https://plugins.trac.wordpress.org/browser/contact-form-to-any-api/tags/3.0.7/includes/class-cf7-to-any-api.php#L181"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-132620",
       "title": "CVE-2026-132620 — Unknown Vendor The WPBot – CVSS 7.2 High Severity Vulnerability",
       "description": "",
@@ -4460,240 +4742,6 @@
         ],
         "priority": [
           "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-120485",
-      "title": "CVE-2026-120485 — Unknown Vendor The Admin Columns CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Admin Columns",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.8/assets/js/table.js",
-        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.8/classes/ColumnFactory/Comment/AuthorUrlFactory.php#L29",
-        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.8/classes/Formatter/Linkable.php#L51",
-        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.8/classes/Helper/Html.php#L44"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-120529",
-      "title": "CVE-2026-120529 — Unknown Vendor The Admin Columns CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Admin Columns",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.7/assets/js/table.js",
-        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.7/classes/ColumnFactory/Comment/AgentFactory.php#L27",
-        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.7/classes/Formatter/ColumnFilter.php#L37",
-        "https://plugins.trac.wordpress.org/browser/codepress-admin-columns/tags/7.1.7/classes/Formatter/Comment/Property.php#L23"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-120676",
-      "title": "CVE-2026-120676 — Unknown Vendor The Forminator Forms CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The Forminator Forms",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/abstracts/abstract-class-field.php#L2420",
-        "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/fields/upload.php#L399",
-        "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/fields/upload.php#L403",
-        "https://plugins.trac.wordpress.org/browser/forminator/tags/1.58.4/library/fields/upload.php#L626"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-125039",
-      "title": "CVE-2026-125039 — Unknown Vendor The EZ SQL CVSS 7.2 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.2,
-      "final_ps": 21,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "The EZ SQL",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L385",
-        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L396",
-        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L977",
-        "https://plugins.trac.wordpress.org/browser/elisqlreports/tags/5.26.45/index.php#L989"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-113955",
-      "title": "CVE-2026-113955 - Apple iOS and iPadOS Cross-Origin Information Disclosure Vulnerability",
-      "description": "",
-      "cvss": 5.3,
-      "final_ps": 16,
-      "quality_score": 0.398,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-113955"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-113955"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=0d (score=1.00)",
-          "QS=0.398"
-        ],
-        "priority": [
-          "base_ps=16 (no boosts)"
         ],
         "suppression": null,
         "merge": null
