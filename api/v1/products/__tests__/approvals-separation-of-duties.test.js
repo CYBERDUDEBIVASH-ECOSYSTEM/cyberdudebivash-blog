@@ -118,3 +118,20 @@ test('unsupported approval-role spoofing blocked before loading product',async()
   expect(res.status).toBe(403);
   expect(mockGetProduct).not.toHaveBeenCalled();
 });
+
+
+test('approved and in-review products cannot reset their existing approval histories',async()=>{
+  for(const status of ['APPROVED','UNDER_REVIEW','PUBLISHED','ARCHIVED','SUPERSEDED']){
+    mockGetProduct.mockResolvedValue({status,productId:'product-01',approve:mockApprove});
+    mockRequireAnalyst.mockResolvedValue({id:'analyst1',role:'analyst'});
+    const req={method:'POST',url:'/api/v1/products/approvals/product-01/submit-review',
+      headers:{'content-type':'application/json'},query:{},
+      body:{submitter:'attacker',reviewLevel:'MANAGER',message:'retry'}};
+    const {res,response}=createNodeResponse();
+    await handler(req,res);
+    const reply=await response;
+    expect(reply.status).toBe(409);
+    expect(mockPersistProduct).not.toHaveBeenCalled();
+    expect(mockHset).not.toHaveBeenCalled();
+  }
+});
