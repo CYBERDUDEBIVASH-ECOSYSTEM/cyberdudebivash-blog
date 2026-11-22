@@ -18,6 +18,28 @@ function compare(files) {
 }
 function state(files) { return classify(compare(files), BASE, HEAD, paths).state; }
 
+test('P0 #433 reviewed Zod intelligence validator is operational, never benign or deployment-approved',()=>{
+  const exact='lib/intelligence/validators.ts';
+  const unexpected='lib/intelligence/validators-override.ts';
+  assert.equal(fs.existsSync(path.join(root,exact)),true);
+  assert.equal(isReviewedOperationalPath(exact),true);
+  assert.equal(isReviewedOperationalPath(unexpected),false);
+  const reviewed=classify(compare([exact]),BASE,HEAD,paths);
+  assert.equal(reviewed.state,'manual_release_required');
+  assert.deepEqual(reviewed.operational,[exact]);
+  assert.deepEqual(reviewed.benign,[]);
+  assert.deepEqual(reviewed.unknown,[]);
+  assert.match(renderDriftSummary(HEAD,BASE,reviewed),/Manual release and independent postdeploy certification required/);
+  const fail=classify(compare([exact,unexpected]),BASE,HEAD,paths);
+  assert.equal(fail.state,'blocked');
+  assert.deepEqual(fail.unknown,[unexpected]);
+  const renamed=compare([]);
+  renamed.files=[{filename:'docs/retired-validator.md',previous_filename:exact,status:'renamed'}];
+  const result=classify(renamed,BASE,HEAD,paths);
+  assert.equal(result.state,'manual_release_required');
+  assert.ok(result.operational.includes(exact));
+});
+
 test('P0 native D1 regression gate is never benign: operational when excluded from deploy paths, production otherwise',()=>{
   const file='api/_lib/__tests__/d1-worker-native-fail-closed.test.js';
   const other='api/_lib/__tests__/d1-worker-native-fail-open.test.js';
