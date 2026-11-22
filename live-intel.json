@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-22T13:56:59.999Z",
-  "lastUpdated": "2026-11-22T13:56:59.999Z",
-  "totalPublished": 8093,
+  "generatedAt": "2026-11-22T14:50:10.236Z",
+  "lastUpdated": "2026-11-22T14:50:10.236Z",
+  "totalPublished": 8095,
   "metadata": {
-    "generated": "2026-11-22T13:56:59.999Z",
+    "generated": "2026-11-22T14:50:10.236Z",
     "version": "5.0",
     "pipeline": "SENTINEL APEX v5.0",
     "platform": "blog.cyberdudebivash.in",
@@ -14,10 +14,10 @@
       "entries": 1790,
       "invalidEntries": 0,
       "duplicateEntries": 0,
-      "verifiedAt": "2026-11-22T13:56:55.470Z"
+      "verifiedAt": "2026-11-22T14:50:06.287Z"
     },
-    "lastReportGeneratedAt": "2026-11-22T13:57:00.356Z",
-    "lastPipelineRun": "2026-11-22T13:57:19.377Z"
+    "lastReportGeneratedAt": "2026-11-22T14:50:10.458Z",
+    "lastPipelineRun": "2026-11-22T14:50:29.657Z"
   },
   "source": "CYBERDUDEBIVASH SENTINEL APEX v5.0",
   "platform": "blog.cyberdudebivash.in",
@@ -31,6 +31,106 @@
     "sources": 2
   },
   "items": [
+    {
+      "id": "CVE-2026-63386",
+      "title": "js-toml allows uncontrolled recursion in load() leading RangeError (stack exhaustion) on deeply nested input",
+      "desc": "Summary\n\nload() parses untrusted TOML using a recursive-descent parser (Chevrotain) and a\nrecursive tree-walking interpreter. Neither the parser nor the interpreter enforces a\nmaximum nesting / key de",
+      "cvss": 5.3,
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-20",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://github.com/advisories/GHSA-3g82-77xr-68x5"
+      ],
+      "priority": 29,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-63386",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-63386.html",
+      "_addedAt": "2026-11-22T14:50:08.072Z"
+    },
+    {
+      "id": "CVE-2026-104199",
+      "title": "aMQTT: Inefficient Regular Expression Complexity and Uncontrolled Resource Consumption and Improper Input Validation",
+      "desc": "Impact\n\namqtt is vulnerable to a remote denial of service caused by improper MQTT topic-filter validation combined with catastrophic regular-expression backtracking.\n\nA single client can freeze the en",
+      "cvss": 5.3,
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-20",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://github.com/advisories/GHSA-2hjf-7455-w946"
+      ],
+      "priority": 29,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-104199",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-104199.html",
+      "_addedAt": "2026-11-22T14:50:08.072Z"
+    },
+    {
+      "id": "CVE-2026-133608",
+      "title": "CVE-2026-133608 - OpenZipkin HTTP Collector ZipkinHttpCollector.java UnzippingBytesRequestConverter.convertRequest data ",
+      "desc": "CVE-2026-133608 - OpenZipkin HTTP Collector ZipkinHttpCollector.java UnzippingBytesRequestConverter.convertRequest data amplification",
+      "cvss": 5.3,
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-20",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-133608"
+      ],
+      "priority": 29,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-133608",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-133608.html",
+      "_addedAt": "2026-11-22T14:50:08.072Z"
+    },
+    {
+      "id": "CVE-2026-94566",
+      "title": "CVE-2026-94566 - NukeVie: Login Lockout Bypass via Untrusted Forwarded-IP Headers",
+      "desc": "CVE-2026-94566 - NukeVie: Login Lockout Bypass via Untrusted Forwarded-IP Headers",
+      "cvss": null,
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "pubDate": "2026-11-20",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-94566"
+      ],
+      "priority": 9,
+      "threatLevel": "LOW",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-94566",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-94566.html",
+      "_addedAt": "2026-11-22T14:50:08.072Z"
+    },
     {
       "id": "CVE-2025-58450",
       "title": "pREST _groupby function-expression SQL injection (incomplete fix of CVE-2025-58450)",
@@ -48,7 +148,7 @@
       "refs": [
         "https://github.com/advisories/GHSA-v9v2-98xq-627c"
       ],
-      "priority": 9,
+      "priority": 7,
       "threatLevel": "LOW",
       "sourceCount": 1,
       "iocCount": 0,
@@ -3491,37 +3591,12 @@
       "refs": [
         "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
       ],
-      "priority": 47,
+      "priority": 45,
       "threatLevel": "MEDIUM",
       "sourceCount": 1,
       "iocCount": 0,
       "slug": "cve-2026-58192",
       "link": "https://blog.cyberdudebivash.in/posts/cve-2026-58192.html",
-      "_addedAt": "2026-11-22T05:32:26.588Z"
-    },
-    {
-      "id": "CVE-2026-103035",
-      "title": "TeamPass folder re-parenting authorization bypass",
-      "desc": "Summary\n\nMissing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credent",
-      "cvss": 8.3,
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-20",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
-      ],
-      "priority": 44,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-103035",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-103035.html",
       "_addedAt": "2026-11-22T05:32:26.588Z"
     },
     {
@@ -3550,10 +3625,10 @@
       "_addedAt": "2026-11-22T05:32:26.588Z"
     },
     {
-      "id": "CVE-2026-115578",
-      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
-      "desc": "The defect\n\nConfirmed at HEAD. server.go: cmdXCLIENT = []byte(\"XCLIENT\") is 7 bytes (line 78), so the dispatch match cmdXCLIENT.match(cmd) only guarantees len(input) >= 7. The handler then slices inpu",
-      "cvss": 7.5,
+      "id": "CVE-2026-103035",
+      "title": "TeamPass folder re-parenting authorization bypass",
+      "desc": "Summary\n\nMissing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credent",
+      "cvss": 8.3,
       "type": "NEWS_REPORT",
       "source": "sentinel_apex",
       "pubDate": "2026-11-20",
@@ -3564,14 +3639,14 @@
       "product": "",
       "dueDate": null,
       "refs": [
-        "https://github.com/advisories/GHSA-hghq-53p7-c582"
+        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
       ],
-      "priority": 41,
+      "priority": 42,
       "threatLevel": "LOW",
       "sourceCount": 1,
       "iocCount": 0,
-      "slug": "cve-2026-115578",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-115578.html",
+      "slug": "cve-2026-103035",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-103035.html",
       "_addedAt": "2026-11-22T05:32:26.588Z"
     },
     {
@@ -3723,82 +3798,7 @@
       "slug": "cve-2026-118061",
       "link": "https://blog.cyberdudebivash.in/posts/cve-2026-118061.html",
       "_addedAt": "2026-11-22T05:32:26.588Z"
-    },
-    {
-      "id": "CVE-2026-119061",
-      "title": "CVE-2026-119061 - VikBooking Hotel Booking Engine & PMS <= 1.8.20 - Unauthenticated Stored Cross-Site Scripting via 'vbf",
-      "desc": "CVE-2026-119061 - VikBooking Hotel Booking Engine & PMS ' Custom Booking Field Parameters",
-      "cvss": 7.2,
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-21",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-119061"
-      ],
-      "priority": 39,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-119061",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-119061.html",
-      "_addedAt": "2026-11-22T05:32:26.588Z"
-    },
-    {
-      "id": "CVE-2026-94567",
-      "title": "CVE-2026-94567 - NukeViet CMS: Stored XSS via SVG upload: the sanitizer is blind to markup hidden inside an internal DTD",
-      "desc": "CVE-2026-94567 - NukeViet CMS: Stored XSS via SVG upload: the sanitizer is blind to markup hidden inside an internal DTD entity",
-      "cvss": 6.1,
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-20",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-94567"
-      ],
-      "priority": 35,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-94567",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-94567.html",
-      "_addedAt": "2026-11-22T05:32:26.588Z"
-    },
-    {
-      "id": "CVE-2026-94598",
-      "title": "CVE-2026-94598 - NukeViet CMS: Stored XSS via internal marker injection in iframe srcdoc sanitization",
-      "desc": "CVE-2026-94598 - NukeViet CMS: Stored XSS via internal marker injection in iframe srcdoc sanitization",
-      "cvss": 6.1,
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-20",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-94598"
-      ],
-      "priority": 35,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-94598",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-94598.html",
-      "_addedAt": "2026-11-22T05:32:26.588Z"
     }
   ],
-  "_heartbeat": "2026-11-22T13:57:19.377Z"
+  "_heartbeat": "2026-11-22T14:50:29.657Z"
 }
