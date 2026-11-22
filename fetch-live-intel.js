@@ -757,16 +757,14 @@ async function fetchCISAAlerts(state) {
     const raw = await fetchWithRetry(CFG.cisaAlertsRss);
     const parsed = parseRSS(raw);
     const items = parsed
-      .filter(item => {
-        if (!item.pubDate) return true; // include if no date
-        try { return new Date(item.pubDate) >= afterDate; } catch(_) { return true; }
-      })
+      .filter(item => trustedRssPublicationDate(item.pubDate) &&
+        Date.parse(item.pubDate) >= afterDate.getTime())
       .slice(0, CFG.maxRssItems).map(item => {
         const text = (item.title||'')+' '+(item.desc||'');
         const iocs = [];
         return { source:'cisa_alerts', type:'ADVISORY', id:'CISA-'+md5(item.link),
           title:item.title, desc:(item.desc||'').slice(0,600), cvss:parseCvssFromText(text), refs:extractHttpUrls(item.link),
-          pubDate:item.pubDate?new Date(item.pubDate).toISOString().slice(0,10):isoNow(),
+          pubDate:trustedRssPublicationDate(item.pubDate),
           vendor:'CISA US-CERT', product:'Multiple Products',
           exploited:hasConfirmedExploitation(text), cisaKev:false,
           ransomware:/ransomware/i.test(text),
@@ -1387,7 +1385,8 @@ async function fetchExploitDB(state) {
     const raw = await fetchWithRetry(CFG.exploitDbRss, {}, 2);
     const parsed = parseRSS(raw);
     const items = parsed
-      .filter(item => { try { return !item.pubDate || new Date(item.pubDate) >= afterDate; } catch(_){return true;} })
+      .filter(item => trustedRssPublicationDate(item.pubDate) &&
+        Date.parse(item.pubDate) >= afterDate.getTime())
       .slice(0, CFG.maxRssItems)
       .map(item => {
         const text = (item.title||'') + ' ' + (item.desc||'');
@@ -1397,7 +1396,7 @@ async function fetchExploitDB(state) {
           source:'exploitdb', type: cves.length ? 'CVE_REPORT' : 'ZERO_DAY',
           id, title: item.title || 'ExploitDB Public Exploit', desc: (item.desc||'').slice(0,600),
           cvss: parseCvssFromText(text), refs: extractHttpUrls(item.link),
-          pubDate: item.pubDate ? new Date(item.pubDate).toISOString().slice(0,10) : isoNow(),
+          pubDate: trustedRssPublicationDate(item.pubDate),
           vendor: 'ExploitDB', product: 'Multiple Targets',
           exploited: false, cisaKev: false, ransomware: false,
           cves, iocs: [], sourceCount: 1,
@@ -1428,7 +1427,8 @@ async function fetchFullDisclosure(state) {
     const raw = await fetchWithRetry(CFG.fullDisclosureRss, {}, 2);
     const parsed = parseRSS(raw);
     const items = parsed
-      .filter(item => { try { return !item.pubDate || new Date(item.pubDate) >= afterDate; } catch(_){return true;} })
+      .filter(item => trustedRssPublicationDate(item.pubDate) &&
+        Date.parse(item.pubDate) >= afterDate.getTime())
       .slice(0, 8)
       .map(item => {
         const text = (item.title||'') + ' ' + (item.desc||'');
@@ -1438,7 +1438,7 @@ async function fetchFullDisclosure(state) {
           source:'fulldisclosure', type: 'ZERO_DAY',
           id, title: item.title || 'Full Disclosure Vulnerability Report', desc: (item.desc||'').slice(0,600),
           cvss: parseCvssFromText(text), refs: extractHttpUrls(item.link),
-          pubDate: item.pubDate ? new Date(item.pubDate).toISOString().slice(0,10) : isoNow(),
+          pubDate: trustedRssPublicationDate(item.pubDate),
           vendor: 'SecLists', product: 'Multiple Targets',
           exploited: hasConfirmedExploitation(text), cisaKev: false, ransomware: false,
           cves, iocs: [], sourceCount: 1,
