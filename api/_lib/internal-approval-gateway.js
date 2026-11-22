@@ -70,8 +70,9 @@ function bodyObject(req,res) {
 function authorizeAction(kind,action,caller,body) {
   if(kind==='products') {
     if(action==='approve') {
-      const required=APPROVAL_ROLES[body.approvalLevel];
-      return Boolean(required&&required.has(caller.role));
+      const level=body && body.approvalLevel;
+      if(typeof level!=='string'||!Object.hasOwn(APPROVAL_ROLES,level)) return false;
+      return APPROVAL_ROLES[level].has(caller.role);
     }
     if(action==='reject')return LEAD.has(caller.role);
   }
