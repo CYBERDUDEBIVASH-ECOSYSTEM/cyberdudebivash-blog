@@ -5,7 +5,6 @@ const { AnalysisManager } = require('../../_lib/analysis-manager');
 const { InvestigationManager } = require('../../_lib/investigation-manager');
 const { requireAnalyst } = require('../../_lib/analyst-auth');
 const { isValidObjectId, canAccessInvestigation, isInternalLead } = require('../../_lib/workbench-object-scope');
-const sec = require('../../_lib/security');
 
 const analysisMgr = new AnalysisManager(redis);
 const investigationMgr = new InvestigationManager(redis);
@@ -18,6 +17,21 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type, X-Analyst-Key',
 };
 
+// The shared legacy applySecurityHeaders() sets Access-Control-Allow-Origin:*.
+ // This private endpoint MUST NOT call it; Worker router adds its own
+ // baseline for dynamic responses, and Vercel needs the same local policy.
+function applyInternalHeaders(res) {
+  const policy = {
+    'X-Content-Type-Options':'nosniff',
+    'X-Frame-Options':'DENY',
+    'Content-Security-Policy':"default-src 'none'; frame-ancestors 'none'",
+    'Strict-Transport-Security':'max-age=63072000; includeSubDomains; preload',
+    'Referrer-Policy':'no-referrer',
+    'Permissions-Policy':'camera=(), microphone=(), geolocation=()',
+    'Cache-Control':'no-store, no-cache, must-revalidate',
+  };
+  Object.entries(policy).forEach(([k,v])=>res.setHeader(k,v));
+}
 function ok(res, data, status = 200) {
   Object.entries(CORS_HEADERS).forEach(([k, v]) => res.setHeader(k, v));
   res.status(status).json({
@@ -76,7 +90,7 @@ async function requireFindingScope(res, caller, findingId) {
   return requireInvestigationScope(res, caller, finding.investigationId);
 }
 module.exports = async (req, res) => {
-  sec.applySecurityHeaders(res);
+  applyInternalHeaders(res);
   if (req.method === 'OPTIONS') {
     Object.entries(CORS_HEADERS).forEach(([k, v]) => res.setHeader(k, v));
     return res.status(204).end();
