@@ -4,7 +4,7 @@ const assert=require('node:assert/strict');
 const crypto=require('node:crypto');
 const fs=require('node:fs');
 const path=require('node:path');
-const {assess,PLAN,REQUIRED_PLATFORMS,SAFETY_RATIO,MAX_ACCOUNT_MONTHLY_BILL_USD}=require('../scripts/cloudflare-account-zero-overage-gate.cjs');
+const {assess,PLAN,REQUIRED_PLATFORMS,SAFETY_RATIO,MAX_ADDITIONAL_METERED_CHARGES_USD}=require('../scripts/cloudflare-account-zero-overage-gate.cjs');
 const NOW='2026-10-22T16:00:00.000Z';
 const ACCOUNT='a'.repeat(32);
 const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
@@ -27,8 +27,8 @@ function fixture(){
     optionalPaidProductsOrAddonsPresent:false,
     currentAccountProjectedOverageUsd:0,
     accountBillingCurrency:'USD',
-    accountMonthToDateBilledUsd:1.25,
-    forecastAccountTotalBillUsd:3.50,
+    accountMonthToDateAdditionalMeteredChargesUsd:0,
+    forecastAccountAdditionalMeteredChargesUsd:0,
     cycle:{start:'2026-10-01T00:00:00.000Z',end:'2026-11-01T00:00:00.000Z'},
     capturedAt:'2026-10-22T15:15:00.000Z',
     metrics:Object.fromEntries(Object.entries(PLAN).map(([name,limit])=>
@@ -132,20 +132,23 @@ test('reject unknown usage products and Infrequent Access class',()=>{
   hold('BASE_PLAN_NOT_VERIFIED',x=>x.anyInfrequentAccessStorage=true);
   hold('BASE_PLAN_NOT_VERIFIED',x=>x.verifiedWorkersPlan='free');
 });
-test('P0 owner maximum USD 4 applies to the full shared-account monthly bill',()=>{
-  assert.equal(MAX_ACCOUNT_MONTHLY_BILL_USD,4);
-  hold('ACCOUNT_TOTAL_BILL_EVIDENCE_REQUIRED',x=>delete x.accountBillingCurrency);
-  hold('ACCOUNT_TOTAL_BILL_EVIDENCE_REQUIRED',x=>x.accountBillingCurrency='INR');
-  hold('ACCOUNT_TOTAL_BILL_EVIDENCE_REQUIRED',x=>delete x.forecastAccountTotalBillUsd);
-  hold('ACCOUNT_TOTAL_BILL_EVIDENCE_REQUIRED',x=>x.forecastAccountTotalBillUsd=NaN);
-  hold('ACCOUNT_TOTAL_BILL_EVIDENCE_REQUIRED',x=>x.forecastAccountTotalBillUsd=-1);
-  hold('ACCOUNT_TOTAL_BILL_EVIDENCE_REQUIRED',x=>x.forecastAccountTotalBillUsd=1.00);
-  hold('ACCOUNT_TOTAL_BILL_EXCEEDS_OWNER_CAP',x=>x.forecastAccountTotalBillUsd=4.01);
-  hold('ACCOUNT_TOTAL_BILL_EXCEEDS_OWNER_CAP',x=>{
-    x.accountMonthToDateBilledUsd=4.01;
-    x.forecastAccountTotalBillUsd=4.50;
+test('P0 zero additional Cloudflare metered spend is account-wide, not existing subscription price',()=>{
+  assert.equal(MAX_ADDITIONAL_METERED_CHARGES_USD,0);
+  hold('ACCOUNT_ADDITIONAL_METERED_EVIDENCE_REQUIRED',x=>delete x.accountBillingCurrency);
+  hold('ACCOUNT_ADDITIONAL_METERED_EVIDENCE_REQUIRED',x=>x.accountBillingCurrency='INR');
+  hold('ACCOUNT_ADDITIONAL_METERED_EVIDENCE_REQUIRED',x=>delete x.forecastAccountAdditionalMeteredChargesUsd);
+  hold('ACCOUNT_ADDITIONAL_METERED_EVIDENCE_REQUIRED',x=>x.forecastAccountAdditionalMeteredChargesUsd=NaN);
+  hold('ACCOUNT_ADDITIONAL_METERED_EVIDENCE_REQUIRED',x=>x.forecastAccountAdditionalMeteredChargesUsd=-1);
+  hold('ACCOUNT_ADDITIONAL_METERED_EVIDENCE_REQUIRED',x=>{
+    x.accountMonthToDateAdditionalMeteredChargesUsd=0.50;
+    x.forecastAccountAdditionalMeteredChargesUsd=0.25;
   });
-  assert.equal(go(x=>x.forecastAccountTotalBillUsd=4).ok,true);
+  hold('ADDITIONAL_METERED_SPEND_NOT_ZERO',x=>x.forecastAccountAdditionalMeteredChargesUsd=0.01);
+  hold('ADDITIONAL_METERED_SPEND_NOT_ZERO',x=>{
+    x.accountMonthToDateAdditionalMeteredChargesUsd=0.01;
+    x.forecastAccountAdditionalMeteredChargesUsd=0.01;
+  });
+  assert.equal(go(()=>{}).ok,true);
 });
 test('reject any account-wide billed overage already projected',()=>{
   hold('OVERAGE_ALREADY_PROJECTED',x=>x.currentAccountProjectedOverageUsd=0.01);
