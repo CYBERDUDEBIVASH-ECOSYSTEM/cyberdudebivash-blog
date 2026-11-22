@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-22T10:46:16.360Z",
+  "generated": "2026-11-22T11:43:04.420Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -333,52 +333,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-134052",
-      "title": "Low Security Vulnerability (CVE-2026-134052)",
-      "description": "CVE-2026-134052",
-      "cvss": 8.8,
-      "final_ps": 45,
-      "quality_score": 0.428,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-134052"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-134052?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=1d (score=0.85)",
-          "QS=0.427"
-        ],
-        "priority": [
-          "base_ps=45 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-76519",
       "title": "Cisco Secure Email Gateway 0-Day Vulnerability Actively Exploited in Attacks",
       "description": "",
@@ -565,6 +519,52 @@
           "+12 PoC_available",
           "+8 exploited_in_wild",
           "+7 zero_day"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-61725",
+      "title": "sevenz-rust2: decompress builds each output path as dest.join(entry.name()) with no traversal guard, allowing a crafted ",
+      "description": "Summary\n\nExtracting an attacker-supplied 7z archive can write files outside the destination directory. The 7z header stores each entry's path as a UTF-16 name with nothing constraining it to a relative, in-tree path. The extractor joins that name onto the destination and writes t... [Full analysis a",
+      "cvss": 7.8,
+      "final_ps": 44,
+      "quality_score": 0.478,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-61725"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-qh76-45cr-8xrc"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "base_ps=44 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -5423,10 +5423,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-61725",
-      "title": "sevenz-rust2: decompress builds each output path as dest.join(entry.name()) with no traversal guard, allowing a crafted ",
+      "id": "CVE-2026-103035",
+      "title": "TeamPass folder re-parenting authorization bypass",
       "description": "",
-      "cvss": 7.8,
+      "cvss": 8.3,
       "final_ps": 18,
       "quality_score": 0.438,
       "threat_level": "LOW",
@@ -5445,11 +5445,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-61725"
+        "CVE-2026-103035"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-qh76-45cr-8xrc"
+        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
       ],
       "explanation": {
         "quality": [
@@ -5699,14 +5699,14 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-103035",
-      "title": "TeamPass folder re-parenting authorization bypass",
+      "id": "CVE-2026-134052",
+      "title": "Low Security Vulnerability (CVE-2026-134052)",
       "description": "",
-      "cvss": 8.3,
+      "cvss": 8.8,
       "final_ps": 18,
       "quality_score": 0.438,
       "threat_level": "LOW",
-      "type": "NEWS_REPORT",
+      "type": "CVE_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
@@ -5721,11 +5721,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-103035"
+        "CVE-2026-134052"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
+        "https://vulners.com/nvd/NVD:CVE-2026-134052?utm_source=rss&utm_medium=rss&utm_campaign=rss"
       ],
       "explanation": {
         "quality": [
