@@ -27,16 +27,48 @@ test('existing report file updates dedup only, never increments cumulative count
  assert.equal(s.lastReportGeneratedAt,'2026-11-03T11:44:01Z');
  assert.equal(s.published.filter(p=>p.id===item.id).length,1);
  assert.equal(s.published[0].slug,'existing-cve');
+ // Original published date is preserved even after the dedup window refresh.
+ assert.equal(s.published[0].date,'2026-05-01');
+ assert.match(s.published[0].lastSeenAt,/^20\d\d-\d\d-\d\dT/);
+ const {publicationDedupDate}=require('../fetch-live-intel.js');
+ assert.equal(publicationDedupDate(s.published[0]),s.published[0].lastSeenAt);
+ assert.equal(publicationDedupDate({date:'2026-05-01'}),'2026-05-01');
  assert.equal(s.published[1].id,'CVE-OTHER');
  acknowledgeExistingPost(s,item);
  assert.equal(s.totalPublished,6996);
  assert.equal(s.published.filter(p=>p.id===item.id).length,1);
+ assert.equal(s.published[0].date,'2026-05-01','repeated rediscovery cannot redate historical publication');
  for(const malformed of [{...s,totalPublished:-1},{...s,published:null},null])
    assert.throws(()=>acknowledgeExistingPost(malformed,item),/EXISTING_POST_DEDUP_INVALID/);
  for(const invalid of [{...item,id:''},{...item,slug:''},{...item,title:''}])
    assert.throws(()=>acknowledgeExistingPost(s,invalid),/EXISTING_POST_DEDUP_INVALID/);
  const sixNew={totalPublished:s.totalPublished+6,lastIngestion:{reportsGenerated:6}};
  assert.equal(assessPublicationCounts(sixNew,widget(6996),api(6996)).status,'RECONCILE');
+});
+
+test('lost publication ledger keeps original date unknown while preserving dedup liveness',()=>{
+ const {acknowledgeExistingPost,publicationDedupDate}=require('../fetch-live-intel.js');
+ const s={totalPublished:8083,lastReportGeneratedAt:'2026-11-22T05:32:27Z',published:[]};
+ const item={id:'CVE-ORIGINAL-DATE-UNKNOWN',slug:'existing-archive',title:'Historical archived report'};
+ const result=acknowledgeExistingPost(s,item);
+ assert.equal(result.status,'EXISTING_FILE_DEDUP_ONLY');
+ assert.equal(s.totalPublished,8083);
+ assert.equal(s.lastReportGeneratedAt,'2026-11-22T05:32:27Z');
+ assert.equal(s.published[0].date,null,'do not invent historical publication date');
+ assert.equal(publicationDedupDate(s.published[0]),s.published[0].lastSeenAt);
+ assert.ok(Number.isFinite(Date.parse(s.published[0].lastSeenAt)));
+ acknowledgeExistingPost(s,item);
+ assert.equal(s.published[0].date,null);
+ assert.equal(s.published.filter(p=>p.id===item.id).length,1);
+});
+
+test('invalid historical ledger date stays unknown rather than becoming today',()=>{
+ const {acknowledgeExistingPost}=require('../fetch-live-intel.js');
+ const s={totalPublished:8,published:[{id:'CVE-1',slug:'old',date:'not-an-original-date',title:'Existing'}]};
+ acknowledgeExistingPost(s,{id:'CVE-1',slug:'old',title:'Existing'});
+ assert.equal(s.published[0].date,null);
+ assert.ok(Number.isFinite(Date.parse(s.published[0].lastSeenAt)));
+ assert.equal(s.totalPublished,8);
 });
 
 test('publisher differentiates previously existing post from a genuinely new report',()=>{

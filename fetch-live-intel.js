@@ -410,12 +410,19 @@ function loadState() {
   } catch(e) { warn('State corrupt — starting fresh.'); }
   return { published: [], lastRun: null, lastReportGeneratedAt: null, totalPublished: 0, correlations: {}, sourceFetchState: {}, sourceHealth: {}, version: '5.0' };
 }
+// Dedup liveness and original publication date are different facts. A known
+// archived post must keep its original publication date, even when the source
+// reappears after its first rolling-window entry expired. Existing legacy
+// entries without lastSeenAt retain the former date-based TTL behavior.
+function publicationDedupDate(entry) {
+  return entry?.lastSeenAt || entry?.date || 0;
+}
 function saveState(state) {
   state.lastRun  = isoNowFull();
   state.version  = '5.0';
   const ttlMs    = (CFG.dedupTtlDays || 30) * 86400000 * 2; // 60-day hard purge
   const now      = Date.now();
-  state.published = state.published.filter(p => (now - new Date(p.date || 0).getTime()) < ttlMs);
+  state.published = state.published.filter(p => (now - new Date(publicationDedupDate(p)).getTime()) < ttlMs);
   if (state.published.length > 3000) state.published = state.published.slice(0, 2000);
   safeWriteSync(CFG.statePath, JSON.stringify(state, null, 2), 'utf8');
 }
@@ -452,7 +459,7 @@ function isPublished(state, id) {
   const now   = Date.now();
   return state.published.some(p => {
     if (p.id !== id) return false;
-    const age = now - new Date(p.date || 0).getTime();
+    const age = now - new Date(publicationDedupDate(p)).getTime();
     return age < ttlMs; // within TTL window → is a duplicate
   });
 }
@@ -472,8 +479,18 @@ function acknowledgeExistingPost(state, item) {
       typeof item.title !== 'string' || !item.title.trim()) {
     throw new Error('EXISTING_POST_DEDUP_INVALID');
   }
+  const prior = state.published.find(entry => entry && entry.id === item.id);
+  // A lost/expired ledger may be recoverable through an existing post file,
+  // but the original publication date is then UNKNOWN, never today's date.
+  // lastSeenAt updates only deduplication liveness; it is not an intel or
+  // publication timestamp and must never be used to certify source freshness.
+  const originalDate = typeof prior?.date === 'string' &&
+    Number.isFinite(Date.parse(prior.date)) ? prior.date : null;
   state.published = state.published.filter(entry => entry && entry.id !== item.id);
-  state.published.unshift({ id: item.id, slug: item.slug, date: isoNow(), title: item.title });
+  state.published.unshift({
+    id: item.id, slug: item.slug, date: originalDate, title: item.title,
+    lastSeenAt: isoNowFull(),
+  });
   return { status: 'EXISTING_FILE_DEDUP_ONLY', total: state.totalPublished };
 }
 
@@ -3752,7 +3769,7 @@ if (require.main === module) {
     genAttackChain, computePriorityScore, correlateAndMerge,
     extractSentinelApexRecords, normalizeSentinelApexRecord,
     sapexCanonicalId, sapexNativeMitre, fetchSentinelApex,
-    watermarkStart, acknowledgeExistingPost, resolveFirstAddedAt, isFirstPlatformAddition, selectLiveWindow,
+    watermarkStart, acknowledgeExistingPost, publicationDedupDate, resolveFirstAddedAt, isFirstPlatformAddition, selectLiveWindow,
     renderRssItem, retainLatestRssItems, MAX_SOURCE_RSS_ITEMS,
     recordSourceSuccess, recordSourceFailure, getSourceHealthReport,
     nvdSourceIdentity,
