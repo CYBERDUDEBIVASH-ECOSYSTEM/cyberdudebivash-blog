@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-21T23:38:51.156Z",
+  "generated": "2026-11-22T01:01:27.639Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19737,
+    "total_nodes": 19741,
     "actors": 8,
-    "cves": 9556,
-    "campaigns": 3128,
+    "cves": 9558,
+    "campaigns": 3130,
     "malware": 0,
     "iocs": 911,
-    "edges": 5933
+    "edges": 5935
   },
   "nodes": {
     "actor:lockbit": {
@@ -371111,6 +371111,82 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-134541": {
+      "id": "CVE-2026-134541",
+      "type": "CVE",
+      "name": "CVE-2026-134541 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-22",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-134543": {
+      "id": "CVE-2026-134543",
+      "type": "CVE",
+      "name": "CVE-2026-134543 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-22",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-134541": {
+      "id": "campaign:cve-2026-134541",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-22",
+        "last_seen": "2026-11-22",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-134541"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-134541",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-134543": {
+      "id": "campaign:cve-2026-134543",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-22",
+        "last_seen": "2026-11-22",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-134543"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-134543",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -424693,6 +424769,24 @@
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-21",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-134541→includes→CVE-2026-134541",
+      "source": "campaign:cve-2026-134541",
+      "target": "CVE-2026-134541",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-22",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-134543→includes→CVE-2026-134543",
+      "source": "campaign:cve-2026-134543",
+      "target": "CVE-2026-134543",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-22",
       "sources": []
     }
   ]
