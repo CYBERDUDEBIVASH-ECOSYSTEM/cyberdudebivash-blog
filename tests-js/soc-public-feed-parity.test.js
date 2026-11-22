@@ -188,7 +188,7 @@ test('P0 approved manual Cloudflare release must fail closed for moderate-or-hig
 });
 
 test('P0 a fresh heartbeat with no matching genuine report receipt cannot be predeployed',()=>{
- const f=fixture(),state={lastRun:f.generatedAt,lastReportGeneratedAt:f.generatedAt};
+ const f=fixture(),state={lastRun:f.generatedAt,lastReportGeneratedAt:f.generatedAt,published:[]};
  f.metadata.lastReportGeneratedAt='2026-10-24T04:40:00Z';
  assert.deepEqual(predeployGate({source:f,asset:structuredClone(f),state,nowMs:now}),
    {status:'FAIL',reason:'PREDEPLOY_REAL_REPORT_RECEIPT_DIVERGED'});
@@ -205,7 +205,7 @@ test('P0 predeploy rejects previously published advisories carrying a later fake
 test('P0 ledger provenance does not invent unknown dates or penalize genuine same-day first ingest',()=>{
   const feed=fixture({items:12});
   feed.items[0]={id:'KNOWN',_addedAt:'2026-10-25T04:35:00Z'};
-  feed.items[1]={id:'LEGACY',_addedAt:undefined};
+  feed.items[1]={id:'LEGACY'};
   feed.items[2]={id:'DATE_UNKNOWN',_addedAt:'2026-10-25T04:35:00Z'};
   const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,
     published:[{id:'KNOWN',date:'2026-10-25'},{id:'LEGACY',date:'2026-10-22'},
