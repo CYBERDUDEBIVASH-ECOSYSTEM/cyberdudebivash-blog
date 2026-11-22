@@ -106,8 +106,12 @@ async function handleSubmitReview(req, res, productId) {
       return fail(res, 404, 'NOT_FOUND', `Product not found: ${productId}`);
     }
 
-    if (product.status === 'PUBLISHED' || product.status === 'ARCHIVED') {
-      return fail(res, 400, 'INVALID_STATUS', `Cannot submit ${product.status} product for review`);
+    // Re-submitting an UNDER_REVIEW or APPROVED product would overwrite its
+    // existing workflow and erase signed reviewer history. Only a draft (also
+    // the state returned after explicit rejection) can open a new workflow.
+    if (product.status !== 'DRAFT') {
+      return fail(res, 409, 'INVALID_STATUS',
+        `Only DRAFT products may open review (current: ${product.status})`);
     }
 
     const workflowRecord = {
