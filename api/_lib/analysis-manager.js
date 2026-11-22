@@ -209,7 +209,9 @@ class AnalysisManager {
       };
     }
 
-    const key = `actor:${actorId}`;
+    // Scope persisted actor assessments to their parent investigation.
+    // The old global actorId-only key could overwrite another investigation.
+    const key = `actor:${investigationId}:${actorId}`;
     await this.redis.hset(key, Object.entries(assessment.toJSON()).flat());
     await this.redis.zadd(`assessments:actors:${investigationId}`, Date.now(), actorId);
 
