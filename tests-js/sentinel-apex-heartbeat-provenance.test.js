@@ -173,3 +173,51 @@ test('publisher reconciles both fetched and retained prior-window rows against l
   assert.ok(engine.includes('resolveFirstAddedAt(isNewToFeed, existingItem, nowTs, publishedDateById.get(item.id))'));
   assert.ok(engine.includes('_addedAt: resolveFirstAddedAt(false, e, nowTs, publishedDateById.get(e.id))'));
 });
+
+
+// P0 source-truth: a provider response cannot become 'today's' intel solely
+// because the article omitted a valid publication date. No network calls.
+const {
+  rssToIntel, trustedRssPublicationDate, assertCiscoPsirtCommercialApproval,
+  fetchCiscoPSIRT
+} = require('../fetch-live-intel.js');
+test('RSS cannot mint today as a missing, invalid, ambiguous or future source date',()=>{
+  const entry={title:'Source-backed alert',link:'https://example.org/advisory',desc:'Advisory text'};
+  for(const pubDate of [undefined,null,'','invalid','2026-02-30',
+      '2026-11-20T14:00:00', '2100-01-01T00:00:00Z']) {
+    assert.equal(trustedRssPublicationDate(pubDate),null,String(pubDate));
+    assert.equal(rssToIntel({...entry,pubDate},'securityweek'),null,String(pubDate));
+  }
+});
+test('RSS retains genuine provider publication time and cannot re-date old stories',()=>{
+  const entry={title:'Authenticated original advisory',link:'https://example.org/story',
+    desc:'Publisher verifies original date'};
+  const a=rssToIntel({...entry,pubDate:'Fri, 20 Nov 2026 14:15:00 GMT'},'securityweek');
+  assert.equal(a.pubDate,'2026-11-20');
+  const b=rssToIntel({...entry,pubDate:'2026-10-15'},'securityweek');
+  assert.equal(b.pubDate,'2026-10-15');
+  assert.equal(trustedRssPublicationDate('2026-11-20T14:15:00+05:30'),'2026-11-20');
+});
+test('unlicensed Cisco commercial RSS access fails before network even if called',async()=>{
+  for(const approval of [undefined,'','false','TRUE','1','approved']) {
+    assert.throws(()=>assertCiscoPsirtCommercialApproval(approval),
+      /CISCO_PSIRT_COMMERCIAL_USE_NOT_APPROVED/);
+  }
+  assert.doesNotThrow(()=>assertCiscoPsirtCommercialApproval('true'));
+  if(process.env.CDB_CISCO_PSIRT_COMMERCIAL_USE_APPROVED!=='true') {
+    await assert.rejects(fetchCiscoPSIRT({published:[]}),
+      /CISCO_PSIRT_COMMERCIAL_USE_NOT_APPROVED/);
+  }
+});
+test('Cisco parser reuses date-verified RSS instead of resetting dates on retrieval',()=>{
+  const code=fs.readFileSync(path.join(root,'fetch-live-intel.js'),'utf8');
+  const start=code.indexOf('async function fetchCiscoPSIRT(state)');
+  const end=code.indexOf('async function fetchOTX(state)',start);
+  assert(start>=0 && end>start);
+  const block=code.slice(start,end);
+  assert.match(block,/assertCiscoPsirtCommercialApproval\(process\.env\.CDB_CISCO_PSIRT_COMMERCIAL_USE_APPROVED\)/);
+  assert.match(block,/psirtrss20\/CiscoSecurityAdvisory\.xml/);
+  assert.match(block,/await fetchRSS\(/);
+  assert.doesNotMatch(block,/pubDate:\s*isoNow\(\)|resolve\(\[\]\)|https\.get\(/);
+  assert.match(code,/if \(!trustedRssPublicationDate\(item\.pubDate, nowMs\)\) return false/);
+});
