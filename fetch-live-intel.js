@@ -3207,10 +3207,25 @@ async function writeAPIFiles(allItems, state) {
 // known item. An old source publication date and a missing ingestion timestamp
 // are not evidence of new platform publication. Consumers fail closed on
 // missing/invalid _addedAt; true first additions receive the current time.
-function resolveFirstAddedAt(isNewToFeed, existingItem, nowIso) {
+function resolveFirstAddedAt(isNewToFeed, existingItem, nowIso, ledgerPublishedDate = null) {
   if (isNewToFeed) return nowIso;
   const prior = existingItem && existingItem._addedAt;
-  return typeof prior === 'string' && prior.trim() ? prior : undefined;
+  if (typeof prior !== 'string' || !Number.isFinite(Date.parse(prior))) return undefined;
+  const priorMs = Date.parse(prior), nowMs = Date.parse(nowIso);
+  // A future or invalid first-ingest time is not proof of current intelligence.
+  if (!Number.isFinite(nowMs) || priorMs > nowMs + 300000) return undefined;
+  // A platform article cannot have been first ingested AFTER its already
+  // recorded publication day. Legacy rolling feeds could retain a false
+  // _addedAt from before the first-ingest ledger guard was deployed.
+  // Fail closed (unknown), never substitute the article date or now.
+  if (typeof ledgerPublishedDate === 'string' &&
+      /^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(ledgerPublishedDate)) {
+    const ledgerMs = Date.parse(ledgerPublishedDate);
+    if (Number.isFinite(ledgerMs) &&
+        new Date(priorMs).toISOString().slice(0, 10) >
+        new Date(ledgerMs).toISOString().slice(0, 10)) return undefined;
+  }
+  return prior;
 }
 
 // A rolling feed is not an ingestion ledger: known items can be evicted from
@@ -3277,6 +3292,12 @@ function writeLiveIntel(allItems, state) {
         ? state.published.filter(e => e && typeof e.id === 'string').map(e => e.id)
         : []
     );
+    // The platform publication ledger can contradict inherited false freshness.
+    const publishedDateById = new Map();
+    for (const entry of Array.isArray(state?.published) ? state.published : []) {
+      if (entry && typeof entry.id === 'string' && typeof entry.date === 'string' &&
+          !publishedDateById.has(entry.id)) publishedDateById.set(entry.id, entry.date);
+    }
     const genuinelyFirstAddedIds = new Set();
     const newItems = allItems.map(item => {
       // Compute resolved slug FIRST — item.slug may be null for many pipeline sources.
@@ -3298,7 +3319,7 @@ function writeLiveIntel(allItems, state) {
       });
       if (isNewToFeed) genuinelyFirstAddedIds.add(item.id);
       const existingItem = existingItems.find(e => e.id === item.id) || null;
-      const addedAt = resolveFirstAddedAt(isNewToFeed, existingItem, nowTs);
+      const addedAt = resolveFirstAddedAt(isNewToFeed, existingItem, nowTs, publishedDateById.get(item.id));
       return {
       id: item.id, title: (item.title||'').slice(0,120), desc: (item.desc||'').slice(0,200),
       cvss: typeof item.cvss==='number'?item.cvss:null, type: item.type||'INTEL', source: item.source||'',
@@ -3317,7 +3338,13 @@ function writeLiveIntel(allItems, state) {
     // Merge: new items override existing by id, then sort DESC by priority→pubDate, trim to window
     const merged = [...newItems];
     const newIds = new Set(newItems.map(i => i.id));
-    existingItems.forEach(e => { if (!newIds.has(e.id)) merged.push(e); });
+    // Reconcile inherited rolling-window entries too, including items not
+    // fetched this cycle; otherwise poisoned _addedAt could survive forever.
+    existingItems.forEach(e => {
+      if (!newIds.has(e.id)) merged.push({
+        ...e, _addedAt: resolveFirstAddedAt(false, e, nowTs, publishedDateById.get(e.id)),
+      });
+    });
     // Highest-scored historical items belong to archive fallback slots;
     // they cannot evict newer *verified* source publications from the bounded
     // customer feed. No extra ingest, provider calls or Cloudflare requests.
