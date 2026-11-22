@@ -2,14 +2,15 @@
 
 const redis = require('../../_lib/redis');
 const { ProductFactory } = require('../../_lib/product-factory');
+const { createInternalApprovalGateway } = require('../../_lib/internal-approval-gateway');
 const crypto = require('crypto');
 
 const productFactory = new ProductFactory(redis);
 
 const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Cache-Control': 'no-store, no-cache, must-revalidate',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, X-Analyst-Key',
 };
 
 const APPROVAL_LEVELS = {
@@ -37,7 +38,7 @@ function fail(res, status, code, message) {
   });
 }
 
-module.exports = async (req, res) => {
+const legacyApprovalHandler = async (req, res) => {
   if (req.method === 'OPTIONS') {
     Object.entries(CORS_HEADERS).forEach(([k, v]) => res.setHeader(k, v));
     return res.status(200).end();
@@ -79,6 +80,9 @@ module.exports = async (req, res) => {
 
   return fail(res, 404, 'NOT_FOUND', 'Endpoint not found');
 };
+
+// All control-plane operations require a configured verified internal analyst.
+module.exports = createInternalApprovalGateway(legacyApprovalHandler, {kind:'products'});
 
 async function handleSubmitReview(req, res, productId) {
   try {
