@@ -221,3 +221,20 @@ test('Cisco parser reuses date-verified RSS instead of resetting dates on retrie
   assert.doesNotMatch(block,/pubDate:\s*isoNow\(\)|resolve\(\[\]\)|https\.get\(/);
   assert.match(code,/if \(!trustedRssPublicationDate\(item\.pubDate, nowMs\)\) return false/);
 });
+
+test('CISA, ExploitDB and FullDisclosure independently reject undated RSS items before mapping',()=>{
+  const code=fs.readFileSync(path.join(root,'fetch-live-intel.js'),'utf8');
+  for(const [start,end] of [
+    ['async function fetchCISAAlerts(state)','// ── SOURCE 4: GitHub Security Advisories'],
+    ['async function fetchExploitDB(state)','// Packet Storm explicitly'],
+    ['async function fetchFullDisclosure(state)','// ── TIER 2 SOURCES 16-21:']
+  ]) {
+    const i=code.indexOf(start),j=code.indexOf(end,i);
+    assert(i>0&&j>i,start+' block exists');
+    const section=code.slice(i,j);
+    assert.match(section,/filter\(item => trustedRssPublicationDate\(item\.pubDate\)/,start);
+    assert.match(section,/pubDate:\s*trustedRssPublicationDate\(item\.pubDate\)/,start);
+    assert.doesNotMatch(section,/pubDate:\s*(?:item\.pubDate\s*\?|isoNow\(\))/,
+      'unverified publication time must never become now in '+start);
+  }
+});
