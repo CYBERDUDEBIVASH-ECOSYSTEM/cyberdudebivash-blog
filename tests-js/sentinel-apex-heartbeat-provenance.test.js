@@ -96,7 +96,7 @@ test('native generator timestamps true first additions, but never promotes known
 
 test('the native rolling-feed merge invokes the provenance guard instead of falling back to now', () => {
   const engine = fs.readFileSync(path.join(root, 'fetch-live-intel.js'), 'utf8');
-  assert.match(engine, /const addedAt = resolveFirstAddedAt\(isNewToFeed, existingItem, nowTs\)/);
+  assert.match(engine, /const addedAt = resolveFirstAddedAt\(isNewToFeed, existingItem, nowTs, publishedDateById\.get\(item\.id\)\)/);
   assert.doesNotMatch(engine, /const addedAt = isNewToFeed \? nowTs : \(existingItem\?\._addedAt \|\| nowTs\)/);
 });
 
@@ -144,5 +144,32 @@ test('actual publisher maps publication ledger and archive file into the provena
   assert.match(code,/postFileExists:\s*fs\.existsSync\(path\.join\(CFG\.postsDir, `\$\{resolvedSlug\}\.html`\)\)/);
   assert.match(code,/if \(isNewToFeed\) genuinelyFirstAddedIds\.add\(item\.id\)/);
   assert.match(code,/const trulyNewCount = genuinelyFirstAddedIds\.size/);
-  assert.match(code,/const addedAt = resolveFirstAddedAt\(isNewToFeed, existingItem, nowTs\)/);
+  assert.match(code,/const addedAt = resolveFirstAddedAt\(isNewToFeed, existingItem, nowTs, publishedDateById\.get\(item\.id\)\)/);
+});
+
+test('known historical publication invalidates previously poisoned first-ingestion time',()=>{
+  const now='2026-11-22T06:00:00.000Z';
+  for(const [id,publication] of [
+    ['CVE-2026-77309','2026-11-20'],
+    ['CVE-2026-58192','2026-11-20'],
+    ['CVE-2026-132622','2026-11-19']
+  ]) {
+    assert.equal(resolveFirstAddedAtForReentry(false,{id,_addedAt:'2026-11-22T05:32:25.400Z'},now,publication),undefined,id);
+  }
+  assert.equal(resolveFirstAddedAtForReentry(false,{_addedAt:'2026-11-22T05:32:25.400Z'},now,'2026-11-20'),undefined);
+});
+test('genuine first-ingest timestamps remain stable; invalid/future stamps fail closed',()=>{
+  const now='2026-11-22T06:00:00.000Z';
+  const observed='2026-11-20T08:00:00Z';
+  assert.equal(resolveFirstAddedAtForReentry(false,{_addedAt:observed},now,'2026-11-20'),observed);
+  assert.equal(resolveFirstAddedAtForReentry(false,{_addedAt:observed},now,null),observed);
+  assert.equal(resolveFirstAddedAtForReentry(false,{_addedAt:'invalid'},now,'2026-11-20'),undefined);
+  assert.equal(resolveFirstAddedAtForReentry(false,{_addedAt:'2026-11-22T07:00:00Z'},now),undefined);
+  assert.equal(resolveFirstAddedAtForReentry(true,null,now,'2026-11-19'),now);
+});
+test('publisher reconciles both fetched and retained prior-window rows against ledger',()=>{
+  const engine=fs.readFileSync(path.join(root,'fetch-live-intel.js'),'utf8');
+  assert.ok(engine.includes('const publishedDateById = new Map();'));
+  assert.ok(engine.includes('resolveFirstAddedAt(isNewToFeed, existingItem, nowTs, publishedDateById.get(item.id))'));
+  assert.ok(engine.includes('_addedAt: resolveFirstAddedAt(false, e, nowTs, publishedDateById.get(e.id))'));
 });
