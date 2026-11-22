@@ -27,7 +27,6 @@ jest.mock('../../../_lib/analysis-manager',()=>({
   }))
 }));
 jest.mock('../../../_lib/analyst-auth',()=>({requireAnalyst:jest.fn()}));
-jest.mock('../../../_lib/security',()=>({applySecurityHeaders:jest.fn()}));
 
 const handler=require('../findings');
 const {requireAnalyst}=require('../../../_lib/analyst-auth');
@@ -166,4 +165,17 @@ test('oversized write payload blocked before authentication or state write',asyn
   expect(r.statusCode).toBe(413);
   expect(requireAnalyst).not.toHaveBeenCalled();
   expect(mockCreateAnalyticalFinding).not.toHaveBeenCalled();
+});
+
+test('real Worker Node response shim never injects wildcard CORS for authenticated findings',async()=>{
+  const {createNodeResponse}=require('../../../../workers/lib/node-compat');
+  const {res,response}=createNodeResponse();
+  await handler(request('GET',BASE,undefined,{investigationId:'inv_123'}),res);
+  const actual=await response;
+  expect(actual.status).toBe(200);
+  expect(actual.headers.get('access-control-allow-origin')).toBeNull();
+  expect(actual.headers.get('access-control-allow-credentials')).toBeNull();
+  expect(actual.headers.get('cache-control')).toMatch(/no-store/);
+  expect(actual.headers.get('referrer-policy')).toBe('no-referrer');
+  expect(actual.headers.get('content-security-policy')).toMatch(/default-src 'none'/);
 });
