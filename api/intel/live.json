@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-22T07:49:46.547Z",
+  "generated": "2026-11-22T08:50:53.133Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,7 +7,7 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8087,
+  "total_published": 8088,
   "s2n_stats": {
     "passed": 119,
     "suppressed": 3,
@@ -501,10 +501,10 @@
       }
     },
     {
-      "id": "CVE-2026-61725",
-      "title": "sevenz-rust2: decompress builds each output path as dest.join(entry.name()) with no traversal guard, allowing a crafted ",
-      "description": "Summary\n\nExtracting an attacker-supplied 7z archive can write files outside the destination directory. The 7z header stores each entry's path as a UTF-16 name with nothing constraining it to a relative, in-tree path. The extractor joins that name onto the destination and writes t... [Full analysis a",
-      "cvss": 7.8,
+      "id": "CVE-2026-115578",
+      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
+      "description": "The defect\n\nConfirmed at HEAD. server.go: cmdXCLIENT = []byte(\"XCLIENT\") is 7 bytes (line 78), so the dispatch match cmdXCLIENT.match(cmd) only guarantees len(input) >= 7. The handler then slices input[8:] (line 586):\n\n case sc.XClientOn && cmdXCLIENT.match(cmd):\n if toks := byte... [Full analysis a",
+      "cvss": 7.5,
       "final_ps": 44,
       "quality_score": 0.478,
       "threat_level": "LOW",
@@ -523,11 +523,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-61725"
+        "CVE-2026-115578"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-qh76-45cr-8xrc"
+        "https://github.com/advisories/GHSA-hghq-53p7-c582"
       ],
       "explanation": {
         "quality": [
@@ -4311,14 +4311,14 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-133707",
-      "title": "CVE-2026-133707 - targets R package before 1.12.1 Code Execution via Custom Storage Metadata",
-      "description": "CVE-2026-133707 - targets R package before 1.12.1 Code Execution via Custom Storage Metadata",
-      "cvss": 7.8,
+      "id": "CVE-2026-103035",
+      "title": "TeamPass folder re-parenting authorization bypass",
+      "description": "Summary\n\nMissing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credential subtree into their own personal space and removing it from the organization.... [Full analysis a",
+      "cvss": 8.3,
       "final_ps": 18,
       "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
@@ -4333,11 +4333,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-133707"
+        "CVE-2026-103035"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-133707"
+        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
       ],
       "explanation": {
         "quality": [
@@ -4356,14 +4356,14 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-115578",
-      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
-      "description": "The defect\n\nConfirmed at HEAD. server.go: cmdXCLIENT = []byte(\"XCLIENT\") is 7 bytes (line 78), so the dispatch match cmdXCLIENT.match(cmd) only guarantees len(input) >= 7. The handler then slices input[8:] (line 586):\n\n case sc.XClientOn && cmdXCLIENT.match(cmd):\n if toks := byte... [Full analysis a",
-      "cvss": 7.5,
+      "id": "CVE-2026-134052",
+      "title": "Low Security Vulnerability (CVE-2026-134052)",
+      "description": "CVE-2026-134052",
+      "cvss": 8.8,
       "final_ps": 18,
       "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
@@ -4378,11 +4378,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-115578"
+        "CVE-2026-134052"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-hghq-53p7-c582"
+        "https://vulners.com/nvd/NVD:CVE-2026-134052?utm_source=rss&utm_medium=rss&utm_campaign=rss"
       ],
       "explanation": {
         "quality": [
@@ -4401,5 +4401,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-22T07:49:47.173Z"
+  "lastReportGeneratedAt": "2026-11-22T08:50:53.601Z"
 }

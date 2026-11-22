@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-22T07:49:46.547Z",
+  "generated": "2026-11-22T08:50:53.133Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -528,10 +528,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-61725",
-      "title": "sevenz-rust2: decompress builds each output path as dest.join(entry.name()) with no traversal guard, allowing a crafted ",
-      "description": "Summary\n\nExtracting an attacker-supplied 7z archive can write files outside the destination directory. The 7z header stores each entry's path as a UTF-16 name with nothing constraining it to a relative, in-tree path. The extractor joins that name onto the destination and writes t... [Full analysis a",
-      "cvss": 7.8,
+      "id": "CVE-2026-115578",
+      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
+      "description": "The defect\n\nConfirmed at HEAD. server.go: cmdXCLIENT = []byte(\"XCLIENT\") is 7 bytes (line 78), so the dispatch match cmdXCLIENT.match(cmd) only guarantees len(input) >= 7. The handler then slices input[8:] (line 586):\n\n case sc.XClientOn && cmdXCLIENT.match(cmd):\n if toks := byte... [Full analysis a",
+      "cvss": 7.5,
       "final_ps": 44,
       "quality_score": 0.478,
       "threat_level": "LOW",
@@ -550,11 +550,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-61725"
+        "CVE-2026-115578"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-qh76-45cr-8xrc"
+        "https://github.com/advisories/GHSA-hghq-53p7-c582"
       ],
       "explanation": {
         "quality": [
@@ -5194,56 +5194,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-133707",
-      "title": "CVE-2026-133707 - targets R package before 1.12.1 Code Execution via Custom Storage Metadata",
+      "id": "CVE-2026-103035",
+      "title": "TeamPass folder re-parenting authorization bypass",
       "description": "",
-      "cvss": 7.8,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-133707"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-133707"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-115578",
-      "title": "go-guerrilla crashes on a bare XCLIENT command (7-byte slice off-by-one panic)",
-      "description": "",
-      "cvss": 7.5,
+      "cvss": 8.3,
       "final_ps": 18,
       "quality_score": 0.438,
       "threat_level": "LOW",
@@ -5262,11 +5216,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-115578"
+        "CVE-2026-103035"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-hghq-53p7-c582"
+        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
       ],
       "explanation": {
         "quality": [
@@ -5286,10 +5240,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-89095",
-      "title": "Low Security Vulnerability [High EPSS] (CVE-2026-89095)",
+      "id": "CVE-2026-134052",
+      "title": "Low Security Vulnerability (CVE-2026-134052)",
       "description": "",
-      "cvss": 8.1,
+      "cvss": 8.8,
       "final_ps": 18,
       "quality_score": 0.438,
       "threat_level": "LOW",
@@ -5308,11 +5262,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-89095"
+        "CVE-2026-134052"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-89095?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://vulners.com/nvd/NVD:CVE-2026-134052?utm_source=rss&utm_medium=rss&utm_campaign=rss"
       ],
       "explanation": {
         "quality": [
@@ -5359,6 +5313,52 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-133553"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-89095",
+      "title": "Low Security Vulnerability [High EPSS] (CVE-2026-89095)",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-89095"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-89095?utm_source=rss&utm_medium=rss&utm_campaign=rss"
       ],
       "explanation": {
         "quality": [
@@ -5470,10 +5470,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-103035",
-      "title": "TeamPass folder re-parenting authorization bypass",
+      "id": "CVE-2026-61725",
+      "title": "sevenz-rust2: decompress builds each output path as dest.join(entry.name()) with no traversal guard, allowing a crafted ",
       "description": "",
-      "cvss": 8.3,
+      "cvss": 7.8,
       "final_ps": 18,
       "quality_score": 0.438,
       "threat_level": "LOW",
@@ -5492,11 +5492,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-103035"
+        "CVE-2026-61725"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
+        "https://github.com/advisories/GHSA-qh76-45cr-8xrc"
       ],
       "explanation": {
         "quality": [
@@ -5516,10 +5516,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-134052",
-      "title": "Low Security Vulnerability (CVE-2026-134052)",
+      "id": "CVE-2026-133707",
+      "title": "CVE-2026-133707 - targets R package before 1.12.1 Code Execution via Custom Storage Metadata",
       "description": "",
-      "cvss": 8.8,
+      "cvss": 7.8,
       "final_ps": 18,
       "quality_score": 0.438,
       "threat_level": "LOW",
@@ -5538,11 +5538,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-134052"
+        "CVE-2026-133707"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-134052?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://cvefeed.io/vuln/detail/CVE-2026-133707"
       ],
       "explanation": {
         "quality": [
