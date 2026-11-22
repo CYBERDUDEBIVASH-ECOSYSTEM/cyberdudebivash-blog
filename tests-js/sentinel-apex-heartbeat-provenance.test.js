@@ -102,7 +102,7 @@ test('the native rolling-feed merge invokes the provenance guard instead of fall
 
 // P0 November 22 — cross-check the durable publication ledger and archived
 // posts before calling an evicted rolling-window record freshly ingested.
-const {isFirstPlatformAddition}=require('../fetch-live-intel.js');
+const {isFirstPlatformAddition,resolveFirstAddedAt:resolveFirstAddedAtForReentry}=require('../fetch-live-intel.js');
 const firstAddNow='2026-11-22T05:32:25.400Z';
 const firstAddStatus=(id,feed,ledger,post)=>isFirstPlatformAddition({
   id,presentInFeed:feed,presentInPublishedLedger:ledger,postFileExists:post
@@ -111,22 +111,22 @@ test('historical published record evicted from 150-item rolling feed is never ar
   // Reproduced in the 2026-11-22 05:32 source corpus for 15 ledger-known
   // advisories absent from the previous top-150 window.
   assert.equal(firstAddStatus('CVE-2026-77309',false,true,false),false);
-  assert.equal(resolveFirstAddedAt(firstAddStatus('CVE-2026-77309',false,true,false),null,firstAddNow),undefined);
+  assert.equal(resolveFirstAddedAtForReentry(firstAddStatus('CVE-2026-77309',false,true,false),null,firstAddNow),undefined);
 });
 
 test('existing archive post prevents false freshness when the published ledger entry has expired',()=>{
   assert.equal(firstAddStatus('CVE-2026-77309',false,false,true),false);
-  assert.equal(resolveFirstAddedAt(firstAddStatus('CVE-2026-77309',false,false,true),null,firstAddNow),undefined);
+  assert.equal(resolveFirstAddedAtForReentry(firstAddStatus('CVE-2026-77309',false,false,true),null,firstAddNow),undefined);
 });
 
 test('rolling feed retains originally recorded ingestion timestamp without refresh',()=>{
   assert.equal(firstAddStatus('CVE-2026-77309',true,true,true),false);
-  assert.equal(resolveFirstAddedAt(false,{_addedAt:'2026-11-20T08:00:00.000Z'},firstAddNow),'2026-11-20T08:00:00.000Z');
+  assert.equal(resolveFirstAddedAtForReentry(false,{_addedAt:'2026-11-20T08:00:00.000Z'},firstAddNow),'2026-11-20T08:00:00.000Z');
 });
 
 test('genuine first platform addition alone receives its current ingestion timestamp',()=>{
   assert.equal(firstAddStatus('new-first-party-evidence',false,false,false),true);
-  assert.equal(resolveFirstAddedAt(true,null,firstAddNow),firstAddNow);
+  assert.equal(resolveFirstAddedAtForReentry(true,null,firstAddNow),firstAddNow);
 });
 
 test('missing, ambiguous or invalid source history never promotes an item to fresh',()=>{
