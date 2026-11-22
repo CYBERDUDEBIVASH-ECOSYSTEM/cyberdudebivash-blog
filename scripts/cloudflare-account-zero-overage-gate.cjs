@@ -39,10 +39,10 @@ const REQUIRED_PLATFORMS=Object.freeze([
 const MAX_ATTESTATION_AGE_MS=2*60*60*1000;
 const SAFETY_RATIO=0.80;
 const FORECAST_BUFFER=1.25;
-// Owner-approved account-wide TOTAL monthly invoice ceiling, inclusive of all
-// existing subscriptions/base fees and estimated metered usage. A zero-overage
-// forecast alone is insufficient to certify this commercial constraint.
-const MAX_ACCOUNT_MONTHLY_BILL_USD=4;
+// Owner's USD4 describes existing Workers usage allocation, NOT a cap on
+// existing account subscription fees. ZERO extra metered spend is authorized
+// across the shared account, regardless of the base subscription price.
+const MAX_ADDITIONAL_METERED_CHARGES_USD=0;
 const PRICE_REVIEW_CUTOFF='2026-12-01T00:00:00.000Z';
 const sha256=x=>crypto.createHash('sha256').update(x).digest('hex');
 const obj=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
@@ -72,19 +72,19 @@ function assess(input, accountId,now=new Date().toISOString()){
   fail('UNMODELED_BILLING_NOT_REVIEWED',input.unmodeledBillableServicesPresent===false&&
     input.optionalPaidProductsOrAddonsPresent===false);
   fail('OVERAGE_ALREADY_PROJECTED',input.currentAccountProjectedOverageUsd===0);
-  // These amounts must be privately taken from/reconciled to the shared
-  // Cloudflare account billing forecast, not inferred from per-service quotas.
-  // No operator-provided USD forecast means HOLD; this is not an enforced
-  // Cloudflare spending cap and cannot itself guarantee the eventual invoice.
+  // Private billing evidence covers ALL account workloads: AI Hub, SOC, CTI,
+  // NILACHALA, D1, R2, KV, Queues, Workers and any other billable service.
+  // Incremental metered charges EXCLUDE pre-existing flat subscription fees.
+  // This guard does not impose a provider hard cap or certify the final bill.
   const validUsd=x=>typeof x==='number'&&Number.isFinite(x)&&x>=0;
   const billEvidenceValid=input.accountBillingCurrency==='USD'&&
-    validUsd(input.accountMonthToDateBilledUsd)&&
-    validUsd(input.forecastAccountTotalBillUsd)&&
-    input.forecastAccountTotalBillUsd>=input.accountMonthToDateBilledUsd;
-  fail('ACCOUNT_TOTAL_BILL_EVIDENCE_REQUIRED',billEvidenceValid);
-  if(billEvidenceValid)fail('ACCOUNT_TOTAL_BILL_EXCEEDS_OWNER_CAP',
-    input.accountMonthToDateBilledUsd<=MAX_ACCOUNT_MONTHLY_BILL_USD&&
-    input.forecastAccountTotalBillUsd<=MAX_ACCOUNT_MONTHLY_BILL_USD);
+    validUsd(input.accountMonthToDateAdditionalMeteredChargesUsd)&&
+    validUsd(input.forecastAccountAdditionalMeteredChargesUsd)&&
+    input.forecastAccountAdditionalMeteredChargesUsd>=input.accountMonthToDateAdditionalMeteredChargesUsd;
+  fail('ACCOUNT_ADDITIONAL_METERED_EVIDENCE_REQUIRED',billEvidenceValid);
+  if(billEvidenceValid)fail('ADDITIONAL_METERED_SPEND_NOT_ZERO',
+    input.accountMonthToDateAdditionalMeteredChargesUsd===MAX_ADDITIONAL_METERED_CHARGES_USD&&
+    input.forecastAccountAdditionalMeteredChargesUsd===MAX_ADDITIONAL_METERED_CHARGES_USD);
   const cycle=input.cycle||{};
   const validCycle=obj(cycle)&&isValidTime(cycle.start)&&isValidTime(cycle.end)&&isValidTime(input.capturedAt);
   if(!validCycle){
@@ -141,4 +141,4 @@ if(require.main===module){
     }
   }
 }
-module.exports={assess,PLAN,REQUIRED_PLATFORMS,SAFETY_RATIO,FORECAST_BUFFER,MAX_ACCOUNT_MONTHLY_BILL_USD,PRICE_REVIEW_CUTOFF};
+module.exports={assess,PLAN,REQUIRED_PLATFORMS,SAFETY_RATIO,FORECAST_BUFFER,MAX_ADDITIONAL_METERED_CHARGES_USD,PRICE_REVIEW_CUTOFF};
