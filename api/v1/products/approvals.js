@@ -171,6 +171,18 @@ async function handleApproveProduct(req, res, productId) {
 
     const workflow = parseRedisHash(workflowData);
     const approvalChain = workflow.approvalChain ? JSON.parse(workflow.approvalChain) : [];
+    if (!Array.isArray(approvalChain) ||
+        approvalChain.some(a => !a || typeof a.approver !== 'string') ||
+        new Set(approvalChain.map(a => a.approver)).size !== approvalChain.length) {
+      return fail(res, 409, 'UNVERIFIED_APPROVAL_CHAIN',
+        'Existing approval history requires independent validation.');
+    }
+    // A second entry is not independent approval when it comes from the
+    // submitting analyst or the SAME authenticated reviewer twice.
+    if (workflow.submitter === approver || approvalChain.some(a => a.approver === approver)) {
+      return fail(res, 409, 'SEPARATION_OF_DUTIES_REQUIRED',
+        'Independent approval by another authorized reviewer is required.');
+    }
 
     const approval = {
       id: crypto.randomBytes(8).toString('hex'),
@@ -188,7 +200,7 @@ async function handleApproveProduct(req, res, productId) {
     workflow.lastApprovedAt = new Date().toISOString();
     workflow.lastApprovedBy = approver;
 
-    if (approvalChain.length >= 2) {
+    if (new Set(approvalChain.map(a => a.approver)).size >= 2) {
       workflow.status = 'APPROVED';
       product.status = 'APPROVED';
       await redis.zrem('approval-workflows:pending', productId);
