@@ -9,7 +9,7 @@ function fixture(){
   const ids=Array.from({length:12},(_,i)=>({id:'CVE-2026-'+String(10000+i)}));
   return {
    state:{lastRun:moment,lastReportGeneratedAt:moment,totalPublished:6548,
-     lastIngestion:{reportsGenerated:15}},
+     published:[],lastIngestion:{reportsGenerated:15}},
    rootSource:{generatedAt:moment,totalPublished:6548,
      metadata:{lastPipelineRun:moment,lastReportGeneratedAt:moment},items:ids},
    apiSource:{generated:moment,lastReportGeneratedAt:moment,total_published:6548,items:ids},
@@ -192,4 +192,12 @@ test('P0 root and S2N builds must attest the same real report receipt as the com
  const source2=fixture();
  source2.rootAsset.metadata.lastReportGeneratedAt='2026-10-25T04:40:00Z';
  assert(validateBundle(source2).codes.includes('REAL_REPORT_RECEIPT_DIVERGENCE'));
+});
+
+test('P0 S2N release inherits root feed ledger-first-ingest contradiction gate',()=>{
+ const x=fixture();
+ x.rootSource.items[0]._addedAt='2026-10-26T12:29:00Z';
+ x.rootAsset.items[0]._addedAt='2026-10-26T12:29:00Z';
+ x.state.published=[{id:x.rootSource.items[0].id,date:'2026-10-25'}];
+ assert(validateBundle(x).codes.includes('ROOT_RELEASE_PREDEPLOY_FIRST_INGEST_AFTER_PUBLICATION'));
 });
