@@ -968,12 +968,30 @@ function normalizeToUniversalSchema(item) {
   };
 }
 
+// Source article publication time must come from the publisher, never from the
+// retrieval clock. An undated/invalid RSS entry is NOT recent intelligence.
+function trustedRssPublicationDate(raw, nowMs = Date.now()) {
+  if (typeof raw !== 'string') return null;
+  const value = raw.trim();
+  if (!value || value.length > 100 || !Number.isFinite(nowMs)) return null;
+  const dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(value);
+  const hasZone = /(?:Z|GMT|UTC|[+-]\d{2}:?\d{2})$/i.test(value);
+  if (!dateOnly && !hasZone) return null;
+  const ms = Date.parse(value);
+  if (!Number.isFinite(ms) || ms < 0 || ms > nowMs + 5 * 60000) return null;
+  const day = new Date(ms).toISOString().slice(0, 10);
+  // Date.parse may normalize an impossible date such as February 30.
+  if (dateOnly && day !== value) return null;
+  return day;
+}
+
 function rssToIntel(item, source) {
   const text = (item.title||'')+' '+(item.desc||'');
   const cves  = extractCVEs(text);
   const type  = classifyNews(text);
   const id    = cves[0]||(source.toUpperCase()+'-'+md5(item.link||item.title));
-  const pubDate = (() => { try { return item.pubDate ? new Date(item.pubDate).toISOString().slice(0,10) : isoNow(); } catch(e){ return isoNow(); } })();
+  const pubDate = trustedRssPublicationDate(item && item.pubDate);
+  if (!pubDate) return null;
   const srcLabels = { bleepingcomputer:'BleepingComputer', thehackernews:'The Hacker News', krebsonsecurity:'KrebsOnSecurity', securityweek:'SecurityWeek', sans_isc:'SANS ISC' };
   // Editorial/RSS links are references, not automatically malicious IOCs.
   const iocs = [];
@@ -1000,11 +1018,14 @@ async function fetchRSS(urlStr, source, maxItems, state) {
   try {
     const raw = await fetchWithRetry(urlStr);
     const parsed = verifyRssPayload(raw,parseRSS(raw));
+    const nowMs = Date.now();
     const filtered = parsed.filter(item => {
-      if (!item.pubDate) return true;
-      try { return new Date(item.pubDate) >= afterDate; } catch(_) { return true; }
+      if (!trustedRssPublicationDate(item.pubDate, nowMs)) return false;
+      const publishedMs = Date.parse(item.pubDate);
+      return Number.isFinite(publishedMs) && publishedMs >= afterDate.getTime();
     });
-    const items = filtered.slice(0, maxItems||CFG.maxRssItems).map(item => rssToIntel(item, source));
+    const items = filtered.slice(0, maxItems||CFG.maxRssItems)
+      .map(item => rssToIntel(item, source)).filter(Boolean);
     if (state) setSourceLastFetch(state, source, Date.now());
     log(`${source}: ${items.length} items (filtered from ${parsed.length}).`); return items;
   } catch(e) { warn(`${source} failed: ${e.message}`); throw e; }
@@ -1505,41 +1526,27 @@ async function fetchNCSCUK(state) {
   return items.map(i=>({...i, type:classifyNews((i.title||'')+(i.desc||''))}));
 }
 
+// Cisco's published RSS terms prohibit unapproved commercial syndication.
+// No request is made unless the owner has separately obtained documented
+// commercial-use permission. A GitHub config value is an approval assertion,
+// not a license grant. Never put license evidence or credentials in source.
+function assertCiscoPsirtCommercialApproval(value) {
+  if (value !== 'true') throw new Error('CISCO_PSIRT_COMMERCIAL_USE_NOT_APPROVED');
+}
 async function fetchCiscoPSIRT(state) {
-  return new Promise(resolve => {
-    const opts = {
-      hostname:'sec.cloudapps.cisco.com', path:'/security/advisories/cisco-sa-all.rss',
-      headers:{'User-Agent':'CYBERDUDEBIVASH-SENTINEL/5.3','Accept':'application/rss+xml'},
-    };
-    https.get(opts, res => {
-      let d=''; res.on('data',c=>d+=c); res.on('end',()=>{
-        try {
-          const items = [];
-          const titleRe = /<title>([^<]+)<\/title>/g;
-          const linkRe = /<link>([^<]+)<\/link>/g;
-          const descRe = /<description>([^<]+)<\/description>/g;
-          let tm, lm, dm; const titles=[], links=[], descs=[];
-          while((tm=titleRe.exec(d))!==null) titles.push(tm[1]);
-          while((lm=linkRe.exec(d))!==null) links.push(lm[1]);
-          while((dm=descRe.exec(d))!==null) descs.push(dm[1]);
-          for(let i=1;i<Math.min(titles.length,12);i++) {
-            const text = (titles[i]||'')+(descs[i]||'');
-            const cves = extractCVEs(text);
-            const id = cves[0]||('CISCO-PSIRT-'+md5(titles[i]||'').slice(0,12));
-            if (!id||isSeenId(id, state)) continue;
-            items.push({
-              source:'cisco_psirt', type:'CVE_REPORT', id,
-              title:titles[i]||'Cisco Security Advisory', desc:(descs[i]||'').replace(/&lt;[^>]*&gt;/g,'').slice(0,600),
-              cvss:parseCvssFromText(text), refs:extractHttpUrls(links[i]), pubDate:isoNow(),
-              vendor:'Cisco', product:'Cisco Products', exploited:false, cisaKev:false,
-              ransomware:false, cves, sourceCount:1,
-            });
-          }
-          resolve(items);
-        } catch(e) { resolve([]); }
-      });
-    }).on('error',()=>resolve([])).setTimeout(12000,()=>resolve([]));
-  });
+  assertCiscoPsirtCommercialApproval(process.env.CDB_CISCO_PSIRT_COMMERCIAL_USE_APPROVED);
+  // Cisco's officially published RSS 2.0 endpoint, not the previously used
+  // unverified /security/advisories/cisco-sa-all.rss path.
+  const items = await fetchRSS(
+    'https://sec.cloudapps.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml',
+    'cisco_psirt', 10, state
+  );
+  // fetchRSS has already checked publisher dates and valid source URLs;
+  // do not replace publication time with the current pipeline timestamp.
+  return items.map(item => ({
+    ...item, vendor:'Cisco', product:'Cisco Products',
+    type: item.cves?.length ? 'CVE_REPORT' : item.type
+  }));
 }
 
 async function fetchOTX(state) {
@@ -3792,7 +3799,8 @@ if (require.main === module) {
     genStructuredReasoning, genIntelligenceProducts, buildProductApiJSON,
     genSigma, genYARA, getMitre, stripHtml, decodeEntities,
     extractHttpUrls, parseCvssFromText, hasConfirmedExploitation,
-    rssToIntel, qualityGate, validateRenderedPost, genExecutiveSummary, genBusinessImpact,
+    rssToIntel, trustedRssPublicationDate, assertCiscoPsirtCommercialApproval, fetchCiscoPSIRT,
+    qualityGate, validateRenderedPost, genExecutiveSummary, genBusinessImpact,
     genAttackChain, computePriorityScore, correlateAndMerge,
     extractSentinelApexRecords, normalizeSentinelApexRecord,
     sapexCanonicalId, sapexNativeMitre, fetchSentinelApex,
