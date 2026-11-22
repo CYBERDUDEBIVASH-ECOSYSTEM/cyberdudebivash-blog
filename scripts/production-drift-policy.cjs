@@ -34,6 +34,12 @@ const BENIGN_SCRIPT_TEST = /^scripts\/[A-Za-z0-9._/-]+\.(?:test|spec)\.(?:cjs|mj
 const REVIEWED_OPERATIONAL_FILES = new Set([
   '.github/workflows/test.yml',
   'scripts/production-drift-policy.cjs',
+  // P0 #433: reviewed 291-line Zod malware-intelligence validator. Imported
+  // by typed report/intelligence tests and re-exported via types/index.ts;
+  // not an existing Cloudflare Worker/static asset entrypoint. Its data
+  // validation semantics remain OPERATIONAL/manual-review, never benign.
+  // Exact path only: unknown lib/intelligence siblings still BLOCK.
+  'lib/intelligence/validators.ts',
   'scripts/soc-native-d1-local-certify.cjs',
   '.github/workflows/alert-delivery.yml',
   '.github/workflows/intelligence-hub.yml',
