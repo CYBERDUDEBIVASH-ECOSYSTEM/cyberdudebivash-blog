@@ -28,8 +28,8 @@ function sample(){
       unmodeledBillableServicesPresent:false,optionalPaidProductsOrAddonsPresent:false,
       currentAccountProjectedOverageUsd:0,
       accountBillingCurrency:'USD',
-      accountMonthToDateBilledUsd:1.25,
-      forecastAccountTotalBillUsd:3.50,
+      accountMonthToDateAdditionalMeteredChargesUsd:0,
+      forecastAccountAdditionalMeteredChargesUsd:0,
       cycle:{start:'2026-10-01T00:00:00.000Z',end:'2026-11-01T00:00:00.000Z'},
       capturedAt:stamp(15),
       metrics:Object.fromEntries(Object.entries(PLAN).map(([k,v])=>[k,{used:v*.10,forecastRemaining:v*.15}]))
@@ -79,10 +79,10 @@ test('forecast paid overage or unmodeled services must block even when source is
   assert(evaluate(x=>x.budgetEvidence.unmodeledBillableServicesPresent=true)
     .codes.includes('ACCOUNT_WIDE_BUDGET_UNCERTIFIED'));
 });
-test('P0 owner USD 4 shared-account total-bill ceiling holds offline preflight',()=>{
-  assert(evaluate(x=>x.budgetEvidence.forecastAccountTotalBillUsd=4.01)
+test('P0 zero additional Cloudflare metered spending holds offline preflight',()=>{
+  assert(evaluate(x=>x.budgetEvidence.forecastAccountAdditionalMeteredChargesUsd=0.01)
     .codes.includes('ACCOUNT_WIDE_BUDGET_UNCERTIFIED'));
-  assert(evaluate(x=>delete x.budgetEvidence.accountMonthToDateBilledUsd)
+  assert(evaluate(x=>delete x.budgetEvidence.accountMonthToDateAdditionalMeteredChargesUsd)
     .codes.includes('ACCOUNT_WIDE_BUDGET_UNCERTIFIED'));
 });
 test('last real publication stale, source ledger disagreement or built API drift holds',()=>{
