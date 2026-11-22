@@ -1,10 +1,10 @@
 'use strict';
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const {inspect,assess,predeployGate,check,boundedJson,TARGETS}=require('../scripts/certify-soc-public-feed-parity.cjs');
+const {inspect,assess,inspectFirstIngestLedger,predeployGate,check,boundedJson,TARGETS}=require('../scripts/certify-soc-public-feed-parity.cjs');
 const now=Date.parse('2026-10-25T05:10:00.000Z');
 function fixture({stamp='2026-10-25T04:40:00.000Z',total=6518,items=150}={}){
-  return {generatedAt:stamp,metadata:{lastPipelineRun:stamp,lastReportGeneratedAt:stamp},totalPublished:total,items:Array.from({length:items},(_,id)=>({id}))};
+  return {generatedAt:stamp,metadata:{lastPipelineRun:stamp,lastReportGeneratedAt:stamp},totalPublished:total,items:Array.from({length:items},(_,id)=>({id:String(id)}))};
 }
 function fakeResponse(d,{status=200,type='application/json'}={}){
   const response=new Response(JSON.stringify(d),{status,headers:{'content-type':type}});
@@ -70,7 +70,7 @@ test('missing or future-dated report receipts cannot certify a release',()=>{
 test('byte exact release verification passes only for identical build artifact',()=>{
   const f=fixture();
   const bytes=Buffer.from(JSON.stringify(f));
-  const state={lastRun:f.generatedAt,lastReportGeneratedAt:f.generatedAt};
+  const state={lastRun:f.generatedAt,lastReportGeneratedAt:f.generatedAt,published:[]};
   assert.equal(assess(f,f,now,{sourceState:state,expectedBytes:bytes,publicBytes:Buffer.from(bytes)}).status,'PASS');
   const altered=Buffer.from(JSON.stringify({...f,harmlessLookingExtraField:true}));
   assert.equal(assess(f,{...f,harmlessLookingExtraField:true},now,{sourceState:state,expectedBytes:bytes,publicBytes:altered}).reason,'PUBLIC_ASSET_SHA256_MISMATCH');
@@ -79,7 +79,7 @@ test('byte exact release verification passes only for identical build artifact',
 test('bounded network reader supplies exact public bytes to release parity gate',async()=>{
   const f=fixture();
   const expectedBytes=Buffer.from(JSON.stringify(f));
-  const state={lastRun:f.generatedAt,lastReportGeneratedAt:f.generatedAt};
+  const state={lastRun:f.generatedAt,lastReportGeneratedAt:f.generatedAt,published:[]};
   const out=await check({expected:f,expectedBytes,sourceState:state,nowMs:now,fetchImpl:async()=>fakeResponse(f)});
   assert.equal(out.status,'PASS');
   const drift=await check({expected:f,expectedBytes,sourceState:state,nowMs:now,
@@ -89,28 +89,28 @@ test('bounded network reader supplies exact public bytes to release parity gate'
 });
 
 test('P0 predeploy gate passes an identical recent source/report/build without any network',()=>{
-  const feed=fixture();const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt};
+  const feed=fixture();const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,published:[]};
   assert.deepEqual(predeployGate({source:feed,asset:structuredClone(feed),state,nowMs:now}),
     {status:'PASS',reason:'SOURCE_REPORT_AND_BUILT_ASSET_FRESH'});
 });
 test('P0 predeploy negative: recent heartbeat with stale real report blocks BEFORE mutation',()=>{
   const feed=fixture();
   const result=predeployGate({source:feed,asset:feed,
-    state:{lastRun:feed.generatedAt,lastReportGeneratedAt:'2026-10-24T21:27:18.946Z'},nowMs:now});
+    state:{lastRun:feed.generatedAt,lastReportGeneratedAt:'2026-10-24T21:27:18.946Z',published:[]},nowMs:now});
   assert.deepEqual(result,{status:'FAIL',reason:'SOURCE_INTEL_CONTENT_STALE'});
 });
 test('P0 predeploy negative: source pipeline stale or source state missing blocks',()=>{
   const old=fixture({stamp:'2026-10-24T03:54:29Z'});
   assert.equal(predeployGate({source:old,asset:old,
-    state:{lastRun:old.generatedAt,lastReportGeneratedAt:old.generatedAt},nowMs:now}).reason,
+    state:{lastRun:old.generatedAt,lastReportGeneratedAt:old.generatedAt,published:[]},nowMs:now}).reason,
     'SOURCE_PIPELINE_STALE');
   const feed=fixture();
-  assert.equal(predeployGate({source:feed,asset:feed,state:{lastRun:feed.generatedAt},nowMs:now}).reason,
+  assert.equal(predeployGate({source:feed,asset:feed,state:{lastRun:feed.generatedAt,published:[]},nowMs:now}).reason,
     'SOURCE_REPORT_EVIDENCE_MISSING');
 });
 test('P0 predeploy negative: altered build timestamp, corpus, or item window blocks',()=>{
   const feed=fixture();
-  const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt};
+  const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,published:[]};
   const verdict=asset=>predeployGate({source:feed,asset,state,nowMs:now}).reason;
   assert.equal(verdict({...feed,generatedAt:'2026-10-25T04:41:00Z'}),
     'PREDEPLOY_BUILD_TIMESTAMP_DIVERGED');
@@ -135,21 +135,21 @@ test('release workflow structurally preserves predeploy-before-mutation and publ
 });
 
 test('P0 predeploy rejects changed IOC contents even with matching timestamps, totals and item counts',()=>{
-  const feed=fixture();const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt};
+  const feed=fixture();const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,published:[]};
   const asset=structuredClone(feed);asset.items[0].id='tampered-IOC';
   assert.deepEqual(predeployGate({source:feed,asset,state,nowMs:now}),
     {status:'FAIL',reason:'PREDEPLOY_BUILD_CONTENT_DIVERGED'});
 });
 
 test('P0 predeploy rejects altered nested source metadata even with identical published counts',()=>{
-  const feed=fixture();const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt};
+  const feed=fixture();const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,published:[]};
   const asset=structuredClone(feed);asset.metadata.sourceClassification='UNVERIFIED';
   assert.equal(predeployGate({source:feed,asset,state,nowMs:now}).reason,
     'PREDEPLOY_BUILD_CONTENT_DIVERGED');
 });
 
 test('P0 predeploy permits equivalent JSON content with different object-key insertion order',()=>{
-  const feed=fixture();const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt};
+  const feed=fixture();const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,published:[]};
   const asset={items:structuredClone(feed.items),totalPublished:feed.totalPublished,
     metadata:{...feed.metadata},generatedAt:feed.generatedAt};
   assert.equal(predeployGate({source:feed,asset,state,nowMs:now}).status,'PASS');
@@ -158,7 +158,7 @@ test('P0 predeploy permits equivalent JSON content with different object-key ins
 test('P0 predeploy permits only approved NVD ledger correction performed by actual public build',()=>{
   const feed=fixture({items:12});
   feed.items[0]={id:'CVE-2009-0238',cvss:9.5};
-  const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt};
+  const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,published:[]};
   const {correctPublicIntelJson}=require('../scripts/build-cloudflare-assets');
   const asset=JSON.parse(correctPublicIntelJson(JSON.stringify(feed)));
   assert.equal(asset.items[0].cvss,9.3, 'published score must agree with pinned NVD ledger');
@@ -188,8 +188,42 @@ test('P0 approved manual Cloudflare release must fail closed for moderate-or-hig
 });
 
 test('P0 a fresh heartbeat with no matching genuine report receipt cannot be predeployed',()=>{
- const f=fixture(),state={lastRun:f.generatedAt,lastReportGeneratedAt:f.generatedAt};
+ const f=fixture(),state={lastRun:f.generatedAt,lastReportGeneratedAt:f.generatedAt,published:[]};
  f.metadata.lastReportGeneratedAt='2026-10-24T04:40:00Z';
  assert.deepEqual(predeployGate({source:f,asset:structuredClone(f),state,nowMs:now}),
    {status:'FAIL',reason:'PREDEPLOY_REAL_REPORT_RECEIPT_DIVERGED'});
+});
+
+test('P0 predeploy rejects previously published advisories carrying a later fake first-ingest date',()=>{
+  const feed=fixture();
+  feed.items[0]={id:'CVE-2026-58192',_addedAt:'2026-10-25T04:39:00Z',pubDate:'2026-10-23'};
+  const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,
+    published:[{id:'CVE-2026-58192',date:'2026-10-23',lastSeenAt:'2026-10-25T04:39:00Z'}]};
+  assert.deepEqual(predeployGate({source:feed,asset:structuredClone(feed),state,nowMs:now}),
+    {status:'FAIL',reason:'PREDEPLOY_FIRST_INGEST_AFTER_PUBLICATION'});
+});
+test('P0 ledger provenance does not invent unknown dates or penalize genuine same-day first ingest',()=>{
+  const feed=fixture({items:12});
+  feed.items[0]={id:'KNOWN',_addedAt:'2026-10-25T04:35:00Z'};
+  feed.items[1]={id:'LEGACY'};
+  feed.items[2]={id:'DATE_UNKNOWN',_addedAt:'2026-10-25T04:35:00Z'};
+  const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,
+    published:[{id:'KNOWN',date:'2026-10-25'},{id:'LEGACY',date:'2026-10-22'},
+      {id:'DATE_UNKNOWN',date:null,lastSeenAt:'2026-10-25T04:30:00Z'}]};
+  assert.equal(inspectFirstIngestLedger(feed,state,now).status,'PASS');
+  assert.equal(predeployGate({source:feed,asset:structuredClone(feed),state,nowMs:now}).status,'PASS');
+});
+test('P0 predeploy rejects future and invalid inherited ingestion; missing publication ledger is no release receipt',()=>{
+  const feed=fixture({items:12});
+  const state={lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt,published:[]};
+  feed.items[0]={id:'FUTURE',_addedAt:'2026-10-26T01:00:00Z'};
+  assert.equal(predeployGate({source:feed,asset:structuredClone(feed),state,nowMs:now}).reason,
+    'PREDEPLOY_FIRST_INGEST_TIMESTAMP_INVALID');
+  feed.items[0]._addedAt='invalid';
+  assert.equal(predeployGate({source:feed,asset:structuredClone(feed),state,nowMs:now}).reason,
+    'PREDEPLOY_FIRST_INGEST_TIMESTAMP_INVALID');
+  feed.items[0]._addedAt=undefined;
+  assert.equal(predeployGate({source:feed,asset:structuredClone(feed),
+    state:{lastRun:feed.generatedAt,lastReportGeneratedAt:feed.generatedAt},nowMs:now}).reason,
+    'PREDEPLOY_PUBLICATION_LEDGER_MISSING');
 });

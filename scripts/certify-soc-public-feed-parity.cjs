@@ -71,6 +71,43 @@ function assess(reference,delivered,nowMs=Date.now(),options={}) {
 }
 
 /**
+ * Fail-closed source-to-ledger check. Original publication date is not the
+ * last-seen dedup clock: if an existing advisory was published on an earlier
+ * UTC day, an inherited first-ingestion stamp on a later day cannot be used
+ * as new-intelligence evidence. Never synthesize or alter source timestamps.
+ * Unknown legacy publication date remains unknown; only independently
+ * provable contradictions block the release.
+ */
+function inspectFirstIngestLedger(feed, state, nowMs=Date.now()) {
+  if (!feed || !Array.isArray(feed.items) || !state ||
+      !Array.isArray(state.published) || !Number.isFinite(nowMs))
+    return {status:'FAIL',reason:'PREDEPLOY_PUBLICATION_LEDGER_MISSING'};
+  const publicationById=new Map();
+  for(const row of state.published){
+    if(!row || typeof row.id!=='string' ||
+       typeof row.date!=='string' || !Number.isFinite(Date.parse(row.date))) continue;
+    const date=new Date(Date.parse(row.date)).toISOString().slice(0,10);
+    if(!publicationById.has(row.id) || publicationById.get(row.id)>date)
+      publicationById.set(row.id,date);
+  }
+  for(const item of feed.items){
+    if(!item || typeof item.id!=='string' || !item.id.trim())
+      return {status:'FAIL',reason:'PREDEPLOY_FEED_ITEM_ID_INVALID'};
+    // The publisher deliberately leaves this empty for a historical item
+    // whose original first-ingest time cannot be recovered.
+    const stamp=item._addedAt;
+    if(stamp===undefined || stamp===null) continue;
+    if(typeof stamp!=='string' || !Number.isFinite(Date.parse(stamp)) ||
+       Date.parse(stamp)>nowMs+FUTURE_MINUTES*60000)
+      return {status:'FAIL',reason:'PREDEPLOY_FIRST_INGEST_TIMESTAMP_INVALID'};
+    const published=publicationById.get(item.id);
+    if(published && new Date(Date.parse(stamp)).toISOString().slice(0,10)>published)
+      return {status:'FAIL',reason:'PREDEPLOY_FIRST_INGEST_AFTER_PUBLICATION'};
+  }
+  return {status:'PASS',reason:'FIRST_INGEST_LEDGER_CONSISTENT'};
+}
+
+/**
  * Fail-closed, completely offline predeploy gate. A static Worker build can
  * only be released after it is tied to a recent real report and the same
  * checked-in feed snapshot. No network, Cloudflare API, cron, or provider call.
@@ -82,6 +119,8 @@ function predeployGate({source,asset,state,nowMs=Date.now()}={}) {
   if(verdict.status!=='PASS') return {status:'FAIL',reason:verdict.reason};
   if(!source || !asset || !Array.isArray(source.items) || !Array.isArray(asset.items))
     return {status:'FAIL',reason:'PREDEPLOY_BUILD_FEED_INVALID'};
+  const ingestionProof=inspectFirstIngestLedger(source,state,nowMs);
+  if(ingestionProof.status!=='PASS') return ingestionProof;
   // GeneratedAt and corpus are not independently meaningful if the built
   // artifact silently comes from a different revision than the source ledger.
   if(typeof source.generatedAt!=='string' || source.generatedAt!==asset.generatedAt)
@@ -187,4 +226,4 @@ if(require.main===module){
     }).catch(()=>{console.error('INCONCLUSIVE: DELIVERY_CERTIFICATION_UNAVAILABLE');process.exitCode=3;});
   }catch(_){console.error('FAIL: AUTHORITATIVE_SOURCE_UNAVAILABLE');process.exitCode=2;}
 }
-module.exports={TARGETS,MAX_BYTES,STALE_MINUTES,inspect,assess,predeployGate,boundedJson,check};
+module.exports={TARGETS,MAX_BYTES,STALE_MINUTES,inspect,assess,inspectFirstIngestLedger,predeployGate,boundedJson,check};

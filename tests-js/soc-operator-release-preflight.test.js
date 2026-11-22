@@ -35,7 +35,7 @@ function sample(){
       metrics:Object.fromEntries(Object.entries(PLAN).map(([k,v])=>[k,{used:v*.10,forecastRemaining:v*.15}]))
     },
     bundle:{
-      state:{lastRun:t,lastReportGeneratedAt:t,totalPublished:6563,lastIngestion:{reportsGenerated:15}},
+      state:{lastRun:t,lastReportGeneratedAt:t,totalPublished:6563,published:[],lastIngestion:{reportsGenerated:15}},
       rootSource:{generatedAt:t,totalPublished:6563,metadata:{lastPipelineRun:t,lastReportGeneratedAt:t},items:ids},
       apiSource:{generated:t,lastReportGeneratedAt:t,total_published:6563,items:ids},
       rootAsset:{generatedAt:t,totalPublished:6563,metadata:{lastPipelineRun:t,lastReportGeneratedAt:t},items:structuredClone(ids)},
@@ -99,4 +99,12 @@ test('helper remains local read only and cannot deploy or claim customer readine
   assert.match(src,/workerDeploymentAuthorized:false,customerManagedSocGo:false/);
   assert.match(src,/--porcelain=v1/);
   assert.match(src,/refs\/remotes\/origin\/main/);
+});
+
+test('P0 operator offline release rejects source records with synthetic post-publication first ingest',()=>{
+ assert(evaluate(x=>{
+   x.bundle.rootSource.items[0]._addedAt=stamp(20);
+   x.bundle.rootAsset.items[0]._addedAt=stamp(20);
+   x.bundle.state.published=[{id:x.bundle.rootSource.items[0].id,date:'2026-10-25'}];
+ }).codes.includes('SOURCE_AND_BUILT_FEEDS_NOT_CERTIFIED'));
 });
