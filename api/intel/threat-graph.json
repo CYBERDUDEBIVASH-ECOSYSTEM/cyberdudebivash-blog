@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-22T14:50:10.038Z",
+  "generated": "2026-11-22T15:44:19.698Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19788,
+    "total_nodes": 19790,
     "actors": 8,
-    "cves": 9600,
-    "campaigns": 3135,
+    "cves": 9601,
+    "campaigns": 3136,
     "malware": 0,
     "iocs": 911,
-    "edges": 5940
+    "edges": 5941
   },
   "nodes": {
     "actor:lockbit": {
@@ -372043,6 +372043,44 @@
         "type": "CVE_REPORT"
       },
       "connections": []
+    },
+    "CVE-2026-134753": {
+      "id": "CVE-2026-134753",
+      "type": "CVE",
+      "name": "CVE-2026-134753 — Affected software (product not identified) CVSS 7 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7,
+        "threat_level": "MEDIUM",
+        "priority_score": 60,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-22",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-134753": {
+      "id": "campaign:cve-2026-134753",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-22",
+        "last_seen": "2026-11-22",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-134753"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-134753",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -425685,6 +425723,15 @@
       "id": "campaign:cve-2026-134623→includes→CVE-2026-134623",
       "source": "campaign:cve-2026-134623",
       "target": "CVE-2026-134623",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-22",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-134753→includes→CVE-2026-134753",
+      "source": "campaign:cve-2026-134753",
+      "target": "CVE-2026-134753",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-22",
