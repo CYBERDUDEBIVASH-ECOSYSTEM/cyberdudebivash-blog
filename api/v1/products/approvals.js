@@ -2,14 +2,15 @@
 
 const redis = require('../../_lib/redis');
 const { ProductFactory } = require('../../_lib/product-factory');
+const { createInternalApprovalGateway } = require('../../_lib/internal-approval-gateway');
 const crypto = require('crypto');
 
 const productFactory = new ProductFactory(redis);
 
 const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Cache-Control': 'no-store, no-cache, must-revalidate',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, X-Analyst-Key',
 };
 
 const APPROVAL_LEVELS = {
@@ -37,7 +38,7 @@ function fail(res, status, code, message) {
   });
 }
 
-module.exports = async (req, res) => {
+const legacyApprovalHandler = async (req, res) => {
   if (req.method === 'OPTIONS') {
     Object.entries(CORS_HEADERS).forEach(([k, v]) => res.setHeader(k, v));
     return res.status(200).end();
@@ -80,6 +81,9 @@ module.exports = async (req, res) => {
   return fail(res, 404, 'NOT_FOUND', 'Endpoint not found');
 };
 
+// All control-plane operations require a configured verified internal analyst.
+module.exports = createInternalApprovalGateway(legacyApprovalHandler, {kind:'products'});
+
 async function handleSubmitReview(req, res, productId) {
   try {
     let body = {};
@@ -102,8 +106,12 @@ async function handleSubmitReview(req, res, productId) {
       return fail(res, 404, 'NOT_FOUND', `Product not found: ${productId}`);
     }
 
-    if (product.status === 'PUBLISHED' || product.status === 'ARCHIVED') {
-      return fail(res, 400, 'INVALID_STATUS', `Cannot submit ${product.status} product for review`);
+    // Re-submitting an UNDER_REVIEW or APPROVED product would overwrite its
+    // existing workflow and erase signed reviewer history. Only a draft (also
+    // the state returned after explicit rejection) can open a new workflow.
+    if (product.status !== 'DRAFT') {
+      return fail(res, 409, 'INVALID_STATUS',
+        `Only DRAFT products may open review (current: ${product.status})`);
     }
 
     const workflowRecord = {
@@ -166,7 +174,24 @@ async function handleApproveProduct(req, res, productId) {
     }
 
     const workflow = parseRedisHash(workflowData);
-    const approvalChain = workflow.approvalChain ? JSON.parse(workflow.approvalChain) : [];
+    // parseRedisHash already decoded the Redis JSON string to an Array.
+    const approvalChain = Array.isArray(workflow.approvalChain)
+      ? workflow.approvalChain
+      : (typeof workflow.approvalChain === 'string'
+        ? JSON.parse(workflow.approvalChain) : []);
+    if (typeof workflow.submitter !== 'string' || !workflow.submitter ||
+        !Array.isArray(approvalChain) ||
+        approvalChain.some(a => !a || typeof a.approver !== 'string') ||
+        new Set(approvalChain.map(a => a.approver)).size !== approvalChain.length) {
+      return fail(res, 409, 'UNVERIFIED_APPROVAL_CHAIN',
+        'Existing approval history requires independent validation.');
+    }
+    // A second entry is not independent approval when it comes from the
+    // submitting analyst or the SAME authenticated reviewer twice.
+    if (workflow.submitter === approver || approvalChain.some(a => a.approver === approver)) {
+      return fail(res, 409, 'SEPARATION_OF_DUTIES_REQUIRED',
+        'Independent approval by another authorized reviewer is required.');
+    }
 
     const approval = {
       id: crypto.randomBytes(8).toString('hex'),
@@ -184,7 +209,7 @@ async function handleApproveProduct(req, res, productId) {
     workflow.lastApprovedAt = new Date().toISOString();
     workflow.lastApprovedBy = approver;
 
-    if (approvalChain.length >= 2) {
+    if (new Set(approvalChain.map(a => a.approver)).size >= 2) {
       workflow.status = 'APPROVED';
       product.status = 'APPROVED';
       await redis.zrem('approval-workflows:pending', productId);
