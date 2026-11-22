@@ -3213,6 +3213,18 @@ function resolveFirstAddedAt(isNewToFeed, existingItem, nowIso) {
   return typeof prior === 'string' && prior.trim() ? prior : undefined;
 }
 
+// A rolling feed is not an ingestion ledger: known items can be evicted from
+// its 150-slot window and later return. Never stamp such a historical record
+// with the current time merely because it is absent from the window. Require
+// ALL three independent absence signals (feed, publication ledger, post file)
+// before recording a genuinely first-seen platform timestamp. Unknown inputs
+// fail closed. No source date is forged or historical report modified.
+function isFirstPlatformAddition({id, presentInFeed, presentInPublishedLedger, postFileExists} = {}) {
+  return typeof id === 'string' && id.trim().length > 0 &&
+    presentInFeed === false && presentInPublishedLedger === false &&
+    postFileExists === false;
+}
+
 /**
  * Customer live-feed rolling window: preserve genuinely recent, provenance-
  * checked reports BEFORE older priority-ranked archive filler. The previous
@@ -3260,6 +3272,12 @@ function writeLiveIntel(allItems, state) {
     }
     const nowTs = new Date().toISOString();
     const existingIds = new Set(existingItems.map(e => e.id));
+    const previouslyPublishedIds = new Set(
+      Array.isArray(state?.published)
+        ? state.published.filter(e => e && typeof e.id === 'string').map(e => e.id)
+        : []
+    );
+    const genuinelyFirstAddedIds = new Set();
     const newItems = allItems.map(item => {
       // Compute resolved slug FIRST — item.slug may be null for many pipeline sources.
       // Using it directly in the object literal would make `link` always null when item.slug is falsy
@@ -3268,10 +3286,18 @@ function writeLiveIntel(allItems, state) {
         slugify(item.id.startsWith('CVE')
           ? `${item.id}-${item.vendor||''}-${item.product||''}`
           : item.title.slice(0, 60));
-      // PRODUCTION FIX: Only set _addedAt=NOW for truly new items.
-      // For items already in the rolling window, preserve their original _addedAt.
-      const isNewToFeed = !existingIds.has(item.id);
-      const existingItem = isNewToFeed ? null : existingItems.find(e => e.id === item.id);
+      // P0 provenance: a reappearing report can be absent from the bounded
+      // rolling window while present in the durable published ledger or as a
+      // real archived post. Its original _addedAt is UNKNOWN if evicted; never
+      // replace that unknown with today's timestamp.
+      const isNewToFeed = isFirstPlatformAddition({
+        id: item.id,
+        presentInFeed: existingIds.has(item.id),
+        presentInPublishedLedger: previouslyPublishedIds.has(item.id),
+        postFileExists: fs.existsSync(path.join(CFG.postsDir, `${resolvedSlug}.html`)),
+      });
+      if (isNewToFeed) genuinelyFirstAddedIds.add(item.id);
+      const existingItem = existingItems.find(e => e.id === item.id) || null;
       const addedAt = resolveFirstAddedAt(isNewToFeed, existingItem, nowTs);
       return {
       id: item.id, title: (item.title||'').slice(0,120), desc: (item.desc||'').slice(0,200),
@@ -3303,7 +3329,7 @@ function writeLiveIntel(allItems, state) {
     } catch (e) { warn(`KEV reconciliation skipped: ${e.message}`); }
     const _liveGenTs = new Date().toISOString();
     // PRODUCTION DIAGNOSTIC: track truly new items (not in existingItems)
-    const trulyNewCount = newItems.filter(i => !existingIds.has(i.id)).length;
+    const trulyNewCount = genuinelyFirstAddedIds.size;
     safeWriteSync(CFG.liveJsonPath, JSON.stringify({
       generatedAt: _liveGenTs, lastUpdated: _liveGenTs, totalPublished: state.totalPublished||0,
       metadata: { generated: _liveGenTs, version: '5.0', pipeline: 'SENTINEL APEX v5.0', platform: 'blog.cyberdudebivash.in', kevCatalog: getKevCatalogMeta() },
@@ -3726,7 +3752,7 @@ if (require.main === module) {
     genAttackChain, computePriorityScore, correlateAndMerge,
     extractSentinelApexRecords, normalizeSentinelApexRecord,
     sapexCanonicalId, sapexNativeMitre, fetchSentinelApex,
-    watermarkStart, acknowledgeExistingPost, resolveFirstAddedAt, selectLiveWindow,
+    watermarkStart, acknowledgeExistingPost, resolveFirstAddedAt, isFirstPlatformAddition, selectLiveWindow,
     renderRssItem, retainLatestRssItems, MAX_SOURCE_RSS_ITEMS,
     recordSourceSuccess, recordSourceFailure, getSourceHealthReport,
     nvdSourceIdentity,
