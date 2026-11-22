@@ -170,8 +170,13 @@ async function handleApproveProduct(req, res, productId) {
     }
 
     const workflow = parseRedisHash(workflowData);
-    const approvalChain = workflow.approvalChain ? JSON.parse(workflow.approvalChain) : [];
-    if (!Array.isArray(approvalChain) ||
+    // parseRedisHash already decoded the Redis JSON string to an Array.
+    const approvalChain = Array.isArray(workflow.approvalChain)
+      ? workflow.approvalChain
+      : (typeof workflow.approvalChain === 'string'
+        ? JSON.parse(workflow.approvalChain) : []);
+    if (typeof workflow.submitter !== 'string' || !workflow.submitter ||
+        !Array.isArray(approvalChain) ||
         approvalChain.some(a => !a || typeof a.approver !== 'string') ||
         new Set(approvalChain.map(a => a.approver)).size !== approvalChain.length) {
       return fail(res, 409, 'UNVERIFIED_APPROVAL_CHAIN',
