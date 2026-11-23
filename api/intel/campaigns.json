@@ -52581,6 +52581,7 @@
     {
       "campaign_id": "campaign:cve-2026-120382",
       "name": "Multi-Vendor Platform Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "HIGH",
       "confidence": 0.9,
       "item_count": 1,
@@ -52614,6 +52615,44 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-120382"
+      ]
+    },
+    {
+      "campaign_id": "campaign:cve-2026-134882",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "item_count": 1,
+      "ioc_count": 0,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "related_intel_ids": [
+        "CVE-2026-134882"
+      ],
+      "related_intel": [
+        {
+          "id": "CVE-2026-134882",
+          "title": "CVE-2026-134882 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
+          "type": "CVE_REPORT",
+          "priority_score": 71,
+          "published": "2026-11-23",
+          "exploited": false,
+          "cisa_kev": false
+        }
+      ],
+      "shared_iocs": [],
+      "shared_cves": [
+        "CVE-2026-134882"
+      ],
+      "threat_actor": null,
+      "threat_actors": [],
+      "max_priority_score": 71,
+      "has_kev": false,
+      "has_ransomware": false,
+      "has_exploited": false,
+      "reasoning": [
+        "1 intel item(s) clustered with composite confidence 0.900",
+        "Single CVE basis: CVE-2026-134882"
       ],
       "clustering_model": "weighted_v2"
     },
@@ -123363,7 +123402,7 @@
       "clustering_model": "graph_reconstruction_v1"
     }
   ],
-  "generated": "2026-11-23T08:59:00.873Z",
+  "generated": "2026-11-23T10:13:14.975Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0"
 }
