@@ -3,7 +3,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { deployPaths, classify, classifyVerifiedGitTrees, renderDriftSummary, isReviewedOperationalPath,
+const { deployPaths, classify, classifyVerifiedGitTrees, renderDriftSummary, isKnownBenignPath, isReviewedOperationalPath,
   MANUAL_DEPLOY_RUNS_URL, latestCompletedManualRelease } = require('../scripts/production-drift-policy.cjs');
 
 const root = path.resolve(__dirname, '..');
@@ -827,4 +827,44 @@ test('P0 Nov21 full-tree drift: exactly 21 inspected CTI/Blog/receipt paths are 
     assert.deepEqual(blocked.unknown,[unknown]);
     assert.ok(blocked.production.length+blocked.operational.length>=21);
   }
+});
+
+test('P0 #433 latest seven reviewed CI workflows require manual release; unseen workflows remain blocked',()=>{
+  // Exact unknown-path evidence: drift workflow run #45125014217 at main
+  // 80d1175458b5f1e2aa768a81e45ec78d1ade057d.
+  const ciWorkflows=[
+      ".github/workflows/blogger-integrity-ci.yml",
+      ".github/workflows/blogger-legacy-quality.yml",
+      ".github/workflows/continuous-assurance.yml",
+      ".github/workflows/detection-engine-node-ci.yml",
+      ".github/workflows/intelligence-engine-ci.yml",
+      ".github/workflows/pricing-integrity.yml",
+      ".github/workflows/report-renderer-ci.yml"
+  ];
+  assert.equal(ciWorkflows.length,7,'do not broaden this reviewed inventory');
+  for(const file of ciWorkflows) {
+    assert.equal(fs.existsSync(path.join(root,file)),true,file);
+    assert.equal(isReviewedOperationalPath(file),true,file);
+    assert.equal(isKnownBenignPath(file),false,file);
+  }
+  const result=classify(compare(ciWorkflows),BASE,HEAD,paths);
+  assert.equal(result.state,'manual_release_required');
+  assert.deepEqual(result.unknown,[]);
+  assert.deepEqual(result.benign,[]);
+  assert.deepEqual(result.operational.slice().sort(),ciWorkflows.slice().sort());
+  assert.match(renderDriftSummary(HEAD,BASE,result),
+    /Manual release and independent postdeploy certification required/);
+  const unreviewed='.github/workflows/pricing-integrity-unsafe.yml';
+  assert.equal(isReviewedOperationalPath(unreviewed),false);
+  assert.equal(isKnownBenignPath(unreviewed),false);
+  const blocked=classify(compare([...ciWorkflows,unreviewed]),BASE,HEAD,paths);
+  assert.equal(blocked.state,'blocked');
+  assert.deepEqual(blocked.unknown,[unreviewed]);
+  assert.deepEqual(blocked.benign,[]);
+  const rename=compare([]);
+  rename.files=[{filename:'docs/retired-pricing-integrity.md',
+    previous_filename:'.github/workflows/pricing-integrity.yml',status:'renamed'}];
+  const renamed=classify(rename,BASE,HEAD,paths);
+  assert.equal(renamed.state,'manual_release_required');
+  assert.ok(renamed.operational.includes('.github/workflows/pricing-integrity.yml'));
 });
