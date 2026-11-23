@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-23T14:28:37.804Z",
+  "generated": "2026-11-23T15:41:12.766Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,7 +8,7 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 151,
+  "count": 153,
   "items": [
     {
       "id": "CVE-2026-76466",
@@ -48,6 +48,97 @@
         ],
         "priority": [
           "+12 PoC_available",
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2024-3094",
+      "title": "CVE-2024-3094 — tukaani xz CVSS 10 Critical Vulnerability",
+      "description": "Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0. \r\nThrough a series of complex obfuscations, the liblzma build process extracts a prebuilt object file from a disguised test file existing in the source code, which is then used to modify specific functions in ",
+      "cvss": 10,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2024-03-29",
+      "last_seen": "2024-03-29",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "tukaani",
+      "product": "xz",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://access.redhat.com/security/cve/CVE-2024-3094",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2272210",
+        "https://www.openwall.com/lists/oss-security/2024/03/29/4",
+        "https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=969d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-1775",
+      "title": "CVE-2026-1775 — labkotec lid-3300ip firmware CVSS 9.1 Critical Vulnerability",
+      "description": "The Labkotec LID-3300IP has an existing vulnerability in the ice detector software that enables an unauthenticated attacker to alter device parameters and run operational commands when specially crafted packets are sent to the device.",
+      "cvss": 9.1,
+      "final_ps": 66,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-03-03",
+      "last_seen": "2026-03-03",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "labkotec",
+      "product": "lid-3300ip firmware",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.cisa.gov/news-events/ics-advisories/icsa-26-062-05"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=265d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
           "+10 CVSS≥9"
         ],
         "suppression": null,
@@ -1391,7 +1482,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=2d (score=0.65)",
+          "recency=3d (score=0.65)",
           "QS=0.458"
         ],
         "priority": [
@@ -4965,10 +5056,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2024-3094",
-      "title": "CVE-2024-3094 — tukaani xz CVSS 10 Critical Vulnerability",
+      "id": "CVE-2025-12543",
+      "title": "CVE-2025-12543 — redhat build of apache camel CVSS 9.6 Critical Vulnerability",
       "description": "",
-      "cvss": 10,
+      "cvss": 9.6,
       "final_ps": 31,
       "quality_score": 0.525,
       "threat_level": "LOW",
@@ -4978,65 +5069,21 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2024-03-29",
-      "last_seen": "2024-03-29",
+      "first_seen": "2026-01-07",
+      "last_seen": "2026-01-07",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "tukaani",
-      "product": "xz",
+      "vendor": "redhat",
+      "product": "build of apache camel",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://access.redhat.com/security/cve/CVE-2024-3094",
-        "https://bugzilla.redhat.com/show_bug.cgi?id=2272210",
-        "https://www.openwall.com/lists/oss-security/2024/03/29/4",
-        "https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-1775",
-      "title": "CVE-2026-1775 — labkotec lid-3300ip firmware CVSS 9.1 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-03-03",
-      "last_seen": "2026-03-03",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "labkotec",
-      "product": "lid-3300ip firmware",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.cisa.gov/news-events/ics-advisories/icsa-26-062-05"
+        "https://access.redhat.com/errata/RHSA-2026:0383",
+        "https://access.redhat.com/errata/RHSA-2026:0384",
+        "https://access.redhat.com/errata/RHSA-2026:0386",
+        "https://access.redhat.com/errata/RHSA-2026:33371"
       ],
       "explanation": {
         "quality": [
@@ -5321,415 +5368,6 @@
           "data_confidence=0.75",
           "recency=0d (score=1.00)",
           "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-133501",
-      "title": "CVE-2026-133501 — Unknown Vendor A security flaw CVSS 9 Critical Vulnerability",
-      "description": "",
-      "cvss": 9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A security flaw",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/GladysAssistant/Gladys/issues/2495",
-        "https://github.com/GladysAssistant/Gladys/releases/tag/v4.72.0",
-        "https://vuldb.com/cve/CVE-2026-133501",
-        "https://vuldb.com/submit/1049319"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-85594",
-      "title": "CVE-2026-85594 — traefik traefik CVSS 9.8 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-m6wx-622r-48r9",
-        "https://www.vulncheck.com/advisories/traefik-3.7.1-crossprovidernamespaces-bypass-via-service-middleware"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-85595",
-      "title": "CVE-2026-85595 — traefik traefik CVSS 9.8 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-5w68-77r2-r64c",
-        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-authentication-bypass-via-digestauth"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-85597",
-      "title": "CVE-2026-85597 — traefik traefik CVSS 9.1 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-g55h-rg46-x9c5",
-        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-mtls-bypass-via-tls-option-conflict"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2025-34267",
-      "title": "CVE-2025-34267 — flowiseai flowise CVSS 9.9 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2025-10-14",
-      "last_seen": "2025-10-14",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "flowiseai",
-      "product": "flowise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://flowiseai.com/",
-        "https://github.com/FlowiseAI/Flowise/pull/5231",
-        "https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-5w3r-f6gm-c25w",
-        "https://www.vulncheck.com/advisories/flowise-auth-command-execution-and-sandbox-bypass-via-puppeteer-and-playwright-packages"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-121613",
-      "title": "CVE-2026-121613 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.certvde.com/en/advisories/VDE-2026-148/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134882",
-      "title": "CVE-2026-134882 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
-      "description": "",
-      "cvss": 10,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://vuldb.com/cve/CVE-2026-134882",
-        "https://vuldb.com/submit/1054781",
-        "https://vuldb.com/vuln/442238",
-        "https://vuldb.com/vuln/442238/cti"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-120382",
-      "title": "CVE-2026-120382 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.synology.com/en-global/security/advisory/Synology_SA_26_21"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-125294",
-      "title": "CVE-2026-125294 — Nexter Blocks Pro CVSS 9.8 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 29,
-      "quality_score": 0.485,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "Nexter Blocks Pro",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://nexterwp.com",
-        "https://www.wordfence.com/threat-intel/vulnerabilities/id/8670d9ac-e2b0-4c19-a9d7-00be23a139c4?source=cve"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.55",
-          "recency=0d (score=1.00)",
-          "QS=0.485"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -6064,6 +5702,53 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-102560",
+      "title": "CVE-2026-102560 — gnome libsoup CVSS 8.6 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.6,
+      "final_ps": 21,
+      "quality_score": 0.525,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-09-29",
+      "last_seen": "2026-09-29",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "gnome",
+      "product": "libsoup",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://access.redhat.com/errata/RHSA-2026:83384",
+        "https://access.redhat.com/errata/RHSA-2026:83618",
+        "https://access.redhat.com/errata/RHSA-2026:93445",
+        "https://access.redhat.com/errata/RHSA-2026:93446"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "base_ps=21 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-134892",
       "title": "CVE-2026-134892 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
       "description": "",
@@ -6111,10 +5796,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-135055",
-      "title": "CVE-2026-135055 — Affected software (product not identified) CVSS 8 High Severity Vulnerability",
+      "id": "CVE-2026-135164",
+      "title": "CVE-2026-135164 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
       "description": "",
-      "cvss": 8,
+      "cvss": 8.8,
       "final_ps": 19,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -6135,10 +5820,334 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://access.redhat.com/security/cve/CVE-2026-135055",
-        "https://bugs.webkit.org/show_bug.cgi?id=329646",
-        "https://bugs.webkit.org/show_bug.cgi?id=330367",
-        "https://bugzilla.redhat.com/show_bug.cgi?id=2581773"
+        "https://github.com/formancehq/ledger/blob/v2.4.17/internal/storage/ledger/resource_accounts.go",
+        "https://github.com/formancehq/ledger/commit/83cd8dc7a66ba02a0418a36ec45663b19e26dcb3",
+        "https://github.com/formancehq/ledger/pull/2477",
+        "https://github.com/formancehq/ledger/releases/tag/v2.4.18"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135161",
+      "title": "CVE-2026-135161 — Affected software (product not identified) CVSS 8.6 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.6,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/UseInterstellar/Interstellar/blob/v6/src/server.js#L39-L40",
+        "https://github.com/UseInterstellar/Interstellar/commit/c2ca433bc492d4cf174db4647c919aaf04353d24",
+        "https://github.com/UseInterstellar/Interstellar/releases/tag/V6.3.0",
+        "https://github.com/UseInterstellar/Interstellar/security/advisories/GHSA-p997-xjrw-cr3p"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135157",
+      "title": "CVE-2026-135157 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/future-agi/future-agi/blob/v1.50.0/futureagi/saml2_auth/views.py",
+        "https://github.com/future-agi/future-agi/commit/ecdbe2442ab91ad90c20492f7a3c4c5792f49300",
+        "https://github.com/future-agi/future-agi/pull/3286",
+        "https://github.com/future-agi/future-agi/releases/tag/v1.51.0"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135171",
+      "title": "CVE-2026-135171 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.vulncheck.com/advisories/wing-ftp-server-before-8.2.8-predictable-administrator-session-identifier",
+        "https://www.wftpserver.com/serverhistory.htm"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135174",
+      "title": "CVE-2026-135174 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.del-sec.com/blog/dve-2026-020/",
+        "https://www.virtualizor.com/blog/virtualizor-3-2-9-launched/",
+        "https://www.vulncheck.com/advisories/softaculous-virtualizor-before-3.2.9-sql-injection-via-social-login-callback"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135175",
+      "title": "CVE-2026-135175 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/zitadel/zitadel/blob/v4.20.2/internal/api/http/middleware/origin_interceptor.go",
+        "https://github.com/zitadel/zitadel/commit/8ce0ac5942d23017038a53a06d4f2f698bf1ac04",
+        "https://github.com/zitadel/zitadel/releases/tag/v4.20.3",
+        "https://github.com/zitadel/zitadel/security/advisories/GHSA-qvxq-53gh-64f6"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135170",
+      "title": "CVE-2026-135170 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.vulncheck.com/advisories/wing-ftp-server-before-8.2.8-lua-code-injection-via-ldap-login-name",
+        "https://www.wftpserver.com/serverhistory.htm"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135173",
+      "title": "CVE-2026-135173 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/UglyToad/PdfPig/blob/v0.1.16/src/UglyToad.PdfPig/AcroForms/AcroFormFactory.cs#L210",
+        "https://github.com/UglyToad/PdfPig/blob/v0.1.16/src/UglyToad.PdfPig/Content/Page.cs#L233",
+        "https://github.com/UglyToad/PdfPig/commit/d1d74b19f2b4714ead5eef364fea51ee51a21e0b",
+        "https://www.vulncheck.com/advisories/pdfpig-through-0.1.16-uncontrolled-recursion-via-acroform-field-kids-and-marked-content"
       ],
       "explanation": {
         "quality": [
@@ -6186,6 +6195,53 @@
         "https://vuldb.com/cve/CVE-2026-134891",
         "https://vuldb.com/submit/1055168",
         "https://vuldb.com/vuln/442247"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135163",
+      "title": "CVE-2026-135163 — Affected software (product not identified) CVSS 7.4 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.4,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/okou-ai/okou/blob/api-v1.761.1/turbo/apps/api/src/signals/routes/teams-oauth.ts",
+        "https://github.com/okou-ai/okou/commit/c9c600bedfbe3463fa8e38e730dbba31df440a92",
+        "https://github.com/okou-ai/okou/pull/42113",
+        "https://github.com/okou-ai/okou/pull/42592"
       ],
       "explanation": {
         "quality": [
@@ -6289,6 +6345,56 @@
           "data_confidence=0.45",
           "recency=0d (score=1.00)",
           "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-22816",
+      "title": "Gradle causes Failure to disable repositories can expose builds to malicious artifacts",
+      "description": "",
+      "cvss": 0,
+      "final_ps": 18,
+      "quality_score": 0.453,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "github_advisories",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "github_advisories"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "maven",
+      "product": "org.gradle:gradle-core",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-22816",
+        "CVE-2026-22816"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-w78c-w6vf-rw82",
+        "https://github.com/gradle/gradle/security/advisories/GHSA-w78c-w6vf-rw82",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-22816",
+        "https://github.com/gradle/gradle/commit/4f2e3bbee4d0cee307dd97b684f11cfbe711b6f3"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.95 (github_advisories)",
+          "data_confidence=0.40",
+          "recency=0d (score=1.00)",
+          "QS=0.453"
         ],
         "priority": [
           "base_ps=18 (no boosts)"

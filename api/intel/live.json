@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-23T14:28:37.804Z",
+  "generated": "2026-11-23T15:41:12.766Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,11 +7,11 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8145,
+  "total_published": 8154,
   "s2n_stats": {
-    "passed": 147,
+    "passed": 149,
     "suppressed": 4,
-    "avg_qs": 0.473
+    "avg_qs": 0.471
   },
   "items": [
     {
@@ -59,6 +59,50 @@
       }
     },
     {
+      "id": "CVE-2024-3094",
+      "title": "CVE-2024-3094 — tukaani xz CVSS 10 Critical Vulnerability",
+      "description": "Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0. \r\nThrough a series of complex obfuscations, the liblzma build process extracts a prebuilt object file from a disguised test file existing in the source code, which is then used to modify specific functions in ",
+      "cvss": 10,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2024-03-29",
+      "last_seen": "2024-03-29",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "tukaani",
+      "product": "xz",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://access.redhat.com/security/cve/CVE-2024-3094",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2272210",
+        "https://www.openwall.com/lists/oss-security/2024/03/29/4",
+        "https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=969d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
       "id": "CVE-2026-131914",
       "title": "Critical ASP.NET AntiCsrf Flaw Under Attack, Allowing Hackers to Execute Code Without Login",
       "description": "Attackers are exploiting a critical flaw in Idunno.AntiCsrf, a third-party library used by older ASP.NET WebForms applications. Mandiant confirmed active exploitation in its November 18 advisory and said the flaw lets remote attackers run code on affected servers without logging ... [Full analysis a",
@@ -97,6 +141,47 @@
         "priority": [
           "+8 exploited_in_wild",
           "+4 critical_infra"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-1775",
+      "title": "CVE-2026-1775 — labkotec lid-3300ip firmware CVSS 9.1 Critical Vulnerability",
+      "description": "The Labkotec LID-3300IP has an existing vulnerability in the ice detector software that enables an unauthenticated attacker to alter device parameters and run operational commands when specially crafted packets are sent to the device.",
+      "cvss": 9.1,
+      "final_ps": 66,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-03-03",
+      "last_seen": "2026-03-03",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "labkotec",
+      "product": "lid-3300ip firmware",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.cisa.gov/news-events/ics-advisories/icsa-26-062-05"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=265d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -1396,7 +1481,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=2d (score=0.65)",
+          "recency=3d (score=0.65)",
           "QS=0.458"
         ],
         "priority": [
@@ -2244,7 +2329,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-33825",
@@ -2284,7 +2371,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-20122",
@@ -3908,10 +3997,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-133501",
-      "title": "CVE-2026-133501 — Unknown Vendor A security flaw CVSS 9 Critical Vulnerability",
-      "description": "A security flaw has been discovered in Gladys Assistant up to 4.71.0. This impacts an unknown function of the file server/lib/gateway/gateway.downloadBackup.js of the component Backup Restore Handler. The manipulation results in path traversal. The attack can be launched remotely. The exploit has be",
-      "cvss": 9,
+      "id": "CVE-2025-12543",
+      "title": "CVE-2025-12543 — redhat build of apache camel CVSS 9.6 Critical Vulnerability",
+      "description": "A flaw was found in the Undertow HTTP server core, which is used in WildFly, JBoss EAP, and other Java applications. The Undertow library fails to properly validate the Host header in incoming HTTP requests.As a result, requests containing malformed or malicious Host headers are processed without re",
+      "cvss": 9.6,
       "final_ps": 31,
       "quality_score": 0.525,
       "threat_level": "HIGH",
@@ -3920,29 +4009,74 @@
       "sources_confirmed": 1,
       "merged_sources": [
         "nvd"
+      ],
+      "first_seen": "2026-01-07",
+      "last_seen": "2026-01-07",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "redhat",
+      "product": "build of apache camel",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://access.redhat.com/errata/RHSA-2026:0383",
+        "https://access.redhat.com/errata/RHSA-2026:0384",
+        "https://access.redhat.com/errata/RHSA-2026:0386",
+        "https://access.redhat.com/errata/RHSA-2026:33371"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-114516",
+      "title": "Etherpad: Pre-auth arbitrary file read",
+      "description": "Summary\n\nAn unauthenticated path‑traversal / arbitrary file read vulnerability in Etherpad's /static/* handler allows any remote, unauthenticated user to read any file on the server's filesystem (e.g. GET /static/plugins/ep_etherpad-lite/static/..%5C..%5C..%5C..%5C..%5C..%5C..%5C... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
       ],
       "first_seen": "2026-11-20",
       "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Unknown Vendor",
-      "product": "A security flaw",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-114516"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/GladysAssistant/Gladys/issues/2495",
-        "https://github.com/GladysAssistant/Gladys/releases/tag/v4.72.0",
-        "https://vuldb.com/cve/CVE-2026-133501",
-        "https://vuldb.com/submit/1049319"
+        "https://github.com/advisories/GHSA-mc8w-wjhw-45x5"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.438"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -3954,127 +4088,40 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-85594",
-      "title": "CVE-2026-85594 — traefik traefik CVSS 9.8 Critical Vulnerability",
-      "description": "Traefik versions from v3.7.1 fail to enforce crossProviderNamespaces restrictions on the traefik.ingress.kubernetes.io/service.middlewares Service annotation in the Kubernetes Ingress provider. A namespace-limited tenant excluded from the allowlist can attach an operator-owned middleware to its Serv",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-m6wx-622r-48r9",
-        "https://www.vulncheck.com/advisories/traefik-3.7.1-crossprovidernamespaces-bypass-via-service-middleware"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-85595",
-      "title": "CVE-2026-85595 — traefik traefik CVSS 9.8 Critical Vulnerability",
-      "description": "Traefik versions before v2.11.55 and versions v3.0.0 before v3.7.11 contain an authentication bypass vulnerability in the digestAuth middleware where unknown usernames receive an empty secret instead of rejection. Attackers can compute a valid digest response using the empty secret and arbitrary cre",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-5w68-77r2-r64c",
-        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-authentication-bypass-via-digestauth"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-85597",
-      "title": "CVE-2026-85597 — traefik traefik CVSS 9.1 Critical Vulnerability",
-      "description": "Traefik before v2.11.55 and v3.0.0 before v3.7.11 contain a TLS option conflict resolution vulnerability that allows unauthenticated attackers to bypass client-certificate authentication by creating conflicting TLS options on multi-host routers. Attackers can reach protected backends by exploiting s",
+      "id": "CVE-2026-77367",
+      "title": "Daptin: Unauthenticated SQL Injection via the sort query parameter on every entity list endpoint",
+      "description": "Summary\n\nAn unauthenticated attacker can inject arbitrary SQL through the sort query parameter accepted by\nDaptin's generic entity list endpoint (GET /api/<entity>), which every table in a Daptin instance\nexposes. The parameter is concatenated into raw SQL identifiers with no val... [Full analysis a",
       "cvss": 9.1,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-04",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "traefik",
-      "product": "traefik",
+      "vendor": "",
+      "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-77367"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/traefik/traefik/security/advisories/GHSA-g55h-rg46-x9c5",
-        "https://www.vulncheck.com/advisories/traefik-before-2.11.55-mtls-bypass-via-tls-option-conflict"
+        "https://github.com/advisories/GHSA-hq2p-f2vj-v3cm"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.525"
+          "QS=0.438"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -4086,31 +4133,259 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-1775",
-      "title": "CVE-2026-1775 — labkotec lid-3300ip firmware CVSS 9.1 Critical Vulnerability",
-      "description": "The Labkotec LID-3300IP has an existing vulnerability in the ice detector software that enables an unauthenticated attacker to alter device parameters and run operational commands when specially crafted packets are sent to the device.",
+      "id": "CVE-2026-58192",
+      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
+      "description": "Summary\n\nThe Appium storage plugin exposes an HTTP endpoint POST /storage/delete that takes a user-supplied name and deletes it from the server storage folder. The handler passes name straight into path.join(storageRoot, name) and then fs.rimraf() without any path sanitization. B... [Full analysis a",
       "cvss": 9.1,
-      "final_ps": 31,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-58192"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-94565",
+      "title": "CVE-2026-94565 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module",
+      "description": "CVE-2026-94565 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-94565"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-94565"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-113347",
+      "title": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
+      "description": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
+      "cvss": 9,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-113347"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-113347"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-76536",
+      "title": "Low Security Vulnerability (CVE-2026-76536)",
+      "description": "CVE-2026-76536",
+      "cvss": 9.4,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-19",
+      "last_seen": "2026-11-19",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76536"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-76536?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-130735",
+      "title": "Low Security Vulnerability (CVE-2026-130735)",
+      "description": "CVE-2026-130735",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-130735"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-130735?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-102560",
+      "title": "CVE-2026-102560 — gnome libsoup CVSS 8.6 High Severity Vulnerability",
+      "description": "A flaw was found in libsoup. When the permessage-deflate WebSocket extension compresses a very large outgoing message, truncated size calculations used for GByteArray growth could wrap, causing zlib to write past the allocated buffer and resulting in a heap buffer overflow.",
+      "cvss": 8.6,
+      "final_ps": 21,
       "quality_score": 0.525,
-      "threat_level": "HIGH",
+      "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
       "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-03-03",
-      "last_seen": "2026-03-03",
+      "first_seen": "2026-09-29",
+      "last_seen": "2026-09-29",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "labkotec",
-      "product": "lid-3300ip firmware",
+      "vendor": "gnome",
+      "product": "libsoup",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://www.cisa.gov/news-events/ics-advisories/icsa-26-062-05"
+        "https://access.redhat.com/errata/RHSA-2026:83384",
+        "https://access.redhat.com/errata/RHSA-2026:83618",
+        "https://access.redhat.com/errata/RHSA-2026:93445",
+        "https://access.redhat.com/errata/RHSA-2026:93446"
       ],
       "explanation": {
         "quality": [
@@ -4120,275 +4395,7 @@
           "QS=0.525"
         ],
         "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2025-34267",
-      "title": "CVE-2025-34267 — flowiseai flowise CVSS 9.9 Critical Vulnerability",
-      "description": "Flowise v3.0.1 < 3.0.8, and 3.0.8 < 3.1.3 with 'ALLOW_BUILTIN_DEP' enabled contain an authenticated remote code execution vulnerability and node VM sandbox escape due to insecure use of integrated modules (Puppeteer and Playwright) within the nodevm execution environment. An authenticated attacker a",
-      "cvss": 9.9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2025-10-14",
-      "last_seen": "2025-10-14",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "flowiseai",
-      "product": "flowise",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://flowiseai.com/",
-        "https://github.com/FlowiseAI/Flowise/pull/5231",
-        "https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-5w3r-f6gm-c25w",
-        "https://www.vulncheck.com/advisories/flowise-auth-command-execution-and-sandbox-bypass-via-puppeteer-and-playwright-packages"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2024-3094",
-      "title": "CVE-2024-3094 — tukaani xz CVSS 10 Critical Vulnerability",
-      "description": "Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0. \r\nThrough a series of complex obfuscations, the liblzma build process extracts a prebuilt object file from a disguised test file existing in the source code, which is then used to modify specific functions in ",
-      "cvss": 10,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2024-03-29",
-      "last_seen": "2024-03-29",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "tukaani",
-      "product": "xz",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://access.redhat.com/security/cve/CVE-2024-3094",
-        "https://bugzilla.redhat.com/show_bug.cgi?id=2272210",
-        "https://www.openwall.com/lists/oss-security/2024/03/29/4",
-        "https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-121613",
-      "title": "CVE-2026-121613 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
-      "description": "Missing authentication and authorization on an exposed interface allows an unauthenticated remote attacker to send arbitrary commands to the affected component, which can force a device reboot or let the attacker upload malicious firmware.",
-      "cvss": 9.8,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.certvde.com/en/advisories/VDE-2026-148/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-134882",
-      "title": "CVE-2026-134882 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
-      "description": "A weakness has been identified in TOTOLINK A7100RU 7.4cu.2313_B20191024. This issue affects the function exportOvpn of the file /cgi-bin/cstecgi.cgi of the component CGI Handler. This manipulation of the argument Username causes os command injection. The attack is possible to be carried out remotely",
-      "cvss": 10,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://vuldb.com/cve/CVE-2026-134882",
-        "https://vuldb.com/submit/1054781",
-        "https://vuldb.com/vuln/442238",
-        "https://vuldb.com/vuln/442238/cti"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-120382",
-      "title": "CVE-2026-120382 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
-      "description": "An improper neutralization of argument delimiters in a command vulnerability in the OAuth API in Synology DiskStation Manager (DSM) before 7.1.1-42962-10, 7.2.1-69057-14, 7.2.2-72806-11, 7.3.2-86009-6, and 7.4.1-90080-2 allows remote attackers to read or write arbitrary files and conduct denial-of-s",
-      "cvss": 9.8,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.synology.com/en-global/security/advisory/Synology_SA_26_21"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-125294",
-      "title": "CVE-2026-125294 — Nexter Blocks Pro CVSS 9.8 Critical Vulnerability",
-      "description": "The Nexter Blocks Pro plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 5.0.10 via the `tpgb_ajax_register_user()` function. This is due to a byte-level denylist on the `tpgb_acf_key[]` and `tpgb_acf[]` parameters that fails to block Unicode look-alike ",
-      "cvss": 9.8,
-      "final_ps": 29,
-      "quality_score": 0.485,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "Nexter Blocks Pro",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://nexterwp.com",
-        "https://www.wordfence.com/threat-intel/vulnerabilities/id/8670d9ac-e2b0-4c19-a9d7-00be23a139c4?source=cve"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.55",
-          "recency=0d (score=1.00)",
-          "QS=0.485"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
+          "base_ps=21 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -4397,5 +4404,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-23T14:28:37.969Z"
+  "lastReportGeneratedAt": "2026-11-23T15:41:13.219Z"
 }
