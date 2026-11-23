@@ -5,10 +5,12 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/**'
+      - 'tests-js/workflow-critical-action-pinning.test.js'
   pull_request:
     branches: [main]
     paths:
       - '.github/workflows/**'
+      - 'tests-js/workflow-critical-action-pinning.test.js'
   schedule:
     - cron: '23 5 * * *'
   workflow_dispatch:
@@ -82,6 +84,16 @@ jobs:
 
               if 'jobs:' in text and 'timeout-minutes:' not in text:
                   failures.append(f'{name}: every workflow must define bounded job timeout(s)')
+
+              # P0 supply-chain invariant: mutable action tags are rejected
+              # across ALL workflow files, not just the original critical seven.
+              # Local repository actions are not remote dependency references.
+              for match in re.finditer(r'(?m)^\s*(?:-\s*)?uses:\s*([^\s#]+)', text):
+                  action = match.group(1)
+                  if action.startswith('./'):
+                      continue
+                  if not re.fullmatch(r'[a-z0-9_.-]+/[a-z0-9_.-]+@[0-9a-f]{40}', action, re.I):
+                      failures.append(f'{name}: remote action must use immutable 40-character SHA: {action}')
 
               if re.search(r'actions/checkout@v[1-4]\b', text):
                   warnings.append(f'{name}: checkout action is below v5; migrate in runtime-modernization tranche')

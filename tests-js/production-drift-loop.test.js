@@ -80,3 +80,10 @@ test('P0 source certification is four times daily while customer freshness runs 
   assert.match(freshness,/cron: ['"]13,43 \* \* \* \*['"]/);
   assert.match(health,/node scripts\/assess-pipeline-operational-health\.cjs/);
 });
+
+
+test('P0 approved freeze procedure remains a reviewed operational change, never benign',()=>{
+  const policy = require('../scripts/production-drift-policy.cjs');
+  assert.equal(policy.isReviewedOperationalPath('PRODUCTION_FREEZE_PROCEDURE.md'), true);
+  assert.equal(policy.isKnownBenignPath('PRODUCTION_FREEZE_PROCEDURE.md'), false);
+});
