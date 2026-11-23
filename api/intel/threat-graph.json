@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-23T11:28:19.363Z",
+  "generated": "2026-11-23T12:33:56.994Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19862,
+    "total_nodes": 19866,
     "actors": 8,
-    "cves": 9645,
-    "campaigns": 3162,
+    "cves": 9647,
+    "campaigns": 3164,
     "malware": 0,
     "iocs": 911,
-    "edges": 5967
+    "edges": 5969
   },
   "nodes": {
     "actor:lockbit": {
@@ -369699,7 +369699,7 @@
       "attributes": {
         "cvss": 7.5,
         "threat_level": "LOW",
-        "priority_score": 41,
+        "priority_score": 39,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -369861,7 +369861,7 @@
       "attributes": {
         "cvss": 7.2,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -370155,7 +370155,7 @@
       "attributes": {
         "cvss": 7.2,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -370193,7 +370193,7 @@
       "attributes": {
         "cvss": 7.2,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -370211,7 +370211,7 @@
       "attributes": {
         "cvss": 7.2,
         "threat_level": "LOW",
-        "priority_score": 39,
+        "priority_score": 37,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -373425,6 +373425,82 @@
       "connections": [
         {
           "target": "CVE-2026-134887",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-134892": {
+      "id": "CVE-2026-134892",
+      "type": "CVE",
+      "name": "CVE-2026-134892 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "HIGH",
+        "priority_score": 69,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-134891": {
+      "id": "CVE-2026-134891",
+      "type": "CVE",
+      "name": "CVE-2026-134891 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-134892": {
+      "id": "campaign:cve-2026-134892",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-134892"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-134892",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-134891": {
+      "id": "campaign:cve-2026-134891",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-134891"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-134891",
           "relationship": "includes",
           "confidence": 1
         }
@@ -427314,6 +427390,24 @@
       "id": "campaign:cve-2026-134887→includes→CVE-2026-134887",
       "source": "campaign:cve-2026-134887",
       "target": "CVE-2026-134887",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-134892→includes→CVE-2026-134892",
+      "source": "campaign:cve-2026-134892",
+      "target": "CVE-2026-134892",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-134891→includes→CVE-2026-134891",
+      "source": "campaign:cve-2026-134891",
+      "target": "CVE-2026-134891",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-23",
