@@ -127,5 +127,10 @@ test('P0 drift policy edits trigger workflow security CI and run full drift regr
   }
   assert.match(security,/node --test[^\n]*tests-js\/production-drift-safety\.test\.js/);
   assert.match(security,/permissions:\s*\n\s*contents: read/);
-  assert.doesNotMatch(security,/pull_request_target:|write-all|npx wrangler deploy/);
+  // The policy must contain *diagnostic strings* for forbidden constructs.
+  // Anchor these negative controls to real YAML keys/runner commands instead
+  // of rejecting the detector's own source code or comments.
+  assert.doesNotMatch(security,/^  pull_request_target:\\s*$/m);
+  assert.doesNotMatch(security,/^permissions:\\s*write-all\\s*$/m);
+  assert.doesNotMatch(security,/^\\s*run:\\s*(?:npx\\s+)?wrangler\\s+deploy\\b/m);
 });
