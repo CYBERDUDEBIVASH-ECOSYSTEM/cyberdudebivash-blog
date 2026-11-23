@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-23T04:03:49.728Z",
+  "generated": "2026-11-23T05:41:51.171Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19834,
+    "total_nodes": 19838,
     "actors": 8,
-    "cves": 9628,
-    "campaigns": 3152,
+    "cves": 9630,
+    "campaigns": 3154,
     "malware": 0,
     "iocs": 911,
-    "edges": 5957
+    "edges": 5959
   },
   "nodes": {
     "actor:lockbit": {
@@ -361306,8 +361306,8 @@
       "name": "CVE-2026-132622 - GearUP Hyperev WLAN Site Survey utils.lua get_wlan_sitesurvey os command injection",
       "attributes": {
         "cvss": 9,
-        "threat_level": "MEDIUM",
-        "priority_score": 45,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -372901,6 +372901,82 @@
       "connections": [
         {
           "target": "CVE-2026-134789",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-134850": {
+      "id": "CVE-2026-134850",
+      "type": "CVE",
+      "name": "CVE-2026-134850 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-134851": {
+      "id": "CVE-2026-134851",
+      "type": "CVE",
+      "name": "CVE-2026-134851 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-134850": {
+      "id": "campaign:cve-2026-134850",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-134850"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-134850",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-134851": {
+      "id": "campaign:cve-2026-134851",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-134851"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-134851",
           "relationship": "includes",
           "confidence": 1
         }
@@ -426700,6 +426776,24 @@
       "id": "campaign:cve-2026-134789→includes→CVE-2026-134789",
       "source": "campaign:cve-2026-134789",
       "target": "CVE-2026-134789",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-134850→includes→CVE-2026-134850",
+      "source": "campaign:cve-2026-134850",
+      "target": "CVE-2026-134850",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-134851→includes→CVE-2026-134851",
+      "source": "campaign:cve-2026-134851",
+      "target": "CVE-2026-134851",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-23",
