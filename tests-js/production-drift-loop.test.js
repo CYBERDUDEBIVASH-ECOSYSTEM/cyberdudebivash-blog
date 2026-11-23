@@ -87,3 +87,29 @@ test('P0 approved freeze procedure remains a reviewed operational change, never 
   assert.equal(policy.isReviewedOperationalPath('PRODUCTION_FREEZE_PROCEDURE.md'), true);
   assert.equal(policy.isKnownBenignPath('PRODUCTION_FREEZE_PROCEDURE.md'), false);
 });
+
+
+test('P0 drift subscribes to exactly the five real Git main writer workflows, never the RSS read-only validator',()=>{
+  const part=drift.split('  workflow_run:')[1]?.split('    types: [completed]')[0];
+  assert(part,'drift must declare completed workflow_run triggers');
+  const names=[...part.matchAll(/^\s+-\s+"([^"]+)"\s*$/gm)].map(m=>m[1]);
+  const writers=[
+    'sentinel-apex.yml',
+    'blogger-syndication.yml',
+    'ai-security-intel.yml',
+    'cve-pages.yml',
+    'intelligence-hub.yml'
+  ];
+  const expected=writers.map(file=>{
+    const content=fs.readFileSync(path.join(root,'.github/workflows',file),'utf8');
+    const m=content.match(/^name:\s*["']?([^"'\n]+)["']?\s*$/m);
+    assert(m,'missing workflow name for '+file);
+    return m[1].trim();
+  });
+  assert.deepEqual([...names].sort(),[...expected].sort(),
+    'any producer rename, missing trigger or read-only RSS trigger must fail closed');
+  assert.equal(new Set(names).size,5,'no duplicate or unexpected drift-monitor triggers');
+  const rss=fs.readFileSync(path.join(root,'.github/workflows/generate-rss.yml'),'utf8');
+  assert.match(rss,/^permissions:\s*\n\s*contents: read/m);
+  assert.doesNotMatch(rss,/\bgit push\b/);
+});

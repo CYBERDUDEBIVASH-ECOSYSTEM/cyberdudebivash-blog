@@ -6,14 +6,13 @@ on:
       - "⚡ SENTINEL APEX v5.0 — High-Frequency Global Intel Pipeline"
       - "🧠 SENTINEL APEX — AI Security Intelligence Pipeline"
       - "🛰 SENTINEL APEX — Auto CVE Page Generator"
-      - "🛰 SENTINEL APEX — Auto RSS Generator"
       - "🛰 SENTINEL APEX — Intelligence Hub Generator"
       - "⚡ CYBERDUDEBIVASH® — Blogger Syndication Engine"
     types: [completed]
     branches: [main]
   schedule:
     # Low-cost independent backstop once daily, outside top-of-hour load.
-    # The six workflow_run triggers above still check every producer completion,
+    # The five workflow_run triggers above still check every Git main writer completion,
     # including failures/cancellations, immediately and without deploying.
     # Manual production releases remain separately certified and approved.
     - cron: "41 4 * * *"
