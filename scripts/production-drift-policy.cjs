@@ -38,6 +38,24 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   // Operational release control ONLY: changes require manual operator review.
   // Never classify as benign, auto-release, or proof of live recovery.
   'PRODUCTION_FREEZE_PROCEDURE.md',
+  // P0 SOC #433, post-merge PR #694: live drift run #45125014217
+  // independently reports exactly these seven CI workflow paths UNKNOWN.
+  // Reviewed their complete source: Blogger evidence tests, manual-only
+  // legacy-quality auditor (can quarantine remote content when explicitly
+  // dispatched), continuous assurance, detection/intelligence engine tests,
+  // pricing integrity and report-renderer checks. Treat changes to these
+  // release/security/customer-quality controls as OPERATIONAL and require
+  // operator-reviewed release acceptance; NEVER benign, automated deploy
+  // approval or proof of a green public SOC feed. Exact names only; any
+  // new workflow sibling remains unrecognized and must fail closed.
+  '.github/workflows/blogger-integrity-ci.yml',
+  '.github/workflows/blogger-legacy-quality.yml',
+  '.github/workflows/continuous-assurance.yml',
+  '.github/workflows/detection-engine-node-ci.yml',
+  '.github/workflows/intelligence-engine-ci.yml',
+  '.github/workflows/pricing-integrity.yml',
+  '.github/workflows/report-renderer-ci.yml',
+
   // P0 #433: reviewed 291-line Zod malware-intelligence validator. Imported
   // by typed report/intelligence tests and re-exported via types/index.ts;
   // not an existing Cloudflare Worker/static asset entrypoint. Its data

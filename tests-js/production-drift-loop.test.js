@@ -113,3 +113,24 @@ test('P0 drift subscribes to exactly the five real Git main writer workflows, ne
   assert.match(rss,/^permissions:\s*\n\s*contents: read/m);
   assert.doesNotMatch(rss,/\bgit push\b/);
 });
+
+test('P0 drift policy edits trigger workflow security CI and run full drift regression suite',()=>{
+  const security=fs.readFileSync(path.join(root,'.github/workflows/workflow-security-gate.yml'),'utf8');
+  const sections=security.split('  pull_request:');
+  assert.equal(sections.length,2,'security workflow requires both push and PR triggers');
+  for(const filename of ['scripts/production-drift-policy.cjs',
+    'tests-js/production-drift-safety.test.js',
+    'tests-js/production-drift-loop.test.js']){
+    assert.ok(sections[0].includes("      - '"+filename+"'"),'push must watch '+filename);
+    assert.ok(sections[1].split('  schedule:')[0].includes("      - '"+filename+"'"),
+      'PR must watch '+filename);
+  }
+  assert.match(security,/node --test[^\n]*tests-js\/production-drift-safety\.test\.js/);
+  assert.match(security,/permissions:\s*\n\s*contents: read/);
+  // The policy must contain *diagnostic strings* for forbidden constructs.
+  // Anchor these negative controls to real YAML keys/runner commands instead
+  // of rejecting the detector's own source code or comments.
+  assert.doesNotMatch(security,/^  pull_request_target:\s*$/m);
+  assert.doesNotMatch(security,/^permissions:\s*write-all\s*$/m);
+  assert.doesNotMatch(security,/^\s*run:\s*(?:npx\s+)?wrangler\s+deploy\b/m);
+});
