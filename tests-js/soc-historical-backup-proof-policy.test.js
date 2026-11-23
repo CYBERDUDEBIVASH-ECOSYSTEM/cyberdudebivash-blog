@@ -28,7 +28,7 @@ test('manual-only confirmed workflow has no scheduled, PR or push trigger', () =
 test('read-only minimal GitHub permissions and no public artifact uploads', () => {
   assert.match(yaml, /permissions:\s*\n\s*contents: read\s*\n\s*actions: read/);
   assert.doesNotMatch(yaml, /contents:\s*write|actions:\s*write|actions\/upload-artifact|wrangler|git push|npm publish/i);
-  assert.match(yaml, /uses: actions\/checkout@v5[\s\S]*?persist-credentials: false/);
+  assert.match(yaml, /uses: actions\/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09[\s\S]*?persist-credentials: false/);
 });
 test('pins Nov 13 migrated backup run, source code and exact encrypted payload bytes', () => {
   assert.match(yaml, /14029734149/);

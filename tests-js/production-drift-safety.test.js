@@ -686,8 +686,8 @@ test('P0 smoke checkout and Node 22 precede content and customer revenue checks'
   const s2n = smoke.indexOf('name: "🛡️ P0: Verify SOC and blog public S2N API freshness and report IDs"');
   const commerce = smoke.indexOf('name: "💳 P0: Current paid checkout integrity — independent of CTI freshness"');
   assert.ok(checkout > 0 && checkout < node22 && node22 < content && content < s2n && s2n < commerce);
-  assert.match(smoke, /uses: actions\/checkout@v5[\s\S]*?persist-credentials: false/);
-  assert.match(smoke, /uses: actions\/setup-node@v5[\s\S]*?node-version: '22'/);
+  assert.match(smoke, /uses: actions\/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09[\s\S]*?persist-credentials: false/);
+  assert.match(smoke, /uses: actions\/setup-node@a0853c24544627f65ddf259abe73b1d18a591444[\s\S]*?node-version: '22'/);
   assert.match(smoke, /node scripts\/certify-soc-s2n-api-release\.cjs --monitor-public/);
   assert.match(smoke, /node --test tests-js\/soc-public-commerce\.test\.js/);
   assert.match(smoke, /node scripts\/check-soc-public-commerce\.cjs/);
