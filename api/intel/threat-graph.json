@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-23T07:32:50.305Z",
+  "generated": "2026-11-23T08:59:00.658Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19841,
+    "total_nodes": 19844,
     "actors": 8,
-    "cves": 9633,
-    "campaigns": 3154,
+    "cves": 9634,
+    "campaigns": 3155,
     "malware": 0,
     "iocs": 911,
-    "edges": 5959
+    "edges": 5960
   },
   "nodes": {
     "actor:lockbit": {
@@ -373035,6 +373035,62 @@
         "type": "CVE_REPORT"
       },
       "connections": []
+    },
+    "CVE-2026-120382": {
+      "id": "CVE-2026-120382",
+      "type": "CVE",
+      "name": "CVE-2026-120382 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "BLEEPINGCOMPUTER-22b7049d11bd95c1": {
+      "id": "BLEEPINGCOMPUTER-22b7049d11bd95c1",
+      "type": "Intel",
+      "name": "CISA flags critical Cisco RCE flaw as actively exploited in attacks",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "LOW",
+        "priority_score": 38,
+        "exploited": true,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "BleepingComputer",
+        "product": "Threat Intelligence",
+        "published": "2026-11-23",
+        "type": "NEWS_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-120382": {
+      "id": "campaign:cve-2026-120382",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-120382"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-120382",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -426848,6 +426904,15 @@
       "id": "campaign:cve-2026-134851→includes→CVE-2026-134851",
       "source": "campaign:cve-2026-134851",
       "target": "CVE-2026-134851",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-120382→includes→CVE-2026-120382",
+      "source": "campaign:cve-2026-120382",
+      "target": "CVE-2026-120382",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-23",
