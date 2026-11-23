@@ -440,7 +440,7 @@ twitter: '', // DEPRECATED 2026-11-20: retired X profile link (owner directive);
     bar.className = 'apex-share-bar';
     bar.innerHTML = `
       <span class="apex-share-label">Share:</span>
-      <a class="apex-share-btn x" href="https://x.com/intent/tweet?url=${url}&text=${title}&via=cdbsentinelapex" target="_blank" rel="noopener">𝕏 Tweet</a>
+      <a class="apex-share-btn x" href="https://x.com/intent/tweet?url=${url}&text=${title}" target="_blank" rel="noopener">𝕏 Tweet</a>
       <a class="apex-share-btn li" href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" target="_blank" rel="noopener">in LinkedIn</a>
       <a class="apex-share-btn" href="mailto:?subject=${title}&body=Security%20Alert%3A%20${url}">📧 Email</a>
       <span class="apex-read-time">⏱ ${readTime} min read</span>`;

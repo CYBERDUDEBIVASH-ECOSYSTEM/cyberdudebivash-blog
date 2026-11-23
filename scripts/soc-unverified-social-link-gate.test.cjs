@@ -80,3 +80,22 @@ test('no published page, post or Blogger theme links to or declares a retired so
     assert.doesNotMatch(text, RETIRED, path.relative(ROOT, file));
   }
 });
+
+test('no published page or share button attributes cards or tweets to the retired @cdbsentinelapex handle', () => {
+  // Owner directive 2026-11-22 (researcher findings #7-#13 follow-up): the retired X handle must not be
+  // named anywhere customers or crawlers see. A twitter:site tag makes X show that account as the site
+  // owner on every shared card, and a ?via= parameter names it as the sharer; if the handle is ever claimed
+  // by someone else both would credit them. Cited third-party posts and tests that describe the retired
+  // handle are not published surfaces and are intentionally not scanned.
+  const RETIRED_HANDLE = /twitter:site["']\s+content=["']@cdbsentinelapex|[?&]via=cdbsentinelapex/i;
+  const rootHtml = fs.readdirSync(ROOT).filter(name => name.endsWith('.html')).map(name => path.join(ROOT, name));
+  const files = [
+    ...rootHtml,
+    path.join(ROOT, 'monetization.js'),
+    ...htmlFiles(path.join(ROOT, 'posts')),
+  ];
+  assert.ok(files.length >= 20, 'published-surface inventory must be present');
+  for (const file of files) {
+    assert.doesNotMatch(fs.readFileSync(file, 'utf8'), RETIRED_HANDLE, path.relative(ROOT, file));
+  }
+});
