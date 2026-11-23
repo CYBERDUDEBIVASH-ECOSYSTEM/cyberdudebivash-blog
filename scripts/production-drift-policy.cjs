@@ -34,6 +34,10 @@ const BENIGN_SCRIPT_TEST = /^scripts\/[A-Za-z0-9._/-]+\.(?:test|spec)\.(?:cjs|mj
 const REVIEWED_OPERATIONAL_FILES = new Set([
   '.github/workflows/test.yml',
   'scripts/production-drift-policy.cjs',
+  // P0 #433: current owner-reviewed five-writer production freeze procedure.
+  // Operational release control ONLY: changes require manual operator review.
+  // Never classify as benign, auto-release, or proof of live recovery.
+  'PRODUCTION_FREEZE_PROCEDURE.md',
   // P0 #433: reviewed 291-line Zod malware-intelligence validator. Imported
   // by typed report/intelligence tests and re-exported via types/index.ts;
   // not an existing Cloudflare Worker/static asset entrypoint. Its data
