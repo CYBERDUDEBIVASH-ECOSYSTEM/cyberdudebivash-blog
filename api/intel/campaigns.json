@@ -53283,6 +53283,7 @@
     {
       "campaign_id": "campaign:cve-2026-133968",
       "name": "Project MONAI Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "HIGH",
       "confidence": 0.9,
       "item_count": 1,
@@ -53317,12 +53318,12 @@
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-133968",
         "1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
-      ],
-      "clustering_model": "weighted_v2"
+      ]
     },
     {
       "campaign_id": "campaign:cve-2026-134624",
       "name": "N-able MailAssure Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "HIGH",
       "confidence": 0.9,
       "item_count": 1,
@@ -53357,8 +53358,7 @@
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-134624",
         "1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
-      ],
-      "clustering_model": "weighted_v2"
+      ]
     },
     {
       "campaign_id": "campaign:cluster-72c63d44",
@@ -121596,6 +121596,7 @@
     {
       "campaign_id": "campaign:cve-2026-49965",
       "name": "Multi-Vendor Platform Exploitation Campaign",
+      "clustering_model": "weighted_v2",
       "severity": "MEDIUM",
       "confidence": 0.9,
       "item_count": 1,
@@ -121629,6 +121630,44 @@
       "reasoning": [
         "1 intel item(s) clustered with composite confidence 0.900",
         "Single CVE basis: CVE-2026-49965"
+      ]
+    },
+    {
+      "campaign_id": "campaign:cve-2026-77423",
+      "name": "maven org.jline:jline-builtins Exploitation Campaign",
+      "severity": "MEDIUM",
+      "confidence": 0.9,
+      "item_count": 1,
+      "ioc_count": 0,
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "related_intel_ids": [
+        "CVE-2026-77423"
+      ],
+      "related_intel": [
+        {
+          "id": "CVE-2026-77423",
+          "title": "jline3 leads to ReDoS in Built-in Less Viewer Search",
+          "type": "CVE_REPORT",
+          "priority_score": 61,
+          "published": "2026-11-23",
+          "exploited": false,
+          "cisa_kev": false
+        }
+      ],
+      "shared_iocs": [],
+      "shared_cves": [
+        "CVE-2026-77423"
+      ],
+      "threat_actor": null,
+      "threat_actors": [],
+      "max_priority_score": 61,
+      "has_kev": false,
+      "has_ransomware": false,
+      "has_exploited": false,
+      "reasoning": [
+        "1 intel item(s) clustered with composite confidence 0.900",
+        "Single CVE basis: CVE-2026-77423"
       ],
       "clustering_model": "weighted_v2"
     },
@@ -124769,7 +124808,7 @@
       "clustering_model": "graph_reconstruction_v1"
     }
   ],
-  "generated": "2026-11-23T20:25:20.504Z",
+  "generated": "2026-11-23T21:24:29.224Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0"
 }

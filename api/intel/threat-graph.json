@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-23T20:25:20.318Z",
+  "generated": "2026-11-23T21:24:29.095Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19948,
+    "total_nodes": 19950,
     "actors": 8,
-    "cves": 9701,
-    "campaigns": 3191,
+    "cves": 9702,
+    "campaigns": 3192,
     "malware": 0,
     "iocs": 911,
-    "edges": 5996
+    "edges": 5997
   },
   "nodes": {
     "actor:lockbit": {
@@ -375035,6 +375035,44 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-77423": {
+      "id": "CVE-2026-77423",
+      "type": "CVE",
+      "name": "jline3 leads to ReDoS in Built-in Less Viewer Search",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "maven",
+        "product": "org.jline:jline-builtins",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-77423": {
+      "id": "campaign:cve-2026-77423",
+      "type": "Campaign",
+      "name": "maven org.jline:jline-builtins Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-77423"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-77423",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -429181,6 +429219,15 @@
       "id": "campaign:cve-2026-49965→includes→CVE-2026-49965",
       "source": "campaign:cve-2026-49965",
       "target": "CVE-2026-49965",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-77423→includes→CVE-2026-77423",
+      "source": "campaign:cve-2026-77423",
+      "target": "CVE-2026-77423",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-23",
