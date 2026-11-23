@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-23T19:04:02.606Z",
+  "generated": "2026-11-23T20:25:20.318Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 19937,
+    "total_nodes": 19948,
     "actors": 8,
-    "cves": 9694,
-    "campaigns": 3187,
+    "cves": 9701,
+    "campaigns": 3191,
     "malware": 0,
     "iocs": 911,
-    "edges": 5992
+    "edges": 5996
   },
   "nodes": {
     "actor:lockbit": {
@@ -363172,8 +363172,8 @@
       "name": "Low Security Vulnerability (CVE-2026-76536)",
       "attributes": {
         "cvss": 9.4,
-        "threat_level": "MEDIUM",
-        "priority_score": 46,
+        "threat_level": "LOW",
+        "priority_score": 44,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -373779,16 +373779,16 @@
     "CVE-2026-134624": {
       "id": "CVE-2026-134624",
       "type": "CVE",
-      "name": "CVE-2026-134624 - MailAssure / SpamExperts: Server-Side Request Forgery in relay LDAP synchronisation connection check",
+      "name": "CVE-2026-134624: N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
         "cvss": 0,
-        "threat_level": "LOW",
-        "priority_score": 6,
-        "exploited": false,
-        "cisa_kev": false,
+        "threat_level": "HIGH",
+        "priority_score": 81,
+        "exploited": true,
+        "cisa_kev": true,
         "ransomware": false,
-        "vendor": "",
-        "product": "",
+        "vendor": "N-able",
+        "product": "MailAssure",
         "published": "2026-11-23",
         "type": "CVE_REPORT"
       },
@@ -374512,8 +374512,8 @@
       "name": "CVE-2026-135436 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
       "attributes": {
         "cvss": 8.8,
-        "threat_level": "HIGH",
-        "priority_score": 68,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -374675,7 +374675,7 @@
       "type": "Campaign",
       "name": "Multi-Vendor Platform Exploitation Campaign",
       "attributes": {
-        "severity": "HIGH",
+        "severity": "MEDIUM",
         "item_count": 1,
         "first_seen": "2026-11-23",
         "last_seen": "2026-11-23",
@@ -374825,6 +374825,212 @@
       "connections": [
         {
           "target": "CVE-2026-127224",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-133968": {
+      "id": "CVE-2026-133968",
+      "type": "CVE",
+      "name": "CVE-2026-133968: Project MONAI MONAI Label Path Traversal Vulnerability — CISA KEV Active Exploitation",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "HIGH",
+        "priority_score": 81,
+        "exploited": true,
+        "cisa_kev": true,
+        "ransomware": false,
+        "vendor": "Project MONAI",
+        "product": "MONAI Label",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-135470": {
+      "id": "CVE-2026-135470",
+      "type": "CVE",
+      "name": "CVE-2026-135470 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.5,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-49965": {
+      "id": "CVE-2026-49965",
+      "type": "CVE",
+      "name": "CVE-2026-49965 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-129024": {
+      "id": "CVE-2026-129024",
+      "type": "CVE",
+      "name": "Medium Security Vulnerability [High EPSS] (CVE-2026-129024)",
+      "attributes": {
+        "cvss": 8.6,
+        "threat_level": "MEDIUM",
+        "priority_score": 45,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-22",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-131750": {
+      "id": "CVE-2026-131750",
+      "type": "CVE",
+      "name": "Medium Security Vulnerability [High EPSS] (CVE-2026-131750)",
+      "attributes": {
+        "cvss": 8.6,
+        "threat_level": "MEDIUM",
+        "priority_score": 45,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-22",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-135432": {
+      "id": "CVE-2026-135432",
+      "type": "CVE",
+      "name": "Low Security Vulnerability (CVE-2026-135432)",
+      "attributes": {
+        "cvss": 6.5,
+        "threat_level": "LOW",
+        "priority_score": 38,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-135443": {
+      "id": "CVE-2026-135443",
+      "type": "CVE",
+      "name": "Low Security Vulnerability (CVE-2026-135443)",
+      "attributes": {
+        "cvss": 6.1,
+        "threat_level": "LOW",
+        "priority_score": 37,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-23",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-133968": {
+      "id": "campaign:cve-2026-133968",
+      "type": "Campaign",
+      "name": "Project MONAI Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133968 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-133968",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-134624": {
+      "id": "campaign:cve-2026-134624",
+      "type": "Campaign",
+      "name": "N-able MailAssure Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-134624 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-134624",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-135470": {
+      "id": "campaign:cve-2026-135470",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-135470"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-135470",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-49965": {
+      "id": "campaign:cve-2026-49965",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-23",
+        "last_seen": "2026-11-23",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-49965"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-49965",
           "relationship": "includes",
           "confidence": 1
         }
@@ -428939,6 +429145,42 @@
       "id": "campaign:cve-2026-127224→includes→CVE-2026-127224",
       "source": "campaign:cve-2026-127224",
       "target": "CVE-2026-127224",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-133968→includes→CVE-2026-133968",
+      "source": "campaign:cve-2026-133968",
+      "target": "CVE-2026-133968",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-134624→includes→CVE-2026-134624",
+      "source": "campaign:cve-2026-134624",
+      "target": "CVE-2026-134624",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-135470→includes→CVE-2026-135470",
+      "source": "campaign:cve-2026-135470",
+      "target": "CVE-2026-135470",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-23",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-49965→includes→CVE-2026-49965",
+      "source": "campaign:cve-2026-49965",
+      "target": "CVE-2026-49965",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-23",
