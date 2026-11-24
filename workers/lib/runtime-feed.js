@@ -26,13 +26,18 @@
  *    Worker deliberately does not hash bodies per request (CPU is budgeted).
  */
 
+const HEADERS = require('./runtime-feed-headers');
+
 const PREFIX = 'runtime/v1/';
 const JSON_TYPE = 'application/json; charset=utf-8';
+// `headers` are the static build's exact headers for the same path (CORS, caching, CSP...),
+// pinned by tests-js/runtime-feed-headers.test.js. `type` is used only if they define no Content-Type.
 const FEEDS = Object.freeze({
-  '/live-intel.json': Object.freeze({ key: PREFIX + 'live-intel.json', type: JSON_TYPE }),
-  '/api/intel/live.json': Object.freeze({ key: PREFIX + 'api/intel/live.json', type: JSON_TYPE }),
-  '/rss.xml': Object.freeze({ key: PREFIX + 'rss.xml', type: 'application/rss+xml; charset=utf-8' }),
+  '/live-intel.json': Object.freeze({ key: PREFIX + 'live-intel.json', type: JSON_TYPE, headers: HEADERS.LIVE_INTEL }),
+  '/api/intel/live.json': Object.freeze({ key: PREFIX + 'api/intel/live.json', type: JSON_TYPE, headers: HEADERS.API_LIVE }),
+  '/rss.xml': Object.freeze({ key: PREFIX + 'rss.xml', type: 'application/rss+xml; charset=utf-8', headers: HEADERS.RSS }),
 });
+const DOSSIER_SPEC = Object.freeze({ type: 'text/html; charset=utf-8', headers: HEADERS.DOSSIER });
 // Same slug grammar the Blogger source-delivery guard and the build accept.
 const DOSSIER_PATH = /^\/posts\/([a-z0-9][a-z0-9-]{0,119}\.html)$/;
 const FEED_MAX_BYTES = 8 * 1024 * 1024;       // matches the parity certifier MAX_BYTES
@@ -40,8 +45,7 @@ const DOSSIER_MAX_BYTES = 384 * 1024;         // matches source_delivery_guard _
 // A runtime object older than this is not trusted over the static baseline.
 const FEED_MAX_AGE_MS = 6 * 60 * 60 * 1000;
 const FUTURE_SKEW_MS = 5 * 60 * 1000;
-const FEED_CACHE_SECONDS = 60;
-const DOSSIER_CACHE_SECONDS = 300;
+const FEED_CACHE_SECONDS = 60; // Worker-side Cache API TTL only; the public Cache-Control is the static build's
 const SHA256 = /^[a-f0-9]{64}$/;
 const ISO_UTC = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/;
 
@@ -82,15 +86,15 @@ async function discard(object) {
   try { if (object && object.body && typeof object.body.cancel === 'function') await object.body.cancel(); } catch (_) { /* best effort */ }
 }
 
-function respond(request, object, type, info, cacheSeconds) {
+function respond(request, object, spec, info) {
   const etag = '"' + info.sha + '"';
-  const headers = new Headers({
-    'Content-Type': type,
-    'Cache-Control': 'public, max-age=' + cacheSeconds,
-    'ETag': etag,
-    'X-Feed-Source': 'runtime-r2',
-    'X-Feed-Sha256': info.sha,
-  });
+  // Start from the static build's headers for this path so the switch from static asset to
+  // runtime object is invisible to customers (CORS, caching, CSP), then add provenance.
+  const headers = new Headers(spec.headers);
+  if (!headers.has('Content-Type')) headers.set('Content-Type', spec.type);
+  headers.set('ETag', etag);
+  headers.set('X-Feed-Source', 'runtime-r2');
+  headers.set('X-Feed-Sha256', info.sha);
   if (info.generatedAt) headers.set('X-Feed-Generated-At', info.generatedAt);
   const inm = request.headers.get('If-None-Match');
   if (inm && inm.split(',').some((v) => v.trim().replace(/^W\//, '') === etag)) {
@@ -120,7 +124,12 @@ async function serveFeed(request, env, pathname, ctx, nowMs = Date.now()) {
     const cacheKey = cache ? new Request(new URL(pathname, request.url).toString(), { method: 'GET' }) : null;
     if (cache) {
       const hit = await cache.match(cacheKey);
-      if (hit) return hit;
+      if (hit) {
+        // The cached copy carries the short internal TTL; restore the public Cache-Control.
+        const out = new Response(hit.body, hit);
+        out.headers.set('Cache-Control', spec.headers['Cache-Control']);
+        return out;
+      }
     }
 
     const object = await bucket.get(spec.key);
@@ -132,9 +141,13 @@ async function serveFeed(request, env, pathname, ctx, nowMs = Date.now()) {
     const info = feedInfo(object, nowMs);
     if (!info) { await discard(object); return null; }
 
-    const response = respond(request, object, spec.type, info, FEED_CACHE_SECONDS);
+    const response = respond(request, object, spec, info);
     if (cache && response.status === 200 && ctx && typeof ctx.waitUntil === 'function') {
-      ctx.waitUntil(cache.put(cacheKey, response.clone()));
+      // The Cache API honours the stored response's Cache-Control, and the public value (rss: 1 h)
+      // must not set the Worker-side TTL: store a copy that expires after FEED_CACHE_SECONDS.
+      const stored = new Response(response.clone().body, response);
+      stored.headers.set('Cache-Control', 'public, max-age=' + FEED_CACHE_SECONDS);
+      ctx.waitUntil(cache.put(cacheKey, stored));
     }
     return response;
   } catch (_) {
@@ -161,7 +174,7 @@ async function serveDossier(request, env, pathname) {
     }
     const info = dossierInfo(object);
     if (!info) { await discard(object); return null; }
-    return respond(request, object, 'text/html; charset=utf-8', info, DOSSIER_CACHE_SECONDS);
+    return respond(request, object, DOSSIER_SPEC, info);
   } catch (_) {
     return null;
   }
