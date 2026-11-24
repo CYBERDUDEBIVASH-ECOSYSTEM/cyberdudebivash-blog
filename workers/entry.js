@@ -58,8 +58,8 @@ import wasmModule from '@resvg/resvg-wasm/index_bg.wasm';
 setWasmModule(wasmModule);
 
 export default {
-  async fetch(request, env) {
-    return handleFetch(request, env);
+  async fetch(request, env, ctx) {
+    return handleFetch(request, env, ctx);
   },
   // wrangler.jsonc's triggers.crons entry is now populated (Cloudflare-
   // Only Alert Runtime tranche -- see handleScheduled()'s own doc in
