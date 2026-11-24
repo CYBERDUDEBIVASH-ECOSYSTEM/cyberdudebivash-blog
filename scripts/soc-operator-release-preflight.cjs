@@ -32,7 +32,12 @@ function verdict({git,approvedSha,bundle,budgetEvidence,accountId,nowMs=Date.now
 
   // Dynamic Cloudflare allowance evidence is private, operator-reviewed,
   // covers ALL four ecosystem workloads and must be no older than two hours.
-  const budget=assessBudget(budgetEvidence,accountId,new Date(nowMs).toISOString());
+  // Evaluate the budget exactly as the deploy workflow's gate CLI does: the
+  // optional single-release exception is bound to the checked-out commit
+  // (git HEAD), so pass it. Without it this preflight would HOLD on a CPU
+  // reserve the real gate accepts under a valid, SHA-bound exception.
+  const budget=assessBudget(budgetEvidence,accountId,new Date(nowMs).toISOString(),
+    {releaseSha:typeof git?.head==='string'?git.head.toLowerCase():''});
   if(!budget.ok){
     errors.add('ACCOUNT_WIDE_BUDGET_UNCERTIFIED');
     for(const code of budget.codes)errors.add('BUDGET_'+code);
