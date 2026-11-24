@@ -28,6 +28,7 @@ from datetime import datetime, timezone
 from urllib.parse import urlparse
 
 from .content_discovery import DiscoveredArticle, _infer_labels
+from .threat_relevance import assess_third_party
 
 
 _CVE_RE = re.compile(r"\bCVE-\d{4}-\d{4,}\b", re.IGNORECASE)
