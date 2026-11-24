@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-24T19:35:03.097Z",
+  "generated": "2026-11-24T20:54:32.301Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20194,
+    "total_nodes": 20205,
     "actors": 8,
-    "cves": 9839,
-    "campaigns": 3299,
+    "cves": 9844,
+    "campaigns": 3305,
     "malware": 0,
     "iocs": 911,
-    "edges": 6104
+    "edges": 6110
   },
   "nodes": {
     "actor:lockbit": {
@@ -113770,18 +113770,18 @@
     "CVE-2026-63305": {
       "id": "CVE-2026-63305",
       "type": "CVE",
-      "name": "CVE-2026-63305: AVideo through 29.0 contains an OS command injection vulnerability in the ffmpeg.json.php endpoint where notifyCode and",
+      "name": "AVideo API FFmpeg process permits OS command injection via notifyCode/callback",
       "attributes": {
         "cvss": 8.1,
-        "threat_level": "LOW",
-        "priority_score": 41,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "Unknown Vendor",
-        "product": "Unknown Product",
-        "published": "2026-07-16",
-        "type": "AI_SECURITY"
+        "vendor": "composer",
+        "product": "wwbn/avideo",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
       },
       "connections": []
     },
@@ -371419,7 +371419,7 @@
       "attributes": {
         "cvss": 8.8,
         "threat_level": "LOW",
-        "priority_score": 44,
+        "priority_score": 42,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -373115,9 +373115,9 @@
       "type": "CVE",
       "name": "CVE-2026-131914: Idunno AntiCsrf Deserialization of Untrusted Data Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
-        "cvss": 0,
+        "cvss": 9.8,
         "threat_level": "CRITICAL",
-        "priority_score": 88,
+        "priority_score": 100,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -379675,6 +379675,216 @@
       "connections": [
         {
           "target": "CVE-2026-123256",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-135794": {
+      "id": "CVE-2026-135794",
+      "type": "CVE",
+      "name": "CVE-2026-135794 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.9,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-135796": {
+      "id": "CVE-2026-135796",
+      "type": "CVE",
+      "name": "CVE-2026-135796 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.9,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-135797": {
+      "id": "CVE-2026-135797",
+      "type": "CVE",
+      "name": "CVE-2026-135797 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
+      "attributes": {
+        "cvss": 10,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-120002": {
+      "id": "CVE-2026-120002",
+      "type": "CVE",
+      "name": "CVE-2026-120002 — microsoft sharepoint server CVSS 9.9 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.9,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "microsoft",
+        "product": "sharepoint server",
+        "published": "2026-11-10",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-135800": {
+      "id": "CVE-2026-135800",
+      "type": "CVE",
+      "name": "CVE-2026-135800 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-135794": {
+      "id": "campaign:cve-2026-135794",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-24",
+        "last_seen": "2026-11-24",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-135794"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-135794",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-135796": {
+      "id": "campaign:cve-2026-135796",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-24",
+        "last_seen": "2026-11-24",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-135796"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-135796",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-135797": {
+      "id": "campaign:cve-2026-135797",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-24",
+        "last_seen": "2026-11-24",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-135797"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-135797",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-120002": {
+      "id": "campaign:cve-2026-120002",
+      "type": "Campaign",
+      "name": "Microsoft Ecosystem Targeting Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-10",
+        "last_seen": "2026-11-10",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-120002"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-120002",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-63305": {
+      "id": "campaign:cve-2026-63305",
+      "type": "Campaign",
+      "name": "composer wwbn/avideo Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-24",
+        "last_seen": "2026-11-24",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-63305"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-63305",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-135800": {
+      "id": "campaign:cve-2026-135800",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-24",
+        "last_seen": "2026-11-24",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-135800"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-135800",
           "relationship": "includes",
           "confidence": 1
         }
@@ -434797,6 +435007,60 @@
       "id": "campaign:cve-2026-123256→includes→CVE-2026-123256",
       "source": "campaign:cve-2026-123256",
       "target": "CVE-2026-123256",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-24",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-135794→includes→CVE-2026-135794",
+      "source": "campaign:cve-2026-135794",
+      "target": "CVE-2026-135794",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-24",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-135796→includes→CVE-2026-135796",
+      "source": "campaign:cve-2026-135796",
+      "target": "CVE-2026-135796",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-24",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-135797→includes→CVE-2026-135797",
+      "source": "campaign:cve-2026-135797",
+      "target": "CVE-2026-135797",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-24",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-120002→includes→CVE-2026-120002",
+      "source": "campaign:cve-2026-120002",
+      "target": "CVE-2026-120002",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-24",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-63305→includes→CVE-2026-63305",
+      "source": "campaign:cve-2026-63305",
+      "target": "CVE-2026-63305",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-24",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-135800→includes→CVE-2026-135800",
+      "source": "campaign:cve-2026-135800",
+      "target": "CVE-2026-135800",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-24",
