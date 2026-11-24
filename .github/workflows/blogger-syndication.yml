@@ -85,6 +85,14 @@ jobs:
       - name: "📥 Checkout Repository"
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
+          # Check out the BRANCH HEAD at job start, never the trigger SHA. This workflow is
+          # serialized (concurrency group above), so a run can wait minutes behind the previous
+          # run. The default ref is the SHA of the commit that TRIGGERED the run, which predates
+          # the previous run's publication-state commit; the queued run then publishes from a stale
+          # ledger and re-posts stories that were already published (2026-11-24: run 9301 re-posted
+          # LiteLLM, VMware vCenter and BADBOX 3.0 four minutes after run 9300 published them, and
+          # its own state push then conflicted). The job-level `if` pins github.ref to main.
+          ref: ${{ github.ref }}
           fetch-depth: 1
           token: ${{ secrets.GITHUB_TOKEN }}
 
