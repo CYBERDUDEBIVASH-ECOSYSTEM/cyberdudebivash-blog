@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T14:23:26.124Z",
+  "generated": "2026-11-24T15:36:36.409Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,13 +7,318 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8246,
+  "total_published": 8260,
   "s2n_stats": {
-    "passed": 147,
+    "passed": 156,
     "suppressed": 3,
     "avg_qs": 0.463
   },
   "items": [
+    {
+      "id": "CVE-2026-117593",
+      "title": "CVE-2026-117593 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability",
+      "description": "Weak Password Recovery Mechanism for Forgotten Password vulnerability in ITG Bilgisayar Teknoloji Grubu Tic. Ltd. Şti. VSRM allows Password Recovery Exploitation.\n\nThis issue affects vSRM: from v14.08.3 before v14.08.5.",
+      "cvss": 9.1,
+      "final_ps": 72,
+      "quality_score": 0.52,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-1600"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.520"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-119582",
+      "title": "CVE-2026-119582 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "description": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in ITG Bilgisayar Teknoloji Grubu Tic. Ltd. Şti. VSRM allows SQL Injection.\n\nThis issue affects vSRM: from v14.08.3 before v14.08.5.",
+      "cvss": 9.8,
+      "final_ps": 69,
+      "quality_score": 0.473,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 2,
+      "merged_sources": [
+        "nvd",
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-119582"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-1600",
+        "https://cvefeed.io/vuln/detail/CVE-2026-119582",
+        "https://intel.cyberdudebivash.com/reports/2026/11/intel--767c4f31ea627c08786e5340.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
+          "multi_source=2 sources",
+          "recency=999d (score=0.05)",
+          "QS=0.473"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-109618",
+      "title": "CVE-2026-109618 — php php CVSS 9.8 Critical Vulnerability",
+      "description": "PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may r",
+      "cvss": 9.8,
+      "final_ps": 67,
+      "quality_score": 0.485,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-10-21",
+      "last_seen": "2026-10-21",
+      "exploited": false,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "php",
+      "product": "php",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+        "http://seclists.org/fulldisclosure/2026/Oct/51",
+        "http://www.openwall.com/lists/oss-security/2026/10/21/6",
+        "http://www.openwall.com/lists/oss-security/2026/10/23/5"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=1.00",
+          "recency=34d (score=0.05)",
+          "QS=0.485"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-58254",
+      "title": "nats-server Leaf node connections bypass Nats-Trace-Dest permission check",
+      "description": "Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports leafnode connections between servers and message tracing through NATS headers.\n\nProblem Descripti... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 63,
+      "quality_score": 0.458,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-58254"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-p3j5-5hrq-p75h"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=3d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9",
+          "+3 supply_chain"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-114021",
+      "title": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
+      "description": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
+      "cvss": 9.8,
+      "final_ps": 57,
+      "quality_score": 0.458,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114021"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-114021"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=3d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-114023",
+      "title": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
+      "description": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
+      "cvss": 9.8,
+      "final_ps": 57,
+      "quality_score": 0.458,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114023"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-114023"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=3d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-77309",
+      "title": "AIT-GUI route chain allows unauthenticated Python execution in server process",
+      "description": "Summary\nA security issue exists where unauthenticated callers can instruct the AIT-GUI server to execute arbitrary Python scripts. The attack vector involves obtaining a session cookie through GET /, followed by a malicious POST /script/run request containing an absolute file pat... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 57,
+      "quality_score": 0.458,
+      "threat_level": "MEDIUM",
+      "type": "AI_SECURITY",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-77309"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-jrjx-9jjw-747m"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=3d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
     {
       "id": "CVE-2026-63341",
       "title": "Aedes has Uncaught Exception and Uncontrolled Resource Consumption",
@@ -48,6 +353,49 @@
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
           "recency=3d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-120413",
+      "title": "CVE-2026-120413 - Yoast SEO < 28.9 - Unauthenticated Private Content Disclosure via Headless REST Head Endpoint",
+      "description": "CVE-2026-120413 - Yoast SEO < 28.9 - Unauthenticated Private Content Disclosure via Headless REST Head Endpoint",
+      "cvss": 9.1,
+      "final_ps": 55,
+      "quality_score": 0.458,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-120413"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-120413"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=2d (score=0.65)",
           "QS=0.458"
         ],
         "priority": [
@@ -230,49 +578,6 @@
       }
     },
     {
-      "id": "CVE-2026-58192",
-      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
-      "description": "Summary\n\nThe Appium storage plugin exposes an HTTP endpoint POST /storage/delete that takes a user-supplied name and deletes it from the server storage folder. The handler passes name straight into path.join(storageRoot, name) and then fs.rimraf() without any path sanitization. B... [Full analysis a",
-      "cvss": 9.1,
-      "final_ps": 55,
-      "quality_score": 0.458,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-58192"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-114516",
       "title": "Etherpad: Pre-auth arbitrary file read",
       "description": "Summary\n\nAn unauthenticated path‑traversal / arbitrary file read vulnerability in Etherpad's /static/* handler allows any remote, unauthenticated user to read any file on the server's filesystem (e.g. GET /static/plugins/ep_etherpad-lite/static/..%5C..%5C..%5C..%5C..%5C..%5C..%5C... [Full analysis a",
@@ -393,6 +698,49 @@
           "data_confidence=0.45",
           "recency=3d (score=0.65)",
           "QS=0.407"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-58192",
+      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
+      "description": "Summary\n\nThe Appium storage plugin exposes an HTTP endpoint POST /storage/delete that takes a user-supplied name and deletes it from the server storage folder. The handler passes name straight into path.join(storageRoot, name) and then fs.rimraf() without any path sanitization. B... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 53,
+      "quality_score": 0.433,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-58192"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=4d (score=0.40)",
+          "QS=0.432"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -1148,49 +1496,6 @@
       }
     },
     {
-      "id": "CVE-2026-103035",
-      "title": "TeamPass folder re-parenting authorization bypass",
-      "description": "Summary\n\nMissing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credential subtree into their own personal space and removing it from the organization.... [Full analysis a",
-      "cvss": 8.3,
-      "final_ps": 44,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-103035"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=44 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-134052",
       "title": "Low Security Vulnerability (CVE-2026-134052)",
       "description": "CVE-2026-134052",
@@ -1529,6 +1834,49 @@
         "priority": [
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-103035",
+      "title": "TeamPass folder re-parenting authorization bypass",
+      "description": "Summary\n\nMissing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credential subtree into their own personal space and removing it from the organization.... [Full analysis a",
+      "cvss": 8.3,
+      "final_ps": 41,
+      "quality_score": 0.433,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-103035"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-66q9-mxf2-xqw6"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=4d (score=0.40)",
+          "QS=0.432"
+        ],
+        "priority": [
+          "base_ps=41 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -1988,7 +2336,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-39987",
@@ -2028,7 +2378,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-33825",
@@ -2068,7 +2420,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-20122",
@@ -2108,7 +2462,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-20133",
@@ -2148,7 +2504,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-2749",
@@ -2188,7 +2546,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-48700",
@@ -2228,7 +2588,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-20128",
@@ -2268,7 +2630,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-32975",
@@ -3682,110 +4046,18 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-109618",
-      "title": "CVE-2026-109618 — php php CVSS 9.8 Critical Vulnerability",
-      "description": "PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not properly account for this scenario and leave request memory in an uninitialized state before performing an allocation. The subsequent request cleanup procedure may r",
-      "cvss": 9.8,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-10-21",
-      "last_seen": "2026-10-21",
-      "exploited": false,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "php",
-      "product": "php",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
-        "http://seclists.org/fulldisclosure/2026/Oct/51",
-        "http://www.openwall.com/lists/oss-security/2026/10/21/6",
-        "http://www.openwall.com/lists/oss-security/2026/10/23/5"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2025-12543",
-      "title": "CVE-2025-12543 — redhat build of apache camel CVSS 9.6 Critical Vulnerability",
-      "description": "A flaw was found in the Undertow HTTP server core, which is used in WildFly, JBoss EAP, and other Java applications. The Undertow library fails to properly validate the Host header in incoming HTTP requests.As a result, requests containing malformed or malicious Host headers are processed without re",
+      "id": "CVE-2026-134401",
+      "title": "Critical Google Chrome Flaw Could Let Hackers Execute Malicious Code Outside Browser Sandbox",
+      "description": "Google released a desktop Chrome security update on November 23, 2026, to fix CVE-2026-134401. This critical flaw could let a remote attacker run malicious code outside the browser sandbox. The Stable update covers Windows, macOS, and Linux. It contains one security fix, and Goog... [Full analysis a",
       "cvss": 9.6,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "HIGH",
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-01-07",
-      "last_seen": "2026-01-07",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "redhat",
-      "product": "build of apache camel",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://access.redhat.com/errata/RHSA-2026:0383",
-        "https://access.redhat.com/errata/RHSA-2026:0384",
-        "https://access.redhat.com/errata/RHSA-2026:0386",
-        "https://access.redhat.com/errata/RHSA-2026:33371"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-119582",
-      "title": "CVE-2026-119582 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
-      "description": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in ITG Bilgisayar Teknoloji Grubu Tic. Ltd. Şti. VSRM allows SQL Injection.\n\nThis issue affects vSRM: from v14.08.3 before v14.08.5.",
-      "cvss": 9.8,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
       "first_seen": "2026-11-24",
       "last_seen": "2026-11-24",
@@ -3795,17 +4067,19 @@
       "vendor": "",
       "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-134401"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-1600"
+        "https://cybersecuritynews.com/critical-google-chrome-flaw/"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.465"
+          "QS=0.438"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -3817,274 +4091,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-117593",
-      "title": "CVE-2026-117593 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability",
-      "description": "Weak Password Recovery Mechanism for Forgotten Password vulnerability in ITG Bilgisayar Teknoloji Grubu Tic. Ltd. Şti. VSRM allows Password Recovery Exploitation.\n\nThis issue affects vSRM: from v14.08.3 before v14.08.5.",
-      "cvss": 9.1,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-1600"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-135202",
-      "title": "CVE-2026-135202 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
-      "description": "Several plugins for WordPress published by WP connect (Orders Sync to Airtable for WooCommerce, Add-On for Contact Form 7 to Notion, WP Sync for Notion – Notion to WordPress, Add-On for Contact Form 7 to Airtable, Add-on Brevo for Gravity Forms, and Air WP Sync – Airtable to WordPress) contain embed",
-      "cvss": 9.8,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://plugins.trac.wordpress.org/browser/add-on-cf7-for-airtable/tags/2.5.4/includes/airwp-online.php#L258",
-        "https://plugins.trac.wordpress.org/browser/add-on-cf7-for-notion/tags/1.6.4/includes/airwp-online.php#L258",
-        "https://plugins.trac.wordpress.org/browser/addon-gravityforms-sendinblue-free/tags/2.6.3/includes/airwp-online.php#L258",
-        "https://plugins.trac.wordpress.org/browser/air-wp-sync/tags/2.9.4/includes/airwp-online.php#L258"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-133968",
-      "title": "CVE-2026-133968: Project MONAI MONAI Label Path Traversal Vulnerability — CISA KEV Active Exploitation",
-      "description": "Project MONAI MONAI Label contains a path traversal vulnerability that allows an unauthenticated remote attacker to write arbitrary files outside the intended datastore directory, potentially resulting in remote code execution.",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Project MONAI",
-      "product": "MONAI Label",
-      "due_date": "2026-11-26",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/Project-MONAI/MONAILabel/security/advisories/GHSA-qc22-rmgc-vg94",
-        "https://github.com/Project-MONAI/MONAILabel/pull/1915",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-118285",
-      "title": "CVE-2026-118285 — Affected software (product not identified) CVSS 9.6 Critical Vulnerability",
-      "description": "Server-side request forgery in Azure Machine Learning allows an authorized attacker to elevate privileges over a network.",
+      "id": "CVE-2026-96805",
+      "title": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
+      "description": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
       "cvss": 9.6,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-118285"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-50691",
-      "title": "CVE-2026-50691 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "Improper authorization in M365 Copilot allows an authorized attacker to elevate privileges over a network.",
-      "cvss": 9.9,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50691"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-62841",
-      "title": "CVE-2026-62841 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
-      "description": "Improper authentication in Azure Event Grid allows an unauthorized attacker to elevate privileges over a network.",
-      "cvss": 10,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62841"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-120382",
-      "title": "CVE-2026-120382 - Synology DiskStation Manager OAuth API Command Injection Vulnerability",
-      "description": "CVE-2026-120382 - Synology DiskStation Manager OAuth API Command Injection Vulnerability",
-      "cvss": 9.8,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "MEDIUM",
@@ -4094,8 +4104,8 @@
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -4103,11 +4113,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-120382"
+        "CVE-2026-96805"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-120382"
+        "https://cvefeed.io/vuln/detail/CVE-2026-96805"
       ],
       "explanation": {
         "quality": [
@@ -4126,190 +4136,10 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-76466",
-      "title": "Hackers Exploit Critical Cisco Expressway Flaw to Gain Root Access and Infiltrate Internal Networks",
-      "description": "Attackers are now using a critical Cisco Expressway bug, CVE-2026-76466, to take full control of devices and move deeper into company networks. Researchers at F6 say the first known case happened soon after a public proof-of-concept (PoC) exploit appeared. F6&#8217;s Cyber Defens... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "HIGH",
-      "type": "AI_SECURITY",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76466"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cybersecuritynews.com/hackers-exploit-critical-cisco-expressway-flaw/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-120413",
-      "title": "CVE-2026-120413 - Yoast SEO < 28.9 - Unauthenticated Private Content Disclosure via Headless REST Head Endpoint",
-      "description": "CVE-2026-120413 - Yoast SEO < 28.9 - Unauthenticated Private Content Disclosure via Headless REST Head Endpoint",
+      "id": "CVE-2026-122247",
+      "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (POST ",
+      "description": "Description\n\nSummary\n\nOn a self-hosted, single-tenant Budibase instance (multiTenancy:false), the public bootstrap endpoint POST /api/global/users/init remains fully exploitable after the instance has been provisioned. Its \"already initialised\" guard (checkAnyUserExists()) is eva... [Full analysis a",
       "cvss": 9.1,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-120413"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-120413"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114021",
-      "title": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
-      "description": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114021"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-114021"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-114023",
-      "title": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
-      "description": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114023"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-114023"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-58254",
-      "title": "nats-server Leaf node connections bypass Nats-Trace-Dest permission check",
-      "description": "Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports leafnode connections between servers and message tracing through NATS headers.\n\nProblem Descripti... [Full analysis a",
-      "cvss": 9.8,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "MEDIUM",
@@ -4328,11 +4158,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-58254"
+        "CVE-2026-122247"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-p3j5-5hrq-p75h"
+        "https://github.com/advisories/GHSA-25qc-m4pw-2w8r"
       ],
       "explanation": {
         "quality": [
@@ -4351,14 +4181,14 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-77309",
-      "title": "AIT-GUI route chain allows unauthenticated Python execution in server process",
-      "description": "Summary\nA security issue exists where unauthenticated callers can instruct the AIT-GUI server to execute arbitrary Python scripts. The attack vector involves obtaining a session cookie through GET /, followed by a malicious POST /script/run request containing an absolute file pat... [Full analysis a",
-      "cvss": 9.8,
+      "id": "CVE-2026-77367",
+      "title": "Daptin: Unauthenticated SQL Injection via the sort query parameter on every entity list endpoint",
+      "description": "Summary\n\nAn unauthenticated attacker can inject arbitrary SQL through the sort query parameter accepted by\nDaptin's generic entity list endpoint (GET /api/<entity>), which every table in a Daptin instance\nexposes. The parameter is concatenated into raw SQL identifiers with no val... [Full analysis a",
+      "cvss": 9.1,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "MEDIUM",
-      "type": "AI_SECURITY",
+      "type": "NEWS_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
@@ -4373,11 +4203,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-77309"
+        "CVE-2026-77367"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-jrjx-9jjw-747m"
+        "https://github.com/advisories/GHSA-hq2p-f2vj-v3cm"
       ],
       "explanation": {
         "quality": [
@@ -4394,7 +4224,187 @@
       },
       "suppressed": false,
       "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-113347",
+      "title": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
+      "description": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
+      "cvss": 9,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-113347"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-113347"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-123886",
+      "title": "CVE-2026-123886 - Spring Data Elasticsearch SpEL Expression Injection through String-based Query Method Arguments",
+      "description": "CVE-2026-123886 - Spring Data Elasticsearch SpEL Expression Injection through String-based Query Method Arguments",
+      "cvss": 8.8,
+      "final_ps": 22,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CRITICAL_INFRASTRUCTURE",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-123886"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-123886"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+4 critical_infra"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-131914",
+      "title": "Critical ASP.NET AntiCsrf Flaw Exploited in Attacks by triggering a web redirect on vulnerable apps",
+      "description": "Attackers are exploiting CVE-2026-131914, a critical flaw in Idunno: AntiCsrf, an old third-party library used by ASP.NET WebForms applications. watchTowr Intel reports that it saw attackers trigger web redirects on vulnerable applications to check whether exploitation worked. Th... [Full analysis a",
+      "cvss": 4.3,
+      "final_ps": 20,
+      "quality_score": 0.398,
+      "threat_level": "LOW",
+      "type": "CRITICAL_INFRASTRUCTURE",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-131914"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cybersecuritynews.com/critical-asp-net-anticsrf-flaw-exploited/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.25",
+          "recency=0d (score=1.00)",
+          "QS=0.398"
+        ],
+        "priority": [
+          "+4 critical_infra"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-136159",
+      "title": "CVE-2026-136159 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "description": "TypiCMS Core before 17.0.46 contains an insufficiently protected credentials vulnerability that allows authenticated users with \"read users\" permission to view plaintext api_token values for all users, including superusers, via the GET /api/users endpoint. Attackers can steal a superuser's non-expir",
+      "cvss": 8.8,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/typicms/core/commit/b79431b205c41fa483293896f63cdec3e8b6aa71",
+        "https://github.com/typicms/core/releases/tag/17.0.46",
+        "https://www.vulncheck.com/advisories/typicms-core-before-17.0.46-api-token-disclosure-via-api-users"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-24T14:23:26.782Z"
+  "lastReportGeneratedAt": "2026-11-24T15:36:36.768Z"
 }
