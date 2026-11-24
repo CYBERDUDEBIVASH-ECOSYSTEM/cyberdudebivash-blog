@@ -48,3 +48,25 @@ Set `SOC_RUNTIME_FEED_ENABLED=false` (uploads stop; the Worker keeps serving the
 * Dossier HTML for reports newer than the last deploy is served from R2 only after PR-2 uploads it; a dossier never uploaded still 404s (the Blogger guard still blocks, correctly).
 * The Cache API adds up to 60 s of propagation; monitors need the bounded grace added in PR-3.
 * A runtime object older than the static baseline (publisher stopped after a deploy) can be served for up to 6 h; the 6 h age limit bounds it.
+
+## PR-3 design (NOT yet built; must ship BEFORE activation, i.e. before PR-4)
+
+**Why it is required (Verified from code).** Once public feeds are served from R2 they can differ from the checked-in source for a short propagation window, and the existing gates tolerate almost none of it:
+* `scripts/certify-soc-s2n-api-release.cjs` `monitorPublic()` requires **exact** `total_published` and **exact item-ID equality** with source, and rejects public ahead of source by more than 5 min (`PUBLIC_S2N_API_REPORT_IDENTITY_DRIFT`). Public behind source by more than 5 min fails (`PUBLIC_S2N_API_BEHIND_SOURCE`).
+* `scripts/certify-soc-public-feed-parity.cjs` `assess()` fails if public is more than 5 min behind source (`PUBLIC_SOURCE_DEPLOYMENT_DRIFT`) or has a lower `totalPublished` (`PUBLIC_CORPUS_BEHIND_SOURCE`).
+* The Production Smoke Test is **push-triggered**, so it samples roughly a minute after every publisher commit, inside the propagation window. Without a bounded grace it would flap on essentially every publisher commit, whichever side leads (upload after push: public behind; upload before push: public ahead, which fails ID equality).
+* `--release-asset` (post-deploy) demands public bytes == built bytes; a runtime feed newer than the build would fail it.
+
+**Design (provenance-gated, bounded, strict by default).**
+1. `check()` / `verifyPublic()` / `monitorPublic()` read the response headers `X-Feed-Source`, `X-Feed-Sha256`, `X-Feed-Generated-At`.
+2. A response counts as **runtime-provenanced** only if ALL hold: `X-Feed-Source == runtime-r2`; `sha256(body)` equals `X-Feed-Sha256` (the certifier recomputes it); `X-Feed-Generated-At` equals the feed's own pipeline timestamp (same precedence as `publish-runtime-feed.cjs`); age <= 180 min.
+3. Only for a runtime-provenanced response: allow public to be **behind** source by up to `RUNTIME_PROPAGATION_GRACE_MINUTES = 10` (skip the exact total/ID equality inside that window, but still require internal validity, freshness <= 180 min and that public is never *ahead* of source by more than 5 min); in `--release-asset` mode accept bytes different from the build only if the runtime object is **not older** than the build asset and passes (2).
+4. Everything else is unchanged and strict: no provenance header, wrong sha, mismatching timestamp, or lag beyond 10 min keeps the current failure codes.
+5. Tests: provenance accepted/rejected matrix (each failing condition individually), grace boundary at exactly 10 min and 10 min + 1 s, ahead-of-source still fails, header spoofing without a matching body hash fails, static (no header) behaviour byte-for-byte unchanged; mutation-test each rule.
+
+## PR-4 design (activation; merge ONLY after PR-1, PR-2, PR-3 and the owner's bucket/token/secrets)
+* `wrangler.jsonc`: add `r2_buckets` `{ "binding": "RUNTIME_FEED", "bucket_name": "soc-runtime-feed" }` and `assets.run_worker_first: ["/live-intel.json", "/api/intel/live.json", "/rss.xml"]` (exact paths only; every other static asset stays free).
+* `wrangler deploy` fails if the bucket does not exist, so PR-4 must not merge first.
+* Update the release runbook: with the writer freeze, R2 equals the pinned build bytes; verify `X-Feed-Source` after deploy.
+* Add the new meters (Worker requests/CPU for three paths, R2 Class A/B) to the budget attestation inputs.
+* Sequencing guard: **never activate before PR-3**, or the monitors flap on every publisher commit.
