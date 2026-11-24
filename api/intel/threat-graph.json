@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-24T22:57:35.090Z",
+  "generated": "2026-11-24T23:50:42.383Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20225,
+    "total_nodes": 20227,
     "actors": 8,
-    "cves": 9854,
-    "campaigns": 3315,
+    "cves": 9855,
+    "campaigns": 3316,
     "malware": 0,
     "iocs": 911,
-    "edges": 6120
+    "edges": 6121
   },
   "nodes": {
     "actor:lockbit": {
@@ -368581,7 +368581,7 @@
       "attributes": {
         "cvss": 9.8,
         "threat_level": "MEDIUM",
-        "priority_score": 47,
+        "priority_score": 45,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368671,7 +368671,7 @@
       "attributes": {
         "cvss": 9.8,
         "threat_level": "MEDIUM",
-        "priority_score": 47,
+        "priority_score": 45,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368826,8 +368826,8 @@
       "name": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (POST /api/global/users/init)",
       "attributes": {
         "cvss": 9.1,
-        "threat_level": "MEDIUM",
-        "priority_score": 45,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -368844,8 +368844,8 @@
       "name": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in jsonFormatter.format() rendered through {@html} in the CSP-less Builder origin",
       "attributes": {
         "cvss": 9.1,
-        "threat_level": "MEDIUM",
-        "priority_score": 45,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -371365,7 +371365,7 @@
       "attributes": {
         "cvss": 9.8,
         "threat_level": "MEDIUM",
-        "priority_score": 53,
+        "priority_score": 51,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -371473,7 +371473,7 @@
       "attributes": {
         "cvss": 7.8,
         "threat_level": "LOW",
-        "priority_score": 40,
+        "priority_score": 38,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -380265,6 +380265,44 @@
       "connections": [
         {
           "target": "CVE-2026-135814",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-136134": {
+      "id": "CVE-2026-136134",
+      "type": "CVE",
+      "name": "CVE-2026-136134 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-136134": {
+      "id": "campaign:cve-2026-136134",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-24",
+        "last_seen": "2026-11-24",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-136134"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-136134",
           "relationship": "includes",
           "confidence": 1
         }
@@ -435531,6 +435569,15 @@
       "id": "campaign:cve-2026-135814→includes→CVE-2026-135814",
       "source": "campaign:cve-2026-135814",
       "target": "CVE-2026-135814",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-24",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-136134→includes→CVE-2026-136134",
+      "source": "campaign:cve-2026-136134",
+      "target": "CVE-2026-136134",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-24",
