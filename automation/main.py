@@ -22,7 +22,7 @@ from .blogger_publisher import BloggerPublisher, BloggerPublishError, BloggerAut
 from .canonical_rss import discover_local_canonical_rss
 from .canary_source_identity import live_canary_pin_required, verify_reviewed_source_identity
 from .canary_review_preview import write_canary_dry_run_review
-from .cti_original_source_freshness import original_source_is_current
+from .cti_original_source_freshness import original_source_is_current, retry_item_is_current
 from .config import Config
 from .content_discovery import ContentDiscoveryEngine, DiscoveredArticle, PublicationState
 from .logger import setup_logger
@@ -209,6 +209,7 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
         "publish_target": max(0, int(config.max_posts_per_run or 0)),
         "publication_attempt_limit": _publication_attempt_limit(config.max_posts_per_run),
         "backfill_selected": 0,
+        "retry_stale_dropped": 0,
         **_empty_selection_metrics(),
         "posts": [],
         "errors": [],
@@ -290,6 +291,20 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
         original_fresh_count - len(fresh_articles)
         + original_retry_count - len(retry_articles)
     )
+    # Third-party items persisted in the retry queue are not covered by the first-party provenance
+    # check above and used to bypass the 72 h discovery age limit (outage backlog published 7-8 day
+    # old stories as new). Apply the same limit here, before any scheduler or backfill can select them.
+    _retry_before_age = len(retry_articles)
+    retry_articles = [
+        article for article in retry_articles
+        if retry_item_is_current(article, config.max_article_age_hours)
+    ]
+    report["retry_stale_dropped"] = _retry_before_age - len(retry_articles)
+    if report["retry_stale_dropped"]:
+        logger.warning(
+            "Retry queue items older than the source age limit were dropped",
+            extra={"dropped": report["retry_stale_dropped"], "max_age_hours": config.max_article_age_hours},
+        )
     if report["original_source_date_blocked"]:
         logger.warning(
             "P0 source provenance prevented stale first-party CTI repost selection",
