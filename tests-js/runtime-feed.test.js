@@ -66,7 +66,9 @@ test('a fresh feed object is served with the right bytes, type, validators and p
   assert.equal(r.headers.get('x-feed-source'), 'runtime-r2');
   assert.equal(r.headers.get('x-feed-sha256'), sha(FEED_BODY));
   assert.equal(r.headers.get('x-feed-generated-at'), iso(NOW - 120000));
-  assert.equal(r.headers.get('cache-control'), 'public, max-age=60');
+  // Static-build parity (exhaustively pinned in runtime-feed-headers.test.js).
+  assert.equal(r.headers.get('cache-control'), 'public, max-age=60, must-revalidate');
+  assert.equal(r.headers.get('access-control-allow-origin'), '*');
   assert.equal(r.headers.get('set-cookie'), null);
   assert.deepEqual(b.record, [FEEDS['/live-intel.json'].key]);
 });
@@ -78,9 +80,9 @@ test('each feed path maps to its own key and content type', async () => {
     [FEEDS['/rss.xml'].key]: object(rss),
   });
   const api = await serveFeed(req('/api/intel/live.json'), { RUNTIME_FEED: b }, '/api/intel/live.json', null, NOW);
-  assert.equal(api.headers.get('content-type'), 'application/json; charset=utf-8');
+  assert.equal(api.headers.get('content-type'), 'application/json; charset=UTF-8');
   const x = await serveFeed(req('/rss.xml'), { RUNTIME_FEED: b }, '/rss.xml', null, NOW);
-  assert.equal(x.headers.get('content-type'), 'application/rss+xml; charset=utf-8');
+  assert.equal(x.headers.get('content-type'), 'application/rss+xml; charset=UTF-8');
   assert.equal(await x.text(), rss);
 });
 
@@ -168,7 +170,8 @@ test('DOSSIER fallback: valid slug served with immutable-style metadata; invalid
   const r = await serveDossier(req('/posts/cve-2026-135696.html'), { RUNTIME_FEED: b }, '/posts/cve-2026-135696.html');
   assert.equal(r.status, 200);
   assert.equal(r.headers.get('content-type'), 'text/html; charset=utf-8');
-  assert.equal(r.headers.get('cache-control'), 'public, max-age=300');
+  assert.equal(r.headers.get('cache-control'), 'public, max-age=3600, stale-while-revalidate=86400');
+  assert.match(r.headers.get('content-security-policy'), /^default-src 'self'/, 'dossier keeps the static page CSP (the baseline default-src none would unstyle it)');
   assert.equal(await r.text(), html);
   const bad = ['/posts/CVE-2026-1.html', '/posts/../secret.html', '/posts/a/b.html', '/posts/.html', '/posts/-x.html',
     '/posts/x.htm', '/posts/x.html/', '/posts//x.html', '/posts/' + 'a'.repeat(121) + '.html', '/post/x.html', '/posts/x.html%2e', '/posts/x y.html'];
@@ -225,7 +228,8 @@ test('router: with a fresh runtime object the Worker serves it (with baseline se
     assert.equal(await r.text(), FEED_BODY);
     assert.equal(r.headers.get('x-content-type-options'), 'nosniff');
     assert.ok(r.headers.get('strict-transport-security'));
-    assert.equal(r.headers.get('cache-control'), 'public, max-age=60', 'baseline must not override the explicit Cache-Control');
+    assert.equal(r.headers.get('cache-control'), 'public, max-age=60, must-revalidate', 'baseline must not override the explicit Cache-Control');
+    assert.equal(r.headers.get('access-control-allow-origin'), '*', 'cross-origin consumers of the feed must keep working');
     assert.deepEqual(calls, [], 'static asset must not be fetched when runtime serves');
   } finally { Date.now = now; }
 });
