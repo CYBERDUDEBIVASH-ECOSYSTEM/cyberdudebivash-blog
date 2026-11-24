@@ -35,7 +35,8 @@ from .publication_scheduler import (
 from .publication_verifier import fetch_back_and_verify
 from .editorial_quarantine import editorial_quarantine_reason
 from .report_integrity import PublicationIntegrityError, compute_artifact_hash
-from .source_delivery_guard import verify_public_first_party_source
+from .source_delivery_budget import CIRCUIT_OPEN_REASON, SourceDeliveryBudget
+from .source_delivery_guard import is_first_party_dossier, verify_public_first_party_source
 from .search_console_submitter import SearchConsoleSubmitter
 from .social_amplifier import SocialAmplifier
 from .source_evidence_hydrator import hydrate_selected_article, telemetry_snapshot as source_hydration_telemetry
@@ -206,6 +207,8 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
         "integrity_blocked": 0,
         "fetch_back_discrepancies": 0,
         "source_delivery_blocked": 0,
+        "source_delivery_circuit_open": False,
+        "source_delivery_probes_skipped": 0,
         "publish_target": max(0, int(config.max_posts_per_run or 0)),
         "publication_attempt_limit": _publication_attempt_limit(config.max_posts_per_run),
         "backfill_selected": 0,
@@ -341,6 +344,9 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
     report.update(selection.metrics)
     publish_target = max(0, int(config.max_posts_per_run or 0))
     attempt_limit = _publication_attempt_limit(publish_target)
+    # Items that fail the cheap first-party delivery probe (no hydration, no LLM work) must not use up the attempt
+    # budget that exists to bound that expensive work. See automation/source_delivery_budget.py.
+    delivery_budget = SourceDeliveryBudget()
     canary_pin_required = live_canary_pin_required(dry_run=dry_run, max_posts=publish_target)
     attempted_keys = {_article_selection_key(article) for article in articles}
 
@@ -350,8 +356,15 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
             return
         if report["published"] >= publish_target:
             return
-        if len(articles) >= attempt_limit:
+        if delivery_budget.attempt_budget_exhausted(len(articles), attempt_limit):
             return
+        if delivery_budget.circuit_open:
+            # The SOC origin is not serving new dossiers this run: do not offer more of them as replacements.
+            attempted_keys.update(
+                _article_selection_key(article)
+                for article in (*retry_articles, *fresh_articles)
+                if is_first_party_dossier(article)
+            )
 
         candidate, source_kind = _next_backfill_candidate(
             retry_articles,
@@ -454,7 +467,17 @@ def run_pipeline(config: Config, dry_run: bool = False) -> dict:
             # P0: a local first-party RSS source is not proof its SOC URL
             # is actually deployed. Fail closed before any Blogger write;
             # retain the existing bounded backfill of other eligible sources.
-            delivery_reason = verify_public_first_party_source(article)
+            if delivery_budget.skips_probe(article):
+                delivery_reason = CIRCUIT_OPEN_REASON
+            else:
+                delivery_reason = verify_public_first_party_source(article)
+            if delivery_budget.record(article, delivery_reason):
+                report["source_delivery_circuit_open"] = True
+                logger.warning(
+                    "First-party SOC origin is not serving dossiers; skipping the remaining first-party candidates this run",
+                    extra={"consecutive_not_deployed": delivery_budget.consecutive_not_deployed},
+                )
+            report["source_delivery_probes_skipped"] = delivery_budget.probes_skipped
             if delivery_reason:
                 report["source_delivery_blocked"] += 1
                 raise PublicationIntegrityError([

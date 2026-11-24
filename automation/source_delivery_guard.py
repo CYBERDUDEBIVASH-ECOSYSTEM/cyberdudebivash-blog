@@ -22,6 +22,17 @@ def _normalized(value: str) -> str:
     return re.sub(r"\W+", " ", unescape(value).casefold(), flags=re.UNICODE).strip()
 
 
+def is_first_party_dossier(article) -> bool:
+    """True for the canonical first-party SOC /posts/*.html dossiers this gate covers.
+
+    Scope only, no network. Single source of truth for "does the delivery probe apply to this
+    article": verify_public_first_party_source() and the per-run delivery budget both use it.
+    """
+    parsed = urlsplit(str(getattr(article, "url", "") or ""))
+    return (parsed.hostname == _ORIGIN_HOST and parsed.path.startswith("/posts/")
+            and parsed.path.endswith(".html"))
+
+
 def verify_public_first_party_source(article, *, http_get=None) -> str | None:
     """Return a concise block reason, or None for a verified/inapplicable URL.
 
@@ -33,8 +44,7 @@ def verify_public_first_party_source(article, *, http_get=None) -> str | None:
     parsed = urlsplit(source_url)
     # This gate only covers canonical first-party HTML dossiers. Historical
     # non-HTML /posts/ endpoints keep their existing admission contract.
-    if (parsed.hostname != _ORIGIN_HOST or not parsed.path.startswith("/posts/")
-            or not parsed.path.endswith(".html")):
+    if not is_first_party_dossier(article):
         return None
     if (parsed.scheme != "https" or not _POST_PATH.fullmatch(parsed.path)
             or parsed.query or parsed.fragment or parsed.username is not None
