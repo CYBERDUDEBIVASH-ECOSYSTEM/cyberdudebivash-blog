@@ -12,7 +12,15 @@
   "assets": {
     "directory": "./dist-public",
     "binding": "ASSETS",
-    "html_handling": "none"
+    "html_handling": "none",
+    // Option A (durable SOC freshness, docs/operations/SOC-RUNTIME-FEED-OPTION-A.md):
+    // ONLY these three exact paths run the Worker first so the runtime feed in R2
+    // (RUNTIME_FEED below) can be served without a deploy. Every other static asset
+    // stays free of Worker invocations. The Worker falls open to the static asset
+    // whenever the runtime object is absent, invalid or older than 6 h. Never use
+    // `true` or a wildcard here: that would bill a Worker request for every asset.
+    // Pinned by tests-js/runtime-feed-activation-config.test.js.
+    "run_worker_first": ["/live-intel.json", "/api/intel/live.json", "/rss.xml"]
   },
 
   // P0: add SOC alongside the proven legacy hostname; do not redirect yet.
@@ -60,6 +68,14 @@
     {
       "binding": "PREMIUM_REPORTS",
       "bucket_name": "sentinel-apex-premium-reports"
+    },
+    // Option A runtime feed: a DEDICATED, public-derived bucket (never the paid
+    // artifacts above). Written only by the flag-gated publisher workflow with a
+    // bucket-scoped token; read-only here. The bucket MUST exist before deploy
+    // (`wrangler deploy` fails otherwise): see docs/runbooks/SOC-RUNTIME-FEED-ACTIVATION.md.
+    {
+      "binding": "RUNTIME_FEED",
+      "bucket_name": "soc-runtime-feed"
     }
   ],
 

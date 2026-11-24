@@ -8,7 +8,9 @@
 | **PR-1 (this)** | Worker read-through `workers/lib/runtime-feed.js` + router hook + tests | **No.** No binding and no `run_worker_first`, so nothing reaches it for the feeds; dossier fallback only runs after a static 404 and only if a binding exists. |
 | PR-2 | R2 uploader + flag-gated workflow (`vars.SOC_RUNTIME_FEED_ENABLED`) | No: skipped while the flag is off. |
 | PR-3 | Parity gates and monitors accept runtime provenance (bounded propagation grace) | Only for responses that carry valid runtime provenance (none exist until PR-4). |
-| PR-4 | `wrangler.jsonc`: R2 binding + `run_worker_first`. **Merge only after the owner creates the bucket.** | **Yes.** This is the activation switch. |
+| PR-1b | Runtime responses carry the static build's exact headers (CORS, CSP, cache) | No (same inert contract as PR-1). **Must merge before PR-4.** |
+| PR-2b | Publisher uploads the public-build bytes, not raw source | No. Merged (#703). |
+| PR-4 | `wrangler.jsonc`: R2 binding + `run_worker_first`, config pin test, activation runbook (`docs/runbooks/SOC-RUNTIME-FEED-ACTIVATION.md`). **Merge only after PR-1b and after the owner creates the bucket and the publisher has run once.** | **Yes.** This is the activation switch (still needs a release to deploy). |
 
 ## Current architecture
 The feeds (`/live-intel.json`, `/api/intel/live.json`, `/rss.xml`) and every `/posts/*.html` dossier are static assets baked into the Worker at deploy time (`wrangler.jsonc` `assets`, no `run_worker_first`, so they cost no Worker CPU). Deploys are manual, SHA-pinned (5-way match against a `main` that moves every ~29 min) and budget-gated, so the public feed passes the 180-minute freshness limit shortly after any release, and new dossiers return 404 until the next release.
@@ -70,7 +72,8 @@ Set `SOC_RUNTIME_FEED_ENABLED=false` (uploads stop; the Worker keeps serving the
 4. Everything else is unchanged and strict: no provenance header, wrong sha, mismatching timestamp, or lag beyond 10 min keeps the current failure codes.
 5. Tests: provenance accepted/rejected matrix (each failing condition individually), grace boundary at exactly 10 min and 10 min + 1 s, ahead-of-source still fails, header spoofing without a matching body hash fails, static (no header) behaviour byte-for-byte unchanged; mutation-test each rule.
 
-## PR-4 design (activation; merge ONLY after PR-1, PR-2, PR-3 and the owner's bucket/token/secrets)
+## PR-4 (BUILT as a draft; implementation and step-by-step runbook: `docs/runbooks/SOC-RUNTIME-FEED-ACTIVATION.md`; merge ONLY after PR-1, PR-1b, PR-2, PR-2b, PR-3 and the owner's bucket/token/secrets)
+Original design, kept for the record:
 * `wrangler.jsonc`: add `r2_buckets` `{ "binding": "RUNTIME_FEED", "bucket_name": "soc-runtime-feed" }` and `assets.run_worker_first: ["/live-intel.json", "/api/intel/live.json", "/rss.xml"]` (exact paths only; every other static asset stays free).
 * `wrangler deploy` fails if the bucket does not exist, so PR-4 must not merge first.
 * Update the release runbook: with the writer freeze, R2 equals the pinned build bytes; verify `X-Feed-Source` after deploy.
