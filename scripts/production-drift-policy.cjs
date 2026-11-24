@@ -84,6 +84,9 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   '.github/workflows/soc-runtime-feed-publisher.yml',
   'scripts/publish-runtime-feed.cjs',
   'scripts/lib/r2-sigv4.cjs',
+  // PR-3: the provenance check the release/monitor gates use before granting the bounded
+  // runtime propagation allowance. A gate input: operator-reviewed, never benign.
+  'scripts/lib/runtime-feed-provenance.cjs',
   'OPERATIONS.md',
   // P0 #494: emergency customer-data backup/restore controls are operational
   // instructions: changes require human review, never benign-only release.

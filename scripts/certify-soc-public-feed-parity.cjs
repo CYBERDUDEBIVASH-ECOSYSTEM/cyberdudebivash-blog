@@ -9,6 +9,7 @@ const fs=require('node:fs');
 const crypto=require('node:crypto');
 const {isDeepStrictEqual}=require('node:util');
 const path=require('node:path');
+const {RUNTIME_PROPAGATION_GRACE_MINUTES,verifyRuntimeProvenance,provenanceLabel}=require('./lib/runtime-feed-provenance.cjs');
 const TARGETS=Object.freeze({
   soc:'https://soc.cyberdudebivash.in/live-intel.json',
   blog:'https://blog.cyberdudebivash.in/live-intel.json',
@@ -55,17 +56,31 @@ function assess(reference,delivered,nowMs=Date.now(),options={}) {
   if(live.ageMinutes>STALE_MINUTES)return {status:'FAIL',reason:'PUBLIC_PIPELINE_STALE',src,live};
   // A public artifact 5+ minutes behind authoritative checked-in source is an
   // unshipped/bypassed release, even when both clocks happen to look healthy.
-  if(src.ts-live.ts>FUTURE_MINUTES*60000)
+  // Option A: ONLY a response that proves it was served from the runtime R2 bucket
+  // (verifyRuntimeProvenance recomputed its hash and timestamp) may lag the source by the
+  // bounded propagation grace. Everything else keeps the strict static-deploy rules.
+  const runtime=options.runtime&&options.runtime.ok===true?options.runtime:null;
+  const lagMs=src.ts-live.ts; // > 0: public is behind the source
+  const allowedLagMs=runtime?RUNTIME_PROPAGATION_GRACE_MINUTES*60000:FUTURE_MINUTES*60000;
+  if(lagMs>allowedLagMs)
     return {status:'FAIL',reason:'PUBLIC_SOURCE_DEPLOYMENT_DRIFT',src,live};
-  if(live.totalPublished<src.totalPublished)
+  if(live.totalPublished<src.totalPublished&&!(runtime&&lagMs>0))
     return {status:'FAIL',reason:'PUBLIC_CORPUS_BEHIND_SOURCE',src,live};
+  // A feed that is OLDER than the source can never have a LARGER corpus.
+  if(runtime&&lagMs>0&&live.totalPublished>src.totalPublished)
+    return {status:'FAIL',reason:'PUBLIC_RUNTIME_CORPUS_INCONSISTENT',src,live};
   // Release certification is about the exact build artifact, not a plausible
   // timestamp or count. Different bytes at the public hostname are drift.
   if(options.expectedBytes!==undefined){
     if(!Buffer.isBuffer(options.expectedBytes)||!Buffer.isBuffer(options.publicBytes))
       return {status:'FAIL',reason:'PUBLIC_ASSET_BYTES_UNAVAILABLE',src,live};
-    if(sha256(options.expectedBytes)!==sha256(options.publicBytes))
-      return {status:'FAIL',reason:'PUBLIC_ASSET_SHA256_MISMATCH',src,live};
+    if(sha256(options.expectedBytes)!==sha256(options.publicBytes)){
+      // Different bytes are acceptable only if the runtime object is provably NEWER than the
+      // build asset (a later publisher run). Same or older timestamp with other bytes is drift.
+      if(!(runtime&&live.ts>src.ts))
+        return {status:'FAIL',reason:'PUBLIC_ASSET_SHA256_MISMATCH',src,live};
+      return {status:'PASS',reason:'PUBLIC_RUNTIME_FEED_NEWER_THAN_BUILD_VERIFIED',src,live};
+    }
   }
   return {status:'PASS',reason:'PUBLIC_SOURCE_FRESHNESS_AND_CORPUS_VERIFIED',src,live};
 }
@@ -174,7 +189,7 @@ async function boundedJson(response) {
     }
   } finally {await reader.cancel().catch(()=>{});reader.releaseLock();}
   const bytes=Buffer.concat(chunks,size);
-  try{return {status:'OK',data:JSON.parse(bytes.toString('utf8')),bytes};}
+  try{return {status:'OK',data:JSON.parse(bytes.toString('utf8')),bytes,headers:response.headers};}
   catch(_){return {status:'FAIL',reason:'PUBLIC_JSON_INVALID'};}
 }
 
@@ -183,15 +198,19 @@ async function check({expected,expectedBytes,sourceState,fetchImpl=globalThis.fe
   const results=[];
   for(const [name,url] of Object.entries(TARGETS)){
     const c=new AbortController();const timer=setTimeout(()=>c.abort(),timeoutMs);
-    let result;
+    let result,provenance=null;
     try{
       const response=await fetchImpl(url,{method:'GET',redirect:'manual',cache:'no-store',signal:c.signal,headers:{Accept:'application/json','Cache-Control':'no-cache'}});
       const read=await boundedJson(response);
-      result=read.status==='OK'?assess(expected,read.data,nowMs,{sourceState,expectedBytes,publicBytes:read.bytes}):read;
+      if(read.status==='OK'){
+        // Recomputed from the received bytes; never trusted from the header alone.
+        provenance=verifyRuntimeProvenance({kind:'live-intel',headers:read.headers,bytes:read.bytes,data:read.data,nowMs});
+        result=assess(expected,read.data,nowMs,{sourceState,expectedBytes,publicBytes:read.bytes,runtime:provenance});
+      }else result=read;
     }catch(_){result={status:'INCONCLUSIVE',reason:'PUBLIC_READ_UNAVAILABLE'};}
     finally{clearTimeout(timer);}
     // Do not log feed bodies or customer-auth data.
-    results.push({host:name,url,status:result.status,reason:result.reason,
+    results.push({host:name,url,status:result.status,reason:result.reason,provenance:provenanceLabel(provenance),
       sourceTimestamp:result.src?.iso||null,publicTimestamp:result.live?.iso||null,
       sourcePublished:result.src?.totalPublished??null,publicPublished:result.live?.totalPublished??null,
       publicAgeMinutes:result.live?.ageMinutes??null});

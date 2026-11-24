@@ -11,6 +11,7 @@ const crypto=require('node:crypto');
 const {isDeepStrictEqual}=require('node:util');
 const {check:checkLedger}=require('./assert-publication-ledger.cjs');
 const {predeployGate,boundedJson}=require('./certify-soc-public-feed-parity.cjs');
+const {RUNTIME_PROPAGATION_GRACE_MINUTES,verifyRuntimeProvenance,provenanceLabel}=require('./lib/runtime-feed-provenance.cjs');
 const TARGETS=Object.freeze({
   soc:'https://soc.cyberdudebivash.in/api/intel/live.json',
   blog:'https://blog.cyberdudebivash.in/api/intel/live.json'
@@ -72,11 +73,13 @@ function validateBundle({state,rootSource,apiSource,rootAsset,apiAsset,nowMs=Dat
   }
   return {status:errors.size?'HOLD':'PASS',codes:[...errors].sort()};
 }
-async function verifyPublic({assetBytes,fetchImpl=globalThis.fetch,timeoutMs=10000}={}){
+async function verifyPublic({assetBytes,fetchImpl=globalThis.fetch,timeoutMs=10000,nowMs=Date.now()}={}){
   if(!Buffer.isBuffer(assetBytes)||assetBytes.length===0||assetBytes.length>MAX_BYTES||
      typeof fetchImpl!=='function')
     return {status:'HOLD',results:[],reason:'RELEASE_ASSET_UNAVAILABLE'};
   const expected=hash(assetBytes),results=[];
+  let assetGenerated=NaN;
+  try{assetGenerated=Date.parse(JSON.parse(assetBytes.toString('utf8'))?.generated||'');}catch(_){}
   for(const [host,url] of Object.entries(TARGETS)){
     const controller=new AbortController();
     const timer=setTimeout(()=>controller.abort(),timeoutMs);
@@ -86,8 +89,14 @@ async function verifyPublic({assetBytes,fetchImpl=globalThis.fetch,timeoutMs=100
         headers:{Accept:'application/json','Cache-Control':'no-cache'},signal:controller.signal});
       const parsed=await boundedJson(response);
       if(parsed.status!=='OK')value={status:parsed.status,reason:parsed.reason};
-      else if(hash(parsed.bytes)!==expected)
-        value={status:'FAIL',reason:'PUBLIC_S2N_API_SHA256_MISMATCH'};
+      else if(hash(parsed.bytes)!==expected){
+        // Option A: other bytes pass ONLY if proven runtime output that is strictly NEWER than
+        // the build asset (a later publisher run). Same or older timestamp is still drift.
+        const rt=verifyRuntimeProvenance({kind:'api',headers:parsed.headers,bytes:parsed.bytes,data:parsed.data,nowMs});
+        value=rt.ok&&Number.isFinite(assetGenerated)&&rt.generatedMs>assetGenerated
+          ?{status:'PASS',reason:'PUBLIC_S2N_API_RUNTIME_NEWER_THAN_ASSET',provenance:'runtime-r2'}
+          :{status:'FAIL',reason:'PUBLIC_S2N_API_SHA256_MISMATCH'};
+      }
       else value={status:'PASS',reason:'PUBLIC_S2N_API_EXACT_ASSET'};
     }catch(_){value={status:'INCONCLUSIVE',reason:'PUBLIC_S2N_API_READ_UNAVAILABLE'};}
     finally{clearTimeout(timer);}
@@ -134,6 +143,9 @@ async function monitorPublic({sourceApi,sourceRoot,sourceState,fetchImpl=globalT
       else {
         const api=read.data,ts=Date.parse(api?.generated||'');
         const actual=validItems(api?.items)?api.items.map(x=>x.id):null;
+        // Recomputed from the received bytes; never trusted from the header alone.
+        const rt=verifyRuntimeProvenance({kind:'api',headers:read.headers,bytes:read.bytes,data:api,nowMs});
+        const allowedLagMs=(rt.ok?RUNTIME_PROPAGATION_GRACE_MINUTES:5)*60000;
         if(!actual||new Set(actual).size!==actual.length||
            !Number.isSafeInteger(api.total_published)||
            api.total_published<actual.length||!Number.isFinite(ts)||
@@ -141,13 +153,20 @@ async function monitorPublic({sourceApi,sourceRoot,sourceState,fetchImpl=globalT
           verdict={status:'FAIL',reason:'PUBLIC_S2N_API_INVALID'};
         else if(nowMs-ts>180*60000)
           verdict={status:'FAIL',reason:'PUBLIC_S2N_API_STALE'};
-        else if(timestamp-ts>5*60000)
+        else if(timestamp-ts>allowedLagMs)
           verdict={status:'FAIL',reason:'PUBLIC_S2N_API_BEHIND_SOURCE'};
-        else if(api.total_published!==sourceApi.total_published)
+        // Exact ledger/ID equality is waived ONLY for a proven runtime response generated at a
+        // different instant than the source (inside the bounded window above). Same instant, or
+        // any response without proof, keeps the strict equality.
+        else if(!(rt.ok&&ts!==timestamp)&&api.total_published!==sourceApi.total_published)
           verdict={status:'FAIL',reason:'PUBLIC_S2N_API_LEDGER_MISMATCH'};
-        else if(ts>timestamp+5*60000||JSON.stringify(actual)!==JSON.stringify(ids))
+        else if(rt.ok&&ts<timestamp&&api.total_published>sourceApi.total_published||
+                rt.ok&&ts>timestamp&&api.total_published<sourceApi.total_published)
+          verdict={status:'FAIL',reason:'PUBLIC_S2N_API_RUNTIME_LEDGER_INCONSISTENT'};
+        else if(ts>timestamp+5*60000||(!(rt.ok&&ts!==timestamp)&&JSON.stringify(actual)!==JSON.stringify(ids)))
           verdict={status:'FAIL',reason:'PUBLIC_S2N_API_REPORT_IDENTITY_DRIFT'};
-        else verdict={status:'PASS',reason:'PUBLIC_S2N_API_SOURCE_PARITY'};
+        else verdict={status:'PASS',reason:rt.ok&&ts!==timestamp?'PUBLIC_S2N_API_RUNTIME_WITHIN_PROPAGATION_WINDOW':'PUBLIC_S2N_API_SOURCE_PARITY'};
+        verdict.provenance=provenanceLabel(rt);
         verdict.publicPublished=api.total_published;
         verdict.publicGenerated=Number.isFinite(ts)?new Date(ts).toISOString():null;
       }
