@@ -65,10 +65,10 @@ h1{font-size:clamp(24px,4vw,38px);margin:6px 0 8px;color:#fff}
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="stat-n">0</div><div class="stat-l">Published</div></div>
+    <div class="stat"><div class="stat-n">10</div><div class="stat-l">Published</div></div>
     <div class="stat"><div class="stat-n">0</div><div class="stat-l">P1 Priority</div></div>
     <div class="stat"><div class="stat-n">0</div><div class="stat-l">Leads Held</div></div>
-    <div class="stat"><div class="stat-n">3/6</div><div class="stat-l">Sources Live</div></div>
+    <div class="stat"><div class="stat-n">4/6</div><div class="stat-l">Sources Live</div></div>
   </div>
 
   <div class="owasp-strip">
@@ -76,11 +76,112 @@ h1{font-size:clamp(24px,4vw,38px);margin:6px 0 8px;color:#fff}
     <div class="owasp-grid"><div class="owasp-item"><span class="owasp-id">LLM01</span><span class="owasp-name">Prompt Injection</span></div><div class="owasp-item"><span class="owasp-id">LLM02</span><span class="owasp-name">Insecure Output Handling</span></div><div class="owasp-item"><span class="owasp-id">LLM03</span><span class="owasp-name">Training Data Poisoning</span></div><div class="owasp-item"><span class="owasp-id">LLM04</span><span class="owasp-name">Model Denial of Service / Data &amp; Model Poisoning</span></div><div class="owasp-item"><span class="owasp-id">LLM05</span><span class="owasp-name">Supply Chain Vulnerabilities</span></div><div class="owasp-item"><span class="owasp-id">LLM06</span><span class="owasp-name">Sensitive Information Disclosure / Excessive Agency</span></div><div class="owasp-item"><span class="owasp-id">LLM07</span><span class="owasp-name">Insecure Plugin / System Prompt Leakage</span></div><div class="owasp-item"><span class="owasp-id">LLM08</span><span class="owasp-name">Vector and Embedding Weaknesses</span></div><div class="owasp-item"><span class="owasp-id">LLM09</span><span class="owasp-name">Misinformation</span></div><div class="owasp-item"><span class="owasp-id">LLM10</span><span class="owasp-name">Unbounded Consumption / Model Theft</span></div></div>
   </div>
 
-  <div class="empty">No items cleared the publication gate this cycle. Held leads are re-evaluated as corroboration arrives. Machine-readable feed: <span class="api">/api/intel/ai-security.json</span></div>
+  <div class="grid">
+      <a class="card" href="https://arxiv.org/abs/2611.30383v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">Bounded Autonomy: A Trust-Anchored Defense Against Resource-Exhaustion Attacks on Tool-Augmented LLM Agents</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
+        <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.29532v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">Adaptation or Poisoning? Security Risks of Conversational Test-Time Learning in Large Language Models</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
+        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag atlas">AML.T0051</span><span class="tag cat">Prompt Injection</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.29217v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">Persistent Jailbreak Backdoor Attack</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
+        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag atlas">AML.T0051</span><span class="tag cat">Prompt Injection</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.26553v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">Replication of Agentic Security Events: Audit and Investigation (ROGUE-AI)</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
+        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0051</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Prompt Injection</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.25470v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">ToolPulse: Side-Channel Eavesdropping on Tool-Using LLM Agents</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
+        <div class="tags"><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.24362v2" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">PIPETTE: Prompt Injection Purple-Teaming for Robust LLM Agents</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 20/100</div>
+        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag owasp">LLM06</span><span class="tag atlas">AML.T0051</span><span class="tag atlas">AML.T0053</span><span class="tag cat">Prompt Injection</span><span class="tag cat">Agentic / Tool / MCP Exploitation</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.30932v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">Carried-Over and Agent-Native Threats in the Supply Chain of LLM Agent Skills</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 10/100</div>
+        <div class="tags"><span class="tag owasp">LLM01</span><span class="tag atlas">AML.T0051</span><span class="tag cat">Prompt Injection</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.28702v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">HiPerfCC-KVCache: Accelerating Confidential LLM Serving with Hierarchical KV Caching</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 10/100</div>
+        <div class="tags"><span class="tag owasp">LLM05</span><span class="tag atlas">AML.T0010</span><span class="tag cat">AI Infrastructure / Inference Server</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.29244v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">TurboFHE: An Efficient and Scalable Multi-GPU Framework for Homomorphic LLM Inference</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 0/100</div>
+        <div class="tags"><span class="tag owasp">LLM05</span><span class="tag atlas">AML.T0010</span><span class="tag cat">AI Infrastructure / Inference Server</span></div>
+      </a>
+      <a class="card" href="https://arxiv.org/abs/2611.25945v1" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="pri pri-P3">P3</span>
+          <span class="label">PUBLISHED RESEARCH</span>
+          <span class="conf conf-low">LOW confidence</span>
+        </div>
+        <div class="card-title">BlockJack: Cross-Tenant Redirection Fault Attacks on Paged KV Cache Address Translation in LLM Serving</div>
+        <div class="card-meta">arXiv cs.CR (LLM security) · no CVE · impact 0/100</div>
+        <div class="tags"><span class="tag owasp">LLM05</span><span class="tag atlas">AML.T0010</span><span class="tag cat">AI Infrastructure / Inference Server</span></div>
+      </a>
+  </div>
 
   <div class="foot">
     Machine-readable feed: <a class="api" href="/api/intel/ai-security.json">/api/intel/ai-security.json</a>
-    &nbsp;·&nbsp; Generated 2026-11-24T09:02:31.605Z &nbsp;·&nbsp; CYBERDUDEBIVASH® SENTINEL APEX™ AI Security Intelligence Division
+    &nbsp;·&nbsp; Generated 2026-11-24T10:56:18.158Z &nbsp;·&nbsp; CYBERDUDEBIVASH® SENTINEL APEX™ AI Security Intelligence Division
   </div>
 </div>
 </body>
