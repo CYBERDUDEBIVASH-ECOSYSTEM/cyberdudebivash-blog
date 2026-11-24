@@ -27,7 +27,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
-from .content_discovery import DiscoveredArticle
+from .content_discovery import DiscoveredArticle, _infer_labels
 
 
 _CVE_RE = re.compile(r"\bCVE-\d{4}-\d{4,}\b", re.IGNORECASE)
@@ -120,23 +120,46 @@ def _cves(article: DiscoveredArticle) -> set[str]:
     return values
 
 
-def ransomware_primary_fields(*, title: object, source: object, labels: object) -> bool:
-    """Demand explicit primary-topic evidence, not an incidental body mention."""
+def _independent_labels(title: object, summary: object, labels: object) -> list:
+    """Labels that are NOT merely the article's own prose restated.
+
+    ``content_discovery._infer_labels`` adds a label whenever a keyword appears anywhere in the
+    title or summary. Such a label is the same incidental body mention in another form, so using
+    it as "primary-topic evidence" defeats the rule below (a single product-feature clause such
+    as "...and Linux ransomware protection" made a vendor release note a ransomware report).
+    A label that the inference would NOT produce from this title and summary came from somewhere
+    else (an editor or a typed source) and is independent evidence.
+    ``summary=None`` means the caller cannot supply the text: labels are then taken as given
+    (the previous behaviour).
+    """
+    values = [labels] if isinstance(labels, str) else list(labels or [])
+    if summary is None:
+        return values
+    derived = {str(label).casefold() for label in _infer_labels(str(title or ""), str(summary or ""))}
+    return [label for label in values if str(label).casefold() not in derived]
+
+
+def ransomware_primary_fields(*, title: object, source: object, labels: object, summary: object = None) -> bool:
+    """Demand explicit primary-topic evidence, not an incidental body mention.
+
+    Evidence is: the typed ransomware source, an explicit ransomware/extortion term in the
+    TITLE, or a label that is independent of the article's own prose (see ``_independent_labels``).
+    Pass ``summary`` so prose-derived labels are discounted.
+    """
     if str(source or "").strip().lower() == "ransomware_intel":
         return True
     if re.search(r"\b(?:ransomware|double[ -]extortion|cyber[ -]extortion)\b", str(title or ""), re.I):
         return True
-    label_values = [labels] if isinstance(labels, str) else (labels or [])
     return any(
         re.search(r"\b(?:ransomware|extortion)\b", str(label), re.I)
-        for label in label_values
+        for label in _independent_labels(title, summary, labels)
     )
 
 
 def ransomware_is_primary_topic(article: DiscoveredArticle) -> bool:
     """Never infer a ransomware incident from a historical mention in prose."""
     return ransomware_primary_fields(
-        title=article.title, source=article.source, labels=article.labels
+        title=article.title, source=article.source, labels=article.labels, summary=article.summary
     )
 
 

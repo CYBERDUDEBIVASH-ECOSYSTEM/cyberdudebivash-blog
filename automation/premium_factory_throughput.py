@@ -378,7 +378,7 @@ def _delivery_class_from_fields(
     ).lower()
     source_key = str(source or "").strip().lower()
 
-    if _scheduler.ransomware_primary_fields(title=title, source=source, labels=labels):
+    if _scheduler.ransomware_primary_fields(title=title, source=source, labels=labels, summary=summary):
         return "ransomware"
     if source_key == "breach_intel" or _BREACH_RE.search(text):
         return "breach"
