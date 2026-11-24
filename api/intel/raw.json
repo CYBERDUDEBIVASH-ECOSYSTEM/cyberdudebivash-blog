@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T09:02:58.678Z",
+  "generated": "2026-11-24T10:14:37.675Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,14 +8,14 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 141,
+  "count": 142,
   "items": [
     {
-      "id": "CVE-2026-63341",
-      "title": "Aedes has Uncaught Exception and Uncontrolled Resource Consumption",
-      "description": "Summary\nA remote Denial of Service (DoS) vulnerability, allows any remote client to cause a complete crash of the Aedes MQTT broker process. This is achieved by sending a specially crafted MQTT message (via PUBLISH or SUBSCRIBE), or by setting a Will message with such a topic, co... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 57,
+      "id": "CVE-2026-122244",
+      "title": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in jsonFormatter.format() rendered",
+      "description": "Description\n\nSummary\n\nA low-privileged application end-user (role BASIC - not a builder or admin, and on a public data-collection form, an unauthenticated visitor) can store an HTML/JavaScript payload in ordinary row data. When a builder or admin later opens that table in the Bud... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 55,
       "quality_score": 0.458,
       "threat_level": "MEDIUM",
       "type": "NEWS_REPORT",
@@ -33,11 +33,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-63341"
+        "CVE-2026-122244"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-xxqp-5qx8-gj5q"
+        "https://github.com/advisories/GHSA-r2q3-7m4h-63qg"
       ],
       "explanation": {
         "quality": [
@@ -57,12 +57,12 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-96805",
-      "title": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
-      "description": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
-      "cvss": 9.6,
+      "id": "CVE-2026-94564",
+      "title": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
+      "description": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
+      "cvss": 9.1,
       "final_ps": 55,
-      "quality_score": 0.408,
+      "quality_score": 0.458,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
       "source": "sentinel_apex",
@@ -79,18 +79,110 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-96805"
+        "CVE-2026-94564"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-96805"
+        "https://cvefeed.io/vuln/detail/CVE-2026-94564"
       ],
       "explanation": {
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
+          "data_confidence=0.70",
           "recency=3d (score=0.65)",
-          "QS=0.407"
+          "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-58192",
+      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
+      "description": "Summary\n\nThe Appium storage plugin exposes an HTTP endpoint POST /storage/delete that takes a user-supplied name and deletes it from the server storage folder. The handler passes name straight into path.join(storageRoot, name) and then fs.rimraf() without any path sanitization. B... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 55,
+      "quality_score": 0.458,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-58192"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=3d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-114516",
+      "title": "Etherpad: Pre-auth arbitrary file read",
+      "description": "Summary\n\nAn unauthenticated path‑traversal / arbitrary file read vulnerability in Etherpad's /static/* handler allows any remote, unauthenticated user to read any file on the server's filesystem (e.g. GET /static/plugins/ep_etherpad-lite/static/..%5C..%5C..%5C..%5C..%5C..%5C..%5C... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 54,
+      "quality_score": 0.433,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114516"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-mc8w-wjhw-45x5"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=4d (score=0.40)",
+          "QS=0.432"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -136,52 +228,6 @@
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
           "recency=5d (score=0.40)",
-          "QS=0.432"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-77367",
-      "title": "Daptin: Unauthenticated SQL Injection via the sort query parameter on every entity list endpoint",
-      "description": "Summary\n\nAn unauthenticated attacker can inject arbitrary SQL through the sort query parameter accepted by\nDaptin's generic entity list endpoint (GET /api/<entity>), which every table in a Daptin instance\nexposes. The parameter is concatenated into raw SQL identifiers with no val... [Full analysis a",
-      "cvss": 9.1,
-      "final_ps": 53,
-      "quality_score": 0.433,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-77367"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-hq2p-f2vj-v3cm"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=4d (score=0.40)",
           "QS=0.432"
         ],
         "priority": [
@@ -464,52 +510,6 @@
           "+12 PoC_available",
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-113347",
-      "title": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
-      "description": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
-      "cvss": 9,
-      "final_ps": 51,
-      "quality_score": 0.383,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-113347"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-113347"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=4d (score=0.40)",
-          "QS=0.383"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -2358,6 +2358,52 @@
         "priority": [
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-107654",
+      "title": "Low Security Vulnerability (CVE-2026-107654)",
+      "description": "CVE-2026-107654",
+      "cvss": 7.5,
+      "final_ps": 40,
+      "quality_score": 0.408,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-107654"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-107654?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=2d (score=0.65)",
+          "QS=0.407"
+        ],
+        "priority": [
+          "base_ps=40 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -5099,14 +5145,60 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-122247",
-      "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (POST ",
+      "id": "CVE-2026-120382",
+      "title": "CVE-2026-120382 - Synology DiskStation Manager OAuth API Command Injection Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-120382"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-120382"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-94565",
+      "title": "CVE-2026-94565 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module",
       "description": "",
       "cvss": 9.1,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "LOW",
-      "type": "NEWS_REPORT",
+      "type": "CVE_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
@@ -5121,11 +5213,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-122247"
+        "CVE-2026-94565"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-25qc-m4pw-2w8r"
+        "https://cvefeed.io/vuln/detail/CVE-2026-94565"
       ],
       "explanation": {
         "quality": [
@@ -5421,6 +5513,236 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-63341",
+      "title": "Aedes has Uncaught Exception and Uncontrolled Resource Consumption",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-63341"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-xxqp-5qx8-gj5q"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-96805",
+      "title": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
+      "description": "",
+      "cvss": 9.6,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-96805"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-96805"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-77367",
+      "title": "Daptin: Unauthenticated SQL Injection via the sort query parameter on every entity list endpoint",
+      "description": "",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-77367"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-hq2p-f2vj-v3cm"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-113347",
+      "title": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
+      "description": "",
+      "cvss": 9,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-113347"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-113347"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-122247",
+      "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (POST ",
+      "description": "",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-122247"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-25qc-m4pw-2w8r"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-58254",
       "title": "nats-server Leaf node connections bypass Nats-Trace-Dest permission check",
       "description": "",
@@ -5513,21 +5835,21 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-122244",
-      "title": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in jsonFormatter.format() rendered",
+      "id": "CVE-2026-134935",
+      "title": "CVE-2026-134935 - Omarchy dell-xps-touchpad-haptics Arbitrary File Ownership Change",
       "description": "",
-      "cvss": 9.1,
-      "final_ps": 28,
+      "cvss": 7,
+      "final_ps": 22,
       "quality_score": 0.438,
       "threat_level": "LOW",
-      "type": "NEWS_REPORT",
+      "type": "CRITICAL_INFRASTRUCTURE",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -5535,11 +5857,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-122244"
+        "CVE-2026-134935"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-r2q3-7m4h-63qg"
+        "https://cvefeed.io/vuln/detail/CVE-2026-134935"
       ],
       "explanation": {
         "quality": [
@@ -5549,191 +5871,7 @@
           "QS=0.438"
         ],
         "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-94564",
-      "title": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
-      "description": "",
-      "cvss": 9.1,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-94564"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-94564"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-58192",
-      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
-      "description": "",
-      "cvss": 9.1,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-58192"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-114516",
-      "title": "Etherpad: Pre-auth arbitrary file read",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114516"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-mc8w-wjhw-45x5"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-94565",
-      "title": "CVE-2026-94565 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module",
-      "description": "",
-      "cvss": 9.1,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-94565"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-94565"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
+          "+4 critical_infra"
         ],
         "suppression": null,
         "merge": null
@@ -5856,53 +5994,6 @@
       "ioc_count": 0,
       "refs": [
         "https://www.certvde.com/en/advisories/VDE-2026-154/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-135457",
-      "title": "CVE-2026-135457 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.3,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/amirhamza05/Student-Management-System/",
-        "https://github.com/amirhamza05/Student-Management-System/issues/79",
-        "https://vuldb.com/cve/CVE-2026-135457",
-        "https://vuldb.com/submit/1055664"
       ],
       "explanation": {
         "quality": [
@@ -6363,52 +6454,6 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-113953"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-107654",
-      "title": "Low Security Vulnerability (CVE-2026-107654)",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-107654"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-107654?utm_source=rss&utm_medium=rss&utm_campaign=rss"
       ],
       "explanation": {
         "quality": [
