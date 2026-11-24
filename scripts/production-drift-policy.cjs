@@ -74,6 +74,16 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   '.github/workflows/customer-release-certification.yml',
   // #494: secret continuity proof is operator-reviewed, never benign/release-approved.
   '.github/workflows/soc-historical-backup-offline-proof.yml',
+  // Option A (durable SOC freshness), publisher side. Reviewed in full: the
+  // workflow is read-only toward git, holds only a bucket-scoped R2 key pair
+  // (never the deploy token), is skipped unless SOC_RUNTIME_FEED_ENABLED=true
+  // and is pinned by tests-js/runtime-feed-publisher-workflow.test.js. These
+  // are OPERATIONAL pipeline inputs: changes require operator-reviewed release
+  // acceptance; NEVER benign, never proof that the public feed is fresh.
+  // Exact names only; any sibling remains unrecognized and must fail closed.
+  '.github/workflows/soc-runtime-feed-publisher.yml',
+  'scripts/publish-runtime-feed.cjs',
+  'scripts/lib/r2-sigv4.cjs',
   'OPERATIONS.md',
   // P0 #494: emergency customer-data backup/restore controls are operational
   // instructions: changes require human review, never benign-only release.
