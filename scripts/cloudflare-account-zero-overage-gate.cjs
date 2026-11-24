@@ -67,7 +67,43 @@ const pricingReviewAttested=(r,nowMs)=>obj(r)&&
   r.allWorkersObservabilitySettingsReviewed===true&&
   r.projectedPostCutoffAdditionalMeteredChargesUsd===0;
 
-function assess(input, accountId,now=new Date().toISOString()){
+// SINGLE-RELEASE CPU RESERVE EXCEPTION (owner-signed, expiring).
+// Waives ONLY the 20% safety reserve of Workers CPU for ONE exact release SHA
+// while keeping a HARD FLOOR at 100% of the included allowance: the measured
+// recent daily CPU rate, with the gate's own 1.25 forecast buffer, plus CPU
+// already used must still fit inside the plan, and the owner's forecast may not
+// be lower than that measurement. It can never waive any other code, never
+// lasts more than 24h, and can never outlive the pricing cutoff.
+const EXCEPTION_WAIVABLE_CODE='RESERVE_EXHAUSTED_workersCpuMs';
+const MAX_EXCEPTION_WINDOW_MS=24*60*60*1000;
+const releaseExceptionApplies=(ex,input,ctx,nowMs,endMs)=>{
+  if(!obj(ex)||ex.schemaVersion!=='cdb-budget-release-exception/v1'||
+    ex.scope!=='single-release-cpu-reserve')return false;
+  if(!Array.isArray(ex.waives)||ex.waives.length!==1||ex.waives[0]!==EXCEPTION_WAIVABLE_CODE)return false;
+  const sha=ctx&&typeof ctx.releaseSha==='string'?ctx.releaseSha:'';
+  if(!/^[a-f0-9]{40}$/.test(sha)||ex.approvedReleaseSha!==sha)return false;
+  if(!isValidTime(ex.approvedAt)||!isValidTime(ex.expiresAt))return false;
+  const approved=Date.parse(ex.approvedAt),expires=Date.parse(ex.expiresAt);
+  if(!(approved<=nowMs&&nowMs<expires&&expires-approved<=MAX_EXCEPTION_WINDOW_MS&&
+    expires<=Date.parse(PRICE_REVIEW_CUTOFF)))return false;
+  if(!isRef(ex.approvedBy)||!isRef(ex.rationaleReference)||!receipt(ex.evidenceSha256))return false;
+  const m=ex.cpuMeasurement;
+  if(!obj(m)||!Number.isInteger(m.windowHours)||m.windowHours<24||m.windowHours>72||
+    !isValidTime(m.measuredAt))return false;
+  const measured=Date.parse(m.measuredAt);
+  if(!(measured<=nowMs&&nowMs-measured<=MAX_ATTESTATION_AGE_MS))return false;
+  if(!(typeof m.recentMsPerDay==='number'&&Number.isFinite(m.recentMsPerDay)&&m.recentMsPerDay>=0))return false;
+  const cpu=input.metrics&&input.metrics.workersCpuMs;
+  if(!metric(cpu))return false;
+  const remainingDays=(endMs-nowMs)/86400000;
+  // The owner's own forecast must not understate what was measured.
+  if(cpu.forecastRemaining+1e-9<m.recentMsPerDay*remainingDays)return false;
+  const limit=PLAN.workersCpuMs;
+  return cpu.used+m.recentMsPerDay*remainingDays*FORECAST_BUFFER<=limit+1e-9&&
+    cpu.used+cpu.forecastRemaining<=limit+1e-9;
+};
+
+function assess(input, accountId,now=new Date().toISOString(),ctx={}){
   const codes=new Set();
   const fail=(code,pass)=>{if(!pass)codes.add(code)};
   if(!obj(input)||!isValidTime(now))return {ok:false,codes:['ATTESTATION_INVALID']};
@@ -137,7 +173,18 @@ function assess(input, accountId,now=new Date().toISOString()){
       value.used+Math.max(value.forecastRemaining,pace);
     if(!(projected<=(included*SAFETY_RATIO)+1e-9))codes.add('RESERVE_EXHAUSTED_'+name);
   }
-  return {ok:codes.size===0,codes:[...codes].sort()};
+  let exception=null;
+  if(codes.has(EXCEPTION_WAIVABLE_CODE)&&input.releaseException!==undefined&&
+    releaseExceptionApplies(input.releaseException,input,ctx,nowMs,end)){
+    codes.delete(EXCEPTION_WAIVABLE_CODE);
+    exception={waived:EXCEPTION_WAIVABLE_CODE,approvedReleaseSha:input.releaseException.approvedReleaseSha,
+      expiresAt:input.releaseException.expiresAt};
+  }
+  const result={ok:codes.size===0,codes:[...codes].sort()};
+  // Only present when an exception was actually used, so the normal result
+  // shape ({ok,codes}) is byte-for-byte unchanged for every other caller.
+  if(exception)result.exception=exception;
+  return result;
 }
 if(require.main===module){
   let body;
@@ -150,15 +197,25 @@ if(require.main===module){
     process.exitCode=1;
   }
   if(body){
-    const result=assess(body,process.env.CLOUDFLARE_ACCOUNT_ID);
+    // The exception is bound to the exact commit being released.
+    let releaseSha='';
+    try{
+      releaseSha=require('node:child_process').execFileSync('git',['rev-parse','HEAD'],
+        {encoding:'utf8',stdio:['ignore','pipe','ignore']}).trim().toLowerCase();
+    }catch{releaseSha='';}
+    const result=assess(body,process.env.CLOUDFLARE_ACCOUNT_ID,undefined,{releaseSha});
     if(!result.ok){
       // Only deterministic error codes, never account IDs, metrics, tokens,
       // or the private source evidence.
       console.error('HOLD: SHARED_CLOUDFLARE_BUDGET '+result.codes.join(', '));
       process.exitCode=1;
+    }else if(result.exception){
+      console.log('PASS: ACCOUNT_WIDE_BUDGET_RELEASE_GATE under SINGLE_RELEASE_CPU_EXCEPTION for '+
+        result.exception.approvedReleaseSha.slice(0,12)+' until '+result.exception.expiresAt+
+        '; 20-percent CPU reserve waived, 100-percent CPU hard floor verified on measured rate');
     }else{
       console.log('PASS: ACCOUNT_WIDE_BUDGET_RELEASE_GATE with 20-percent headroom; no overage forecast on submitted evidence');
     }
   }
 }
-module.exports={assess,PLAN,REQUIRED_PLATFORMS,SAFETY_RATIO,FORECAST_BUFFER,MAX_ADDITIONAL_METERED_CHARGES_USD,PRICE_REVIEW_CUTOFF,MAX_PRICING_REVIEW_AGE_MS};
+module.exports={assess,PLAN,REQUIRED_PLATFORMS,SAFETY_RATIO,FORECAST_BUFFER,MAX_ADDITIONAL_METERED_CHARGES_USD,PRICE_REVIEW_CUTOFF,MAX_PRICING_REVIEW_AGE_MS,MAX_EXCEPTION_WINDOW_MS};

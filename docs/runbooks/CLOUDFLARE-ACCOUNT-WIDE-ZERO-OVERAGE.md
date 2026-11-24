@@ -92,6 +92,33 @@ Before signing it, the owner must read Cloudflare's currently published Workers 
 
 **What this does NOT do:** it does not relax any usage meter (`workersLogEvents` and every other meter keep their 80% reserve), it does not waive any other HOLD code, and it is not a pricing model; it is an owner attestation under the same trust model as the rest of the gate. Cycles that end on or before the cutoff are unaffected.
 
+### Single-release CPU reserve exception (owner-signed, expiring; not a routine path)
+
+Use only when a release is needed urgently (for example a customer-facing outage) while Workers CPU is below the plan allowance but still inside the 20% safety reserve. It waives **only** `RESERVE_EXHAUSTED_workersCpuMs`, for **one exact commit**, and keeps a hard floor at **100%** of the included allowance. Add this to the private attestation:
+
+```json
+"releaseException": {
+  "schemaVersion": "cdb-budget-release-exception/v1",
+  "scope": "single-release-cpu-reserve",
+  "waives": ["RESERVE_EXHAUSTED_workersCpuMs"],
+  "approvedReleaseSha": "<the exact 40-hex lowercase commit being deployed>",
+  "approvedAt": "<UTC ISO-8601, not in the future>",
+  "expiresAt": "<UTC ISO-8601, at most 24h after approvedAt and not after 2026-12-01T00:00:00Z>",
+  "approvedBy": "<owner approval reference>",
+  "rationaleReference": "<reference to the written justification>",
+  "evidenceSha256": "<64-hex SHA-256 of the PRIVATE evidence package>",
+  "cpuMeasurement": {
+    "windowHours": 48,
+    "measuredAt": "<UTC ISO-8601, at most 2h old>",
+    "recentMsPerDay": 0
+  }
+}
+```
+
+`recentMsPerDay` is the account-wide Workers CPU **per-day rate over the last 24-72 hours** (use a window that starts after the most recent CPU-reducing deployment; never the cycle average). The gate accepts the exception only if **all** of these hold: the SHA equals `git rev-parse HEAD` of the checked-out release; the window is at most 24h and ends before the pricing cutoff; `used + recentMsPerDay x remainingDays x 1.25 <= included CPU`; `used + forecastRemaining <= included CPU`; and `forecastRemaining >= recentMsPerDay x remainingDays` (the forecast may not understate the measurement). Every other meter keeps its 80% reserve and every other HOLD code still blocks.
+
+After deploying under an exception: record the previous known-good Worker version **before** deploying; re-measure account-wide CPU after 24h; if the daily rate exceeds the measured rate by more than 25%, roll back to the recorded version (see the pinned-release runbook) and do not request another exception in the same cycle. This is a risk-managed waiver of a safety margin, **not** a billing hard cap or a guarantee of zero charges.
+
 ## Cross-platform source inventory (NOT a live Cloudflare account usage report)
 
 Read-only GitHub configuration inspection dated 2026-10-22 identified the following workloads whose runtime usage **must be included in the one account-wide evidence package**:
