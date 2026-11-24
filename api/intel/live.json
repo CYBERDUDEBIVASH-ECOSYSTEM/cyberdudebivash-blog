@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T03:58:56.630Z",
+  "generated": "2026-11-24T05:06:36.852Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,13 +7,101 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8219,
+  "total_published": 8227,
   "s2n_stats": {
-    "passed": 151,
+    "passed": 153,
     "suppressed": 3,
     "avg_qs": 0.465
   },
   "items": [
+    {
+      "id": "CVE-2026-76466",
+      "title": "Hackers Exploit Critical Cisco Expressway Flaw to Gain Root Access and Infiltrate Internal Networks",
+      "description": "Attackers are now using a critical Cisco Expressway bug, CVE-2026-76466, to take full control of devices and move deeper into company networks. Researchers at F6 say the first known case happened soon after a public proof-of-concept (PoC) exploit appeared. F6&#8217;s Cyber Defens... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 72,
+      "quality_score": 0.493,
+      "threat_level": "HIGH",
+      "type": "AI_SECURITY",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-76466"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cybersecuritynews.com/hackers-exploit-critical-cisco-expressway-flaw/"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.493"
+        ],
+        "priority": [
+          "+12 PoC_available",
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-58254",
+      "title": "nats-server Leaf node connections bypass Nats-Trace-Dest permission check",
+      "description": "Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports leafnode connections between servers and message tracing through NATS headers.\n\nProblem Descripti... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 63,
+      "quality_score": 0.458,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-58254"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-p3j5-5hrq-p75h"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=3d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "+10 CVSS≥9",
+          "+3 supply_chain"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
     {
       "id": "CVE-2026-120413",
       "title": "CVE-2026-120413 - Yoast SEO < 28.9 - Unauthenticated Private Content Disclosure via Headless REST Head Endpoint",
@@ -402,49 +490,6 @@
       }
     },
     {
-      "id": "CVE-2026-113347",
-      "title": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
-      "description": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
-      "cvss": 9,
-      "final_ps": 53,
-      "quality_score": 0.408,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-113347"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-113347"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=3d (score=0.65)",
-          "QS=0.407"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-77367",
       "title": "Daptin: Unauthenticated SQL Injection via the sort query parameter on every entity list endpoint",
       "description": "Summary\n\nAn unauthenticated attacker can inject arbitrary SQL through the sort query parameter accepted by\nDaptin's generic entity list endpoint (GET /api/<entity>), which every table in a Daptin instance\nexposes. The parameter is concatenated into raw SQL identifiers with no val... [Full analysis a",
@@ -563,7 +608,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=4d (score=0.40)",
+          "recency=5d (score=0.40)",
           "QS=0.432"
         ],
         "priority": [
@@ -742,6 +787,49 @@
           "+12 PoC_available",
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-113347",
+      "title": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
+      "description": "CVE-2026-113347 - Ruijie Networks OS Command Injection Vulnerability",
+      "cvss": 9,
+      "final_ps": 51,
+      "quality_score": 0.383,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-113347"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-113347"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=4d (score=0.40)",
+          "QS=0.383"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -1431,49 +1519,6 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-133707"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=42 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-133553",
-      "title": "CVE-2026-133553 - Crun: crun: tmpcopyup follows a second path lookup and copies image files onto the host",
-      "description": "CVE-2026-133553 - Crun: crun: tmpcopyup follows a second path lookup and copies image files onto the host",
-      "cvss": 7.8,
-      "final_ps": 42,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-133553"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-133553"
       ],
       "explanation": {
         "quality": [
@@ -2278,7 +2323,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-20133",
@@ -4035,315 +4082,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-70193",
-      "title": "CVE-2026-70193 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "Improper limitation of a pathname to a restricted directory ('path traversal') in Microsoft Office SharePoint allows an authorized attacker to execute code over a network.",
-      "cvss": 9.9,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70193"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-70305",
-      "title": "CVE-2026-70305 — Affected software (product not identified) CVSS 9.6 Critical Vulnerability",
-      "description": "Improper neutralization of input during web page generation ('cross-site scripting') in Azure Portal allows an unauthorized attacker to perform spoofing over a network.",
-      "cvss": 9.6,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70305"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-109490",
-      "title": "CVE-2026-109490 — Affected software (product not identified) CVSS 9.3 Critical Vulnerability",
-      "description": "Improper neutralization of input during web page generation ('cross-site scripting') in Authentication Methods Portal Extension allows an unauthorized attacker to elevate privileges over a network.",
-      "cvss": 9.3,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-109490"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-113824",
-      "title": "CVE-2026-113824 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability",
-      "description": "Authorization bypass through user-controlled key in Microsoft Clarity allows an unauthorized attacker to elevate privileges over a network.",
-      "cvss": 9.1,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-113824"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-134624",
-      "title": "CVE-2026-134624: N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability — CISA KEV Active Expl",
-      "description": "N-able MailAssure (SpamExperts) contains a server-side request forgery vulnerability in the LDAP synchronization connection check that allows an authenticated API user to connect to arbitrary internal hosts and ports, determine which are reachable, and send crafted data to internal services.",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "N-able",
-      "product": "MailAssure",
-      "due_date": "2026-11-26",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://me.n-able.com/s/security-advisory/aArVy0000002mrlKAA",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-134624"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-118286",
-      "title": "CVE-2026-118286 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability",
-      "description": "Improper access control in Azure Site Recovery allows an unauthorized attacker to elevate privileges over a network.",
-      "cvss": 9.1,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-118286"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-76466",
-      "title": "Hackers Exploit Critical Cisco Expressway Flaw to Gain Root Access and Infiltrate Internal Networks",
-      "description": "Attackers are now using a critical Cisco Expressway bug, CVE-2026-76466, to take full control of devices and move deeper into company networks. Researchers at F6 say the first known case happened soon after a public proof-of-concept (PoC) exploit appeared. F6&#8217;s Cyber Defens... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "HIGH",
-      "type": "AI_SECURITY",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
-      "exploited": false,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-76466"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cybersecuritynews.com/hackers-exploit-critical-cisco-expressway-flaw/"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-58254",
-      "title": "nats-server Leaf node connections bypass Nats-Trace-Dest permission check",
-      "description": "Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports leafnode connections between servers and message tracing through NATS headers.\n\nProblem Descripti... [Full analysis a",
+      "id": "CVE-2026-63341",
+      "title": "Aedes has Uncaught Exception and Uncontrolled Resource Consumption",
+      "description": "Summary\nA remote Denial of Service (DoS) vulnerability, allows any remote client to cause a complete crash of the Aedes MQTT broker process. This is achieved by sending a specially crafted MQTT message (via PUBLISH or SUBSCRIBE), or by setting a Will message with such a topic, co... [Full analysis a",
       "cvss": 9.8,
       "final_ps": 28,
       "quality_score": 0.438,
@@ -4363,11 +4104,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-58254"
+        "CVE-2026-63341"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-p3j5-5hrq-p75h"
+        "https://github.com/advisories/GHSA-xxqp-5qx8-gj5q"
       ],
       "explanation": {
         "quality": [
@@ -4384,7 +4125,278 @@
       },
       "suppressed": false,
       "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-96805",
+      "title": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
+      "description": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
+      "cvss": 9.6,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-96805"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-96805"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-122247",
+      "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (POST ",
+      "description": "Description\n\nSummary\n\nOn a self-hosted, single-tenant Budibase instance (multiTenancy:false), the public bootstrap endpoint POST /api/global/users/init remains fully exploitable after the instance has been provisioned. Its \"already initialised\" guard (checkAnyUserExists()) is eva... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-122247"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-25qc-m4pw-2w8r"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-122244",
+      "title": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in jsonFormatter.format() rendered",
+      "description": "Description\n\nSummary\n\nA low-privileged application end-user (role BASIC - not a builder or admin, and on a public data-collection form, an unauthenticated visitor) can store an HTML/JavaScript payload in ordinary row data. When a builder or admin later opens that table in the Bud... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-122244"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-r2q3-7m4h-63qg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-94564",
+      "title": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
+      "description": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-94564"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-94564"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-58192",
+      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
+      "description": "Summary\n\nThe Appium storage plugin exposes an HTTP endpoint POST /storage/delete that takes a user-supplied name and deletes it from the server storage folder. The handler passes name straight into path.join(storageRoot, name) and then fs.rimraf() without any path sanitization. B... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-58192"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-135691",
+      "title": "CVE-2026-135691 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "description": "Open5GS WebUI through 2.8.0 contains an incorrect authorization vulnerability in webui/server/routes/db.js that allows authenticated user-role accounts to modify the Account model. Attackers can send PATCH /api/db/Account/<username> setting roles to admin, overwrite password hashes, delete accounts,",
+      "cvss": 8.8,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/open5gs/open5gs",
+        "https://github.com/open5gs/open5gs/blob/v2.8.0/webui/server/routes/db.js#L19-L24",
+        "https://github.com/open5gs/open5gs/commit/78cb3cb004d798f226ead87f3600a31387c36975",
+        "https://github.com/open5gs/open5gs/commit/fe001033625a74cd23e8d78d234f8b76c8697c70"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-24T03:58:57.114Z"
+  "lastReportGeneratedAt": "2026-11-24T05:06:37.376Z"
 }

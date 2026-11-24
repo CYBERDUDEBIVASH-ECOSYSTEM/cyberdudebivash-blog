@@ -14,7 +14,7 @@
     <copyright>Copyright 2026 CyberDudeBivash. All rights reserved.</copyright>
     <managingEditor>bivash@cyberdudebivash.com (CyberDudeBivash)</managingEditor>
     <webMaster>bivash@cyberdudebivash.com (CyberDudeBivash)</webMaster>
-    <lastBuildDate>Tue, 24 Nov 2026 03:58:57 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 05:06:37 GMT</lastBuildDate>
     <pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
     <ttl>60</ttl>
     <category>Cybersecurity</category>
@@ -31,7 +31,79 @@
       <height>144</height>
     </image>
 
-                                                                                                <item>
+                                                                                                  <item>
+    <title><![CDATA[CVE-2026-135736 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135736.html</link>
+    <description><![CDATA[Platform triage priority 65/100 (HIGH) — CVSS 8.1 — FFmpeg 4.4 before 9.1 contains a heap out-of-bounds read and write vulnerability in libavfilter/vf_deband.c that allows attackers to corrupt heap memory by sending a runtime coupling command. Attackers can send a 'deband coupling 1' command via sendcmd or an unauthenticated zmq filter, making chroma — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135736.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-135722 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135722.html</link>
+    <description><![CDATA[Platform triage priority 64/100 (MEDIUM) — CVSS 7.8 — FFmpeg before 9.1 contains a heap-based buffer overflow vulnerability in peak_init_writer() and wav_write_packet() in libavformat/wavenc.c that allows attackers to corrupt heap memory by supplying audio with zero channels. Attackers can provide a crafted PCM stream declaring no channels for WAV outp — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135722.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-135725 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135725.html</link>
+    <description><![CDATA[Platform triage priority 64/100 (MEDIUM) — CVSS 7.8 — FFmpeg before 9.1 contains a stack-based buffer overflow vulnerability in ff_rtmp_packet_write() in libavformat/rtmppkt.c that allows malicious RTMP servers to overflow a 16-byte header buffer. Attackers can send a Set Chunk Size packet on a high channel id with an extended timestamp, which handle_c — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135725.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-135734 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135734.html</link>
+    <description><![CDATA[Platform triage priority 64/100 (MEDIUM) — CVSS 7.8 — FFmpeg before 9.1 contains a heap out-of-bounds write vulnerability in the deflicker filter that lets attackers corrupt heap memory via unclamped high bit depth luma samples. Attackers can supply crafted video whose luma values exceed the nominal depth, making calc_avgy16() increment counters past t — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135734.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-135737 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135737.html</link>
+    <description><![CDATA[Platform triage priority 64/100 (MEDIUM) — CVSS 7.8 — FFmpeg before 9.1 contains a heap out-of-bounds write and read vulnerability in the tmidequalizer filter that allows attackers to corrupt memory by supplying high bit depth samples exceeding the nominal maximum. Attackers can craft planar 9, 10, 12 or 14 bit video so compute_histogram16() and apply_ — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135737.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-135706 — Affected software (product not identified) CVSS 7 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135706.html</link>
+    <description><![CDATA[Platform triage priority 60/100 (MEDIUM) — CVSS 7 — FFmpeg before 9.1 contains a heap buffer overflow vulnerability in modplug_read_header() in libavformat/libmodplug.c that allocates the buffer using max_size instead of sz. When max_size is set to 0, attackers can supply crafted module files that avio_read() copies into a zero-sized buffer, causing  — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135706.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-135709 — Affected software (product not identified) CVSS 7 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135709.html</link>
+    <description><![CDATA[Platform triage priority 60/100 (MEDIUM) — CVSS 7 — FFmpeg before 9.1 contains an out-of-bounds write vulnerability in ogg_buffer_data() in libavformat/oggenc.c because ogg_buffer_page() leaves a full page current after failed allocation. When page allocation fails, a memset with length (size_t)-1 or an overflowing memcpy writes past the segment tabl — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135709.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
+    <title><![CDATA[CVE-2026-135723 — Affected software (product not identified) CVSS 7 High Severity Vulnerability]]></title>
+    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135723.html</link>
+    <description><![CDATA[Platform triage priority 60/100 (MEDIUM) — CVSS 7 — FFmpeg before 9.1 contains a double free vulnerability in the fill_marker() function of libavformat/imf_cpl.c that frees a Marker label without clearing the pointer when default scope allocation fails. Attackers can supply a crafted Composition Playlist with a Marker Label lacking a scope attribute, — See the linked source report for evidence and any available detection guidance.]]></description>
+    <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135723.html</guid>
+    <category>Threat Intelligence</category>
+    <category>CVE_REPORT</category>
+  </item>
+  <item>
     <title><![CDATA[CVE-2026-135691 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability]]></title>
     <link>https://blog.cyberdudebivash.in/posts/cve-2026-135691.html</link>
     <description><![CDATA[Platform triage priority 68/100 (HIGH) — CVSS 8.8 — Open5GS WebUI through 2.8.0 contains an incorrect authorization vulnerability in webui/server/routes/db.js that allows authenticated user-role accounts to modify the Account model. Attackers can send PATCH /api/db/Account/ setting roles to admin, overwrite password hashes, delete accounts, and read  — See the linked source report for evidence and any available detection guidance.]]></description>
@@ -409,78 +481,14 @@
     <category>Threat Intelligence</category>
     <category>CVE_REPORT</category>
   </item>
-  <item>
-    <title><![CDATA[CVE-2026-135429 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability]]></title>
-    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135429.html</link>
-    <description><![CDATA[Platform triage priority 69/100 (HIGH) — CVSS 9.1 — Tabbycat 2.9.0 through 2.12.1 contains an incorrect authorization vulnerability in TournamentViewSet that allows unauthenticated attackers to gain write access because PerTournamentPermissionRequired returns True for views lacking a tournament attribute. Attackers can send POST, PUT, PATCH or DELETE — See the linked source report for evidence and any available detection guidance.]]></description>
-    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135429.html</guid>
-    <category>Threat Intelligence</category>
-    <category>CVE_REPORT</category>
-  </item>
-  <item>
-    <title><![CDATA[CVE-2026-135436 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability]]></title>
-    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135436.html</link>
-    <description><![CDATA[Platform triage priority 68/100 (HIGH) — CVSS 8.8 — KindleEar 3.0.0 through 3.5.3 contains a remote code execution vulnerability that allows authenticated non-admin users to run Python code by uploading malicious recipes. Attackers can submit crafted recipe source to the /recipe/upload action, which calibre compile_recipe executes via exec() without  — See the linked source report for evidence and any available detection guidance.]]></description>
-    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135436.html</guid>
-    <category>Threat Intelligence</category>
-    <category>CVE_REPORT</category>
-  </item>
-  <item>
-    <title><![CDATA[CVE-2026-135295 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability]]></title>
-    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135295.html</link>
-    <description><![CDATA[Platform triage priority 64/100 (MEDIUM) — CVSS 7.8 — FontForge through 20251009 contains a heap out-of-bounds write vulnerability in PcfReadEncodingsNames() that allows attackers to corrupt memory via negative glyph indices from truncated PCF encodings tables. Attackers can supply a crafted .pcf file imported through the GUI or scripting Import() comm — See the linked source report for evidence and any available detection guidance.]]></description>
-    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135295.html</guid>
-    <category>Threat Intelligence</category>
-    <category>CVE_REPORT</category>
-  </item>
-  <item>
-    <title><![CDATA[CVE-2026-135433 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability]]></title>
-    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135433.html</link>
-    <description><![CDATA[Platform triage priority 64/100 (MEDIUM) — CVSS 7.8 — FLTK through 1.4.5 contains a heap buffer overflow vulnerability in Fl_BMP_Image::load_bmp_() that allows attackers to corrupt heap memory by supplying crafted BMP or ICO files. Attackers can specify very large image dimensions so the 32-bit row and alpha mask pointer offsets wrap, writing file-deri — See the linked source report for evidence and any available detection guidance.]]></description>
-    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135433.html</guid>
-    <category>Threat Intelligence</category>
-    <category>CVE_REPORT</category>
-  </item>
-  <item>
-    <title><![CDATA[CVE-2026-135446 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability]]></title>
-    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135446.html</link>
-    <description><![CDATA[Platform triage priority 63/100 (MEDIUM) — CVSS 7.5 — Bold pagos en linea WordPress plugin before 3.5.1 contains an improper signature verification vulnerability in the bold_co webhook that allows unauthenticated attackers to forge payment notifications. Attackers can set metadata.reference to begin with 'test' and sign the body with the empty test_sec — See the linked source report for evidence and any available detection guidance.]]></description>
-    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135446.html</guid>
-    <category>Threat Intelligence</category>
-    <category>CVE_REPORT</category>
-  </item>
-  <item>
-    <title><![CDATA[CVE-2026-135300 — Affected software (product not identified) CVSS 7.4 High Severity Vulnerability]]></title>
-    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135300.html</link>
-    <description><![CDATA[Platform triage priority 62/100 (MEDIUM) — CVSS 7.4 — Pomerium from 0.30.0 before 0.34.0 contains an authentication bypass vulnerability in the MCP token endpoint that skips client secret verification for client_secret_basic clients. Attackers holding an intercepted authorization code or refresh token can redeem it at /.pomerium/mcp/token with any secr — See the linked source report for evidence and any available detection guidance.]]></description>
-    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135300.html</guid>
-    <category>Threat Intelligence</category>
-    <category>CVE_REPORT</category>
-  </item>
-  <item>
-    <title><![CDATA[CVE-2026-135298 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability]]></title>
-    <link>https://blog.cyberdudebivash.in/posts/cve-2026-135298.html</link>
-    <description><![CDATA[Platform triage priority 61/100 (MEDIUM) — CVSS 7.1 — Convoy before 26.6.0 contains an insecure direct object reference vulnerability in /portal-api single-resource handlers that allows portal link token holders to access other tenants' resources by ID. Attackers with another tenant's resource IDs in the same project can read endpoint signing secrets a — See the linked source report for evidence and any available detection guidance.]]></description>
-    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-135298.html</guid>
-    <category>Threat Intelligence</category>
-    <category>CVE_REPORT</category>
-  </item>
-  <item>
-    <title><![CDATA[CVE-2026-127223 — Affected software (product not identified) CVSS 7.2 High Severity Vulnerability]]></title>
-    <link>https://blog.cyberdudebivash.in/posts/cve-2026-127223.html</link>
-    <description><![CDATA[Platform triage priority 61/100 (MEDIUM) — CVSS 7.2 — GFI HelpDesk before 4.99.13 contains an SQL injection vulnerability in the staff group management feature that allows authenticated attackers with administrator privileges to execute arbitrary SQL queries by supplying a crafted title parameter to /admin/index.php?/Base/StaffGroup/InsertSubmit. The C — See the linked source report for evidence and any available detection guidance.]]></description>
-    <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
-    <guid isPermaLink="true">https://blog.cyberdudebivash.in/posts/cve-2026-127223.html</guid>
-    <category>Threat Intelligence</category>
-    <category>CVE_REPORT</category>
-  </item>
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
