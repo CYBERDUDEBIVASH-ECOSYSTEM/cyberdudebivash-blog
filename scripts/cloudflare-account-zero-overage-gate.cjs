@@ -51,6 +51,21 @@ const metric=x=>obj(x)&&Number.isFinite(x.used)&&x.used>=0&&
   Number.isFinite(x.forecastRemaining)&&x.forecastRemaining>=0;
 const receipt=x=>typeof x==='string'&&/^[a-f0-9]{64}$/i.test(x);
 const isRef=x=>typeof x==='string'&&/^[A-Za-z0-9][A-Za-z0-9._/-]{7,159}$/.test(x)&&!/(?:placeholder|tbd|unknown|demo)/i.test(x);
+// Owner attestation that Cloudflare's post-PRICE_REVIEW_CUTOFF Observability
+// pricing was reviewed against ALL Workers observability settings and that no
+// additional metered charge is projected. Same trust model as the rest of this
+// gate (owner-supplied private evidence + receipt hash); stale (>14 days) or
+// partial reviews never count. It does NOT relax any usage metric: the
+// workersLogEvents reserve (and every other meter) is still enforced below.
+const MAX_PRICING_REVIEW_AGE_MS=14*24*60*60*1000;
+const pricingReviewAttested=(r,nowMs)=>obj(r)&&
+  r.schemaVersion==='cdb-observability-pricing-review/v1'&&
+  isValidTime(r.reviewedAt)&&Date.parse(r.reviewedAt)<=nowMs&&
+  nowMs-Date.parse(r.reviewedAt)<=MAX_PRICING_REVIEW_AGE_MS&&
+  isRef(r.pricingSourceReference)&&isRef(r.operatorApprovalReference)&&
+  receipt(r.evidenceSha256)&&
+  r.allWorkersObservabilitySettingsReviewed===true&&
+  r.projectedPostCutoffAdditionalMeteredChargesUsd===0;
 
 function assess(input, accountId,now=new Date().toISOString()){
   const codes=new Set();
@@ -97,7 +112,12 @@ function assess(input, accountId,now=new Date().toISOString()){
     end-start<=35*24*60*60*1000&&captured>=start);
   // 2026-12-01 changes account-wide Observability pricing; require updated
   // model before allowing any billing cycle that crosses the switch date.
-  fail('NEW_PRICING_REVIEW_REQUIRED',end<=Date.parse(PRICE_REVIEW_CUTOFF));
+  // A cycle that ends on/before the cutoff is unaffected. A cycle that crosses
+  // it is accepted ONLY with a fresh, structured owner pricing review (see
+  // pricingReviewAttested); the hard-coded date alone must not block every
+  // future release forever, and an unreviewed crossing still HOLDs.
+  fail('NEW_PRICING_REVIEW_REQUIRED',end<=Date.parse(PRICE_REVIEW_CUTOFF)||
+    pricingReviewAttested(input.postCutoffPricingReview,nowMs));
   if(!(start<nowMs&&nowMs<end))return {ok:false,codes:[...codes].sort()};
   const expected=Object.keys(PLAN).sort();
   fail('METRIC_COVERAGE_INCOMPLETE',obj(input.metrics)&&
@@ -141,4 +161,4 @@ if(require.main===module){
     }
   }
 }
-module.exports={assess,PLAN,REQUIRED_PLATFORMS,SAFETY_RATIO,FORECAST_BUFFER,MAX_ADDITIONAL_METERED_CHARGES_USD,PRICE_REVIEW_CUTOFF};
+module.exports={assess,PLAN,REQUIRED_PLATFORMS,SAFETY_RATIO,FORECAST_BUFFER,MAX_ADDITIONAL_METERED_CHARGES_USD,PRICE_REVIEW_CUTOFF,MAX_PRICING_REVIEW_AGE_MS};
