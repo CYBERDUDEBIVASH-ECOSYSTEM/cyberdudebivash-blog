@@ -16,6 +16,11 @@ const { applyBaselineHeaders } = require('./security-headers');
 const { setD1Binding: setHttpD1Binding } = require('../../api/_lib/d1');
 const { setR2Binding } = require('../../api/_lib/premium-report-storage');
 const { setSentinelGatewayBinding } = require('../../api/_lib/sentinel-gateway-binding');
+const { serveFeed, serveDossier } = require('./runtime-feed');
+
+// Option A runtime feed responses may come from the Cache API, whose headers can
+// be immutable: copy into a fresh Response before adding baseline headers.
+const withBaselineHeaders = (response) => applyBaselineHeaders(new Response(response.body, response));
 
 // Static require() map, not a dynamic require(computedPath) — esbuild
 // must see each module reference at build time to bundle it; a
@@ -105,9 +110,10 @@ async function dispatch(handlerPath, request, routeQuery) {
 
 /**
  * @param {Request} request
- * @param {{ ASSETS: { fetch(req: Request): Promise<Response> }, DB?: object, PREMIUM_REPORTS?: object, SENTINEL_GATEWAY?: { fetch(input: string, init?: object): Promise<Response> } }} env
+ * @param {{ ASSETS: { fetch(req: Request): Promise<Response> }, DB?: object, PREMIUM_REPORTS?: object, RUNTIME_FEED?: object, SENTINEL_GATEWAY?: { fetch(input: string, init?: object): Promise<Response> } }} env
+ * @param {{ waitUntil?: Function }} [ctx] optional execution context (edge-cache writes)
  */
-async function handleFetch(request, env) {
+async function handleFetch(request, env, ctx) {
   // Register Cloudflare-native state/storage bindings for HTTP handlers before
   // any route module runs. Existing D1-backed HTTP APIs previously fell back to
   // the REST transport because env was not threaded through dispatch(); this
@@ -130,7 +136,17 @@ async function handleFetch(request, env) {
   const route = resolveRoute(url.pathname);
 
   if (!route) {
-    return env.ASSETS.fetch(request);
+    // Option A runtime feed (see ./runtime-feed.js). Reached ONLY for unrouted
+    // (static) paths, so blocked/redirect/handler routes keep strict precedence.
+    // Fail-open: every null below leaves the static-asset behaviour unchanged.
+    const live = await serveFeed(request, env, url.pathname, ctx);
+    if (live) return withBaselineHeaders(live);
+    const asset = await env.ASSETS.fetch(request);
+    if (asset.status === 404) {
+      const dossier = await serveDossier(request, env, url.pathname);
+      if (dossier) return withBaselineHeaders(dossier);
+    }
+    return asset;
   }
 
   switch (route.type) {
@@ -147,6 +163,10 @@ async function handleFetch(request, env) {
 
     case 'asset': {
       const assetUrl = new URL(route.path, url);
+      // Aliases such as /feed and /atom.xml resolve to /rss.xml: honour the
+      // runtime feed for the resolved path too (null => unchanged static serve).
+      const live = await serveFeed(request, env, route.path, ctx);
+      if (live) return withBaselineHeaders(live);
       return env.ASSETS.fetch(new Request(assetUrl, request));
     }
 
