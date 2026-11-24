@@ -348,42 +348,56 @@ def _parse_feed_items(xml_text: str) -> list[dict]:
     return parsed
 
 
+# Keyword -> Blogger label. Order is the label order and must not change (existing posts and tests).
+_LABEL_KEYWORDS = {
+    "cve": "Vulnerabilities",
+    "zero-day": "Zero-Day",
+    "zero day": "Zero-Day",
+    "ransomware": "Ransomware",
+    "malware": "Malware Research",
+    "apt": "APT",
+    "nation-state": "APT",
+    "phishing": "Phishing",
+    "ai security": "AI Security",
+    "llm": "AI Security",
+    "prompt injection": "AI Security",
+    "owasp": "AI Security",
+    "mitre att&ck": "Detection Engineering",
+    "sigma": "Detection Engineering",
+    "yara": "Detection Engineering",
+    "soc": "SOC Operations",
+    "cloud": "Cloud Security",
+    "devsecops": "DevSecOps",
+    "supply chain": "Supply Chain",
+    "cisa kev": "CISA KEV",
+    "known exploited": "CISA KEV",
+    "federal deadline": "CISA KEV",
+    "patch tuesday": "Patch Tuesday",
+    "breach": "Data Breach",
+    "incident": "Incident Response",
+    "iot": "IoT Security",
+}
+# A keyword matches only as a WHOLE WORD (optionally plural/past tense), never inside another word:
+# the old substring test labelled "adapt" APT, "social"/"SocGholish" SOC Operations, "iCloud" Cloud
+# Security, "enrollment" AI Security (llm) and "laptop" APT. Threat-group names carry a number
+# ("APT28"), so that one keyword also accepts trailing digits.
+_LABEL_SUFFIX = {"apt": r"\d{0,3}s?"}
+_LABEL_PATTERNS = tuple(
+    (
+        re.compile(r"(?<![a-z0-9])" + re.escape(keyword) + _LABEL_SUFFIX.get(keyword, r"(?:e?s|ed)?") + r"(?![a-z0-9])"),
+        label,
+    )
+    for keyword, label in _LABEL_KEYWORDS.items()
+)
+
+
 def _infer_labels(title: str, summary: str) -> list[str]:
-    """Map content to Blogger labels based on keywords."""
+    """Map content to Blogger labels based on whole-word keywords."""
     text = (title + " " + summary).lower()
     labels = ["CYBERDUDEBIVASH", "Threat Intelligence"]
 
-    mapping = {
-        "cve": "Vulnerabilities",
-        "zero-day": "Zero-Day",
-        "zero day": "Zero-Day",
-        "ransomware": "Ransomware",
-        "malware": "Malware Research",
-        "apt": "APT",
-        "nation-state": "APT",
-        "phishing": "Phishing",
-        "ai security": "AI Security",
-        "llm": "AI Security",
-        "prompt injection": "AI Security",
-        "owasp": "AI Security",
-        "mitre att&ck": "Detection Engineering",
-        "sigma": "Detection Engineering",
-        "yara": "Detection Engineering",
-        "soc": "SOC Operations",
-        "cloud": "Cloud Security",
-        "devsecops": "DevSecOps",
-        "supply chain": "Supply Chain",
-        "cisa kev": "CISA KEV",
-        "known exploited": "CISA KEV",
-        "federal deadline": "CISA KEV",
-        "patch tuesday": "Patch Tuesday",
-        "breach": "Data Breach",
-        "incident": "Incident Response",
-        "iot": "IoT Security",
-    }
-
-    for keyword, label in mapping.items():
-        if keyword in text and label not in labels:
+    for pattern, label in _LABEL_PATTERNS:
+        if label not in labels and pattern.search(text):
             labels.append(label)
 
     return labels
