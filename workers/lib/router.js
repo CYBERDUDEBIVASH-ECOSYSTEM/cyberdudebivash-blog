@@ -143,7 +143,7 @@ async function handleFetch(request, env, ctx) {
     if (live) return withBaselineHeaders(live);
     const asset = await env.ASSETS.fetch(request);
     if (asset.status === 404) {
-      const dossier = await serveDossier(request, env, url.pathname);
+      const dossier = await serveDossier(request, env, url.pathname, ctx);
       if (dossier) return withBaselineHeaders(dossier);
     }
     return asset;

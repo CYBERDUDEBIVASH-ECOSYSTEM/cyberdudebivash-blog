@@ -37,6 +37,7 @@ Manual releases cannot keep a 3-hour freshness SLO. Relabelling (B) keeps the pr
 ## Budget model (Not verified against live traffic; the zero-overage gate decides)
 * **R2 Class A (writes):** publisher runs ~48/day; typical ≈ 300 PUT/day (3 feeds + new dossiers), hard-capped in PR-2. ≈ 9k/month vs 1M included (0.9%). September's overage was 3M Class A operations, hence the hard cap.
 * **Workers requests/CPU:** only the three feed paths are intercepted (`run_worker_first`, PR-4). Measured blog Worker median ≈ 0.84 ms/request, so 1M feed requests/month ≈ 1M CPU-ms (≈ 3.3% of 30M). A 60-second Cache API layer limits R2 reads (Class B) to ~one per path per colo per minute.
+* **R2 Class B (reads), dossier fallback:** a valid-slug path that is absent from both the static build and R2 is remembered as a miss for **60 s** (Cache API, free), so repeated probes of one URL cost at most one read per colo per minute. Not remembered: hits (each view of a not-yet-deployed dossier is one read, bounded by real readers), thrown R2 errors (a transient fault must not hide a dossier), and anything without `ctx.waitUntil`. A dossier uploaded right after a miss can 404 for up to 60 s. A flood of *distinct* valid slugs still costs one read each; each such request is already a Worker request today, so it is bounded by the request rate, not multiplied by this feature. Pinned by `tests-js/runtime-feed-dossier-miss-cache.test.js`.
 * **Gateway CPU:** the gateway fix (2026-11-24 03:50 UTC) is what creates the headroom; the release exception measures it.
 
 ## Compatibility

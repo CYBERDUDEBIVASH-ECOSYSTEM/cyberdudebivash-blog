@@ -46,3 +46,4 @@ Expect on each: `x-feed-source: runtime-r2`, a 64-hex `x-feed-sha256`, `x-feed-g
 * The RSS public `Cache-Control` stays 1 h (unchanged from today), so downstream caches can hold an RSS copy up to an hour even though the origin is fresh.
 * Reports from 2026-10-23 to about 2026-11-21 appear on the SOC site after the first publisher backfill (`-f since_commits=300`); they are outside the Blogger 72 h window and are not delivered to Blogger automatically.
 * A runtime object is trusted for at most 6 h. If the publisher stops, the site degrades to the static build, not to an error.
+* Dossier lookups that find nothing are remembered for 60 s per data center (R2 Class B cost control). A dossier uploaded right after a miss can therefore 404 for up to a minute; the next Blogger run or reload picks it up. A flood of distinct valid slugs still costs one read each (bounded by request rate).

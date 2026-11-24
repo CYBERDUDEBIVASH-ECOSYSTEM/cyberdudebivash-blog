@@ -46,6 +46,8 @@ const DOSSIER_MAX_BYTES = 384 * 1024;         // matches source_delivery_guard _
 const FEED_MAX_AGE_MS = 6 * 60 * 60 * 1000;
 const FUTURE_SKEW_MS = 5 * 60 * 1000;
 const FEED_CACHE_SECONDS = 60; // Worker-side Cache API TTL only; the public Cache-Control is the static build's
+const MISS_CACHE_SECONDS = 60; // negative cache for dossier lookups that found nothing in R2
+const MISS_KEY_ORIGIN = 'https://runtime-feed.internal/dossier-miss/';
 const SHA256 = /^[a-f0-9]{64}$/;
 const ISO_UTC = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/;
 
@@ -157,23 +159,49 @@ async function serveFeed(request, env, pathname, ctx, nowMs = Date.now()) {
 
 /**
  * Called ONLY after the static asset lookup returned 404.
+ *
+ * COST CONTROL (R2 Class B reads are metered): a valid-slug path that is absent from the
+ * static build AND from R2 would cost one R2 read per request. A confirmed miss is therefore
+ * remembered for MISS_CACHE_SECONDS in the Cache API (free), so repeated probes of the same
+ * URL read R2 at most once per data center per minute. Only confirmed misses are remembered:
+ * never a thrown error (a transient R2 fault must not hide a dossier), never a hit, and never
+ * without ctx.waitUntil (so callers that cannot write the cache behave exactly as before).
+ * A dossier uploaded right after a miss can therefore 404 for up to MISS_CACHE_SECONDS.
+ * A flood of DISTINCT valid slugs still costs one read each; that volume is already a Worker
+ * request each today and is bounded by the request rate.
  * @returns {Promise<Response|null>}
  */
-async function serveDossier(request, env, pathname) {
+async function serveDossier(request, env, pathname, ctx) {
   try {
     if (!isReadMethod(request)) return null;
     const match = DOSSIER_PATH.exec(pathname);
     if (!match) return null;
     const bucket = bucketOf(env);
     if (!bucket) return null;
+
+    const cache = typeof caches !== 'undefined' && caches && caches.default ? caches.default : null;
+    // Synthetic key on a reserved host: it can never equal a real request URL or a feed cache key.
+    const missKey = cache ? new Request(MISS_KEY_ORIGIN + match[1], { method: 'GET' }) : null;
+    if (cache) {
+      try { if (await cache.match(missKey)) return null; } catch (_) { /* cache fault: fall through to R2 */ }
+    }
+    const rememberMiss = () => {
+      if (!cache || !ctx || typeof ctx.waitUntil !== 'function') return;
+      try {
+        const marker = new Response(null, { status: 200, headers: { 'Cache-Control': 'public, max-age=' + MISS_CACHE_SECONDS } });
+        ctx.waitUntil(Promise.resolve().then(() => cache.put(missKey, marker)).catch(() => {}));
+      } catch (_) { /* best effort */ }
+    };
+
     const object = await bucket.get(PREFIX + 'posts/' + match[1]);
-    if (!object) return null;
+    if (!object) { rememberMiss(); return null; }
     if (!(Number.isSafeInteger(object.size) && object.size > 0 && object.size <= DOSSIER_MAX_BYTES)) {
       await discard(object);
+      rememberMiss();
       return null;
     }
     const info = dossierInfo(object);
-    if (!info) { await discard(object); return null; }
+    if (!info) { await discard(object); rememberMiss(); return null; }
     return respond(request, object, DOSSIER_SPEC, info);
   } catch (_) {
     return null;
@@ -181,6 +209,6 @@ async function serveDossier(request, env, pathname) {
 }
 
 module.exports = {
-  serveFeed, serveDossier, feedInfo, dossierInfo,
+  serveFeed, serveDossier, feedInfo, dossierInfo, MISS_CACHE_SECONDS, MISS_KEY_ORIGIN,
   FEEDS, PREFIX, DOSSIER_PATH, FEED_MAX_BYTES, DOSSIER_MAX_BYTES, FEED_MAX_AGE_MS, FUTURE_SKEW_MS,
 };
