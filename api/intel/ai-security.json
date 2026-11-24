@@ -2,10 +2,10 @@
   "platform": "CYBERDUDEBIVASH SENTINEL APEX — AI Security Intelligence Division",
   "endpoint": "/api/intel/ai-security.json",
   "doctrine": "Sentinel-APEX/prompts/ai-security-master-prompt.md",
-  "generated": "2026-11-24T01:05:13.656Z",
+  "generated": "2026-11-24T02:53:51.274Z",
   "disclaimer": "Evidence-graded AI security intelligence. Confidence and evidence labels attached per item. Community leads are corroborated before publication.",
   "stats": {
-    "published": 6,
+    "published": 4,
     "p1": 0,
     "leadsHeld": 0,
     "analystReports": 0,
@@ -13,20 +13,20 @@
     "sourcesTotal": 6,
     "sourceHealth": [
       {
-        "name": "r/netsec",
-        "key": "reddit_ns",
-        "tier": 3,
-        "status": "degraded",
-        "items": 0,
-        "error": "HTTP 429"
-      },
-      {
         "name": "r/MachineLearning",
         "key": "reddit_ml",
         "tier": 3,
         "status": "degraded",
         "items": 0,
         "error": "HTTP 404"
+      },
+      {
+        "name": "r/netsec",
+        "key": "reddit_ns",
+        "tier": 3,
+        "status": "degraded",
+        "items": 0,
+        "error": "HTTP 429"
       },
       {
         "name": "NVD (prompt injection)",
@@ -45,23 +45,23 @@
         "error": null
       },
       {
-        "name": "GitHub Security Advisories",
-        "key": "ghsa",
-        "tier": 1,
-        "status": "ok",
-        "items": 60,
-        "error": null
-      },
-      {
         "name": "arXiv cs.CR (LLM security)",
         "key": "arxiv_sec",
         "tier": 2,
         "status": "ok",
         "items": 30,
         "error": null
+      },
+      {
+        "name": "GitHub Security Advisories",
+        "key": "ghsa",
+        "tier": 1,
+        "status": "ok",
+        "items": 60,
+        "error": null
       }
     ],
-    "runtimeMs": 12879
+    "runtimeMs": 735
   },
   "frameworks": {
     "owasp_llm_top10": {
@@ -88,7 +88,7 @@
       "AML.T0057": "LLM Data Leakage"
     }
   },
-  "count": 6,
+  "count": 4,
   "items": [
     {
       "id": "18238adcb359f00e",
@@ -215,9 +215,9 @@
       "has_analyst_report": false
     },
     {
-      "id": "7be427122f334010",
+      "id": "a75f6add716fd98b",
       "title": "PIPETTE: Prompt Injection Purple-Teaming for Robust LLM Agents",
-      "url": "https://arxiv.org/abs/2611.24362v1",
+      "url": "https://arxiv.org/abs/2611.24362v2",
       "source": "arXiv cs.CR (LLM security)",
       "tier": 2,
       "published": "2026-11-18T12:56:06Z",
@@ -258,118 +258,6 @@
       "agent_risk": {
         "flags": {
           "agentic": true,
-          "mcp": false,
-          "rag": true,
-          "tool_use": false,
-          "supply_chain": false
-        },
-        "level": "elevated"
-      },
-      "enterprise_impact": {
-        "score": 20,
-        "priority": "P3"
-      },
-      "confidence": {
-        "source": "MODERATE",
-        "evidence": "LOW",
-        "overall": "LOW",
-        "rationale": "Research source; 1 corroborating source(s)."
-      },
-      "corroboration": 1,
-      "detection": {
-        "detect": "Monitor LLM gateway logs for delimiter-breaking tokens, role-swap phrases (\"ignore previous\", \"you are now\"), and base64/hex blobs in user or retrieved content.",
-        "hunt": "Correlate anomalous tool-invocation sequences that immediately follow untrusted content ingestion (email, web, RAG chunks)."
-      },
-      "has_analyst_report": false
-    },
-    {
-      "id": "16ff0f0981522703",
-      "title": "Dressed in Authority: Practical Black-Box Jailbreaking of MLLMs via Visual Trust Bias",
-      "url": "https://arxiv.org/abs/2611.22292v1",
-      "source": "arXiv cs.CR (LLM security)",
-      "tier": 2,
-      "published": "2026-11-17T06:50:06Z",
-      "cve": null,
-      "severity": null,
-      "cvss": null,
-      "evidence_label": "PUBLISHED_RESEARCH",
-      "categories": [
-        {
-          "id": "prompt_injection",
-          "label": "Prompt Injection"
-        }
-      ],
-      "owasp_llm": [
-        {
-          "id": "LLM01",
-          "name": "Prompt Injection"
-        }
-      ],
-      "mitre_atlas": [
-        {
-          "id": "AML.T0051",
-          "name": "LLM Prompt Injection"
-        }
-      ],
-      "agent_risk": {
-        "flags": {
-          "agentic": false,
-          "mcp": false,
-          "rag": true,
-          "tool_use": false,
-          "supply_chain": false
-        },
-        "level": "elevated"
-      },
-      "enterprise_impact": {
-        "score": 20,
-        "priority": "P3"
-      },
-      "confidence": {
-        "source": "MODERATE",
-        "evidence": "LOW",
-        "overall": "LOW",
-        "rationale": "Research source; 1 corroborating source(s)."
-      },
-      "corroboration": 1,
-      "detection": {
-        "detect": "Monitor LLM gateway logs for delimiter-breaking tokens, role-swap phrases (\"ignore previous\", \"you are now\"), and base64/hex blobs in user or retrieved content.",
-        "hunt": "Correlate anomalous tool-invocation sequences that immediately follow untrusted content ingestion (email, web, RAG chunks)."
-      },
-      "has_analyst_report": false
-    },
-    {
-      "id": "199283b02e8b652d",
-      "title": "GapLeak: When Privacy-Preserving LLM-based Web Agents Become a Privacy Risk",
-      "url": "https://arxiv.org/abs/2611.22223v1",
-      "source": "arXiv cs.CR (LLM security)",
-      "tier": 2,
-      "published": "2026-11-17T05:06:25Z",
-      "cve": null,
-      "severity": null,
-      "cvss": null,
-      "evidence_label": "PUBLISHED_RESEARCH",
-      "categories": [
-        {
-          "id": "prompt_injection",
-          "label": "Prompt Injection"
-        }
-      ],
-      "owasp_llm": [
-        {
-          "id": "LLM01",
-          "name": "Prompt Injection"
-        }
-      ],
-      "mitre_atlas": [
-        {
-          "id": "AML.T0051",
-          "name": "LLM Prompt Injection"
-        }
-      ],
-      "agent_risk": {
-        "flags": {
-          "agentic": false,
           "mcp": false,
           "rag": true,
           "tool_use": false,
