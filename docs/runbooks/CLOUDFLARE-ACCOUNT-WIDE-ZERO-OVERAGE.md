@@ -72,6 +72,26 @@ Official sources: https://developers.cloudflare.com/workers/platform/pricing/ ; 
 
 **This is not a billing hard cap or a guarantee of future zero charges.** Cloudflare Paid can accumulate usage charges after a passing preflight if traffic surges, if other platforms change, or if a metered service is missed. Use Cloudflare Billing alerts and ongoing account-level monitoring; reduce high-cost operations, use static caching where feasible, and avoid increasing cron/polling frequencies. Run account-wide usage checks through the month and before every authorized deployment.
 
+### Billing cycles that cross the 2026-12-01 Observability pricing change
+
+The gate returns `NEW_PRICING_REVIEW_REQUIRED` for any billing cycle whose end is after `2026-12-01T00:00:00Z`. Because the current cycle ends 2026-12-03 and every later monthly cycle also ends after that date, an unconditional date check would block **every** future release, even at zero usage. A crossing cycle is therefore accepted **only** when the private attestation also carries a fresh pricing review:
+
+```json
+"postCutoffPricingReview": {
+  "schemaVersion": "cdb-observability-pricing-review/v1",
+  "reviewedAt": "<UTC ISO-8601, within the last 14 days>",
+  "pricingSourceReference": "<reference to the Cloudflare pricing page/version you reviewed>",
+  "operatorApprovalReference": "<owner approval reference>",
+  "evidenceSha256": "<64-hex SHA-256 of the PRIVATE review evidence>",
+  "allWorkersObservabilitySettingsReviewed": true,
+  "projectedPostCutoffAdditionalMeteredChargesUsd": 0
+}
+```
+
+Before signing it, the owner must read Cloudflare's currently published Workers Observability / Workers Logs pricing, review the observability settings (enabled flag and `head_sampling_rate`) of **every** Worker on the shared account, and confirm that no additional metered charge is projected after the cutoff. Rules enforced by the gate: all fields are required, the review may be at most **14 days old** and not dated in the future, references may not be placeholders, and the projected charge must be the number `0`.
+
+**What this does NOT do:** it does not relax any usage meter (`workersLogEvents` and every other meter keep their 80% reserve), it does not waive any other HOLD code, and it is not a pricing model; it is an owner attestation under the same trust model as the rest of the gate. Cycles that end on or before the cutoff are unaffected.
+
 ## Cross-platform source inventory (NOT a live Cloudflare account usage report)
 
 Read-only GitHub configuration inspection dated 2026-10-22 identified the following workloads whose runtime usage **must be included in the one account-wide evidence package**:
