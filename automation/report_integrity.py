@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 from typing import Optional
 
 from .content_discovery import DiscoveredArticle
+from .publication_scheduler import ransomware_is_primary_topic
 
 
 # Truthful production-mode label (P0-AI-NATIVE-CERTIFICATION-2026-08-19):
@@ -211,7 +212,11 @@ def _family(article: DiscoveredArticle) -> tuple[str, str]:
         "ai security" in labels and ai_subject.search(summary)
     ):
         return "ai_security", "AI Security Intelligence"
-    if "ransomware" in labels or re.search(r"\bransomware\b", event_text, re.I):
+    # Same primary-topic standard the delivery scheduler uses (single source of truth): a title
+    # term or an independent label, never an incidental mention in the summary or a label that
+    # was merely derived from that mention. A release note that lists "Linux ransomware
+    # protection" among 143 detection rules is not a ransomware report.
+    if ransomware_is_primary_topic(article):
         return "ransomware_reporting", "Ransomware Intelligence"
     return "general_intelligence", "Cyber Threat Intelligence"
 
