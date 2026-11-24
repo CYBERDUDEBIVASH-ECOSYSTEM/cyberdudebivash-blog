@@ -120,10 +120,12 @@ describe('review-queue with Access enforced', () => {
     expect(res.statusCode).toBe(200);
   });
 
-  test('valid token + wrong key -> 401 from the key gate', async () => {
+  test('valid token + wrong key -> 401 from the key gate, recorded as ADMIN_AUTH_FAIL (not under the requested action)', async () => {
     const res = await reviewQueue({ 'x-admin-key': 'wrong-key-wrong-key', 'cf-access-jwt-assertion': await mint() });
     expect(res.statusCode).toBe(401);
     expect(res.body.error.code).toBe('UNAUTHORIZED');
+    expect(auditActions()).toHaveLength(1);
+    expect(auditActions()[0]).toMatchObject({ action: 'ADMIN_AUTH_FAIL', requested: 'review-queue', endpoint: 'detections/performance' });
   });
 
   test('a forged cookie (signed by another key) is refused', async () => {

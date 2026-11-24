@@ -200,12 +200,25 @@ async function checkIpRateLimit(ip) {
 }
 
 /* ─── AUDIT LOGGER ───────────────────────────────────────────── */
+/**
+ * Append one entry to the payment/admin audit log.
+ *
+ * The event name is authoritative: it is what the admin audit view filters on. `data` used to be spread after
+ * it, so a data key called "action" (the admin action requested, a subscription pause/resume/cancel, ...)
+ * REPLACED the event name, and ADMIN_AUTH_FAIL and SUBSCRIPTION_MANAGED entries were stored under the
+ * requested action instead. That value is now kept as `requested` (or `requestedAction` if the caller also sent
+ * its own `requested`), so nothing is lost and the event name can never be overwritten by a payload.
+ *
+ * Entries written before this change keep the old shape in the log; they still carry all their data.
+ */
 async function auditLog(action, data = {}) {
   try {
+    const { action: collidingAction, ...fields } = data || {};
     const entry = JSON.stringify({
       action,
       ts: now(),
-      ...data,
+      ...(collidingAction === undefined ? {} : { [Object.prototype.hasOwnProperty.call(fields, 'requested') ? 'requestedAction' : 'requested']: collidingAction }),
+      ...fields,
     });
     await redis.zadd('audit:payment:log', Date.now(), entry);
     // Trim to cap log size
