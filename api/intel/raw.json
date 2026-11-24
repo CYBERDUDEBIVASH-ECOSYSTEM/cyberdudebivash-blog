@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T20:54:32.487Z",
+  "generated": "2026-11-24T21:57:14.463Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,200 +8,55 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 171,
+  "count": 169,
   "items": [
-    {
-      "id": "CVE-2026-132165",
-      "title": "CVE-2026-132165: Drupal Core Remote Code Execution Vulnerability — CISA KEV Active Exploitation",
-      "description": "Drupal Core contains a not failing securely vulnerability that could allow an unauthenticated attacker to take over an existing site or execute arbitrary code via the Drupal installer. Under specific conditions, the attacker can use install.php to attempt to reinstall Drupal on the site.",
-      "cvss": null,
-      "final_ps": 95,
-      "quality_score": 0.58,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Drupal",
-      "product": "Core",
-      "due_date": "2026-11-27",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.drupal.org/sa-core-2026-017",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-132165"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.65",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
-        ],
-        "priority": [
-          "+15 CISA_KEV",
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-135788",
-      "title": "CVE-2026-135788 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "A weakness has been identified in D-Link DIR-X1860 4.5.2. Affected by this vulnerability is an unknown functionality of the file /usr/sbin/anweb. Executing a manipulation can lead to os command injection. It is possible to launch the attack remotely. The exploit has been made available to the public",
-      "cvss": 9.9,
-      "final_ps": 73,
-      "quality_score": 0.52,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/nenghun/IoT/blob/main/D-Link%20DIR%20X1860/D-Link%20DIR-X1860%204.5.2%20rce.md",
-        "https://vuldb.com/cve/CVE-2026-135788",
-        "https://vuldb.com/submit/1055809",
-        "https://vuldb.com/vuln/442751"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.520"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-135790",
-      "title": "CVE-2026-135790 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "A vulnerability was detected in Panabit Smart Application Gateway TANGr7p10. This affects an unknown part of the file /cgi-bin/dashboard/ajax_chart_dump. The manipulation of the argument isntmeye results in os command injection. The attack can be launched remotely. The exploit is now public and may ",
-      "cvss": 9.9,
-      "final_ps": 73,
-      "quality_score": 0.52,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/nenghun/IoT/blob/main/Panabit/rce1/RCE1.md",
-        "https://vuldb.com/cve/CVE-2026-135790",
-        "https://vuldb.com/submit/1055811",
-        "https://vuldb.com/vuln/442753"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.520"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-136184",
-      "title": "CVE-2026-136184 — Affected software (product not identified) CVSS 9.6 Critical Vulnerability",
-      "description": "compose-farm 0.19.0 before 1.22.0 contains a cross-site WebSocket hijacking and cross-site request forgery vulnerability because its unauthenticated web UI performs no Origin validation. Malicious websites visited by users can open /ws/shell/{host} or /ws/exec sockets, or abuse unquoted service para",
-      "cvss": 9.6,
-      "final_ps": 73,
-      "quality_score": 0.52,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/basnijholt/compose-farm/blob/v1.21.5/src/compose_farm/web/ws.py#L250-L256",
-        "https://github.com/basnijholt/compose-farm/commit/244d56c022de61d2c6b3543b5c973ced97de6cc8",
-        "https://github.com/basnijholt/compose-farm/commit/d944a28f0aca4ef2bd20f397bc75c7869f1efe7c",
-        "https://github.com/basnijholt/compose-farm/commit/df21578fcc8e6ed439406591e57b4f5673a51863"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.520"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
     {
       "id": "CVE-2026-123342",
       "title": "CVE-2026-123342 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "description": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation ",
+      "cvss": 9.9,
+      "final_ps": 73,
+      "quality_score": 0.52,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.adobe.com/trust/security/products/campaign/apsb26-194.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.520"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-123723",
+      "title": "CVE-2026-123723 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
       "description": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation ",
       "cvss": 9.9,
       "final_ps": 73,
@@ -783,7 +638,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=5d (score=0.40)",
+          "recency=6d (score=0.40)",
           "QS=0.432"
         ],
         "priority": [
@@ -2399,52 +2254,6 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-129016"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=2d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=41 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131700",
-      "title": "CVE-2026-131700 - WordPress Geo Mashup plugin <= 1.13.23 - Cross Site Scripting (XSS) vulnerability",
-      "description": "CVE-2026-131700 - WordPress Geo Mashup plugin <= 1.13.23 - Cross Site Scripting (XSS) vulnerability",
-      "cvss": 7.1,
-      "final_ps": 41,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-131700"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-131700"
       ],
       "explanation": {
         "quality": [
@@ -5423,6 +5232,98 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-135432",
+      "title": "Low Security Vulnerability (CVE-2026-135432)",
+      "description": "CVE-2026-135432",
+      "cvss": 6.5,
+      "final_ps": 37,
+      "quality_score": 0.388,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135432"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-135432?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.25",
+          "recency=1d (score=0.85)",
+          "QS=0.388"
+        ],
+        "priority": [
+          "base_ps=37 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135443",
+      "title": "Low Security Vulnerability (CVE-2026-135443)",
+      "description": "CVE-2026-135443",
+      "cvss": 6.1,
+      "final_ps": 37,
+      "quality_score": 0.388,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135443"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-135443?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.25",
+          "recency=1d (score=0.85)",
+          "QS=0.388"
+        ],
+        "priority": [
+          "base_ps=37 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-129448",
       "title": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
       "description": "",
@@ -6028,50 +5929,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-120002",
-      "title": "CVE-2026-120002 — microsoft sharepoint server CVSS 9.9 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.9,
-      "final_ps": 31,
-      "quality_score": 0.525,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-10",
-      "last_seen": "2026-11-10",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "microsoft",
-      "product": "sharepoint server",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-120002"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.525"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-120539",
       "title": "CVE-2026-120539 — Unknown Vendor The Restrictions for CVSS 9.8 Critical Vulnerability",
       "description": "",
@@ -6166,12 +6023,12 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-123723",
-      "title": "CVE-2026-123723 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "id": "CVE-2026-120002",
+      "title": "CVE-2026-120002 — microsoft sharepoint server CVSS 9.9 Critical Vulnerability",
       "description": "",
       "cvss": 9.9,
-      "final_ps": 29,
-      "quality_score": 0.465,
+      "final_ps": 31,
+      "quality_score": 0.525,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
       "source": "nvd",
@@ -6179,28 +6036,75 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
+      "first_seen": "2026-11-10",
+      "last_seen": "2026-11-10",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
+      "vendor": "microsoft",
+      "product": "sharepoint server",
       "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://www.adobe.com/trust/security/products/campaign/apsb26-194.html"
+        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-120002"
       ],
       "explanation": {
         "quality": [
           "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
+          "data_confidence=0.75",
           "recency=0d (score=1.00)",
-          "QS=0.465"
+          "QS=0.525"
         ],
         "priority": [
           "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-132224",
+      "title": "CVE-2026-132224: Optimizely Web Experimentation External Control of Critical State Data Vulnerability — CISA KEV Active ",
+      "description": "",
+      "cvss": null,
+      "final_ps": 29,
+      "quality_score": 0.515,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Optimizely",
+      "product": "Web Experimentation",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://pages.optimizely.com/rs/947-RKE-048/images/Security%20Incident%20Report%20-%20Optimizely%20Web%20Experimentation%20-%20Nov%2017%202026.pdf",
+        "https://status.optimizely.com/incidents/ftw0fh9wx43z",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.40",
+          "recency=0d (score=1.00)",
+          "QS=0.515"
+        ],
+        "priority": [
+          "+8 exploited_in_wild"
         ],
         "suppression": null,
         "merge": null
@@ -6621,10 +6525,193 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-136404",
+      "title": "CVE-2026-136404 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/ntop/n2n/blob/a6f94564f2d6aaad925254590329c274058a53e5/src/sn_utils.c#L2309-L2344",
+        "https://github.com/ntop/n2n/blob/a6f94564f2d6aaad925254590329c274058a53e5/src/wire.c#L649-L679",
+        "https://github.com/ntop/n2n/commit/854fbbe01bbf131bf4cb88f8450d7084267668e1",
+        "https://github.com/ntop/n2n/pull/1243"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-136411",
+      "title": "CVE-2026-136411 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/mirror/busybox/blob/fc71374dfccd46448c62947269a35f1420d7ee28/networking/tftp.c#L946-L950",
+        "https://github.com/mirror/busybox/commit/b67f7b7d14ac98ca84491718d364b955d21a9cd5",
+        "https://lists.busybox.net/pipermail/busybox-cvs/2026-November/042587.html",
+        "https://lists.busybox.net/pipermail/busybox/2026-August/092430.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-136522",
+      "title": "CVE-2026-136522 — Affected software (product not identified) CVSS 9.6 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.6,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://wordpress.org/plugins/cubewp-forms/#developers",
+        "https://www.vulncheck.com/advisories/cubewp-forms-before-1.1.13-unauthenticated-stored-xss-via-submit-rest-route"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-125716",
       "title": "CVE-2026-125716 — Affected software (product not identified) CVSS 9.3 Critical Vulnerability",
       "description": "",
       "cvss": 9.3,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.adobe.com/trust/security/products/campaign/apsb26-194.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-125718",
+      "title": "CVE-2026-125718 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.1,
       "final_ps": 29,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -6691,53 +6778,6 @@
       "refs": [
         "https://documentation.solarwinds.com/en/success_center/servu/content/release_notes/servu_2026-4_release_notes.htm",
         "https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-123167"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-135789",
-      "title": "CVE-2026-135789 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.1,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/nenghun/IoT/blob/main/D-link%20R95/rce.md",
-        "https://vuldb.com/cve/CVE-2026-135789",
-        "https://vuldb.com/submit/1055810",
-        "https://vuldb.com/vuln/442752"
       ],
       "explanation": {
         "quality": [
@@ -6847,10 +6887,57 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-125718",
-      "title": "CVE-2026-125718 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability",
+      "id": "CVE-2026-132165",
+      "title": "CVE-2026-132165: Drupal Core Remote Code Execution Vulnerability — CISA KEV Active Exploitation",
       "description": "",
-      "cvss": 9.1,
+      "cvss": null,
+      "final_ps": 29,
+      "quality_score": 0.515,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Drupal",
+      "product": "Core",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.drupal.org/sa-core-2026-017",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-132165"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.40",
+          "recency=0d (score=1.00)",
+          "QS=0.515"
+        ],
+        "priority": [
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135788",
+      "title": "CVE-2026-135788 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.9,
       "final_ps": 29,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -6871,7 +6958,10 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://www.adobe.com/trust/security/products/campaign/apsb26-194.html"
+        "https://github.com/nenghun/IoT/blob/main/D-Link%20DIR%20X1860/D-Link%20DIR-X1860%204.5.2%20rce.md",
+        "https://vuldb.com/cve/CVE-2026-135788",
+        "https://vuldb.com/submit/1055809",
+        "https://vuldb.com/vuln/442751"
       ],
       "explanation": {
         "quality": [
@@ -6882,53 +6972,6 @@
         ],
         "priority": [
           "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-132224",
-      "title": "CVE-2026-132224: Optimizely Web Experimentation External Control of Critical State Data Vulnerability — CISA KEV Active ",
-      "description": "",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Optimizely",
-      "product": "Web Experimentation",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://pages.optimizely.com/rs/947-RKE-048/images/Security%20Incident%20Report%20-%20Optimizely%20Web%20Experimentation%20-%20Nov%2017%202026.pdf",
-        "https://status.optimizely.com/incidents/ftw0fh9wx43z",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
         ],
         "suppression": null,
         "merge": null
@@ -6979,290 +7022,6 @@
         ],
         "priority": [
           "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-135736",
-      "title": "CVE-2026-135736 — ffmpeg ffmpeg CVSS 8.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 8.1,
-      "final_ps": 21,
-      "quality_score": 0.535,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "ffmpeg",
-      "product": "ffmpeg",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-135736"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/26081",
-        "https://github.com/FFmpeg/FFmpeg",
-        "https://github.com/FFmpeg/FFmpeg/blob/n9.0.2/libavfilter/vf_deband.c#L212",
-        "https://github.com/FFmpeg/FFmpeg/commit/24ad423d908cd595c983b6c503ddb0ee94901ba2"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.535"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-136189",
-      "title": "CVE-2026-136189 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 8.8,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/schmitech/orbit/blob/v2.17.14/server/routes/admin/_shared.py#L43-L53",
-        "https://github.com/schmitech/orbit/blob/v2.17.14/server/routes/auth_dependencies.py#L183-L216",
-        "https://github.com/schmitech/orbit/commit/6c7af586cd075aebda943ee41f37fb815ee9e139",
-        "https://github.com/schmitech/orbit/releases/tag/v2.17.15"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-136179",
-      "title": "CVE-2026-136179 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.1,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/EpicStaff/EpicStaff/blob/v1.3.0/src/django_app/tables/services/knowledge_services/document_management_service.py#L470-L505",
-        "https://github.com/EpicStaff/EpicStaff/blob/v1.3.0/src/django_app/tables/views/knowledge_views/document_management_views.py#L271-L305",
-        "https://github.com/EpicStaff/EpicStaff/commit/7bddaf8cf689487eb80860894941b7713afab871",
-        "https://github.com/EpicStaff/EpicStaff/releases/tag/v1.3.1"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-136181",
-      "title": "CVE-2026-136181 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/cnpm/cnpmcore/blob/v3.84.2/app/port/controller/RegistryController.ts#L28-L46",
-        "https://github.com/cnpm/cnpmcore/blob/v4.37.2/app/port/controller/RegistryController.ts#L34-L58",
-        "https://github.com/cnpm/cnpmcore/commit/0bf0052597985100480522b1a59815b85c09b29e",
-        "https://github.com/cnpm/cnpmcore/commit/1309cb2cd619de7351467e2b4ba2a02b5647930a"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-136183",
-      "title": "CVE-2026-136183 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 8.8,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/mercurjs/mercur/blob/v2.3.1/packages/core/src/api/vendor/sellers/%5Bid%5D/route.ts#L14-L63",
-        "https://github.com/mercurjs/mercur/commit/b81f801b12149296dc8c80992453d2a1687110d3",
-        "https://github.com/mercurjs/mercur/releases/tag/v2.3.2",
-        "https://github.com/mercurjs/mercur/security/advisories/GHSA-g3pm-h4c6-4xjj"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-136187",
-      "title": "CVE-2026-136187 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 8.8,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/openspug/spug/blob/v4.1.0/spug_api/apps/credential/views.py#L47-L60",
-        "https://github.com/openspug/spug/blob/v4.1.0/spug_api/libs/gitlib.py#L197-L208",
-        "https://github.com/openspug/spug/commit/8e4c8199995406abea26a2d3e0f6ed487577d853",
-        "https://github.com/openspug/spug/releases/tag/v4.1.1"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -7360,10 +7119,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-136190",
-      "title": "CVE-2026-136190 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
+      "id": "CVE-2026-136455",
+      "title": "CVE-2026-136455 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
       "description": "",
-      "cvss": 8.1,
+      "cvss": 8.8,
       "final_ps": 19,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -7384,10 +7143,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/RayLabsHQ/gitea-mirror/blob/v3.38.0/src/pages/api/sso/providers.ts#L10-L31",
-        "https://github.com/RayLabsHQ/gitea-mirror/blob/v3.38.0/src/pages/api/sso/providers.ts#L162-L315",
-        "https://github.com/RayLabsHQ/gitea-mirror/commit/c6157cdaad67321625d315b0f2f836b982cfe335",
-        "https://github.com/RayLabsHQ/gitea-mirror/releases/tag/v3.38.1"
+        "https://github.com/karanhudia/borg-ui/commit/b9cca22da2e9bb9d07c3fb7b2dd4c95f02964cc8",
+        "https://github.com/karanhudia/borg-ui/releases#release-v2.4.1",
+        "https://www.vulncheck.com/advisories/borg-ui-before-2.4.1-privilege-escalation-via-backup-plan-path-traversal"
       ],
       "explanation": {
         "quality": [
@@ -7454,10 +7212,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-129833",
-      "title": "CVE-2026-129833 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "id": "CVE-2026-136328",
+      "title": "CVE-2026-136328 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.5,
+      "cvss": 7.8,
       "final_ps": 19,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -7478,9 +7236,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://access.redhat.com/security/cve/CVE-2026-129833",
-        "https://bugzilla.redhat.com/show_bug.cgi?id=2579520",
-        "http://www.openwall.com/lists/oss-security/2026/11/17/11"
+        "https://access.redhat.com/security/cve/CVE-2026-136328",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2583381",
+        "https://gitlab.gnome.org/GNOME/gimp/-/work_items/17002"
       ],
       "explanation": {
         "quality": [
@@ -7594,10 +7352,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-123166",
-      "title": "CVE-2026-123166 — Affected software (product not identified) CVSS 7.2 High Severity Vulnerability",
+      "id": "CVE-2026-135810",
+      "title": "CVE-2026-135810 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
       "description": "",
-      "cvss": 7.2,
+      "cvss": 7.3,
       "final_ps": 19,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -7618,55 +7376,10 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://documentation.solarwinds.com/en/success_center/servu/content/release_notes/servu_2026-4_release_notes.htm",
-        "https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-123166"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-136185",
-      "title": "CVE-2026-136185 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.1,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/PrismorSec/prismor/blob/v1.56.0/prismor/runtime/server.py#L901-L927",
-        "https://github.com/PrismorSec/prismor/commit/46ccc2c1fdaa3bad6dd3a077629f3f6528ebac5f",
-        "https://github.com/PrismorSec/prismor/releases/tag/v1.57.0",
-        "https://github.com/PrismorSec/prismor/security/advisories/GHSA-9xjv-g2ch-rfhc"
+        "https://github.com/GongShengyue/OnlineBooks/",
+        "https://github.com/GongShengyue/OnlineBooks/issues/15",
+        "https://vuldb.com/cve/CVE-2026-135810",
+        "https://vuldb.com/submit/1055981"
       ],
       "explanation": {
         "quality": [
@@ -7711,6 +7424,98 @@
       "ioc_count": 0,
       "refs": [
         "https://www.adobe.com/trust/security/products/experience-manager/apsb26-104.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-61512",
+      "title": "CVE-2026-61512 — Affected software (product not identified) CVSS 7 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Haitam-lazaar/veracrypt-checkfs-lpe",
+        "https://github.com/veracrypt/VeraCrypt/commit/b2b28d5793446fa6e5772c574f9faabdb4f46fd0",
+        "https://github.com/veracrypt/VeraCrypt/releases#release-VeraCrypt_1.26.30",
+        "https://www.vulncheck.com/advisories/veracrypt-before-1.26.30-command-injection-via-coreunix-checkfilesystem"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-61513",
+      "title": "CVE-2026-61513 — Affected software (product not identified) CVSS 7 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Haitam-lazaar/veracrypt-setfileowner-lpe",
+        "https://www.vulncheck.com/advisories/veracrypt-through-1.26.31-improper-path-restriction-via-coreservice-chown"
       ],
       "explanation": {
         "quality": [
@@ -7803,6 +7608,98 @@
       "ioc_count": 0,
       "refs": [
         "https://vulners.com/nvd/NVD:CVE-2026-131750?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-49965",
+      "title": "CVE-2026-49965 - DreameHome Cloud API IDOR via bindDevice Endpoint",
+      "description": "",
+      "cvss": 7.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-49965"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-49965"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131700",
+      "title": "CVE-2026-131700 - WordPress Geo Mashup plugin <= 1.13.23 - Cross Site Scripting (XSS) vulnerability",
+      "description": "",
+      "cvss": 7.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-131700"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-131700"
       ],
       "explanation": {
         "quality": [

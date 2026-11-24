@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T20:54:32.487Z",
+  "generated": "2026-11-24T21:57:14.463Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,193 +7,57 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8306,
+  "total_published": 8314,
   "s2n_stats": {
-    "passed": 168,
+    "passed": 166,
     "suppressed": 3,
-    "avg_qs": 0.465
+    "avg_qs": 0.463
   },
   "items": [
     {
-      "id": "CVE-2026-132165",
-      "title": "CVE-2026-132165: Drupal Core Remote Code Execution Vulnerability — CISA KEV Active Exploitation",
-      "description": "Drupal Core contains a not failing securely vulnerability that could allow an unauthenticated attacker to take over an existing site or execute arbitrary code via the Drupal installer. Under specific conditions, the attacker can use install.php to attempt to reinstall Drupal on the site.",
-      "cvss": null,
-      "final_ps": 95,
-      "quality_score": 0.58,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Drupal",
-      "product": "Core",
-      "due_date": "2026-11-27",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.drupal.org/sa-core-2026-017",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-132165"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.65",
-          "recency=0d (score=1.00)",
-          "QS=0.580"
-        ],
-        "priority": [
-          "+15 CISA_KEV",
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-135788",
-      "title": "CVE-2026-135788 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "A weakness has been identified in D-Link DIR-X1860 4.5.2. Affected by this vulnerability is an unknown functionality of the file /usr/sbin/anweb. Executing a manipulation can lead to os command injection. It is possible to launch the attack remotely. The exploit has been made available to the public",
-      "cvss": 9.9,
-      "final_ps": 73,
-      "quality_score": 0.52,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/nenghun/IoT/blob/main/D-Link%20DIR%20X1860/D-Link%20DIR-X1860%204.5.2%20rce.md",
-        "https://vuldb.com/cve/CVE-2026-135788",
-        "https://vuldb.com/submit/1055809",
-        "https://vuldb.com/vuln/442751"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.520"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-135790",
-      "title": "CVE-2026-135790 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "A vulnerability was detected in Panabit Smart Application Gateway TANGr7p10. This affects an unknown part of the file /cgi-bin/dashboard/ajax_chart_dump. The manipulation of the argument isntmeye results in os command injection. The attack can be launched remotely. The exploit is now public and may ",
-      "cvss": 9.9,
-      "final_ps": 73,
-      "quality_score": 0.52,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/nenghun/IoT/blob/main/Panabit/rce1/RCE1.md",
-        "https://vuldb.com/cve/CVE-2026-135790",
-        "https://vuldb.com/submit/1055811",
-        "https://vuldb.com/vuln/442753"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.520"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-136184",
-      "title": "CVE-2026-136184 — Affected software (product not identified) CVSS 9.6 Critical Vulnerability",
-      "description": "compose-farm 0.19.0 before 1.22.0 contains a cross-site WebSocket hijacking and cross-site request forgery vulnerability because its unauthenticated web UI performs no Origin validation. Malicious websites visited by users can open /ws/shell/{host} or /ws/exec sockets, or abuse unquoted service para",
-      "cvss": 9.6,
-      "final_ps": 73,
-      "quality_score": 0.52,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/basnijholt/compose-farm/blob/v1.21.5/src/compose_farm/web/ws.py#L250-L256",
-        "https://github.com/basnijholt/compose-farm/commit/244d56c022de61d2c6b3543b5c973ced97de6cc8",
-        "https://github.com/basnijholt/compose-farm/commit/d944a28f0aca4ef2bd20f397bc75c7869f1efe7c",
-        "https://github.com/basnijholt/compose-farm/commit/df21578fcc8e6ed439406591e57b4f5673a51863"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.70",
-          "recency=0d (score=1.00)",
-          "QS=0.520"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-123342",
       "title": "CVE-2026-123342 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "description": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation ",
+      "cvss": 9.9,
+      "final_ps": 73,
+      "quality_score": 0.52,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.adobe.com/trust/security/products/campaign/apsb26-194.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.520"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-123723",
+      "title": "CVE-2026-123723 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
       "description": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation ",
       "cvss": 9.9,
       "final_ps": 73,
@@ -739,7 +603,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=5d (score=0.40)",
+          "recency=6d (score=0.40)",
           "QS=0.432"
         ],
         "priority": [
@@ -2312,9 +2176,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2026-45321",
@@ -2356,9 +2218,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2026-48027",
@@ -2400,9 +2260,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2026-8398",
@@ -4362,8 +4220,54 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-123723",
-      "title": "CVE-2026-123723 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "id": "CVE-2026-132224",
+      "title": "CVE-2026-132224: Optimizely Web Experimentation External Control of Critical State Data Vulnerability — CISA KEV Active ",
+      "description": "Optimizely Web Experimentation contains an external control of critical state data vulnerability in its account signup flow that could allow an attacker to impersonate existing customer users and modify Project JavaScript. Successful exploitation can result in attacker-controlled JavaScript being di",
+      "cvss": null,
+      "final_ps": 29,
+      "quality_score": 0.515,
+      "threat_level": "CRITICAL",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Optimizely",
+      "product": "Web Experimentation",
+      "due_date": "2026-11-27",
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://pages.optimizely.com/rs/947-RKE-048/images/Security%20Incident%20Report%20-%20Optimizely%20Web%20Experimentation%20-%20Nov%2017%202026.pdf",
+        "https://status.optimizely.com/incidents/ftw0fh9wx43z",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.40",
+          "recency=0d (score=1.00)",
+          "QS=0.515"
+        ],
+        "priority": [
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-123986",
+      "title": "CVE-2026-123986 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
       "description": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation ",
       "cvss": 9.9,
       "final_ps": 29,
@@ -4403,7 +4307,93 @@
       },
       "suppressed": false,
       "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-123987",
+      "title": "CVE-2026-123987 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "description": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. A low-privileged attacker could exploit this vulnerability to execute arbitrary code. Exploitation ",
+      "cvss": 9.9,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.adobe.com/trust/security/products/campaign/apsb26-194.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-125717",
+      "title": "CVE-2026-125717 — Affected software (product not identified) CVSS 9.6 Critical Vulnerability",
+      "description": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in privilege escalation. A low-privileged attacker could exploit this vulnerability to gain elevated access to sensitive data or functio",
+      "cvss": 9.6,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.adobe.com/trust/security/products/campaign/apsb26-194.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-24T20:54:33.307Z"
+  "lastReportGeneratedAt": "2026-11-24T21:57:14.690Z"
 }
