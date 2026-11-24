@@ -28,6 +28,7 @@ from datetime import datetime, timezone
 from urllib.parse import urlparse
 
 from .content_discovery import DiscoveredArticle
+from .threat_relevance import assess_third_party
 
 
 _CVE_RE = re.compile(r"\bCVE-\d{4}-\d{4,}\b", re.IGNORECASE)
@@ -109,8 +110,26 @@ def is_non_threat_editorial_title(title: object) -> bool:
 
 
 def is_non_threat_editorial(article: DiscoveredArticle) -> bool:
-    """Protect the CTI publication budget from non-intelligence editorial items."""
-    return is_non_threat_editorial_title(article.title)
+    """Protect the CTI publication budget from non-intelligence editorial items.
+
+    Single source of truth for BOTH selectors (this scheduler and the factory) and for the family
+    classifiers: an article for which this is True is excluded before selection, in the fresh and
+    retry pools and in quality backfill. Two independent rules:
+      * explicit job/career roundup titles (any source);
+      * third-party ``global_rss`` articles that are not threat events: shopping and consumer
+        advice, funding/award/webinar/release-note announcements, bare forum questions and anything
+        with no threat vocabulary (see ``threat_relevance``). Typed sources (NVD, CISA, ransomware,
+        breach, threat-actor intel) and first-party reports carry their own structure and are never
+        judged by vocabulary.
+    """
+    if is_non_threat_editorial_title(article.title):
+        return True
+    if str(getattr(article, "source", "") or "").strip().lower() == "global_rss":
+        try:
+            return not assess_third_party(article.title, article.summary)[0]
+        except Exception:  # noqa: BLE001 - a defect in the relevance check must never stop publication
+            return False  # fall back to the previous behaviour (no vocabulary gate)
+    return False
 
 
 def _cves(article: DiscoveredArticle) -> set[str]:
