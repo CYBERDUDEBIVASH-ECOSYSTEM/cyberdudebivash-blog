@@ -96,3 +96,32 @@ def original_source_is_current(article, max_age_hours: int, *,
         )
     except (ValueError, OSError, UnicodeError, TypeError, OverflowError):
         return False
+
+
+def retry_item_is_current(article, max_age_hours: int, *, now: datetime | None = None) -> bool:
+    """Apply the discovery age limit to THIRD-PARTY items waiting in the retry queue.
+
+    Fresh ``global_rss`` discovery drops anything older than ``max_age_hours`` (72 h), but an item
+    that failed to publish is persisted and later re-selected from the retry queue with no age
+    check: ``original_source_is_current`` above only inspects first-party ``rss``/``live_intel``
+    handoffs. After the Nov 13-21 outage, items with source dates 7-8 days old were therefore
+    published as new intelligence. The age is measured from the item's own ``published_at`` (the
+    source publication time; discovery time when the feed gave none), never rewritten.
+
+    Only ``global_rss`` is judged here: first-party handoffs keep their provenance check and typed
+    connectors (NVD, CISA, ransomware/breach intel) keep their own validators. An item whose date is
+    missing or unparseable is kept (same policy as discovery's ``_is_recent``). Eligibility filter
+    only: no I/O, no network, no mutation.
+    """
+    if str(getattr(article, "source", "") or "").strip().lower() != "global_rss":
+        return True
+    try:
+        published = datetime.fromisoformat(str(getattr(article, "published_at", "") or "").strip().replace("Z", "+00:00"))
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=timezone.utc)  # naive stamps are written in UTC by discovery
+        reference = (now or datetime.now(timezone.utc))
+        if reference.tzinfo is None:
+            reference = reference.replace(tzinfo=timezone.utc)
+        return published.astimezone(timezone.utc) >= reference.astimezone(timezone.utc) - timedelta(hours=max_age_hours)
+    except (ValueError, TypeError, OverflowError):
+        return True
