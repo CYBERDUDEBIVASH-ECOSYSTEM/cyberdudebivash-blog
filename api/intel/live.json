@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T07:56:44.175Z",
+  "generated": "2026-11-24T09:02:58.678Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,153 +7,21 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8233,
+  "total_published": 8236,
   "s2n_stats": {
-    "passed": 147,
+    "passed": 138,
     "suppressed": 3,
-    "avg_qs": 0.467
+    "avg_qs": 0.466
   },
   "items": [
     {
-      "id": "CVE-2026-134624",
-      "title": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
-      "description": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Monday added two flaws impacting N-able MailAssure and MONAI Label to its Known Exploited Vulnerabilities (KEV) catalog, citing evidence of active exploitation. The critical vulnerabilities are listed below - CVE-2026-134624 (CVSS s",
-      "cvss": 9.3,
-      "final_ps": 95,
-      "quality_score": 0.538,
-      "threat_level": "CRITICAL",
-      "type": "ZERO_DAY",
-      "source": "thehackernews",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "thehackernews"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "The Hacker News",
-      "product": "Threat Intelligence",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-134624"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.55 (thehackernews)",
-          "data_confidence=1.00",
-          "recency=0d (score=1.00)",
-          "QS=0.537"
-        ],
-        "priority": [
-          "+10 CVSS≥9",
-          "+8 exploited_in_wild",
-          "+7 zero_day"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-58254",
-      "title": "nats-server Leaf node connections bypass Nats-Trace-Dest permission check",
-      "description": "Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports leafnode connections between servers and message tracing through NATS headers.\n\nProblem Descripti... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 63,
-      "quality_score": 0.458,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-58254"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-p3j5-5hrq-p75h"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "+10 CVSS≥9",
-          "+3 supply_chain"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-77309",
-      "title": "AIT-GUI route chain allows unauthenticated Python execution in server process",
-      "description": "Summary\nA security issue exists where unauthenticated callers can instruct the AIT-GUI server to execute arbitrary Python scripts. The attack vector involves obtaining a session cookie through GET /, followed by a malicious POST /script/run request containing an absolute file pat... [Full analysis a",
+      "id": "CVE-2026-63341",
+      "title": "Aedes has Uncaught Exception and Uncontrolled Resource Consumption",
+      "description": "Summary\nA remote Denial of Service (DoS) vulnerability, allows any remote client to cause a complete crash of the Aedes MQTT broker process. This is achieved by sending a specially crafted MQTT message (via PUBLISH or SUBSCRIBE), or by setting a Will message with such a topic, co... [Full analysis a",
       "cvss": 9.8,
       "final_ps": 57,
       "quality_score": 0.458,
       "threat_level": "MEDIUM",
-      "type": "AI_SECURITY",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-77309"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-jrjx-9jjw-747m"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-122244",
-      "title": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in jsonFormatter.format() rendered",
-      "description": "Description\n\nSummary\n\nA low-privileged application end-user (role BASIC - not a builder or admin, and on a public data-collection form, an unauthenticated visitor) can store an HTML/JavaScript payload in ordinary row data. When a builder or admin later opens that table in the Bud... [Full analysis a",
-      "cvss": 9.1,
-      "final_ps": 55,
-      "quality_score": 0.458,
-      "threat_level": "MEDIUM",
       "type": "NEWS_REPORT",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
@@ -169,11 +37,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-122244"
+        "CVE-2026-63341"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-r2q3-7m4h-63qg"
+        "https://github.com/advisories/GHSA-xxqp-5qx8-gj5q"
       ],
       "explanation": {
         "quality": [
@@ -190,12 +58,12 @@
       }
     },
     {
-      "id": "CVE-2026-94564",
-      "title": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
-      "description": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
-      "cvss": 9.1,
+      "id": "CVE-2026-96805",
+      "title": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
+      "description": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
+      "cvss": 9.6,
       "final_ps": 55,
-      "quality_score": 0.458,
+      "quality_score": 0.408,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
       "source": "sentinel_apex",
@@ -212,104 +80,18 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-94564"
+        "CVE-2026-96805"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-94564"
+        "https://cvefeed.io/vuln/detail/CVE-2026-96805"
       ],
       "explanation": {
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
+          "data_confidence=0.45",
           "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-58192",
-      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
-      "description": "Summary\n\nThe Appium storage plugin exposes an HTTP endpoint POST /storage/delete that takes a user-supplied name and deletes it from the server storage folder. The handler passes name straight into path.join(storageRoot, name) and then fs.rimraf() without any path sanitization. B... [Full analysis a",
-      "cvss": 9.1,
-      "final_ps": 55,
-      "quality_score": 0.458,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-58192"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-114516",
-      "title": "Etherpad: Pre-auth arbitrary file read",
-      "description": "Summary\n\nAn unauthenticated path‑traversal / arbitrary file read vulnerability in Etherpad's /static/* handler allows any remote, unauthenticated user to read any file on the server's filesystem (e.g. GET /static/plugins/ep_etherpad-lite/static/..%5C..%5C..%5C..%5C..%5C..%5C..%5C... [Full analysis a",
-      "cvss": 9.8,
-      "final_ps": 54,
-      "quality_score": 0.433,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114516"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-mc8w-wjhw-45x5"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=4d (score=0.40)",
-          "QS=0.432"
+          "QS=0.407"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -353,49 +135,6 @@
           "data_confidence=0.70",
           "recency=5d (score=0.40)",
           "QS=0.432"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-94565",
-      "title": "CVE-2026-94565 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module",
-      "description": "CVE-2026-94565 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module",
-      "cvss": 9.1,
-      "final_ps": 53,
-      "quality_score": 0.408,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-94565"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-94565"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=3d (score=0.65)",
-          "QS=0.407"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -1192,6 +931,51 @@
       }
     },
     {
+      "id": "CVE-2026-134624",
+      "title": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+      "description": "",
+      "cvss": 9.3,
+      "final_ps": 44,
+      "quality_score": 0.483,
+      "threat_level": "LOW",
+      "type": "ZERO_DAY",
+      "source": "thehackernews",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "thehackernews"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "The Hacker News",
+      "product": "Threat Intelligence",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-134624"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.55 (thehackernews)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.483"
+        ],
+        "priority": [
+          "+10 CVSS≥9",
+          "+8 exploited_in_wild",
+          "+7 zero_day"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
       "id": "CVE-2026-103035",
       "title": "TeamPass folder re-parenting authorization bypass",
       "description": "Summary\n\nMissing authorization in the update_folder action: any authenticated non-read-only user can rename, re-parent and convert to personal any folder in the instance, moving another team's credential subtree into their own personal space and removing it from the organization.... [Full analysis a",
@@ -1616,49 +1400,6 @@
         "priority": [
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-89095",
-      "title": "Low Security Vulnerability [High EPSS] (CVE-2026-89095)",
-      "description": "CVE-2026-89095",
-      "cvss": 8.1,
-      "final_ps": 41,
-      "quality_score": 0.408,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-20",
-      "last_seen": "2026-11-20",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-89095"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-89095?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=3d (score=0.65)",
-          "QS=0.407"
-        ],
-        "priority": [
-          "base_ps=41 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -2318,9 +2059,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2025-48700",
@@ -2360,9 +2099,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2026-20128",
@@ -2402,9 +2139,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2025-32975",
@@ -2444,9 +2179,7 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
     },
     {
       "id": "CVE-2026-34197",
@@ -2486,9 +2219,50 @@
         ],
         "suppression": null,
         "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
+      }
+    },
+    {
+      "id": "CVE-2026-112465",
+      "title": "CVE-2026-112465 - Apple Kernel Out-of-Bounds Read Vulnerability",
+      "description": "CVE-2026-112465 - Apple Kernel Out-of-Bounds Read Vulnerability",
+      "cvss": 7.5,
+      "final_ps": 40,
+      "quality_score": 0.408,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-112465"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-112465"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=3d (score=0.65)",
+          "QS=0.407"
+        ],
+        "priority": [
+          "base_ps=40 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      }
     },
     {
       "id": "CVE-2026-112292",
@@ -4309,9 +4083,54 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-63341",
-      "title": "Aedes has Uncaught Exception and Uncontrolled Resource Consumption",
-      "description": "Summary\nA remote Denial of Service (DoS) vulnerability, allows any remote client to cause a complete crash of the Aedes MQTT broker process. This is achieved by sending a specially crafted MQTT message (via PUBLISH or SUBSCRIBE), or by setting a Will message with such a topic, co... [Full analysis a",
+      "id": "CVE-2026-122247",
+      "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (POST ",
+      "description": "Description\n\nSummary\n\nOn a self-hosted, single-tenant Budibase instance (multiTenancy:false), the public bootstrap endpoint POST /api/global/users/init remains fully exploitable after the instance has been provisioned. Its \"already initialised\" guard (checkAnyUserExists()) is eva... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-122247"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-25qc-m4pw-2w8r"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-58254",
+      "title": "nats-server Leaf node connections bypass Nats-Trace-Dest permission check",
+      "description": "Background\n\nNATS.io is a high performance open source pub-sub distributed communication technology, built for the cloud, on-premise, IoT and edge computing.\n\nThe NATS Server supports leafnode connections between servers and message tracing through NATS headers.\n\nProblem Descripti... [Full analysis a",
       "cvss": 9.8,
       "final_ps": 28,
       "quality_score": 0.438,
@@ -4331,11 +4150,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-63341"
+        "CVE-2026-58254"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/advisories/GHSA-xxqp-5qx8-gj5q"
+        "https://github.com/advisories/GHSA-p3j5-5hrq-p75h"
       ],
       "explanation": {
         "quality": [
@@ -4354,10 +4173,100 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-96805",
-      "title": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
-      "description": "CVE-2026-96805 - Elecbrakes Missing Authentication for Critical Function",
-      "cvss": 9.6,
+      "id": "CVE-2026-77309",
+      "title": "AIT-GUI route chain allows unauthenticated Python execution in server process",
+      "description": "Summary\nA security issue exists where unauthenticated callers can instruct the AIT-GUI server to execute arbitrary Python scripts. The attack vector involves obtaining a session cookie through GET /, followed by a malicious POST /script/run request containing an absolute file pat... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "AI_SECURITY",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-77309"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-jrjx-9jjw-747m"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-122244",
+      "title": "Budibase: Cross-privilege Stored XSS in the Budibase Builder via broken HTML-escaping in jsonFormatter.format() rendered",
+      "description": "Description\n\nSummary\n\nA low-privileged application end-user (role BASIC - not a builder or admin, and on a public data-collection form, an unauthenticated visitor) can store an HTML/JavaScript payload in ordinary row data. When a builder or admin later opens that table in the Bud... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-122244"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-r2q3-7m4h-63qg"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-94564",
+      "title": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
+      "description": "CVE-2026-94564 - NukeViet CMS: Unauthenticated Stored XSS in the Contact module via HTML sanitizer bypass",
+      "cvss": 9.1,
       "final_ps": 28,
       "quality_score": 0.438,
       "threat_level": "MEDIUM",
@@ -4376,11 +4285,101 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-96805"
+        "CVE-2026-94564"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-96805"
+        "https://cvefeed.io/vuln/detail/CVE-2026-94564"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-58192",
+      "title": "appium allows unauthenticated arbitrary file/directory deletion in @appium/storage-plugin",
+      "description": "Summary\n\nThe Appium storage plugin exposes an HTTP endpoint POST /storage/delete that takes a user-supplied name and deletes it from the server storage folder. The handler passes name straight into path.join(storageRoot, name) and then fs.rimraf() without any path sanitization. B... [Full analysis a",
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-58192"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-jwgx-mp9m-jwcr"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-114516",
+      "title": "Etherpad: Pre-auth arbitrary file read",
+      "description": "Summary\n\nAn unauthenticated path‑traversal / arbitrary file read vulnerability in Etherpad's /static/* handler allows any remote, unauthenticated user to read any file on the server's filesystem (e.g. GET /static/plugins/ep_etherpad-lite/static/..%5C..%5C..%5C..%5C..%5C..%5C..%5C... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "MEDIUM",
+      "type": "NEWS_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-20",
+      "last_seen": "2026-11-20",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114516"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/advisories/GHSA-mc8w-wjhw-45x5"
       ],
       "explanation": {
         "quality": [
@@ -4399,5 +4398,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-24T06:27:23.388Z"
+  "lastReportGeneratedAt": "2026-11-24T09:02:58.958Z"
 }
