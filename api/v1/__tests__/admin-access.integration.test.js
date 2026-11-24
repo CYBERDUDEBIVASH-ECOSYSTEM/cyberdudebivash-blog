@@ -86,7 +86,8 @@ describe('mode off (the default): behaviour is exactly as before', () => {
     const denied = await call();
     expect(denied.res.statusCode).toBe(401);
     expect(denied.res.body.error.code).toBe('UNAUTHORIZED');
-    expect(auditActions()).toHaveLength(1); // the existing auth-failure entry, and nothing from the new gate
+    expect(auditActions()).toHaveLength(1); // the key-failure entry, and nothing from the Access gate
+    expect(auditActions()[0]).toMatchObject({ action: 'ADMIN_AUTH_FAIL', requested: 'audit', endpoint: 'admin-router' });
     expect(accessEvents()).toEqual([]);
     const allowed = await call({ headers: { 'x-admin-key': KEY } });
     expect(allowed.res.statusCode).toBe(200);
@@ -124,7 +125,8 @@ describe('mode enforce: Access identity AND the admin key are both required', ()
     const r = await call({ headers: { 'x-admin-key': 'wrong-key-wrong-key', 'cf-access-jwt-assertion': await mint() } });
     expect(r.res.statusCode).toBe(401);
     expect(r.res.body.error.code).toBe('UNAUTHORIZED');
-    expect(auditActions()).toHaveLength(1); // the existing key-failure entry only
+    expect(auditActions()).toHaveLength(1);
+    expect(auditActions()[0]).toMatchObject({ action: 'ADMIN_AUTH_FAIL', requested: 'audit', endpoint: 'admin-router' });
     expect(accessEvents()).toEqual([]); // the identity check passed, so it logged nothing
   });
 

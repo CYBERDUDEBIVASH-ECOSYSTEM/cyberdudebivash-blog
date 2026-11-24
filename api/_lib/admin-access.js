@@ -306,8 +306,8 @@ async function gate(req, opts) {
     await o.audit(verdict.allowed ? 'ADMIN_ACCESS_AUDIT' : 'ADMIN_ACCESS_DENIED', {
       ip: o.ip,
       endpoint: o.endpoint,
-      // NOT "action": auditLog() spreads this object after the event name, so a key called "action" would
-      // overwrite the event type (ADMIN_ACCESS_DENIED / ADMIN_ACCESS_AUDIT) with the requested admin action.
+      // "requested", never "action": auditLog() reserves "action" for the event name (a colliding key is stored
+      // as "requested" anyway), so use the final name here and keep the entry shape explicit.
       requested: o.action,
       mode: verdict.mode,
       result: verdict.code,
