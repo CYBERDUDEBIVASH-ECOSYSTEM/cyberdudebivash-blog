@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-24T21:57:14.319Z",
+  "generated": "2026-11-24T22:57:35.090Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20221,
+    "total_nodes": 20225,
     "actors": 8,
-    "cves": 9852,
-    "campaigns": 3313,
+    "cves": 9854,
+    "campaigns": 3315,
     "malware": 0,
     "iocs": 911,
-    "edges": 6118
+    "edges": 6120
   },
   "nodes": {
     "actor:lockbit": {
@@ -324362,15 +324362,15 @@
       "name": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
       "attributes": {
         "cvss": 8.1,
-        "threat_level": "MEDIUM",
-        "priority_score": 63,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
-        "vendor": "composer",
-        "product": "wwbn/avideo",
+        "vendor": "",
+        "product": "",
         "published": "2026-11-23",
-        "type": "CVE_REPORT"
+        "type": "NEWS_REPORT"
       },
       "connections": []
     },
@@ -374491,11 +374491,11 @@
     "CVE-2026-135429": {
       "id": "CVE-2026-135429",
       "type": "CVE",
-      "name": "CVE-2026-135429 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability",
+      "name": "Low Security Vulnerability [High EPSS] (CVE-2026-135429)",
       "attributes": {
         "cvss": 9.1,
-        "threat_level": "HIGH",
-        "priority_score": 69,
+        "threat_level": "MEDIUM",
+        "priority_score": 47,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -380189,6 +380189,82 @@
       "connections": [
         {
           "target": "CVE-2026-61513",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-64855": {
+      "id": "CVE-2026-64855",
+      "type": "CVE",
+      "name": "soapbar: verify_envelope_bsp accepts an unauthenticated embedded certificate (signature forgery / authentication bypass)",
+      "attributes": {
+        "cvss": 8.2,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "pip",
+        "product": "soapbar",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-135814": {
+      "id": "CVE-2026-135814",
+      "type": "CVE",
+      "name": "CVE-2026-135814 — Affected software (product not identified) CVSS 7.4 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.4,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-64855": {
+      "id": "campaign:cve-2026-64855",
+      "type": "Campaign",
+      "name": "pip soapbar Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-24",
+        "last_seen": "2026-11-24",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-64855"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-64855",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-135814": {
+      "id": "campaign:cve-2026-135814",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-24",
+        "last_seen": "2026-11-24",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-135814"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-135814",
           "relationship": "includes",
           "confidence": 1
         }
@@ -435437,6 +435513,24 @@
       "id": "campaign:cve-2026-61513→includes→CVE-2026-61513",
       "source": "campaign:cve-2026-61513",
       "target": "CVE-2026-61513",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-24",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-64855→includes→CVE-2026-64855",
+      "source": "campaign:cve-2026-64855",
+      "target": "CVE-2026-64855",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-24",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-135814→includes→CVE-2026-135814",
+      "source": "campaign:cve-2026-135814",
+      "target": "CVE-2026-135814",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-24",
