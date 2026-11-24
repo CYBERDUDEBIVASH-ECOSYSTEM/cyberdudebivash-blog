@@ -26,6 +26,7 @@ const crypto = require('node:crypto');
 const http = require('node:http');
 const https = require('node:https');
 const cp = require('node:child_process');
+const os = require('node:os');
 const { sign, sha256Hex, canonicalUri, canonicalQuery } = require('./lib/r2-sigv4.cjs');
 
 const PREFIX = 'runtime/v1/';
@@ -43,10 +44,32 @@ const FEEDS = Object.freeze([
   { rel: 'rss.xml', key: PREFIX + 'rss.xml', type: 'application/rss+xml; charset=utf-8', xml: true },
 ]);
 
+/**
+ * The bytes the public site is certified to serve for a source file: exactly what the
+ * Cloudflare build writes to dist-public (CVSS corrections on feeds, RSS origin rewrite,
+ * HTML claim/structure/SEO transforms). Single source of truth: this calls the build's own
+ * copyFileForPublicBuild, it never re-implements it. Uploading RAW source instead would
+ * serve uncorrected, unvalidated content that no release gate certified.
+ * Fail-closed: any exception means the file is not uploaded.
+ */
+function canonicalPublicBytes(root, rel) {
+  const build = require('./build-cloudflare-assets.js');
+  // The build derives repo-relative paths from its own ROOT; a different root would silently
+  // select the wrong transforms, so refuse instead of guessing.
+  if (path.resolve(root) !== path.resolve(build.ROOT)) throw new Error('PUBLIC_BUILD_ROOT_MISMATCH');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'rtfeed-'));
+  try {
+    const dest = path.join(tmp, path.basename(rel));
+    build.copyFileForPublicBuild(path.join(root, rel), dest);
+    return fs.readFileSync(dest);
+  } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
+}
+
 /** Read + validate one feed file. Returns {bytes, sha256, generatedAt} or throws Error(code). */
-function loadFeed(root, feed, nowMs) {
-  const file = path.join(root, feed.rel);
-  const bytes = fs.readFileSync(file);
+function loadFeed(root, feed, nowMs, publicBytes = canonicalPublicBytes) {
+  let bytes;
+  try { bytes = publicBytes(root, feed.rel); } catch (_) { throw new Error('FEED_TRANSFORM_FAILED:' + feed.rel); }
+  if (!Buffer.isBuffer(bytes)) throw new Error('FEED_TRANSFORM_FAILED:' + feed.rel);
   if (!bytes.length || bytes.length > FEED_MAX_BYTES) throw new Error('FEED_SIZE_INVALID:' + feed.rel);
   let stamp;
   if (feed.xml) {
@@ -67,7 +90,7 @@ function loadFeed(root, feed, nowMs) {
 }
 
 /** Dossiers added/modified in the last N commits (newest first), validated. */
-function recentDossiers(root, commits) {
+function recentDossiers(root, commits, publicBytes = canonicalPublicBytes, onSkip = () => {}) {
   let out = '';
   try {
     out = cp.execFileSync('git', ['log', '-n', String(commits), '--name-only', '--diff-filter=AM', '--format=', '--', 'posts'],
@@ -79,8 +102,11 @@ function recentDossiers(root, commits) {
     const m = SLUG.exec(rel);
     if (!m || seen.has(rel)) continue;
     seen.add(rel);
+    // A file removed since the commit that added it is simply gone, not a failure.
+    if (!fs.existsSync(path.join(root, rel))) continue;
     let bytes;
-    try { bytes = fs.readFileSync(path.join(root, rel)); } catch (_) { continue; }
+    try { bytes = publicBytes(root, rel); } catch (_) { onSkip('dossier_transform_failed', rel); continue; }
+    if (!Buffer.isBuffer(bytes)) { onSkip('dossier_transform_failed', rel); continue; }
     if (!bytes.length || bytes.length > DOSSIER_MAX_BYTES) continue;
     list.push({ rel, key: PREFIX + rel, bytes, sha256: sha256Hex(bytes), md5: crypto.createHash('md5').update(bytes).digest('hex') });
   }
@@ -160,6 +186,7 @@ async function main(argv, env, deps = {}) {
   const state = { ops: 0, reads: 0, clockMs: () => baseMs + (Date.now() - started) };
   const client = (deps.makeClient || makeClient)(env, state);
   const nowMs = baseMs;
+  const publicBytes = deps.publicBytes || canonicalPublicBytes; // tests may inject; production is always canonical
 
   if (args.check) {
     try {
@@ -175,10 +202,14 @@ async function main(argv, env, deps = {}) {
   // 1. Local, validated inputs. Any invalid feed is skipped, never uploaded.
   const feeds = [];
   for (const feed of FEEDS) {
-    try { feeds.push({ feed, ...loadFeed(args.root, feed, nowMs) }); }
+    try { feeds.push({ feed, ...loadFeed(args.root, feed, nowMs, publicBytes) }); }
     catch (e) { summary.failed.push(e.message); }
   }
-  const dossiers = recentDossiers(args.root, args.commits);
+  // A dossier the public build would reject is never uploaded, and it is reported (exit 2), not hidden.
+  const dossiers = recentDossiers(args.root, args.commits, publicBytes, (reason, rel) => {
+    skip(reason);
+    if (rel) summary.failed.push('DOSSIER_TRANSFORM_FAILED:' + rel);
+  });
 
   // 2. Daily cap (persisted). A read error other than 404 aborts: never write blind.
   const day = new Date(nowMs).toISOString().slice(0, 10);
@@ -270,4 +301,4 @@ if (require.main === module) {
   main(process.argv.slice(2), process.env).then((r) => { process.exitCode = r.code; })
     .catch((e) => { console.error('ERROR: ' + (e && e.message)); process.exitCode = 1; });
 }
-module.exports = { main, loadFeed, recentDossiers, FEEDS, PREFIX };
+module.exports = { main, loadFeed, recentDossiers, canonicalPublicBytes, FEEDS, PREFIX };

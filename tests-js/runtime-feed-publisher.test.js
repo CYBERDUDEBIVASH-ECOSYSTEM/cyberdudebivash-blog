@@ -119,10 +119,14 @@ function repo({ stamp = Date.parse(NOW) - 120000, dossiers = ['cve-2026-1.html',
   return root;
 }
 const envFor = (port, over = {}) => ({ R2_ENDPOINT: 'http://127.0.0.1:' + port, R2_BUCKET: 'soc-runtime-feed', R2_ACCESS_KEY_ID: ACCESS, R2_SECRET_ACCESS_KEY: SECRET, ...over });
-async function run(argv, env) {
+// These fixtures are not the repository, so they inject an identity transform. The production
+// default (the canonical public-build transform) is exercised in
+// runtime-feed-publisher-canonical.test.js against the real repository files.
+const RAW = (root, rel) => fs.readFileSync(path.join(root, rel));
+async function run(argv, env, deps = { publicBytes: RAW }) {
   const out = []; const err = []; const l = console.log; const e = console.error;
   console.log = (...a) => out.push(a.join(' ')); console.error = (...a) => err.push(a.join(' '));
-  try { const r = await main(argv, env); return { code: r.code, out: out.join('\n'), err: err.join('\n'), json: out.length ? safeJson(out[out.length - 1]) : null }; }
+  try { const r = await main(argv, env, deps); return { code: r.code, out: out.join('\n'), err: err.join('\n'), json: out.length ? safeJson(out[out.length - 1]) : null }; }
   finally { console.log = l; console.error = e; }
 }
 const safeJson = (s) => { try { return JSON.parse(s); } catch (_) { return null; } };
