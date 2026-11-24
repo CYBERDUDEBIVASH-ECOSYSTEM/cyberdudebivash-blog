@@ -2,7 +2,7 @@
   "platform": "CYBERDUDEBIVASH SENTINEL APEX — AI Security Intelligence Division",
   "endpoint": "/api/intel/ai-security.json",
   "doctrine": "Sentinel-APEX/prompts/ai-security-master-prompt.md",
-  "generated": "2026-11-23T22:52:49.667Z",
+  "generated": "2026-11-24T01:05:13.656Z",
   "disclaimer": "Evidence-graded AI security intelligence. Confidence and evidence labels attached per item. Community leads are corroborated before publication.",
   "stats": {
     "published": 6,
@@ -18,7 +18,7 @@
         "tier": 3,
         "status": "degraded",
         "items": 0,
-        "error": "HTTP 404"
+        "error": "HTTP 429"
       },
       {
         "name": "r/MachineLearning",
@@ -26,7 +26,7 @@
         "tier": 3,
         "status": "degraded",
         "items": 0,
-        "error": "HTTP 429"
+        "error": "HTTP 404"
       },
       {
         "name": "NVD (prompt injection)",
@@ -45,23 +45,23 @@
         "error": null
       },
       {
-        "name": "arXiv cs.CR (LLM security)",
-        "key": "arxiv_sec",
-        "tier": 2,
-        "status": "ok",
-        "items": 30,
-        "error": null
-      },
-      {
         "name": "GitHub Security Advisories",
         "key": "ghsa",
         "tier": 1,
         "status": "ok",
         "items": 60,
         "error": null
+      },
+      {
+        "name": "arXiv cs.CR (LLM security)",
+        "key": "arxiv_sec",
+        "tier": 2,
+        "status": "ok",
+        "items": 30,
+        "error": null
       }
     ],
-    "runtimeMs": 863
+    "runtimeMs": 12879
   },
   "frameworks": {
     "owasp_llm_top10": {
