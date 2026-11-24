@@ -7,7 +7,7 @@
 |---|---|---|
 | **PR-1 (this)** | Worker read-through `workers/lib/runtime-feed.js` + router hook + tests | **No.** No binding and no `run_worker_first`, so nothing reaches it for the feeds; dossier fallback only runs after a static 404 and only if a binding exists. |
 | PR-2 | R2 uploader + flag-gated workflow (`vars.SOC_RUNTIME_FEED_ENABLED`) | No: skipped while the flag is off. |
-| PR-3 | Parity gates and monitors accept runtime provenance (bounded propagation grace) | Only for responses that carry valid runtime provenance. |
+| PR-3 | Parity gates and monitors accept runtime provenance (bounded propagation grace) | Only for responses that carry valid runtime provenance (none exist until PR-4). |
 | PR-4 | `wrangler.jsonc`: R2 binding + `run_worker_first`. **Merge only after the owner creates the bucket.** | **Yes.** This is the activation switch. |
 
 ## Current architecture
@@ -50,7 +50,11 @@ Set `SOC_RUNTIME_FEED_ENABLED=false` (uploads stop; the Worker keeps serving the
 * The Cache API adds up to 60 s of propagation; monitors need the bounded grace added in PR-3.
 * A runtime object older than the static baseline (publisher stopped after a deploy) can be served for up to 6 h; the 6 h age limit bounds it.
 
-## PR-3 design (NOT yet built; must ship BEFORE activation, i.e. before PR-4)
+## PR-3 (BUILT; must be merged BEFORE activation, i.e. before PR-4)
+
+**Implemented:** `scripts/lib/runtime-feed-provenance.cjs` (new, pure) + `check()` in `certify-soc-public-feed-parity.cjs` + `monitorPublic()` / `verifyPublic()` in `certify-soc-s2n-api-release.cjs`. Deviations from the design below, all deliberate and stricter: (a) the equality waiver applies only when the response was generated at a **different instant** than the source (same instant stays exact); (b) the corpus must move in the direction of time (an older feed cannot have a larger `total_published`; a newer one cannot have a smaller one), else `*_RUNTIME_*_INCONSISTENT`; (c) in `--release-asset` mode, other bytes pass only if the runtime object is **strictly newer** than the build asset (same instant with other bytes is drift, not "not older"); (d) results carry a `provenance` label (`runtime-r2`, `static`, or `runtime-r2-REJECTED:<reason>`) so a rejected claim is visible. Static behaviour is byte-for-byte unchanged and tested. Verified: 16 new tests, the existing gate suites (167) pass, 21/21 deliberate regressions caught.
+
+### Original design
 
 **Why it is required (Verified from code).** Once public feeds are served from R2 they can differ from the checked-in source for a short propagation window, and the existing gates tolerate almost none of it:
 * `scripts/certify-soc-s2n-api-release.cjs` `monitorPublic()` requires **exact** `total_published` and **exact item-ID equality** with source, and rejects public ahead of source by more than 5 min (`PUBLIC_S2N_API_REPORT_IDENTITY_DRIFT`). Public behind source by more than 5 min fails (`PUBLIC_S2N_API_BEHIND_SOURCE`).
