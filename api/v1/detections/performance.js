@@ -33,6 +33,7 @@
 const sec = require('../../_lib/security');
 const { authenticate, successResponse, apiError } = require('../../_lib/middleware');
 const { auditLog } = require('../../_lib/payment-utils');
+const adminAccess = require('../../_lib/admin-access');
 const feedbackStore = require('../../_lib/detection-feedback-store');
 const performanceEngine = require('../../_lib/detection-performance-engine');
 
@@ -93,6 +94,17 @@ async function handleMyPerformance(req, res) {
 async function handleReviewQueue(req, res) {
   if (req.method !== 'GET') return apiError(res, 405, 'METHOD_NOT_ALLOWED', 'GET required');
   if (!(await sec.adminIpRateLimit(req, res))) return;
+  /* Zero-trust layer 1 (ADMIN_ACCESS_MODE off|audit|enforce, default off). This action shares its URL path
+     with customer actions, so an Access application cannot isolate it by path: the Worker verifies the
+     Access token itself, from the header or the CF_Authorization cookie set at sign-in. */
+  if (!(await adminAccess.gate(req, {
+    endpoint: 'detections/performance',
+    action: 'review-queue',
+    allowCookie: true,
+    ip: sec.getIp(req),
+    audit: auditLog,
+    respond: (status, code, message) => apiError(res, status, code, message),
+  }))) return;
   if (!sec.verifyAdminKey(req)) {
     await auditLog('ADMIN_AUTH_FAIL', { ip: sec.getIp(req), action: 'review-queue', endpoint: 'detections/performance' });
     return apiError(res, 401, 'UNAUTHORIZED', 'Valid X-Admin-Key header required.');

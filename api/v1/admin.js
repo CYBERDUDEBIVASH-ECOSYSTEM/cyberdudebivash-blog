@@ -23,6 +23,7 @@ const {
   ok, fail, parseBody, auditLog,
 } = require('../_lib/payment-utils');
 const sec = require('../_lib/security');
+const adminAccess = require('../_lib/admin-access');
 
 /* ─── Main Router ─────────────────────────────────────────────── */
 module.exports = async (req, res) => {
@@ -43,6 +44,17 @@ module.exports = async (req, res) => {
     return fail(res, 400, 'MISSING_ACTION',
       'action required. Valid: pending, approve, reject, audit, razorpay-orders, product-orders, gumroad-sales. All routes require X-Admin-Key header.');
   }
+
+  /* Zero-trust layer 1: Cloudflare Access identity (ADMIN_ACCESS_MODE off|audit|enforce, default off).
+     Runs before the key check so an unauthenticated caller learns nothing about key validity, and so the
+     verified operator is available to the audit entries written by approve/reject. */
+  if (!(await adminAccess.gate(req, {
+    endpoint: 'admin-router',
+    action,
+    ip,
+    audit: auditLog,
+    respond: (status, code, message) => fail(res, status, code, message),
+  }))) return;
 
   /* Phase 3: Admin auth gate — timing-safe, X-Admin-Key only */
   if (!sec.verifyAdminKey(req)) {
@@ -251,6 +263,7 @@ async function handleApprove(req, res) {
     email, planType, newTier, amount: submission.amount,
     paymentMethod: submission.paymentMethod, submittedAt: submission.submittedAt,
     approvedAt, adminIp, notes, upgradeResult,
+    actor: adminAccess.actorLabel(req.adminIdentity),
   });
 
   return ok(res, {
@@ -335,6 +348,7 @@ async function handleReject(req, res) {
       amount: submission.amount, paymentMethod: submission.paymentMethod,
       submittedAt: submission.submittedAt,
       rejectedAt, adminIp, reason,
+      actor: adminAccess.actorLabel(req.adminIdentity),
     });
 
     return ok(res, {
