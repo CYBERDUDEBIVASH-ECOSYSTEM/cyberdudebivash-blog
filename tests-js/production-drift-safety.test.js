@@ -868,3 +868,32 @@ test('P0 #433 latest seven reviewed CI workflows require manual release; unseen 
   assert.equal(renamed.state,'manual_release_required');
   assert.ok(renamed.operational.includes('.github/workflows/pricing-integrity.yml'));
 });
+
+test('P0 2026-11-25 drift run 45551506018: four reviewed Blogger/admin paths are operational, never benign; siblings still block',()=>{
+  // The reconciler reported exactly these four paths UNKNOWN (decision `blocked`, exit 1) on main e968f5a8, which kept
+  // the workflow red. Each was added by a merged PR on 2026-11-24 and inspected at source. They are inventory
+  // classification only: not benign, not a deploy approval, not customer certification.
+  const reviewed=[
+    '.env.example',                          // #716: commented, value-free names of the optional Access settings
+    'automation/report_integrity.py',        // R1: evidence model / fail-closed publication gate (label inference)
+    'automation/source_delivery_budget.py',  // #718: publication attempt budget when first-party pages are not served
+    'automation/threat_relevance.py',        // R3: relevance check for third-party (global_rss) candidates
+  ];
+  for (const file of reviewed) {
+    assert.equal(fs.existsSync(path.join(root,file)),true,file+' must exist');
+    assert.equal(isReviewedOperationalPath(file),true,file+' must be reviewed operational');
+    assert.equal(isKnownBenignPath(file),false,file+' must never be benign');
+  }
+  const all=classify(compare(reviewed),BASE,HEAD,paths);
+  assert.equal(all.state,'manual_release_required');
+  assert.deepEqual(all.unknown,[]);
+  assert.deepEqual(all.benign,[]);
+  assert.deepEqual([...all.production,...all.operational].sort(),[...reviewed].sort());
+  // No wildcard: an unreviewed sibling of each reviewed path stays UNKNOWN and blocks.
+  for (const sibling of ['automation/unreviewed_sibling.py','automation/report_integrity_v2.py','.env.local','.env.example.bak']) {
+    assert.equal(isReviewedOperationalPath(sibling),false,sibling+' must not be reviewed');
+    const blocked=classify(compare([...reviewed,sibling]),BASE,HEAD,paths);
+    assert.equal(blocked.state,'blocked',sibling);
+    assert.deepEqual(blocked.unknown,[sibling]);
+  }
+});

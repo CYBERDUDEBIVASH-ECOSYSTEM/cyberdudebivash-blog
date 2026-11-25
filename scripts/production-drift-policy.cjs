@@ -303,6 +303,19 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   'blogger-theme/cyberbivash-v24-TRUST.xml',
   'scripts/certify-soc-cti-source-handoff.cjs',
   'scripts/verify-soc-rss-source-truth.cjs',
+  // P0 2026-11-25 drift run 45551506018: exactly four previously UNKNOWN paths on main e968f5a8 (decision
+  // `blocked`, exit 1), each added by a merged PR on 2026-11-24 and inspected at source:
+  //   .env.example                          #716 commented, value-free names of the optional Access settings
+  //   automation/report_integrity.py        R1  evidence model / fail-closed CTI publication gate (label inference)
+  //   automation/source_delivery_budget.py  #718 publication attempt budget when first-party pages are not served
+  //   automation/threat_relevance.py        R3  relevance check for third-party (global_rss) candidates
+  // The three Python modules decide what is published to customers, so they are OPERATIONAL, not benign, and any
+  // change keeps manual release review. Inventory classification only: NOT a deploy and NOT customer certification.
+  // Exact paths: no automation/** or .env* wildcard; unreviewed siblings remain UNKNOWN and block.
+  '.env.example',
+  'automation/report_integrity.py',
+  'automation/source_delivery_budget.py',
+  'automation/threat_relevance.py',
 ]);
 
 /**
