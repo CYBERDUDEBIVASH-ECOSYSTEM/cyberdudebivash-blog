@@ -30,6 +30,18 @@ _MAX_FEED_BYTES = 5 * 1024 * 1024
 # legitimate concurrent posts; inspect at most 30 recent read-only records.
 _MAX_FEED_PAGES = 3
 _FEED_PAGE_SIZE = 10
+# Blogger's public propagation of a brand-new post is variable: usually under 2 s, but a custom-domain permalink can
+# answer with a redirect (HTTP 302) for 30 s or more (run 45586615239, 2026-11-25: four reads over ~27 s all got 302
+# for posts that were live, 200 and in the public feed an hour later). The read-back therefore backs off
+# exponentially from `sleep_seconds`, capped per sleep, within the existing hard cap of six attempts:
+# 8 + 16 + 30 + 30 + 30 = 114 s worst case, paid only when delivery is genuinely not appearing. A post that never
+# appears still fails closed.
+_MAX_ATTEMPTS = 6
+_MAX_RETRY_DELAY_SECONDS = 30
+# The read-back also has a wall-clock budget, so slow or hung requests cannot stretch a genuine failure toward the
+# 20-minute job timeout (a slow pipeline step plus an unresponsive edge could otherwise do exactly that).
+_MAX_TOTAL_SECONDS = 150
+_REDIRECT_HINT_CHARS = 60
 
 
 def _feed_page_url(page_index: int) -> str:
@@ -42,18 +54,31 @@ def _normalize(value: str) -> str:
     return re.sub(r"\W+", " ", unescape(value).casefold(), flags=re.UNICODE).strip()
 
 
+def _redirect_hint(response) -> str:
+    """Where a 3xx points (host + path only, sanitised and bounded) so a failed read-back is explainable."""
+    try:
+        location = str(response.headers.get("Location") or "")
+        parts = urlsplit(location)
+        hint = re.sub(r"[^A-Za-z0-9._/~-]", "", f"{parts.hostname or ''}{parts.path}")[:_REDIRECT_HINT_CHARS]
+    except (AttributeError, ValueError, TypeError):
+        return ""
+    return f" -> {hint}" if hint else ""
+
+
 def _read_public(url: str, *, get) -> requests.Response:
     response = get(url, timeout=(4, 12), allow_redirects=False,
                    headers={"User-Agent": "CYBERDUDEBIVASH-CTI-DeliveryVerifier/1.0",
                             "Cache-Control": "no-cache"})
     if response.status_code != 200:
-        raise ValueError(f"public_http_{response.status_code}")
+        hint = _redirect_hint(response) if 300 <= response.status_code < 400 else ""
+        raise ValueError(f"public_http_{response.status_code}{hint}")
     return response
 
 
 def verify_public_delivery(report: dict, *, http_get=None,
-                           attempts: int = 4, sleep_seconds: int = 8,
-                           sleeper=time.sleep) -> dict:
+                           attempts: int = _MAX_ATTEMPTS, sleep_seconds: int = 8,
+                           sleeper=time.sleep, max_total_seconds: float = _MAX_TOTAL_SECONDS,
+                           clock=time.monotonic) -> dict:
     """Return PASS/FAIL with bounded retries and no side effects.
 
     Run status is separate from API success; an actual post can be live even
@@ -76,7 +101,9 @@ def verify_public_delivery(report: dict, *, http_get=None,
 
     get = http_get or requests.get
     last_reason = "public_delivery_unverified"
-    for attempt in range(1, max(1, min(6, attempts)) + 1):
+    budget = max(1, min(_MAX_ATTEMPTS, attempts))
+    started = clock()
+    for attempt in range(1, budget + 1):
         verified = 0
         try:
             for post in posts:
@@ -121,9 +148,13 @@ def verify_public_delivery(report: dict, *, http_get=None,
             return {"status": "PASS", "verified": verified, "feed": "MATCH", "attempts": attempt}
         except (requests.RequestException, ValueError, TypeError, AttributeError, KeyError, json.JSONDecodeError) as exc:
             last_reason = str(exc)[:100] if isinstance(exc, ValueError) else "public_delivery_probe_error"
-            if attempt < max(1, min(6, attempts)):
-                sleeper(sleep_seconds)
-    return {"status": "FAIL", "verified": 0, "reason": last_reason, "attempts": max(1, min(6, attempts))}
+            if attempt < budget:
+                delay = min(_MAX_RETRY_DELAY_SECONDS, sleep_seconds * 2 ** (attempt - 1))
+                if clock() - started + delay > max_total_seconds:
+                    return {"status": "FAIL", "verified": 0, "reason": last_reason, "attempts": attempt,
+                            "time_budget_exhausted": True}
+                sleeper(delay)
+    return {"status": "FAIL", "verified": 0, "reason": last_reason, "attempts": budget}
 
 
 def main() -> int:
