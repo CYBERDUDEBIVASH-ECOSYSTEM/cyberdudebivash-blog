@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-25T13:23:15.308Z",
+  "generated": "2026-11-25T14:44:52.740Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20297,
+    "total_nodes": 20304,
     "actors": 8,
-    "cves": 9897,
-    "campaigns": 3342,
+    "cves": 9902,
+    "campaigns": 3343,
     "malware": 0,
     "iocs": 911,
-    "edges": 6147
+    "edges": 6148
   },
   "nodes": {
     "actor:lockbit": {
@@ -377133,11 +377133,11 @@
     "CVE-2026-119582": {
       "id": "CVE-2026-119582",
       "type": "CVE",
-      "name": "CVE-2026-119582 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "name": "CVE-2026-119582 - SQL Injection in ITG Computer's vSRM",
       "attributes": {
         "cvss": 9.8,
-        "threat_level": "HIGH",
-        "priority_score": 66,
+        "threat_level": "MEDIUM",
+        "priority_score": 49,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -381514,8 +381514,8 @@
       "name": "CVE-2026-87753 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
       "attributes": {
         "cvss": 8.1,
-        "threat_level": "HIGH",
-        "priority_score": 65,
+        "threat_level": "MEDIUM",
+        "priority_score": 60,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -381585,7 +381585,7 @@
       "type": "Campaign",
       "name": "Multi-Vendor Platform Exploitation Campaign",
       "attributes": {
-        "severity": "HIGH",
+        "severity": "MEDIUM",
         "item_count": 1,
         "first_seen": "2026-11-25",
         "last_seen": "2026-11-25",
@@ -381615,6 +381615,134 @@
       "connections": [
         {
           "target": "CVE-2026-136692",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2025-10492": {
+      "id": "CVE-2025-10492",
+      "type": "CVE",
+      "name": "CVE-2025-10492 — cloud jasperreports io CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "cloud",
+        "product": "jasperreports io",
+        "published": "2025-09-16",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-103782": {
+      "id": "CVE-2026-103782",
+      "type": "CVE",
+      "name": "Critical 9.9 Dell Enterprise SONiC Flaw Could Let Hackers Execute Malicious Commands on Network Switches",
+      "attributes": {
+        "cvss": 9.9,
+        "threat_level": "MEDIUM",
+        "priority_score": 51,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-121375": {
+      "id": "CVE-2026-121375",
+      "type": "CVE",
+      "name": "CVE-2026-121375 - Unauthenticated reflected cross-site scripting in REST API documentation page",
+      "attributes": {
+        "cvss": 9.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 47,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-125735": {
+      "id": "CVE-2026-125735",
+      "type": "CVE",
+      "name": "CVE-2026-125735 - SQL injection in Don Hierro’s CabinPaq",
+      "attributes": {
+        "cvss": 8.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 46,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-97198": {
+      "id": "CVE-2026-97198",
+      "type": "CVE",
+      "name": "CVE-2026-97198 - Authenticated IDOR via itemid Parameter in ITG Computer Technologies's vSRM",
+      "attributes": {
+        "cvss": 6.5,
+        "threat_level": "LOW",
+        "priority_score": 36,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "RAPID7-e6e32e99b24c5718": {
+      "id": "RAPID7-e6e32e99b24c5718",
+      "type": "Intel",
+      "name": "Our 2026 Cybersecurity Predictions: What We Got Right, What We Got Wrong, and What Changed",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "LOW",
+        "priority_score": 26,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": true,
+        "vendor": "rapid7",
+        "product": "Threat Intelligence",
+        "published": "2026-11-25",
+        "type": "RANSOMWARE"
+      },
+      "connections": []
+    },
+    "campaign:cve-2025-10492": {
+      "id": "campaign:cve-2025-10492",
+      "type": "Campaign",
+      "name": "cloud jasperreports Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2025-09-16",
+        "last_seen": "2025-09-16",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2025-10492"
+      },
+      "connections": [
+        {
+          "target": "CVE-2025-10492",
           "relationship": "includes",
           "confidence": 1
         }
@@ -437124,6 +437252,15 @@
       "id": "campaign:cve-2026-136692→includes→CVE-2026-136692",
       "source": "campaign:cve-2026-136692",
       "target": "CVE-2026-136692",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2025-10492→includes→CVE-2025-10492",
+      "source": "campaign:cve-2025-10492",
+      "target": "CVE-2025-10492",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-25",
