@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T20:28:08.807Z",
+  "generated": "2026-11-25T21:31:52.091Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,45 +8,144 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 163,
+  "count": 165,
   "items": [
     {
-      "id": "CVE-2026-82489",
-      "title": "CVE-2026-82489 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
-      "description": "openIMIS before 2026-10 contains an unauthenticated remote code execution vulnerability in the report module (openimis-be-report_py) where the /api/report/reportbro/preview endpoint evaluates printIf expressions server-side using simpleeval with an insufficient name-prefix blocklist. An attacker can",
-      "cvss": 9.8,
-      "final_ps": 73,
-      "quality_score": 0.52,
-      "threat_level": "HIGH",
+      "id": "CVE-2023-25915",
+      "title": "CVE-2023-25915: Danfoss AK-SM 800A Series Improper Input Validation Vulnerability — CISA KEV Active Exploitation",
+      "description": "Danfoss AK-SM 800A Series contains an improper input validation vulnerability that could allow a remote attacker to run arbitrary commands on the affected system.",
+      "cvss": null,
+      "final_ps": 95,
+      "quality_score": 0.58,
+      "threat_level": "CRITICAL",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "cisa_kev",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "cisa_kev"
       ],
       "first_seen": "2026-11-25",
       "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
+      "exploited": true,
+      "cisa_kev": true,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
+      "vendor": "Danfoss",
+      "product": "AK-SM 800A Series",
+      "due_date": "2026-11-28",
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://openimis.atlassian.net/wiki/spaces/OP/pages/5166989313/Release+2026-10",
-        "https://www.vulncheck.com/advisories/openimis-2026-10-report-module-unauthenticated-rce-via-reportbro-preview"
+        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2023-08-01",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-25915"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.70",
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.65",
           "recency=0d (score=1.00)",
-          "QS=0.520"
+          "QS=0.580"
         ],
         "priority": [
-          "+10 CVSS≥9"
+          "+15 CISA_KEV",
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-133324",
+      "title": "CVE-2026-133324: Mitel MiCollab Not Failing Securely Vulnerability — CISA KEV Active Exploitation",
+      "description": "Mitel MiCollab contains a not failing securely vulnerability in the Audio, Web and Video Conferencing (AWV) component that could allow an unauthenticated attacker to bypass authentication controls and perform unauthorized actions.",
+      "cvss": null,
+      "final_ps": 95,
+      "quality_score": 0.58,
+      "threat_level": "CRITICAL",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Mitel",
+      "product": "MiCollab",
+      "due_date": "2026-11-28",
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-133324"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.65",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "+15 CISA_KEV",
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-133275",
+      "title": "CVE-2026-133275: Mitel MiCollab Unrestricted Upload of File with Dangerous Type Vulnerability — CISA KEV Active Exploita",
+      "description": "Mitel MiCollab contains an unrestricted upload of file with dangerous type vulnerability in the Audio, Web and Video Conferencing (AWV) component due to insufficient file type validation that could allow an unauthenticated attacker to upload arbitrary files.",
+      "cvss": null,
+      "final_ps": 95,
+      "quality_score": 0.58,
+      "threat_level": "CRITICAL",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Mitel",
+      "product": "MiCollab",
+      "due_date": "2026-11-28",
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-133275"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.65",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "+15 CISA_KEV",
+          "+8 exploited_in_wild"
         ],
         "suppression": null,
         "merge": null
@@ -5982,6 +6081,286 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-103406",
+      "title": "CVE-2026-103406: Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router OS Command In",
+      "description": "",
+      "cvss": null,
+      "final_ps": 29,
+      "quality_score": 0.515,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Hewlett Packard Enterprise (HPE)",
+      "product": "Juniper Session Smart Conductor and Session Smart Router",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://supportportal.juniper.net/s/article/2026-10-On-Demand-Security-Bulletin-Session-Smart-Router-and-Session-Smart-Conductor-Multiple-internally-discovered-vulnerabilities-resolved",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103406"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.40",
+          "recency=0d (score=1.00)",
+          "QS=0.515"
+        ],
+        "priority": [
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-133311",
+      "title": "CVE-2026-133311: Mitel MiCollab Weak Authentication Vulnerability — CISA KEV Active Exploitation",
+      "description": "",
+      "cvss": null,
+      "final_ps": 29,
+      "quality_score": 0.515,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Mitel",
+      "product": "MiCollab",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-133311"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.40",
+          "recency=0d (score=1.00)",
+          "QS=0.515"
+        ],
+        "priority": [
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-137090",
+      "title": "CVE-2026-137090 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/emanuelmoraes-dev/build-git-clone/blob/68bc305028d04c9a71a030c4b0b5cc36450201b9/src/index.ts#L77",
+        "https://github.com/emanuelmoraes-dev/build-git-clone/commit/3d55e64e5b7c61e560b5d030d6a918cad5c67a29",
+        "https://github.com/emanuelmoraes-dev/build-git-clone/pull/1",
+        "https://www.vulncheck.com/advisories/build-git-clone-before-1.0.4-os-command-injection-in-clone-via-repository-url"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-136821",
+      "title": "CVE-2026-136821 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.9,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Zzzhangxxx/cve/blob/main/D-Link_R32_A1_1.10B02_SetTimeSettings_TZLocation_OS_Command_Injection.md",
+        "https://vuldb.com/cve/CVE-2026-136821",
+        "https://vuldb.com/submit/1059267",
+        "https://vuldb.com/vuln/443780"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-136822",
+      "title": "CVE-2026-136822 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.9,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Zzzhangxxx/cve/blob/main/D-Link_R32_A1_1.10B02_SetDeviceSettings_TZLocation_OS_Command_Injection.md",
+        "https://vuldb.com/cve/CVE-2026-136822",
+        "https://vuldb.com/submit/1059268",
+        "https://vuldb.com/vuln/443781"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-82489",
+      "title": "CVE-2026-82489 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 29,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://openimis.atlassian.net/wiki/spaces/OP/pages/5166989313/Release+2026-10",
+        "https://www.vulncheck.com/advisories/openimis-2026-10-report-module-unauthenticated-rce-via-reportbro-preview"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-133469",
       "title": "CVE-2026-133469: Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability — CISA KEV Active Expl",
       "description": "",
@@ -6104,288 +6483,6 @@
         "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
         "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
         "https://nvd.nist.gov/vuln/detail/CVE-2023-25914"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2023-25915",
-      "title": "CVE-2023-25915: Danfoss AK-SM 800A Series Improper Input Validation Vulnerability — CISA KEV Active Exploitation",
-      "description": "",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Danfoss",
-      "product": "AK-SM 800A Series",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2023-08-01",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2023-25915"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-133324",
-      "title": "CVE-2026-133324: Mitel MiCollab Not Failing Securely Vulnerability — CISA KEV Active Exploitation",
-      "description": "",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133324"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-133275",
-      "title": "CVE-2026-133275: Mitel MiCollab Unrestricted Upload of File with Dangerous Type Vulnerability — CISA KEV Active Exploita",
-      "description": "",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133275"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-133311",
-      "title": "CVE-2026-133311: Mitel MiCollab Weak Authentication Vulnerability — CISA KEV Active Exploitation",
-      "description": "",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133311"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-137090",
-      "title": "CVE-2026-137090 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/emanuelmoraes-dev/build-git-clone/blob/68bc305028d04c9a71a030c4b0b5cc36450201b9/src/index.ts#L77",
-        "https://github.com/emanuelmoraes-dev/build-git-clone/commit/3d55e64e5b7c61e560b5d030d6a918cad5c67a29",
-        "https://github.com/emanuelmoraes-dev/build-git-clone/pull/1",
-        "https://www.vulncheck.com/advisories/build-git-clone-before-1.0.4-os-command-injection-in-clone-via-repository-url"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-103406",
-      "title": "CVE-2026-103406: Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router OS Command In",
-      "description": "",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Hewlett Packard Enterprise (HPE)",
-      "product": "Juniper Session Smart Conductor and Session Smart Router",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://supportportal.juniper.net/s/article/2026-10-On-Demand-Security-Bulletin-Session-Smart-Router-and-Session-Smart-Conductor-Multiple-internally-discovered-vulnerabilities-resolved",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-103406"
       ],
       "explanation": {
         "quality": [
@@ -6691,52 +6788,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-73517",
-      "title": "CVE-2026-73517 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 8.8,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/ashikmd7/kubeSphere/blob/main/Remote%20Code%20Execution%20via%20Command%20Injection/README.md",
-        "https://github.com/kubesphere/kubesphere/issues/6661",
-        "https://www.vulncheck.com/advisories/kubesphere-command-injection-via-terminal-file-download"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-137086",
       "title": "CVE-2026-137086 — Affected software (product not identified) CVSS 8.1 High Severity Vulnerability",
       "description": "",
@@ -6784,52 +6835,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-136329",
-      "title": "CVE-2026-136329 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.8,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://access.redhat.com/security/cve/CVE-2026-136329",
-        "https://bugzilla.redhat.com/show_bug.cgi?id=2583413",
-        "https://gitlab.gnome.org/GNOME/gimp/-/work_items/17001"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-137060",
       "title": "CVE-2026-137060 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability",
       "description": "",
@@ -6858,6 +6863,53 @@
         "https://github.com/sods/paramz/commit/e9fb87fb6b277d5c40bbe79c4dacfea177d22a3e",
         "https://github.com/sods/paramz/issues/60",
         "https://github.com/sods/paramz/pull/61"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-137093",
+      "title": "CVE-2026-137093 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.8,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/assimp/assimp/blob/v6.0.5/code/AssetLib/MD5/MD5Loader.cpp#L413-L425",
+        "https://github.com/assimp/assimp/commit/49fa5d051ed274ea0e51efee0514cde0dacf75db",
+        "https://github.com/assimp/assimp/commit/7555cc90df828f391d9f58aed1f46a065a02ca2c",
+        "https://github.com/assimp/assimp/pull/6685"
       ],
       "explanation": {
         "quality": [
@@ -7281,6 +7333,53 @@
         "https://github.com/EverMind-AI/EverOS/blob/v1.7.1/src/everos/config/settings.py#L598-L600",
         "https://github.com/EverMind-AI/EverOS/blob/v1.7.1/src/everos/entrypoints/api/middleware/cors.py#L9-L12",
         "https://github.com/EverMind-AI/EverOS/commit/f5bae6a961a2b855c53f616f039ce6373ec66a59"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-137092",
+      "title": "CVE-2026-137092 — Affected software (product not identified) CVSS 7 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/assimp/assimp/blob/v6.0.5/code/AssetLib/MD5/MD5Loader.cpp#L200-L230",
+        "https://github.com/assimp/assimp/commit/bf9dabb617c46e5133dac65cca6bff177917afcb",
+        "https://github.com/assimp/assimp/commit/e04b60f61522e1d5594ef25addcfae7cb156f085",
+        "https://github.com/assimp/assimp/pull/6701"
       ],
       "explanation": {
         "quality": [

@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-25T20:28:08.627Z",
+  "generated": "2026-11-25T21:31:51.856Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20391,
+    "total_nodes": 20399,
     "actors": 8,
-    "cves": 9947,
-    "campaigns": 3385,
+    "cves": 9951,
+    "campaigns": 3389,
     "malware": 0,
     "iocs": 911,
-    "edges": 6190
+    "edges": 6194
   },
   "nodes": {
     "actor:lockbit": {
@@ -383397,6 +383397,158 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-136821": {
+      "id": "CVE-2026-136821",
+      "type": "CVE",
+      "name": "CVE-2026-136821 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.9,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-136822": {
+      "id": "CVE-2026-136822",
+      "type": "CVE",
+      "name": "CVE-2026-136822 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.9,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-137093": {
+      "id": "CVE-2026-137093",
+      "type": "CVE",
+      "name": "CVE-2026-137093 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 64,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-137092": {
+      "id": "CVE-2026-137092",
+      "type": "CVE",
+      "name": "CVE-2026-137092 — Affected software (product not identified) CVSS 7 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7,
+        "threat_level": "MEDIUM",
+        "priority_score": 60,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-136821": {
+      "id": "campaign:cve-2026-136821",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-25",
+        "last_seen": "2026-11-25",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-136821"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-136821",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-136822": {
+      "id": "campaign:cve-2026-136822",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-25",
+        "last_seen": "2026-11-25",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-136822"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-136822",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-137093": {
+      "id": "campaign:cve-2026-137093",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-25",
+        "last_seen": "2026-11-25",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-137093"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-137093",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-137092": {
+      "id": "campaign:cve-2026-137092",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-25",
+        "last_seen": "2026-11-25",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-137092"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-137092",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -439289,6 +439441,42 @@
       "id": "campaign:cve-2026-68539→includes→CVE-2026-68539",
       "source": "campaign:cve-2026-68539",
       "target": "CVE-2026-68539",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-136821→includes→CVE-2026-136821",
+      "source": "campaign:cve-2026-136821",
+      "target": "CVE-2026-136821",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-136822→includes→CVE-2026-136822",
+      "source": "campaign:cve-2026-136822",
+      "target": "CVE-2026-136822",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-137093→includes→CVE-2026-137093",
+      "source": "campaign:cve-2026-137093",
+      "target": "CVE-2026-137093",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-137092→includes→CVE-2026-137092",
+      "source": "campaign:cve-2026-137092",
+      "target": "CVE-2026-137092",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-25",
