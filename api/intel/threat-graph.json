@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-25T21:31:51.856Z",
+  "generated": "2026-11-25T22:30:40.342Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20399,
+    "total_nodes": 20404,
     "actors": 8,
-    "cves": 9951,
-    "campaigns": 3389,
+    "cves": 9954,
+    "campaigns": 3391,
     "malware": 0,
     "iocs": 911,
-    "edges": 6194
+    "edges": 6196
   },
   "nodes": {
     "actor:lockbit": {
@@ -324363,7 +324363,7 @@
       "attributes": {
         "cvss": 8.1,
         "threat_level": "LOW",
-        "priority_score": 43,
+        "priority_score": 41,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -374545,11 +374545,11 @@
     "CVE-2026-135433": {
       "id": "CVE-2026-135433",
       "type": "CVE",
-      "name": "CVE-2026-135433 — Affected software (product not identified) CVSS 7.8 High Severity Vulnerability",
+      "name": "Low Security Vulnerability (CVE-2026-135433)",
       "attributes": {
         "cvss": 7.8,
-        "threat_level": "MEDIUM",
-        "priority_score": 64,
+        "threat_level": "LOW",
+        "priority_score": 40,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -380352,8 +380352,8 @@
       "name": "GitHub CLI gh codespace jupyter may allow code execution via unvalidated URLs from malicious Codespaces",
       "attributes": {
         "cvss": 8,
-        "threat_level": "MEDIUM",
-        "priority_score": 45,
+        "threat_level": "LOW",
+        "priority_score": 43,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -382731,7 +382731,7 @@
       "attributes": {
         "cvss": 8.8,
         "threat_level": "HIGH",
-        "priority_score": 72,
+        "priority_score": 67,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -383545,6 +383545,100 @@
       "connections": [
         {
           "target": "CVE-2026-137092",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-136823": {
+      "id": "CVE-2026-136823",
+      "type": "CVE",
+      "name": "CVE-2026-136823 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
+      "attributes": {
+        "cvss": 10,
+        "threat_level": "HIGH",
+        "priority_score": 71,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-67209": {
+      "id": "CVE-2026-67209",
+      "type": "CVE",
+      "name": "CVE-2026-67209 — Affected software (product not identified) CVSS 7.1 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.1,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-4033": {
+      "id": "CVE-2026-4033",
+      "type": "CVE",
+      "name": "CVE-2026-4033 - On EBX Product Stored XSS Vulnerability",
+      "attributes": {
+        "cvss": 6.1,
+        "threat_level": "LOW",
+        "priority_score": 35,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-24",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-136823": {
+      "id": "campaign:cve-2026-136823",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-25",
+        "last_seen": "2026-11-25",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-136823"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-136823",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-67209": {
+      "id": "campaign:cve-2026-67209",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-25",
+        "last_seen": "2026-11-25",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-67209"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-67209",
           "relationship": "includes",
           "confidence": 1
         }
@@ -439477,6 +439571,24 @@
       "id": "campaign:cve-2026-137092→includes→CVE-2026-137092",
       "source": "campaign:cve-2026-137092",
       "target": "CVE-2026-137092",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-136823→includes→CVE-2026-136823",
+      "source": "campaign:cve-2026-136823",
+      "target": "CVE-2026-136823",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-67209→includes→CVE-2026-67209",
+      "source": "campaign:cve-2026-67209",
+      "target": "CVE-2026-67209",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-25",

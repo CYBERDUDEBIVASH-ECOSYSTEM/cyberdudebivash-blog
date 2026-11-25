@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T21:31:52.091Z",
+  "generated": "2026-11-25T22:30:40.562Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,17 +7,17 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8405,
+  "total_published": 8407,
   "s2n_stats": {
     "passed": 162,
     "suppressed": 3,
-    "avg_qs": 0.467
+    "avg_qs": 0.468
   },
   "items": [
     {
-      "id": "CVE-2023-25915",
-      "title": "CVE-2023-25915: Danfoss AK-SM 800A Series Improper Input Validation Vulnerability — CISA KEV Active Exploitation",
-      "description": "Danfoss AK-SM 800A Series contains an improper input validation vulnerability that could allow a remote attacker to run arbitrary commands on the affected system.",
+      "id": "CVE-2026-103406",
+      "title": "CVE-2026-103406: Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router OS Command In",
+      "description": "Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router contain an OS command injection vulnerability that could allow a remote attacker to execute arbitrary commands as root via a specially crafted salt minion ID.",
       "cvss": null,
       "final_ps": 95,
       "quality_score": 0.58,
@@ -33,16 +33,16 @@
       "exploited": true,
       "cisa_kev": true,
       "ransomware": false,
-      "vendor": "Danfoss",
-      "product": "AK-SM 800A Series",
+      "vendor": "Hewlett Packard Enterprise (HPE)",
+      "product": "Juniper Session Smart Conductor and Session Smart Router",
       "due_date": "2026-11-28",
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2023-08-01",
+        "https://supportportal.juniper.net/s/article/2026-10-On-Demand-Security-Bulletin-Session-Smart-Router-and-Session-Smart-Conductor-Multiple-internally-discovered-vulnerabilities-resolved",
         "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
         "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2023-25915"
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-103406"
       ],
       "explanation": {
         "quality": [
@@ -60,9 +60,9 @@
       }
     },
     {
-      "id": "CVE-2026-133324",
-      "title": "CVE-2026-133324: Mitel MiCollab Not Failing Securely Vulnerability — CISA KEV Active Exploitation",
-      "description": "Mitel MiCollab contains a not failing securely vulnerability in the Audio, Web and Video Conferencing (AWV) component that could allow an unauthenticated attacker to bypass authentication controls and perform unauthorized actions.",
+      "id": "CVE-2026-133311",
+      "title": "CVE-2026-133311: Mitel MiCollab Weak Authentication Vulnerability — CISA KEV Active Exploitation",
+      "description": "Mitel MiCollab contains a weak authentication vulnerability in the Audio, Web and Video Conferencing (AWV) component that could allow an unauthenticated attacker to access sensitive information using a specific system-generated random identifier or pre-staged content.",
       "cvss": null,
       "final_ps": 95,
       "quality_score": 0.58,
@@ -80,14 +80,14 @@
       "ransomware": false,
       "vendor": "Mitel",
       "product": "MiCollab",
-      "due_date": "2026-11-28",
+      "due_date": "2026-12-09",
       "cves": [],
       "ioc_count": 0,
       "refs": [
         "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
         "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
         "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133324"
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-133311"
       ],
       "explanation": {
         "quality": [
@@ -105,45 +105,88 @@
       }
     },
     {
-      "id": "CVE-2026-133275",
-      "title": "CVE-2026-133275: Mitel MiCollab Unrestricted Upload of File with Dangerous Type Vulnerability — CISA KEV Active Exploita",
-      "description": "Mitel MiCollab contains an unrestricted upload of file with dangerous type vulnerability in the Audio, Web and Video Conferencing (AWV) component due to insufficient file type validation that could allow an unauthenticated attacker to upload arbitrary files.",
-      "cvss": null,
-      "final_ps": 95,
-      "quality_score": 0.58,
-      "threat_level": "CRITICAL",
+      "id": "CVE-2026-137090",
+      "title": "CVE-2026-137090 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "description": "build-git-clone before 1.0.4 contains an OS command injection vulnerability in the clone() function that allows attackers to execute commands by supplying crafted repository URLs. Attackers can embed shell metacharacters such as ; or $() in the url argument, which is concatenated into a sh -c comman",
+      "cvss": 9.8,
+      "final_ps": 73,
+      "quality_score": 0.52,
+      "threat_level": "HIGH",
       "type": "CVE_REPORT",
-      "source": "cisa_kev",
+      "source": "nvd",
       "sources_confirmed": 1,
       "merged_sources": [
-        "cisa_kev"
+        "nvd"
       ],
       "first_seen": "2026-11-25",
       "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
+      "exploited": false,
+      "cisa_kev": false,
       "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
-      "due_date": "2026-11-28",
+      "vendor": "",
+      "product": "",
+      "due_date": null,
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133275"
+        "https://github.com/emanuelmoraes-dev/build-git-clone/blob/68bc305028d04c9a71a030c4b0b5cc36450201b9/src/index.ts#L77",
+        "https://github.com/emanuelmoraes-dev/build-git-clone/commit/3d55e64e5b7c61e560b5d030d6a918cad5c67a29",
+        "https://github.com/emanuelmoraes-dev/build-git-clone/pull/1",
+        "https://www.vulncheck.com/advisories/build-git-clone-before-1.0.4-os-command-injection-in-clone-via-repository-url"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.65",
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
           "recency=0d (score=1.00)",
-          "QS=0.580"
+          "QS=0.520"
         ],
         "priority": [
-          "+15 CISA_KEV",
-          "+8 exploited_in_wild"
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-136821",
+      "title": "CVE-2026-136821 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
+      "description": "A flaw has been found in D-Link R32 1.10B02. The affected element is the function SetTimeSettings of the component DHMAPI Action Handler. This manipulation of the argument TZLocation causes os command injection. It is possible to initiate the attack remotely. The exploit has been published and may b",
+      "cvss": 9.9,
+      "final_ps": 73,
+      "quality_score": 0.52,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/Zzzhangxxx/cve/blob/main/D-Link_R32_A1_1.10B02_SetTimeSettings_TZLocation_OS_Command_Injection.md",
+        "https://vuldb.com/cve/CVE-2026-136821",
+        "https://vuldb.com/submit/1059267",
+        "https://vuldb.com/vuln/443780"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.70",
+          "recency=0d (score=1.00)",
+          "QS=0.520"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
         ],
         "suppression": null,
         "merge": null
@@ -441,7 +484,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=6d (score=0.40)",
+          "recency=7d (score=0.40)",
           "QS=0.432"
         ],
         "priority": [
@@ -2272,7 +2315,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CISA-447ce5be1e8784bc",
@@ -4234,9 +4279,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-103406",
-      "title": "CVE-2026-103406: Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router OS Command In",
-      "description": "Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router contain an OS command injection vulnerability that could allow a remote attacker to execute arbitrary commands as root via a specially crafted salt minion ID.",
+      "id": "CVE-2026-133469",
+      "title": "CVE-2026-133469: Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability — CISA KEV Active Expl",
+      "description": "Vates Xen Orchestra contains an improper validation of specified type of input vulnerability that could allow an unauthenticated attacker to bypass authentication and perform actions with administrative privileges via a specially crafted authentication token containing an empty JSON object.",
       "cvss": null,
       "final_ps": 29,
       "quality_score": 0.515,
@@ -4252,16 +4297,16 @@
       "exploited": true,
       "cisa_kev": true,
       "ransomware": false,
-      "vendor": "Hewlett Packard Enterprise (HPE)",
-      "product": "Juniper Session Smart Conductor and Session Smart Router",
+      "vendor": "Vates",
+      "product": "Xen Orchestra",
       "due_date": "2026-11-28",
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://supportportal.juniper.net/s/article/2026-10-On-Demand-Security-Bulletin-Session-Smart-Router-and-Session-Smart-Conductor-Multiple-internally-discovered-vulnerabilities-resolved",
+        "https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/",
         "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
         "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-103406"
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-133469"
       ],
       "explanation": {
         "quality": [
@@ -4280,9 +4325,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-133311",
-      "title": "CVE-2026-133311: Mitel MiCollab Weak Authentication Vulnerability — CISA KEV Active Exploitation",
-      "description": "Mitel MiCollab contains a weak authentication vulnerability in the Audio, Web and Video Conferencing (AWV) component that could allow an unauthenticated attacker to access sensitive information using a specific system-generated random identifier or pre-staged content.",
+      "id": "CVE-2025-41450",
+      "title": "CVE-2025-41450: Danfoss AK-SM 800A Series Improper Authentication Vulnerability — CISA KEV Active Exploitation",
+      "description": "Danfoss AK-SM 800A Series contains an improper authentication vulnerability that could allow an attacker to generate a web report exposing sensitive information, including internal IP addresses, usernames, and store names.",
       "cvss": null,
       "final_ps": 29,
       "quality_score": 0.515,
@@ -4298,16 +4343,16 @@
       "exploited": true,
       "cisa_kev": true,
       "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
+      "vendor": "Danfoss",
+      "product": "AK-SM 800A Series",
       "due_date": "2026-12-09",
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
+        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2025-03-01",
         "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
         "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133311"
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-41450"
       ],
       "explanation": {
         "quality": [
@@ -4326,90 +4371,44 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-137090",
-      "title": "CVE-2026-137090 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
-      "description": "build-git-clone before 1.0.4 contains an OS command injection vulnerability in the clone() function that allows attackers to execute commands by supplying crafted repository URLs. Attackers can embed shell metacharacters such as ; or $() in the url argument, which is concatenated into a sh -c comman",
-      "cvss": 9.8,
+      "id": "CVE-2023-25914",
+      "title": "CVE-2023-25914: Danfoss AK-SM 800A Series Path Traversal Vulnerability — CISA KEV Active Exploitation",
+      "description": "Danfoss AK-SM 800A Series contains a path traversal vulnerability that could allow an attacker to access and read underlying server system files via the XML interface.",
+      "cvss": null,
       "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
+      "quality_score": 0.515,
+      "threat_level": "CRITICAL",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "cisa_kev",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "cisa_kev"
       ],
       "first_seen": "2026-11-25",
       "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
+      "exploited": true,
+      "cisa_kev": true,
       "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
+      "vendor": "Danfoss",
+      "product": "AK-SM 800A Series",
+      "due_date": "2026-11-28",
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/emanuelmoraes-dev/build-git-clone/blob/68bc305028d04c9a71a030c4b0b5cc36450201b9/src/index.ts#L77",
-        "https://github.com/emanuelmoraes-dev/build-git-clone/commit/3d55e64e5b7c61e560b5d030d6a918cad5c67a29",
-        "https://github.com/emanuelmoraes-dev/build-git-clone/pull/1",
-        "https://www.vulncheck.com/advisories/build-git-clone-before-1.0.4-os-command-injection-in-clone-via-repository-url"
+        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2023-08-01",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-25914"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.40",
           "recency=0d (score=1.00)",
-          "QS=0.465"
+          "QS=0.515"
         ],
         "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-136821",
-      "title": "CVE-2026-136821 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "A flaw has been found in D-Link R32 1.10B02. The affected element is the function SetTimeSettings of the component DHMAPI Action Handler. This manipulation of the argument TZLocation causes os command injection. It is possible to initiate the attack remotely. The exploit has been published and may b",
-      "cvss": 9.9,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/Zzzhangxxx/cve/blob/main/D-Link_R32_A1_1.10B02_SetTimeSettings_TZLocation_OS_Command_Injection.md",
-        "https://vuldb.com/cve/CVE-2026-136821",
-        "https://vuldb.com/submit/1059267",
-        "https://vuldb.com/vuln/443780"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
+          "+8 exploited_in_wild"
         ],
         "suppression": null,
         "merge": null
@@ -4418,5 +4417,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-25T21:31:52.631Z"
+  "lastReportGeneratedAt": "2026-11-25T22:30:40.759Z"
 }
