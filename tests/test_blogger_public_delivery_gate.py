@@ -323,3 +323,209 @@ def test_the_upcoming_delay_counts_towards_the_time_budget():
     # attempt 1 ends t=140 (still under 150) but the next delay (16 s) would end at 156 > 150, so it must not sleep.
     result, slept = _timed(140, sleep_seconds=16)
     assert slept == [] and result["attempts"] == 1 and result["time_budget_exhausted"] is True
+
+
+# --- Google's anti-abuse interstitial (runs 9317/9318/9320/9321, 2026-11-25) -------------------------------------
+# The "propagation lag" diagnosis was wrong. The redirect destination added to the failure reason by the previous
+# change showed what the runner actually receives: `public_http_302 -> www.google.com/sorry/index`, Google's "unusual
+# traffic" interstitial, which lasted longer than the whole 114 s backoff. The posts were live and correct (200 from any
+# other network, exact content match through the authenticated Blogger API). A provider's bot challenge against a CI
+# runner is inconclusive, not proof of a failed delivery (the same convention freshness-check.yml already applies to
+# HTTP 429). Only that exact condition is downgraded, and only when the pipeline's own authenticated fetch-back
+# verified every post with an exact content match. Everything else still fails closed.
+import sys  # noqa: E402
+
+from automation import blogger_public_delivery_gate as gate  # noqa: E402
+
+SORRY = "https://www.google.com/sorry/index?continue=https://cti.cyberdudebivash.in/2026/11/x.html&q=EgQ"
+
+
+def _fb(**over):
+    base = {"post_id": ID, "fetched": True, "verified": True, "defects": [], "intended_content_length": 150448,
+            "live_content_length": 150448, "exact_content_match": True, "error": ""}
+    base.update(over)
+    return base
+
+
+def _api_report(fetch_back=None, discrepancies=0, drop=()):
+    fb = _fb() if fetch_back is None else fetch_back
+    fb = {k: v for k, v in fb.items() if k not in drop} if isinstance(fb, dict) else fb
+    return {"dry_run": False, "published": 1, "fetch_back_discrepancies": discrepancies,
+            "posts": [{**POST, "fetch_back": fb}]}
+
+
+def _blocked(location=SORRY):
+    return _lagging_get(99, not_ready=lambda: _redirect(location))
+
+
+def _verify(report, get, **kw):
+    slept = []
+    return verify_public_delivery(report, http_get=get, sleeper=slept.append, **kw), slept
+
+
+def test_google_block_with_api_verified_posts_is_a_degraded_pass_with_no_hammering():
+    get = _blocked()
+    result, slept = _verify(_api_report(), get)
+    assert result["status"] == "PASS_DEGRADED"
+    assert result["public_edge"] == "blocked_by_provider" and result["api_verified"] == 1 and result["verified"] == 0
+    assert result["reason"] == "public_http_302 -> www.google.com/sorry/index"
+    assert result["attempts"] == 3 and slept == [8, 16]
+    assert get.state["reads"] == 3, "a bot challenge must not be hammered"
+
+
+@pytest.mark.parametrize("report", [
+    pytest.param(_api_report(fetch_back=False), id="no fetch_back at all"),
+    pytest.param(_api_report(drop=("fetched",)), id="fetched missing"),
+    pytest.param(_api_report(fetch_back=_fb(fetched=False)), id="not fetched"),
+    pytest.param(_api_report(fetch_back=_fb(verified=False)), id="not verified"),
+    pytest.param(_api_report(fetch_back=_fb(exact_content_match=False)), id="content mismatch"),
+    pytest.param(_api_report(drop=("exact_content_match",)), id="match flag missing"),
+    pytest.param(_api_report(fetch_back=_fb(defects=["truncated"])), id="defects present"),
+    pytest.param(_api_report(fetch_back=_fb(post_id="999")), id="verified a different post id"),
+    pytest.param(_api_report(discrepancies=1), id="run-level discrepancy"),
+    pytest.param(_api_report(fetch_back=_fb(verified="true")), id="truthy but not boolean True"),
+])
+def test_a_block_without_exact_api_evidence_fails_closed(report):
+    result, _slept = _verify(report, _blocked())
+    assert result["status"] == "FAIL" and result["api_fetch_back"] == "unverified"
+    assert result["reason"] == "public_http_302 -> www.google.com/sorry/index"
+
+
+def test_a_redirect_anywhere_else_still_fails_closed_after_the_full_backoff_even_with_api_evidence():
+    result, slept = _verify(_api_report(), _blocked("https://cti.cyberdudebivash.in/search"))
+    assert result["status"] == "FAIL" and result["attempts"] == 6
+    assert slept == [8, 16, 30, 30, 30] and "api_fetch_back" not in result
+
+
+@pytest.mark.parametrize("location", [
+    "https://www.google.com.evil.example/sorry/index",
+    "https://evilgoogle.com/sorry/index",
+    "https://accounts.google.com/sorry/index",
+    "https://www.google.com/search?q=sorry",
+    "https://www.google.com/sorrynot/index",
+    "https://www.google.com/",
+    "/sorry/index",                                  # relative: no host to trust
+    "ftp://www.google.com/sorry/index",
+])
+def test_look_alike_and_other_google_redirects_are_not_treated_as_the_block(location):
+    result, _slept = _verify(_api_report(), _blocked(location))
+    assert result["status"] == "FAIL" and result["attempts"] == 6 and "public_edge" not in result
+
+
+def test_both_google_hosts_and_the_bare_sorry_path_count_as_the_block():
+    for location in ("https://google.com/sorry/index", "http://www.google.com/sorry", "https://WWW.GOOGLE.COM/sorry/index?x=1"):
+        result, _slept = _verify(_api_report(), _blocked(location))
+        assert result["status"] == "PASS_DEGRADED", location
+
+
+def test_a_block_that_clears_gives_a_real_public_pass_not_a_degraded_one():
+    result, slept = _verify(_api_report(), _lagging_get(2, not_ready=lambda: _redirect(SORRY)))
+    assert result["status"] == "PASS" and result["verified"] == 1 and result["feed"] == "MATCH"
+    assert result["attempts"] == 3 and slept == [8, 16]
+
+
+def test_only_the_last_failure_decides_a_block_followed_by_a_real_failure_stays_a_failure():
+    state = {"n": 0}
+    def get(url, **kw):
+        state["n"] += 1
+        return _redirect(SORRY) if state["n"] == 1 else _NS(status_code=404, headers={}, content=b"", text="", json=lambda: {})
+    result, _slept = _verify(_api_report(), get)
+    assert result["status"] == "FAIL" and result["reason"] == "public_http_404" and result["attempts"] == 6
+
+
+def _write_run(tmp_path):
+    logs = tmp_path / "logs"
+    logs.mkdir()
+    marker = tmp_path / "marker"
+    marker.write_text("x")
+    run = logs / "run-20261125-000000.json"
+    run.write_text(json.dumps(_api_report()))
+    import os
+    os.utime(marker, ns=(1, 1))                       # the receipt is newer than the marker
+    return logs, marker
+
+
+@pytest.mark.parametrize("verdict, code, warns", [
+    ({"status": "PASS", "verified": 1}, 0, False),
+    ({"status": "PASS_DEGRADED", "verified": 0, "api_verified": 4, "public_edge": "blocked_by_provider",
+      "reason": "public_http_302 -> www.google.com/sorry/index", "attempts": 3}, 0, True),
+    ({"status": "FAIL", "verified": 0, "reason": "public_http_404", "attempts": 6}, 2, False),
+])
+def test_cli_exit_code_and_provider_block_warning(tmp_path, monkeypatch, capsys, verdict, code, warns):
+    logs, marker = _write_run(tmp_path)
+    monkeypatch.setattr(gate, "verify_public_delivery", lambda report: verdict)
+    monkeypatch.setattr(sys, "argv", ["gate", "--logs-dir", str(logs), "--marker", str(marker)])
+    assert gate.main() == code
+    out = capsys.readouterr().out
+    assert "P0_BLOGGER_PUBLIC_DELIVERY=" in out
+    assert ("::warning title=Blogger public read-back blocked by provider" in out) is warns
+    if warns:
+        assert "not proof of a failed delivery" in out and "4" in out
+
+
+def test_block_concluded_by_a_smaller_attempt_budget_or_the_time_budget_gets_the_same_decision():
+    degraded, slept = _verify(_api_report(), _blocked(), attempts=2)
+    assert degraded["status"] == "PASS_DEGRADED" and degraded["attempts"] == 2 and slept == [8]
+    ticks = iter(range(0, 10_000, 200))               # every clock() call advances 200 s: budget gone after attempt 1
+    timed, slept = _verify(_api_report(), _blocked(), clock=lambda: next(ticks))
+    assert timed["status"] == "PASS_DEGRADED" and timed["attempts"] == 1 and timed["time_budget_exhausted"] is True
+    assert slept == []
+    ticks = iter(range(0, 10_000, 200))
+    unproven, _ = _verify(_api_report(fetch_back=False), _blocked(), clock=lambda: next(ticks))
+    assert unproven["status"] == "FAIL" and unproven["api_fetch_back"] == "unverified"
+
+
+def test_missing_defects_list_is_not_evidence():
+    result, _slept = _verify(_api_report(drop=("defects",)), _blocked())
+    assert result["status"] == "FAIL" and result["api_fetch_back"] == "unverified"
+
+
+def test_every_post_needs_its_own_evidence_when_several_were_published():
+    second = {**POST, "blogger_post_id": "2222222222222222222", "blogger_url": URL.replace(".html", "-b.html")}
+    good, bad = {**POST, "fetch_back": _fb()}, {**second, "fetch_back": _fb(post_id="2222222222222222222", verified=False)}
+    report = {"dry_run": False, "published": 2, "fetch_back_discrepancies": 0, "posts": [good, bad]}
+    assert _verify(report, _blocked())[0]["status"] == "FAIL"
+    bad["fetch_back"] = _fb(post_id="2222222222222222222")
+    result, _slept = _verify(report, _blocked())
+    assert result["status"] == "PASS_DEGRADED" and result["api_verified"] == 2
+
+
+@pytest.mark.parametrize("fetch_back", [
+    pytest.param(_fb(fetched="yes"), id="fetched truthy string"),
+    pytest.param(_fb(fetched=1), id="fetched integer 1"),
+    pytest.param(_fb(exact_content_match=1), id="match integer 1"),
+])
+def test_evidence_flags_must_be_the_boolean_true(fetch_back):
+    result, _slept = _verify(_api_report(fetch_back=fetch_back), _blocked())
+    assert result["status"] == "FAIL" and result["api_fetch_back"] == "unverified"
+
+
+@pytest.mark.parametrize("discrepancies", [None, False, "0", 0.0, "", []])
+def test_run_level_discrepancy_counter_must_be_present_and_the_integer_zero(discrepancies):
+    report = _api_report()
+    if discrepancies is None:
+        report.pop("fetch_back_discrepancies")
+    else:
+        report["fetch_back_discrepancies"] = discrepancies
+    result, _slept = _verify(report, _blocked())
+    assert result["status"] == "FAIL" and result["api_fetch_back"] == "unverified", discrepancies
+
+
+@pytest.mark.parametrize("status", [200 + 99, 403, 429, 503])
+def test_only_a_3xx_redirect_to_the_interstitial_is_the_block(status):
+    def get(url, **kw):
+        return _NS(status_code=status, headers={"Location": SORRY}, content=b"", text="", json=lambda: {})
+    result, _slept = _verify(_api_report(), get)
+    assert result["status"] == "FAIL" and result["attempts"] == 6 and "public_edge" not in result
+
+
+def test_the_warning_annotation_never_echoes_remote_derived_text(tmp_path, monkeypatch, capsys):
+    logs, marker = _write_run(tmp_path)
+    verdict = {"status": "PASS_DEGRADED", "verified": 0, "api_verified": 1, "public_edge": "blocked_by_provider",
+               "reason": "INJECTED_MARKER\n::error::pwned", "attempts": 3}
+    monkeypatch.setattr(gate, "verify_public_delivery", lambda report: verdict)
+    monkeypatch.setattr(sys, "argv", ["gate", "--logs-dir", str(logs), "--marker", str(marker)])
+    assert gate.main() == 0
+    lines = capsys.readouterr().out.splitlines()
+    assert [ln for ln in lines if "INJECTED_MARKER" in ln] == [ln for ln in lines if ln.startswith("P0_BLOGGER_PUBLIC_DELIVERY=")]
+    assert not any(ln.startswith("::error") for ln in lines)
