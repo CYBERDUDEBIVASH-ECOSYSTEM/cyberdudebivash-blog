@@ -42,6 +42,15 @@ _MAX_RETRY_DELAY_SECONDS = 30
 # 20-minute job timeout (a slow pipeline step plus an unresponsive edge could otherwise do exactly that).
 _MAX_TOTAL_SECONDS = 150
 _REDIRECT_HINT_CHARS = 60
+# Google's anti-abuse interstitial. Runs 9317/9318/9320/9321 (2026-11-25) showed that the 302s were not propagation lag:
+# the redirect destination was `www.google.com/sorry/index`, Google's "unusual traffic" challenge, which GitHub-hosted
+# runner addresses receive and which outlasts any sensible backoff. The same posts answered 200 from other networks and
+# matched exactly through the authenticated Blogger API. A provider's bot challenge says nothing about whether the post
+# was delivered, so it is inconclusive rather than a failure. Only this exact condition is downgraded (see
+# `verify_public_delivery`); every other failure still fails closed. Mirrors freshness-check.yml, which already
+# treats a provider rate limit on the public probe as a warning and fails closed on everything else.
+_PROVIDER_BLOCK_HOSTS = frozenset({"www.google.com", "google.com"})
+_PROVIDER_BLOCK_ATTEMPTS = 3  # 8 s + 16 s of waiting, then stop: never hammer a bot challenge
 
 
 def _feed_page_url(page_index: int) -> str:
@@ -65,21 +74,59 @@ def _redirect_hint(response) -> str:
     return f" -> {hint}" if hint else ""
 
 
+class _ProviderBlock(ValueError):
+    """The public read was redirected to Google's anti-abuse interstitial (inconclusive, not a delivery failure)."""
+
+
+def _is_provider_block(response) -> bool:
+    """True only for an absolute http(s) Location on exactly google.com / www.google.com with path /sorry[/...]."""
+    try:
+        parts = urlsplit(str(response.headers.get("Location") or ""))
+        host = parts.hostname
+        path = parts.path
+    except (AttributeError, ValueError, TypeError):
+        return False
+    return (parts.scheme in ("http", "https") and host in _PROVIDER_BLOCK_HOSTS
+            and (path == "/sorry" or path.startswith("/sorry/")))
+
+
 def _read_public(url: str, *, get) -> requests.Response:
     response = get(url, timeout=(4, 12), allow_redirects=False,
                    headers={"User-Agent": "CYBERDUDEBIVASH-CTI-DeliveryVerifier/1.0",
                             "Cache-Control": "no-cache"})
     if response.status_code != 200:
-        hint = _redirect_hint(response) if 300 <= response.status_code < 400 else ""
-        raise ValueError(f"public_http_{response.status_code}{hint}")
+        redirected = 300 <= response.status_code < 400
+        message = f"public_http_{response.status_code}{_redirect_hint(response) if redirected else ''}"
+        raise (_ProviderBlock if redirected and _is_provider_block(response) else ValueError)(message)
     return response
+
+
+def _api_fetch_back_verified(report: dict, posts: list) -> bool:
+    """True only if the pipeline's own authenticated Blogger API fetch-back proved every post exactly.
+
+    Deliberately strict: each flag must be the boolean True (not merely truthy), the defect list must be present and
+    empty, the fetch-back must name the very post id being certified, and the run must report zero discrepancies.
+    """
+    discrepancies = report.get("fetch_back_discrepancies")
+    if type(discrepancies) is not int or discrepancies != 0:
+        return False
+    for post in posts:
+        fetch_back = post.get("fetch_back")
+        if not isinstance(fetch_back, dict):
+            return False
+        if not (fetch_back.get("fetched") is True and fetch_back.get("verified") is True
+                and fetch_back.get("exact_content_match") is True
+                and isinstance(fetch_back.get("defects"), list) and not fetch_back["defects"]
+                and str(fetch_back.get("post_id") or "") == str(post.get("blogger_post_id") or "")):
+            return False
+    return True
 
 
 def verify_public_delivery(report: dict, *, http_get=None,
                            attempts: int = _MAX_ATTEMPTS, sleep_seconds: int = 8,
                            sleeper=time.sleep, max_total_seconds: float = _MAX_TOTAL_SECONDS,
                            clock=time.monotonic) -> dict:
-    """Return PASS/FAIL with bounded retries and no side effects.
+    """Return PASS / PASS_DEGRADED / FAIL with bounded retries and no side effects.
 
     Run status is separate from API success; an actual post can be live even
     when independent public delivery is temporarily degraded. This function
@@ -101,8 +148,22 @@ def verify_public_delivery(report: dict, *, http_get=None,
 
     get = http_get or requests.get
     last_reason = "public_delivery_unverified"
+    blocked = False
     budget = max(1, min(_MAX_ATTEMPTS, attempts))
     started = clock()
+
+    def conclude(attempt: int, **extra) -> dict:
+        """Verdict once no further read will be made. Only the last observation decides."""
+        if not blocked:
+            return {"status": "FAIL", "verified": 0, "reason": last_reason, "attempts": attempt, **extra}
+        if _api_fetch_back_verified(report, posts):
+            # Public read-back was inconclusive (provider bot challenge) while the authenticated API proved every
+            # post exactly: pass loudly, never silently. verified=0 keeps "publicly verified" and "API verified" apart.
+            return {"status": "PASS_DEGRADED", "verified": 0, "api_verified": len(posts),
+                    "public_edge": "blocked_by_provider", "reason": last_reason, "attempts": attempt, **extra}
+        return {"status": "FAIL", "verified": 0, "reason": last_reason, "attempts": attempt,
+                "api_fetch_back": "unverified", **extra}
+
     for attempt in range(1, budget + 1):
         verified = 0
         try:
@@ -148,13 +209,15 @@ def verify_public_delivery(report: dict, *, http_get=None,
             return {"status": "PASS", "verified": verified, "feed": "MATCH", "attempts": attempt}
         except (requests.RequestException, ValueError, TypeError, AttributeError, KeyError, json.JSONDecodeError) as exc:
             last_reason = str(exc)[:100] if isinstance(exc, ValueError) else "public_delivery_probe_error"
+            blocked = isinstance(exc, _ProviderBlock)
+            if blocked and attempt >= _PROVIDER_BLOCK_ATTEMPTS:
+                return conclude(attempt)
             if attempt < budget:
                 delay = min(_MAX_RETRY_DELAY_SECONDS, sleep_seconds * 2 ** (attempt - 1))
                 if clock() - started + delay > max_total_seconds:
-                    return {"status": "FAIL", "verified": 0, "reason": last_reason, "attempts": attempt,
-                            "time_budget_exhausted": True}
+                    return conclude(attempt, time_budget_exhausted=True)
                 sleeper(delay)
-    return {"status": "FAIL", "verified": 0, "reason": last_reason, "attempts": budget}
+    return conclude(budget)
 
 
 def main() -> int:
@@ -177,7 +240,14 @@ def main() -> int:
     except (OSError, ValueError, TypeError, json.JSONDecodeError):
         result = {"status": "FAIL", "reason": "current_run_receipt_unreadable"}
     print("P0_BLOGGER_PUBLIC_DELIVERY=" + json.dumps(result, sort_keys=True))
-    return 0 if result["status"] == "PASS" else 2
+    if result["status"] == "PASS_DEGRADED":
+        # Loud and constant text (integers only, nothing remote is echoed): visible on the run page, never silent.
+        print("::warning title=Blogger public read-back blocked by provider::Google answered this runner's public reads "
+              "with its anti-abuse interstitial (www.google.com/sorry) after "
+              f"{int(result.get('attempts', 0))} attempts. That is not proof of a failed delivery: "
+              f"{int(result.get('api_verified', 0))} post(s) were verified through the authenticated Blogger API with an "
+              "exact content match. Public permalink and feed delivery were NOT independently confirmed from this runner.")
+    return 0 if result["status"] in ("PASS", "PASS_DEGRADED") else 2
 
 
 if __name__ == "__main__":
