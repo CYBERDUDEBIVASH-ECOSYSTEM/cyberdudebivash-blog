@@ -9,6 +9,8 @@ on:
       - 'scripts/production-drift-policy.cjs'
       - 'tests-js/production-drift-safety.test.js'
       - 'tests-js/production-drift-loop.test.js'
+      - 'scripts/production-drift-preflight.cjs'
+      - 'tests-js/production-drift-preflight.test.js'
   pull_request:
     branches: [main]
     paths:
@@ -17,6 +19,8 @@ on:
       - 'scripts/production-drift-policy.cjs'
       - 'tests-js/production-drift-safety.test.js'
       - 'tests-js/production-drift-loop.test.js'
+      - 'scripts/production-drift-preflight.cjs'
+      - 'tests-js/production-drift-preflight.test.js'
   schedule:
     - cron: '23 5 * * *'
   workflow_dispatch:
@@ -141,7 +145,7 @@ jobs:
           PY
 
       - name: "P0 production route and drift retry guard regressions"
-        run: node --test tests-js/production-route-markers.test.js tests-js/production-drift-loop.test.js tests-js/production-drift-safety.test.js tests-js/workflow-p0-hardening.test.js tests-js/soc-historical-backup-proof-policy.test.js tests-js/workflow-critical-action-pinning.test.js
+        run: node --test tests-js/production-route-markers.test.js tests-js/production-drift-loop.test.js tests-js/production-drift-safety.test.js tests-js/production-drift-preflight.test.js tests-js/workflow-p0-hardening.test.js tests-js/soc-historical-backup-proof-policy.test.js tests-js/workflow-critical-action-pinning.test.js
 
   customer-asset-contract:
     name: "Rendered customer route contract (offline)"

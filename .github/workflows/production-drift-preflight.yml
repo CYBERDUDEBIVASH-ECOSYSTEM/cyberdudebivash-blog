@@ -1,0 +1,35 @@
+name: "P0 PR Drift Preflight (read-only)"
+
+# READ-ONLY, advisory. Classifies the files a pull request changes with the same policy as the Production Drift
+# Reconciler, so an unregistered path is caught BEFORE merge instead of turning main red afterwards
+# (2026-11-24: 4 paths, 29 red reconciler runs). No deployment, publication, dispatch, secret or write path exists here.
+# The reconciler stays the authoritative post-merge gate; this check only shifts its most common failure left.
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: drift-preflight-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preflight:
+    name: "Unclassified changed paths"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: "Checkout (full history, no credentials)"
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: "Classify changed paths with the production drift policy"
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/production-drift-preflight.cjs
