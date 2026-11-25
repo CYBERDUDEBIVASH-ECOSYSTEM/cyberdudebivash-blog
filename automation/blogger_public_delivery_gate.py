@@ -18,6 +18,11 @@ import requests
 
 _PUBLIC_HOST = "cti.cyberdudebivash.in"
 _FEED_URL = f"https://{_PUBLIC_HOST}/feeds/posts/default?alt=json&max-results=10"
+# Blogger permalink: /YYYY/MM/<slug>.html. When two posts in a month would share a truncated slug, Blogger keeps the
+# first and gives the next one a single "_<digits>" disambiguation suffix (observed on ~12% of published receipts,
+# e.g. /2026/11/pixelleaks-ransomware-claims-new-victim_0276498592.html). The suffix is part of a valid permalink;
+# anything else (upper case, a second suffix, extra segments, traversal) is still rejected.
+_PERMALINK_PATH = r"/20\d\d/\d\d/[a-z0-9-]+(?:_\d+)?\.html"
 _MAX_PAGE_BYTES = 768 * 1024
 _MAX_FEED_BYTES = 5 * 1024 * 1024
 # A post may move off the first ten feed entries between API write and
@@ -64,7 +69,7 @@ def verify_public_delivery(report: dict, *, http_get=None,
         url = str(post.get("blogger_url") or "")
         parsed = urlsplit(url)
         if (parsed.scheme != "https" or parsed.hostname != _PUBLIC_HOST
-                or not re.fullmatch(r"/20\d\d/\d\d/[a-z0-9-]+\.html", parsed.path)
+                or not re.fullmatch(_PERMALINK_PATH, parsed.path)
                 or parsed.query or parsed.fragment or parsed.username or parsed.password
                 or parsed.port is not None or not str(post.get("blogger_post_id") or "").isdigit()):
             return {"status": "FAIL", "reason": "invalid_public_receipt_url_or_id", "verified": 0}
