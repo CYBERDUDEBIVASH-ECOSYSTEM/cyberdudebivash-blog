@@ -316,6 +316,12 @@ const REVIEWED_OPERATIONAL_FILES = new Set([
   'automation/report_integrity.py',
   'automation/source_delivery_budget.py',
   'automation/threat_relevance.py',
+  // PR-time drift preflight: the same classifier as this policy, run read-only on a pull request's changed files so an
+  // unregistered path is caught before merge. It is release control (a self-modifying gate must never be benign), so
+  // it is OPERATIONAL and any change keeps manual review. It does not replace the reconciler and is not a deploy
+  // approval. Exact paths only.
+  '.github/workflows/production-drift-preflight.yml',
+  'scripts/production-drift-preflight.cjs',
 ]);
 
 /**
