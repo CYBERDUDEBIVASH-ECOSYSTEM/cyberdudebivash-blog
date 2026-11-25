@@ -1202,12 +1202,34 @@
       '@keyframes cx4trustpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}'
     );
 
+    /* The build injects the SOC shell (scripts/soc-platform-presentation.cjs) straight after <body>, so the
+       first <nav> / <header> in document order is the shell's own. Anchoring on it placed this strip INSIDE the
+       shell's flex row: the shell grew from ~76px to 222-404px, its nav wrapped into rows, and the page shifted
+       late (CLS 0.22-0.36 on ~98% of pages). Anchor on page content, never on the shell. */
+    function inShell (node) {
+      for (; node && node !== document.body; node = node.parentNode) {
+        if (typeof node.className === 'string' &&
+            (' ' + node.className + ' ').indexOf(' soc-unified-shell ') !== -1) return true;
+      }
+      return false;
+    }
+    function firstOutsideShell (selector) {
+      var list = document.querySelectorAll(selector);
+      for (var i = 0; i < list.length; i++) {
+        if (!inShell(list[i])) return list[i];
+      }
+      return null;
+    }
+
     function inject () {
       if (document.getElementById('cx4-trust-strip')) return;
+      /* A page that ships its own trust strip (the homepage's .cdb-trust-strip) must not get a duplicate. */
+      if (document.querySelector('.cdb-trust-strip')) return;
 
-      /* Find the right insertion point — after nav or first section */
-      var after = document.querySelector('nav') ||
-                  document.querySelector('header') ||
+      /* Find the right insertion point — after the page's nav or first section, below the shell */
+      var after = firstOutsideShell('nav') ||
+                  firstOutsideShell('header') ||
+                  document.querySelector('.soc-unified-shell') ||
                   document.querySelector('body > div:first-child') ||
                   document.body.firstElementChild;
 
