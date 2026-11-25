@@ -99,3 +99,74 @@ def test_feed_search_is_bounded_to_three_read_only_pages():
     assert result["reason"] == "public_feed_missing_new_post_id"
     assert len(checked) == 4
     assert checked[1:] == [_feed_page_url(0), _feed_page_url(1), _feed_page_url(2)]
+
+
+# --- Blogger permalink disambiguation (run 9310, 2026-11-25) ------------------------------------------------
+# When two posts in the same month would share a truncated slug, Blogger keeps the first slug and gives the
+# next one a "_<digits>" suffix (e.g. ...-new-victim_0276498592.html). The gate used to reject that shape as
+# an invalid receipt, which failed the whole run (and skipped public verification of the run's OTHER posts)
+# even though the post was live and correct. About 12% of published permalinks have this shape.
+import pytest  # noqa: E402
+
+REAL_DISAMBIGUATED_PERMALINKS = [
+    # Shapes taken from real published receipts in logs/run-*.json.
+    "/2026/07/cisa-adds-one-known-exploited_01329694327.html",
+    "/2026/07/thegentlemen-ransomware-claims-new_0766487583.html",
+    "/2026/11/pixelleaks-ransomware-claims-new-victim_0276498592.html",
+]
+
+
+def _healthy_get(post_id, title):
+    def get(url, **kw):
+        if url == _FEED_URL:
+            return resp(json.dumps({"feed": {"entry": [{"id": {"$t": "tag:blogger.com,1999:blog-1.post-" + post_id}}]}}),
+                        "application/json")
+        return resp(f"<html><h1>{title}</h1></html>")
+    return get
+
+
+@pytest.mark.parametrize("path", REAL_DISAMBIGUATED_PERMALINKS)
+def test_blogger_disambiguated_permalink_is_a_valid_receipt(path):
+    url = "https://cti.cyberdudebivash.in" + path
+    report = {"dry_run": False, "published": 1,
+              "posts": [{**POST, "blogger_url": url}]}
+    result = verify_public_delivery(report, http_get=_healthy_get(ID, TITLE), attempts=1)
+    assert result["status"] == "PASS" and result["verified"] == 1, result
+
+
+@pytest.mark.parametrize("path", [
+    "/2026/11/Upper-Case.html",            # slug stays lower-case
+    "/2026/11/bad_.html",                  # suffix needs digits
+    "/2026/11/bad_abc.html",               # suffix is digits only
+    "/2026/11/bad_1_2.html",               # at most one suffix
+    "/2026/11/_1.html",                    # a slug is required before the suffix
+    "/2026/11/a/b.html",                   # no extra path segment
+    "/2026/11/../x.html",                  # no traversal
+    "/2026/11/bad.html/",                  # no trailing slash
+    "/2026/11/bad.htm",                    # extension is fixed
+])
+def test_other_malformed_permalinks_are_still_rejected_before_any_network_call(path):
+    def never(*_a, **_k):
+        raise AssertionError("network must not be touched for an invalid receipt")
+    report = {"dry_run": False, "published": 1,
+              "posts": [{**POST, "blogger_url": "https://cti.cyberdudebivash.in" + path}]}
+    result = verify_public_delivery(report, http_get=never, attempts=1)
+    assert result == {"status": "FAIL", "reason": "invalid_public_receipt_url_or_id", "verified": 0}
+
+
+def test_a_disambiguated_permalink_does_not_disable_checks_on_the_run_s_other_posts():
+    # One run, two posts: a plain permalink and a disambiguated one. A feed that lacks the second id must still FAIL
+    # (the gate is relaxed for the URL shape only, never for the public-feed identity check).
+    other_id = "4708022282893144074"
+    report = {"dry_run": False, "published": 2, "posts": [
+        {**POST},
+        {**POST, "blogger_post_id": other_id,
+         "blogger_url": "https://cti.cyberdudebivash.in/2026/11/pixelleaks-ransomware-claims-new-victim_0276498592.html"},
+    ]}
+    def get(url, **kw):
+        if url.startswith(_FEED_URL):
+            return resp(json.dumps({"feed": {"entry": [{"id": {"$t": "tag:blogger.com,1999:blog-1.post-" + ID}}]}}),
+                        "application/json")
+        return resp(f"<html><h1>{TITLE}</h1></html>")
+    result = verify_public_delivery(report, http_get=get, attempts=1)
+    assert result["status"] == "FAIL" and result["reason"] == "public_feed_missing_new_post_id", result
