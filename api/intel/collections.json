@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T13:59:39.708Z",
+  "generated": "2026-11-25T19:39:34.787Z",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
   "count": 6,
   "collections": [
@@ -17917,8 +17917,18 @@
       "slug": "cloud-devsecops",
       "name": "Cloud & DevSecOps Security Collection",
       "description": "Cloud misconfigurations, container security, and DevSecOps pipeline risk.",
-      "count": 82,
+      "count": 83,
       "items": [
+        {
+          "slug": "cve-2025-10492-cloud-jasperreports-io",
+          "title": "CVE-2025-10492 — cloud jasperreports io CVSS 9.8 Critical Vulnerability",
+          "url": "/posts/cve-2025-10492-cloud-jasperreports-io.html",
+          "generated": "2026-11-25T14:44:53.587Z",
+          "severity": "CRITICAL",
+          "cves": [
+            "CVE-2025-10492"
+          ]
+        },
         {
           "slug": "cve-2026-130007",
           "title": "k8s-mcp-server: Missing authentication on default SSE/HTTP transport allows unauthenticated Kubernetes tool execution",
@@ -18909,6 +18919,45 @@
           "reasoning": [
             "1 intel item(s) clustered with composite confidence 0.900",
             "Single CVE basis: CVE-2026-95837"
+          ]
+        },
+        {
+          "campaign_id": "campaign:cve-2025-10492",
+          "name": "cloud jasperreports Exploitation Campaign",
+          "clustering_model": "weighted_v2",
+          "severity": "MEDIUM",
+          "confidence": 0.9,
+          "item_count": 1,
+          "ioc_count": 0,
+          "first_seen": "2025-09-16",
+          "last_seen": "2025-09-16",
+          "related_intel_ids": [
+            "CVE-2025-10492"
+          ],
+          "related_intel": [
+            {
+              "id": "CVE-2025-10492",
+              "title": "CVE-2025-10492 — cloud jasperreports io CVSS 9.8 Critical Vulnerability",
+              "type": "CVE_REPORT",
+              "priority_score": 63,
+              "published": "2025-09-16",
+              "exploited": false,
+              "cisa_kev": false
+            }
+          ],
+          "shared_iocs": [],
+          "shared_cves": [
+            "CVE-2025-10492"
+          ],
+          "threat_actor": null,
+          "threat_actors": [],
+          "max_priority_score": 63,
+          "has_kev": false,
+          "has_ransomware": false,
+          "has_exploited": false,
+          "reasoning": [
+            "1 intel item(s) clustered with composite confidence 0.900",
+            "Single CVE basis: CVE-2025-10492"
           ]
         }
       ]
