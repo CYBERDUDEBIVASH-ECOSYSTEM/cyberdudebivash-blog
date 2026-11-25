@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T05:14:18.603Z",
+  "generated": "2026-11-25T06:28:04.824Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,7 +8,7 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 163,
+  "count": 170,
   "items": [
     {
       "id": "CVE-2026-58254",
@@ -136,7 +136,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=2d (score=0.65)",
+          "recency=3d (score=0.65)",
           "QS=0.458"
         ],
         "priority": [
@@ -596,7 +596,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.70",
-          "recency=5d (score=0.40)",
+          "recency=6d (score=0.40)",
           "QS=0.432"
         ],
         "priority": [
@@ -1803,7 +1803,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.45",
-          "recency=4d (score=0.40)",
+          "recency=5d (score=0.40)",
           "QS=0.383"
         ],
         "priority": [
@@ -1936,6 +1936,52 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-129016"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=2d (score=0.65)",
+          "QS=0.458"
+        ],
+        "priority": [
+          "base_ps=41 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-131700",
+      "title": "CVE-2026-131700 - WordPress Geo Mashup plugin <= 1.13.23 - Cross Site Scripting (XSS) vulnerability",
+      "description": "CVE-2026-131700 - WordPress Geo Mashup plugin <= 1.13.23 - Cross Site Scripting (XSS) vulnerability",
+      "cvss": 7.1,
+      "final_ps": 41,
+      "quality_score": 0.458,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-131700"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-131700"
       ],
       "explanation": {
         "quality": [
@@ -3888,7 +3934,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.45",
-          "recency=4d (score=0.40)",
+          "recency=5d (score=0.40)",
           "QS=0.383"
         ],
         "priority": [
@@ -4592,6 +4638,236 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-135733",
+      "title": "CVE-2026-135733 - FFmpeg through 9.1 Insecure Default Binding in zmq and azmq Filters",
+      "description": "CVE-2026-135733 - FFmpeg through 9.1 Insecure Default Binding in zmq and azmq Filters",
+      "cvss": 6.5,
+      "final_ps": 39,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135733"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135733"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.50",
+          "recency=1d (score=0.85)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=39 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135739",
+      "title": "CVE-2026-135739 - FFmpeg 7.1 before 9.1 Out-of-Bounds Read via Scale Filter process_command",
+      "description": "CVE-2026-135739 - FFmpeg 7.1 before 9.1 Out-of-Bounds Read via Scale Filter process_command",
+      "cvss": 6.5,
+      "final_ps": 39,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135739"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135739"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.50",
+          "recency=1d (score=0.85)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=39 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135732",
+      "title": "CVE-2026-135732 - FFmpeg before 9.1 Out-of-Bounds Read via mxf_write_d10_audio_packet() in mxfenc.c",
+      "description": "CVE-2026-135732 - FFmpeg before 9.1 Out-of-Bounds Read via mxf_write_d10_audio_packet() in mxfenc.c",
+      "cvss": 6.1,
+      "final_ps": 39,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135732"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135732"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.50",
+          "recency=1d (score=0.85)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=39 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135735",
+      "title": "CVE-2026-135735 - FFmpeg before 9.1 Heap Out-of-Bounds Read via colorchannelmixer filter_slice_rgba_planar()",
+      "description": "CVE-2026-135735 - FFmpeg before 9.1 Heap Out-of-Bounds Read via colorchannelmixer filter_slice_rgba_planar()",
+      "cvss": 6.1,
+      "final_ps": 39,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135735"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135735"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.50",
+          "recency=1d (score=0.85)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=39 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135746",
+      "title": "CVE-2026-135746 - Samsung lwnode Out-of-Bounds Write Vulnerability",
+      "description": "CVE-2026-135746 - Samsung lwnode Out-of-Bounds Write Vulnerability",
+      "cvss": 6.8,
+      "final_ps": 38,
+      "quality_score": 0.388,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135746"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135746"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.25",
+          "recency=1d (score=0.85)",
+          "QS=0.388"
+        ],
+        "priority": [
+          "base_ps=38 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-113953",
       "title": "CVE-2026-113953 - Apple USD File Integer Overflow Vulnerability",
       "description": "CVE-2026-113953 - Apple USD File Integer Overflow Vulnerability",
@@ -4808,7 +5084,7 @@
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.45",
-          "recency=4d (score=0.40)",
+          "recency=5d (score=0.40)",
           "QS=0.383"
         ],
         "priority": [
@@ -4997,6 +5273,52 @@
         ],
         "priority": [
           "base_ps=38 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135745",
+      "title": "CVE-2026-135745 - FFmpeg before 9.1 Heap Out-of-Bounds Read via curves filter",
+      "description": "CVE-2026-135745 - FFmpeg before 9.1 Heap Out-of-Bounds Read via curves filter",
+      "cvss": 6.1,
+      "final_ps": 37,
+      "quality_score": 0.388,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135745"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135745"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.25",
+          "recency=1d (score=0.85)",
+          "QS=0.388"
+        ],
+        "priority": [
+          "base_ps=37 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -5795,8 +6117,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-136136",
-      "title": "CVE-2026-136136 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
+      "id": "CVE-2026-136547",
+      "title": "CVE-2026-136547 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
       "description": "",
       "cvss": 10,
       "final_ps": 29,
@@ -5819,10 +6141,10 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://vuldb.com/cve/CVE-2026-136136",
-        "https://vuldb.com/submit/1056731",
-        "https://vuldb.com/vuln/442884",
-        "https://vuldb.com/vuln/442884/cti"
+        "https://github.com/Zeyfrost/tenda-rx3-vulns/blob/master/auth_bypass/detail.md",
+        "https://vuldb.com/cve/CVE-2026-136547",
+        "https://vuldb.com/submit/1057713",
+        "https://vuldb.com/vuln/443405"
       ],
       "explanation": {
         "quality": [
@@ -5842,240 +6164,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-132224",
-      "title": "CVE-2026-132224: Optimizely Web Experimentation External Control of Critical State Data Vulnerability — CISA KEV Active ",
-      "description": "",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Optimizely",
-      "product": "Web Experimentation",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://pages.optimizely.com/rs/947-RKE-048/images/Security%20Incident%20Report%20-%20Optimizely%20Web%20Experimentation%20-%20Nov%2017%202026.pdf",
-        "https://status.optimizely.com/incidents/ftw0fh9wx43z",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-132165",
-      "title": "CVE-2026-132165: Drupal Core Remote Code Execution Vulnerability — CISA KEV Active Exploitation",
-      "description": "",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Drupal",
-      "product": "Core",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.drupal.org/sa-core-2026-017",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-132165"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-132877",
-      "title": "CVE-2026-132877 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.9,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.adobe.com/trust/security/products/experience-manager/apsb26-104.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-135794",
-      "title": "CVE-2026-135794 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.9,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/nenghun/IoT/blob/main/Panabit/rce5/Post-authentication%20second-order%20(stored)%20code%20injection_rce.md",
-        "https://vuldb.com/cve/CVE-2026-135794",
-        "https://vuldb.com/submit/1055815",
-        "https://vuldb.com/vuln/442757"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-135796",
-      "title": "CVE-2026-135796 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "",
-      "cvss": 9.9,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/nenghun/IoT/blob/main/Volans%20NGFW%20(nf51)/RCE/RCE.md",
-        "https://vuldb.com/cve/CVE-2026-135796",
-        "https://vuldb.com/submit/1055816",
-        "https://vuldb.com/vuln/442766"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-135797",
-      "title": "CVE-2026-135797 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
+      "id": "CVE-2026-136548",
+      "title": "CVE-2026-136548 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
       "description": "",
       "cvss": 10,
       "final_ps": 29,
@@ -6087,8 +6177,8 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -6098,10 +6188,10 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/nenghun/IoT/blob/main/Volans%20NGFW%20(nf51)/Root_RCE/Volans%20NGFW%20(nf51)_rce.md",
-        "https://vuldb.com/cve/CVE-2026-135797",
-        "https://vuldb.com/submit/1055817",
-        "https://vuldb.com/vuln/442767"
+        "https://github.com/Zeyfrost/tenda-rx3-vulns/blob/master/dhcp_gbk_overflow/detail.md",
+        "https://vuldb.com/cve/CVE-2026-136548",
+        "https://vuldb.com/submit/1057714",
+        "https://vuldb.com/vuln/443406"
       ],
       "explanation": {
         "quality": [
@@ -6121,10 +6211,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-136404",
-      "title": "CVE-2026-136404 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "id": "CVE-2026-136549",
+      "title": "CVE-2026-136549 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
       "description": "",
-      "cvss": 9.8,
+      "cvss": 10,
       "final_ps": 29,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -6134,8 +6224,8 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -6145,10 +6235,10 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/ntop/n2n/blob/a6f94564f2d6aaad925254590329c274058a53e5/src/sn_utils.c#L2309-L2344",
-        "https://github.com/ntop/n2n/blob/a6f94564f2d6aaad925254590329c274058a53e5/src/wire.c#L649-L679",
-        "https://github.com/ntop/n2n/commit/854fbbe01bbf131bf4cb88f8450d7084267668e1",
-        "https://github.com/ntop/n2n/pull/1243"
+        "https://github.com/Zeyfrost/tenda-rx3-vulns/blob/master/cmd_injection_remoteIp/detail.md",
+        "https://vuldb.com/cve/CVE-2026-136549",
+        "https://vuldb.com/submit/1057767",
+        "https://vuldb.com/vuln/443407"
       ],
       "explanation": {
         "quality": [
@@ -6168,10 +6258,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-136411",
-      "title": "CVE-2026-136411 — Affected software (product not identified) CVSS 9.8 Critical Vulnerability",
+      "id": "CVE-2026-136550",
+      "title": "CVE-2026-136550 — Affected software (product not identified) CVSS 9.1 Critical Vulnerability",
       "description": "",
-      "cvss": 9.8,
+      "cvss": 9.1,
       "final_ps": 29,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -6181,8 +6271,8 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -6192,10 +6282,10 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/mirror/busybox/blob/fc71374dfccd46448c62947269a35f1420d7ee28/networking/tftp.c#L946-L950",
-        "https://github.com/mirror/busybox/commit/b67f7b7d14ac98ca84491718d364b955d21a9cd5",
-        "https://lists.busybox.net/pipermail/busybox-cvs/2026-November/042587.html",
-        "https://lists.busybox.net/pipermail/busybox/2026-August/092430.html"
+        "https://github.com/Zeyfrost/tenda-rx3-vulns/blob/master/cmd_injection_mac/detail.md",
+        "https://vuldb.com/cve/CVE-2026-136550",
+        "https://vuldb.com/submit/1057768",
+        "https://vuldb.com/vuln/443408"
       ],
       "explanation": {
         "quality": [
@@ -6215,18 +6305,18 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-136522",
-      "title": "CVE-2026-136522 — Affected software (product not identified) CVSS 9.6 Critical Vulnerability",
+      "id": "CVE-2026-9790",
+      "title": "CVE-2026-9790 - Unauthenticated access to sensitive API endpoint information",
       "description": "",
-      "cvss": 9.6,
-      "final_ps": 29,
-      "quality_score": 0.465,
+      "cvss": 9.1,
+      "final_ps": 28,
+      "quality_score": 0.438,
       "threat_level": "LOW",
       "type": "CVE_REPORT",
-      "source": "nvd",
+      "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
-        "nvd"
+        "sentinel_apex"
       ],
       "first_seen": "2026-11-24",
       "last_seen": "2026-11-24",
@@ -6236,18 +6326,19 @@
       "vendor": "",
       "product": "",
       "due_date": null,
-      "cves": [],
+      "cves": [
+        "CVE-2026-9790"
+      ],
       "ioc_count": 0,
       "refs": [
-        "https://wordpress.org/plugins/cubewp-forms/#developers",
-        "https://www.vulncheck.com/advisories/cubewp-forms-before-1.1.13-unauthenticated-stored-xss-via-submit-rest-route"
+        "https://cvefeed.io/vuln/detail/CVE-2026-9790"
       ],
       "explanation": {
         "quality": [
-          "source_weight=1.00 (nvd)",
+          "source_weight=0.85 (sentinel_apex)",
           "data_confidence=0.45",
           "recency=0d (score=1.00)",
-          "QS=0.465"
+          "QS=0.438"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -6425,52 +6516,6 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-94565"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134401",
-      "title": "Critical Google Chrome Flaw Could Let Hackers Execute Malicious Code Outside Browser Sandbox",
-      "description": "",
-      "cvss": 9.6,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-134401"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cybersecuritynews.com/critical-google-chrome-flaw/"
       ],
       "explanation": {
         "quality": [
@@ -6753,100 +6798,6 @@
         "https://github.com/electerm/electerm/blob/v5.8.0/src/app/widgets/widget-mcp-server.js#L1191-L1222",
         "https://github.com/electerm/electerm/commit/572551df2be4bdd7964fa0f9102b42f49bc8de7b",
         "https://github.com/electerm/electerm/releases/tag/v5.9.0"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134283",
-      "title": "CVE-2026-134283 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://doi.org/10.5281/zenodo.24396540",
-        "https://github.com/webmin/webmin",
-        "https://github.com/webmin/webmin/blob/2.670/web-lib-funcs.pl#L3447",
-        "https://github.com/webmin/webmin/blob/2.670/web-lib-funcs.pl#L9990"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "base_ps=19 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134326",
-      "title": "CVE-2026-134326 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
-      "description": "",
-      "cvss": 7.5,
-      "final_ps": 19,
-      "quality_score": 0.465,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://doi.org/10.5281/zenodo.24396540",
-        "https://github.com/webmin/webmin",
-        "https://github.com/webmin/webmin/blob/2.670/webmin/webmin-lib.pl#L1216",
-        "https://github.com/webmin/webmin/blob/2.670/webmin/webmin-lib.pl#L1275"
       ],
       "explanation": {
         "quality": [
@@ -7195,6 +7146,104 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-134283",
+      "title": "CVE-2026-134283 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 19,
+      "quality_score": 0.475,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-134283"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://doi.org/10.5281/zenodo.24396540",
+        "https://github.com/webmin/webmin",
+        "https://github.com/webmin/webmin/blob/2.670/web-lib-funcs.pl#L3447",
+        "https://github.com/webmin/webmin/blob/2.670/web-lib-funcs.pl#L9990"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.475"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-134326",
+      "title": "CVE-2026-134326 — Affected software (product not identified) CVSS 7.5 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 19,
+      "quality_score": 0.475,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-134326"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://doi.org/10.5281/zenodo.24396540",
+        "https://github.com/webmin/webmin",
+        "https://github.com/webmin/webmin/blob/2.670/webmin/webmin-lib.pl#L1216",
+        "https://github.com/webmin/webmin/blob/2.670/webmin/webmin-lib.pl#L1275"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.475"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2024-52308",
       "title": "GitHub CLI gh codespace jupyter may allow code execution via unvalidated URLs from malicious Codespaces",
       "description": "",
@@ -7288,6 +7337,98 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-135736",
+      "title": "CVE-2026-135736 - FFmpeg 4.4 before 9.1 Heap Out-of-Bounds Write via deband Filter Coupling Command",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135736"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135736"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135743",
+      "title": "CVE-2026-135743 - FFmpeg 4.3 before 9.1 Heap Out-of-Bounds Read/Write via dynaudnorm Filter",
+      "description": "",
+      "cvss": 8.1,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135743"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135743"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-63492",
       "title": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
       "description": "",
@@ -7315,6 +7456,236 @@
       "ioc_count": 0,
       "refs": [
         "https://github.com/advisories/GHSA-j44m-77cc-p3cc"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135734",
+      "title": "CVE-2026-135734 - FFmpeg before 9.1 Heap Out-of-Bounds Write via deflicker Filter Histogram",
+      "description": "",
+      "cvss": 7.8,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135734"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135734"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135737",
+      "title": "CVE-2026-135737 - FFmpeg before 9.1 Heap Out-of-Bounds Write via tmidequalizer Filter",
+      "description": "",
+      "cvss": 7.8,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135737"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135737"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135738",
+      "title": "CVE-2026-135738 - FFmpeg before 9.1 Heap Out-of-Bounds Write via signalstats Filter Histograms",
+      "description": "",
+      "cvss": 7.8,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135738"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135738"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135740",
+      "title": "CVE-2026-135740 - FFmpeg before 9.1 Heap Out-of-Bounds Write via readeia608 Filter Histogram",
+      "description": "",
+      "cvss": 7.8,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135740"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135740"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "base_ps=18 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-135742",
+      "title": "CVE-2026-135742 - FFmpeg before 9.1 Integer Truncation via zmq Filter recv_msg()",
+      "description": "",
+      "cvss": 7.5,
+      "final_ps": 18,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135742"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-135742"
       ],
       "explanation": {
         "quality": [
@@ -7407,52 +7778,6 @@
       "ioc_count": 0,
       "refs": [
         "https://vulners.com/nvd/NVD:CVE-2026-131750?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "base_ps=18 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-131700",
-      "title": "CVE-2026-131700 - WordPress Geo Mashup plugin <= 1.13.23 - Cross Site Scripting (XSS) vulnerability",
-      "description": "",
-      "cvss": 7.1,
-      "final_ps": 18,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-131700"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-131700"
       ],
       "explanation": {
         "quality": [
