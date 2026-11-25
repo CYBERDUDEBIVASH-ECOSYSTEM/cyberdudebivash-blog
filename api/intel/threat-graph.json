@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-25T22:30:40.342Z",
+  "generated": "2026-11-25T23:26:30.259Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20404,
+    "total_nodes": 20408,
     "actors": 8,
-    "cves": 9954,
-    "campaigns": 3391,
+    "cves": 9956,
+    "campaigns": 3393,
     "malware": 0,
     "iocs": 911,
-    "edges": 6196
+    "edges": 6198
   },
   "nodes": {
     "actor:lockbit": {
@@ -383643,6 +383643,82 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-66052": {
+      "id": "CVE-2026-66052",
+      "type": "CVE",
+      "name": "CVE-2026-66052 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.8,
+        "threat_level": "HIGH",
+        "priority_score": 68,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-69181": {
+      "id": "CVE-2026-69181",
+      "type": "CVE",
+      "name": "TastyIgniter permits Path Traversal in Media Upload",
+      "attributes": {
+        "cvss": 7.6,
+        "threat_level": "MEDIUM",
+        "priority_score": 61,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "composer",
+        "product": "tastyigniter/tastyigniter",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-66052": {
+      "id": "campaign:cve-2026-66052",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-25",
+        "last_seen": "2026-11-25",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-66052"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-66052",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-69181": {
+      "id": "campaign:cve-2026-69181",
+      "type": "Campaign",
+      "name": "composer tastyigniter/tastyigniter Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-25",
+        "last_seen": "2026-11-25",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-69181"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-69181",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -439589,6 +439665,24 @@
       "id": "campaign:cve-2026-67209→includes→CVE-2026-67209",
       "source": "campaign:cve-2026-67209",
       "target": "CVE-2026-67209",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-66052→includes→CVE-2026-66052",
+      "source": "campaign:cve-2026-66052",
+      "target": "CVE-2026-66052",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-69181→includes→CVE-2026-69181",
+      "source": "campaign:cve-2026-69181",
+      "target": "CVE-2026-69181",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-25",

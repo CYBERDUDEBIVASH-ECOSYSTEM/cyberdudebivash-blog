@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T22:30:40.562Z",
+  "generated": "2026-11-25T23:26:30.416Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,17 +7,17 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8407,
+  "total_published": 8409,
   "s2n_stats": {
-    "passed": 162,
+    "passed": 163,
     "suppressed": 3,
     "avg_qs": 0.468
   },
   "items": [
     {
-      "id": "CVE-2026-103406",
-      "title": "CVE-2026-103406: Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router OS Command In",
-      "description": "Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router contain an OS command injection vulnerability that could allow a remote attacker to execute arbitrary commands as root via a specially crafted salt minion ID.",
+      "id": "CVE-2026-133469",
+      "title": "CVE-2026-133469: Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability — CISA KEV Active Expl",
+      "description": "Vates Xen Orchestra contains an improper validation of specified type of input vulnerability that could allow an unauthenticated attacker to bypass authentication and perform actions with administrative privileges via a specially crafted authentication token containing an empty JSON object.",
       "cvss": null,
       "final_ps": 95,
       "quality_score": 0.58,
@@ -33,16 +33,16 @@
       "exploited": true,
       "cisa_kev": true,
       "ransomware": false,
-      "vendor": "Hewlett Packard Enterprise (HPE)",
-      "product": "Juniper Session Smart Conductor and Session Smart Router",
+      "vendor": "Vates",
+      "product": "Xen Orchestra",
       "due_date": "2026-11-28",
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://supportportal.juniper.net/s/article/2026-10-On-Demand-Security-Bulletin-Session-Smart-Router-and-Session-Smart-Conductor-Multiple-internally-discovered-vulnerabilities-resolved",
+        "https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/",
         "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
         "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-103406"
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-133469"
       ],
       "explanation": {
         "quality": [
@@ -60,9 +60,9 @@
       }
     },
     {
-      "id": "CVE-2026-133311",
-      "title": "CVE-2026-133311: Mitel MiCollab Weak Authentication Vulnerability — CISA KEV Active Exploitation",
-      "description": "Mitel MiCollab contains a weak authentication vulnerability in the Audio, Web and Video Conferencing (AWV) component that could allow an unauthenticated attacker to access sensitive information using a specific system-generated random identifier or pre-staged content.",
+      "id": "CVE-2025-41450",
+      "title": "CVE-2025-41450: Danfoss AK-SM 800A Series Improper Authentication Vulnerability — CISA KEV Active Exploitation",
+      "description": "Danfoss AK-SM 800A Series contains an improper authentication vulnerability that could allow an attacker to generate a web report exposing sensitive information, including internal IP addresses, usernames, and store names.",
       "cvss": null,
       "final_ps": 95,
       "quality_score": 0.58,
@@ -78,16 +78,61 @@
       "exploited": true,
       "cisa_kev": true,
       "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
+      "vendor": "Danfoss",
+      "product": "AK-SM 800A Series",
       "due_date": "2026-12-09",
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
+        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2025-03-01",
         "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
         "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133311"
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-41450"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.65",
+          "recency=0d (score=1.00)",
+          "QS=0.580"
+        ],
+        "priority": [
+          "+15 CISA_KEV",
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2023-25914",
+      "title": "CVE-2023-25914: Danfoss AK-SM 800A Series Path Traversal Vulnerability — CISA KEV Active Exploitation",
+      "description": "Danfoss AK-SM 800A Series contains a path traversal vulnerability that could allow an attacker to access and read underlying server system files via the XML interface.",
+      "cvss": null,
+      "final_ps": 95,
+      "quality_score": 0.58,
+      "threat_level": "CRITICAL",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Danfoss",
+      "product": "AK-SM 800A Series",
+      "due_date": "2026-11-28",
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2023-08-01",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-25914"
       ],
       "explanation": {
         "quality": [
@@ -2273,7 +2318,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-48172",
@@ -4279,101 +4326,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-133469",
-      "title": "CVE-2026-133469: Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability — CISA KEV Active Expl",
-      "description": "Vates Xen Orchestra contains an improper validation of specified type of input vulnerability that could allow an unauthenticated attacker to bypass authentication and perform actions with administrative privileges via a specially crafted authentication token containing an empty JSON object.",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Vates",
-      "product": "Xen Orchestra",
-      "due_date": "2026-11-28",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133469"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2025-41450",
-      "title": "CVE-2025-41450: Danfoss AK-SM 800A Series Improper Authentication Vulnerability — CISA KEV Active Exploitation",
-      "description": "Danfoss AK-SM 800A Series contains an improper authentication vulnerability that could allow an attacker to generate a web report exposing sensitive information, including internal IP addresses, usernames, and store names.",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Danfoss",
-      "product": "AK-SM 800A Series",
-      "due_date": "2026-12-09",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2025-03-01",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2025-41450"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2023-25914",
-      "title": "CVE-2023-25914: Danfoss AK-SM 800A Series Path Traversal Vulnerability — CISA KEV Active Exploitation",
-      "description": "Danfoss AK-SM 800A Series contains a path traversal vulnerability that could allow an attacker to access and read underlying server system files via the XML interface.",
+      "id": "CVE-2023-25915",
+      "title": "CVE-2023-25915: Danfoss AK-SM 800A Series Improper Input Validation Vulnerability — CISA KEV Active Exploitation",
+      "description": "Danfoss AK-SM 800A Series contains an improper input validation vulnerability that could allow a remote attacker to run arbitrary commands on the affected system.",
       "cvss": null,
       "final_ps": 29,
       "quality_score": 0.515,
@@ -4398,7 +4353,53 @@
         "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2023-08-01",
         "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
         "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2023-25914"
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-25915"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (cisa_kev)",
+          "data_confidence=0.40",
+          "recency=0d (score=1.00)",
+          "QS=0.515"
+        ],
+        "priority": [
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-133324",
+      "title": "CVE-2026-133324: Mitel MiCollab Not Failing Securely Vulnerability — CISA KEV Active Exploitation",
+      "description": "Mitel MiCollab contains a not failing securely vulnerability in the Audio, Web and Video Conferencing (AWV) component that could allow an unauthenticated attacker to bypass authentication controls and perform unauthorized actions.",
+      "cvss": null,
+      "final_ps": 29,
+      "quality_score": 0.515,
+      "threat_level": "CRITICAL",
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "cisa_kev"
+      ],
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "exploited": true,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "Mitel",
+      "product": "MiCollab",
+      "due_date": "2026-11-28",
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-133324"
       ],
       "explanation": {
         "quality": [
@@ -4417,5 +4418,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-25T22:30:40.759Z"
+  "lastReportGeneratedAt": "2026-11-25T23:26:30.729Z"
 }
