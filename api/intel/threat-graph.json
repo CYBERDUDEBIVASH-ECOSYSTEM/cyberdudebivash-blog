@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-26T07:57:38.063Z",
+  "generated": "2026-11-26T09:04:00.437Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20436,
+    "total_nodes": 20438,
     "actors": 8,
-    "cves": 9971,
-    "campaigns": 3406,
+    "cves": 9972,
+    "campaigns": 3407,
     "malware": 0,
     "iocs": 911,
-    "edges": 6211
+    "edges": 6212
   },
   "nodes": {
     "actor:lockbit": {
@@ -384249,6 +384249,44 @@
         "type": "CVE_REPORT"
       },
       "connections": []
+    },
+    "CVE-2026-135772": {
+      "id": "CVE-2026-135772",
+      "type": "CVE",
+      "name": "CVE-2026-135772 — Affected software (product not identified) CVSS 7.6 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.6,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-26",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-135772": {
+      "id": "campaign:cve-2026-135772",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-26",
+        "last_seen": "2026-11-26",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-135772"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-135772",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -440330,6 +440368,15 @@
       "id": "campaign:cve-2026-49191→includes→CVE-2026-49191",
       "source": "campaign:cve-2026-49191",
       "target": "CVE-2026-49191",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-26",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-135772→includes→CVE-2026-135772",
+      "source": "campaign:cve-2026-135772",
+      "target": "CVE-2026-135772",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-26",
