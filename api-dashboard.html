@@ -479,6 +479,16 @@ function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+function keyMetaHtml(data) {
+  const user = (data && data.user) || {};
+  const limit = (data && data.rate_limit) || {};
+  const usage = (data && data.usage) || {};
+  return `<strong style="color:var(--apex-green)">User ID:</strong> ${esc(user.user_id)}<br>
+         <strong style="color:var(--apex-green)">Tier:</strong> ${esc(String(user.tier == null ? '' : user.tier).toUpperCase())}<br>
+         <strong style="color:var(--apex-green)">Limit:</strong> ${esc(limit.requests_per_day)} requests/day<br>
+         <strong style="color:var(--apex-green)">Usage:</strong> <code style="color:var(--apex-cyan)">${esc(usage.endpoint)}</code>`;
+}
+
 function persistKey(key) {
   // In-memory only, for the lifetime of this page load -- never written to
   // localStorage/sessionStorage/cookies. This key is a full-privilege API
@@ -567,11 +577,7 @@ async function registerKey() {
     if(data.api_key){
       persistKey(data.api_key);
       document.getElementById('key-display').childNodes[0].textContent = data.api_key;
-      document.getElementById('key-meta').innerHTML =
-        `<strong style="color:var(--apex-green)">User ID:</strong> ${data.user.user_id}<br>
-         <strong style="color:var(--apex-green)">Tier:</strong> ${data.user.tier.toUpperCase()}<br>
-         <strong style="color:var(--apex-green)">Limit:</strong> ${data.rate_limit.requests_per_day} requests/day<br>
-         <strong style="color:var(--apex-green)">Usage:</strong> <code style="color:var(--apex-cyan)">${data.usage.endpoint}</code>`;
+      document.getElementById('key-meta').innerHTML = keyMetaHtml(data);
       document.getElementById('key-result').classList.remove('hidden');
       showAlert(alert,'success','✅ API key generated! Store it securely.');
       document.getElementById('quickstart-code').textContent =

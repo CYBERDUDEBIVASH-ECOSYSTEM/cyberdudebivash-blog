@@ -50,13 +50,18 @@ function ensureSelect(card){
  var b=document.createElement('button');b.type='button';b.className='soc-record-select';b.textContent='Select for analysis';b.setAttribute('aria-label','Select intelligence record for SOC analysis');b.setAttribute('aria-pressed','false');
  b.addEventListener('click',function(){selectCard(card);});row.appendChild(b);
 }
+function escHtml(v){return String(v).replace(/[&<>"']/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x];});}
+function previewMarkup(card){
+ var sev=severity(card);var src=card.querySelector('.source-chip');var cv=card.querySelector('.cve-badge');
+ return '<div class="ioc-sample"><strong>Record</strong><br>'+escHtml(recordId(card)||'—')+'</div><div class="ioc-sample"><strong>Severity</strong><br>'+escHtml(sev)+'</div><div class="ioc-sample"><strong>Source</strong><br>'+escHtml(src?src.textContent.trim():'—')+'</div><div class="ioc-sample"><strong>Canonical report</strong><br>'+escHtml(reportId(card)||'Not bound')+'</div>'+(cv?'<div class="ioc-sample"><strong>CVE pivot</strong><br>'+escHtml(cv.textContent.trim())+'</div>':'');
+}
 function selectCard(card){
  if(selected){selected.classList.remove('soc-selected-record');var prev=selected.querySelector('.soc-record-select');if(prev)prev.setAttribute('aria-pressed','false');}selected=card;card.classList.add('soc-selected-record');var active=card.querySelector('.soc-record-select');if(active)active.setAttribute('aria-pressed','true');
  var title=card.querySelector('.post-title');var root=document.querySelector('.soc-workspace');if(!root)return;
  txt(root,'[data-selected-record]',title?title.textContent.trim():'Selected intelligence record');all(document,'[data-case-record]',title?title.textContent.trim():'Selected intelligence record');all(document,'[data-case-position]',position(card,cards(root)));all(document,'[data-case-evidence]',reportId(card)?'ELIGIBLE':'UNAVAILABLE');
  setSelectionActions(root,card);remember(card);
  var preview=document.getElementById('selected-record-preview');
- if(preview){var sev=severity(card);var src=card.querySelector('.source-chip');var cv=card.querySelector('.cve-badge');preview.innerHTML='<div class="ioc-sample"><strong>Record</strong><br>'+String(recordId(card)||'—').replace(/[&<>]/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[x];})+'</div><div class="ioc-sample"><strong>Severity</strong><br>'+sev+'</div><div class="ioc-sample"><strong>Source</strong><br>'+String(src?src.textContent.trim():'—').replace(/[&<>]/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[x];})+'</div><div class="ioc-sample"><strong>Canonical report</strong><br>'+String(reportId(card)||'Not bound').replace(/[&<>]/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[x];})+'</div>'+(cv?'<div class="ioc-sample"><strong>CVE pivot</strong><br>'+cv.textContent.trim()+'</div>':'');}
+ if(preview){preview.innerHTML=previewMarkup(card);}
 
  document.dispatchEvent(new CustomEvent('cdb:soc-record-selected',{detail:{card:card,reportId:reportId(card),recordId:recordId(card),reportUrl:String(card.getAttribute('data-report-url')||'')}}));
 }
