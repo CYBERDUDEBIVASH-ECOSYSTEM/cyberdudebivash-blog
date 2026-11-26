@@ -223,6 +223,8 @@ jobs:
         run: node --test tests-js/auto-intel-engine-output-escaping.test.js
       - name: P0 Enterprise cost planner truth and customer-claim safety
         run: node --test scripts/soc-commercial-integrity.test.cjs
+      - name: Publication engine (signing, authorization, manifest) and SOC public-integration gate
+        run: node --test scripts/publication-engine/*.test.js scripts/soc-public-integration-gate.test.cjs
       - name: P0 enterprise enquiry and form-delivery truth
         run: node --test tests-js/soc-lead-form-truth.test.js
       - name: First scoped SOC assessment truth and customer engagement bounds
