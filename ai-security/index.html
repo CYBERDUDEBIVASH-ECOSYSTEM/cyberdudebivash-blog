@@ -28,7 +28,7 @@ a{color:inherit;text-decoration:none;}
 .main-wrap{max-width:1400px;margin:0 auto;padding:24px 20px;display:grid;grid-template-columns:1fr 300px;gap:24px;}
 @media(max-width:900px){.main-wrap{grid-template-columns:1fr;}}
 .page-head{margin-bottom:24px;padding:24px;background:linear-gradient(135deg,#0d1117,#0f0818);border:1px solid #a855f733;border-radius:12px;}
-.page-title{font-size:1.5em;font-weight:700;color:#a855f7;margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+.page-title{font-size:1.5em;font-weight:700;color:#a855f7;margin:0 0 6px;display:flex;align-items:center;gap:10px;}
 .page-subtitle{color:#666;font-size:.88em;margin-bottom:16px;}
 .owasp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:16px;}
 .owasp-item{background:#0a0e1a;border:1px solid #1a2535;border-radius:6px;padding:10px;font-size:.75em;}
@@ -157,7 +157,7 @@ a{color:inherit;text-decoration:none;}
 <div class="main-wrap">
   <main>
     <div class="page-head">
-      <div class="page-title"><span class="live-dot"></span> AI Security & LLM Threat Intelligence</div>
+      <h1 class="page-title"><span class="live-dot"></span> AI Security & LLM Threat Intelligence</h1>
       <div class="page-subtitle">Evidence-bound AI security intelligence covering prompt injection, AI supply-chain risk, adversarial ML, model abuse, and autonomous-agent threats.</div>
       <div class="owasp-grid">
         <div class="owasp-item" data-intel-pivot data-filter-query="prompt injection"><span class="owasp-id">LLM01</span><span class="owasp-name">Prompt Injection</span><span data-pivot-state>Waiting for current feed</span></div>
@@ -195,7 +195,7 @@ a{color:inherit;text-decoration:none;}
       </div>
     </div>
     <div class="upgrade-card">
-      <h3>🤖 AI Security Assessment</h3>
+      <h3 role="heading" aria-level="2">🤖 AI Security Assessment</h3>
       <p>Prompt Injection Testing, MCP Security Review, Agent Security Review, and full LLM Security Assessment — fixed-scope engagements from $2,500.</p>
       <a class="upgrade-cta" href="/ai-security/services.html">Book a Discovery Call</a>
     </div>
