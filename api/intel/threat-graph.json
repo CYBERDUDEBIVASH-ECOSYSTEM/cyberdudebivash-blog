@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-26T06:28:04.678Z",
+  "generated": "2026-11-26T07:57:38.063Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20435,
+    "total_nodes": 20436,
     "actors": 8,
-    "cves": 9970,
+    "cves": 9971,
     "campaigns": 3406,
     "malware": 0,
     "iocs": 911,
@@ -382565,17 +382565,17 @@
     "CVE-2026-133303": {
       "id": "CVE-2026-133303",
       "type": "CVE",
-      "name": "CVE-2026-133303: Mitel MiCollab XML Injection Vulnerability — CISA KEV Active Exploitation",
+      "name": "CVE-2026-133303 — mitel micollab CVSS 9 Critical Vulnerability",
       "attributes": {
-        "cvss": 0,
-        "threat_level": "HIGH",
-        "priority_score": 79,
-        "exploited": true,
-        "cisa_kev": true,
+        "cvss": 9,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
         "ransomware": false,
-        "vendor": "Mitel",
-        "product": "MiCollab",
-        "published": "2026-11-25",
+        "vendor": "mitel",
+        "product": "micollab",
+        "published": "2026-11-19",
         "type": "CVE_REPORT"
       },
       "connections": []
@@ -382583,17 +382583,17 @@
     "CVE-2026-133323": {
       "id": "CVE-2026-133323",
       "type": "CVE",
-      "name": "CVE-2026-133323: Mitel MiCollab OS Command Injection Vulnerability — CISA KEV Active Exploitation",
+      "name": "CVE-2026-133323 — mitel micollab CVSS 10 Critical Vulnerability",
       "attributes": {
-        "cvss": 0,
+        "cvss": 10,
         "threat_level": "HIGH",
-        "priority_score": 79,
-        "exploited": true,
-        "cisa_kev": true,
+        "priority_score": 65,
+        "exploited": false,
+        "cisa_kev": false,
         "ransomware": false,
-        "vendor": "Mitel",
-        "product": "MiCollab",
-        "published": "2026-11-25",
+        "vendor": "mitel",
+        "product": "micollab",
+        "published": "2026-11-19",
         "type": "CVE_REPORT"
       },
       "connections": []
@@ -382961,14 +382961,14 @@
     "campaign:cve-2026-133303": {
       "id": "campaign:cve-2026-133303",
       "type": "Campaign",
-      "name": "Mitel MiCollab Exploitation Campaign",
+      "name": "mitel micollab Exploitation Campaign",
       "attributes": {
-        "severity": "HIGH",
+        "severity": "MEDIUM",
         "item_count": 1,
-        "first_seen": "2026-11-25",
-        "last_seen": "2026-11-25",
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
         "confidence": 0.9,
-        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133303 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133303"
       },
       "connections": [
         {
@@ -382981,14 +382981,14 @@
     "campaign:cve-2026-133323": {
       "id": "campaign:cve-2026-133323",
       "type": "Campaign",
-      "name": "Mitel MiCollab Exploitation Campaign",
+      "name": "mitel micollab Exploitation Campaign",
       "attributes": {
         "severity": "HIGH",
         "item_count": 1,
-        "first_seen": "2026-11-25",
-        "last_seen": "2026-11-25",
+        "first_seen": "2026-11-19",
+        "last_seen": "2026-11-19",
         "confidence": 0.9,
-        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133323 | 1 CISA KEV item(s), 1 confirmed exploited — elevated campaign priority"
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-133323"
       },
       "connections": [
         {
@@ -384227,6 +384227,24 @@
         "ransomware": false,
         "vendor": "",
         "product": "",
+        "published": "2026-11-26",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-136716": {
+      "id": "CVE-2026-136716",
+      "type": "CVE",
+      "name": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
+      "attributes": {
+        "cvss": 0,
+        "threat_level": "LOW",
+        "priority_score": 31,
+        "exploited": true,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "The Hacker News",
+        "product": "Threat Intelligence",
         "published": "2026-11-26",
         "type": "CVE_REPORT"
       },
