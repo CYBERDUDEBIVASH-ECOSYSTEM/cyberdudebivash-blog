@@ -160,6 +160,12 @@ const Workbench = (() => {
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
+  // An inline handler argument must be a JS string literal AND survive HTML attribute decoding. esc() alone does not do that:
+  // the browser turns &#39; back into ' before the handler is parsed, so a quote in the value ended the string (and let
+  // the rest run). JSON.stringify makes the literal; esc() then makes it safe inside a double-quoted attribute.
+  function jsArg(v) {
+    return esc(JSON.stringify(String(v == null ? '' : v)));
+  }
   function fmtDate(s) {
     if (!s) return '—';
     try { return new Date(s).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }); } catch (_) { return s; }
@@ -780,7 +786,7 @@ const Workbench = (() => {
           <div class="muted" style="font-size:12px;margin-bottom:12px">Confidence: ${esc(entity.confidence || 'unknown')} · ${relationships.outgoing} outgoing / ${relationships.incoming} incoming relationships</div>
           <h4 style="color:var(--apex-cyan);font-size:12px;text-transform:uppercase;margin-bottom:8px">Related Entities</h4>
           ${!related.length ? '<div class="empty-state">No related entities within 2 hops.</div>' : related.map(r => `
-            <div class="entity-card" onclick="Workbench.loadEntity('${esc(r.id || r.entityId)}')">${renderAny(r)}</div>`).join('')}
+            <div class="entity-card" onclick="Workbench.loadEntity(${jsArg(r.id || r.entityId)})">${renderAny(r)}</div>`).join('')}
         </div>`;
     } catch (e) { errorBox(el, e); }
   }
