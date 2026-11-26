@@ -213,6 +213,8 @@ jobs:
         run: node --test tests-js/cti-publisher-lock.test.js
       - name: SOC identity and all-pages UX regression contract
         run: node --test tests-js/soc-platform-presentation.test.js
+      - name: Intelligence hub cards escape NVD, KEV and RSS text (no raw interpolation, http(s) links only)
+        run: node --test tests-js/intelligence-page-output-escaping.test.js
       - name: No stray literal backslash-n text on hand-maintained pages
         run: node --test tests-js/soc-pages-no-literal-newline-text.test.js
       - name: SOC shell trust-strip anchor regression (layout shift on ~98% of pages)

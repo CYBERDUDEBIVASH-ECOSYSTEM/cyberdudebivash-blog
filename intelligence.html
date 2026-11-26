@@ -1718,7 +1718,7 @@ function renderArchive() {
     const items = groups[date];
     total += items.length;
     html += `<div class="archive-date-group">
-      <div class="archive-date-title">📅 ${date} — ${items.length} item(s)</div>
+      <div class="archive-date-title">📅 ${cdbEsc(date)} — ${items.length} item(s)</div>
       <div class="cards-grid">`;
     items.slice(0, 10).forEach(item => {
       html += renderCard(item, 'Archive');
@@ -2225,9 +2225,25 @@ function cvssColor(score) {
   return 'low';
 }
 
+// Feed, NVD and CISA text is untrusted. cdbPlain() turns markup into inert text (DOMParser loads nothing and runs no
+// handler) and decodes entities; cdbEsc() makes that text safe inside markup or an attribute; cdbSafeUrl() allows only
+// http(s) link targets. The old strip() decoded &lt; and &gt; back into live markup that was then written to innerHTML.
+function cdbPlain(value) {
+  if (value == null) return '';
+  try { return (new DOMParser().parseFromString(String(value), 'text/html').body.textContent || '').trim(); } catch (e) { return ''; }
+}
+function cdbEsc(value) {
+  return String(value == null ? '' : value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function cdbSafeUrl(value) {
+  try {
+    const u = new URL(String(value || '').trim(), window.location.href);
+    return (u.protocol === 'https:' || u.protocol === 'http:') ? u.href : '#';
+  } catch (e) { return '#'; }
+}
+
 function strip(html) {
-  if (!html) return '';
-  return html.replace(/<[^>]*>/g, '').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").trim();
+  return cdbPlain(html);
 }
 
 function truncate(str, len = 200) {
@@ -2238,21 +2254,21 @@ function truncate(str, len = 200) {
 
 // ==================== CARD RENDERING ====================
 function renderCard(item, defaultSource = '') {
-  const source = item.sourceName || defaultSource || 'INTEL';
-  const severity = item.severity ? severityFromStr(item.severity) : (item.score !== undefined ? scoreSeverity(item.score) : 'info');
-  const title = item.title || item.vulnerabilityName || item.cveID || 'Untitled';
+  const source = cdbPlain(item.sourceName || defaultSource || 'INTEL');
+  const severity = item.severity ? severityFromStr(String(item.severity)) : (item.score !== undefined ? scoreSeverity(item.score) : 'info');
+  const title = cdbPlain(item.title || item.vulnerabilityName || item.cveID || 'Untitled');
   const desc = truncate(item.description || item.shortDescription || item.summary || item.content || '');
-  const link = item.link || item.url || '#';
+  const link = cdbSafeUrl(item.link || item.url || '#');
   const date = item.date || item.pubDate || item.dateAdded || '';
   const timeAgo = relativeTime(date);
-  const cveId = item.id || item.cveID || '';
+  const cveId = cdbPlain(item.id || item.cveID || '');
 
-  let badges = `<span class="source-badge">${source.toUpperCase()}</span>`;
+  let badges = `<span class="source-badge">${cdbEsc(source.toUpperCase())}</span>`;
   if (item.score !== undefined && item.score !== null) {
-    badges += `<span class="severity-badge ${cvssColor(item.score)}">CVSS ${item.score}</span>`;
+    badges += `<span class="severity-badge ${cvssColor(item.score)}">CVSS ${cdbEsc(item.score)}</span>`;
   }
   if (item.severity && item.severity !== 'UNKNOWN') {
-    badges += `<span class="severity-badge ${severityFromStr(item.severity)}">${item.severity}</span>`;
+    badges += `<span class="severity-badge ${severityFromStr(String(item.severity))}">${cdbEsc(item.severity)}</span>`;
   }
   if (item.type === 'kev' || item.cisaRequired) {
     badges += `<span class="cisa-badge">CISA KEV</span>`;
@@ -2261,12 +2277,12 @@ function renderCard(item, defaultSource = '') {
   let metaHtml = '';
   if (item.type === 'nvd' || item.type === 'kev') {
     metaHtml = `<div class="card-meta">`;
-    if (item.published || item.dateAdded) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">Published</div><div class="card-meta-value">${fmtDate(item.published || item.dateAdded)}</div></div>`;
-    if (item.vector) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">CVSS Vector</div><div class="card-meta-value" style="font-size:9px;word-break:break-all">${item.vector}</div></div>`;
-    if (item.cwes && item.cwes.length) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">CWE</div><div class="card-meta-value">${item.cwes[0]}</div></div>`;
-    if (item.product) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">Product</div><div class="card-meta-value">${item.vendorProject || ''} ${item.product}</div></div>`;
-    if (item.requiredAction) metaHtml += `<div class="card-meta-item" style="grid-column:1/-1"><div class="card-meta-label">Required Action</div><div class="card-meta-value">${truncate(item.requiredAction, 120)}</div></div>`;
-    if (item.dueDate) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">Due Date</div><div class="card-meta-value" style="color:#ff8c00">${item.dueDate}</div></div>`;
+    if (item.published || item.dateAdded) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">Published</div><div class="card-meta-value">${cdbEsc(fmtDate(item.published || item.dateAdded))}</div></div>`;
+    if (item.vector) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">CVSS Vector</div><div class="card-meta-value" style="font-size:9px;word-break:break-all">${cdbEsc(item.vector)}</div></div>`;
+    if (item.cwes && item.cwes.length) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">CWE</div><div class="card-meta-value">${cdbEsc(item.cwes[0])}</div></div>`;
+    if (item.product) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">Product</div><div class="card-meta-value">${cdbEsc(item.vendorProject || '')} ${cdbEsc(item.product)}</div></div>`;
+    if (item.requiredAction) metaHtml += `<div class="card-meta-item" style="grid-column:1/-1"><div class="card-meta-label">Required Action</div><div class="card-meta-value">${cdbEsc(truncate(item.requiredAction, 120))}</div></div>`;
+    if (item.dueDate) metaHtml += `<div class="card-meta-item"><div class="card-meta-label">Due Date</div><div class="card-meta-value" style="color:#ff8c00">${cdbEsc(item.dueDate)}</div></div>`;
     metaHtml += `</div>`;
   }
 
@@ -2274,17 +2290,17 @@ function renderCard(item, defaultSource = '') {
     <div class="intel-card severity-${severity}">
       <div class="card-header">
         <div class="card-badges">${badges}</div>
-        <span class="card-time">${timeAgo}</span>
+        <span class="card-time">${cdbEsc(timeAgo)}</span>
       </div>
       <h3 class="card-title">
-        <a href="${link}" target="_blank" rel="noopener noreferrer">${title.substring(0, 160)}</a>
+        <a href="${cdbEsc(link)}" target="_blank" rel="noopener noreferrer">${cdbEsc(title.substring(0, 160))}</a>
       </h3>
-      ${desc ? `<p class="card-excerpt">${desc}</p>` : ''}
+      ${desc ? `<p class="card-excerpt">${cdbEsc(desc)}</p>` : ''}
       ${metaHtml}
       <div class="card-footer">
-        <span class="card-cve">${cveId || ''}</span>
-        ${item.score !== undefined && item.score !== null ? `<span class="card-cvss ${cvssColor(item.score)}">CVSS ${item.score}</span>` : ''}
-        <a href="${link}" class="card-read-more" target="_blank" rel="noopener noreferrer">Read Full Report →</a>
+        <span class="card-cve">${cdbEsc(cveId)}</span>
+        ${item.score !== undefined && item.score !== null ? `<span class="card-cvss ${cvssColor(item.score)}">CVSS ${cdbEsc(item.score)}</span>` : ''}
+        <a href="${cdbEsc(link)}" class="card-read-more" target="_blank" rel="noopener noreferrer">Read Full Report →</a>
       </div>
     </div>
   `;
@@ -2324,7 +2340,7 @@ function renderError(msg, tabId) {
     <div class="error-card">
       <div class="error-icon">⚠️</div>
       <div class="error-title">Intelligence Feed Unavailable</div>
-      <div class="error-msg">${msg || 'Unable to load data from this source. This may be due to API rate limits or network issues.'}</div>
+      <div class="error-msg">${msg ? cdbEsc(msg) : 'Unable to load data from this source. This may be due to API rate limits or network issues.'}</div>
       <button class="retry-btn" onclick="retryTab('${tabId}')">↻ Retry</button>
     </div>`;
 }
