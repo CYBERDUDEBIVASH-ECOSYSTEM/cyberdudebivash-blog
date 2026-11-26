@@ -672,7 +672,13 @@
     var el = document.getElementById(containerId);
     if (!el) return;
     fetchCISAKEV(function(err, items) {
-      if (err || !items.length) return;
+      if (err || !items.length) {
+        // The live catalog could not be read in this browser (blocked by CSP/CORS, offline, or empty). Replace the static
+        // "Loading…" placeholder with an explicit state instead of leaving the panel looking busy forever. Constant markup only.
+        el.innerHTML = '<div class="kev-unavailable" style="color:#9ca3af;font-size:.80em;padding:8px 0">Live CISA KEV list is unavailable in this view. ' +
+          '<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" style="color:#00ffe0;text-decoration:underline">Open the catalog at CISA</a></div>';
+        return;
+      }
       el.innerHTML = items.slice(0, 10).map(function(v) {
         var sev = parseFloat(v.cvssScore || 0) >= 9 ? 'critical' : parseFloat(v.cvssScore || 0) >= 7 ? 'high' : 'medium';
         var sc = {critical:'#ff2244',high:'#ff6600',medium:'#ffd700'}[sev];
