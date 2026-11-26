@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--apex-cyan:#00ffe0;--apex-red:#ff3b3b;--apex-orange:#ff8c00;--apex-green:#00ff88;--apex-purple:#a855f7;--apex-bg:#07090f;--apex-surface:#0d1117;--apex-card:#111827;--apex-border:#1f2937;--apex-text:#e2e8f0;--apex-muted:#6b7280;--mono:'JetBrains Mono',monospace}
+:root{--apex-cyan:#00ffe0;--apex-red:#ff3b3b;--apex-orange:#ff8c00;--apex-green:#00ff88;--apex-purple:#a855f7;--apex-bg:#07090f;--apex-surface:#0d1117;--apex-card:#111827;--apex-border:#1f2937;--apex-text:#e2e8f0;--apex-muted:#9ca3af;--mono:'JetBrains Mono',monospace}
 *{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter',sans-serif;background:var(--apex-bg);color:var(--apex-text);min-height:100vh}
 nav{background:rgba(7,9,15,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--apex-border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .nlogo{font-size:17px;font-weight:900;color:var(--apex-cyan);text-decoration:none}.nlinks a{color:var(--apex-muted);text-decoration:none;font-size:13px;font-weight:500;padding:6px 12px;border-radius:6px}.nlinks a:hover{color:#fff;background:var(--apex-surface)}.nlinks{display:flex;gap:4px}
@@ -50,7 +50,7 @@ input:focus,select:focus{border-color:var(--apex-cyan);box-shadow:0 0 0 2px rgba
 .tier-features li{padding:6px 0;font-size:14px;color:var(--apex-muted);border-bottom:1px solid var(--apex-border)}.tier-features li::before{content:'✓ ';color:var(--apex-green);font-weight:700}
 .tier-features li.locked{color:#374151}.tier-features li.locked::before{content:'🔒 ';color:#374151}
 .badge{display:inline-block;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.06em}
-.bdg-free{background:#6b728022;color:#6b7280;border:1px solid #6b728033}
+.bdg-free{background:#6b728022;color:#9ca3af;border:1px solid #6b728033}
 .bdg-pro{background:#00ffe022;color:#00ffe0;border:1px solid #00ffe044}
 .bdg-ent{background:#a855f722;color:#a855f7;border:1px solid #a855f744}
 .bdg-team{background:#00ff8822;color:#00ff88;border:1px solid #00ff8844}
@@ -61,7 +61,7 @@ input:focus,select:focus{border-color:var(--apex-cyan);box-shadow:0 0 0 2px rgba
 .ep-path{font-family:var(--mono);font-size:13px;color:#fff}
 .ep-desc{font-size:12px;color:var(--apex-muted);margin-top:4px}
 .ep-tier{display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;font-weight:700;margin-left:8px}
-.ep-free{background:#6b728011;color:#6b7280}.ep-pro{background:#00ffe011;color:#00ffe0}.ep-ent{background:#a855f711;color:#a855f7}
+.ep-free{background:#6b728011;color:#9ca3af}.ep-pro{background:#00ffe011;color:#00ffe0}.ep-ent{background:#a855f711;color:#a855f7}
 .alert{padding:14px 18px;border-radius:8px;margin:16px 0;font-size:14px}
 .alert-success{background:#00ff8815;border:1px solid #00ff8840;color:#00ff88}
 .alert-error{background:#ff3b3b15;border:1px solid #ff3b3b40;color:#ff3b3b}
@@ -72,7 +72,7 @@ input:focus,select:focus{border-color:var(--apex-cyan);box-shadow:0 0 0 2px rgba
 .bar-col{flex:1;background:rgba(0,255,224,.15);border-radius:3px 3px 0 0;position:relative;cursor:default;transition:.2s}
 .bar-col:hover{background:rgba(0,255,224,.3)}
 .bar-col::after{content:attr(data-label);position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--apex-muted);white-space:nowrap}
-footer{background:var(--apex-surface);border-top:1px solid var(--apex-border);padding:24px;text-align:center;font-size:13px;color:var(--apex-muted)}footer a{color:var(--apex-cyan);text-decoration:none}
+footer{background:var(--apex-surface);border-top:1px solid var(--apex-border);padding:24px;text-align:center;font-size:13px;color:var(--apex-muted)}footer a{color:var(--apex-cyan);text-decoration:underline;text-underline-offset:2px}
 @media(max-width:600px){.hero{padding:40px 16px 24px}.wrap{padding:24px 16px}.nlinks a:not(.ncta):not(#signout-link){display:none}#who{display:none}}
 </style>
 <script src="/payment-flow.js"></script>
