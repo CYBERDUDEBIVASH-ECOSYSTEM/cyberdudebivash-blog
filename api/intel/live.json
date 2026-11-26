@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T09:04:00.626Z",
+  "generated": "2026-11-26T10:33:36.198Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -7,13 +7,185 @@
   "docs": "https://blog.cyberdudebivash.in/api.html",
   "endpoint": "/api/intel/live.json",
   "description": "S2N live threat intelligence feed — top 100 items by final_ps",
-  "total_published": 8423,
+  "total_published": 8438,
   "s2n_stats": {
-    "passed": 141,
+    "passed": 151,
     "suppressed": 3,
-    "avg_qs": 0.47
+    "avg_qs": 0.468
   },
   "items": [
+    {
+      "id": "CVE-2026-133968",
+      "title": "U.S. CISA adds N-able MailAssure and Project MONAI flaws to its Known Exploited Vulnerabilities catalog",
+      "description": "U.S. Cybersecurity and Infrastructure Security Agency (CISA) adds N-able MailAssure and Project MONAI flaws to its Known Exploited Vulnerabilities catalog. The U.S. Cybersecurity and Infrastructure Security Agency (CISA) added N-able MailAssure and Project MONAI vulnerabilities t... [Full analysis a",
+      "cvss": 9.8,
+      "final_ps": 59,
+      "quality_score": 0.478,
+      "threat_level": "MEDIUM",
+      "type": "CLOUD_SECURITY",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-24",
+      "last_seen": "2026-11-24",
+      "exploited": false,
+      "cisa_kev": true,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-133968"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://securityaffairs.com/203882/hacking/u-s-cisa-adds-n-able-mailassure-and-project-monai-flaws-to-its-known-exploited-vulnerabilities-catalog.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=1d (score=0.85)",
+          "QS=0.478"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-114021",
+      "title": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
+      "description": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
+      "cvss": 9.8,
+      "final_ps": 54,
+      "quality_score": 0.433,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114021"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-114021"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=5d (score=0.40)",
+          "QS=0.432"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-135429",
+      "title": "Low Security Vulnerability [High EPSS] (CVE-2026-135429)",
+      "description": "CVE-2026-135429",
+      "cvss": 9.1,
+      "final_ps": 53,
+      "quality_score": 0.408,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-23",
+      "last_seen": "2026-11-23",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-135429"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-135429?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=2d (score=0.65)",
+          "QS=0.407"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-120413",
+      "title": "CVE-2026-120413 - Yoast SEO < 28.9 - Unauthenticated Private Content Disclosure via Headless REST Head Endpoint",
+      "description": "CVE-2026-120413 - Yoast SEO < 28.9 - Unauthenticated Private Content Disclosure via Headless REST Head Endpoint",
+      "cvss": 9.1,
+      "final_ps": 53,
+      "quality_score": 0.433,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-120413"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-120413"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.70",
+          "recency=4d (score=0.40)",
+          "QS=0.432"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
     {
       "id": "CVE-2026-122247",
       "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (POST ",
@@ -178,6 +350,49 @@
           "data_confidence=0.70",
           "recency=5d (score=0.40)",
           "QS=0.432"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
+      "id": "CVE-2026-132475",
+      "title": "CVE-2026-132475 - Apple macOS Kernel Out-of-Bounds Write",
+      "description": "CVE-2026-132475 - Apple macOS Kernel Out-of-Bounds Write",
+      "cvss": 9.8,
+      "final_ps": 52,
+      "quality_score": 0.383,
+      "threat_level": "MEDIUM",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-132475"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-132475"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=5d (score=0.40)",
+          "QS=0.383"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -662,50 +877,6 @@
       }
     },
     {
-      "id": "CVE-2026-136716",
-      "title": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
-      "description": "Drupal has warned of a new \"highly critical\" security flaw impacting Drupal core that it said has been exploited in the wild. The vulnerability, tracked as CVE-2026-136716 (CVSS score: N/A), has been described as a case of improper checking for unusual or exceptional conditions. It also relates to C",
-      "cvss": null,
-      "final_ps": 45,
-      "quality_score": 0.468,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "thehackernews",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "thehackernews"
-      ],
-      "first_seen": "2026-11-26",
-      "last_seen": "2026-11-26",
-      "exploited": true,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "The Hacker News",
-      "product": "Threat Intelligence",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-136716",
-        "CVE-2026-132165"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.55 (thehackernews)",
-          "data_confidence=0.65",
-          "recency=0d (score=1.00)",
-          "QS=0.468"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
       "id": "CVE-2026-76519",
       "title": "Cisco Secure Email Gateway 0-Day Vulnerability Actively Exploited in Attacks",
       "description": "",
@@ -1106,6 +1277,53 @@
       }
     },
     {
+      "id": "CVE-2026-136716",
+      "title": "Drupal Warns of Active Attacks Exploiting New Critical Website Takeover Vulnerability",
+      "description": "Drupal has warned that attackers are actively exploiting CVE-2026-136716, a highly critical access bypass that can let them take over vulnerable websites without signing in. The Drupal Security Team confirmed the attacks in its November 25 security advisory and released updates f... [Full analysis a",
+      "cvss": null,
+      "final_ps": 41,
+      "quality_score": 0.425,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 2,
+      "merged_sources": [
+        "sentinel_apex",
+        "thehackernews"
+      ],
+      "first_seen": "2026-11-26",
+      "last_seen": "2026-11-26",
+      "exploited": true,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-136716",
+        "CVE-2026-132165"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cybersecuritynews.com/drupal-website-takeover-flaw/",
+        "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.35",
+          "multi_source=2 sources",
+          "recency=999d (score=0.05)",
+          "QS=0.425"
+        ],
+        "priority": [
+          "+8 exploited_in_wild"
+        ],
+        "suppression": null,
+        "merge": null
+      }
+    },
+    {
       "id": "CVE-2026-133303",
       "title": "CVE-2026-133303: Mitel MiCollab XML Injection Vulnerability — CISA KEV Active Exploitation",
       "description": "",
@@ -1223,92 +1441,6 @@
       "ioc_count": 0,
       "refs": [
         "https://cvefeed.io/vuln/detail/CVE-2026-131780"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=41 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-129016",
-      "title": "CVE-2026-129016 - WordPress Menubar plugin <= 5.9.4 - Cross Site Scripting (XSS) vulnerability",
-      "description": "CVE-2026-129016 - WordPress Menubar plugin <= 5.9.4 - Cross Site Scripting (XSS) vulnerability",
-      "cvss": 7.1,
-      "final_ps": 41,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-129016"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-129016"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=3d (score=0.65)",
-          "QS=0.458"
-        ],
-        "priority": [
-          "base_ps=41 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      }
-    },
-    {
-      "id": "CVE-2026-131700",
-      "title": "CVE-2026-131700 - WordPress Geo Mashup plugin <= 1.13.23 - Cross Site Scripting (XSS) vulnerability",
-      "description": "CVE-2026-131700 - WordPress Geo Mashup plugin <= 1.13.23 - Cross Site Scripting (XSS) vulnerability",
-      "cvss": 7.1,
-      "final_ps": 41,
-      "quality_score": 0.458,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-131700"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-131700"
       ],
       "explanation": {
         "quality": [
@@ -2187,7 +2319,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2025-32975",
@@ -2227,7 +2361,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-34197",
@@ -2267,7 +2403,9 @@
         ],
         "suppression": null,
         "merge": null
-      }
+      },
+      "suppressed": false,
+      "suppression_reason": null
     },
     {
       "id": "CVE-2026-112292",
@@ -3554,6 +3692,178 @@
       "suppression_reason": null
     },
     {
+      "id": "CVE-2026-50211",
+      "title": "CVE-2026-50211 — acer connect m6e 5g firmware CVSS 9.8 Critical Vulnerability",
+      "description": "Leftover engineering diagnostics and factory-level diagnostic software remain exposed on retail builds, giving malicious apps write privileges to internal NVRAM registers.",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-06-04",
+      "last_seen": "2026-06-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "acer",
+      "product": "connect m6e 5g firmware",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://community.acer.com/en/kb/articles/19707"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-50214",
+      "title": "CVE-2026-50214 — acer connect m6e 5g firmware CVSS 9.8 Critical Vulnerability",
+      "description": "The /v1/Plan service relies entirely on a shared global API token for full administrative management, allowing arbitrary creation of zero-cost network access plans.",
+      "cvss": 9.8,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-06-04",
+      "last_seen": "2026-06-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "acer",
+      "product": "connect m6e 5g firmware",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://community.acer.com/en/kb/articles/19707"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-50208",
+      "title": "CVE-2026-50208 — acer connect m6e 5g firmware CVSS 9.4 Critical Vulnerability",
+      "description": "High-risk TrustAllCerts routines disable standard TLS certificate validation. Combined with hard-coded DES symmetric encryption keys, a Man-in-the-Middle (MITM) actor could decrypt network traffic.",
+      "cvss": 9.4,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-06-04",
+      "last_seen": "2026-06-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "acer",
+      "product": "connect m6e 5g firmware",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://community.acer.com/en/kb/articles/19707"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
+      "id": "CVE-2026-50225",
+      "title": "CVE-2026-50225 — acer connect m6e 5g firmware CVSS 9.1 Critical Vulnerability",
+      "description": "The registration path /v1/account/register provides no bot mitigation mechanisms, allowing malicious automated systems to flood the database.",
+      "cvss": 9.1,
+      "final_ps": 31,
+      "quality_score": 0.525,
+      "threat_level": "HIGH",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-06-04",
+      "last_seen": "2026-06-04",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "acer",
+      "product": "connect m6e 5g firmware",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://community.acer.com/en/kb/articles/19707"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.75",
+          "recency=0d (score=1.00)",
+          "QS=0.525"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null
+    },
+    {
       "id": "CVE-2026-49188",
       "title": "CVE-2026-49188 — acer connect m6e 5g firmware CVSS 9.8 Critical Vulnerability",
       "description": "The ai_cmd utility executes with full root permissions. It pipes socket inputs directly to popen(), paving the way for unauthenticated users to execute arbitrary root commands.",
@@ -3862,355 +4172,33 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-133275",
-      "title": "CVE-2026-133275: Mitel MiCollab Unrestricted Upload of File with Dangerous Type Vulnerability — CISA KEV Active Exploita",
-      "description": "Mitel MiCollab contains an unrestricted upload of file with dangerous type vulnerability in the Audio, Web and Video Conferencing (AWV) component due to insufficient file type validation that could allow an unauthenticated attacker to upload arbitrary files.",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
-      "due_date": "2026-11-28",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133275"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-133311",
-      "title": "CVE-2026-133311: Mitel MiCollab Weak Authentication Vulnerability — CISA KEV Active Exploitation",
-      "description": "Mitel MiCollab contains a weak authentication vulnerability in the Audio, Web and Video Conferencing (AWV) component that could allow an unauthenticated attacker to access sensitive information using a specific system-generated random identifier or pre-staged content.",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
-      "due_date": "2026-12-09",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133311"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-136822",
-      "title": "CVE-2026-136822 — Affected software (product not identified) CVSS 9.9 Critical Vulnerability",
-      "description": "A vulnerability has been found in D-Link R32 1.10B02. The impacted element is the function SetDeviceSettings of the file /usr/bin/httpd of the component DHMAPI Action Handler. Such manipulation of the argument TZLocation leads to os command injection. It is possible to launch the attack remotely. Th",
-      "cvss": 9.9,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/Zzzhangxxx/cve/blob/main/D-Link_R32_A1_1.10B02_SetDeviceSettings_TZLocation_OS_Command_Injection.md",
-        "https://vuldb.com/cve/CVE-2026-136822",
-        "https://vuldb.com/submit/1059268",
-        "https://vuldb.com/vuln/443781"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-136823",
-      "title": "CVE-2026-136823 — Affected software (product not identified) CVSS 10 Critical Vulnerability",
-      "description": "A vulnerability was found in D-Link R32 1.10B02. This affects an unknown function of the file /usr/bin/httpd of the component flupl self Endpoint. Performing a manipulation of the argument fpath results in os command injection. The attack can be initiated remotely. The exploit has been made public a",
-      "cvss": 10,
-      "final_ps": 29,
-      "quality_score": 0.465,
-      "threat_level": "HIGH",
-      "type": "CVE_REPORT",
-      "source": "nvd",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "nvd"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/Zzzhangxxx/cve/blob/main/D-Link_R32_A1_1.10B02_flupl_self_fpath_OS_Command_Injection.md",
-        "https://vuldb.com/cve/CVE-2026-136823",
-        "https://vuldb.com/submit/1059269",
-        "https://vuldb.com/vuln/443782"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (nvd)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.465"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-133469",
-      "title": "CVE-2026-133469: Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability — CISA KEV Active Expl",
-      "description": "Vates Xen Orchestra contains an improper validation of specified type of input vulnerability that could allow an unauthenticated attacker to bypass authentication and perform actions with administrative privileges via a specially crafted authentication token containing an empty JSON object.",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Vates",
-      "product": "Xen Orchestra",
-      "due_date": "2026-11-28",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2026-133469"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2025-41450",
-      "title": "CVE-2025-41450: Danfoss AK-SM 800A Series Improper Authentication Vulnerability — CISA KEV Active Exploitation",
-      "description": "Danfoss AK-SM 800A Series contains an improper authentication vulnerability that could allow an attacker to generate a web report exposing sensitive information, including internal IP addresses, usernames, and store names.",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Danfoss",
-      "product": "AK-SM 800A Series",
-      "due_date": "2026-12-09",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2025-03-01",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2025-41450"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2023-25914",
-      "title": "CVE-2023-25914: Danfoss AK-SM 800A Series Path Traversal Vulnerability — CISA KEV Active Exploitation",
-      "description": "Danfoss AK-SM 800A Series contains a path traversal vulnerability that could allow an attacker to access and read underlying server system files via the XML interface.",
-      "cvss": null,
-      "final_ps": 29,
-      "quality_score": 0.515,
-      "threat_level": "CRITICAL",
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "cisa_kev"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": true,
-      "cisa_kev": true,
-      "ransomware": false,
-      "vendor": "Danfoss",
-      "product": "AK-SM 800A Series",
-      "due_date": "2026-11-28",
-      "cves": [],
-      "ioc_count": 0,
-      "refs": [
-        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2023-08-01",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
-        "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
-        "https://nvd.nist.gov/vuln/detail/CVE-2023-25914"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=1.00 (cisa_kev)",
-          "data_confidence=0.40",
-          "recency=0d (score=1.00)",
-          "QS=0.515"
-        ],
-        "priority": [
-          "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null
-    },
-    {
-      "id": "CVE-2026-133968",
-      "title": "U.S. CISA adds N-able MailAssure and Project MONAI flaws to its Known Exploited Vulnerabilities catalog",
-      "description": "U.S. Cybersecurity and Infrastructure Security Agency (CISA) adds N-able MailAssure and Project MONAI flaws to its Known Exploited Vulnerabilities catalog. The U.S. Cybersecurity and Infrastructure Security Agency (CISA) added N-able MailAssure and Project MONAI vulnerabilities t... [Full analysis a",
+      "id": "CVE-2026-129713",
+      "title": "Critical Danfoss Refrigeration Controller Flaw Could Allow Remote Code Execution Without Authentication",
+      "description": "A critical flaw, CVE-2026-129713, affects Danfoss AK-SM 8xxA refrigeration controllers running version 5.4.0 or earlier and could allow unauthenticated remote code execution. The U.S. Cybersecurity and Infrastructure Security Agency (CISA) issued advisory ICSA-26-328-03 on Novemb... [Full analysis a",
       "cvss": 9.8,
       "final_ps": 28,
       "quality_score": 0.438,
-      "threat_level": "MEDIUM",
-      "type": "CLOUD_SECURITY",
+      "threat_level": "HIGH",
+      "type": "CRITICAL_INFRASTRUCTURE",
       "source": "sentinel_apex",
       "sources_confirmed": 1,
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
+      "first_seen": "2026-11-26",
+      "last_seen": "2026-11-26",
       "exploited": false,
-      "cisa_kev": true,
+      "cisa_kev": false,
       "ransomware": false,
       "vendor": "",
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-133968"
+        "CVE-2026-129713"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://securityaffairs.com/203882/hacking/u-s-cisa-adds-n-able-mailassure-and-project-monai-flaws-to-its-known-exploited-vulnerabilities-catalog.html"
+        "https://cybersecuritynews.com/danfoss-refrigeration-controller-flaw/"
       ],
       "explanation": {
         "quality": [
@@ -4229,9 +4217,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-135429",
-      "title": "Low Security Vulnerability [High EPSS] (CVE-2026-135429)",
-      "description": "CVE-2026-135429",
+      "id": "CVE-2026-128855",
+      "title": "CVE-2026-128855 - uDraw <= 3.4.0 - Unauthenticated Image and PDF File Deletion via Path Traversal",
+      "description": "CVE-2026-128855 - uDraw <= 3.4.0 - Unauthenticated Image and PDF File Deletion via Path Traversal",
       "cvss": 9.1,
       "final_ps": 28,
       "quality_score": 0.438,
@@ -4242,8 +4230,8 @@
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-23",
-      "last_seen": "2026-11-23",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -4251,11 +4239,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-135429"
+        "CVE-2026-128855"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-135429?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+        "https://cvefeed.io/vuln/detail/CVE-2026-128855"
       ],
       "explanation": {
         "quality": [
@@ -4274,9 +4262,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-120413",
-      "title": "CVE-2026-120413 - Yoast SEO < 28.9 - Unauthenticated Private Content Disclosure via Headless REST Head Endpoint",
-      "description": "CVE-2026-120413 - Yoast SEO < 28.9 - Unauthenticated Private Content Disclosure via Headless REST Head Endpoint",
+      "id": "CVE-2026-128856",
+      "title": "CVE-2026-128856 - uDraw <= 3.4.0 - Unauthenticated Arbitrary File Upload via Page Save",
+      "description": "CVE-2026-128856 - uDraw <= 3.4.0 - Unauthenticated Arbitrary File Upload via Page Save",
       "cvss": 9.1,
       "final_ps": 28,
       "quality_score": 0.438,
@@ -4287,8 +4275,8 @@
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -4296,11 +4284,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-120413"
+        "CVE-2026-128856"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-120413"
+        "https://cvefeed.io/vuln/detail/CVE-2026-128856"
       ],
       "explanation": {
         "quality": [
@@ -4319,9 +4307,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-114021",
-      "title": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
-      "description": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
+      "id": "CVE-2026-114023",
+      "title": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
+      "description": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
       "cvss": 9.8,
       "final_ps": 28,
       "quality_score": 0.438,
@@ -4341,11 +4329,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-114021"
+        "CVE-2026-114023"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-114021"
+        "https://cvefeed.io/vuln/detail/CVE-2026-114023"
       ],
       "explanation": {
         "quality": [
@@ -4364,9 +4352,9 @@
       "suppression_reason": null
     },
     {
-      "id": "CVE-2026-132475",
-      "title": "CVE-2026-132475 - Apple macOS Kernel Out-of-Bounds Write",
-      "description": "CVE-2026-132475 - Apple macOS Kernel Out-of-Bounds Write",
+      "id": "CVE-2026-114022",
+      "title": "CVE-2026-114022 - Apple macOS Out-of-Bounds Write Vulnerability",
+      "description": "CVE-2026-114022 - Apple macOS Out-of-Bounds Write Vulnerability",
       "cvss": 9.8,
       "final_ps": 28,
       "quality_score": 0.438,
@@ -4386,11 +4374,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-132475"
+        "CVE-2026-114022"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-132475"
+        "https://cvefeed.io/vuln/detail/CVE-2026-114022"
       ],
       "explanation": {
         "quality": [
@@ -4409,5 +4397,5 @@
       "suppression_reason": null
     }
   ],
-  "lastReportGeneratedAt": "2026-11-26T09:04:01.012Z"
+  "lastReportGeneratedAt": "2026-11-26T10:33:36.378Z"
 }
