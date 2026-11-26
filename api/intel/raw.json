@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T01:55:42.873Z",
+  "generated": "2026-11-26T02:55:13.737Z",
   "version": "5.1",
   "engine": "SENTINEL APEX S2N v1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX",
@@ -8,100 +8,8 @@
   "endpoint": "/api/intel/raw.json",
   "description": "Raw unfiltered S2N feed — all items including suppressed. Enterprise tier.",
   "note": "Access requires Enterprise API key. Includes suppression_reason and full IOC data.",
-  "count": 152,
+  "count": 146,
   "items": [
-    {
-      "id": "CVE-2026-114023",
-      "title": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
-      "description": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
-      "cvss": 9.8,
-      "final_ps": 54,
-      "quality_score": 0.433,
-      "threat_level": "MEDIUM",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114023"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-114023"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=5d (score=0.40)",
-          "QS=0.432"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-27626",
-      "title": "OliveTin: Second-Order OS Command Injection via shellAfterCompleted",
-      "description": "Summary\n\nOliveTin's shellAfterCompleted post-execution hook injects unsanitized variables — including arbitrary command output (output), the authenticated username (ot_username), and the exit code (exitCode) — directly into a shell command template processed by sh -c. Unlike the ... [Full analysis a",
-      "cvss": 9.9,
-      "final_ps": 54,
-      "quality_score": 0.433,
-      "threat_level": "MEDIUM",
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-18",
-      "last_seen": "2026-11-18",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-27626"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-vc6p-m6vx-6cwq"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=7d (score=0.40)",
-          "QS=0.432"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
     {
       "id": "CVE-2026-122247",
       "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (POST ",
@@ -287,12 +195,12 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-121852",
-      "title": "CVE-2026-121852 - AppPresser 4.4.11 - 4.5.3 - Unauthenticated Stored XSS via Debug Log",
-      "description": "CVE-2026-121852 - AppPresser 4.4.11 - 4.5.3 - Unauthenticated Stored XSS via Debug Log",
-      "cvss": 9.1,
-      "final_ps": 53,
-      "quality_score": 0.433,
+      "id": "CVE-2026-114022",
+      "title": "CVE-2026-114022 - Apple macOS Out-of-Bounds Write Vulnerability",
+      "description": "CVE-2026-114022 - Apple macOS Out-of-Bounds Write Vulnerability",
+      "cvss": 9.8,
+      "final_ps": 52,
+      "quality_score": 0.383,
       "threat_level": "MEDIUM",
       "type": "CVE_REPORT",
       "source": "sentinel_apex",
@@ -300,8 +208,8 @@
       "merged_sources": [
         "sentinel_apex"
       ],
-      "first_seen": "2026-11-19",
-      "last_seen": "2026-11-19",
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -309,18 +217,18 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-121852"
+        "CVE-2026-114022"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-121852"
+        "https://cvefeed.io/vuln/detail/CVE-2026-114022"
       ],
       "explanation": {
         "quality": [
           "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.70",
-          "recency=6d (score=0.40)",
-          "QS=0.432"
+          "data_confidence=0.45",
+          "recency=5d (score=0.40)",
+          "QS=0.383"
         ],
         "priority": [
           "+10 CVSS≥9"
@@ -2555,52 +2463,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-134694",
-      "title": "Low Security Vulnerability (CVE-2026-134694)",
-      "description": "CVE-2026-134694",
-      "cvss": 7.8,
-      "final_ps": 40,
-      "quality_score": 0.408,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-134694"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-134694?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=3d (score=0.65)",
-          "QS=0.407"
-        ],
-        "priority": [
-          "base_ps=40 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-61725",
       "title": "sevenz-rust2: decompress builds each output path as dest.join(entry.name()) with no traversal guard, allowing a crafted ",
       "description": "Summary\n\nExtracting an attacker-supplied 7z archive can write files outside the destination directory. The 7z header stores each entry's path as a UTF-16 name with nothing constraining it to a relative, in-tree path. The extractor joins that name onto the destination and writes t... [Full analysis a",
@@ -4089,6 +3951,52 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-134694",
+      "title": "Low Security Vulnerability (CVE-2026-134694)",
+      "description": "CVE-2026-134694",
+      "cvss": 7.8,
+      "final_ps": 38,
+      "quality_score": 0.383,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-22",
+      "last_seen": "2026-11-22",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-134694"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://vulners.com/nvd/NVD:CVE-2026-134694?utm_source=rss&utm_medium=rss&utm_campaign=rss"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=4d (score=0.40)",
+          "QS=0.383"
+        ],
+        "priority": [
+          "base_ps=38 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-113953",
       "title": "CVE-2026-113953 - Apple USD File Integer Overflow Vulnerability",
       "description": "CVE-2026-113953 - Apple USD File Integer Overflow Vulnerability",
@@ -4411,52 +4319,6 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-4033",
-      "title": "CVE-2026-4033 - On EBX Product Stored XSS Vulnerability",
-      "description": "CVE-2026-4033 - On EBX Product Stored XSS Vulnerability",
-      "cvss": 6.1,
-      "final_ps": 37,
-      "quality_score": 0.388,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-24",
-      "last_seen": "2026-11-24",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-4033"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-4033"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=1d (score=0.85)",
-          "QS=0.388"
-        ],
-        "priority": [
-          "base_ps=37 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
       "id": "CVE-2026-132165",
       "title": "Drupal Fail2Install Exploit Details Emerge as Critical RCE Flaw Faces Active Exploitation",
       "description": "",
@@ -4542,144 +4404,6 @@
         "priority": [
           "+10 CVSS≥9",
           "+8 exploited_in_wild"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134688",
-      "title": "Low Security Vulnerability (CVE-2026-134688)",
-      "description": "CVE-2026-134688",
-      "cvss": 6.6,
-      "final_ps": 36,
-      "quality_score": 0.368,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-134688"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-134688?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=3d (score=0.65)",
-          "QS=0.368"
-        ],
-        "priority": [
-          "base_ps=36 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134692",
-      "title": "Low Security Vulnerability (CVE-2026-134692)",
-      "description": "CVE-2026-134692",
-      "cvss": 6.6,
-      "final_ps": 36,
-      "quality_score": 0.368,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-134692"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-134692?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=3d (score=0.65)",
-          "QS=0.368"
-        ],
-        "priority": [
-          "base_ps=36 (no boosts)"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-134696",
-      "title": "Low Security Vulnerability (CVE-2026-134696)",
-      "description": "CVE-2026-134696",
-      "cvss": 6.6,
-      "final_ps": 36,
-      "quality_score": 0.368,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-22",
-      "last_seen": "2026-11-22",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-134696"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://vulners.com/nvd/NVD:CVE-2026-134696?utm_source=rss&utm_medium=rss&utm_campaign=rss"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.25",
-          "recency=3d (score=0.65)",
-          "QS=0.368"
-        ],
-        "priority": [
-          "base_ps=36 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -6086,6 +5810,52 @@
       "iocs": []
     },
     {
+      "id": "CVE-2026-114021",
+      "title": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
+      "description": "",
+      "cvss": 9.8,
+      "final_ps": 28,
+      "quality_score": 0.438,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "sentinel_apex",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "sentinel_apex"
+      ],
+      "first_seen": "2026-11-21",
+      "last_seen": "2026-11-21",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [
+        "CVE-2026-114021"
+      ],
+      "ioc_count": 0,
+      "refs": [
+        "https://cvefeed.io/vuln/detail/CVE-2026-114021"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=0.85 (sentinel_apex)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.438"
+        ],
+        "priority": [
+          "+10 CVSS≥9"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
       "id": "CVE-2026-114516",
       "title": "Etherpad: Pre-auth arbitrary file read",
       "description": "",
@@ -6251,52 +6021,6 @@
       "ioc_count": 0,
       "refs": [
         "https://github.com/advisories/GHSA-hq2p-f2vj-v3cm"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.85 (sentinel_apex)",
-          "data_confidence=0.45",
-          "recency=0d (score=1.00)",
-          "QS=0.438"
-        ],
-        "priority": [
-          "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-114022",
-      "title": "CVE-2026-114022 - Apple macOS Out-of-Bounds Write Vulnerability",
-      "description": "",
-      "cvss": 9.8,
-      "final_ps": 28,
-      "quality_score": 0.438,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "sentinel_apex",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "sentinel_apex"
-      ],
-      "first_seen": "2026-11-21",
-      "last_seen": "2026-11-21",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-114022"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-114022"
       ],
       "explanation": {
         "quality": [
@@ -6500,8 +6224,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-114021",
-      "title": "CVE-2026-114021 - Apple macOS NFS Kernel Memory Corruption via Out-of-Bounds Write",
+      "id": "CVE-2026-114023",
+      "title": "CVE-2026-114023 - Apple macOS Path Handling Arbitrary Code Execution Vulnerability",
       "description": "",
       "cvss": 9.8,
       "final_ps": 28,
@@ -6522,11 +6246,11 @@
       "product": "",
       "due_date": null,
       "cves": [
-        "CVE-2026-114021"
+        "CVE-2026-114023"
       ],
       "ioc_count": 0,
       "refs": [
-        "https://cvefeed.io/vuln/detail/CVE-2026-114021"
+        "https://cvefeed.io/vuln/detail/CVE-2026-114023"
       ],
       "explanation": {
         "quality": [
@@ -6537,56 +6261,6 @@
         ],
         "priority": [
           "+10 CVSS≥9"
-        ],
-        "suppression": null,
-        "merge": null
-      },
-      "suppressed": false,
-      "suppression_reason": null,
-      "iocs": []
-    },
-    {
-      "id": "CVE-2026-69181",
-      "title": "TastyIgniter permits Path Traversal in Media Upload",
-      "description": "",
-      "cvss": 7.6,
-      "final_ps": 21,
-      "quality_score": 0.523,
-      "threat_level": "LOW",
-      "type": "CVE_REPORT",
-      "source": "github_advisories",
-      "sources_confirmed": 1,
-      "merged_sources": [
-        "github_advisories"
-      ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
-      "exploited": false,
-      "cisa_kev": false,
-      "ransomware": false,
-      "vendor": "composer",
-      "product": "tastyigniter/tastyigniter",
-      "due_date": null,
-      "cves": [
-        "CVE-2026-69181",
-        "CVE-2026-69181"
-      ],
-      "ioc_count": 0,
-      "refs": [
-        "https://github.com/advisories/GHSA-rj59-9f77-mvg5",
-        "https://github.com/tastyigniter/TastyIgniter/security/advisories/GHSA-rj59-9f77-mvg5",
-        "https://github.com/tastyigniter/core/commit/c6f99d7f47d20c144721c7a1044213f52c9b570f",
-        "https://github.com/tastyigniter/core/releases/tag/v4.3.1"
-      ],
-      "explanation": {
-        "quality": [
-          "source_weight=0.95 (github_advisories)",
-          "data_confidence=0.75",
-          "recency=0d (score=1.00)",
-          "QS=0.523"
-        ],
-        "priority": [
-          "base_ps=21 (no boosts)"
         ],
         "suppression": null,
         "merge": null
@@ -6641,8 +6315,8 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-66052",
-      "title": "CVE-2026-66052 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "id": "CVE-2026-137305",
+      "title": "CVE-2026-137305 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
       "description": "",
       "cvss": 8.8,
       "final_ps": 19,
@@ -6654,8 +6328,8 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
+      "first_seen": "2026-11-26",
+      "last_seen": "2026-11-26",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -6665,10 +6339,9 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/ZeroDayx-06/revenue-plus-el-injection-advisory",
-        "https://www.comviva.com/support/revenue-plus-end-of-support-notification/",
-        "https://www.comviva.com/wp-content/uploads/2017/08/MahindraComviva_Revenue_Plus.pdf",
-        "https://www.vulncheck.com/advisories/comviva-revenue-plus-3.0.0-expression-language-injection-rce-via-manageuser-parameter-name"
+        "https://github.com/getgrav/grav-plugin-form/commit/3daa9cb66c43b6d472473dcbf0c312c8e66b1769",
+        "https://github.com/getgrav/grav/security/advisories/GHSA-4grx-p93p-25w8",
+        "https://www.vulncheck.com/advisories/grav-form-plugin-before-9.2.4-code-injection-via-file-field-upload-destination"
       ],
       "explanation": {
         "quality": [
@@ -6688,10 +6361,10 @@
       "iocs": []
     },
     {
-      "id": "CVE-2026-69695",
-      "title": "CVE-2026-69695 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "id": "CVE-2026-137308",
+      "title": "CVE-2026-137308 — Affected software (product not identified) CVSS 7.4 High Severity Vulnerability",
       "description": "",
-      "cvss": 8.8,
+      "cvss": 7.4,
       "final_ps": 19,
       "quality_score": 0.465,
       "threat_level": "LOW",
@@ -6701,8 +6374,8 @@
       "merged_sources": [
         "nvd"
       ],
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-25",
+      "first_seen": "2026-11-26",
+      "last_seen": "2026-11-26",
       "exploited": false,
       "cisa_kev": false,
       "ransomware": false,
@@ -6712,9 +6385,10 @@
       "cves": [],
       "ioc_count": 0,
       "refs": [
-        "https://github.com/BadChoice/handesk/blob/49814852fe97f524e513e1ca9d78f4c1f4a64dc3/app/Attachment.php#L15-L20",
-        "https://github.com/BadChoice/handesk/issues/830",
-        "https://www.vulncheck.com/advisories/handesk-through-1.5-unrestricted-file-upload-via-ticket-comments"
+        "https://github.com/zcaceres/markdownify-mcp/blob/v1.1.0/src/utils.ts#L60-L90",
+        "https://github.com/zcaceres/markdownify-mcp/commit/ee00464d0744d5defddecd660c29e91470eea96a",
+        "https://github.com/zcaceres/markdownify-mcp/releases/tag/v1.2.0",
+        "https://github.com/zcaceres/markdownify-mcp/security/advisories/GHSA-pxwh-pcrm-vrm3"
       ],
       "explanation": {
         "quality": [
@@ -6762,6 +6436,53 @@
         "https://github.com/philipjscott/simple-thumbnail/issues/88",
         "https://vuldb.com/cve/CVE-2026-136946",
         "https://vuldb.com/submit/1059443"
+      ],
+      "explanation": {
+        "quality": [
+          "source_weight=1.00 (nvd)",
+          "data_confidence=0.45",
+          "recency=0d (score=1.00)",
+          "QS=0.465"
+        ],
+        "priority": [
+          "base_ps=19 (no boosts)"
+        ],
+        "suppression": null,
+        "merge": null
+      },
+      "suppressed": false,
+      "suppression_reason": null,
+      "iocs": []
+    },
+    {
+      "id": "CVE-2026-136947",
+      "title": "CVE-2026-136947 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "description": "",
+      "cvss": 7.3,
+      "final_ps": 19,
+      "quality_score": 0.465,
+      "threat_level": "LOW",
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "sources_confirmed": 1,
+      "merged_sources": [
+        "nvd"
+      ],
+      "first_seen": "2026-11-26",
+      "last_seen": "2026-11-26",
+      "exploited": false,
+      "cisa_kev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "due_date": null,
+      "cves": [],
+      "ioc_count": 0,
+      "refs": [
+        "https://github.com/msaifulcsse/Ticket-Travel-Management-System/",
+        "https://github.com/msaifulcsse/Ticket-Travel-Management-System/issues/11",
+        "https://vuldb.com/cve/CVE-2026-136947",
+        "https://vuldb.com/submit/1060006"
       ],
       "explanation": {
         "quality": [
