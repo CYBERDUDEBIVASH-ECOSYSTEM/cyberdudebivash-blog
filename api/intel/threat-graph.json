@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-25T23:26:30.259Z",
+  "generated": "2026-11-26T00:24:23.570Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20408,
+    "total_nodes": 20410,
     "actors": 8,
-    "cves": 9956,
-    "campaigns": 3393,
+    "cves": 9957,
+    "campaigns": 3394,
     "malware": 0,
     "iocs": 911,
-    "edges": 6198
+    "edges": 6199
   },
   "nodes": {
     "actor:lockbit": {
@@ -309889,7 +309889,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -382605,7 +382605,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -382623,7 +382623,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -382641,7 +382641,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -382659,7 +382659,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -382677,7 +382677,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -382695,7 +382695,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -382713,7 +382713,7 @@
       "attributes": {
         "cvss": 0,
         "threat_level": "HIGH",
-        "priority_score": 81,
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -383405,7 +383405,7 @@
       "attributes": {
         "cvss": 9.9,
         "threat_level": "HIGH",
-        "priority_score": 71,
+        "priority_score": 69,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -383423,7 +383423,7 @@
       "attributes": {
         "cvss": 9.9,
         "threat_level": "HIGH",
-        "priority_score": 71,
+        "priority_score": 69,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -383557,7 +383557,7 @@
       "attributes": {
         "cvss": 10,
         "threat_level": "HIGH",
-        "priority_score": 71,
+        "priority_score": 69,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -383575,7 +383575,7 @@
       "attributes": {
         "cvss": 7.1,
         "threat_level": "MEDIUM",
-        "priority_score": 61,
+        "priority_score": 59,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -383651,7 +383651,7 @@
       "attributes": {
         "cvss": 8.8,
         "threat_level": "HIGH",
-        "priority_score": 68,
+        "priority_score": 66,
         "exploited": false,
         "cisa_kev": false,
         "ransomware": false,
@@ -383715,6 +383715,44 @@
       "connections": [
         {
           "target": "CVE-2026-69181",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-69695": {
+      "id": "CVE-2026-69695",
+      "type": "CVE",
+      "name": "CVE-2026-69695 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.8,
+        "threat_level": "HIGH",
+        "priority_score": 66,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-25",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-69695": {
+      "id": "campaign:cve-2026-69695",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-25",
+        "last_seen": "2026-11-25",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-69695"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-69695",
           "relationship": "includes",
           "confidence": 1
         }
@@ -439686,6 +439724,15 @@
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-25",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-69695→includes→CVE-2026-69695",
+      "source": "campaign:cve-2026-69695",
+      "target": "CVE-2026-69695",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-26",
       "sources": []
     }
   ]
