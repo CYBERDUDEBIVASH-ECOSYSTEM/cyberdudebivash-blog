@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-26T00:24:23.749Z",
-  "lastUpdated": "2026-11-26T00:24:23.749Z",
-  "totalPublished": 8410,
+  "generatedAt": "2026-11-26T01:55:42.864Z",
+  "lastUpdated": "2026-11-26T01:55:42.864Z",
+  "totalPublished": 8412,
   "metadata": {
-    "generated": "2026-11-26T00:24:23.749Z",
+    "generated": "2026-11-26T01:55:42.864Z",
     "version": "5.0",
     "pipeline": "SENTINEL APEX v5.0",
     "platform": "blog.cyberdudebivash.in",
@@ -14,23 +14,75 @@
       "entries": 1805,
       "invalidEntries": 0,
       "duplicateEntries": 0,
-      "verifiedAt": "2026-11-26T00:24:19.114Z"
+      "verifiedAt": "2026-11-26T01:55:36.503Z"
     },
-    "lastReportGeneratedAt": "2026-11-26T00:24:23.910Z",
-    "lastPipelineRun": "2026-11-26T00:24:42.675Z"
+    "lastReportGeneratedAt": "2026-11-26T01:55:43.154Z",
+    "lastPipelineRun": "2026-11-26T01:56:02.128Z"
   },
   "source": "CYBERDUDEBIVASH SENTINEL APEX v5.0",
   "platform": "blog.cyberdudebivash.in",
   "version": "5.0",
   "stats": {
-    "critical": 2,
-    "high": 24,
+    "critical": 0,
+    "high": 27,
     "cisaKev": 11,
     "exploited": 10,
     "ransomware": 1,
     "sources": 10
   },
   "items": [
+    {
+      "id": "CVE-2026-66784",
+      "title": "CVE-2026-66784 — Affected software (product not identified) CVSS 8.7 High Severity Vulnerability",
+      "desc": "A flaw was found in Submariner. In its default Pre-Shared Key (PSK) mode, all gateways within a broker set utilize the same PSK. An attacker, by knowing this shared PSK, can forge an Endpoint Custom R",
+      "cvss": 8.7,
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "pubDate": "2026-11-26",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://access.redhat.com/security/cve/CVE-2026-66784",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2507529"
+      ],
+      "priority": 68,
+      "threatLevel": "HIGH",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-66784",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-66784.html",
+      "_addedAt": "2026-11-26T01:55:40.482Z"
+    },
+    {
+      "id": "CVE-2026-136946",
+      "title": "CVE-2026-136946 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "desc": "A vulnerability was identified in philipjscott simple-thumbnail up to 1.6.5. This issue affects the function ffmpegExecute of the file index.js. The manipulation of the argument seek leads to os comma",
+      "cvss": 7.3,
+      "type": "CVE_REPORT",
+      "source": "nvd",
+      "pubDate": "2026-11-26",
+      "exploited": false,
+      "cisaKev": false,
+      "ransomware": false,
+      "vendor": "",
+      "product": "",
+      "dueDate": null,
+      "refs": [
+        "https://github.com/philipjscott/simple-thumbnail/",
+        "https://github.com/philipjscott/simple-thumbnail/issues/88"
+      ],
+      "priority": 62,
+      "threatLevel": "MEDIUM",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-136946",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-136946.html",
+      "_addedAt": "2026-11-26T01:55:40.482Z"
+    },
     {
       "id": "CVE-2026-69695",
       "title": "CVE-2026-69695 — Affected software (product not identified) CVSS 8.8 High Severity Vulnerability",
@@ -880,58 +932,6 @@
       "_addedAt": "2026-11-25T20:28:07.763Z"
     },
     {
-      "id": "CVE-2026-133303",
-      "title": "CVE-2026-133303: Mitel MiCollab XML Injection Vulnerability — CISA KEV Active Exploitation",
-      "desc": "Mitel MiCollab contains an XML injection vulnerability in its Audio, Web, and Video Conferencing (AWV) component that could allow an unauthenticated attacker to execute arbitrary commands using pre-st",
-      "cvss": 9,
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "pubDate": "2026-11-25",
-      "exploited": true,
-      "cisaKev": true,
-      "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
-      "dueDate": "2026-11-28",
-      "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
-        "https://accenture.github.io/cyber-intelligence/micollab-exploitation/"
-      ],
-      "priority": 100,
-      "threatLevel": "CRITICAL",
-      "sourceCount": 2,
-      "iocCount": 0,
-      "slug": "cve-2026-133303-mitel-micollab",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-133303-mitel-micollab.html",
-      "_addedAt": "2026-11-25T20:28:05.622Z"
-    },
-    {
-      "id": "CVE-2026-133323",
-      "title": "CVE-2026-133323: Mitel MiCollab OS Command Injection Vulnerability — CISA KEV Active Exploitation",
-      "desc": "Mitel MiCollab contains an improper neutralization of special elements used in an OS command (OS command injection) vulnerability in its Audio, Web, and Video Conferencing (AWV) component that could a",
-      "cvss": 10,
-      "type": "CVE_REPORT",
-      "source": "cisa_kev",
-      "pubDate": "2026-11-25",
-      "exploited": true,
-      "cisaKev": true,
-      "ransomware": false,
-      "vendor": "Mitel",
-      "product": "MiCollab",
-      "dueDate": "2026-11-28",
-      "refs": [
-        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
-        "https://accenture.github.io/cyber-intelligence/micollab-exploitation/"
-      ],
-      "priority": 100,
-      "threatLevel": "CRITICAL",
-      "sourceCount": 2,
-      "iocCount": 0,
-      "slug": "cve-2026-133323-mitel-micollab",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-133323-mitel-micollab.html",
-      "_addedAt": "2026-11-25T20:28:05.622Z"
-    },
-    {
       "id": "CVE-2026-133469",
       "title": "CVE-2026-133469: Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability — CISA KEV Active Expl",
       "desc": "Vates Xen Orchestra contains an improper validation of specified type of input vulnerability that could allow an unauthenticated attacker to bypass authentication and perform actions with administrati",
@@ -1111,6 +1111,58 @@
       "iocCount": 0,
       "slug": "cve-2026-133311-mitel-micollab",
       "link": "https://blog.cyberdudebivash.in/posts/cve-2026-133311-mitel-micollab.html",
+      "_addedAt": "2026-11-25T20:28:05.622Z"
+    },
+    {
+      "id": "CVE-2026-133303",
+      "title": "CVE-2026-133303: Mitel MiCollab XML Injection Vulnerability — CISA KEV Active Exploitation",
+      "desc": "Mitel MiCollab contains an XML injection vulnerability in its Audio, Web, and Video Conferencing (AWV) component that could allow an unauthenticated attacker to execute arbitrary commands using pre-st",
+      "cvss": null,
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "pubDate": "2026-11-25",
+      "exploited": true,
+      "cisaKev": true,
+      "ransomware": false,
+      "vendor": "Mitel",
+      "product": "MiCollab",
+      "dueDate": "2026-11-28",
+      "refs": [
+        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk"
+      ],
+      "priority": 79,
+      "threatLevel": "HIGH",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-133303-mitel-micollab",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-133303-mitel-micollab.html",
+      "_addedAt": "2026-11-25T20:28:05.622Z"
+    },
+    {
+      "id": "CVE-2026-133323",
+      "title": "CVE-2026-133323: Mitel MiCollab OS Command Injection Vulnerability — CISA KEV Active Exploitation",
+      "desc": "Mitel MiCollab contains an improper neutralization of special elements used in an OS command (OS command injection) vulnerability in its Audio, Web, and Video Conferencing (AWV) component that could a",
+      "cvss": null,
+      "type": "CVE_REPORT",
+      "source": "cisa_kev",
+      "pubDate": "2026-11-25",
+      "exploited": true,
+      "cisaKev": true,
+      "ransomware": false,
+      "vendor": "Mitel",
+      "product": "MiCollab",
+      "dueDate": "2026-11-28",
+      "refs": [
+        "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012",
+        "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk"
+      ],
+      "priority": 79,
+      "threatLevel": "HIGH",
+      "sourceCount": 1,
+      "iocCount": 0,
+      "slug": "cve-2026-133323-mitel-micollab",
+      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-133323-mitel-micollab.html",
       "_addedAt": "2026-11-25T20:28:05.622Z"
     },
     {
@@ -3796,55 +3848,7 @@
       "slug": "cve-2026-131750",
       "link": "https://blog.cyberdudebivash.in/posts/cve-2026-131750.html",
       "_addedAt": "2026-11-25T23:26:29.503Z"
-    },
-    {
-      "id": "CVE-2026-77367",
-      "title": "Daptin: Unauthenticated SQL Injection via the sort query parameter on every entity list endpoint",
-      "desc": "Summary\n\nAn unauthenticated attacker can inject arbitrary SQL through the sort query parameter accepted by\nDaptin's generic entity list endpoint (GET /api/<entity>), which every table in a Daptin inst",
-      "cvss": 9.1,
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-20",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://github.com/advisories/GHSA-hq2p-f2vj-v3cm"
-      ],
-      "priority": 43,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-77367",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-77367.html"
-    },
-    {
-      "id": "CVE-2026-122247",
-      "title": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (POST ",
-      "desc": "Description\n\nSummary\n\nOn a self-hosted, single-tenant Budibase instance (multiTenancy:false), the public bootstrap endpoint POST /api/global/users/init remains fully exploitable after the instance has",
-      "cvss": 9.1,
-      "type": "NEWS_REPORT",
-      "source": "sentinel_apex",
-      "pubDate": "2026-11-20",
-      "exploited": false,
-      "cisaKev": false,
-      "ransomware": false,
-      "vendor": "",
-      "product": "",
-      "dueDate": null,
-      "refs": [
-        "https://github.com/advisories/GHSA-25qc-m4pw-2w8r"
-      ],
-      "priority": 43,
-      "threatLevel": "LOW",
-      "sourceCount": 1,
-      "iocCount": 0,
-      "slug": "cve-2026-122247",
-      "link": "https://blog.cyberdudebivash.in/posts/cve-2026-122247.html"
     }
   ],
-  "_heartbeat": "2026-11-26T00:24:42.675Z"
+  "_heartbeat": "2026-11-26T01:56:02.128Z"
 }

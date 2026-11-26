@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-26T00:24:23.570Z",
+  "generated": "2026-11-26T01:55:42.655Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20410,
+    "total_nodes": 20414,
     "actors": 8,
-    "cves": 9957,
-    "campaigns": 3394,
+    "cves": 9959,
+    "campaigns": 3396,
     "malware": 0,
     "iocs": 911,
-    "edges": 6199
+    "edges": 6201
   },
   "nodes": {
     "actor:lockbit": {
@@ -382567,9 +382567,9 @@
       "type": "CVE",
       "name": "CVE-2026-133303: Mitel MiCollab XML Injection Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
-        "cvss": 9,
-        "threat_level": "CRITICAL",
-        "priority_score": 100,
+        "cvss": 0,
+        "threat_level": "HIGH",
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -382585,9 +382585,9 @@
       "type": "CVE",
       "name": "CVE-2026-133323: Mitel MiCollab OS Command Injection Vulnerability — CISA KEV Active Exploitation",
       "attributes": {
-        "cvss": 10,
-        "threat_level": "CRITICAL",
-        "priority_score": 100,
+        "cvss": 0,
+        "threat_level": "HIGH",
+        "priority_score": 79,
         "exploited": true,
         "cisa_kev": true,
         "ransomware": false,
@@ -382963,7 +382963,7 @@
       "type": "Campaign",
       "name": "Mitel MiCollab Exploitation Campaign",
       "attributes": {
-        "severity": "CRITICAL",
+        "severity": "HIGH",
         "item_count": 1,
         "first_seen": "2026-11-25",
         "last_seen": "2026-11-25",
@@ -382983,7 +382983,7 @@
       "type": "Campaign",
       "name": "Mitel MiCollab Exploitation Campaign",
       "attributes": {
-        "severity": "CRITICAL",
+        "severity": "HIGH",
         "item_count": 1,
         "first_seen": "2026-11-25",
         "last_seen": "2026-11-25",
@@ -383753,6 +383753,82 @@
       "connections": [
         {
           "target": "CVE-2026-69695",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "CVE-2026-66784": {
+      "id": "CVE-2026-66784",
+      "type": "CVE",
+      "name": "CVE-2026-66784 — Affected software (product not identified) CVSS 8.7 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 8.7,
+        "threat_level": "HIGH",
+        "priority_score": 68,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-26",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-136946": {
+      "id": "CVE-2026-136946",
+      "type": "CVE",
+      "name": "CVE-2026-136946 — Affected software (product not identified) CVSS 7.3 High Severity Vulnerability",
+      "attributes": {
+        "cvss": 7.3,
+        "threat_level": "MEDIUM",
+        "priority_score": 62,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "",
+        "product": "",
+        "published": "2026-11-26",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-66784": {
+      "id": "campaign:cve-2026-66784",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-11-26",
+        "last_seen": "2026-11-26",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-66784"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-66784",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-136946": {
+      "id": "campaign:cve-2026-136946",
+      "type": "Campaign",
+      "name": "Multi-Vendor Platform Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-11-26",
+        "last_seen": "2026-11-26",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-136946"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-136946",
           "relationship": "includes",
           "confidence": 1
         }
@@ -439730,6 +439806,24 @@
       "id": "campaign:cve-2026-69695→includes→CVE-2026-69695",
       "source": "campaign:cve-2026-69695",
       "target": "CVE-2026-69695",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-26",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-66784→includes→CVE-2026-66784",
+      "source": "campaign:cve-2026-66784",
+      "target": "CVE-2026-66784",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-26",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-136946→includes→CVE-2026-136946",
+      "source": "campaign:cve-2026-136946",
+      "target": "CVE-2026-136946",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-26",
