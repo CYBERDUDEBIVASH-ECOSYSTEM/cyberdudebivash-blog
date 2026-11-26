@@ -2,10 +2,10 @@
   "platform": "CYBERDUDEBIVASH SENTINEL APEX — AI Security Intelligence Division",
   "endpoint": "/api/intel/ai-security.json",
   "doctrine": "Sentinel-APEX/prompts/ai-security-master-prompt.md",
-  "generated": "2026-11-26T01:10:31.029Z",
+  "generated": "2026-11-26T02:54:43.263Z",
   "disclaimer": "Evidence-graded AI security intelligence. Confidence and evidence labels attached per item. Community leads are corroborated before publication.",
   "stats": {
-    "published": 10,
+    "published": 11,
     "p1": 0,
     "leadsHeld": 0,
     "analystReports": 0,
@@ -13,16 +13,16 @@
     "sourcesTotal": 6,
     "sourceHealth": [
       {
-        "name": "r/MachineLearning",
-        "key": "reddit_ml",
+        "name": "r/netsec",
+        "key": "reddit_ns",
         "tier": 3,
         "status": "degraded",
         "items": 0,
         "error": "HTTP 404"
       },
       {
-        "name": "r/netsec",
-        "key": "reddit_ns",
+        "name": "r/MachineLearning",
+        "key": "reddit_ml",
         "tier": 3,
         "status": "degraded",
         "items": 0,
@@ -37,19 +37,19 @@
         "error": null
       },
       {
-        "name": "arXiv cs.CR (LLM security)",
-        "key": "arxiv_sec",
-        "tier": 2,
-        "status": "ok",
-        "items": 30,
-        "error": null
-      },
-      {
         "name": "NVD (AI/LLM keyword)",
         "key": "nvd_ai",
         "tier": 1,
         "status": "ok",
         "items": 40,
+        "error": null
+      },
+      {
+        "name": "arXiv cs.CR (LLM security)",
+        "key": "arxiv_sec",
+        "tier": 2,
+        "status": "ok",
+        "items": 30,
         "error": null
       },
       {
@@ -61,7 +61,7 @@
         "error": null
       }
     ],
-    "runtimeMs": 1074
+    "runtimeMs": 1077
   },
   "frameworks": {
     "owasp_llm_top10": {
@@ -88,7 +88,7 @@
       "AML.T0057": "LLM Data Leakage"
     }
   },
-  "count": 10,
+  "count": 11,
   "items": [
     {
       "id": "536794fc5657126a",
@@ -491,6 +491,62 @@
       "detection": {
         "detect": "Monitor LLM gateway logs for delimiter-breaking tokens, role-swap phrases (\"ignore previous\", \"you are now\"), and base64/hex blobs in user or retrieved content.",
         "hunt": "Correlate anomalous tool-invocation sequences that immediately follow untrusted content ingestion (email, web, RAG chunks)."
+      },
+      "has_analyst_report": false
+    },
+    {
+      "id": "05a4a3328afb07cd",
+      "title": "Anti-AI in the Wild: From Toxic Discourse to Action",
+      "url": "https://arxiv.org/abs/2611.33254v1",
+      "source": "arXiv cs.CR (LLM security)",
+      "tier": 2,
+      "published": "2026-11-24T16:55:03Z",
+      "cve": null,
+      "severity": null,
+      "cvss": null,
+      "evidence_label": "PUBLISHED_RESEARCH",
+      "categories": [
+        {
+          "id": "data_poisoning",
+          "label": "Training / Data Poisoning"
+        }
+      ],
+      "owasp_llm": [
+        {
+          "id": "LLM04",
+          "name": "Model Denial of Service / Data & Model Poisoning"
+        }
+      ],
+      "mitre_atlas": [
+        {
+          "id": "AML.T0020",
+          "name": "Poison Training Data"
+        }
+      ],
+      "agent_risk": {
+        "flags": {
+          "agentic": false,
+          "mcp": false,
+          "rag": true,
+          "tool_use": false,
+          "supply_chain": false
+        },
+        "level": "elevated"
+      },
+      "enterprise_impact": {
+        "score": 10,
+        "priority": "P3"
+      },
+      "confidence": {
+        "source": "MODERATE",
+        "evidence": "LOW",
+        "overall": "LOW",
+        "rationale": "Research source; 1 corroborating source(s)."
+      },
+      "corroboration": 1,
+      "detection": {
+        "detect": "Track training/fine-tune dataset provenance and hash drift; flag label anomalies and out-of-distribution samples.",
+        "hunt": "Audit dataset contribution history for low-reputation or newly-added sources preceding a behavior change."
       },
       "has_analyst_report": false
     },
