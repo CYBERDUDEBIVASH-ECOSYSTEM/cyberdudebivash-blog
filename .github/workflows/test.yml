@@ -213,6 +213,8 @@ jobs:
         run: node --test tests-js/cti-publisher-lock.test.js
       - name: SOC identity and all-pages UX regression contract
         run: node --test tests-js/soc-platform-presentation.test.js
+      - name: No stray literal backslash-n text on hand-maintained pages
+        run: node --test tests-js/soc-pages-no-literal-newline-text.test.js
       - name: SOC shell trust-strip anchor regression (layout shift on ~98% of pages)
         run: node --test tests-js/soc-shell-trust-strip-anchor.test.js
       - name: P0 Enterprise cost planner truth and customer-claim safety
