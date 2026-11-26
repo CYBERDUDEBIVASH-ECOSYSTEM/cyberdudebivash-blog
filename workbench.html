@@ -81,10 +81,10 @@ tr.clickable{cursor:pointer}tr.clickable:hover td{background:#0a0e18}
   </div>
 </nav>
 
-<div id="login-screen">
+<div id="login-screen" role="main">
   <div class="login-wrap">
     <div class="card">
-      <div class="card-title">🔐 Analyst Sign-In</div>
+      <div class="card-title" role="heading" aria-level="1">🔐 Analyst Sign-In</div>
       <div id="login-alert" class="hidden"></div>
       <p class="muted" style="font-size:13px;margin-bottom:16px">Internal workbench access only. Your key is kept in this browser tab's session storage and sent as the <code style="color:var(--apex-cyan)">X-Analyst-Key</code> header — never persisted beyond this session.</p>
       <div class="form-group">
@@ -96,7 +96,7 @@ tr.clickable{cursor:pointer}tr.clickable:hover td{background:#0a0e18}
   </div>
 </div>
 
-<div id="app" class="hidden">
+<div id="app" class="hidden" role="main">
   <div class="hero">
     <h1>⚡ <span>SOC</span> Workbench</h1>
     <p>Investigations, cases, intelligence graph, and cross-entity search.</p>
@@ -360,7 +360,7 @@ const Workbench = (() => {
           <div class="row">
             <div class="col form-group"><label>Title *</label><input id="inv-title" type="text"></div>
             <div class="col form-group"><label>Priority</label>
-              <select id="inv-priority"><option value="CRITICAL">Critical</option><option value="HIGH">High</option><option value="MEDIUM" selected>Medium</option><option value="LOW">Low</option><option value="INFO">Info</option></select>
+              <select id="inv-priority" aria-label="Priority"><option value="CRITICAL">Critical</option><option value="HIGH">High</option><option value="MEDIUM" selected>Medium</option><option value="LOW">Low</option><option value="INFO">Info</option></select>
             </div>
           </div>
           <div class="form-group"><label>Description</label><textarea id="inv-description"></textarea></div>
@@ -371,7 +371,7 @@ const Workbench = (() => {
       <div class="card">
         <div class="card-title">Investigations
           <span>
-            <select id="inv-filter-status" onchange="Workbench.listInvestigations()" style="width:auto;display:inline-block;padding:4px 10px;font-size:11px">
+            <select id="inv-filter-status" aria-label="Filter investigations by status" onchange="Workbench.listInvestigations()" style="width:auto;display:inline-block;padding:4px 10px;font-size:11px">
               <option value="">All statuses</option>
               <option value="open">Open</option><option value="in_progress">In progress</option>
               <option value="pending_review">Pending review</option><option value="closed">Closed</option><option value="archived">Archived</option>
@@ -483,7 +483,7 @@ const Workbench = (() => {
       if (currentInvestigationSubTab === 'overview') {
         el.innerHTML = `
           <div class="form-group"><label>Update status</label>
-            <select id="inv-update-status">
+            <select id="inv-update-status" aria-label="Update status">
               ${['open', 'in_progress', 'pending_review', 'closed', 'archived'].map(s => `<option value="${s}" ${s === inv.status ? 'selected' : ''}>${s.replace(/_/g, ' ')}</option>`).join('')}
             </select>
           </div>
@@ -496,7 +496,7 @@ const Workbench = (() => {
         const { evidence } = await get(`/api/v1/workbench/investigations/${encodeURIComponent(id)}/evidence`);
         el.innerHTML = `
           <div class="form-group"><label>Add evidence</label>
-            <select id="ev-type" style="margin-bottom:8px">
+            <select id="ev-type" aria-label="Evidence type" style="margin-bottom:8px">
               <option value="article">Article</option><option value="threat_report">Threat report</option><option value="ioc">IOC</option>
               <option value="malware">Malware</option><option value="file">File</option><option value="hash">Hash</option>
               <option value="url">URL</option><option value="domain">Domain</option><option value="external_reference">External reference</option><option value="note">Note</option>
@@ -691,7 +691,7 @@ const Workbench = (() => {
         <div class="row">
           <div class="col form-group"><input id="search-q" type="text" placeholder="Search investigations, intelligence, entities, evidence…"></div>
           <div class="col form-group" style="max-width:200px">
-            <select id="search-type">
+            <select id="search-type" aria-label="Search type">
               <option value="all">${internalLead ? 'All internal types' : 'My investigations'}</option><option value="investigations">Investigations</option>
               <option value="intelligence" ${internalLead ? '' : 'disabled'}>Intelligence (internal lead)</option>
               <option value="entities" ${internalLead ? '' : 'disabled'}>Graph entities (internal lead)</option>

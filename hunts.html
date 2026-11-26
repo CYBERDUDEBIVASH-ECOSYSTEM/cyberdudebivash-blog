@@ -71,7 +71,7 @@ footer{background:var(--apex-surface);border-top:1px solid var(--apex-border);pa
   </div>
 </nav>
 
-<div class="wrap">
+<div class="wrap" role="main">
   <div class="card">
     <h1 class="card-title" style="border-bottom:none;margin-bottom:12px;font-size:14px">🔎 Threat Hunting Workspace</h1>
     <div class="rel-meta" style="margin-bottom:14px;font-size:12px">
@@ -338,12 +338,12 @@ function renderHuntDetail() {
       <div id="finding-list">${renderFindingList()}</div>
       ${h.status !== 'CLOSED' ? `
       <div class="grid3" style="margin-top:8px">
-        <select id="new-finding-classification">
+        <select id="new-finding-classification" aria-label="Finding classification">
           <option value="CONFIRMED_MALICIOUS">Confirmed Malicious</option><option value="LIKELY_MALICIOUS">Likely Malicious</option>
           <option value="BENIGN">Benign</option><option value="EXPECTED_ACTIVITY">Expected Activity</option>
           <option value="INCONCLUSIVE">Inconclusive</option><option value="FALSE_POSITIVE">False Positive</option><option value="NO_EVIDENCE_FOUND">No Evidence Found</option>
         </select>
-        <select id="new-finding-confidence"><option value="HIGH">High Confidence</option><option value="MEDIUM">Medium Confidence</option><option value="LOW">Low Confidence</option></select>
+        <select id="new-finding-confidence" aria-label="Finding confidence"><option value="HIGH">High Confidence</option><option value="MEDIUM">Medium Confidence</option><option value="LOW">Low Confidence</option></select>
         <input id="new-finding-summary" type="text" placeholder="Summary">
       </div>
       <div class="rel-meta" style="margin:6px 0">CONFIRMED_MALICIOUS requires at least one evidence record above to already exist.</div>
@@ -352,7 +352,7 @@ function renderHuntDetail() {
       <div class="section-label">Detection Feedback <span class="rel-meta">(tenant-scoped — never automatically globalized to other customers)</span></div>
       <div class="grid2">
         <input id="feedback-detection-id" type="text" placeholder="Detection ID">
-        <select id="feedback-classification">
+        <select id="feedback-classification" aria-label="Detection feedback classification">
           <option value="TRUE_POSITIVE">True Positive</option><option value="FALSE_POSITIVE">False Positive</option><option value="USEFUL_SIGNAL">Useful Signal</option>
           <option value="TOO_BROAD">Too Broad</option><option value="TOO_NARROW">Too Narrow</option><option value="TELEMETRY_MISMATCH">Telemetry Mismatch</option>
           <option value="QUERY_ERROR">Query Error</option><option value="TUNING_REQUIRED">Tuning Required</option><option value="NO_SIGNAL">No Signal</option>
@@ -444,7 +444,7 @@ function renderHuntQueryPanel(q) {
       Read-Only Remote Hunting <span class="badge badge-ready" style="font-size:10px">READ ONLY</span>
     </div>
     <div class="grid3">
-      <select id="hq-connector-${esc(q.query_id)}" onchange="updateHuntState('${esc(q.query_id)}','connectorId',this.value); updateHuntState('${esc(q.query_id)}','preview',null); rerenderHuntPanel('${esc(q.query_id)}')">
+      <select id="hq-connector-${esc(q.query_id)}" aria-label="Connector for this query" onchange="updateHuntState('${esc(q.query_id)}','connectorId',this.value); updateHuntState('${esc(q.query_id)}','preview',null); rerenderHuntPanel('${esc(q.query_id)}')">
         ${connectorOptionsFor()}
       </select>
       <input type="datetime-local" value="${esc(st.timeStart)}" onchange="updateHuntState('${esc(q.query_id)}','timeStart',this.value)">
@@ -618,7 +618,7 @@ function renderDispositionSection() {
   }
   return `
     <div class="grid2">
-      <select id="disposition-value">
+      <select id="disposition-value" aria-label="Hunt disposition">
         <option value="CONFIRMED_THREAT">Confirmed Threat</option><option value="BENIGN_ACTIVITY">Benign Activity</option>
         <option value="FALSE_POSITIVE">False Positive</option><option value="INCONCLUSIVE">Inconclusive</option>
         <option value="NO_EVIDENCE">No Evidence</option><option value="MONITORING_REQUIRED">Monitoring Required</option>
