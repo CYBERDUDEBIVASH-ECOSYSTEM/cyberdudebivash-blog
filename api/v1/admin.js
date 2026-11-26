@@ -40,11 +40,6 @@ module.exports = async (req, res) => {
   const action = String(req.query.action || '').toLowerCase().trim();
   const ip     = sec.getIp(req);
 
-  if (!action) {
-    return fail(res, 400, 'MISSING_ACTION',
-      'action required. Valid: pending, approve, reject, audit, razorpay-orders, product-orders, gumroad-sales. All routes require X-Admin-Key header.');
-  }
-
   /* Zero-trust layer 1: Cloudflare Access identity (ADMIN_ACCESS_MODE off|audit|enforce, default off).
      Runs before the key check so an unauthenticated caller learns nothing about key validity, and so the
      verified operator is available to the audit entries written by approve/reject. */
@@ -66,6 +61,13 @@ module.exports = async (req, res) => {
     });
     return fail(res, 401, 'UNAUTHORIZED',
       'Valid X-Admin-Key header required.');
+  }
+
+  /* Only an authenticated operator is told which actions exist. This used to run before the gates, so an anonymous
+     GET /api/v1/admin returned the full list (including razorpay-orders, product-orders and gumroad-sales). */
+  if (!action) {
+    return fail(res, 400, 'MISSING_ACTION',
+      'action required. Valid: pending, approve, reject, audit, razorpay-orders, product-orders, gumroad-sales. All routes require X-Admin-Key header.');
   }
 
   /* ─── Route Dispatcher ───────────────────────────────────────── */
