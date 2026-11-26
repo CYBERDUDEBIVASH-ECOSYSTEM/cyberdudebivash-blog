@@ -47,7 +47,7 @@ function severity(card){var e=card.querySelector('.severity-chip');return e?Stri
 function ensureSelect(card){
  if(card.querySelector('.soc-record-select'))return;
  var row=card.querySelector('.post-meta-row');if(!row)return;
- var b=document.createElement('button');b.type='button';b.className='soc-record-select';b.textContent='Select for analysis';b.setAttribute('aria-label','Select intelligence record for SOC analysis');b.setAttribute('aria-pressed','false');
+ var b=document.createElement('button');b.type='button';b.className='soc-record-select';b.textContent='Select for analysis';b.setAttribute('aria-label','Select for analysis: intelligence record');b.setAttribute('aria-pressed','false');
  b.addEventListener('click',function(){selectCard(card);});row.appendChild(b);
 }
 function escHtml(v){return String(v).replace(/[&<>"']/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x];});}
