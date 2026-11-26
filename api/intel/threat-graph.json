@@ -1,15 +1,15 @@
 {
-  "generated": "2026-11-26T03:59:21.623Z",
+  "generated": "2026-11-26T05:10:17.528Z",
   "version": "1.0",
   "platform": "CYBERDUDEBIVASH SENTINEL APEX v4.0",
   "stats": {
-    "total_nodes": 20426,
+    "total_nodes": 20434,
     "actors": 8,
-    "cves": 9965,
-    "campaigns": 3402,
+    "cves": 9969,
+    "campaigns": 3406,
     "malware": 0,
     "iocs": 911,
-    "edges": 6207
+    "edges": 6211
   },
   "nodes": {
     "actor:lockbit": {
@@ -384061,6 +384061,158 @@
           "confidence": 1
         }
       ]
+    },
+    "CVE-2026-49188": {
+      "id": "CVE-2026-49188",
+      "type": "CVE",
+      "name": "CVE-2026-49188 — acer connect m6e 5g firmware CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "HIGH",
+        "priority_score": 70,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "acer",
+        "product": "connect m6e 5g firmware",
+        "published": "2026-06-04",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-49185": {
+      "id": "CVE-2026-49185",
+      "type": "CVE",
+      "name": "CVE-2026-49185 — acer connect m6e 5g firmware CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "acer",
+        "product": "connect m6e 5g firmware",
+        "published": "2026-06-04",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-49186": {
+      "id": "CVE-2026-49186",
+      "type": "CVE",
+      "name": "CVE-2026-49186 — acer connect m6e 5g firmware CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "acer",
+        "product": "connect m6e 5g firmware",
+        "published": "2026-06-04",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "CVE-2026-49191": {
+      "id": "CVE-2026-49191",
+      "type": "CVE",
+      "name": "CVE-2026-49191 — acer connect m6e 5g firmware CVSS 9.8 Critical Vulnerability",
+      "attributes": {
+        "cvss": 9.8,
+        "threat_level": "MEDIUM",
+        "priority_score": 63,
+        "exploited": false,
+        "cisa_kev": false,
+        "ransomware": false,
+        "vendor": "acer",
+        "product": "connect m6e 5g firmware",
+        "published": "2026-06-04",
+        "type": "CVE_REPORT"
+      },
+      "connections": []
+    },
+    "campaign:cve-2026-49188": {
+      "id": "campaign:cve-2026-49188",
+      "type": "Campaign",
+      "name": "acer connect Exploitation Campaign",
+      "attributes": {
+        "severity": "HIGH",
+        "item_count": 1,
+        "first_seen": "2026-06-04",
+        "last_seen": "2026-06-04",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-49188"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-49188",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-49185": {
+      "id": "campaign:cve-2026-49185",
+      "type": "Campaign",
+      "name": "acer connect Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-06-04",
+        "last_seen": "2026-06-04",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-49185"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-49185",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-49186": {
+      "id": "campaign:cve-2026-49186",
+      "type": "Campaign",
+      "name": "acer connect Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-06-04",
+        "last_seen": "2026-06-04",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-49186"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-49186",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
+    },
+    "campaign:cve-2026-49191": {
+      "id": "campaign:cve-2026-49191",
+      "type": "Campaign",
+      "name": "acer connect Exploitation Campaign",
+      "attributes": {
+        "severity": "MEDIUM",
+        "item_count": 1,
+        "first_seen": "2026-06-04",
+        "last_seen": "2026-06-04",
+        "confidence": 0.9,
+        "reasoning": "1 intel item(s) clustered with composite confidence 0.900 | Single CVE basis: CVE-2026-49191"
+      },
+      "connections": [
+        {
+          "target": "CVE-2026-49191",
+          "relationship": "includes",
+          "confidence": 1
+        }
+      ]
     }
   },
   "edges": [
@@ -440106,6 +440258,42 @@
       "id": "campaign:cve-2026-137326→includes→CVE-2026-137326",
       "source": "campaign:cve-2026-137326",
       "target": "CVE-2026-137326",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-26",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-49188→includes→CVE-2026-49188",
+      "source": "campaign:cve-2026-49188",
+      "target": "CVE-2026-49188",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-26",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-49185→includes→CVE-2026-49185",
+      "source": "campaign:cve-2026-49185",
+      "target": "CVE-2026-49185",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-26",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-49186→includes→CVE-2026-49186",
+      "source": "campaign:cve-2026-49186",
+      "target": "CVE-2026-49186",
+      "relationship": "includes",
+      "confidence": 1,
+      "first_seen": "2026-11-26",
+      "sources": []
+    },
+    {
+      "id": "campaign:cve-2026-49191→includes→CVE-2026-49191",
+      "source": "campaign:cve-2026-49191",
+      "target": "CVE-2026-49191",
       "relationship": "includes",
       "confidence": 1,
       "first_seen": "2026-11-26",
