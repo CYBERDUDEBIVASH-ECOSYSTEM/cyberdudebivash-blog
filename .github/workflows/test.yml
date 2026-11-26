@@ -219,6 +219,8 @@ jobs:
         run: node --test tests-js/soc-shell-trust-strip-anchor.test.js
       - name: SOC front end escapes data-derived text (preview panel and API key card)
         run: node --test tests-js/soc-frontend-output-escaping.test.js
+      - name: SOC intel renderer escapes feed-derived text (CVE badge, description, ticker, KEV, share button)
+        run: node --test tests-js/auto-intel-engine-output-escaping.test.js
       - name: P0 Enterprise cost planner truth and customer-claim safety
         run: node --test scripts/soc-commercial-integrity.test.cjs
       - name: P0 enterprise enquiry and form-delivery truth

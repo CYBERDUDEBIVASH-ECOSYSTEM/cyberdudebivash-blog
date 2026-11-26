@@ -388,11 +388,10 @@
   function generateContextCTA(item) {
     var ctx = item.postContext || 'general';
     var cp  = CONTEXT_PRODUCTS[ctx] || CONTEXT_PRODUCTS.general;
-    var titleEnc = escHTML(item.title).replace(/'/g, "\\'");
     return `<div class="ctx-cta-row">
   <a class="ctx-btn-primary" href="${contextualUrl(cp.primary.url,item,'detection-pack')}" onclick="if(window.trackEvent)window.trackEvent('intel_cta_primary',{ctx:'${ctx}'})">${cp.primary.cta}</a>
   <a class="ctx-btn-secondary" href="${contextualUrl(cp.secondary.url,item,'api')}" onclick="if(window.trackEvent)window.trackEvent('intel_cta_secondary',{ctx:'${ctx}'})">${cp.secondary.cta}</a>
-  <button class="ctx-share-btn" onclick="sharePost('${titleEnc}','${item.link}')">↗ Share</button>
+  <button class="ctx-share-btn" data-share-title="${escHTML(item.title)}" data-share-url="${escHTML(item.link)}" onclick="sharePost(this.dataset.shareTitle,this.dataset.shareUrl)">↗ Share</button>
 </div>`;
   }
 
@@ -415,9 +414,7 @@
       }).join('') + '</div>' : '';
 
     var cveHTML = item.cveIds.length ? '<div class="cve-row">' +
-      item.cveIds.map(function(c) {
-        return '<a class="cve-badge" href="/cve/' + c + '.html" title="' + c + '">' + c + '</a>';
-      }).join('') + '</div>' : '';
+      item.cveIds.map(cveBadgeHTML).join('') + '</div>' : '';
 
     var actorHTML = item.threatActor ?
       '<div class="actor-pill" style="border-color:' + item.threatActor.color + ';color:' + item.threatActor.color + '">⚠ ' +
@@ -663,7 +660,7 @@
     ticker.innerHTML = use.map(function(i) {
       return '<span class="ticker-item">● ' +
         (i.isExploited ? '<strong>ACTIVELY EXPLOITED:</strong> ' : '') +
-        escHTML(i.title.slice(0, 90)) + (i.cveIds.length ? ' [' + i.cveIds[0] + ']' : '') +
+        escHTML(i.title.slice(0, 90)) + (i.cveIds.length ? ' [' + escHTML(i.cveIds[0]) + ']' : '') +
         '</span>';
     }).join(' &nbsp;&nbsp;&nbsp; ');
   }
@@ -680,9 +677,9 @@
         var sev = parseFloat(v.cvssScore || 0) >= 9 ? 'critical' : parseFloat(v.cvssScore || 0) >= 7 ? 'high' : 'medium';
         var sc = {critical:'#ff2244',high:'#ff6600',medium:'#ffd700'}[sev];
         return '<div class="kev-item">' +
-          '<span class="cve-badge" style="border-color:' + sc + ';color:' + sc + '">' + (v.cveID || '') + '</span>' +
+          '<span class="cve-badge" style="border-color:' + sc + ';color:' + sc + '">' + escHTML(v.cveID || '') + '</span>' +
           '<span class="kev-vendor">' + escHTML(v.vendorProject || '') + ' — ' + escHTML(v.product || '') + '</span>' +
-          '<span class="kev-date">' + (v.dateAdded || '') + '</span>' +
+          '<span class="kev-date">' + escHTML(v.dateAdded || '') + '</span>' +
           '<span class="kev-action" style="color:' + sc + '">' + escHTML((v.requiredAction || '').slice(0,80)) + '</span>' +
           '</div>';
       }).join('');
@@ -700,10 +697,22 @@
     } catch (e) { return null; }
   }
 
+  // Feed text can carry markup. DOMParser builds an inert document: nothing is fetched and no handler runs. Assigning
+  // untrusted text to innerHTML, even on a detached element, loads <img> and fires onerror before anything is escaped.
   function stripHTML(html) {
-    var tmp = document.createElement('DIV');
-    tmp.innerHTML = html || '';
-    return tmp.textContent || tmp.innerText || '';
+    try {
+      var doc = new DOMParser().parseFromString(String(html == null ? '' : html), 'text/html');
+      return (doc.body && doc.body.textContent) || '';
+    } catch (e) { return ''; }
+  }
+
+  // Only a well-formed CVE id becomes a link target; any other value is shown as inert, escaped text.
+  var CVE_ID_RE = /^CVE-\d{4}-\d{4,}$/i;
+  function cveBadgeHTML(value) {
+    var id = String(value == null ? '' : value).trim();
+    if (!id) return '';
+    if (CVE_ID_RE.test(id)) return '<a class="cve-badge" href="/cve/' + id + '.html" title="' + id + '">' + id + '</a>';
+    return '<span class="cve-badge">' + escHTML(id.slice(0, 40)) + '</span>';
   }
 
   function escHTML(str) {
